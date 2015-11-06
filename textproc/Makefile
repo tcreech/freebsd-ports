@@ -300,6 +300,7 @@
     SUBDIR += html2fo
     SUBDIR += html2tex
     SUBDIR += html2text
+    SUBDIR += html2xhtml
     SUBDIR += htmlc
     SUBDIR += htmldoc
     SUBDIR += htmlise
@@ -1397,14 +1398,18 @@
     SUBDIR += rubygem-itextomml
     SUBDIR += rubygem-jekyll-assets
     SUBDIR += rubygem-jekyll-gist
+    SUBDIR += rubygem-jekyll-mentions
     SUBDIR += rubygem-jekyll-paginate
+    SUBDIR += rubygem-jekyll-redirect-from
     SUBDIR += rubygem-jekyll-sass-converter
+    SUBDIR += rubygem-jemoji
     SUBDIR += rubygem-jsmin
     SUBDIR += rubygem-kramdown
     SUBDIR += rubygem-kwalify
     SUBDIR += rubygem-libxml-ruby
     SUBDIR += rubygem-linguistics
     SUBDIR += rubygem-liquid
+    SUBDIR += rubygem-liquid2
     SUBDIR += rubygem-loggability
     SUBDIR += rubygem-loofah
     SUBDIR += rubygem-ltsv

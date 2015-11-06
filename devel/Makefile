@@ -44,6 +44,9 @@
     SUBDIR += SpecTcl
     SUBDIR += aap
     SUBDIR += aarch64-binutils
+    SUBDIR += amd64-binutils
+    SUBDIR += amd64-gcc
+    SUBDIR += amd64-xtoolchain-gcc
     SUBDIR += abi-compliance-checker
     SUBDIR += ace
     SUBDIR += ace+tao-doc
@@ -499,6 +502,7 @@
     SUBDIR += f77flow
     SUBDIR += fam
     SUBDIR += fastcrc
+    SUBDIR += fb-adb
     SUBDIR += fb303
     SUBDIR += fc++
     SUBDIR += ffcall
@@ -1052,6 +1056,7 @@
     SUBDIR += json-c
     SUBDIR += json-glib
     SUBDIR += jsoncpp
+    SUBDIR += jsonnet
     SUBDIR += jtag
     SUBDIR += judy
     SUBDIR += jwasm
@@ -1137,6 +1142,7 @@
     SUBDIR += libdisasm
     SUBDIR += libdisorder
     SUBDIR += libdispatch
+    SUBDIR += libdistance
     SUBDIR += libdlmalloc
     SUBDIR += libdlna
     SUBDIR += libdnsres
@@ -1260,7 +1266,6 @@
     SUBDIR += libpeak
     SUBDIR += libpeas
     SUBDIR += libpff
-    SUBDIR += libphish
     SUBDIR += libphk
     SUBDIR += libphutil
     SUBDIR += libplist
@@ -1437,6 +1442,7 @@
     SUBDIR += maven-wrapper
     SUBDIR += maven3
     SUBDIR += maven31
+    SUBDIR += maven33
     SUBDIR += mcpp
     SUBDIR += mdds
     SUBDIR += memcheck
@@ -1482,6 +1488,7 @@
     SUBDIR += msgpack
     SUBDIR += msgpuck
     SUBDIR += msp430-binutils
+    SUBDIR += msp430-debug-stack
     SUBDIR += msp430-gcc
     SUBDIR += msp430-gdb
     SUBDIR += msp430-libc
@@ -1489,6 +1496,7 @@
     SUBDIR += mspdebug
     SUBDIR += msrc0
     SUBDIR += mtbl
+    SUBDIR += myrepos
     SUBDIR += nana
     SUBDIR += nant
     SUBDIR += nasm
@@ -1716,6 +1724,7 @@
     SUBDIR += p5-C-Scan
     SUBDIR += p5-CBOR-XS
     SUBDIR += p5-CHI
+    SUBDIR += p5-CHI-Driver-DBI
     SUBDIR += p5-CLASS
     SUBDIR += p5-CPAN-Changes
     SUBDIR += p5-CPAN-Checksums
@@ -3664,6 +3673,7 @@
     SUBDIR += pecl-jsmin
     SUBDIR += pecl-jsonc
     SUBDIR += pecl-jsond
+    SUBDIR += pecl-jsonnet
     SUBDIR += pecl-judy
     SUBDIR += pecl-libevent
     SUBDIR += pecl-mcve
@@ -3705,6 +3715,7 @@
     SUBDIR += phabricator
     SUBDIR += php-Psr_Log
     SUBDIR += php-composer
+    SUBDIR += php-jq
     SUBDIR += php-libawl
     SUBDIR += php-memoize
     SUBDIR += php-scalar_objects
@@ -4149,6 +4160,7 @@
     SUBDIR += py-pip
     SUBDIR += py-plan
     SUBDIR += py-plex
+    SUBDIR += py-pluggy
     SUBDIR += py-ply
     SUBDIR += py-polib
     SUBDIR += py-posix_ipc
@@ -4208,6 +4220,8 @@
     SUBDIR += py-pytrie
     SUBDIR += py-pytz
     SUBDIR += py-pyutil
+    SUBDIR += py-pyvisa
+    SUBDIR += py-pyvisa-py
     SUBDIR += py-pyxml2obj
     SUBDIR += py-qpid
     SUBDIR += py-qserve
@@ -4466,8 +4480,6 @@
     SUBDIR += pysvn
     SUBDIR += pythk
     SUBDIR += pythontidy
-    SUBDIR += pyvisa
-    SUBDIR += pyvisa-py
     SUBDIR += qbzr
     SUBDIR += qca
     SUBDIR += qca-qt5
@@ -4558,7 +4570,6 @@
     SUBDIR += roboctl
     SUBDIR += robodoc
     SUBDIR += root-doc
-    SUBDIR += ros
     SUBDIR += rote
     SUBDIR += rpc2
     SUBDIR += rpm-spec-mode.el
@@ -4690,7 +4701,6 @@
     SUBDIR += rubygem-daemon_controller
     SUBDIR += rubygem-daemons
     SUBDIR += rubygem-debug_inspector
-    SUBDIR += rubygem-debugger
     SUBDIR += rubygem-debugger-linecache
     SUBDIR += rubygem-debugger-xml
     SUBDIR += rubygem-deep_merge
@@ -5093,6 +5103,7 @@
     SUBDIR += splint
     SUBDIR += srecord
     SUBDIR += st
+    SUBDIR += staf
     SUBDIR += statcvs
     SUBDIR += statik
     SUBDIR += statsvn
