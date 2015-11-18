@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	wine
-DISTVERSION=	1.7.54
+DISTVERSION=	1.7.55
 PORTEPOCH=	1
 CATEGORIES=	emulators
 MASTER_SITES=	SF/${PORTNAME}/Source \
@@ -29,7 +29,7 @@ LDFLAGS+=	-L${LOCALBASE}/lib
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS+=--verbose --disable-tests \
 		--without-alsa --without-capi --without-dbus \
-		--without-gettextpo \
+		--without-gettext --without-gettextpo \
 		--without-gphoto --without-gsm --without-gstreamer \
 		--without-opencl \
 		--without-osmesa \

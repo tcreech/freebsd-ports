@@ -538,6 +538,7 @@
     SUBDIR += mongrel2
     SUBDIR += moodle28
     SUBDIR += moodle29
+    SUBDIR += moodle30
     SUBDIR += mozplugger
     SUBDIR += multisort
     SUBDIR += multiwatch
@@ -839,6 +840,7 @@
     SUBDIR += p5-Dancer-Logger-Log4perl
     SUBDIR += p5-Dancer-Plugin-ExtDirect
     SUBDIR += p5-Dancer-Plugin-Feed
+    SUBDIR += p5-Dancer-Plugin-FlashMessage
     SUBDIR += p5-Dancer-Plugin-Lexicon
     SUBDIR += p5-Dancer-Plugin-Memcached
     SUBDIR += p5-Dancer-Plugin-REST
@@ -1519,6 +1521,7 @@
     SUBDIR += py-django-appmedia
     SUBDIR += py-django-assets
     SUBDIR += py-django-auth-ldap
+    SUBDIR += py-django-bootstrap-form
     SUBDIR += py-django-caching-app-plugins
     SUBDIR += py-django-classy-tags
     SUBDIR += py-django-cms
@@ -1600,6 +1603,7 @@
     SUBDIR += py-funkload
     SUBDIR += py-gandi.cli
     SUBDIR += py-gevent-websocket
+    SUBDIR += py-google
     SUBDIR += py-google-api-python-client
     SUBDIR += py-graphite-web
     SUBDIR += py-grequests
@@ -1712,6 +1716,7 @@
     SUBDIR += py-pysearch
     SUBDIR += py-python-digitalocean
     SUBDIR += py-pywebdav
+    SUBDIR += py-pywikibot
     SUBDIR += py-qp
     SUBDIR += py-qpy
     SUBDIR += py-qt4-webkit
@@ -1754,6 +1759,7 @@
     SUBDIR += py-uliweb
     SUBDIR += py-urlgrabber
     SUBDIR += py-urljr
+    SUBDIR += py-user_agent
     SUBDIR += py-utidy
     SUBDIR += py-w3lib
     SUBDIR += py-waitress
@@ -2340,6 +2346,7 @@
     SUBDIR += xpi-togglewordwrap
     SUBDIR += xpi-torbutton
     SUBDIR += xpi-twitterfox
+    SUBDIR += xpi-uBlock_origin
     SUBDIR += xpi-unplug
     SUBDIR += xpi-urllink
     SUBDIR += xpi-user_agent_switcher

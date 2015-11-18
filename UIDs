@@ -251,6 +251,8 @@ sogod:*:846:846::0:0:SOGo groupware:/nonexistent:/usr/sbin/nologin
 fossy:*:901:901::0:0:FOSSology user:/usr/local/share/fossology:/usr/local/bin/bash
 scanlogd:*:902:902::0:0:scanlogd user:/nonexistent:/usr/sbin/nologin
 _ocserv:*:903:903::0:0:ocserv user:/nonexistent:/usr/sbin/nologin
+artifactory:*:905:905::0:0:artifactory user:/nonexistent:/usr/sbin/nologin
+opentsdb:*:906:906::0:0:OpenTSDB Daemon:/var/empty:/usr/sbin/nologin
 influxd:*:907:907::0:0:InfluxDB Daemon:/var/empty:/usr/sbin/nologin
 riemann:*:908:908::0:0:Riemann User:/var/empty:/usr/sbin/nologin
 proxy65:*:909:909::0:0:Proxy65 Daemon:/nonexistent:/usr/sbin/nologin
@@ -340,5 +342,6 @@ rcynic:*:994:994::0:0:RPKI validation system:/nonexistent:/usr/sbin/nologin
 rpkirtr:*:995:995::0:0:RPKI router server:/nonexistent:/usr/sbin/nologin
 tarantool:*:996:996::0:0:Tarantool Daemon:/nonexistent:/usr/sbin/nologin
 bareos:*:997:997::0:0:Bareos Daemon:/var/db/bareos:/usr/sbin/nologin
+_rmilter:*:998:998::0:0:Rmilter daemon:/nonexistent:/usr/sbin/nologin
 ebnetd:*:999:999::0:0:EBNETD:/nonexistent:/usr/sbin/nologin
 nobody:*:65534:65534::0:0:Unprivileged user:/nonexistent:/usr/sbin/nologin
