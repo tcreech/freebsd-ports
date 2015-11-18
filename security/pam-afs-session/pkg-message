@@ -1,0 +1,9 @@
+NOTE: the upstream maintainer (Russ Allbery) is no longer maintaining
+pam-afs-session. Below is a note shown on the project page:
+
+WARNING
+  This package is orphaned. Although I believe it is still useful, I no longer
+  use AFS and am no longer maintaining this PAM module. If you would like to
+  pick up maintenance of this package, please feel free. Contact me if you
+  would like this page to redirect to its new home.
+
