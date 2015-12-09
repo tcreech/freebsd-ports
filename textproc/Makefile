@@ -357,6 +357,8 @@
     SUBDIR += kenlm
     SUBDIR += kibana3
     SUBDIR += kibana41
+    SUBDIR += kibana42
+    SUBDIR += kibana43
     SUBDIR += kmfl-european-latin
     SUBDIR += kmfl-khmer
     SUBDIR += kmfl-sil-ezra
@@ -1215,6 +1217,7 @@
     SUBDIR += py-empy
     SUBDIR += py-enchant
     SUBDIR += py-errorhandler
+    SUBDIR += py-et_xmlfile
     SUBDIR += py-excelerator
     SUBDIR += py-feedparser
     SUBDIR += py-genshi
@@ -1429,6 +1432,7 @@
     SUBDIR += rubygem-nokogiri-diff
     SUBDIR += rubygem-nokogiri14
     SUBDIR += rubygem-nokogumbo
+    SUBDIR += rubygem-octopress-escape-code
     SUBDIR += rubygem-opml
     SUBDIR += rubygem-org-ruby
     SUBDIR += rubygem-parslet
@@ -1459,6 +1463,7 @@
     SUBDIR += rubygem-sass32
     SUBDIR += rubygem-sax-machine
     SUBDIR += rubygem-scss_lint
+    SUBDIR += rubygem-shell2html
     SUBDIR += rubygem-simplecov-html
     SUBDIR += rubygem-spreadsheet
     SUBDIR += rubygem-stamp

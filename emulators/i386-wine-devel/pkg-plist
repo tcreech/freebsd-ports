@@ -227,6 +227,7 @@ include/wine/windows/d3drmwin.h
 include/wine/windows/d3dtypes.h
 include/wine/windows/d3dvec.inl
 include/wine/windows/d3dx10.h
+include/wine/windows/d3dx10async.h
 %%STAGING%%include/wine/windows/d3dx10core.h
 %%STAGING%%include/wine/windows/d3dx10core.idl
 include/wine/windows/d3dx9.h
@@ -899,6 +900,7 @@ lib32/libXrender.so.1
 lib32/libXxf86vm.so.1
 lib32/libdevq.so.0
 lib32/libdrm.so.2
+lib32/libdrm_amdgpu.so.1
 lib32/libdrm_intel.so.1
 lib32/libdrm_radeon.so.1
 lib32/libedit.so.0
@@ -1738,6 +1740,7 @@ lib32/wine/fakedlls/taskkill.exe
 lib32/wine/fakedlls/tasklist.exe
 lib32/wine/fakedlls/taskmgr.exe
 lib32/wine/fakedlls/taskschd.dll
+%%STAGING%%lib32/wine/fakedlls/tdi.sys
 lib32/wine/fakedlls/termsv.exe
 lib32/wine/fakedlls/toolhelp.dll16
 lib32/wine/fakedlls/traffic.dll
@@ -2353,6 +2356,7 @@ lib32/wine/taskkill.exe.so
 lib32/wine/tasklist.exe.so
 lib32/wine/taskmgr.exe.so
 lib32/wine/taskschd.dll.so
+%%STAGING%%lib32/wine/tdi.sys.so
 lib32/wine/termsv.exe.so
 lib32/wine/toolhelp.dll16.so
 lib32/wine/traffic.dll.so
