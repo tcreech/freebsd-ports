@@ -29,14 +29,11 @@
     SUBDIR += calligra-l10n-et
     SUBDIR += calligra-l10n-fi
     SUBDIR += calligra-l10n-gl
-    SUBDIR += calligra-l10n-ia
     SUBDIR += calligra-l10n-it
     SUBDIR += calligra-l10n-kk
     SUBDIR += calligra-l10n-nb
-    SUBDIR += calligra-l10n-nds
     SUBDIR += calligra-l10n-nl
     SUBDIR += calligra-l10n-sk
-    SUBDIR += calligra-l10n-sl
     SUBDIR += calligra-l10n-sv
     SUBDIR += calligra-l10n-tr
     SUBDIR += chexedit
@@ -195,6 +192,8 @@
     SUBDIR += libreoffice-xh
     SUBDIR += libreoffice-zu
     SUBDIR += libreoffice4
+    SUBDIR += linux-sublime
+    SUBDIR += linux-sublime3
     SUBDIR += madedit
     SUBDIR += manedit
     SUBDIR += mg
@@ -232,8 +231,6 @@
     SUBDIR += ssam
     SUBDIR += ssed
     SUBDIR += sted
-    SUBDIR += sublime
-    SUBDIR += sublime3
     SUBDIR += tamago
     SUBDIR += tea
     SUBDIR += teco

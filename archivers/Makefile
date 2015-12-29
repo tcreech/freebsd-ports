@@ -170,6 +170,7 @@
     SUBDIR += py-python-snappy
     SUBDIR += qpress
     SUBDIR += quazip
+    SUBDIR += quazip-qt5
     SUBDIR += rar
     SUBDIR += rox-archive
     SUBDIR += rpm2cpio
@@ -189,6 +190,7 @@
     SUBDIR += sharutils
     SUBDIR += snappy
     SUBDIR += snappy-java
+    SUBDIR += snzip
     SUBDIR += squeeze
     SUBDIR += squsq
     SUBDIR += stuffit

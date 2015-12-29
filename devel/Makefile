@@ -519,6 +519,7 @@
     SUBDIR += fib
     SUBDIR += firmware-utils
     SUBDIR += fistgen
+    SUBDIR += flatbuffers
     SUBDIR += flatzebra
     SUBDIR += flex-sdk
     SUBDIR += flex-sdk35
@@ -1054,7 +1055,6 @@
     SUBDIR += jech-dht
     SUBDIR += jenkins
     SUBDIR += jenkins-lts
-    SUBDIR += jep
     SUBDIR += jgoodies-common
     SUBDIR += jiic
     SUBDIR += jline
@@ -2001,6 +2001,7 @@
     SUBDIR += p5-Data-SExpression
     SUBDIR += p5-Data-Section
     SUBDIR += p5-Data-Section-Simple
+    SUBDIR += p5-Data-Serializable
     SUBDIR += p5-Data-Serializer
     SUBDIR += p5-Data-Serializer-Sereal
     SUBDIR += p5-Data-ShowTable
@@ -2558,6 +2559,7 @@
     SUBDIR += p5-Log-Handler
     SUBDIR += p5-Log-Log4perl
     SUBDIR += p5-Log-Log4perl-Appender-RabbitMQ
+    SUBDIR += p5-Log-Log4perl-Appender-Socket-UNIX
     SUBDIR += p5-Log-Log4perl-Tiny
     SUBDIR += p5-Log-Message
     SUBDIR += p5-Log-Message-Simple
@@ -3968,6 +3970,7 @@
     SUBDIR += py-configobj
     SUBDIR += py-configparser
     SUBDIR += py-construct
+    SUBDIR += py-contextlib2
     SUBDIR += py-country
     SUBDIR += py-cov-core
     SUBDIR += py-coverage
@@ -3975,6 +3978,7 @@
     SUBDIR += py-ctags
     SUBDIR += py-curtsies
     SUBDIR += py-cxx
+    SUBDIR += py-cycler
     SUBDIR += py-d2to1
     SUBDIR += py-daemon
     SUBDIR += py-daemons
@@ -4037,6 +4041,7 @@
     SUBDIR += py-fsm
     SUBDIR += py-fudge
     SUBDIR += py-funcparserlib
+    SUBDIR += py-funcsigs
     SUBDIR += py-functools32
     SUBDIR += py-fusefs
     SUBDIR += py-future
@@ -4090,6 +4095,7 @@
     SUBDIR += py-jdcal
     SUBDIR += py-jedi
     SUBDIR += py-jellyfish
+    SUBDIR += py-jep
     SUBDIR += py-jira
     SUBDIR += py-jmespath
     SUBDIR += py-joblib
@@ -4109,6 +4115,7 @@
     SUBDIR += py-kqueue
     SUBDIR += py-krosspython
     SUBDIR += py-lazy
+    SUBDIR += py-lazy-object-proxy
     SUBDIR += py-levenshtein
     SUBDIR += py-liblarch
     SUBDIR += py-libpeas
@@ -4126,7 +4133,7 @@
     SUBDIR += py-manuel
     SUBDIR += py-mccabe
     SUBDIR += py-meliae
-    SUBDIR += py-memoryprofiler
+    SUBDIR += py-memory_profiler
     SUBDIR += py-mercurialserver
     SUBDIR += py-mez_xml
     SUBDIR += py-mimeparse
@@ -4147,6 +4154,7 @@
     SUBDIR += py-natural
     SUBDIR += py-ncurses
     SUBDIR += py-nose
+    SUBDIR += py-nose-cov
     SUBDIR += py-notifier
     SUBDIR += py-notify
     SUBDIR += py-ocempgui
@@ -4176,6 +4184,7 @@
     SUBDIR += py-phpserialize
     SUBDIR += py-pika
     SUBDIR += py-pip
+    SUBDIR += py-pkgconfig
     SUBDIR += py-plan
     SUBDIR += py-plex
     SUBDIR += py-pluggy
@@ -4200,6 +4209,7 @@
     SUBDIR += py-pycalendar
     SUBDIR += py-pycallgraph
     SUBDIR += py-pycerberus
+    SUBDIR += py-pycmd
     SUBDIR += py-pycparser
     SUBDIR += py-pydasm
     SUBDIR += py-pydoop
@@ -4259,6 +4269,14 @@
     SUBDIR += py-qt4-script
     SUBDIR += py-qt4-scripttools
     SUBDIR += py-qt4-test
+    SUBDIR += py-qt5
+    SUBDIR += py-qt5-core
+    SUBDIR += py-qt5-dbus
+    SUBDIR += py-qt5-dbussupport
+    SUBDIR += py-qt5-designer
+    SUBDIR += py-qt5-designerplugin
+    SUBDIR += py-qt5-qscintilla2
+    SUBDIR += py-qt5-test
     SUBDIR += py-rauth
     SUBDIR += py-raven
     SUBDIR += py-rednose
@@ -4358,6 +4376,7 @@
     SUBDIR += py-tw.forms
     SUBDIR += py-twiggy
     SUBDIR += py-twisted
+    SUBDIR += py-twisted152
     SUBDIR += py-twistedCore
     SUBDIR += py-twistedFlow
     SUBDIR += py-twistedRunner
@@ -4370,6 +4389,7 @@
     SUBDIR += py-unittestplus
     SUBDIR += py-urlimport
     SUBDIR += py-urwid
+    SUBDIR += py-urwidtrees
     SUBDIR += py-usb
     SUBDIR += py-user_agents
     SUBDIR += py-utils
@@ -4384,6 +4404,7 @@
     SUBDIR += py-wcwidth
     SUBDIR += py-weblib
     SUBDIR += py-wheel
+    SUBDIR += py-wrapt
     SUBDIR += py-wsgi_xmlrpc
     SUBDIR += py-wsgitools
     SUBDIR += py-wsgiutils
@@ -4524,6 +4545,8 @@
     SUBDIR += qross
     SUBDIR += qscintilla2
     SUBDIR += qscintilla2-designerplugin
+    SUBDIR += qscintilla2-designerplugin-qt5
+    SUBDIR += qscintilla2-qt5
     SUBDIR += qt4
     SUBDIR += qt4-assistant
     SUBDIR += qt4-assistant-adp
@@ -4783,6 +4806,7 @@
     SUBDIR += rubygem-fog-json
     SUBDIR += rubygem-font-awesome-rails
     SUBDIR += rubygem-font-awesome-rails-rails4
+    SUBDIR += rubygem-foreigner
     SUBDIR += rubygem-foreman
     SUBDIR += rubygem-formatador
     SUBDIR += rubygem-gdata
@@ -4849,6 +4873,7 @@
     SUBDIR += rubygem-librarian
     SUBDIR += rubygem-librarianp
     SUBDIR += rubygem-libyajl2
+    SUBDIR += rubygem-licensee
     SUBDIR += rubygem-listen
     SUBDIR += rubygem-little-plugger
     SUBDIR += rubygem-locale
@@ -4913,6 +4938,7 @@
     SUBDIR += rubygem-pkg-config
     SUBDIR += rubygem-platform
     SUBDIR += rubygem-plist
+    SUBDIR += rubygem-polyamorous
     SUBDIR += rubygem-polyglot
     SUBDIR += rubygem-popen4
     SUBDIR += rubygem-posix-spawn
@@ -4936,6 +4962,7 @@
     SUBDIR += rubygem-rainbow
     SUBDIR += rubygem-rake
     SUBDIR += rubygem-rake-compiler
+    SUBDIR += rubygem-ransack
     SUBDIR += rubygem-rapt
     SUBDIR += rubygem-rash
     SUBDIR += rubygem-rb-fsevent
@@ -4964,6 +4991,7 @@
     SUBDIR += rubygem-rspec-expectations
     SUBDIR += rubygem-rspec-logsplit
     SUBDIR += rubygem-rspec-mocks
+    SUBDIR += rubygem-rspec-rails
     SUBDIR += rubygem-rspec-support
     SUBDIR += rubygem-rubigen
     SUBDIR += rubygem-rubocop
@@ -5050,7 +5078,6 @@
     SUBDIR += rubygem-tilt1
     SUBDIR += rubygem-timers
     SUBDIR += rubygem-tins
-    SUBDIR += rubygem-tins0
     SUBDIR += rubygem-titlecase
     SUBDIR += rubygem-toml
     SUBDIR += rubygem-transaction-simple
