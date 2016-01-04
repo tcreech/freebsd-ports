@@ -303,6 +303,7 @@
     SUBDIR += cppunit
     SUBDIR += cproto
     SUBDIR += cpuflags
+    SUBDIR += creduce
     SUBDIR += critcl
     SUBDIR += cs-eric6
     SUBDIR += cscope
@@ -1055,7 +1056,6 @@
     SUBDIR += jech-dht
     SUBDIR += jenkins
     SUBDIR += jenkins-lts
-    SUBDIR += jgoodies-common
     SUBDIR += jiic
     SUBDIR += jline
     SUBDIR += jna
@@ -1489,7 +1489,6 @@
     SUBDIR += mongo-cxx-driver
     SUBDIR += mono-addins
     SUBDIR += monodevelop
-    SUBDIR += monodevelop-database
     SUBDIR += monotone
     SUBDIR += monotone-viz
     SUBDIR += motor
@@ -3895,6 +3894,7 @@
     SUBDIR += py-Products.contentmigration
     SUBDIR += py-Products.statusmessages
     SUBDIR += py-Products.validation
+    SUBDIR += py-PyLD
     SUBDIR += py-RPyC
     SUBDIR += py-Record
     SUBDIR += py-SymbolType
@@ -3929,6 +3929,7 @@
     SUBDIR += py-babelfish
     SUBDIR += py-backports.shutil_get_terminal_size
     SUBDIR += py-backports_abc
+    SUBDIR += py-bandit
     SUBDIR += py-bcdoc
     SUBDIR += py-billiard
     SUBDIR += py-binplist
@@ -3996,7 +3997,6 @@
     SUBDIR += py-diazo
     SUBDIR += py-dirspec
     SUBDIR += py-distorm
-    SUBDIR += py-distutils-extra
     SUBDIR += py-django-rq
     SUBDIR += py-django-tastypie-mongoengine
     SUBDIR += py-django16-tastypie-mongoengine
@@ -4069,7 +4069,7 @@
     SUBDIR += py-grizzled
     SUBDIR += py-grouch
     SUBDIR += py-gyp-devel
-    SUBDIR += py-hashring
+    SUBDIR += py-hash_ring
     SUBDIR += py-hghooks
     SUBDIR += py-hgsubversion
     SUBDIR += py-hgtools
@@ -4151,6 +4151,7 @@
     SUBDIR += py-mx-experimental
     SUBDIR += py-mygpoclient
     SUBDIR += py-nagioscheck
+    SUBDIR += py-natsort
     SUBDIR += py-natural
     SUBDIR += py-ncurses
     SUBDIR += py-nose
@@ -4241,6 +4242,7 @@
     SUBDIR += py-pytest-timeout
     SUBDIR += py-pytest-xdist
     SUBDIR += py-python-bugzilla
+    SUBDIR += py-python-distutils-extra
     SUBDIR += py-python-jenkins
     SUBDIR += py-python-pcre
     SUBDIR += py-python-statsd
@@ -4353,6 +4355,7 @@
     SUBDIR += py-tapi
     SUBDIR += py-tarantool-queue
     SUBDIR += py-tconfpy
+    SUBDIR += py-tempora
     SUBDIR += py-tempstorage
     SUBDIR += py-termcolor
     SUBDIR += py-termstyle
@@ -4365,6 +4368,7 @@
     SUBDIR += py-tipper
     SUBDIR += py-tox
     SUBDIR += py-trace2html
+    SUBDIR += py-traitlets
     SUBDIR += py-traits
     SUBDIR += py-transaction
     SUBDIR += py-trollius
@@ -5029,6 +5033,7 @@
     SUBDIR += rubygem-shoulda-context
     SUBDIR += rubygem-shoulda-matchers
     SUBDIR += rubygem-sidekiq
+    SUBDIR += rubygem-sidekiq-cron
     SUBDIR += rubygem-sidetiq
     SUBDIR += rubygem-sigdump
     SUBDIR += rubygem-simple_form
@@ -5049,6 +5054,7 @@
     SUBDIR += rubygem-sprockets3
     SUBDIR += rubygem-spruz
     SUBDIR += rubygem-state_machine
+    SUBDIR += rubygem-state_machines
     SUBDIR += rubygem-statsd
     SUBDIR += rubygem-stella
     SUBDIR += rubygem-stemmer
@@ -5189,7 +5195,6 @@
     SUBDIR += subversion
     SUBDIR += subversion-book
     SUBDIR += subversion-static
-    SUBDIR += subversion17
     SUBDIR += subversion18
     SUBDIR += subversive
     SUBDIR += svk
