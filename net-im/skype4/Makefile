@@ -3,6 +3,7 @@
 
 PORTNAME=	skype
 PORTVERSION=	4.3.0.37
+PORTREVISION=	2
 PORTEPOCH=	1
 CATEGORIES=	net-im
 MASTER_SITES=	http://download.skype.com/linux/
@@ -22,7 +23,7 @@ NO_BUILD=	yes
 
 USES=		cpe desktop-file-utils tar:bzip2
 USE_LINUX=	yes
-USE_LINUX_APPS+=	fontconfig xorglibs qt47 qt47-x11 qt47-webkit openssl-compat
+USE_LINUX_APPS+=	fontconfig xorglibs qt47 qt47-x11 qt47-webkit openssl openssl-compat pulseaudio-libs
 
 RESTRICTED=	Redistribution prohibited.
 
@@ -34,7 +35,7 @@ SUB_LIST+=	SKYPEDIR=${SKYPEDIR}
 
 .include <bsd.port.pre.mk>
 
-.if ${OPSYS} == FreeBSD && ${OSVERSION} < 1100075
+.if ${OPSYS} == FreeBSD && (${OSVERSION} >= 1100000 && ${OSVERSION} < 1100075 || ${OSVERSION} >= 1000000 && ${OSVERSION} < 1002507)
 BROKEN=		Skype 4.3 requires Linux 2.6.32 emulation.
 .endif
 

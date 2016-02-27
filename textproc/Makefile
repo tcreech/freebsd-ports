@@ -361,6 +361,7 @@
     SUBDIR += kibana41
     SUBDIR += kibana42
     SUBDIR += kibana43
+    SUBDIR += kibana44
     SUBDIR += kmfl-european-latin
     SUBDIR += kmfl-khmer
     SUBDIR += kmfl-sil-ezra
@@ -471,6 +472,7 @@
     SUBDIR += mguesser
     SUBDIR += mi-aspell
     SUBDIR += mifluz
+    SUBDIR += miller
     SUBDIR += minised
     SUBDIR += mk-aspell
     SUBDIR += mkcatalog
@@ -748,6 +750,8 @@
     SUBDIR += p5-Search-Elasticsearch
     SUBDIR += p5-Search-Estraier
     SUBDIR += p5-Search-Odeum
+    SUBDIR += p5-Search-QueryParser
+    SUBDIR += p5-Search-QueryParser-SQL
     SUBDIR += p5-Search-Saryer
     SUBDIR += p5-Search-VectorSpace
     SUBDIR += p5-Senna
@@ -1163,15 +1167,6 @@
     SUBDIR += perl2html
     SUBDIR += permute
     SUBDIR += php-mecab
-    SUBDIR += php5-ctype
-    SUBDIR += php5-dom
-    SUBDIR += php5-pspell
-    SUBDIR += php5-simplexml
-    SUBDIR += php5-wddx
-    SUBDIR += php5-xml
-    SUBDIR += php5-xmlreader
-    SUBDIR += php5-xmlwriter
-    SUBDIR += php5-xsl
     SUBDIR += php55-ctype
     SUBDIR += php55-dom
     SUBDIR += php55-pspell
@@ -1190,6 +1185,15 @@
     SUBDIR += php56-xmlreader
     SUBDIR += php56-xmlwriter
     SUBDIR += php56-xsl
+    SUBDIR += php70-ctype
+    SUBDIR += php70-dom
+    SUBDIR += php70-pspell
+    SUBDIR += php70-simplexml
+    SUBDIR += php70-wddx
+    SUBDIR += php70-xml
+    SUBDIR += php70-xmlreader
+    SUBDIR += php70-xmlwriter
+    SUBDIR += php70-xsl
     SUBDIR += plover
     SUBDIR += po4a
     SUBDIR += pocketreader
@@ -1302,6 +1306,7 @@
     SUBDIR += py-wstools
     SUBDIR += py-wtforms
     SUBDIR += py-xlrd
+    SUBDIR += py-xlsxwriter
     SUBDIR += py-xlutils
     SUBDIR += py-xlwriter
     SUBDIR += py-xlwt
@@ -1530,7 +1535,6 @@
     SUBDIR += sgrep2
     SUBDIR += sigil
     SUBDIR += silvercity
-    SUBDIR += simplehtmldom
     SUBDIR += simplexml
     SUBDIR += sk-aspell
     SUBDIR += sk-hunspell
@@ -1572,6 +1576,7 @@
     SUBDIR += sxml
     SUBDIR += syck
     SUBDIR += ta-aspell
+    SUBDIR += tagsoup
     SUBDIR += tclExpat
     SUBDIR += tdhkit
     SUBDIR += te-aspell
@@ -1688,6 +1693,8 @@
     SUBDIR += xsv
     SUBDIR += xt
     SUBDIR += xwindiff
+    SUBDIR += xxdiff
+    SUBDIR += xxdiff-scripts
     SUBDIR += y2l
     SUBDIR += yali
     SUBDIR += yamcha

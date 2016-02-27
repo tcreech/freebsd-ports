@@ -155,6 +155,7 @@
     SUBDIR += gkrellmwireless2
     SUBDIR += glflow
     SUBDIR += glib-networking
+    SUBDIR += glusterfs
     SUBDIR += gnet2
     SUBDIR += gnetcat
     SUBDIR += gnome-nettool
@@ -189,6 +190,7 @@
     SUBDIR += gtic
     SUBDIR += gtk-vnc
     SUBDIR += gtknetcat
+    SUBDIR += guacamole-server
     SUBDIR += gupnp
     SUBDIR += gupnp-av
     SUBDIR += gupnp-dlna
@@ -334,11 +336,14 @@
     SUBDIR += libopennet
     SUBDIR += liboping
     SUBDIR += libosip2
+    SUBDIR += libp0f
     SUBDIR += libpcap
     SUBDIR += libpcapnav
     SUBDIR += libproxy
     SUBDIR += libproxy-gnome
+    SUBDIR += libproxy-gnome3
     SUBDIR += libproxy-kde
+    SUBDIR += libproxy-mozjs
     SUBDIR += libproxy-perl
     SUBDIR += libproxy-python
     SUBDIR += libproxy-webkit
@@ -880,10 +885,6 @@
     SUBDIR += pen
     SUBDIR += pfinger
     SUBDIR += phamm
-    SUBDIR += php5-ldap
-    SUBDIR += php5-soap
-    SUBDIR += php5-sockets
-    SUBDIR += php5-xmlrpc
     SUBDIR += php55-ldap
     SUBDIR += php55-soap
     SUBDIR += php55-sockets
@@ -892,6 +893,10 @@
     SUBDIR += php56-soap
     SUBDIR += php56-sockets
     SUBDIR += php56-xmlrpc
+    SUBDIR += php70-ldap
+    SUBDIR += php70-soap
+    SUBDIR += php70-sockets
+    SUBDIR += php70-xmlrpc
     SUBDIR += phpldapadmin
     SUBDIR += pim6-tools
     SUBDIR += pim6dd
@@ -968,6 +973,7 @@
     SUBDIR += py-port-for
     SUBDIR += py-pybeanstalk
     SUBDIR += py-pygeoip
+    SUBDIR += py-pyldap
     SUBDIR += py-pynmsg
     SUBDIR += py-pynsq
     SUBDIR += py-pypcap
@@ -1015,6 +1021,7 @@
     SUBDIR += qjsonrpc
     SUBDIR += qoauth
     SUBDIR += qt4-network
+    SUBDIR += qt5-enginio
     SUBDIR += qt5-network
     SUBDIR += qtweetlib
     SUBDIR += quagga

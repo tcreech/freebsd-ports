@@ -2,13 +2,13 @@
 # $FreeBSD$
 
 PORTNAME=	dnsdist
-DISTVERSION=	0.0.619gda835ff
+DISTVERSION=	0.0.734g1f3f982
 CATEGORIES=	dns net
 MASTER_SITES=	http://builder.powerdns.com/files/dnsdist/dist/ \
 		http://fbsd.es/~cpm/freebsd/ports/distfiles/ \
 		LOCAL/junovitch
 
-MAINTAINER=	cpm@fbsd.es
+MAINTAINER=	cpm@FreeBSD.org
 COMMENT=	Highly DNS-, DoS- and abuse-aware loadbalancer
 
 LICENSE=	GPLv2

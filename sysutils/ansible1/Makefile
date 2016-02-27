@@ -3,6 +3,7 @@
 
 PKGNAMESUFFIX=	1
 PORTVERSION=	1.9.4
+PORTREVISION=
 
 CONFLICTS=	ansible-*
 
@@ -10,5 +11,10 @@ MASTERDIR=	${.CURDIR}/../ansible
 DISTINFO_FILE=	${.CURDIR}/distinfo
 
 SHEBANG_FILES=	lib/ansible/runner/action_plugins/synchronize.py
+
+EXTRA_PATCHES=
+
+DEPRECATED=		please upgrade to sysutils/ansible
+EXPIRATION_DATE=	2016-06-01
 
 .include "${MASTERDIR}/Makefile"

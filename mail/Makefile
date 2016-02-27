@@ -33,6 +33,7 @@
     SUBDIR += bayespam
     SUBDIR += bbmail
     SUBDIR += biabam
+    SUBDIR += bincimap
     SUBDIR += bmf
     SUBDIR += bogofilter
     SUBDIR += bogofilter-sqlite
@@ -199,6 +200,7 @@
     SUBDIR += libesmtp
     SUBDIR += libetpan
     SUBDIR += libmapi
+    SUBDIR += libmilter
     SUBDIR += libpst
     SUBDIR += librfc822
     SUBDIR += libsieve
@@ -363,8 +365,8 @@
     SUBDIR += p5-Mail-CheckUser
     SUBDIR += p5-Mail-ClamAV
     SUBDIR += p5-Mail-DKIM
-    SUBDIR += p5-Mail-DeliveryStatus-BounceParser
     SUBDIR += p5-Mail-DMARC
+    SUBDIR += p5-Mail-DeliveryStatus-BounceParser
     SUBDIR += p5-Mail-DomainKeys
     SUBDIR += p5-Mail-Ezmlm
     SUBDIR += p5-Mail-Field-Received
@@ -464,12 +466,11 @@
     SUBDIR += pflogsumm
     SUBDIR += pfqueue
     SUBDIR += pgpsendmail
-    SUBDIR += php5-imap
     SUBDIR += php55-imap
     SUBDIR += php56-imap
+    SUBDIR += php70-imap
     SUBDIR += phplist
     SUBDIR += phpmailer
-    SUBDIR += phpmailer2
     SUBDIR += pine-pgp-filters
     SUBDIR += pm-lib
     SUBDIR += policyd2
@@ -488,12 +489,14 @@
     SUBDIR += postfinger
     SUBDIR += postfix
     SUBDIR += postfix-current
+    SUBDIR += postfix-current-sasl
     SUBDIR += postfix-logwatch
     SUBDIR += postfix-policyd-sf
     SUBDIR += postfix-policyd-spf-perl
     SUBDIR += postfix-policyd-spf-python
     SUBDIR += postfix-policyd-weight
     SUBDIR += postfix-postfwd
+    SUBDIR += postfix-sasl
     SUBDIR += postfixadmin
     SUBDIR += postgrey
     SUBDIR += postsrsd
@@ -501,7 +504,6 @@
     SUBDIR += prepflog
     SUBDIR += procmail
     SUBDIR += prom-wl
-    SUBDIR += pronto
     SUBDIR += proxsmtp
     SUBDIR += py-Products.MailHost
     SUBDIR += py-Products.SecureMailHost

@@ -3,7 +3,7 @@
 
 PORTNAME=	leechcraft
 PORTVERSION=	0.6.70
-PORTREVISION=	7
+PORTREVISION=	8
 CATEGORIES=	x11
 MASTER_SITES=	http://dist.leechcraft.org/LeechCraft/0.6.70/
 
@@ -68,7 +68,7 @@ AZOTH_CMAKE_OFF=	-DENABLE_AZOTH:BOOL=false
 
 AZOTH_LIB_DEPENDS=	libQtMultimediaKit.so:${PORTSDIR}/multimedia/qt4-mobility \
 			libkqoauth.so:${PORTSDIR}/security/kqoauth \
-			libotr.so:${PORTSDIR}/security/libotr \
+			libotr.so.5:${PORTSDIR}/security/libotr \
 			libpurple.so:${PORTSDIR}/net-im/libpurple \
 			libqca.so:${PORTSDIR}/devel/qca \
 			libqxmpp.so:${PORTSDIR}/net-im/qxmpp \

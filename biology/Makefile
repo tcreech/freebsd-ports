@@ -8,6 +8,7 @@
     SUBDIR += avida
     SUBDIR += babel
     SUBDIR += bcftools
+    SUBDIR += bedtools
     SUBDIR += biococoa
     SUBDIR += biojava
     SUBDIR += blat
@@ -93,6 +94,7 @@
     SUBDIR += treepuzzle
     SUBDIR += treeviewx
     SUBDIR += ugene
+    SUBDIR += vcftools
     SUBDIR += velvet
     SUBDIR += wise
     SUBDIR += xmolwt
