@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	giflib
-PORTVERSION=	5.1.2
-PORTREVISION=	1
+PORTVERSION=	5.1.3
+PORTREVISION=	0
 CATEGORIES=	graphics
 MASTER_SITES=	SF/${PORTNAME}
 
@@ -30,10 +30,14 @@ BUILD_DEPENDS+=	xmlto:${PORTSDIR}/textproc/xmlto \
 CONFIGURE_ENV+=	have_xmlto=no
 .endif
 
-.if ${OSVERSION} >= 1100072
+.if ${OPSYS} == FreeBSD
+.  if ${OSVERSION} >= 1100072
 EXTRA_PATCHES=	${FILESDIR}/extra-patch-unbundle-reallocarray
-.else
+.  else
 EXTRA_PATCHES=	${FILESDIR}/extra-patch-hide-reallocarray
+.  endif
+.elif ${OPSYS} == DragonFly
+EXTRA_PATCHES=	${FILESDIR}/extra-patch-hide-reallocarray-dfly
 .endif
 
 post-install:

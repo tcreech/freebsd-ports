@@ -172,6 +172,7 @@
     SUBDIR += exiftran
     SUBDIR += exiv2
     SUBDIR += exrtools
+    SUBDIR += farbfeld
     SUBDIR += feh
     SUBDIR += ffff
     SUBDIR += fig2sxd
@@ -342,6 +343,7 @@
     SUBDIR += hs-svgcairo
     SUBDIR += hsetroot
     SUBDIR += hugin
+    SUBDIR += hugin-2016
     SUBDIR += hugin-devel
     SUBDIR += icat
     SUBDIR += icc-profiles-basiccolor
@@ -512,6 +514,8 @@
     SUBDIR += liblug
     SUBDIR += libmng
     SUBDIR += libmorph
+    SUBDIR += libnsbmp
+    SUBDIR += libnsgif
     SUBDIR += libopenraw
     SUBDIR += libosmesa
     SUBDIR += libpano13
@@ -538,6 +542,7 @@
     SUBDIR += libwmf-nox11
     SUBDIR += libwpg
     SUBDIR += libwpg03
+    SUBDIR += libyuv
     SUBDIR += lightzone
     SUBDIR += linplasma
     SUBDIR += linux-adobesvg
@@ -576,6 +581,7 @@
     SUBDIR += maim
     SUBDIR += makehuman
     SUBDIR += mandelbulber
+    SUBDIR += mapcache
     SUBDIR += mapnik
     SUBDIR += mapserver
     SUBDIR += mapyrus
@@ -738,7 +744,6 @@
     SUBDIR += partio
     SUBDIR += pdf2svg
     SUBDIR += pear-Horde_Image
-    SUBDIR += pear-IO_SWF
     SUBDIR += pear-Image_3D
     SUBDIR += pear-Image_Barcode
     SUBDIR += pear-Image_Barcode2
@@ -864,8 +869,8 @@
     SUBDIR += py-pyganim
     SUBDIR += py-pyggel
     SUBDIR += py-pyglet
-    SUBDIR += py-pygraphviz
     SUBDIR += py-pygooglechart
+    SUBDIR += py-pygraphviz
     SUBDIR += py-pyproj
     SUBDIR += py-qt4-svg
     SUBDIR += py-qt5-svg
@@ -915,6 +920,8 @@
     SUBDIR += renrot
     SUBDIR += repng2jpeg
     SUBDIR += rgbpaint
+    SUBDIR += rigsofrods-caelum
+    SUBDIR += rigsofrods-pagedgeometry
     SUBDIR += ristretto
     SUBDIR += ruby-gd
     SUBDIR += ruby-gdal
@@ -952,6 +959,7 @@
     SUBDIR += rubygem-ruby-graphviz
     SUBDIR += rubygem-scruffy
     SUBDIR += s10sh
+    SUBDIR += s2tc
     SUBDIR += sage
     SUBDIR += sam2p
     SUBDIR += sampleicc

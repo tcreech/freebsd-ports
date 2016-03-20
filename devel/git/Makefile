@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	git
-DISTVERSION=	2.7.2
-PORTREVISION=	1
+DISTVERSION=	2.7.4
 CATEGORIES=	devel
 MASTER_SITES=	KERNEL_ORG/software/scm/git
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} \
@@ -97,6 +96,10 @@ CONTRIB_BUILD_DEPENDS=	xmlto:${PORTSDIR}/textproc/xmlto \
 CVS_RUN_DEPENDS=	cvsps:${PORTSDIR}/devel/cvsps
 
 .include <bsd.port.options.mk>
+
+.if ${OSVERSION} < 1000000
+USE_GCC=	4.8+
+.endif
 
 # This is intentionally not exposed as an option.
 .ifndef (WITH_DEBUG)

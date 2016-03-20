@@ -3,6 +3,7 @@
 
 PORTNAME=	upp
 PORTVERSION=	9251
+PORTREVISION=	1
 CATEGORIES=	devel x11-toolkits
 MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}/2015.2/
 DISTNAME=	${PORTNAME}-x11-src-${PORTVERSION}
@@ -64,6 +65,8 @@ post-patch: .SILENT
 		-e 's|-Linux-|-BSD-FreeBSD-|' \
 		-e 's|-ldl|-lXau -lXdmcp -lfreetype -lexpat -lxcb -lpng -lexecinfo|' \
 		${BUILD_WRKSRC}/Makefile
+# Use simplified upstream patch to fix the build
+	${REINPLACE_CMD} -e '/ftoutln.h/d' ${BUILD_WRKSRC}/CtrlCore/GtkDrawText.cpp
 
 post-build: .SILENT
 	${ECHO_CMD} "BUILDER = \"GCC\"" > ${WRKSRC}/GCC.bm

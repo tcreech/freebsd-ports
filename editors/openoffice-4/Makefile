@@ -3,7 +3,7 @@
 
 PORTNAME=	apache-openoffice
 PORTVERSION=	${AOOVERSION}
-PORTREVISION=	3
+PORTREVISION=	5
 CATEGORIES=	editors java
 MASTER_SITES=	APACHE/openoffice/${PORTVERSION}/source \
 		http://tools.openoffice.org/unowinreg_prebuild/680/:unoreg \
@@ -146,7 +146,7 @@ WIKI_PUBLISHER_DESC=	Build and install Wiki Publisher extension
 CCACHE_DESC=		Mimimize compile time of C/C++ programs
 
 CUPS_CONFIGURE_ENABLE=		cups
-CUPS_LIB_DEPENDS=		libcups.so:${PORTSDIR}/print/cups-client
+CUPS_LIB_DEPENDS=		libcups.so:${PORTSDIR}/print/cups
 
 GNOME_CONFIGURE_ENABLE=		dbus gconf lockdown
 GNOME_LIB_DEPENDS=		libdbus-glib-1.so:${PORTSDIR}/devel/dbus-glib
@@ -164,6 +164,9 @@ SDK_CONFIGURE_ENABLE=		odk
 
 WIKI_PUBLISHER_CONFIGURE_ENABLE=	wiki-publisher
 WIKI_PUBLISHER_VARS=	BUNDLED_EXTENSIONS+=swext/wiki-publisher.oxt
+
+# Don't run gnome-post-install until after post-install generates the plist
+TARGET_ORDER_OVERRIDE=	710:gnome-post-install
 
 .include <bsd.port.pre.mk>
 

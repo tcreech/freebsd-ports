@@ -179,6 +179,7 @@
     SUBDIR += ifile
     SUBDIR += im
     SUBDIR += imap-uw
+    SUBDIR += imapdedup
     SUBDIR += imapfilter
     SUBDIR += imapsync
     SUBDIR += imaptools
@@ -291,6 +292,7 @@
     SUBDIR += openemm2015
     SUBDIR += opensmtpd
     SUBDIR += opensmtpd-devel
+    SUBDIR += opensmtpd-extras
     SUBDIR += openwebmail
     SUBDIR += osbf-lua
     SUBDIR += ovs
@@ -323,6 +325,7 @@
     SUBDIR += p5-Email-MIME-CreateHTML
     SUBDIR += p5-Email-MIME-Creator-ISO_2022_JP
     SUBDIR += p5-Email-MIME-Encodings
+    SUBDIR += p5-Email-MIME-RFC2047
     SUBDIR += p5-Email-MessageID
     SUBDIR += p5-Email-Reply
     SUBDIR += p5-Email-Send
@@ -359,6 +362,7 @@
     SUBDIR += p5-Mail-Audit
     SUBDIR += p5-Mail-Audit-Attach
     SUBDIR += p5-Mail-Box
+    SUBDIR += p5-Mail-Box-IMAP4-SSL
     SUBDIR += p5-Mail-Box-Parser-C
     SUBDIR += p5-Mail-Bulkmail
     SUBDIR += p5-Mail-Cache
@@ -497,6 +501,8 @@
     SUBDIR += postfix-policyd-weight
     SUBDIR += postfix-postfwd
     SUBDIR += postfix-sasl
+    SUBDIR += postfix211
+    SUBDIR += postfix211-sasl
     SUBDIR += postfixadmin
     SUBDIR += postgrey
     SUBDIR += postsrsd
@@ -570,6 +576,7 @@
     SUBDIR += roundcube-groupvice
     SUBDIR += roundcube-html5_notifier
     SUBDIR += roundcube-login_info
+    SUBDIR += roundcube-markasjunk2
     SUBDIR += roundcube-mobilecube
     SUBDIR += roundcube-mvision2
     SUBDIR += roundcube-sauserprefs
