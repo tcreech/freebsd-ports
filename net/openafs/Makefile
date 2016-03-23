@@ -21,8 +21,8 @@ LICENSE_NAME=	IBM Public License Version 1.0
 LICENSE_FILE=	${WRKSRC}/doc/LICENSE
 LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
-AFS_DISTVERSION=	1.6.16
-DBVERSION=	2015-07-13
+AFS_DISTVERSION=	1.6.17
+DBVERSION=	2016-01-01
 
 USES=		cpe kmod tar:bzip2
 USE_LDCONFIG=	yes
