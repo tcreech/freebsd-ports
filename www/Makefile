@@ -1468,6 +1468,7 @@
     SUBDIR += piwigo
     SUBDIR += piwik
     SUBDIR += planet
+    SUBDIR += plexwatchweb
     SUBDIR += pligg
     SUBDIR += plone
     SUBDIR += plugger
@@ -1560,7 +1561,6 @@
     SUBDIR += py-django-picklefield
     SUBDIR += py-django-pipeline
     SUBDIR += py-django-pipeline13
-    SUBDIR += py-django-pipeline14
     SUBDIR += py-django-piston
     SUBDIR += py-django-profiles
     SUBDIR += py-django-redis
@@ -2050,7 +2050,6 @@
     SUBDIR += serendipity
     SUBDIR += serf
     SUBDIR += servlet-api
-    SUBDIR += session2
     SUBDIR += sfnt2woff
     SUBDIR += shellinabox
     SUBDIR += shttpd
@@ -2066,7 +2065,9 @@
     SUBDIR += smb_auth
     SUBDIR += snarf
     SUBDIR += sogo
+    SUBDIR += sogo3
     SUBDIR += sogo-activesync
+    SUBDIR += sogo3-activesync
     SUBDIR += spawn-fcgi
     SUBDIR += spdylay
     SUBDIR += speedtest-mini

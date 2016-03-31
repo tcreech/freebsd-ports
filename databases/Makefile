@@ -25,7 +25,6 @@
     SUBDIR += beansdb
     SUBDIR += buzhug
     SUBDIR += c3p0
-    SUBDIR += cassandra
     SUBDIR += cassandra-cpp-driver
     SUBDIR += cassandra2
     SUBDIR += casstcl
@@ -549,6 +548,7 @@
     SUBDIR += percona56-client
     SUBDIR += percona56-server
     SUBDIR += pg_activity
+    SUBDIR += pg_citus
     SUBDIR += pg_reorg
     SUBDIR += pg_rman
     SUBDIR += pg_statsinfo
@@ -702,6 +702,8 @@
     SUBDIR += proftpd-mod_sql_tds
     SUBDIR += puppetdb
     SUBDIR += puppetdb-terminus
+    SUBDIR += puppetdb-terminus4
+    SUBDIR += puppetdb4
     SUBDIR += pure-sql3
     SUBDIR += puredb
     SUBDIR += pxlib
@@ -816,6 +818,7 @@
     SUBDIR += qt5-sqldrivers-pgsql
     SUBDIR += qt5-sqldrivers-sqlite2
     SUBDIR += qt5-sqldrivers-sqlite3
+    SUBDIR += qt5-sqldrivers-tds
     SUBDIR += rdb
     SUBDIR += rdfdb
     SUBDIR += recutils

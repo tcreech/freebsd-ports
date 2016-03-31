@@ -384,14 +384,12 @@
     SUBDIR += latex-service
     SUBDIR += latex2html
     SUBDIR += libabw
-    SUBDIR += libabw00
     SUBDIR += libcrm114
     SUBDIR += libcroco
     SUBDIR += libcss
     SUBDIR += libcsv
     SUBDIR += libcue
     SUBDIR += libe-book
-    SUBDIR += libe-book00
     SUBDIR += libebml
     SUBDIR += libextractor
     SUBDIR += libexttextcat
@@ -423,13 +421,10 @@
     SUBDIR += libunibreak
     SUBDIR += libuninameslist
     SUBDIR += libutf8proc
-    SUBDIR += libvisio
     SUBDIR += libvisio01
     SUBDIR += libwapcaplet
-    SUBDIR += libwpd
     SUBDIR += libwpd010
     SUBDIR += libwps
-    SUBDIR += libwps02
     SUBDIR += libwps03
     SUBDIR += libxdiff
     SUBDIR += libxml++26
@@ -1429,6 +1424,7 @@
     SUBDIR += rubygem-heredoc_unindent
     SUBDIR += rubygem-hikidoc
     SUBDIR += rubygem-html-pipeline
+    SUBDIR += rubygem-html-pipeline1
     SUBDIR += rubygem-html-pipeline-gitlab
     SUBDIR += rubygem-htmlentities
     SUBDIR += rubygem-ini
