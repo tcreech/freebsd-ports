@@ -100,6 +100,14 @@ post-extract:
 .endfor
 	@${REINPLACE_CMD} -e '/fbsd_101/ { h; s/101/102/; s/31/32/; x; G; }' \
 		${WRKSRC}/src/config/afs_sysnames.h
+# Also unbreak on FreeBSD 10.3 (until official support arrives)
+.for a in i386 amd64
+	@${SED} -e 's,102,103, ; /FBSD103_ENV/ { h; s/103/102/; G; }' \
+		${WRKSRC}/src/config/param.${a}_fbsd_102.h \
+		> ${WRKSRC}/src/config/param.${a}_fbsd_103.h
+.endfor
+	@${REINPLACE_CMD} -e '/fbsd_102/ { h; s/102/103/; s/32/33/; x; G; }' \
+		${WRKSRC}/src/config/afs_sysnames.h
 
 create-sample-files:
 	@${ECHO_CMD} openafs.org > ${WRKDIR}/ThisCell
