@@ -249,6 +249,7 @@
     SUBDIR += p5-AnyEvent-DBD-Pg
     SUBDIR += p5-AnyEvent-Memcached
     SUBDIR += p5-AnyEvent-Redis
+    SUBDIR += p5-App-Sqitch
     SUBDIR += p5-AsciiDB-TagFile
     SUBDIR += p5-BDB
     SUBDIR += p5-BSON
@@ -537,6 +538,7 @@
     SUBDIR += pecl-memcache
     SUBDIR += pecl-memcached
     SUBDIR += pecl-mongo
+    SUBDIR += pecl-mongodb
     SUBDIR += pecl-mysqlnd_ms
     SUBDIR += pecl-mysqlnd_qc
     SUBDIR += pecl-pdo_user
