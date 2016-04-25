@@ -14,18 +14,15 @@ COMMENT=	Scripting level thread extension for Tcl
 LICENSE=	BSD2CLAUSE
 LICENSE_FILE=	${WRKSRC}/license.terms
 
-USES=		autoreconf tcl
+USES=		autoreconf tcl:tea
 
-DOCSDIR=	${PREFIX}/share/doc/${PKGNAMEPREFIX}${PORTNAME}
-GNU_CONFIGURE=	yes
-CONFIGURE_ARGS+=--with-tcl=${TCL_LIBDIR} \
-		--prefix=${PREFIX} \
-		--exec-prefix=${PREFIX}
-USE_LDCONFIG=	${PREFIX}/lib/thread${PORTVERSION}
+DOCSDIR=	${PREFIX}/share/doc/${TCL_PKG}
+USE_LDCONFIG=	${PREFIX}/lib/${TCL_PKG}
 
 PLIST_SUB+=	VERSION="${PORTVERSION}"
 
 INSTALL_TARGET=	install-binaries install-libraries install-doc
+TEST_TARGET=	test
 
 OPTIONS_DEFINE=	GDBM DOCS
 OPTIONS_DEFAULT=GDBM
@@ -47,8 +44,5 @@ post-install:
 .for FILE in thread.html tpool.html tsv.html ttrace.html
 	${INSTALL_DATA} ${WRKSRC}/doc/html/${FILE} ${STAGEDIR}${DOCSDIR}/html
 .endfor
-
-regression-test: build
-	cd ${WRKSRC} && ${MAKE} test
 
 .include <bsd.port.mk>

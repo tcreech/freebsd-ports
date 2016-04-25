@@ -6,6 +6,31 @@ You should get into the habit of checking this file for changes each time
 you update your ports collection, before attempting any port upgrades.
 
 20160414:
+  AFFECTS: Users of net-mgmt/icinga2
+  AUTHOR: lme@FreeBSD.org
+
+  The creation of Icinga2 directories and files in /var is now controlled 
+  by the /etc/rc.conf variable icinga2_mkvar.  Earlier ports always 
+  created the /var entries, but could slow startup significantly when /var 
+  was a normal disk rather than a RAM disk.  icinga2_mkvar defaults to 
+  "NO".
+
+20160415:
+  AFFECTS: users of audio/chromaprint
+  AUTHOR: jhale@FreeBSD.org
+
+  chromaprint has been updated to version 1.3.1 and includes a shared
+  library bump. PORTREVISIONS have been bumped on affected ports.
+  If you are using binary pkg, 'pkg upgrade' will do the right thing.
+  Users of portmaster/portupgrade must rebuild all ports which depend
+  on chromaprint.
+
+  Portmaster users:
+      portmaster -w -r chromaprint
+  Portupgrade users:
+      portupgrade -fr audio/chromaprint
+
+20160414:
   AFFECTS: Users of www/tt-rss
   AUTHOR: thierry@FreeBSD.org
 
@@ -15,7 +40,6 @@ you update your ports collection, before attempting any port upgrades.
   should set
   ttrssd_local_db="NO"
   in your /etc/rc.conf .
-
 
 20160414:
   AFFECTS: Users of graphics/kipi-plugin-googledrive and graphics/kipi-plugin-picasaweb
@@ -1291,7 +1315,8 @@ you update your ports collection, before attempting any port upgrades.
   once converted.
 
 20150331:
-AUTHOR: ohauer@FreeBSD.org
+  AFFECTS: Users of www/mod_dav_svn
+  AUTHOR: ohauer@FreeBSD.org
 
   Subversion modules are no longer activated in httpd.conf!
   To activate the subversion apache modules a dedicated file
