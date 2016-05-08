@@ -785,6 +785,7 @@
     SUBDIR += p5-Socks
     SUBDIR += p5-Sort-Key-IPv4
     SUBDIR += p5-Test-URI
+    SUBDIR += p5-TFTP
     SUBDIR += p5-URI
     SUBDIR += p5-URI-FromHash
     SUBDIR += p5-URI-Match
@@ -885,6 +886,7 @@
     SUBDIR += pecl-mosquitto
     SUBDIR += pecl-oauth
     SUBDIR += pecl-radius
+    SUBDIR += pecl-smbclient
     SUBDIR += pecl-yaz
     SUBDIR += pecl-yp
     SUBDIR += pecl-zmq
@@ -1184,6 +1186,7 @@
     SUBDIR += samba41
     SUBDIR += samba42
     SUBDIR += samba43
+    SUBDIR += samba44
     SUBDIR += samplicator
     SUBDIR += sbd
     SUBDIR += scamper

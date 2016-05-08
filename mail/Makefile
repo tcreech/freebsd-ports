@@ -340,6 +340,7 @@
     SUBDIR += p5-Email-MIME-Encodings
     SUBDIR += p5-Email-MIME-RFC2047
     SUBDIR += p5-Email-MessageID
+    SUBDIR += p5-Email-Outlook-Message
     SUBDIR += p5-Email-Reply
     SUBDIR += p5-Email-Send
     SUBDIR += p5-Email-Sender
@@ -586,6 +587,7 @@
     SUBDIR += roundcube
     SUBDIR += roundcube-air
     SUBDIR += roundcube-automatic_addressbook
+    SUBDIR += roundcube-carddav
     SUBDIR += roundcube-contextmenu
     SUBDIR += roundcube-groupvice
     SUBDIR += roundcube-html5_notifier

@@ -12,9 +12,9 @@ COMMENT=	Advanced DNS server with multiple backends including SQL
 
 LICENSE=	GPLv2
 
-BROKEN_powerpc64=	Does not build
-
 LIB_DEPENDS=	libboost_serialization.so:devel/boost-libs
+
+BROKEN_powerpc64=	Does not build
 
 USES=		cpe gmake libtool lua pkgconfig tar:bzip2
 USE_LDCONFIG=	YES
@@ -91,7 +91,7 @@ POLARSSL_LIB_DEPENDS_OFF=	libmbedtls.so:security/polarssl13
 
 REMOTE_VARS=		MODULES+=remote
 
-SQLITE3_USE=		SQLITE=3
+SQLITE3_USES=		sqlite:3
 SQLITE3_VARS=		MODULES+=gsqlite3
 
 TINYDNS_CONFIGURE_ON=	CDB_LIBS="-L${LOCALBASE}/lib -lcdb" CDB_CFLAGS="-I${LOCALBASE}/include"
@@ -121,8 +121,6 @@ TINYDNS_DESC=		TinyDNS backend
 TOOLS_DESC=		Build extra tools
 REMOTEOPT_DESC=		Remote backend connectors
 ZEROMQ_DESC=		Enable ZeroMQ connector (Implies REMOTE enabled)
-
-.include <bsd.port.options.mk>
 
 post-install:
 	@${MKDIR} ${STAGEDIR}${EXAMPLESDIR}
