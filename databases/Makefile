@@ -493,7 +493,6 @@
     SUBDIR += p5-Time-Piece-MySQL
     SUBDIR += p5-TokyoCabinet
     SUBDIR += p5-mysql-genocide
-    SUBDIR += p5-qdbm
     SUBDIR += p5-tokyotyrant
     SUBDIR += pear-DB
     SUBDIR += pear-DBA
@@ -760,6 +759,7 @@
     SUBDIR += py-psycogreen
     SUBDIR += py-psycopg
     SUBDIR += py-psycopg2
+    SUBDIR += py-psycopg2cffi
     SUBDIR += py-pyPgSQL
     SUBDIR += py-pyhs
     SUBDIR += py-pylibmc
@@ -836,7 +836,6 @@
     SUBDIR += rrdman
     SUBDIR += rrdmerge
     SUBDIR += rrdtool
-    SUBDIR += rrdtool10
     SUBDIR += rrdtool12
     SUBDIR += ruby-bdb
     SUBDIR += ruby-cdb
@@ -938,6 +937,8 @@
     SUBDIR += sqldeveloper
     SUBDIR += sqlite-ext-miscfuncs
     SUBDIR += sqlite-ext-pcre
+    SUBDIR += sqlite-ext-regexp
+    SUBDIR += sqlite-ext-spellfix
     SUBDIR += sqlite2
     SUBDIR += sqlite3
     SUBDIR += sqlitebrowser
