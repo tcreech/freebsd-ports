@@ -266,6 +266,7 @@
     SUBDIR += mpop
     SUBDIR += mreport
     SUBDIR += msgconvert
+    SUBDIR += msglint
     SUBDIR += msmtp
     SUBDIR += mu
     SUBDIR += mu4e
@@ -278,6 +279,7 @@
     SUBDIR += mutt_vc_query
     SUBDIR += muttils
     SUBDIR += nbsmtp
+    SUBDIR += neomutt
     SUBDIR += nmh
     SUBDIR += nmzmail
     SUBDIR += noattach

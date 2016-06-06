@@ -21,6 +21,7 @@
     SUBDIR += apq-mysql
     SUBDIR += apq-odbc
     SUBDIR += apq-pgsql
+    SUBDIR += ateam_mysql_ldap_auth
     SUBDIR += autobackupmysql
     SUBDIR += bbdb
     SUBDIR += beansdb
@@ -553,6 +554,7 @@
     SUBDIR += pg_citus
     SUBDIR += pg_reorg
     SUBDIR += pg_rman
+    SUBDIR += pg_stat_kcache
     SUBDIR += pg_statsinfo
     SUBDIR += pgaccess
     SUBDIR += pgadmin3
@@ -572,6 +574,7 @@
     SUBDIR += pgpool-II-30
     SUBDIR += pgpool-II-33
     SUBDIR += pgpoolAdmin
+    SUBDIR += pgreplay
     SUBDIR += pgrouting
     SUBDIR += pgsphere
     SUBDIR += pgtcl
@@ -636,6 +639,7 @@
     SUBDIR += postgis-jdbc
     SUBDIR += postgis20
     SUBDIR += postgis21
+    SUBDIR += postgis22
     SUBDIR += postgresql-jdbc
     SUBDIR += postgresql-libpgeasy
     SUBDIR += postgresql-libpqxx
@@ -755,7 +759,6 @@
     SUBDIR += py-pickleshare
     SUBDIR += py-postgresql
     SUBDIR += py-psycogreen
-    SUBDIR += py-psycopg
     SUBDIR += py-psycopg2
     SUBDIR += py-psycopg2cffi
     SUBDIR += py-pyPgSQL
@@ -776,10 +779,12 @@
     SUBDIR += py-riak
     SUBDIR += py-rrdtool_lgpl
     SUBDIR += py-south
-    SUBDIR += py-sqlalchemy
-    SUBDIR += py-sqlalchemy-devel
     SUBDIR += py-sqlalchemy-migrate
     SUBDIR += py-sqlalchemy06
+    SUBDIR += py-sqlalchemy07
+    SUBDIR += py-sqlalchemy08
+    SUBDIR += py-sqlalchemy09
+    SUBDIR += py-sqlalchemy10
     SUBDIR += py-sqlite3
     SUBDIR += py-sqlite3dbm
     SUBDIR += py-sqlobject
@@ -790,6 +795,7 @@
     SUBDIR += py-sybase
     SUBDIR += py-tarantool
     SUBDIR += py-umemcache
+    SUBDIR += py-unqlite
     SUBDIR += py-whisper
     SUBDIR += py3-bsddb3
     SUBDIR += py33-gdbm
@@ -946,6 +952,7 @@
     SUBDIR += sqliteman
     SUBDIR += sqlitemanager
     SUBDIR += sqliteodbc
+    SUBDIR += sqliteodbc-sqlite2
     SUBDIR += sqlitestudio
     SUBDIR += sqlrelay
     SUBDIR += sqsh

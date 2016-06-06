@@ -2,11 +2,11 @@
 # $FreeBSD$
 
 PORTNAME=	chrony
-PORTVERSION=	2.2
+PORTVERSION=	2.3
 CATEGORIES=	net
 MASTER_SITES=	http://download.tuxfamily.org/chrony/
 
-MAINTAINER=	masaki@club.kyutech.ac.jp
+MAINTAINER=	yonas@fizk.net
 COMMENT=	System clock synchronization client and server
 
 LICENSE=	GPLv2

@@ -1222,11 +1222,11 @@
     SUBDIR += py-chardet
     SUBDIR += py-cloud_sptheme
     SUBDIR += py-creole
-    SUBDIR += py-curator
     SUBDIR += py-dbfread
     SUBDIR += py-diff-match-patch
     SUBDIR += py-docutils
     SUBDIR += py-dsv
+    SUBDIR += py-elasticsearch-curator-py
     SUBDIR += py-elasticsearch-dsl-py
     SUBDIR += py-elasticsearch-py
     SUBDIR += py-elib.intl
@@ -1253,8 +1253,10 @@
     SUBDIR += py-mistune
     SUBDIR += py-mwparserfromhell
     SUBDIR += py-nltk
+    SUBDIR += py-numpydoc
     SUBDIR += py-openpyxl
     SUBDIR += py-paragrep
+    SUBDIR += py-parsimonious
     SUBDIR += py-pdfminer
     SUBDIR += py-pss
     SUBDIR += py-pyctpp2
@@ -1457,6 +1459,7 @@
     SUBDIR += rubygem-octopress-escape-code
     SUBDIR += rubygem-opml
     SUBDIR += rubygem-org-ruby
+    SUBDIR += rubygem-ox
     SUBDIR += rubygem-parslet
     SUBDIR += rubygem-phone
     SUBDIR += rubygem-pretty-xml
