@@ -1,9 +1,9 @@
-# Created by: Johannes Meixner <xmj@chaot.net>
+# Created by: Johannes Meixner <johannes@perceivon.net>
 # $FreeBSD$
 
 PORTNAME=	libxml2
 PORTVERSION=	2.7.6
-PORTREVISION=	6
+PORTREVISION=	7
 CATEGORIES=	textproc linux
 
 MAINTAINER=	emulation@FreeBSD.org
@@ -14,7 +14,7 @@ CONFLICTS=	linux-libxml2-[0-9]* linux-f8-libxml2-[0-9]*
 USE_LINUX=	c6
 USE_LINUX_RPM=	yes
 
-RPMVERSION=	20.el6_7.1
+RPMVERSION=	21.el6
 BRANDELF_DIRS=	usr/bin
 USE_LDCONFIG=	yes
 

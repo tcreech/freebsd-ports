@@ -5,6 +5,7 @@
 
     SUBDIR += 2ping
     SUBDIR += TkTopNetFlows
+    SUBDIR += adcli
     SUBDIR += aggregate
     SUBDIR += aircrack-ng
     SUBDIR += ap-utils
@@ -96,6 +97,7 @@
     SUBDIR += irrtoolset
     SUBDIR += isic
     SUBDIR += jnettop
+    SUBDIR += kapacitor
     SUBDIR += kismet
     SUBDIR += klg
     SUBDIR += lanmap

@@ -74,6 +74,7 @@
     SUBDIR += clambc
     SUBDIR += clamcour
     SUBDIR += clamd-stream-client
+    SUBDIR += clamfs
     SUBDIR += clamsmtp
     SUBDIR += clamtk
     SUBDIR += clusterssh
@@ -120,6 +121,7 @@
     SUBDIR += elixir-jose
     SUBDIR += erlang-jose
     SUBDIR += erlang-p1tls
+    SUBDIR += eschalot
     SUBDIR += esteidfirefoxplugin
     SUBDIR += expiretable
     SUBDIR += f-prot
@@ -818,12 +820,14 @@
     SUBDIR += py-Products.PluggableAuthService
     SUBDIR += py-RestrictedPython
     SUBDIR += py-SecretStorage
+    SUBDIR += py-YubiOTP
     SUBDIR += py-acme
     SUBDIR += py-acme-tiny
     SUBDIR += py-artifacts
     SUBDIR += py-bcrypt
     SUBDIR += py-borg.localrole
     SUBDIR += py-cerealizer
+    SUBDIR += py-certbot
     SUBDIR += py-certifi
     SUBDIR += py-cpe
     SUBDIR += py-cracklib
@@ -846,7 +850,6 @@
     SUBDIR += py-keyczar
     SUBDIR += py-keyring
     SUBDIR += py-keyrings.alt
-    SUBDIR += py-letsencrypt
     SUBDIR += py-libnacl
     SUBDIR += py-m2crypto
     SUBDIR += py-mcrypt
@@ -1153,6 +1156,7 @@
     SUBDIR += yubikey-personalization-gui
     SUBDIR += zebedee
     SUBDIR += zenmap
+    SUBDIR += zeronet
     SUBDIR += zxid
     SUBDIR += zzuf
 

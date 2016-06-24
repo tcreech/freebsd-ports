@@ -3,16 +3,14 @@
 
 PORTNAME=	neovim
 PORTVERSION=	0.1.4
-PORTREVISION=	1
 DISTVERSIONPREFIX=	v
+PORTREVISION=	2
 CATEGORIES=	editors
 
-MAINTAINER=	ports@FreeBSD.org
+MAINTAINER=	gor@clogic.com.ua
 COMMENT=	Next generation Vim
 
 LICENSE=	APACHE20
-
-BROKEN=		fails to build
 
 BUILD_DEPENDS=	${LUA_MODLIBDIR}/bit.so:devel/lua-bitop \
 		${LUA_MODLIBDIR}/lpeg.so:devel/lua-lpeg
