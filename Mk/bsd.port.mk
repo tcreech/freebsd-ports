@@ -357,8 +357,6 @@ FreeBSD_MAINTAINER=	portmgr@FreeBSD.org
 # USE_SDL		- If set, this port uses the sdl libraries.
 #				  See bsd.sdl.mk for more information.
 ##
-# USE_OPENSSL	- If set, this port relies on the OpenSSL package.
-##
 # USE_OPENLDAP	- If set, this port uses the OpenLDAP libraries.
 #				  Implies: WANT_OPENLDAP_VER?=24
 # WANT_OPENLDAP_VER
@@ -1243,11 +1241,11 @@ GID_OFFSET?=	0
 
 # predefined accounts from src/etc/master.passwd
 # alpha numeric sort order
-USERS_BLACKLIST=	_dhcp _pflogd auditdistd bin bind daemon games hast kmem mailnull man news nobody operator pop proxy root smmsp sshd toor tty unbound uucp www
+USERS_BLACKLIST=	_dhcp _pflogd _ypldap auditdistd bin bind daemon games hast kmem mailnull man news nobody operator pop proxy root smmsp sshd toor tty unbound uucp www
 
 # predefined accounts from src/etc/group
 # alpha numeric sort order
-GROUPS_BLACKLIST=	_dhcp _pflogd audit authpf bin bind daemon dialer ftp games guest hast kmem mail mailnull man network news nobody nogroup operator proxy smmsp sshd staff sys tty unbound uucp wheel www
+GROUPS_BLACKLIST=	_dhcp _pflogd _ypldap audit authpf bin bind daemon dialer ftp games guest hast kmem mail mailnull man network news nobody nogroup operator proxy smmsp sshd staff sys tty unbound uucp wheel www
 
 LDCONFIG_DIR=	libdata/ldconfig
 LDCONFIG32_DIR=	libdata/ldconfig32
@@ -1352,7 +1350,7 @@ PKGCOMPATDIR?=		${LOCALBASE}/lib/compat/pkg
 .endif
 
 .if defined(USE_OPENSSL)
-.include "${PORTSDIR}/Mk/bsd.openssl.mk"
+USES+=	ssl
 .endif
 
 .if defined(USE_EMACS)
@@ -1525,6 +1523,9 @@ QA_ENV+=		STAGEDIR=${STAGEDIR} \
 				PKGORIGIN=${PKGORIGIN} \
 				LIB_RUN_DEPENDS='${_LIB_RUN_DEPENDS:C,[^:]*:([^:]*):?.*,\1,}' \
 				PKGBASE=${PKGBASE}
+.if !empty(USES:Mssl)
+QA_ENV+=		USESSSL=yes
+.endif
 .if !empty(USES:Mdesktop-file-utils)
 QA_ENV+=		USESDESKTOPFILEUTILS=yes
 .endif
