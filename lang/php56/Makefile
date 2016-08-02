@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	php56
-PORTVERSION=	5.6.23
+PORTVERSION=	5.6.24
 PORTREVISION?=	0
 CATEGORIES?=	lang devel www
 MASTER_SITES=	PHP/distributions
@@ -13,7 +13,7 @@ COMMENT=	PHP Scripting Language
 
 LICENSE=	PHP301
 
-USES=		tar:bzip2 cpe
+USES+=		tar:bzip2 cpe
 CPE_PRODUCT=	php
 NO_OPTIONS_SORT=yes
 .if !defined(PKGNAMESUFFIX)
@@ -88,8 +88,8 @@ CONFIGURE_ARGS+=--enable-fpm \
 .endif
 
 .if defined(PKGNAMEPREFIX)
-USE_PHP=	yes
-PHP_DEFAULT=	5.6
+USES+=	php
+PHP_VER=	56
 IGNORE_WITH_PHP=53 54 5
 USE_APACHE=	22+
 .include "${PORTSDIR}/Mk/bsd.apache.mk"

@@ -2,20 +2,19 @@
 # $FreeBSD$
 
 PORTNAME=	php70
-PORTVERSION=	7.0.8
-PORTREVISION?=	0
+PORTVERSION=	7.0.9
 CATEGORIES?=	lang devel www
 MASTER_SITES=	PHP/distributions
 DISTNAME=	php-${PORTVERSION}
 
-MAINTAINER=	miwi@FreeBSD.org
+MAINTAINER=	tz@FreeBSD.org
 COMMENT=	PHP Scripting Language
 
 LICENSE=	PHP301
 
 BROKEN_powerpc64=	Does not build
 
-USES=		tar:bzip2 cpe
+USES+=		tar:bzip2 cpe
 CPE_PRODUCT=	php
 NO_OPTIONS_SORT=yes
 .if !defined(PKGNAMESUFFIX)
@@ -83,8 +82,8 @@ CONFIGURE_ARGS+=--enable-fpm \
 .endif
 
 .if defined(PKGNAMEPREFIX)
-USE_PHP=	yes
-PHP_DEFAULT=	7.0
+USES+=	php
+PHP_VER=	70
 IGNORE_WITH_PHP=	55 56
 USE_APACHE=	22+
 .include "${PORTSDIR}/Mk/bsd.apache.mk"

@@ -8,14 +8,13 @@ MASTER_SITES=	http://pecl.php.net/get/
 PKGNAMEPREFIX=	pecl-
 DIST_SUBDIR=	PECL
 
-MAINTAINER=	miwi@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Bytecode compiler extension
 
 LICENSE=	PHP202
 
-USES=		tar:tgz
-USE_PHP=	bz2
-USE_PHPEXT=	yes
+USES=		php:ext tar:tgz
+USE_PHP=	bz2:build
 IGNORE_WITH_PHP=56 70
 
 CONFIGURE_ARGS=	--enable-bcompiler

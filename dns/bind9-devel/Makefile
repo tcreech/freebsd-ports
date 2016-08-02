@@ -2,7 +2,7 @@
 # pkg-help formatted with fmt 59 63
 
 PORTNAME=	bind
-PORTVERSION=	${ISCVERSION:S/-P/P/:S/b/.b/}
+PORTVERSION=	${ISCVERSION:S/-P/P/:S/b/.b/:S/a/.a/}
 PORTREVISION=	0
 CATEGORIES=	dns net ipv6
 MASTER_SITES=	LOCAL/mat/bind
@@ -13,11 +13,11 @@ DISTNAME=	${PORTNAME}9-${HASH}
 MAINTAINER=	mat@FreeBSD.org
 COMMENT=	BIND DNS suite with updated DNSSEC and DNS64
 
-LICENSE=	ISCL
+LICENSE=	MPL
 
 # ISC releases things like 9.8.0-P1, which our versioning doesn't like
-ISCVERSION=	9.11.0.a20160627
-HASH=		33d0a77
+ISCVERSION=	9.12.0a.2016.07.25
+HASH=		c854d9c
 
 MAKE_JOBS_UNSAFE=	yes
 
@@ -41,13 +41,13 @@ CONFIGURE_ARGS+=	--localstatedir=/var --disable-linux-caps \
 		--sysconfdir=${ETCDIR}
 ETCDIR=		${PREFIX}/etc/namedb
 
-CONFLICTS+=	bind9*-9.[456789].* bind9*-sdb-9.[456789].*
+CONFLICTS+=	bind9*-9.[456789].* bind910-* bind911-*  bind9*-sdb-9.[456789].*
 
 SUB_FILES=	pkg-message
 
 OPTIONS_DEFAULT=	SSL THREADS SIGCHASE IDN GSSAPI_NONE DLZ_FILESYSTEM
 OPTIONS_DEFINE=		IDN LARGE_FILE PYTHON START_LATE \
-			FIXED_RRSET SIGCHASE IPV6 THREADS FILTER_AAAA
+			FIXED_RRSET SIGCHASE IPV6 THREADS FILTER_AAAA LMDB
 OPTIONS_RADIO=	CRYPTO GOSTDEF
 OPTIONS_RADIO_CRYPTO=	SSL NATIVE_PKCS11
 OPTIONS_RADIO_GOSTDEF=	GOST GOST_ASN1
@@ -80,6 +80,7 @@ MINCACHE_DESC=		Use the mincachettl patch
 PORTREVISION_DESC=	Show PORTREVISION in the version string
 FETCHLIMIT_DESC=	Enable the query quotas for resolvers
 QUERYTRACE_DESC=	Enable the very verbose query tracelogging
+LMDB_DESC=		Use LMDB for zone management
 
 LINKS_DESC=		Create conf file symlinks in ${PREFIX}
 NEWSTATS_DESC=		Enable alternate xml statistics channel format
@@ -104,6 +105,10 @@ QUERYTRACE_CONFIGURE_ENABLE=	querytrace
 SSL_CONFIGURE_ON=	--with-openssl=${OPENSSLBASE}
 SSL_USE=		openssl=yes
 SSL_CONFIGURE_OFF=	--disable-openssl-version-check --without-openssl
+
+LMDB_CONFIGURE_WITH=	lmdb
+LMDB_LIB_DEPENDS=	liblmdb.so:databases/lmdb
+LMDB_BROKEN_OFF=	Does not install without LMDB
 
 NEWSTATS_CONFIGURE_ENABLE=	newstats
 

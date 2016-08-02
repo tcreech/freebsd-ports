@@ -240,6 +240,11 @@ include/wine/windows/d3dx10async.h
 %%STAGING%%include/wine/windows/d3dx10core.h
 %%STAGING%%include/wine/windows/d3dx10core.idl
 include/wine/windows/d3dx10tex.h
+include/wine/windows/d3dx11.h
+include/wine/windows/d3dx11async.h
+include/wine/windows/d3dx11core.h
+include/wine/windows/d3dx11core.idl
+include/wine/windows/d3dx11tex.h
 include/wine/windows/d3dx9.h
 include/wine/windows/d3dx9anim.h
 include/wine/windows/d3dx9core.h
@@ -565,6 +570,7 @@ include/wine/windows/msxml6.idl
 include/wine/windows/msxml6did.h
 include/wine/windows/msxmldid.h
 include/wine/windows/nb30.h
+include/wine/windows/ncrypt.h
 include/wine/windows/ndrtypes.h
 include/wine/windows/netcfgx.h
 include/wine/windows/netcfgx.idl
@@ -853,6 +859,7 @@ include/wine/windows/winuser.rh
 include/wine/windows/winver.h
 include/wine/windows/wlanapi.h
 include/wine/windows/wmistr.h
+include/wine/windows/wmium.h
 include/wine/windows/wmiutils.h
 include/wine/windows/wmiutils.idl
 include/wine/windows/wmp.h
@@ -1993,6 +2000,7 @@ lib32/wine/fakedlls/softpub.dll
 lib32/wine/fakedlls/sound.drv16
 lib32/wine/fakedlls/spoolss.dll
 lib32/wine/fakedlls/spoolsv.exe
+lib32/wine/fakedlls/sspicli.dll
 lib32/wine/fakedlls/start.exe
 lib32/wine/fakedlls/stdole2.tlb
 lib32/wine/fakedlls/stdole32.tlb
@@ -2234,6 +2242,7 @@ lib32/wine/libd3d9.def
 lib32/wine/libd3dcompiler.def
 lib32/wine/libd3drm.def
 lib32/wine/libd3dx10.def
+lib32/wine/libd3dx11.def
 lib32/wine/libd3dx9.def
 lib32/wine/libd3dxof.def
 lib32/wine/libdbgeng.def
@@ -2299,7 +2308,7 @@ lib32/wine/libnewdev.def
 lib32/wine/libnormaliz.def
 lib32/wine/libntdll.def
 lib32/wine/libntdsapi.def
-lib32/wine/libntoskrnl.exe.def
+lib32/wine/libntoskrnl.def
 lib32/wine/libodbc32.def
 lib32/wine/libodbccp32.def
 lib32/wine/libole32.def
@@ -2343,7 +2352,7 @@ lib32/wine/libtapi32.def
 lib32/wine/libunicows.def
 lib32/wine/liburl.def
 lib32/wine/liburlmon.def
-lib32/wine/libusbd.sys.def
+lib32/wine/libusbd.def
 lib32/wine/libuser32.def
 lib32/wine/libuserenv.def
 lib32/wine/libusp10.def
@@ -2596,6 +2605,7 @@ lib32/wine/softpub.dll.so
 lib32/wine/sound.drv16.so
 lib32/wine/spoolss.dll.so
 lib32/wine/spoolsv.exe.so
+lib32/wine/sspicli.dll.so
 lib32/wine/start.exe.so
 lib32/wine/stdole2.tlb.so
 lib32/wine/stdole32.tlb.so

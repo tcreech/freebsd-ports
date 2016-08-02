@@ -79,7 +79,6 @@
     SUBDIR += choqok
     SUBDIR += chpasswd
     SUBDIR += chromium
-    SUBDIR += chtml
     SUBDIR += ckeditor
     SUBDIR += cl-lml
     SUBDIR += cl-lml-sbcl
@@ -116,7 +115,6 @@
     SUBDIR += dojo-shrinksafe
     SUBDIR += dokuwiki
     SUBDIR += domoticz
-    SUBDIR += dotclear
     SUBDIR += dotproject
     SUBDIR += drood
     SUBDIR += drraw
@@ -139,6 +137,7 @@
     SUBDIR += elixir-phoenix
     SUBDIR += elixir-phoenix_ecto
     SUBDIR += elixir-phoenix_html
+    SUBDIR += elixir-phoenix_pubsub
     SUBDIR += elixir-webassembly
     SUBDIR += emacs-w3m
     SUBDIR += encode-explorer
@@ -205,10 +204,12 @@
     SUBDIR += glpi
     SUBDIR += gnome-user-share
     SUBDIR += gnome-web-photo
+    SUBDIR += gohugo
     SUBDIR += google-appengine
     SUBDIR += google-sitemapgen
     SUBDIR += googlebook_dl
     SUBDIR += goose
+    SUBDIR += gotty
     SUBDIR += gpx2map
     SUBDIR += grafana
     SUBDIR += grafana2
@@ -307,7 +308,6 @@
     SUBDIR += httpsqs
     SUBDIR += httptunnel
     SUBDIR += httrack
-    SUBDIR += hudson
     SUBDIR += hydra
     SUBDIR += hypermail
     SUBDIR += igal2
@@ -391,6 +391,7 @@
     SUBDIR += mediawiki124
     SUBDIR += mediawiki125
     SUBDIR += mediawiki126
+    SUBDIR += mediawiki127
     SUBDIR += mergelog
     SUBDIR += mgstat
     SUBDIR += mhonarc
@@ -534,7 +535,6 @@
     SUBDIR += node010
     SUBDIR += node012
     SUBDIR += node4
-    SUBDIR += node5
     SUBDIR += nostromo
     SUBDIR += npapi-vlc
     SUBDIR += npapi-xine
@@ -1014,6 +1014,7 @@
     SUBDIR += p5-I18N-AcceptLanguage
     SUBDIR += p5-IMDB-Film
     SUBDIR += p5-Image-Delivery
+    SUBDIR += p5-Interchange6
     SUBDIR += p5-JE
     SUBDIR += p5-Jemplate
     SUBDIR += p5-Jifty
@@ -1246,7 +1247,6 @@
     SUBDIR += p5-WWW-Google-Calculator
     SUBDIR += p5-WWW-Google-News
     SUBDIR += p5-WWW-Google-News-TW
-    SUBDIR += p5-WWW-Google-Notebook
     SUBDIR += p5-WWW-Google-PageRank
     SUBDIR += p5-WWW-Google-Video
     SUBDIR += p5-WWW-HatenaDiary
@@ -1412,7 +1412,6 @@
     SUBDIR += pecl-sphinx
     SUBDIR += pecl-swish
     SUBDIR += pecl-twig
-    SUBDIR += pecl-varnish
     SUBDIR += pecl-yaf
     SUBDIR += pecl-yar
     SUBDIR += perlbal
@@ -1525,6 +1524,7 @@
     SUBDIR += py-django-extensions
     SUBDIR += py-django-filer
     SUBDIR += py-django-formtools
+    SUBDIR += py-django-guardian
     SUBDIR += py-django-happenings
     SUBDIR += py-django-haystack
     SUBDIR += py-django-htmlmin
@@ -1598,10 +1598,14 @@
     SUBDIR += py-flask-admin
     SUBDIR += py-flask-bootstrap
     SUBDIR += py-flask-cache
+    SUBDIR += py-flask-compress
     SUBDIR += py-flask-cors
     SUBDIR += py-flask-flatpages
+    SUBDIR += py-flask-login
     SUBDIR += py-flask-oauthlib
     SUBDIR += py-flask-restful
+    SUBDIR += py-flask-restplus
+    SUBDIR += py-flask-restplus08
     SUBDIR += py-flask-sockets
     SUBDIR += py-flask-uploads
     SUBDIR += py-flask-wtf
@@ -1621,6 +1625,7 @@
     SUBDIR += py-graphite-web
     SUBDIR += py-grequests
     SUBDIR += py-gunicorn
+    SUBDIR += py-html
     SUBDIR += py-html5lib
     SUBDIR += py-http-parser
     SUBDIR += py-httplib2
@@ -1628,6 +1633,7 @@
     SUBDIR += py-imdbpy
     SUBDIR += py-jonpy
     SUBDIR += py-jswebkit
+    SUBDIR += py-kallithea
     SUBDIR += py-mechanize
     SUBDIR += py-meld
     SUBDIR += py-meld3
@@ -1740,8 +1746,10 @@
     SUBDIR += py-recaptcha
     SUBDIR += py-requestbuilder
     SUBDIR += py-requests
+    SUBDIR += py33-requests
+    SUBDIR += py34-requests
+    SUBDIR += py35-requests
     SUBDIR += py-requests-futures
-    SUBDIR += py-requests-oauth-hook
     SUBDIR += py-requests-oauthlib
     SUBDIR += py-requests-toolbelt
     SUBDIR += py-requests1
@@ -1761,6 +1769,7 @@
     SUBDIR += py-slimit
     SUBDIR += py-slimmer
     SUBDIR += py-slumber
+    SUBDIR += py-sockjs-tornado
     SUBDIR += py-splinter
     SUBDIR += py-spyne
     SUBDIR += py-surl
@@ -1777,7 +1786,6 @@
     SUBDIR += py-txrequests
     SUBDIR += py-uliweb
     SUBDIR += py-urlgrabber
-    SUBDIR += py-urljr
     SUBDIR += py-urlobject
     SUBDIR += py-user_agent
     SUBDIR += py-utidy
@@ -1822,11 +1830,11 @@
     SUBDIR += redmine-http-auth
     SUBDIR += redmine-issue_templates
     SUBDIR += redmine-knowledgebase
+    SUBDIR += redmine-ldap_sync
     SUBDIR += redmine-qa_contact
     SUBDIR += redmine-redcarpet_formatter
     SUBDIR += redmine-sidebar_hide
     SUBDIR += redmine-single_auth
-    SUBDIR += redmine-stuff_to_do
     SUBDIR += redmine-wiki_notes
     SUBDIR += rejik
     SUBDIR += rekonq
@@ -1834,7 +1842,6 @@
     SUBDIR += repos-style
     SUBDIR += resin3
     SUBDIR += retawq
-    SUBDIR += reviewboard
     SUBDIR += revive-adserver
     SUBDIR += rnews
     SUBDIR += roundup
@@ -1849,7 +1856,6 @@
     SUBDIR += rtv
     SUBDIR += ruby-aws
     SUBDIR += ruby-google
-    SUBDIR += ruby-wgettsv
     SUBDIR += rubygem-ace-rails-ap
     SUBDIR += rubygem-actionpack
     SUBDIR += rubygem-actionpack4
@@ -1947,6 +1953,7 @@
     SUBDIR += rubygem-layout_yullio_generator
     SUBDIR += rubygem-less
     SUBDIR += rubygem-lighthouse-api
+    SUBDIR += rubygem-link_header
     SUBDIR += rubygem-maruku
     SUBDIR += rubygem-mechanize
     SUBDIR += rubygem-mechanize26
@@ -1993,6 +2000,7 @@
     SUBDIR += rubygem-raindrops
     SUBDIR += rubygem-ramaze
     SUBDIR += rubygem-raphael-rails
+    SUBDIR += rubygem-rdf
     SUBDIR += rubygem-redcloth
     SUBDIR += rubygem-redis-rack
     SUBDIR += rubygem-redis-rails
@@ -2062,11 +2070,9 @@
     SUBDIR += sfnt2woff
     SUBDIR += shellinabox
     SUBDIR += shttpd
-    SUBDIR += simplog
     SUBDIR += sit
     SUBDIR += sitebar
     SUBDIR += sitecopy
-    SUBDIR += siteframe
     SUBDIR += skytemplate
     SUBDIR += slowcgi
     SUBDIR += smarty2
@@ -2092,6 +2098,7 @@
     SUBDIR += squidstats
     SUBDIR += squidview
     SUBDIR += srg
+    SUBDIR += stagit
     SUBDIR += subsonic
     SUBDIR += subsonic-standalone
     SUBDIR += suphp
@@ -2165,14 +2172,12 @@
     SUBDIR += trac-keywordsecretticket
     SUBDIR += trac-ldap
     SUBDIR += trac-ldapauthstore
-    SUBDIR += trac-mastertickets
     SUBDIR += trac-math
     SUBDIR += trac-mercurial
     SUBDIR += trac-navadd
     SUBDIR += trac-permredirect
     SUBDIR += trac-privatetickets
     SUBDIR += trac-pydotorgtheme
-    SUBDIR += trac-robotstxt
     SUBDIR += trac-scrumburndown
     SUBDIR += trac-spam-filter
     SUBDIR += trac-subtickets
@@ -2235,7 +2240,7 @@
     SUBDIR += twms
     SUBDIR += typo3
     SUBDIR += typo3-lts
-    SUBDIR += typolight
+    SUBDIR += uchiwa
     SUBDIR += udmsearch
     SUBDIR += uglifyjs
     SUBDIR += usermanager
@@ -2243,7 +2248,6 @@
     SUBDIR += uwsgitop
     SUBDIR += uzbl
     SUBDIR += validator
-    SUBDIR += varnish-libvmod-header
     SUBDIR += varnish-libvmod-maxminddb
     SUBDIR += varnish-libvmod-saintmode
     SUBDIR += varnish-nagios
@@ -2289,7 +2293,6 @@
     SUBDIR += webtrees
     SUBDIR += wgetpaste
     SUBDIR += wikicalc
-    SUBDIR += wikindx
     SUBDIR += wml
     SUBDIR += woof
     SUBDIR += wordpress
@@ -2297,7 +2300,6 @@
     SUBDIR += wsmake
     SUBDIR += www6to4
     SUBDIR += wwwoffle
-    SUBDIR += wwwstat
     SUBDIR += xapian-omega
     SUBDIR += xaraya
     SUBDIR += xcache
@@ -2308,18 +2310,15 @@
     SUBDIR += xpi-adblock
     SUBDIR += xpi-adblock_plus
     SUBDIR += xpi-clear_cache_button
-    SUBDIR += xpi-clearfields
     SUBDIR += xpi-close-all-tabs
     SUBDIR += xpi-colorfultabs
     SUBDIR += xpi-conkeror
-    SUBDIR += xpi-cookiesafe
     SUBDIR += xpi-cssviewer
     SUBDIR += xpi-cutemenus-crystalsvg
     SUBDIR += xpi-default_full_zoom_level
     SUBDIR += xpi-delicious
     SUBDIR += xpi-downthemall
     SUBDIR += xpi-errorzilla
-    SUBDIR += xpi-fasterfox
     SUBDIR += xpi-firebug
     SUBDIR += xpi-firefox-showcase
     SUBDIR += xpi-firemobilesimulator
@@ -2332,7 +2331,6 @@
     SUBDIR += xpi-formfox
     SUBDIR += xpi-foxmarks
     SUBDIR += xpi-foxyproxy
-    SUBDIR += xpi-gbrain
     SUBDIR += xpi-gdata_provider
     SUBDIR += xpi-ghostery
     SUBDIR += xpi-gmail-manager
@@ -2356,7 +2354,6 @@
     SUBDIR += xpi-live_http_headers
     SUBDIR += xpi-live_pagerank
     SUBDIR += xpi-menueditor
-    SUBDIR += xpi-mldonkey
     SUBDIR += xpi-modify_headers
     SUBDIR += xpi-mrtech-local-install
     SUBDIR += xpi-neo-diggler
@@ -2367,7 +2364,6 @@
     SUBDIR += xpi-pencil
     SUBDIR += xpi-pentadactyl
     SUBDIR += xpi-permatabs
-    SUBDIR += xpi-prism
     SUBDIR += xpi-quick-locale-switcher
     SUBDIR += xpi-quickproxy
     SUBDIR += xpi-resurrectpages
@@ -2383,7 +2379,6 @@
     SUBDIR += xpi-stumbleupon
     SUBDIR += xpi-stylish
     SUBDIR += xpi-table2clipboard
-    SUBDIR += xpi-tabletools
     SUBDIR += xpi-tabmixplus
     SUBDIR += xpi-tagzilla
     SUBDIR += xpi-togglewordwrap
@@ -2403,7 +2398,6 @@
     SUBDIR += xshttpd-devel
     SUBDIR += xsp
     SUBDIR += yabb
-    SUBDIR += yahoo-ui
     SUBDIR += yanopaste
     SUBDIR += yaws
     SUBDIR += yii

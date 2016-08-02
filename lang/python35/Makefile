@@ -3,7 +3,6 @@
 
 PORTNAME=	python
 DISTVERSION=	${PYTHON_PORTVERSION}
-PORTREVISION=	3
 CATEGORIES=	lang python ipv6
 MASTER_SITES=	PYTHON/ftp/python/${PYTHON_PORTVERSION}
 PKGNAMESUFFIX=	${PYTHON_SUFFIX}
@@ -15,8 +14,7 @@ COMMENT=	Interpreted object-oriented programming language
 
 LICENSE=	PSFL
 
-USES=		cpe ncurses pkgconfig readline tar:xz
-USE_OPENSSL=	yes
+USES=		cpe ncurses pkgconfig readline ssl tar:xz
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
 

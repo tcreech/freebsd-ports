@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	php55
-PORTVERSION=	5.5.37
+PORTVERSION=	5.5.38
 PORTREVISION?=	0
 CATEGORIES?=	lang devel www
 MASTER_SITES=	PHP/distributions
@@ -11,9 +11,12 @@ DISTNAME=	php-${PORTVERSION}
 MAINTAINER=	ale@FreeBSD.org
 COMMENT=	PHP Scripting Language
 
+DEPRECATED=	EOL upstream since 21 Jul 2016
+EXPIRATION_DATE=	2016-10-20
+
 LICENSE=	PHP301
 
-USES=		tar:bzip2 cpe
+USES+=		tar:bz2 cpe
 CPE_PRODUCT=	php
 NO_OPTIONS_SORT=yes
 .if !defined(PKGNAMESUFFIX)
@@ -93,8 +96,8 @@ IGNORE=		doesn't install the Apache module anymore:\
 .endif
 
 .if defined(PKGNAMEPREFIX)
-USE_PHP=	yes
-PHP_DEFAULT=	5.5
+USES+=	php
+PHP_VER=	55
 IGNORE_WITH_PHP=53 54 5
 USE_APACHE=	22+
 .include "${PORTSDIR}/Mk/bsd.apache.mk"
