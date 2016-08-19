@@ -789,8 +789,8 @@
     SUBDIR += p5-Socket6
     SUBDIR += p5-Socks
     SUBDIR += p5-Sort-Key-IPv4
-    SUBDIR += p5-Test-URI
     SUBDIR += p5-TFTP
+    SUBDIR += p5-Test-URI
     SUBDIR += p5-URI
     SUBDIR += p5-URI-FromHash
     SUBDIR += p5-URI-Match
@@ -855,6 +855,7 @@
     SUBDIR += pear-Net_IDNA
     SUBDIR += pear-Net_IPv4
     SUBDIR += pear-Net_IPv6
+    SUBDIR += pear-Net_Growl
     SUBDIR += pear-Net_Ident
     SUBDIR += pear-Net_LDAP
     SUBDIR += pear-Net_LDAP2
@@ -947,6 +948,7 @@
     SUBDIR += py-amqplib
     SUBDIR += py-avahi
     SUBDIR += py-beanstalkc
+    SUBDIR += py-cjdns
     SUBDIR += py-cloudfiles
     SUBDIR += py-coherence
     SUBDIR += py-dpkt
@@ -1007,6 +1009,7 @@
     SUBDIR += py-qt5-network
     SUBDIR += py-radix
     SUBDIR += py-raet
+    SUBDIR += py-rainbowstream
     SUBDIR += py-ripe.atlas.cousteau
     SUBDIR += py-ripe.atlas.sagan
     SUBDIR += py-ripe.atlas.tools
@@ -1043,7 +1046,6 @@
     SUBDIR += qjsonrpc
     SUBDIR += qoauth
     SUBDIR += qt4-network
-    SUBDIR += qt5-enginio
     SUBDIR += qt5-network
     SUBDIR += qtweetlib
     SUBDIR += quagga

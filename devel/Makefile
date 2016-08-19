@@ -56,9 +56,9 @@
     SUBDIR += acsccid
     SUBDIR += activitymail
     SUBDIR += ada-util
-    SUBDIR += adaid
     SUBDIR += adabooch
     SUBDIR += adacurses
+    SUBDIR += adaid
     SUBDIR += adime
     SUBDIR += aegis
     SUBDIR += afay
@@ -144,6 +144,7 @@
     SUBDIR += avro-cpp
     SUBDIR += awscli
     SUBDIR += b2
+    SUBDIR += babeltrace
     SUBDIR += bam
     SUBDIR += bbfreeze
     SUBDIR += bbfreeze-loader
@@ -476,6 +477,7 @@
     SUBDIR += erlang-bbmustache
     SUBDIR += erlang-bear
     SUBDIR += erlang-certifi
+    SUBDIR += erlang-cf
     SUBDIR += erlang-clique
     SUBDIR += erlang-common_lib
     SUBDIR += erlang-cuttlefish
@@ -717,6 +719,7 @@
     SUBDIR += gnulibiberty
     SUBDIR += gnustep
     SUBDIR += gnustep-make
+    SUBDIR += go-bayesian
     SUBDIR += go-bindata
     SUBDIR += go-btree
     SUBDIR += go-cobra
@@ -735,6 +738,7 @@
     SUBDIR += go-protobuf
     SUBDIR += go-raw
     SUBDIR += go-runewidth
+    SUBDIR += go-shellwords
     SUBDIR += go-slices
     SUBDIR += go-sql-driver
     SUBDIR += go-termbox
@@ -763,6 +767,7 @@
     SUBDIR += gputils
     SUBDIR += gradle
     SUBDIR += grantlee
+    SUBDIR += grantlee5
     SUBDIR += gsettings-desktop-schemas
     SUBDIR += gsoap
     SUBDIR += gstreamer-plugins-gconf
@@ -1407,6 +1412,7 @@
     SUBDIR += linux-c6-libglade2
     SUBDIR += linux-c6-libpciaccess
     SUBDIR += linux-c6-libsigc++20
+    SUBDIR += linux-c6-libthai
     SUBDIR += linux-c6-ncurses-base
     SUBDIR += linux-c6-nspr
     SUBDIR += linux-c6-qt47
@@ -1420,6 +1426,7 @@
     SUBDIR += linux-f10-ncurses-base
     SUBDIR += linux-f10-nspr
     SUBDIR += linux-f10-sdl12
+    SUBDIR += linux-kernel
     SUBDIR += linux_kdump
     SUBDIR += linux_libusb
     SUBDIR += lion
@@ -1436,6 +1443,7 @@
     SUBDIR += llvm36
     SUBDIR += llvm37
     SUBDIR += llvm38
+    SUBDIR += llvm39
     SUBDIR += lm4tools
     SUBDIR += lmdbg
     SUBDIR += lndir
@@ -3967,6 +3975,7 @@
     SUBDIR += py-apipkg
     SUBDIR += py-appdirs
     SUBDIR += py-application
+    SUBDIR += py-apptools
     SUBDIR += py-apscheduler
     SUBDIR += py-archetypes.querywidget
     SUBDIR += py-archetypes.referencebrowserwidget
@@ -4213,12 +4222,13 @@
     SUBDIR += py-lock_file
     SUBDIR += py-lockfile
     SUBDIR += py-log4py
-    SUBDIR += py-logbook
     SUBDIR += py-logan
+    SUBDIR += py-logbook
     SUBDIR += py-logilab-common
     SUBDIR += py-louie
     SUBDIR += py-lxml
     SUBDIR += py-magic
+    SUBDIR += py-mailcap-fix
     SUBDIR += py-manuel
     SUBDIR += py-matrix-angular-sdk
     SUBDIR += py-mccabe
@@ -4320,6 +4330,7 @@
     SUBDIR += py-pyee
     SUBDIR += py-pyelftools
     SUBDIR += py-pyev
+    SUBDIR += py-pyface
     SUBDIR += py-pyflakes
     SUBDIR += py-pygit2
     SUBDIR += py-pygithub
@@ -4389,6 +4400,7 @@
     SUBDIR += py-qt5-dbussupport
     SUBDIR += py-qt5-designer
     SUBDIR += py-qt5-designerplugin
+    SUBDIR += py-qt5-help
     SUBDIR += py-qt5-qscintilla2
     SUBDIR += py-qt5-test
     SUBDIR += py-rauth
@@ -5166,6 +5178,7 @@
     SUBDIR += rubygem-ruby-progressbar
     SUBDIR += rubygem-ruby-sdl-ffi
     SUBDIR += rubygem-ruby2ruby
+    SUBDIR += rubygem-ruby_dep
     SUBDIR += rubygem-ruby_parser
     SUBDIR += rubygem-rubygame
     SUBDIR += rubygem-rubygems-mirror
@@ -5298,6 +5311,7 @@
     SUBDIR += sfml1
     SUBDIR += sgb
     SUBDIR += shapelib
+    SUBDIR += shedskin
     SUBDIR += shflags
     SUBDIR += shiboken
     SUBDIR += shmap
@@ -5312,8 +5326,8 @@
     SUBDIR += simian
     SUBDIR += simple_components
     SUBDIR += skalibs
-    SUBDIR += slibtool
     SUBDIR += slf4j
+    SUBDIR += slibtool
     SUBDIR += smack
     SUBDIR += smake
     SUBDIR += smc
