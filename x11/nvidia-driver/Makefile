@@ -10,7 +10,7 @@
 # slave ports instead (`x11/nvidia-driver-340' or `x11/nvidia-driver-304').
 
 PORTNAME=	nvidia-driver
-DISTVERSION?=	367.35
+DISTVERSION?=	367.44
 # Always try to set PORTREVISION as it can be overridden by the slave ports
 PORTREVISION?=	0
 CATEGORIES=	x11
@@ -96,7 +96,7 @@ PLIST_SUB+=	LINUXBASE=${LINUXBASE} SHLIB_VERSION=${PORTVERSION} \
 
 .if ${PORT_OPTIONS:MLINUX}
 CONFLICTS_INSTALL=	linux[-_]dri-[0-9]* linux-f10-dri-[0-9]*
-USE_LINUX=	yes
+USES+=		linux
 PLIST_SUB+=	LINUX=""
 .else
 PLIST_SUB+=	LINUX="@comment "
@@ -241,9 +241,6 @@ post-install: .SILENT
 .endif
 .if ${NVVERSION} < 358.009
 	${REINPLACE_CMD} '/nvidia-modeset.ko/d' ${TMPPLIST}
-.else
-	${REINPLACE_CMD} 's/nvidia$$/nvidia-modeset/ ; s/nvidia_/nvidia-modeset_/' \
-		${PKGMESSAGE}
 .endif
 .if ${NVVERSION} >= 361.028
 	${REINPLACE_CMD} -E '/(EGL_nvidia\.so|GLESv[12](_CM)?(\.so\.[0-9]+\.[0-9]+))$$/d' \
