@@ -12,7 +12,9 @@
     SUBDIR += assimp
     SUBDIR += atomicparsley
     SUBDIR += audacious
+    SUBDIR += audacious-gtk3
     SUBDIR += audacious-plugins
+    SUBDIR += audacious-plugins-gtk3
     SUBDIR += audiopreview
     SUBDIR += avbin
     SUBDIR += avidemux
@@ -144,6 +146,7 @@
     SUBDIR += gstreamer1-plugins-x264
     SUBDIR += gstreamer1-plugins-x265
     SUBDIR += gstreamer1-qt4
+    SUBDIR += gstreamer1-qt5
     SUBDIR += gstreamer1-rtsp-server
     SUBDIR += gstreamer1-vaapi
     SUBDIR += gstreamer1-validate

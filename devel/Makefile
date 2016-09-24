@@ -461,6 +461,7 @@
     SUBDIR += elixir-math
     SUBDIR += elixir-msgpax
     SUBDIR += elixir-nadia
+    SUBDIR += elixir-nats
     SUBDIR += elixir-nimble_csv
     SUBDIR += elixir-paratize
     SUBDIR += elixir-plug
@@ -1255,6 +1256,7 @@
     SUBDIR += libglademm24
     SUBDIR += libgpc
     SUBDIR += libgpkg
+    SUBDIR += libgrading
     SUBDIR += libgsf
     SUBDIR += libgta
     SUBDIR += libgtop
@@ -1407,6 +1409,7 @@
     SUBDIR += libvmdk
     SUBDIR += libvolume_id
     SUBDIR += libvshadow
+    SUBDIR += libvslvm
     SUBDIR += libvterm
     SUBDIR += libwfut
     SUBDIR += libx86
@@ -3868,7 +3871,6 @@
     SUBDIR += pmccabe
     SUBDIR += pmd
     SUBDIR += poco
-    SUBDIR += poco-devel
     SUBDIR += poco-ssl
     SUBDIR += ponscripter-sekai
     SUBDIR += popt
@@ -4357,6 +4359,7 @@
     SUBDIR += py-pykde4
     SUBDIR += py-pykdeuic4
     SUBDIR += py-pyke
+    SUBDIR += py-pylru-cache
     SUBDIR += py-pymarc
     SUBDIR += py-pympler
     SUBDIR += py-pymtbl
@@ -4677,6 +4680,7 @@
     SUBDIR += py3-libpeas
     SUBDIR += py3-nose
     SUBDIR += py3-pyicu
+    SUBDIR += py3-pylru-cache
     SUBDIR += py3-python-magic
     SUBDIR += py3-pytz
     SUBDIR += py3-vcversioner
@@ -4756,6 +4760,7 @@
     SUBDIR += qt5-qdbus
     SUBDIR += qt5-qdbusviewer
     SUBDIR += qt5-qdoc
+    SUBDIR += qt5-qdoc-data
     SUBDIR += qt5-script
     SUBDIR += qt5-scripttools
     SUBDIR += qt5-testlib
