@@ -11,6 +11,7 @@ COMMENT=	Qt WebKit implementation
 
 LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 		libicui18n.so:devel/icu \
+		libleveldb.so:databases/leveldb \
 		libpng.so:graphics/png \
 		libwebp.so:graphics/webp
 BUILD_DEPENDS=	${LOCALBASE}/bin/flex:textproc/flex

@@ -2,12 +2,14 @@
 # $FreeBSD$
 
 PORTNAME=	calibre
-PORTVERSION=	2.68.0
+PORTVERSION=	2.71.0
 CATEGORIES=	deskutils python
 MASTER_SITES=	http://download.calibre-ebook.com/${PORTVERSION}/
 
 MAINTAINER=	madpilot@FreeBSD.org
 COMMENT=	Ebook management application
+
+LICENSE=	GPLv3
 
 LIB_DEPENDS=	libMagickWand-6.so:graphics/ImageMagick \
 		libfontconfig.so:x11-fonts/fontconfig \
@@ -29,11 +31,11 @@ BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}sip>=0:devel/py-sip \
 		${PYTHON_PKGNAMEPREFIX}dateutil>=0:devel/py-dateutil \
 		${PYTHON_PKGNAMEPREFIX}pillow>=0:graphics/py-pillow \
 		${PYTHON_PKGNAMEPREFIX}lxml>=0:devel/py-lxml \
-		${PYTHON_PKGNAMEPREFIX}cssutils>=0.9.9:www/py-cssutils \
+		${PYTHON_PKGNAMEPREFIX}cssutils>=0.9.9,1:www/py-cssutils \
 		${PYTHON_PKGNAMEPREFIX}apsw>=0:databases/py-apsw
 RUN_DEPENDS=	xdg-open:devel/xdg-utils \
 		${PYTHON_PKGNAMEPREFIX}sip>=0:devel/py-sip \
-		${PYTHON_PKGNAMEPREFIX}cssutils>=0.9.9:www/py-cssutils \
+		${PYTHON_PKGNAMEPREFIX}cssutils>=0.9.9,1:www/py-cssutils \
 		${PYTHON_PKGNAMEPREFIX}dnspython>=0:dns/py-dnspython \
 		${PYTHON_PKGNAMEPREFIX}dateutil>=0:devel/py-dateutil \
 		${PYTHON_PKGNAMEPREFIX}beautifulsoup32>=0:www/py-beautifulsoup32 \
@@ -58,8 +60,8 @@ RUN_DEPENDS=	xdg-open:devel/xdg-utils \
 USE_RC_SUBR=	calibre
 EXTRACT_BEFORE_ARGS=	-x -s '/^calibre/~-src/' -f
 
-USES=		desktop-file-utils gettext-runtime gnome pkgconfig python:2 \
-		shared-mime-info shebangfix ssl tar:xz
+USES=		desktop-file-utils gettext-runtime gnome localbase:ldflags pkgconfig \
+		python:2 shared-mime-info shebangfix ssl tar:xz
 SHEBANG_FILES=	resources/calibre-portable.sh \
 		src/calibre/ebooks/metadata/odt.py \
 		src/calibre/utils/*.py \
@@ -69,8 +71,6 @@ USE_GL=		egl gl
 USE_GNOME=	glib20
 USE_XORG=	xrender xext x11
 WRKSRC=		${WRKDIR}/${PORTNAME}-src-${PORTVERSION}
-CFLAGS+=	-I${LOCALBASE}/include
-LDFLAGS+=	-L${LOCALBASE}/lib
 MAKE_ENV+=	FC_INC_DIR="${LOCALBASE}/include/fontconfig" \
 		FC_LIB_DIR="${LOCALBASE}/lib" \
 		OVERRIDE_CFLAGS="${CFLAGS}" \

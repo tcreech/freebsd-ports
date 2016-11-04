@@ -36,6 +36,7 @@
     SUBDIR += bcrypt
     SUBDIR += bcwipe
     SUBDIR += bdc
+    SUBDIR += bearssl
     SUBDIR += beecrypt
     SUBDIR += belier
     SUBDIR += bfbtester
@@ -49,6 +50,7 @@
     SUBDIR += bsdsfv
     SUBDIR += bsmtrace
     SUBDIR += bugs
+    SUBDIR += bzrtp
     SUBDIR += ca_root_nss
     SUBDIR += calife
     SUBDIR += cardpeek
@@ -179,6 +181,8 @@
     SUBDIR += gpass
     SUBDIR += gpgdir
     SUBDIR += gpgme
+    SUBDIR += gpgme-cpp
+    SUBDIR += gpgme-qt5
     SUBDIR += gputty
     SUBDIR += greenbone-security-assistant
     SUBDIR += gringotts
@@ -265,9 +269,11 @@
     SUBDIR += jbrofuzz
     SUBDIR += john
     SUBDIR += kc
+    SUBDIR += kdbx-viewer
     SUBDIR += kedpm
     SUBDIR += keepass
     SUBDIR += keepassx
+    SUBDIR += keepassx-devel
     SUBDIR += keepassx2
     SUBDIR += keybase
     SUBDIR += keychain
@@ -296,7 +302,6 @@
     SUBDIR += libassuan
     SUBDIR += libbeid
     SUBDIR += libbf
-    SUBDIR += libbzrtp
     SUBDIR += libcryptui
     SUBDIR += libecc
     SUBDIR += libfprint
@@ -341,6 +346,15 @@
     SUBDIR += linux-c6-nss
     SUBDIR += linux-c6-openssl
     SUBDIR += linux-c6-openssl-compat
+    SUBDIR += linux-c7-cyrus-sasl2
+    SUBDIR += linux-c7-gnutls
+    SUBDIR += linux-c7-libgcrypt
+    SUBDIR += linux-c7-libgpg-error
+    SUBDIR += linux-c7-libssh2
+    SUBDIR += linux-c7-libtasn1
+    SUBDIR += linux-c7-nss
+    SUBDIR += linux-c7-openssl
+    SUBDIR += linux-c7-openssl-compat
     SUBDIR += linux-f10-cyrus-sasl2
     SUBDIR += linux-f10-gnutls
     SUBDIR += linux-f10-libgcrypt
@@ -352,7 +366,6 @@
     SUBDIR += lockdown
     SUBDIR += log2timeline
     SUBDIR += logcheck
-    SUBDIR += lsh
     SUBDIR += luasec
     SUBDIR += lynis
     SUBDIR += mac-robber
@@ -361,7 +374,6 @@
     SUBDIR += makepasswd
     SUBDIR += manipulate_data
     SUBDIR += masscan
-    SUBDIR += massh
     SUBDIR += matrixssl
     SUBDIR += mbedtls
     SUBDIR += mcrypt
@@ -380,12 +392,9 @@
     SUBDIR += nacl
     SUBDIR += ncrack
     SUBDIR += ncrypt
-    SUBDIR += nessus
-    SUBDIR += nessus-libnasl
-    SUBDIR += nessus-libraries
-    SUBDIR += nessus-plugins
     SUBDIR += netpgp
     SUBDIR += nettle
+    SUBDIR += ngrok
     SUBDIR += nikto
     SUBDIR += nist-kat
     SUBDIR += nmap
@@ -760,7 +769,6 @@
     SUBDIR += pecl-pam
     SUBDIR += pecl-scrypt
     SUBDIR += pecl-ssh2
-    SUBDIR += pecl-tcpwrap
     SUBDIR += pev
     SUBDIR += pft
     SUBDIR += pgp
@@ -768,10 +776,6 @@
     SUBDIR += pgpgpg
     SUBDIR += pgpin
     SUBDIR += php-suhosin
-    SUBDIR += php55-filter
-    SUBDIR += php55-hash
-    SUBDIR += php55-mcrypt
-    SUBDIR += php55-openssl
     SUBDIR += php56-filter
     SUBDIR += php56-hash
     SUBDIR += php56-mcrypt
@@ -850,6 +854,7 @@
     SUBDIR += py-flask-httpauth
     SUBDIR += py-gnupg
     SUBDIR += py-gnutls
+    SUBDIR += py-gpgme
     SUBDIR += py-gpsoauth
     SUBDIR += py-halberd
     SUBDIR += py-hkdf
@@ -859,8 +864,10 @@
     SUBDIR += py-keyczar
     SUBDIR += py-keyring
     SUBDIR += py-keyrings.alt
+    SUBDIR += py-keystone
     SUBDIR += py-libnacl
     SUBDIR += py-m2crypto
+    SUBDIR += py-maec
     SUBDIR += py-mcrypt
     SUBDIR += py-mhash
     SUBDIR += py-oauth2client
@@ -1019,6 +1026,8 @@
     SUBDIR += rubygem-rex-arch
     SUBDIR += rubygem-rex-bin_tools
     SUBDIR += rubygem-rex-core
+    SUBDIR += rubygem-rex-encoder
+    SUBDIR += rubygem-rex-exploitation
     SUBDIR += rubygem-rex-java
     SUBDIR += rubygem-rex-mime
     SUBDIR += rubygem-rex-nop

@@ -3,6 +3,7 @@
 
 PORTNAME=		mapserver
 PORTVERSION=		7.0.2
+PORTREVISION=		1
 CATEGORIES=		graphics www geography
 MASTER_SITES=		http://download.osgeo.org/mapserver/
 
@@ -125,7 +126,7 @@ CMAKE_ARGS+=		-DWITH_POSTGIS=0
 
 .if ${PORT_OPTIONS:MPHP}
 USES+=			php:build
-IGNORE_WITH_PHP=	55 70
+IGNORE_WITH_PHP=	70
 CMAKE_ARGS+=		-DWITH_PHP=1
 PLIST_SUB+=		PHP=""
 .else

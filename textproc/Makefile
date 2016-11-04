@@ -159,7 +159,10 @@
     SUBDIR += elasticsearch2
     SUBDIR += elasticsearch2-plugin-hq
     SUBDIR += elasticsearch2-plugin-marvel
+    SUBDIR += elasticsearch2-plugin-migration
     SUBDIR += elasticsearch2-plugin-sql
+    SUBDIR += elasticsearch5
+    SUBDIR += elasticsearch5-x-pack
     SUBDIR += elixir-earmark
     SUBDIR += elixir-ex_doc
     SUBDIR += elixir-funnel
@@ -323,6 +326,7 @@
     SUBDIR += ibus-m17n
     SUBDIR += ibus-qt
     SUBDIR += ibus-table
+    SUBDIR += icdiff
     SUBDIR += id-aspell
     SUBDIR += id-hyphen
     SUBDIR += idnits
@@ -363,6 +367,8 @@
     SUBDIR += kibana43
     SUBDIR += kibana44
     SUBDIR += kibana45
+    SUBDIR += kibana50
+    SUBDIR += kibana50-x-pack
     SUBDIR += kmfl-european-latin
     SUBDIR += kmfl-khmer
     SUBDIR += kmfl-sil-ezra
@@ -394,6 +400,7 @@
     SUBDIR += libexttextcat
     SUBDIR += libflate
     SUBDIR += libfo
+    SUBDIR += libgepub
     SUBDIR += libguess
     SUBDIR += libkmfl
     SUBDIR += libkolabxml
@@ -437,6 +444,9 @@
     SUBDIR += linux-c6-aspell
     SUBDIR += linux-c6-expat
     SUBDIR += linux-c6-libxml2
+    SUBDIR += linux-c7-aspell
+    SUBDIR += linux-c7-expat
+    SUBDIR += linux-c7-libxml2
     SUBDIR += linux-f10-aspell
     SUBDIR += linux-f10-expat
     SUBDIR += linux-f10-libxml2
@@ -1157,28 +1167,17 @@
     SUBDIR += pecl-cld
     SUBDIR += pecl-ctemplate
     SUBDIR += pecl-doublemetaphone
-    SUBDIR += pecl-enchant
-    SUBDIR += pecl-html_parse
     SUBDIR += pecl-stem
     SUBDIR += pecl-syck
     SUBDIR += pecl-wbxml
     SUBDIR += pecl-xdiff
+    SUBDIR += pecl-xdiff2
     SUBDIR += pecl-xslcache
     SUBDIR += pecl-yaml
     SUBDIR += peco
     SUBDIR += perl2html
     SUBDIR += permute
     SUBDIR += php-mecab
-    SUBDIR += php55-ctype
-    SUBDIR += php55-dom
-    SUBDIR += php55-enchant
-    SUBDIR += php55-pspell
-    SUBDIR += php55-simplexml
-    SUBDIR += php55-wddx
-    SUBDIR += php55-xml
-    SUBDIR += php55-xmlreader
-    SUBDIR += php55-xmlwriter
-    SUBDIR += php55-xsl
     SUBDIR += php56-ctype
     SUBDIR += php56-dom
     SUBDIR += php56-enchant
@@ -1224,6 +1223,7 @@
     SUBDIR += py-bugzillatools
     SUBDIR += py-chardet
     SUBDIR += py-cloud_sptheme
+    SUBDIR += py-colorclass
     SUBDIR += py-creole
     SUBDIR += py-csvkit
     SUBDIR += py-dbfread
@@ -1307,6 +1307,7 @@
     SUBDIR += py-sphinxcontrib-httpdomain
     SUBDIR += py-sphinxcontrib-programoutput
     SUBDIR += py-syck
+    SUBDIR += py-terminaltables
     SUBDIR += py-texttable
     SUBDIR += py-tinycss
     SUBDIR += py-toronado
@@ -1315,6 +1316,7 @@
     SUBDIR += py-translationstring
     SUBDIR += py-tvgrab
     SUBDIR += py-twistedLore
+    SUBDIR += py-ucl
     SUBDIR += py-whoosh
     SUBDIR += py-wicked
     SUBDIR += py-wordnet
@@ -1483,6 +1485,7 @@
     SUBDIR += rubygem-rmmseg-cpp
     SUBDIR += rubygem-rouge
     SUBDIR += rubygem-rttool
+    SUBDIR += rubygem-ruby_expect
     SUBDIR += rubygem-ruby-augeas
     SUBDIR += rubygem-ruby-xslt
     SUBDIR += rubygem-rubypants

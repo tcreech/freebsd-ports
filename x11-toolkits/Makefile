@@ -11,7 +11,6 @@
     SUBDIR += blt
     SUBDIR += bwidget
     SUBDIR += c++-gtk-utils
-    SUBDIR += elementary
     SUBDIR += flowcanvas
     SUBDIR += fltk
     SUBDIR += fltk-devel
@@ -109,6 +108,11 @@
     SUBDIR += linux-c6-pango
     SUBDIR += linux-c6-qt47-x11
     SUBDIR += linux-c6-tk85
+    SUBDIR += linux-c7-gtk2
+    SUBDIR += linux-c7-openmotif
+    SUBDIR += linux-c7-pango
+    SUBDIR += linux-c7-qt-x11
+    SUBDIR += linux-c7-tk85
     SUBDIR += linux-f10-blt
     SUBDIR += linux-f10-gtk2
     SUBDIR += linux-f10-openmotif
@@ -202,8 +206,6 @@
     SUBDIR += py-sexy
     SUBDIR += py-tkinter
     SUBDIR += py-tktreectrl
-    SUBDIR += py-traitsbackendwx
-    SUBDIR += py-traitsgui
     SUBDIR += py-vte
     SUBDIR += py-wax
     SUBDIR += py-wxPython-common

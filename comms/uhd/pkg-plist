@@ -108,7 +108,7 @@ lib/cmake/uhd/UHDConfigVersion.cmake
 lib/libuhd.so
 lib/libuhd.so.003
 lib/libuhd.so.003.009
-lib/pkgconfig/uhd.pc
+libdata/pkgconfig/uhd.pc
 %%DOXYGEN%%%%DOCSDIR%%/LICENSE
 %%DOXYGEN%%%%DOCSDIR%%/README.md
 %%DOXYGEN%%%%DOCSDIR%%/doxygen/html/Ettus_Logo.png
@@ -119,8 +119,6 @@ lib/pkgconfig/uhd.pc
 %%DOXYGEN%%%%DOCSDIR%%/doxygen/html/algorithm_8hpp_source.html
 %%DOXYGEN%%%%DOCSDIR%%/doxygen/html/annotated.html
 %%DOXYGEN%%%%DOCSDIR%%/doxygen/html/annotated_dup.js
-%%DOXYGEN%%%%DOCSDIR%%/doxygen/html/arrowdown.png
-%%DOXYGEN%%%%DOCSDIR%%/doxygen/html/arrowright.png
 %%DOXYGEN%%%%DOCSDIR%%/doxygen/html/assert__has_8hpp.html
 %%DOXYGEN%%%%DOCSDIR%%/doxygen/html/assert__has_8hpp.js
 %%DOXYGEN%%%%DOCSDIR%%/doxygen/html/assert__has_8hpp_source.html

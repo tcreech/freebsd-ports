@@ -26,6 +26,7 @@
     SUBDIR += bangarang
     SUBDIR += banshee
     SUBDIR += bino
+    SUBDIR += bitstream
     SUBDIR += bombono
     SUBDIR += bsdbktr_tvtune
     SUBDIR += camserv
@@ -55,7 +56,6 @@
     SUBDIR += dvdstyler
     SUBDIR += dvts
     SUBDIR += emby-server
-    SUBDIR += emotion_generic_players-vlc
     SUBDIR += emovix
     SUBDIR += ffdec
     SUBDIR += ffmpeg
@@ -169,6 +169,7 @@
     SUBDIR += kmplayer-kde4
     SUBDIR += kodi
     SUBDIR += kplayer-kde4
+    SUBDIR += kvazaar
     SUBDIR += l-smash
     SUBDIR += libaacs
     SUBDIR += libass
@@ -218,6 +219,8 @@
     SUBDIR += libzen
     SUBDIR += linux-c6-libtheora
     SUBDIR += linux-c6-libv4l
+    SUBDIR += linux-c7-libtheora
+    SUBDIR += linux-c7-libv4l
     SUBDIR += linux-f10-libtheora
     SUBDIR += linux-f10-libv4l
     SUBDIR += linux-tsmuxer
@@ -247,6 +250,7 @@
     SUBDIR += motion
     SUBDIR += mp3cd
     SUBDIR += mp4v2
+    SUBDIR += mpc-qt
     SUBDIR += mpeg2codec
     SUBDIR += mpeg2play
     SUBDIR += mpeg4ip

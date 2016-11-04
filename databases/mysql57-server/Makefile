@@ -136,8 +136,6 @@ PERFSCHM_SUB_LIST_OFF+=	PERFSCHEMRC="--skip-performance-schema"
 .  if !defined(CLIENT_ONLY)
 EXTRA_PATCHES+=		${PATCHDIR}/rapid_plugin-patch-_x_mysqlxtest__src_mysqlxtest.cc
 .  endif
-### Just like deperecated `WITH_OPENSSL_PORT=yes` a workaround for building on 9.X ###
-DEFAULT_VERSIONS+=ssl=openssl
 .endif
 
 .include <bsd.port.pre.mk>
@@ -150,7 +148,7 @@ CMAKE_ARGS+=		-DWITH_SSL=${OPENSSLBASE}
 .endif
 
 post-extract:
-	@${RM} -rvf ${WRKSRC}/sql/sql_hints.yy.cc ${WRKSRC}/sql/sql_hints.yy.h
+	@${RM} -rv ${WRKSRC}/sql/sql_hints.yy.cc ${WRKSRC}/sql/sql_hints.yy.h
 
 post-patch:
 	@${REINPLACE_CMD} 's/*.1/${MMAN1}/' ${WRKSRC}/man/CMakeLists.txt

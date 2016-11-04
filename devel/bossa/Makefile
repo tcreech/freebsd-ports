@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	bossa
-PORTVERSION=	1.7.0.a
+PORTVERSION=	1.7.0
 CATEGORIES=	devel
 
 MAINTAINER=	bsdports@kyle-evans.net
@@ -12,7 +12,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	shumatech
-GH_TAGNAME=	ae08c63
+GH_PROJECT=	${PORTNAME:tu}
 
 USES=		compiler:c++11-lang gmake
 
@@ -20,8 +20,6 @@ CXXFLAGS+=	-I${PREFIX}/include
 LDFLAGS+=	-L${PREFIX}/lib
 
 ALL_TARGET=	bin/bossac
-
-WRKSRC=		${WRKDIR}/${PORTNAME:tu}-${GH_TAGNAME}
 
 OPTIONS_DEFINE=		BOSSA BOSSASH
 OPTIONS_DEFAULT=	BOSSASH

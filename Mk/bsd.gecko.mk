@@ -85,7 +85,7 @@ MOZILLA_VER?=	${PORTVERSION}
 MOZILLA_BIN?=	${PORTNAME}-bin
 MOZILLA_EXEC_NAME?=${MOZILLA}
 MOZ_RPATH?=	${MOZILLA}
-USES+=		cpe compiler:c++11-lang gmake iconv perl5 pkgconfig \
+USES+=		cpe gmake iconv perl5 pkgconfig \
 			python:2.7,build desktop-file-utils
 CPE_VENDOR?=mozilla
 USE_PERL5=	build
@@ -95,10 +95,13 @@ USE_XORG=	x11 xcomposite xdamage xext xfixes xrender xt
 BUNDLE_LIBS=	yes
 .endif
 
-# call to implicitly-deleted copy constructor of 'mozilla::WidevineVideoFrame'
-. if ${OPSYS} == FreeBSD && ${OSVERSION} < 1000019 && ${MOZILLA_VER:R:R} >= 49
-# XXX USES=compiler:c++11-lib cannot be used due to ports/208538
-USE_GCC=	5+
+.if ${MOZILLA_VER:R:R} >= 49
+USES+=		compiler:c++14-lang
+FAVORITE_COMPILER=	${COMPILER_TYPE} # c++14-lib
+CPPFLAGS+=	-D_GLIBCXX_USE_C99 -D_GLIBCXX_USE_C99_MATH_TR1 \
+			-D_DECLARE_C99_LDBL_MATH # XXX ports/193528
+.else
+USES+=		compiler:c++11-lang
 .endif
 
 MOZILLA_SUFX?=	none
@@ -137,12 +140,7 @@ LDFLAGS+=		-L${LOCALBASE}/lib \
 .if ${OPSYS} != DragonFly # XXX xpcshell crash during install
 # use jemalloc 3.0.0 (4.0 for firefox 43+) API for stats/tuning
 MOZ_EXPORT+=	MOZ_JEMALLOC3=1 MOZ_JEMALLOC4=1
-.if ${OPSYS} == FreeBSD && ${OSVERSION} >= 1100079
-. if ${MOZILLA_VER:R:R} < 43
-# system jemalloc 4.0.0 vs. bundled jemalloc 3.6.0-204-gb4acf73
-EXTRA_PATCHES+=	${FILESDIR}/extra-patch-bug1125514
-. endif
-.elif ${OPSYS} != FreeBSD || ${OSVERSION} < 1000012 || ${MOZILLA_VER:R:R} >= 37
+.if ${OPSYS} != FreeBSD || ${OSVERSION} < 1000012 || ${MOZILLA_VER:R:R} >= 37
 . if ${MOZILLA_VER:R:R} >= 48
 MOZ_OPTIONS+=	--enable-jemalloc=4
 .else
@@ -152,7 +150,7 @@ MOZ_OPTIONS+=	--enable-jemalloc
 .endif # !DragonFly
 
 # Standard depends
-_ALL_DEPENDS=	cairo event ffi graphite harfbuzz hunspell icu jpeg nspr nss opus png pixman soundtouch sqlite vpx
+_ALL_DEPENDS=	cairo event ffi graphite harfbuzz hunspell icu jpeg nspr nss png pixman soundtouch sqlite vpx
 
 .if ${PORT_OPTIONS:MINTEGER_SAMPLES}
 MOZ_EXPORT+=	MOZ_INTEGER_SAMPLES=1
@@ -197,11 +195,6 @@ nspr_MOZ_OPTIONS=	--with-system-nspr
 
 nss_LIB_DEPENDS=	libnss3.so:security/nss
 nss_MOZ_OPTIONS=	--with-system-nss
-
-.if exists(${FILESDIR}/patch-z-bug517422) && ${MOZILLA_VER:R:R} < 45
-opus_LIB_DEPENDS=	libopus.so:audio/opus
-opus_MOZ_OPTIONS=	--with-system-opus
-.endif
 
 pixman_LIB_DEPENDS=	libpixman-1.so:x11/pixman
 pixman_MOZ_OPTIONS=	--enable-system-pixman
@@ -273,8 +266,7 @@ MOZ_OPTIONS+=	--enable-necko-protocols=${MOZ_PROTOCOLS}
 .endif
 # others
 MOZ_OPTIONS+=	--with-system-zlib		\
-		--with-system-bz2		\
-		--disable-debug-symbols
+		--with-system-bz2
 
 # API keys from www/chromium 
 # http://www.chromium.org/developers/how-tos/api-keys
@@ -290,10 +282,7 @@ MOZ_TOOLKIT=	cairo-gtk3
 
 .if ${MOZ_TOOLKIT:Mcairo-gtk3}
 BUILD_DEPENDS+=	gtk3>=3.14.6:x11-toolkits/gtk30
-USE_GNOME+=	gdkpixbuf2 gtk30
-. if ${MOZILLA_VER:R:R} >= 32
-USE_GNOME+= gtk20 # bug 624422
-. endif
+USE_GNOME+=	gdkpixbuf2 gtk20 gtk30
 .else # gtk2, cairo-gtk2
 USE_GNOME+=	gdkpixbuf2 gtk20
 .endif
@@ -325,11 +314,7 @@ MOZ_OPTIONS+=	--disable-dbus
 RUN_DEPENDS+=	ffmpeg>=0.8,1:multimedia/ffmpeg
 .endif
 
-.if ${PORT_OPTIONS:MGSTREAMER}
-RUN_DEPENDS+=	gstreamer1-libav>=1.2.4_1:multimedia/gstreamer1-libav
-USE_GSTREAMER1?=good libav
-MOZ_OPTIONS+=	--enable-gstreamer=1.0
-.elif ${MOZILLA_VER:R:R} < 46
+.if ${MOZILLA_VER:R:R} < 46
 MOZ_OPTIONS+=	--disable-gstreamer
 .endif
 
@@ -383,7 +368,6 @@ MOZ_OPTIONS+=	--enable-pulseaudio
 MOZ_OPTIONS+=	--disable-pulseaudio
 .endif
 
-.if ${MOZILLA_VER:R:R} >= 40
 .if ${PORT_OPTIONS:MRUST}
 BUILD_DEPENDS+=	rustc:${RUST_PORT}
 RUST_PORT?=		lang/rust
@@ -391,13 +375,12 @@ MOZ_OPTIONS+=	--enable-rust
 .else
 MOZ_OPTIONS+=	--disable-rust
 .endif
-.endif
 
 .if ${PORT_OPTIONS:MDEBUG}
 MOZ_OPTIONS+=	--enable-debug --disable-release
 STRIP=	# ports/184285
 .else
-MOZ_OPTIONS+=	--disable-debug --enable-release
+MOZ_OPTIONS+=	--disable-debug --disable-debug-symbols --enable-release
 .endif
 
 .if ${PORT_OPTIONS:MDTRACE}
@@ -409,14 +392,6 @@ LIBS+=			-lelf
 STRIP=
 .else
 MOZ_OPTIONS+=	--disable-dtrace
-.endif
-
-.if ${MOZILLA_VER:R:R} < 40
-. if ${PORT_OPTIONS:MLOGGING} || ${PORT_OPTIONS:MDEBUG}
-MOZ_OPTIONS+=	--enable-logging
-. else
-MOZ_OPTIONS+=	--disable-logging
-. endif
 .endif
 
 .if ${PORT_OPTIONS:MPROFILE}
@@ -515,7 +490,7 @@ gecko-post-patch:
 .if exists(${PKGDEINSTALL_INC})
 	@${MOZCONFIG_SED} < ${PKGDEINSTALL_INC} > ${PKGDEINSTALL}
 .endif
-	@${RM} -f ${MOZCONFIG}
+	@${RM} ${MOZCONFIG}
 .if !defined(NOMOZCONFIG)
 	@if [ -e ${PORT_MOZCONFIG} ] ; then \
 		${MOZCONFIG_SED} < ${PORT_MOZCONFIG} >> ${MOZCONFIG} ; \
@@ -606,7 +581,7 @@ post-install-script: gecko-create-plist
 
 gecko-create-plist:
 # Create the plist
-	${RM} -f ${PLISTF}
+	${RM} ${PLISTF}
 .for dir in ${MOZILLA_PLIST_DIRS}
 	@cd ${STAGEDIR}${PREFIX}/${dir} && ${FIND} -H -s * ! -type d | \
 		${SED} -e 's|^|${dir}/|' >> ${PLISTF}
