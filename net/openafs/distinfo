@@ -1,7 +1,7 @@
-TIMESTAMP = 1470502567
-SHA256 (openafs-1.6.18.3-src.tar.bz2) = b9cb45fdfd2aab543363e64da0b56167bfc1a302afdbcd5a076fb704a0c16a70
-SIZE (openafs-1.6.18.3-src.tar.bz2) = 14668811
-SHA256 (openafs-1.6.18.3-doc.tar.bz2) = 96644f5c53827e4e37738899f9b0215c880c180c98501e0c59566d927694e506
-SIZE (openafs-1.6.18.3-doc.tar.bz2) = 3531415
+TIMESTAMP = 1478962244
+SHA256 (openafs-1.6.19-src.tar.bz2) = 3c7bb8e6ec94f72f1c8668eaa3d15306bd4555eebee12aa3b4a3cf2ab7747b5f
+SIZE (openafs-1.6.19-src.tar.bz2) = 14666702
+SHA256 (openafs-1.6.19-doc.tar.bz2) = 01728d27e2a8cf882f4a539e6468b6a6a010d17a934b0108be7d2f33910f9114
+SIZE (openafs-1.6.19-doc.tar.bz2) = 3533355
 SHA256 (CellServDB.2016-01-01) = ef37a1cc73c90619e9b6a0ab0fa8602c57c9da8ae5e65aab96cb17e2bc1bf70e
 SIZE (CellServDB.2016-01-01) = 37058
