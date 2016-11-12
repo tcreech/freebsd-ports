@@ -1,4 +1,4 @@
---- src/afs/VNOPS/afs_vnop_write.c.orig	2015-10-26 15:19:56 UTC
+--- src/afs/VNOPS/afs_vnop_write.c.orig	2016-08-03 14:45:27 UTC
 +++ src/afs/VNOPS/afs_vnop_write.c
 @@ -281,7 +281,7 @@ afs_MemWrite(struct vcache *avc, struct 
  #endif
