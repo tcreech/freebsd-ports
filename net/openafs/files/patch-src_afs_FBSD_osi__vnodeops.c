@@ -1,4 +1,4 @@
---- src/afs/FBSD/osi_vnodeops.c.orig	2016-08-03 14:45:27 UTC
+--- src/afs/FBSD/osi_vnodeops.c.orig	2016-11-10 16:56:30 UTC
 +++ src/afs/FBSD/osi_vnodeops.c
 @@ -79,7 +79,6 @@ static vop_mkdir_t	afs_vop_mkdir;
  static vop_mknod_t	afs_vop_mknod;
@@ -66,12 +66,16 @@
      struct vnode *vp;
      struct vcache *avc;
  
-@@ -806,52 +805,50 @@ afs_vop_getpages(struct vop_getpages_arg
+@@ -806,52 +805,80 @@ afs_vop_getpages(struct vop_getpages_arg
  
      vp = ap->a_vp;
      avc = VTOAFS(vp);
 +    pages = ap->a_m;
++#ifdef AFS_FBSD110_ENV
 +    npages = ap->a_count;
++#else
++    npages = btoc(ap->a_count);
++#endif
 +
      if ((object = vp->v_object) == NULL) {
 -	printf("afs_getpages: called with non-merged cache vnode??\n");
@@ -89,7 +93,14 @@
 -
      {
 -	vm_page_t m = ap->a_m[ap->a_reqpage];
--
++#ifdef AFS_FBSD110_ENV
++        AFS_VM_OBJECT_WLOCK(object);
++        ma_vm_page_lock_queues();
++        if(pages[npages - 1]->valid != 0) {
++            if (--npages == 0) {
++                ma_vm_page_unlock_queues();
++                AFS_VM_OBJECT_WUNLOCK(object);
+ 
 -	AFS_VM_OBJECT_WLOCK(object);
 -	ma_vm_page_lock_queues();
 -	if (m->valid != 0) {
@@ -108,19 +119,33 @@
 -	}
 -	ma_vm_page_unlock_queues();
 -	AFS_VM_OBJECT_WUNLOCK(object);
-+        AFS_VM_OBJECT_WLOCK(object);
-+        ma_vm_page_lock_queues();
-+        if(pages[npages - 1]->valid != 0) {
-+            if (--npages == 0) {
-+                ma_vm_page_unlock_queues();
-+                AFS_VM_OBJECT_WUNLOCK(object);
 +                if (ap->a_rbehind)
 +                    *ap->a_rbehind = 0;
 +                if (ap->a_rahead)
 +                    *ap->a_rahead = 0;
++
 +                return (VM_PAGER_OK);
 +            }
 +        }
++#else
++        vm_page_t m = pages[ap->a_reqpage];
++        AFS_VM_OBJECT_WLOCK(object);
++        ma_vm_page_lock_queues();
++        if (m->valid != 0) {
++            /* handled by vm_fault now        */
++            /* vm_page_zero_invalid(m, TRUE); */
++            for (i = 0; i < npages; ++i) {
++                if (i != ap->a_reqpage) {
++                    ma_vm_page_lock(pages[i]);
++                    vm_page_free(pages[i]);
++                    ma_vm_page_unlock(pages[i]);
++                }
++            }
++            ma_vm_page_unlock_queues();
++            AFS_VM_OBJECT_WUNLOCK(object);
++            return (0);
++        }
++#endif
 +        ma_vm_page_unlock_queues();
 +        AFS_VM_OBJECT_WUNLOCK(object);
      }
@@ -132,7 +157,11 @@
      MA_PCPU_INC(cnt.v_vnodein);
      MA_PCPU_ADD(cnt.v_vnodepgsin, npages);
  
++#ifdef AFS_FBSD110_ENV
 +    count = npages << PAGE_SHIFT;
++#else
++    count = ap->a_count;
++#endif
      iov.iov_base = (caddr_t) kva;
 -    iov.iov_len = ap->a_count;
 +    iov.iov_len = count;
@@ -145,21 +174,24 @@
      uio.uio_segflg = UIO_SYSSPACE;
      uio.uio_rw = UIO_READ;
      uio.uio_td = curthread;
-@@ -864,91 +861,49 @@ afs_vop_getpages(struct vop_getpages_arg
+@@ -864,91 +891,105 @@ afs_vop_getpages(struct vop_getpages_arg
  
      relpbuf(bp, &afs_pbuf_freecnt);
  
 -    if (code && (uio.uio_resid == ap->a_count)) {
--	AFS_VM_OBJECT_WLOCK(object);
--	ma_vm_page_lock_queues();
--	for (i = 0; i < npages; ++i) {
--	    if (i != ap->a_reqpage)
--		vm_page_free(ap->a_m[i]);
--	}
--	ma_vm_page_unlock_queues();
--	AFS_VM_OBJECT_WUNLOCK(object);
--	return VM_PAGER_ERROR;
 +    if (code && (uio.uio_resid == count)) {
++#ifndef AFS_FBSD110_ENV
+ 	AFS_VM_OBJECT_WLOCK(object);
+ 	ma_vm_page_lock_queues();
+ 	for (i = 0; i < npages; ++i) {
+ 	    if (i != ap->a_reqpage)
+-		vm_page_free(ap->a_m[i]);
++		vm_page_free(pages[i]);
+ 	}
+ 	ma_vm_page_unlock_queues();
+ 	AFS_VM_OBJECT_WUNLOCK(object);
+-	return VM_PAGER_ERROR;
++#endif
 +        return VM_PAGER_ERROR;
      }
  
@@ -205,11 +237,26 @@
 -	    vm_page_set_validclean(m, 0, size - toff);
 -	    KASSERT(m->dirty == 0, ("afs_getpages: page %p is dirty", m));
 -	}
--
++        } else if (size > toff) {
++            /*
++             * Read operation filled a partial page.
++             */
++            m->valid = 0;
++#ifdef AFS_FBSD110_ENV
++            vm_page_set_valid_range(m, 0, size - toff);
++#else
++            vm_page_set_validclean(m, 0, size - toff);
++#endif
++            KASSERT(m->dirty == 0, ("afs_getpages: page %p is dirty", m));
++        }
+ 
 -	if (i != ap->a_reqpage) {
--#if __FreeBSD_version >= 1000042
++#ifndef AFS_FBSD110_ENV
++        if (i != ap->a_reqpage) {
+ #if __FreeBSD_version >= 1000042
 -	    vm_page_readahead_finish(m);
--#else
++            vm_page_readahead_finish(m);
+ #else
 -	    /*
 -	     * Whether or not to leave the page activated is up in
 -	     * the air, but we should put the page on a page queue
@@ -217,26 +264,31 @@
 -	     * It appears that emperical results show that
 -	     * deactivating pages is best.
 -	     */
-+        } else if (size > toff) {
 +            /*
-+             * Read operation filled a partial page.
++             * Whether or not to leave the page activated is up in
++             * the air, but we should put the page on a page queue
++             * somewhere (it already is in the object).  Result:
++             * It appears that emperical results show that
++             * deactivating pages is best.
 +             */
-+            m->valid = 0;
-+            vm_page_set_valid_range(m, 0, size - toff);
-+            KASSERT(m->dirty == 0,
-+                    ("afs_getpages: page %p is dirty", m));
-+        }
  
 -	    /*
 -	     * Just in case someone was asking for this page we
 -	     * now tell them that it is ok to use.
 -	     */
 -	    if (!code) {
--#if defined(AFS_FBSD70_ENV)
++            /*
++             * Just in case someone was asking for this page we
++             * now tell them that it is ok to use.
++             */
++            if (!code) {
+ #if defined(AFS_FBSD70_ENV)
 -		if (m->oflags & VPO_WANTED) {
--#else
++                if (m->oflags & VPO_WANTED) {
+ #else
 -		if (m->flags & PG_WANTED) {
--#endif
++                if (m->flags & PG_WANTED) {
+ #endif
 -		    ma_vm_page_lock(m);
 -		    vm_page_activate(m);
 -		    ma_vm_page_unlock(m);
@@ -252,21 +304,40 @@
 -		vm_page_free(m);
 -		ma_vm_page_unlock(m);
 -	    }
--#endif	/* __FreeBSD_version 1000042 */
++                    ma_vm_page_lock(m);
++                    vm_page_activate(m);
++                    ma_vm_page_unlock(m);
++                }
++                else {
++                    ma_vm_page_lock(m);
++                    vm_page_deactivate(m);
++                    ma_vm_page_unlock(m);
++                }
++                vm_page_wakeup(m);
++            } else {
++                ma_vm_page_lock(m);
++                vm_page_free(m);
++                ma_vm_page_unlock(m);
++            }
+ #endif	/* __FreeBSD_version 1000042 */
 -	}
++        }
++#endif   /* ndef AFS_FBSD110_ENV */
      }
      ma_vm_page_unlock_queues();
      AFS_VM_OBJECT_WUNLOCK(object);
 -    return 0;
++#ifdef AFS_FBSD110_ENV
 +    if (ap->a_rbehind)
 +        *ap->a_rbehind = 0;
 +    if (ap->a_rahead)
 +        *ap->a_rahead = 0;
++#endif
 +    return VM_PAGER_OK;
  }
  
  int
-@@ -977,7 +932,6 @@ afs_vop_write(ap)
+@@ -977,7 +1018,6 @@ afs_vop_write(ap)
   *	int a_count;
   *	int a_sync;
   *	int *a_rtvals;
@@ -274,7 +345,7 @@
   * };
   */
  /*
-@@ -1081,22 +1035,6 @@ afs_vop_ioctl(ap)
+@@ -1081,22 +1121,6 @@ afs_vop_ioctl(ap)
      }
  }
  
@@ -297,7 +368,7 @@
  int
  afs_vop_fsync(ap)
       struct vop_fsync_args	/* {
-@@ -1589,12 +1527,21 @@ afs_vop_advlock(ap)
+@@ -1589,12 +1613,21 @@ afs_vop_advlock(ap)
  				 * int  a_flags;
  				 * } */ *ap;
  {
