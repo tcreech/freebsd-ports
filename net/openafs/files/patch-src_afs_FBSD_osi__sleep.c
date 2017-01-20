@@ -91,15 +91,18 @@
  } afs_event_t;
  
  #define HASHSIZE 128
-@@ -118,6 +117,7 @@ afs_getevent(char *event)
+@@ -118,6 +117,10 @@ afs_getevent(char *event)
  	afs_evhashcnt++;
  	newp->next = afs_evhasht[hashcode];
  	afs_evhasht[hashcode] = newp;
-+    cv_init(&newp->cond, "event cond var");
++    char *cv_name = (char*)afs_osi_Alloc_NoSleep(10);
++    static int cv_count = 0;
++    snprintf(cv_name, 9, "CV %04d", cv_count++);
++    cv_init(&newp->cond, event == &waitV ? "waitV" : cv_name);
  	newp->seq = 0;
      }
      newp->event = event;
-@@ -139,7 +139,7 @@ afs_osi_Sleep(void *event)
+@@ -139,7 +142,7 @@ afs_osi_Sleep(void *event)
      seq = evp->seq;
      while (seq == evp->seq) {
  	AFS_ASSERT_GLOCK();
@@ -108,7 +111,7 @@
      }
      relevent(evp);
  }
-@@ -173,14 +173,15 @@ afs_osi_TimedSleep(void *event, afs_int3
+@@ -173,14 +176,15 @@ afs_osi_TimedSleep(void *event, afs_int3
      ticks = tvtohz(&tv);
  
      evp = afs_getevent(event);
@@ -131,7 +134,7 @@
      relevent(evp);
      return code;
  }
-@@ -194,7 +195,7 @@ afs_osi_Wakeup(void *event)
+@@ -194,7 +198,7 @@ afs_osi_Wakeup(void *event)
      evp = afs_getevent(event);
      if (evp->refcount > 1) {
  	evp->seq++;
