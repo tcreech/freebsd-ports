@@ -1,4 +1,4 @@
---- src/afs/FBSD/osi_vnodeops.c.orig	2016-11-10 16:56:30 UTC
+--- src/afs/FBSD/osi_vnodeops.c.orig	2016-11-30 20:06:42 UTC
 +++ src/afs/FBSD/osi_vnodeops.c
 @@ -79,7 +79,6 @@ static vop_mkdir_t	afs_vop_mkdir;
  static vop_mknod_t	afs_vop_mknod;
@@ -33,7 +33,90 @@
      {&vop_print_desc, (vop_t *) afs_vop_print},	/* print */
      {&vop_read_desc, (vop_t *) afs_vop_read},	/* read */
      {&vop_readdir_desc, (vop_t *) afs_vop_readdir},	/* readdir */
-@@ -592,6 +589,7 @@ afs_vop_create(ap)
+@@ -495,6 +492,9 @@ afs_vop_lookup(ap)
+ #ifndef AFS_FBSD80_ENV
+     struct thread *p = ap->a_cnp->cn_thread;
+ #endif
++    int nmlen = ap->a_cnp->cn_namelen;
++    char *cname = ap->a_cnp->cn_nameptr;
++    int isdot = (nmlen == 1 && cname[0] == '.');
+ 
+     dvp = ap->a_dvp;
+     if (dvp->v_type != VDIR) {
+@@ -512,6 +512,14 @@ afs_vop_lookup(ap)
+     lockparent = flags & LOCKPARENT;
+     wantparent = flags & (LOCKPARENT | WANTPARENT);
+ 
++    if (0 && isdot) {
++        afs_warn("isdot: no afs_lookup.\n");
++        VREF(dvp);
++        *ap->a_vpp = dvp;
++        error = 0;
++        goto out;
++    }
++
+ #if __FreeBSD_version < 1000021
+     cnp->cn_flags |= MPSAFE; /* steel */
+ #endif
+@@ -542,27 +550,30 @@ afs_vop_lookup(ap)
+      * we also always return the vnode locked. */
+ 
+     if (flags & ISDOTDOT) {
++        if(vp == dvp) panic("ISDOTDOT and vp == dvp");
+ 	/* vp before dvp since we go root to leaf, and .. comes first */
+-	ma_vn_lock(vp, LK_EXCLUSIVE | LK_RETRY, p);
+-	ma_vn_lock(dvp, LK_EXCLUSIVE | LK_RETRY, p);
+-	/* always return the child locked */
+-	if (lockparent && (flags & ISLASTCN)
+-	    && (error = ma_vn_lock(dvp, LK_EXCLUSIVE, p))) {
+-	    vput(vp);
+-	    DROPNAME();
+-	    return (error);
+-	}
+-    } else if (vp == dvp) {
+-	/* they're the same; afs_lookup() already ref'ed the leaf.
+-	 * It came in locked, so we don't need to ref OR lock it */
+-    } else {
+-	if (!lockparent || !(flags & ISLASTCN)) {
+-#ifndef AFS_FBSD70_ENV /* 6 too? */
+-	    MA_VOP_UNLOCK(dvp, 0, p);	/* done with parent. */
+-#endif
+-	}
+-	ma_vn_lock(vp, LK_EXCLUSIVE | LK_CANRECURSE | LK_RETRY, p);
+ 	/* always return the child locked */
++	ma_vn_lock(vp, LK_EXCLUSIVE | LK_RETRY, p);
++        /* I guess we always lock dvp regardless of LOCKPARENT and ISLASTCN. */
++        ma_vn_lock(dvp, LK_EXCLUSIVE | LK_RETRY, p);
++        if ((dvp->v_iflag & VI_DOOMED) != 0) panic("need to handle some DOOM");
++        if (VOP_ISLOCKED(vp) != LK_EXCLUSIVE)  afs_warn("ISDOTDOT: vp  not locked.\n");
++        if (VOP_ISLOCKED(dvp) != LK_EXCLUSIVE) afs_warn("ISDOTDOT: dvp not locked.\n");
++    } else if (vp != dvp) {
++        /* If they were the same, afs_lookup() already ref'ed the leaf.  It
++         * came in locked, so we didn't need to ref OR lock it.  Otherwise,
++         * lock dvp and vp according to flags. */
++
++        /* Return the parent unlocked unless LOCKPARENT and ISLASTCN are
++            * both specified. */
++        if (0 && !(lockparent && (flags & ISLASTCN))) {
++            MA_VOP_UNLOCK(dvp, 0, p);
++        }
++
++        /* always return the child locked */
++        ma_vn_lock(vp, LK_EXCLUSIVE | LK_CANRECURSE | LK_RETRY, p);
++        if (VOP_ISLOCKED(vp) != LK_EXCLUSIVE)  afs_warn("NORMAL: vp  not locked.\n");
++        if (VOP_ISLOCKED(dvp) != LK_EXCLUSIVE) afs_warn("NORMAL: dvp not locked.\n");
+     }
+     *ap->a_vpp = vp;
+ 
+@@ -570,6 +581,7 @@ afs_vop_lookup(ap)
+ 	|| (cnp->cn_nameiop != LOOKUP && (flags & ISLASTCN)))
+ 	cnp->cn_flags |= SAVENAME;
+ 
++out:
+     DROPNAME();
+     return error;
+ }
+@@ -592,6 +604,7 @@ afs_vop_create(ap)
      GETNAME();
  
      AFS_GLOCK();
@@ -41,7 +124,7 @@
      error =
  	afs_create(VTOAFS(dvp), name, ap->a_vap,
  		   ap->a_vap->va_vaflags & VA_EXCLUSIVE ? EXCL : NONEXCL,
-@@ -784,20 +782,21 @@ afs_vop_read(ap)
+@@ -784,20 +797,21 @@ afs_vop_read(ap)
   *	struct vnode *a_vp;
   *	vm_page_t *a_m;
   *	int a_count;
@@ -66,7 +149,7 @@
      struct vnode *vp;
      struct vcache *avc;
  
-@@ -806,52 +805,80 @@ afs_vop_getpages(struct vop_getpages_arg
+@@ -806,52 +820,80 @@ afs_vop_getpages(struct vop_getpages_arg
  
      vp = ap->a_vp;
      avc = VTOAFS(vp);
@@ -174,7 +257,7 @@
      uio.uio_segflg = UIO_SYSSPACE;
      uio.uio_rw = UIO_READ;
      uio.uio_td = curthread;
-@@ -864,91 +891,105 @@ afs_vop_getpages(struct vop_getpages_arg
+@@ -864,91 +906,105 @@ afs_vop_getpages(struct vop_getpages_arg
  
      relpbuf(bp, &afs_pbuf_freecnt);
  
@@ -337,7 +420,7 @@
  }
  
  int
-@@ -977,7 +1018,6 @@ afs_vop_write(ap)
+@@ -977,7 +1033,6 @@ afs_vop_write(ap)
   *	int a_count;
   *	int a_sync;
   *	int *a_rtvals;
@@ -345,7 +428,7 @@
   * };
   */
  /*
-@@ -1081,22 +1121,6 @@ afs_vop_ioctl(ap)
+@@ -1081,22 +1136,6 @@ afs_vop_ioctl(ap)
      }
  }
  
@@ -368,7 +451,7 @@
  int
  afs_vop_fsync(ap)
       struct vop_fsync_args	/* {
-@@ -1589,12 +1613,21 @@ afs_vop_advlock(ap)
+@@ -1589,12 +1628,21 @@ afs_vop_advlock(ap)
  				 * int  a_flags;
  				 * } */ *ap;
  {
