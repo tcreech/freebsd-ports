@@ -12,35 +12,56 @@
  afs_int32 afs_maxvcount = 0;	/* max number of vcache entries */
  afs_int32 afs_vcount = 0;	/* number of vcache in use now */
  
-@@ -1754,7 +1759,7 @@ afs_GetVCache(struct VenusFid *afid, str
+@@ -1621,7 +1626,6 @@ afs_RemoteLookup(struct VenusFid *afid, 
+     return code;
+ }
+ 
+-
+ /*!
+  * afs_GetVCache
+  *
+@@ -1754,19 +1758,31 @@ afs_GetVCache(struct VenusFid *afid, str
  	if (!iheldthelock)
  	    VOP_UNLOCK(vp, LK_EXCLUSIVE, current_proc());
  #elif defined(AFS_FBSD80_ENV)
 -	iheldthelock = VOP_ISLOCKED(vp);
-+	iheldthelock = VOP_ISLOCKED(vp) == LK_EXCLUSIVE;
- 	if (!iheldthelock) {
- 	    /* nosleep/sleep lock order reversal */
- 	    int glocked = ISAFS_GLOCK();
-@@ -1764,7 +1769,21 @@ afs_GetVCache(struct VenusFid *afid, str
- 	    if (glocked)
- 		AFS_GLOCK();
- 	}
+-	if (!iheldthelock) {
+-	    /* nosleep/sleep lock order reversal */
+-	    int glocked = ISAFS_GLOCK();
+-	    if (glocked)
+-		AFS_GUNLOCK();
+-	    vn_lock(vp, LK_EXCLUSIVE | LK_RETRY);
+-	    if (glocked)
+-		AFS_GLOCK();
+-	}
 -	vinvalbuf(vp, V_SAVE, PINOD, 0); /* changed late in 8.0-CURRENT */
-+    int glocked_again = ISAFS_GLOCK();
-+    // vinvalbuf can sleep; don't hold the lock.
-+    if (glocked_again)
-+        AFS_GUNLOCK();
-+    // Skip vinvalbuf if we're a pager.
-+    if( vp && vp->v_bufobj.bo_object &&
-+            vp->v_bufobj.bo_object->paging_in_progress) {
+-	if (!iheldthelock)
+-	    VOP_UNLOCK(vp, 0);
++    // Locking the vp here is very problematic: whether we drop or keep the
++    // GLOCK to do it, deadlocks are possible and do occur.
++    // Nor does it seem feasible to insist that we always have a locked vp at
++    // this point; it may have just been created, or the calling FBSD code may
++    // not have had even known the vp yet. (E.g., when using "afs_lookup".)
++    // For now, only do the vinvalbuf when we already have the vp locked.
++    if (VOP_ISLOCKED(vp) == LK_EXCLUSIVE) {
++        int glocked_again = ISAFS_GLOCK();
++        // Skip vinvalbuf if we're a pager or else we deadlock waiting for
++        // ourselves.
++        if( vp && vp->v_bufobj.bo_object &&
++                vp->v_bufobj.bo_object->paging_in_progress) {
 +            afs_warn("warning: this object has paging_in_progress=%d!\n",
 +                    vp->v_bufobj.bo_object->paging_in_progress);
 +            afs_warn("info: object=%p ; vp = %p\n", vp->v_bufobj.bo_object, vp);
-+    } else {
-+	    vinvalbuf(vp, V_SAVE, PINOD, 0); /* changed late in 8.0-CURRENT */
++        } else {
++            // vinvalbuf can sleep; don't hold the lock.
++            // TODO: with the sx-based GLOCK, do we need to drop it?
++            if (0 && glocked_again)
++                AFS_GUNLOCK();
++            vinvalbuf(vp, V_SAVE, PINOD, 0); /* changed late in 8.0-CURRENT */
++            if (0 && glocked_again)
++                AFS_GLOCK();
++        }
 +    }
-+    if (glocked_again)
-+        AFS_GLOCK();
- 	if (!iheldthelock)
- 	    VOP_UNLOCK(vp, 0);
  #elif defined(AFS_FBSD60_ENV)
+ 	iheldthelock = VOP_ISLOCKED(vp, curthread);
+ 	if (!iheldthelock)
