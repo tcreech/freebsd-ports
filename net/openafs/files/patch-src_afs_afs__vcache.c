@@ -20,7 +20,7 @@
  /*!
   * afs_GetVCache
   *
-@@ -1754,19 +1758,31 @@ afs_GetVCache(struct VenusFid *afid, str
+@@ -1754,19 +1758,25 @@ afs_GetVCache(struct VenusFid *afid, str
  	if (!iheldthelock)
  	    VOP_UNLOCK(vp, LK_EXCLUSIVE, current_proc());
  #elif defined(AFS_FBSD80_ENV)
@@ -44,7 +44,6 @@
 +    // not have had even known the vp yet. (E.g., when using "afs_lookup".)
 +    // For now, only do the vinvalbuf when we already have the vp locked.
 +    if (VOP_ISLOCKED(vp) == LK_EXCLUSIVE) {
-+        int glocked_again = ISAFS_GLOCK();
 +        // Skip vinvalbuf if we're a pager or else we deadlock waiting for
 +        // ourselves.
 +        if( vp && vp->v_bufobj.bo_object &&
@@ -53,13 +52,8 @@
 +                    vp->v_bufobj.bo_object->paging_in_progress);
 +            afs_warn("info: object=%p ; vp = %p\n", vp->v_bufobj.bo_object, vp);
 +        } else {
-+            // vinvalbuf can sleep; don't hold the lock.
-+            // TODO: with the sx-based GLOCK, do we need to drop it?
-+            if (0 && glocked_again)
-+                AFS_GUNLOCK();
++            // Note: we can hold our sx(9)-based GLOCK here.
 +            vinvalbuf(vp, V_SAVE, PINOD, 0); /* changed late in 8.0-CURRENT */
-+            if (0 && glocked_again)
-+                AFS_GLOCK();
 +        }
 +    }
  #elif defined(AFS_FBSD60_ENV)

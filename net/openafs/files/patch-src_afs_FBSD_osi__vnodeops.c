@@ -33,7 +33,25 @@
      {&vop_print_desc, (vop_t *) afs_vop_print},	/* print */
      {&vop_read_desc, (vop_t *) afs_vop_read},	/* read */
      {&vop_readdir_desc, (vop_t *) afs_vop_readdir},	/* readdir */
-@@ -495,6 +492,9 @@ afs_vop_lookup(ap)
+@@ -339,17 +336,12 @@ afs_vop_unlock(ap)
+     int code = 0;
+     u_int op;
+     op = ((ap->a_flags) | LK_RELEASE) & LK_TYPE_MASK;
+-    int glocked = ISAFS_GLOCK();
+-    if (glocked)
+-	AFS_GUNLOCK();
+     if ((op & (op - 1)) != 0) {
+       afs_warn("afs_vop_unlock: Shit.\n");
+       goto done;
+     }
+     code = lockmgr(lkp, ap->a_flags | LK_RELEASE, VI_MTX(vp));
+  done:
+-    if (glocked)
+-	AFS_GLOCK();
+     return(code);
+ #else
+     /* possibly in current code path where this
+@@ -495,6 +487,9 @@ afs_vop_lookup(ap)
  #ifndef AFS_FBSD80_ENV
      struct thread *p = ap->a_cnp->cn_thread;
  #endif
@@ -43,7 +61,7 @@
  
      dvp = ap->a_dvp;
      if (dvp->v_type != VDIR) {
-@@ -512,6 +512,14 @@ afs_vop_lookup(ap)
+@@ -512,6 +507,14 @@ afs_vop_lookup(ap)
      lockparent = flags & LOCKPARENT;
      wantparent = flags & (LOCKPARENT | WANTPARENT);
  
@@ -58,7 +76,7 @@
  #if __FreeBSD_version < 1000021
      cnp->cn_flags |= MPSAFE; /* steel */
  #endif
-@@ -542,27 +550,30 @@ afs_vop_lookup(ap)
+@@ -542,27 +545,30 @@ afs_vop_lookup(ap)
       * we also always return the vnode locked. */
  
      if (flags & ISDOTDOT) {
@@ -108,7 +126,7 @@
      }
      *ap->a_vpp = vp;
  
-@@ -570,6 +581,7 @@ afs_vop_lookup(ap)
+@@ -570,6 +576,7 @@ afs_vop_lookup(ap)
  	|| (cnp->cn_nameiop != LOOKUP && (flags & ISLASTCN)))
  	cnp->cn_flags |= SAVENAME;
  
@@ -116,7 +134,7 @@
      DROPNAME();
      return error;
  }
-@@ -592,6 +604,7 @@ afs_vop_create(ap)
+@@ -592,6 +599,7 @@ afs_vop_create(ap)
      GETNAME();
  
      AFS_GLOCK();
@@ -124,7 +142,7 @@
      error =
  	afs_create(VTOAFS(dvp), name, ap->a_vap,
  		   ap->a_vap->va_vaflags & VA_EXCLUSIVE ? EXCL : NONEXCL,
-@@ -784,20 +797,21 @@ afs_vop_read(ap)
+@@ -784,20 +792,21 @@ afs_vop_read(ap)
   *	struct vnode *a_vp;
   *	vm_page_t *a_m;
   *	int a_count;
@@ -149,7 +167,7 @@
      struct vnode *vp;
      struct vcache *avc;
  
-@@ -806,52 +820,80 @@ afs_vop_getpages(struct vop_getpages_arg
+@@ -806,52 +815,80 @@ afs_vop_getpages(struct vop_getpages_arg
  
      vp = ap->a_vp;
      avc = VTOAFS(vp);
@@ -257,7 +275,7 @@
      uio.uio_segflg = UIO_SYSSPACE;
      uio.uio_rw = UIO_READ;
      uio.uio_td = curthread;
-@@ -864,91 +906,105 @@ afs_vop_getpages(struct vop_getpages_arg
+@@ -864,91 +901,105 @@ afs_vop_getpages(struct vop_getpages_arg
  
      relpbuf(bp, &afs_pbuf_freecnt);
  
@@ -420,7 +438,7 @@
  }
  
  int
-@@ -977,7 +1033,6 @@ afs_vop_write(ap)
+@@ -977,7 +1028,6 @@ afs_vop_write(ap)
   *	int a_count;
   *	int a_sync;
   *	int *a_rtvals;
@@ -428,7 +446,7 @@
   * };
   */
  /*
-@@ -1081,22 +1136,6 @@ afs_vop_ioctl(ap)
+@@ -1081,22 +1131,6 @@ afs_vop_ioctl(ap)
      }
  }
  
@@ -451,7 +469,7 @@
  int
  afs_vop_fsync(ap)
       struct vop_fsync_args	/* {
-@@ -1589,12 +1628,21 @@ afs_vop_advlock(ap)
+@@ -1589,12 +1623,21 @@ afs_vop_advlock(ap)
  				 * int  a_flags;
  				 * } */ *ap;
  {

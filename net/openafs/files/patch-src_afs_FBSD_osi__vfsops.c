@@ -1,6 +1,33 @@
 --- src/afs/FBSD/osi_vfsops.c.orig	2016-11-30 20:06:42 UTC
 +++ src/afs/FBSD/osi_vfsops.c
-@@ -297,20 +297,6 @@ tryagain:
+@@ -220,13 +220,11 @@ afs_unmount(struct mount *mp, int flags,
+     }
+     if (afs_globalVp)
+ 	error = EBUSY;
+-    AFS_GUNLOCK();
+ 
+     /*
+      * Release any remaining vnodes on this mount point.
+      * The `1' means that we hold one extra reference on
+      * the root vnode (this is just a guess right now).
+-     * This has to be done outside the global lock.
+      */
+     if (!error) {
+ #if defined(AFS_FBSD80_ENV)
+@@ -237,9 +235,10 @@ afs_unmount(struct mount *mp, int flags,
+ 	error = vflush(mp, 1, (flags & MNT_FORCE) ? FORCECLOSE : 0);
+ #endif
+     }
+-    if (error)
++    if (error) {
++        AFS_GUNLOCK();
+ 	goto out;
+-    AFS_GLOCK();
++    }
+     AFS_STATCNT(afs_unmount);
+     afs_globalVFS = 0;
+     afs_shutdown();
+@@ -297,20 +296,6 @@ tryagain:
      }
      if (tvp) {
  	struct vnode *vp = AFSTOV(tvp);
@@ -21,7 +48,7 @@
  	/*
  	 * I'm uncomfortable about this.  Shouldn't this happen at a
  	 * higher level, and shouldn't we busy the top-level directory
-@@ -320,11 +306,22 @@ tryagain:
+@@ -320,11 +305,22 @@ tryagain:
  
  	afs_globalVFS = mp;
  	*vpp = vp;
