@@ -3,8 +3,8 @@
 PORTNAME=	openafs
 DISTVERSION=	${AFS_DISTVERSION}.${DBVERSION:S/-//g}
 CATEGORIES=	net
-MASTER_SITES=	http://dl.central.org/dl/openafs/${AFS_DISTVERSION}/:openafs \
-		http://dl.openafs.org/dl/openafs/${AFS_DISTVERSION}/:openafs \
+MASTER_SITES=	http://dl.central.org/dl/openafs/candidate/${AFS_DISTVERSION}/:openafs \
+		http://dl.openafs.org/dl/openafs/candidate/${AFS_DISTVERSION}/:openafs \
 		http://dl.central.org/dl/cellservdb/:gco \
 		http://grand.central.org/dl/cellservdb/:gco
 DISTFILES=	${PORTNAME}-${AFS_DISTVERSION}-src.tar.bz2:openafs \
@@ -21,10 +21,12 @@ LICENSE_NAME=	IBM Public License Version 1.0
 LICENSE_FILE=	${WRKSRC}/doc/LICENSE
 LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
-AFS_DISTVERSION=	1.6.21
+BROKEN_FreeBSD_12=	does not build (don't know how to make ./param.amd64_fbsd_120.h. Stop)
+
+AFS_DISTVERSION=	1.8.0pre1
 DBVERSION=	2016-01-01
 
-USES=		cpe kmod tar:bzip2
+USES=		cpe kmod tar:bzip2 fakeroot
 USE_LDCONFIG=	yes
 HAS_CONFIGURE=	yes
 CONFIGURE_ENV=	_XCFLAGS="${CFLAGS} -fPIC" \
@@ -49,6 +51,8 @@ CPE_VERSION=	${AFS_DISTVERSION}
 CONFLICTS=	coda-server-6.[0-9]* heimdal-[0-9]*
 ONLY_FOR_ARCHS=	i386 amd64
 
+MAKE_JOBS_UNSAFE=	yes
+
 AFSMNTDIR?=	/afs
 AFSSTATEDIR?=	/var/${PORTNAME}
 AFSCACHEDIR?=	${AFSSTATEDIR}/cache
@@ -72,7 +76,7 @@ FUSE_CONFIGURE_OFF=	--disable-fuse-client
 .include <bsd.port.pre.mk>
 
 .if ${COMPILER_TYPE} == clang
-CFLAGS+=	-mstackrealign
+CFLAGS+=	-mstackrealign -Wno-shift-negative-value -Wno-pointer-sign
 .endif
 
 .if ${OSREL} == "13.0"
@@ -119,8 +123,6 @@ post-install: create-sample-files
 .for F in CellServDB ThisCell cacheinfo
 	${INSTALL_DATA} ${WRKDIR}/${F} ${STAGEDIR}${ETCDIR}/${F}.sample
 .endfor
-	${INSTALL_KLD} ${STAGEDIR}${PREFIX}/lib/openafs/libafs.ko \
-	    ${STAGEDIR}${KMODDIR}
 	@${RM} ${STAGEDIR}${PREFIX}/lib/openafs/libafs.ko
 	@${RMDIR} ${STAGEDIR}${PREFIX}/lib/openafs
 	@${MKDIR} ${STAGEDIR}${AFSMNTDIR} \
