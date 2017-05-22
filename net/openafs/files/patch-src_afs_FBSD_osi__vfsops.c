@@ -1,4 +1,4 @@
---- src/afs/FBSD/osi_vfsops.c.orig	2016-11-30 20:06:42 UTC
+--- src/afs/FBSD/osi_vfsops.c.orig	2016-12-14 18:28:29 UTC
 +++ src/afs/FBSD/osi_vfsops.c
 @@ -220,13 +220,11 @@ afs_unmount(struct mount *mp, int flags,
      }
@@ -27,14 +27,57 @@
      AFS_STATCNT(afs_unmount);
      afs_globalVFS = 0;
      afs_shutdown();
-@@ -297,20 +296,6 @@ tryagain:
+@@ -263,7 +262,6 @@ afs_root(struct mount *mp, struct vnode 
+     int error;
+     struct vrequest treq;
+     struct vcache *tvp = 0;
+-    struct vcache *gvp;
+ #if !defined(AFS_FBSD53_ENV) || defined(AFS_FBSD80_ENV)
+     struct thread *td = curthread;
+ #endif
+@@ -272,54 +270,44 @@ afs_root(struct mount *mp, struct vnode 
+     AFS_GLOCK();
+     AFS_STATCNT(afs_root);
+     crhold(cr);
+-tryagain:
++
+     if (afs_globalVp && (afs_globalVp->f.states & CStatd)) {
+ 	tvp = afs_globalVp;
+ 	error = 0;
+     } else {
+ 	if (!(error = afs_InitReq(&treq, cr)) && !(error = afs_CheckInit())) {
+ 	    tvp = afs_GetVCache(&afs_rootFid, &treq, NULL, NULL);
+-	    /* we really want this to stay around */
+-	    if (tvp) {
+-		gvp = afs_globalVp;
++	    if (tvp){
++                /* There should be no race here.*/
++                KASSERT(!afs_globalVp || afs_globalVp == tvp,
++                        ("afs_root: afs_globalVP initialized twice"));
+ 		afs_globalVp = tvp;
+-		if (gvp) {
+-		    afs_PutVCache(gvp);
+-		    if (tvp != afs_globalVp) {
+-			/* someone raced us and won */
+-			afs_PutVCache(tvp);
+-			goto tryagain;
+-		    }
+-		}
+-	    } else
++            }
++	    else
+ 		error = ENOENT;
+ 	}
      }
      if (tvp) {
  	struct vnode *vp = AFSTOV(tvp);
--
+ 
 -	ASSERT_VI_UNLOCKED(vp, "afs_root");
--	AFS_GUNLOCK();
--	error = vget(vp, LK_EXCLUSIVE | LK_RETRY, td);
++	afs_globalVFS = mp;
++
+ 	AFS_GUNLOCK();
++	ASSERT_VI_UNLOCKED(vp, "afs_root");
+ 	error = vget(vp, LK_EXCLUSIVE | LK_RETRY, td);
 -	AFS_GLOCK();
 -	/* we dropped the glock, so re-check everything it had serialized */
 -	if (!afs_globalVp || !(afs_globalVp->f.states & CStatd) ||
@@ -45,30 +88,27 @@
 -	}
 -	if (error != 0)
 -	    goto tryagain;
- 	/*
- 	 * I'm uncomfortable about this.  Shouldn't this happen at a
- 	 * higher level, and shouldn't we busy the top-level directory
-@@ -320,11 +305,22 @@ tryagain:
+-	/*
+-	 * I'm uncomfortable about this.  Shouldn't this happen at a
+-	 * higher level, and shouldn't we busy the top-level directory
+-	 * to prevent recycling?
+-	 */
+-	vp->v_vflag |= VV_ROOT;
++        AFS_GLOCK();
  
- 	afs_globalVFS = mp;
- 	*vpp = vp;
-+	// Drop the lock; we'll only do the vget afterward.
-+	AFS_GUNLOCK();
-+
-+	ASSERT_VI_UNLOCKED(vp, "afs_root");
-+	error = vget(vp, LK_EXCLUSIVE | LK_RETRY, td);
-+        // If we had an error, don't expose the vp.
-+	if (error != 0)
-+	    *vpp = NULL;
-+    } else {
-+        // How often do we get here?
-+        afs_warn("afs_root has NULL tvp?\n");
-+        AFS_GUNLOCK();
+-	afs_globalVFS = mp;
+-	*vpp = vp;
++	if (error != 0) {
++            error = EIO;
++        } else {
++            /*
++             * I'm uncomfortable about this.  Shouldn't this happen at a
++             * higher level, and shouldn't we busy the top-level directory
++             * to prevent recycling?
++             */
++            vp->v_vflag |= VV_ROOT;
++            *vpp = vp;
++        }
      }
  
      afs_Trace2(afs_iclSetp, CM_TRACE_VFSROOT, ICL_TYPE_POINTER, tvp ? AFSTOV(tvp) : NULL,
- 	       ICL_TYPE_INT32, error);
--    AFS_GUNLOCK();
-     crfree(cr);
-     return error;
- }
