@@ -1,6 +1,32 @@
 --- src/afs/FBSD/osi_vnodeops.c.orig	2016-12-08 04:01:51 UTC
 +++ src/afs/FBSD/osi_vnodeops.c
-@@ -781,20 +781,21 @@ afs_vop_read(ap)
+@@ -543,16 +543,21 @@ afs_vop_lookup(ap)
+ 	ma_vn_lock(vp, LK_EXCLUSIVE | LK_RETRY, p);
+ 	ma_vn_lock(dvp, LK_EXCLUSIVE | LK_RETRY, p);
+ 	/* always return the child locked */
++#ifndef AFS_FBSD70_ENV
+ 	if (lockparent && (flags & ISLASTCN)
+ 	    && (error = ma_vn_lock(dvp, LK_EXCLUSIVE, p))) {
+ 	    vput(vp);
+ 	    DROPNAME();
+ 	    return (error);
+ 	}
+-    } else if (vp == dvp) {
+-	/* they're the same; afs_lookup() already ref'ed the leaf.
+-	 * It came in locked, so we don't need to ref OR lock it */
+-    } else {
++#endif
++    } else if (vp != dvp) {
++	/* If they were the same, afs_lookup() already ref'ed the leaf.  It
++	 * came in locked, so we didn't need to ref OR lock it.  Otherwise,
++	 * lock dvp and vp according to flags. */
++
++	/* For older FreeBSD, leave the parent locked if
++	 * both LOCKPARENT and ISLASTCN. */
+ 	if (!lockparent || !(flags & ISLASTCN)) {
+ #ifndef AFS_FBSD70_ENV /* 6 too? */
+ 	    MA_VOP_UNLOCK(dvp, 0, p);	/* done with parent. */
+@@ -781,20 +786,21 @@ afs_vop_read(ap)
   *	struct vnode *a_vp;
   *	vm_page_t *a_m;
   *	int a_count;
@@ -25,7 +51,7 @@
      struct vnode *vp;
      struct vcache *avc;
  
-@@ -803,20 +804,40 @@ afs_vop_getpages(struct vop_getpages_arg
+@@ -803,20 +809,40 @@ afs_vop_getpages(struct vop_getpages_arg
  
      vp = ap->a_vp;
      avc = VTOAFS(vp);
@@ -70,7 +96,7 @@
  	AFS_VM_OBJECT_WLOCK(object);
  	ma_vm_page_lock_queues();
  	if (m->valid != 0) {
-@@ -824,31 +845,37 @@ afs_vop_getpages(struct vop_getpages_arg
+@@ -824,31 +850,37 @@ afs_vop_getpages(struct vop_getpages_arg
  	    /* vm_page_zero_invalid(m, TRUE); */
  	    for (i = 0; i < npages; ++i) {
  		if (i != ap->a_reqpage) {
@@ -115,7 +141,7 @@
      uio.uio_segflg = UIO_SYSSPACE;
      uio.uio_rw = UIO_READ;
      uio.uio_td = curthread;
-@@ -861,25 +888,27 @@ afs_vop_getpages(struct vop_getpages_arg
+@@ -861,25 +893,27 @@ afs_vop_getpages(struct vop_getpages_arg
  
      relpbuf(bp, &afs_pbuf_freecnt);
  
@@ -147,7 +173,7 @@
  
  	/* XXX not in nfsclient? */
  	m->flags &= ~PG_ZERO;
-@@ -903,6 +932,7 @@ afs_vop_getpages(struct vop_getpages_arg
+@@ -903,6 +937,7 @@ afs_vop_getpages(struct vop_getpages_arg
  	    KASSERT(m->dirty == 0, ("afs_getpages: page %p is dirty", m));
  	}
  
@@ -155,7 +181,7 @@
  	if (i != ap->a_reqpage) {
  #if __FreeBSD_version >= 1000042
  	    vm_page_readahead_finish(m);
-@@ -942,10 +972,11 @@ afs_vop_getpages(struct vop_getpages_arg
+@@ -942,10 +977,11 @@ afs_vop_getpages(struct vop_getpages_arg
  	    }
  #endif	/* __FreeBSD_version 1000042 */
  	}
