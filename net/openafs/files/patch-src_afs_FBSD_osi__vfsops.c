@@ -1,6 +1,33 @@
 --- src/afs/FBSD/osi_vfsops.c.orig	2016-12-08 04:01:51 UTC
 +++ src/afs/FBSD/osi_vfsops.c
-@@ -297,29 +297,28 @@ tryagain:
+@@ -220,13 +220,11 @@ afs_unmount(struct mount *mp, int flags,
+     }
+     if (afs_globalVp)
+ 	error = EBUSY;
+-    AFS_GUNLOCK();
+ 
+     /*
+      * Release any remaining vnodes on this mount point.
+      * The `1' means that we hold one extra reference on
+      * the root vnode (this is just a guess right now).
+-     * This has to be done outside the global lock.
+      */
+     if (!error) {
+ #if defined(AFS_FBSD80_ENV)
+@@ -237,9 +235,10 @@ afs_unmount(struct mount *mp, int flags,
+ 	error = vflush(mp, 1, (flags & MNT_FORCE) ? FORCECLOSE : 0);
+ #endif
+     }
+-    if (error)
++    if (error) {
++	AFS_GUNLOCK();
+ 	goto out;
+-    AFS_GLOCK();
++    }
+     AFS_STATCNT(afs_unmount);
+     afs_globalVFS = 0;
+     afs_shutdown();
+@@ -297,29 +296,28 @@ tryagain:
      }
      if (tvp) {
  	struct vnode *vp = AFSTOV(tvp);

@@ -1,6 +1,24 @@
 --- src/afs/FBSD/osi_vnodeops.c.orig	2016-12-08 04:01:51 UTC
 +++ src/afs/FBSD/osi_vnodeops.c
-@@ -543,16 +543,21 @@ afs_vop_lookup(ap)
+@@ -336,17 +336,12 @@ afs_vop_unlock(ap)
+     int code = 0;
+     u_int op;
+     op = ((ap->a_flags) | LK_RELEASE) & LK_TYPE_MASK;
+-    int glocked = ISAFS_GLOCK();
+-    if (glocked)
+-	AFS_GUNLOCK();
+     if ((op & (op - 1)) != 0) {
+       afs_warn("afs_vop_unlock: Shit.\n");
+       goto done;
+     }
+     code = lockmgr(lkp, ap->a_flags | LK_RELEASE, VI_MTX(vp));
+  done:
+-    if (glocked)
+-	AFS_GLOCK();
+     return(code);
+ #else
+     /* possibly in current code path where this
+@@ -543,16 +538,21 @@ afs_vop_lookup(ap)
  	ma_vn_lock(vp, LK_EXCLUSIVE | LK_RETRY, p);
  	ma_vn_lock(dvp, LK_EXCLUSIVE | LK_RETRY, p);
  	/* always return the child locked */
@@ -26,7 +44,7 @@
  	if (!lockparent || !(flags & ISLASTCN)) {
  #ifndef AFS_FBSD70_ENV /* 6 too? */
  	    MA_VOP_UNLOCK(dvp, 0, p);	/* done with parent. */
-@@ -781,20 +786,21 @@ afs_vop_read(ap)
+@@ -781,20 +781,21 @@ afs_vop_read(ap)
   *	struct vnode *a_vp;
   *	vm_page_t *a_m;
   *	int a_count;
@@ -51,7 +69,7 @@
      struct vnode *vp;
      struct vcache *avc;
  
-@@ -803,20 +809,40 @@ afs_vop_getpages(struct vop_getpages_arg
+@@ -803,20 +804,40 @@ afs_vop_getpages(struct vop_getpages_arg
  
      vp = ap->a_vp;
      avc = VTOAFS(vp);
@@ -96,7 +114,7 @@
  	AFS_VM_OBJECT_WLOCK(object);
  	ma_vm_page_lock_queues();
  	if (m->valid != 0) {
-@@ -824,31 +850,37 @@ afs_vop_getpages(struct vop_getpages_arg
+@@ -824,31 +845,37 @@ afs_vop_getpages(struct vop_getpages_arg
  	    /* vm_page_zero_invalid(m, TRUE); */
  	    for (i = 0; i < npages; ++i) {
  		if (i != ap->a_reqpage) {
@@ -141,7 +159,7 @@
      uio.uio_segflg = UIO_SYSSPACE;
      uio.uio_rw = UIO_READ;
      uio.uio_td = curthread;
-@@ -861,25 +893,27 @@ afs_vop_getpages(struct vop_getpages_arg
+@@ -861,25 +888,27 @@ afs_vop_getpages(struct vop_getpages_arg
  
      relpbuf(bp, &afs_pbuf_freecnt);
  
@@ -173,7 +191,7 @@
  
  	/* XXX not in nfsclient? */
  	m->flags &= ~PG_ZERO;
-@@ -903,6 +937,7 @@ afs_vop_getpages(struct vop_getpages_arg
+@@ -903,6 +932,7 @@ afs_vop_getpages(struct vop_getpages_arg
  	    KASSERT(m->dirty == 0, ("afs_getpages: page %p is dirty", m));
  	}
  
@@ -181,7 +199,7 @@
  	if (i != ap->a_reqpage) {
  #if __FreeBSD_version >= 1000042
  	    vm_page_readahead_finish(m);
-@@ -942,10 +977,11 @@ afs_vop_getpages(struct vop_getpages_arg
+@@ -942,10 +972,11 @@ afs_vop_getpages(struct vop_getpages_arg
  	    }
  #endif	/* __FreeBSD_version 1000042 */
  	}
@@ -194,7 +212,7 @@
  }
  
  int
-@@ -1570,14 +1606,23 @@ afs_vop_advlock(ap)
+@@ -1570,14 +1601,23 @@ afs_vop_advlock(ap)
  				 * int  a_flags;
  				 * } */ *ap;
  {
