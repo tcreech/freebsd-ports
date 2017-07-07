@@ -1,6 +1,6 @@
 --- src/afs/FBSD/osi_vfsops.c.orig	2016-12-08 04:01:51 UTC
 +++ src/afs/FBSD/osi_vfsops.c
-@@ -220,13 +220,11 @@ afs_unmount(struct mount *mp, int flags,
+@@ -220,15 +220,14 @@ afs_unmount(struct mount *mp, int flags,
      }
      if (afs_globalVp)
  	error = EBUSY;
@@ -13,10 +13,15 @@
 -     * This has to be done outside the global lock.
       */
      if (!error) {
++	AFS_GUNLOCK();
  #if defined(AFS_FBSD80_ENV)
-@@ -237,9 +235,10 @@ afs_unmount(struct mount *mp, int flags,
+ 	error = vflush(mp, 1, (flags & MNT_FORCE) ? FORCECLOSE : 0, curthread);
+ #elif defined(AFS_FBSD53_ENV)
+@@ -236,10 +235,12 @@ afs_unmount(struct mount *mp, int flags,
+ #else
  	error = vflush(mp, 1, (flags & MNT_FORCE) ? FORCECLOSE : 0);
  #endif
++	AFS_GLOCK();
      }
 -    if (error)
 +    if (error) {
@@ -27,7 +32,7 @@
      AFS_STATCNT(afs_unmount);
      afs_globalVFS = 0;
      afs_shutdown();
-@@ -297,29 +296,28 @@ tryagain:
+@@ -297,29 +298,28 @@ tryagain:
      }
      if (tvp) {
  	struct vnode *vp = AFSTOV(tvp);
