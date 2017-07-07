@@ -50,3 +50,17 @@
  #elif defined(AFS_FBSD60_ENV)
  	iheldthelock = VOP_ISLOCKED(vp, curthread);
  	if (!iheldthelock)
+@@ -3252,7 +3263,12 @@ afs_StaleVCacheFlags(struct vcache *avc,
+     }
+ 
+     if (do_dnlc) {
+-	if ((avc->f.fid.Fid.Vnode & 1) || vType(avc) == VDIR ||
++	if ((avc->f.fid.Fid.Vnode & 1) ||
++#if defined(AFS_FBSD_ENV)
++	    (AFSTOV(avc) && (vType(avc) == VDIR)) ||
++#else
++	    vType(avc) == VDIR ||
++#endif
+ 	    (avc->f.states & CForeign)) {
+ 	    /* This vcache is (or could be) a directory. */
+ 	    osi_dnlc_purgedp(avc);
