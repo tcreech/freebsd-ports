@@ -426,7 +426,6 @@ man/man5/uss.5.gz
 man/man5/uss_bulk.5.gz
 man/man5/vldb.DB0.5.gz
 man/man8/%%AFSMNTDIR%%d.8.gz
-man/man8/%%AFSMNTDIR%%d.fuse.8.gz
 man/man8/akeyconvert.8.gz
 man/man8/aklog_dynamic_auth.8.gz
 man/man8/asetkey.8.gz
@@ -582,7 +581,6 @@ man/man8/volserver.8.gz
 man/man8/vsys.8.gz
 man/man8/xfs_size_check.8.gz
 sbin/%%AFSMNTDIR%%d
-sbin/%%AFSMNTDIR%%d.fuse
 sbin/backup
 sbin/bos_util
 sbin/bosserver

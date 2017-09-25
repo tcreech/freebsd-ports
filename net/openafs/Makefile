@@ -23,7 +23,7 @@ LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
 BROKEN_FreeBSD_12=	does not build (don't know how to make ./param.amd64_fbsd_120.h. Stop)
 
-AFS_DISTVERSION=	1.8.0pre1
+AFS_DISTVERSION=	1.8.0pre2
 DBVERSION=	2016-01-01
 
 USES=		cpe kmod tar:bzip2 fakeroot
@@ -106,11 +106,11 @@ post-extract:
 	cd ${KERNCONFDIR} && \
 	    /usr/sbin/config -d ${WRKDIR}/conf ${_KERNCONF} >/dev/null
 .for a in i386 amd64
-	@${SED} -e 's,110,120, ; /FBSD120_ENV/ { h; s/120/110/; G; }' \
+	@${SED} -e 's,110,111, ; /FBSD111_ENV/ { h; s/111/110/; G; }' \
 		${WRKSRC}/src/config/param.${a}_fbsd_110.h \
-		> ${WRKSRC}/src/config/param.${a}_fbsd_120.h
+		> ${WRKSRC}/src/config/param.${a}_fbsd_111.h
 .endfor
-	@${REINPLACE_CMD} -e '/fbsd_110/ { h; s/110/120/; s/40/41/; x; G; }' \
+	@${REINPLACE_CMD} -e '/fbsd_110/ { h; s/110/111/; s/40/41/; x; G; }' \
 		${WRKSRC}/src/config/afs_sysnames.h
 
 create-sample-files:
