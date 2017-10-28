@@ -106,7 +106,14 @@ post-extract:
 		${WRKSRC}/src/config/param.${a}_fbsd_110.h \
 		> ${WRKSRC}/src/config/param.${a}_fbsd_120.h
 .endfor
-	@${REINPLACE_CMD} -e '/fbsd_110/ { h; s/110/120/; s/40/41/; x; G; }' \
+	@${REINPLACE_CMD} -e '/fbsd_110/ { h; s/110/120/; s/40/42/; x; G; }' \
+		${WRKSRC}/src/config/afs_sysnames.h
+.for a in i386 amd64
+	@${SED} -e 's,110,111, ; /FBSD111_ENV/ { h; s/111/110/; G; }' \
+		${WRKSRC}/src/config/param.${a}_fbsd_110.h \
+		> ${WRKSRC}/src/config/param.${a}_fbsd_111.h
+.endfor
+	@${REINPLACE_CMD} -e '/fbsd_110/ { h; s/110/111/; s/40/41/; x; G; }' \
 		${WRKSRC}/src/config/afs_sysnames.h
 
 create-sample-files:
