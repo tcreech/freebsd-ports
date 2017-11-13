@@ -236,7 +236,6 @@
     SUBDIR += geomorph
     SUBDIR += geomview
     SUBDIR += geos
-    SUBDIR += geos35
     SUBDIR += geoserver
     SUBDIR += gexiv2
     SUBDIR += giblib
@@ -279,6 +278,7 @@
     SUBDIR += glosm
     SUBDIR += glpng
     SUBDIR += gltt
+    SUBDIR += gmic-qt
     SUBDIR += gmt
     SUBDIR += gnash
     SUBDIR += gnofract4d
