@@ -13,6 +13,7 @@
     SUBDIR += R-cran-scrapeR
     SUBDIR += R-cran-selectr
     SUBDIR += R-cran-shiny
+    SUBDIR += UniversalFeedCreator
     SUBDIR += WebMagick
     SUBDIR += ach
     SUBDIR += adzap
@@ -359,6 +360,7 @@
     SUBDIR += libjwt
     SUBDIR += libmicrohttpd
     SUBDIR += libnghttp2
+    SUBDIR += libresonic-standalone
     SUBDIR += libsocialweb
     SUBDIR += libwww
     SUBDIR += libxul
@@ -545,6 +547,7 @@
     SUBDIR += node
     SUBDIR += node4
     SUBDIR += node6
+    SUBDIR += node8
     SUBDIR += nostromo
     SUBDIR += novnc
     SUBDIR += novnc-websockify
@@ -1370,6 +1373,7 @@
     SUBDIR += p5-WebService-Linode
     SUBDIR += p5-WebService-MoviePosterDB
     SUBDIR += p5-WebService-MusicBrainz
+    SUBDIR += p5-WebService-MusicBrainz0
     SUBDIR += p5-WebService-NoPaste
     SUBDIR += p5-WebService-Pushover
     SUBDIR += p5-WebService-Rakuten
@@ -1497,6 +1501,7 @@
     SUBDIR += podcastamatic
     SUBDIR += polipo
     SUBDIR += pound
+    SUBDIR += privatebin
     SUBDIR += privoxy
     SUBDIR += protovis
     SUBDIR += pserv
@@ -1870,6 +1875,7 @@
     SUBDIR += py-yarl
     SUBDIR += py-zope.app.wsgi
     SUBDIR += py3-cssutils
+    SUBDIR += py3-httplib2
     SUBDIR += py3-requests
     SUBDIR += pyblosxom
     SUBDIR += pycarddav
