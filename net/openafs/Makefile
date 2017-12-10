@@ -23,7 +23,7 @@ LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
 BROKEN_FreeBSD_12=	does not build (don't know how to make ./param.amd64_fbsd_120.h. Stop)
 
-AFS_DISTVERSION=	1.8.0pre2
+AFS_DISTVERSION=	1.8.0pre3
 DBVERSION=	2016-01-01
 
 USES=		cpe kmod tar:bzip2 fakeroot
