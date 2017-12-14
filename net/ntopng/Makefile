@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	ntopng
-PORTVERSION=	3.0.2017.10.03
-PORTREVISION=	1
+PORTVERSION=	3.2.2017.12.06
 CATEGORIES=	net
 
 MAINTAINER=	madpilot@FreeBSD.org
@@ -13,7 +12,6 @@ LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 LIB_DEPENDS=	librrd.so:databases/rrdtool \
-		libluajit-5.1.so:lang/luajit \
 		libzmq.so:net/libzmq4 \
 		libcurl.so:ftp/curl \
 		libndpi.so:net/ndpi \
@@ -33,7 +31,7 @@ GROUPS=		ntopng
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	ntop
-GH_TAGNAME=	499e0bf
+GH_TAGNAME=	8c03024
 
 CPE_VENDOR=	ntop
 
@@ -51,6 +49,8 @@ USE_RC_SUBR=	ntopng
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%LOCALBASE%%|${LOCALBASE}|' \
 		${WRKSRC}/configure.seed
+	@${REINPLACE_CMD} -e 's|^\(export PREFIX=\).*|\1 ${PREFIX}|' \
+		${WRKSRC}/third-party/LuaJIT-2.1.0-beta3/Makefile
 	cd ${WRKSRC} && ${SH} autogen.sh
 
 post-install:
