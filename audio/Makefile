@@ -65,9 +65,9 @@
     SUBDIR += cantata
     SUBDIR += caps-lv2
     SUBDIR += caps-plugins
+    SUBDIR += carla
     SUBDIR += cava
     SUBDIR += ccaudio2
-    SUBDIR += cd-console
     SUBDIR += cd-discid
     SUBDIR += cd2mp3
     SUBDIR += cddb-bundle
@@ -128,6 +128,7 @@
     SUBDIR += emms
     SUBDIR += enscribe
     SUBDIR += epos-devel
+    SUBDIR += eq10q-lv2
     SUBDIR += esound
     SUBDIR += espeak
     SUBDIR += esperanza
@@ -176,11 +177,12 @@
     SUBDIR += flake
     SUBDIR += flite
     SUBDIR += fluid-soundfont
+    SUBDIR += fluidplug-lv2
     SUBDIR += fluidsynth
     SUBDIR += fluidsynth-dssi
     SUBDIR += fmit
-    SUBDIR += foo-yc20
     SUBDIR += fomp-lv2
+    SUBDIR += foo-yc20
     SUBDIR += forked-daapd
     SUBDIR += fpc-a52
     SUBDIR += fpc-mad
@@ -319,6 +321,7 @@
     SUBDIR += hs-ALUT
     SUBDIR += hs-OpenAL
     SUBDIR += hs-libmpd
+    SUBDIR += hts_engine-API
     SUBDIR += hydrogen
     SUBDIR += hydrogen-devel
     SUBDIR += icecast-kh
@@ -619,6 +622,7 @@
     SUBDIR += p5-tagged
     SUBDIR += p5-xmms2
     SUBDIR += pacpl
+    SUBDIR += padthv1-lv2
     SUBDIR += paman
     SUBDIR += paprefs
     SUBDIR += patchage
@@ -636,6 +640,7 @@
     SUBDIR += playmidi
     SUBDIR += pm3umpdl
     SUBDIR += pms
+    SUBDIR += pms-devel
     SUBDIR += pocketsphinx
     SUBDIR += polyphone
     SUBDIR += portaudio
@@ -682,8 +687,6 @@
     SUBDIR += py-tagpy
     SUBDIR += py-vorbis
     SUBDIR += py-xmms2
-    SUBDIR += py3-mutagen
-    SUBDIR += py3-pylast
     SUBDIR += pytone
     SUBDIR += qjackctl
     SUBDIR += qmidiarp
@@ -723,13 +726,13 @@
     SUBDIR += sbagen
     SUBDIR += sc3-plugins
     SUBDIR += schismtracker
+    SUBDIR += screcord-lv2
     SUBDIR += scrobbler
     SUBDIR += sdl2_mixer
     SUBDIR += sdl_mixer
     SUBDIR += sdl_sound
     SUBDIR += sfront
     SUBDIR += shairplay
-    SUBDIR += shairport
     SUBDIR += shairport-sync
     SUBDIR += sherlock-lv2
     SUBDIR += shntool
@@ -751,6 +754,7 @@
     SUBDIR += solfege
     SUBDIR += sonata
     SUBDIR += sonic-visualiser
+    SUBDIR += sorcer-lv2
     SUBDIR += sound-juicer
     SUBDIR += soundconverter
     SUBDIR += soundgrab
@@ -845,6 +849,7 @@
     SUBDIR += wildmidi
     SUBDIR += wmalbum
     SUBDIR += wmix
+    SUBDIR += wmmp
     SUBDIR += wmrecord
     SUBDIR += wmsmixer
     SUBDIR += workman

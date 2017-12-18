@@ -26,7 +26,7 @@ INSTALL_TARGET=	install-strip
 .if !defined(PIDGIN_SLAVE)
 # Pidgin slave ports that require the following functionality, must explicitly
 # set these macros themselves.
-USES+=		iconv python shebangfix
+USES+=		iconv python:2.7 shebangfix
 USE_LDCONFIG=	yes
 SHEBANG_FILES=	libpurple/purple-remote \
 		libpurple/purple-url-handler
@@ -208,7 +208,7 @@ CONFIGURE_ARGS+=	--disable-gtkspell
 .if ${PORT_OPTIONS:MDBUS}
 LIB_DEPENDS+=		libdbus-glib-1.so:devel/dbus-glib
 .if !defined(PIDGIN_SLAVE)
-RUN_DEPENDS+=		${PYTHON_SITELIBDIR}/dbus/__init__.py:devel/py-dbus
+RUN_DEPENDS+=		${PYTHON_PKGNAMEPREFIX}dbus>=0:devel/py-dbus@${PY_FLAVOR}
 .endif
 CONFIGURE_ARGS+=	--enable-dbus
 PLIST_SUB+=		DBUS=""
