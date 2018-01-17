@@ -106,6 +106,7 @@
     SUBDIR += gtkterm2
     SUBDIR += guake
     SUBDIR += gxkb
+    SUBDIR += hhpc
     SUBDIR += hs-X11
     SUBDIR += hs-X11-xft
     SUBDIR += hs-xmobar
@@ -264,6 +265,7 @@
     SUBDIR += pixman
     SUBDIR += plasma-scriptengine-python
     SUBDIR += plasma-scriptengine-ruby
+    SUBDIR += polybar
     SUBDIR += presentproto
     SUBDIR += printproto
     SUBDIR += printscreen
@@ -280,6 +282,7 @@
     SUBDIR += qterminal
     SUBDIR += qterminal-l10n
     SUBDIR += qxkb
+    SUBDIR += radare-cutter
     SUBDIR += randrproto
     SUBDIR += recordproto
     SUBDIR += rendercheck
