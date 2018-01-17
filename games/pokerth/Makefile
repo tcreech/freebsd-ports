@@ -2,19 +2,15 @@
 # $FreeBSD$
 
 PORTNAME=	pokerth
-PORTVERSION=	1.1.1
-PORTREVISION=	18
+PORTVERSION=	1.1.2
 CATEGORIES=	games
-MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}/1.1
-DISTNAME=	PokerTH-${PORTVERSION}-src
+MASTER_SITES=	SF
 
 MAINTAINER=	madpilot@FreeBSD.org
 COMMENT=	Poker game written in C++/Qt4
 
 LICENSE=	AGPLv3+
 LICENSE_FILE=	${WRKSRC}/COPYING
-
-BROKEN=		Fails to compile with protobuf 3.5.0
 
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
 		libmikmod.so:audio/libmikmod \
@@ -23,13 +19,16 @@ LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
 		libgsasl.so:security/gsasl \
 		libtinyxml.so:textproc/tinyxml \
 		libprotobuf.so:devel/protobuf
-BUILD_DEPENDS=	${LOCALBASE}/include/libircclient.h:irc/libircclient
+BUILD_DEPENDS=	${LOCALBASE}/include/libircclient.h:irc/libircclient \
+		protoc:devel/protobuf
 
-USES=		iconv gmake qmake tar:bzip2
+USES=		iconv gmake qmake sqlite ssl
 USE_QT4=	gui corelib network sql sql-sqlite3 \
 		moc_build rcc_build uic_build
 USE_SDL=	mixer
 QMAKE_SOURCE_PATH=	pokerth.pro
+QMAKE_ARGS+=	CONFIG+="client"
+WRKSRC=		${WRKDIR}/${DISTNAME}-rc
 
 PORTDOCS=	server_setup_howto.txt
 
@@ -42,8 +41,12 @@ post-patch:
 		-e 's|LIB_DIRS =.*|LIB_DIRS = ${LOCALBASE}/lib|g' \
 		-e '/.*QMAKE_CXXFLAGS.*/d' \
 		${WRKSRC}/*.pro
-	@${FIND} ${WRKSRC} -name '*.cpp' -print0 | ${XARGS} -0 \
-		${REINPLACE_CMD} -e 's|[io]fstream|std::&|'
+
+pre-build:
+	(cd ${WRKSRC} && \
+		 protoc --cpp_out=src/third_party/protobuf chatcleaner.proto && \
+		 protoc --cpp_out=src/third_party/protobuf pokerth.proto \
+	)
 
 post-install:
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/pokerth

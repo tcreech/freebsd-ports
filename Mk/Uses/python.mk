@@ -463,11 +463,12 @@ PKGNAMESUFFIX=	${PYTHON_PKGNAMESUFFIX}
 .endif
 
 # To avoid having dependencies with @ and empty flavor:
-.if empty(FLAVOR)
-PY_FLAVOR=	${PYTHON_VERSION:S/^python/py/:S/.//}
-.else
-PY_FLAVOR=	${FLAVOR}
-.endif
+# _PYTHON_VERSION is either set by (first that matches):
+# - If using Python flavors, from the current Python flavor
+# - If using a version restriction (USES=python:3.4+), from the first
+#   acceptable default Python version.
+# - From PYTHON_DEFAULT
+PY_FLAVOR=	py${_PYTHON_VERSION:S/.//}
 
 # Pass PYTHON_VERSION down the dependency chain. This ensures that
 # port A -> B -> C all will use the same python version and do not
@@ -579,15 +580,19 @@ UNIQUE_DEFAULT_LINKS=	no
 .endif
 UNIQUE_PREFIX=		${PYTHON_PKGNAMEPREFIX}
 UNIQUE_SUFFIX=		-${PYTHON_VER}
+UNIQUE_SUFFIX_TYPES+=	SUFFIX_MAN
+UNIQUE_SUFFIX_MAN_WITH_EXT=	.[1-9ln]
+UNIQUE_SUFFIX_MAN_EXTRA_EXT=	.gz
 
 .if defined(_PYTHON_FEATURE_AUTOPLIST)
-UNIQUE_FIND_SUFFIX_FILES=	\
-	${SED} -e 's|^${PREFIX}/||' ${_PYTHONPKGLIST} ${TMPPLIST} | \
-	${EGREP} -e '^bin/.*$$|^sbin/.*$$|^libexec/.*$$'
+_UNIQUE_FIND_SUFFIX_FILES=	${SED} -e 's|^${PREFIX}/||' ${_PYTHONPKGLIST} ${TMPPLIST}
 .else
-UNIQUE_FIND_SUFFIX_FILES=	\
-	${EGREP} -he '^bin/.*$$|^sbin/.*$$|^libexec/.*$$' ${TMPPLIST} 2>/dev/null
+_UNIQUE_FIND_SUFFIX_FILES=	${SED} -e 's|^${PREFIX}/||' ${TMPPLIST} 2>/dev/null
 .endif
+UNIQUE_FIND_SUFFIX_FILES+=	${_UNIQUE_FIND_SUFFIX_FILES} | \
+				${EGREP} -he '^bin/.*$$|^sbin/.*$$|^libexec/.*$$'
+UNIQUE_FIND_SUFFIX_MAN_FILES+=	${_UNIQUE_FIND_SUFFIX_FILES} | \
+				${EGREP} -he '^man/man[1-9ln]/.*$$'
 .endif # defined(_PYTHON_FEATURE_CONCURRENT)
 
 _CURRENTPORT:=	${PKGNAMEPREFIX}${PORTNAME}${PKGNAMESUFFIX}
