@@ -2,7 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	librenms
-PORTVERSION=	1.28
+PORTVERSION=	1.33.01
+PORTREVISION=	1
 PORTEPOCH=	1
 CATEGORIES=	net-mgmt
 
@@ -14,9 +15,8 @@ LICENSE=	GPLv3
 USE_GITHUB=	yes
 GH_ACCOUNT=	librenms
 
-USES=		php:cli python shebangfix
-SHEBANG_FILES=	mibs/process.pl scripts/auth_test.php scripts/deploy-docs.sh \
-		scripts/deploy-schema.sh scripts/github-remove \
+USES=		php:cli python${PY_MYSQL} shebangfix
+SHEBANG_FILES=	scripts/auth_test.php scripts/deploy-docs.sh scripts/github-remove \
 		scripts/Migration/Standard_Conversion/convert_no_xml.sh \
 		scripts/Migration/Standard_Conversion/destwork_no_xml.sh \
 		scripts/Migration/Standard_Conversion/mkdir.sh \
@@ -69,6 +69,7 @@ LIBVIRT_RUN_DEPENDS=	virsh:devel/libvirt
 NAGPLUGINS_RUN_DEPENDS=	${LOCALBASE}/libexec/nagios/check_nagios:net-mgmt/nagios-plugins
 NMAP_RUN_DEPENDS=	nmap:security/nmap
 PYPOLLER_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}MySQLdb>=1.2.3:databases/py-MySQLdb
+PYPOLLER_VARS=	PY_MYSQL=:2.7
 X11_RUN_DEPENDS=	Magick-config:graphics/ImageMagick \
 			mtr:net/mtr
 X11_RUN_DEPENDS_OFF=	Magick-config:graphics/ImageMagick-nox11 \
@@ -87,7 +88,7 @@ ROOT_FILES=	addhost.php adduser.php	alerts.php build-base.php build.sql \
 		delhost.php discovery-wrapper.py discovery.php dist-pollers.php irc.php \
 		mkdocs.yml pbin.sh phpunit.xml poll-billing.php poller.php poller-service.py \
 		poller-wrapper.py readmegen.yml renamehost.php services-wrapper.py \
-		snmp-scan.php snmptrap.php syslog.php validate.php
+		snmptrap.php syslog.php validate.php
 
 ROOT_DIRS=	LibreNMS contrib doc html includes lib mibs misc scripts sql-schema tests vendor
 

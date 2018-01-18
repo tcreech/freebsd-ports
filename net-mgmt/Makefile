@@ -88,8 +88,10 @@
     SUBDIR += icingaweb2-module-businessprocess
     SUBDIR += icingaweb2-module-cube
     SUBDIR += icingaweb2-module-director
+    SUBDIR += icingaweb2-module-elasticsearch
     SUBDIR += icingaweb2-module-generictts
     SUBDIR += icingaweb2-module-grafana
+    SUBDIR += icingaweb2-module-graphite
     SUBDIR += icingaweb2-module-map
     SUBDIR += icingaweb2-module-vsphere
     SUBDIR += icli
@@ -120,6 +122,8 @@
     SUBDIR += libsmi
     SUBDIR += lldpd
     SUBDIR += mbrowse
+    SUBDIR += mdata-client
+    SUBDIR += metronome
     SUBDIR += mk-livestatus
     SUBDIR += monitoring-plugins
     SUBDIR += mrtg
@@ -185,7 +189,6 @@
     SUBDIR += netmask
     SUBDIR += netspoc
     SUBDIR += netustad
-    SUBDIR += netwag
     SUBDIR += networkmgr
     SUBDIR += netwox
     SUBDIR += netxms
@@ -193,8 +196,6 @@
     SUBDIR += nfsen
     SUBDIR += ng_ipacct
     SUBDIR += nitpicker
-    SUBDIR += nrpe
-    SUBDIR += nrpe-ssl
     SUBDIR += nrpe3
     SUBDIR += nsca
     SUBDIR += nsca-client
@@ -282,6 +283,7 @@
     SUBDIR += php56-snmp
     SUBDIR += php70-snmp
     SUBDIR += php71-snmp
+    SUBDIR += php72-snmp
     SUBDIR += phpip
     SUBDIR += phpipam
     SUBDIR += phpweathermap
@@ -293,8 +295,10 @@
     SUBDIR += pnp-icinga2
     SUBDIR += portmon
     SUBDIR += prometheus
+    SUBDIR += prometheus-collectd-exporter
     SUBDIR += pushgateway
     SUBDIR += py-adal
+    SUBDIR += py-dnsdiag
     SUBDIR += py-ipcalc
     SUBDIR += py-ipy
     SUBDIR += py-msrest
@@ -309,7 +313,6 @@
     SUBDIR += py-snmp4-mibs
     SUBDIR += py-snmp_passpersist
     SUBDIR += py-yapsnmp
-    SUBDIR += py3-dnsdiag
     SUBDIR += qkismet
     SUBDIR += rackmonkey
     SUBDIR += rancid3
@@ -360,6 +363,7 @@
     SUBDIR += telegraf
     SUBDIR += tornova
     SUBDIR += torrus
+    SUBDIR += triton-guesttools
     SUBDIR += unbound_exporter
     SUBDIR += unifi5
     SUBDIR += victorops-nagios

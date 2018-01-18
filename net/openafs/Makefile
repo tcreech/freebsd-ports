@@ -21,12 +21,13 @@ LICENSE_NAME=	IBM Public License Version 1.0
 LICENSE_FILE=	${WRKSRC}/doc/LICENSE
 LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
-BROKEN_FreeBSD_12=	does not build (don't know how to make ./param.amd64_fbsd_120.h. Stop)
+BROKEN_FreeBSD_12=	does not build (use of undeclared identifier 'ROOTINO')
+ONLY_FOR_ARCHS=	i386 amd64
 
 AFS_DISTVERSION=	1.8.0pre4
 DBVERSION=	2016-01-01
 
-USES=		cpe kmod tar:bzip2 fakeroot
+USES=		cpe kmod tar:bzip2
 USE_LDCONFIG=	yes
 HAS_CONFIGURE=	yes
 CONFIGURE_ENV=	_XCFLAGS="${CFLAGS} -fPIC" \
@@ -49,7 +50,6 @@ USE_RC_SUBR=	afsserver
 CPE_VERSION=	${AFS_DISTVERSION}
 
 CONFLICTS=	coda-server-6.[0-9]* heimdal-[0-9]*
-ONLY_FOR_ARCHS=	i386 amd64
 
 AFSMNTDIR?=	/afs
 AFSSTATEDIR?=	/var/${PORTNAME}
@@ -103,13 +103,6 @@ post-extract:
 	${MKDIR} ${WRKDIR}/conf
 	cd ${KERNCONFDIR} && \
 	    /usr/sbin/config -d ${WRKDIR}/conf ${_KERNCONF} >/dev/null
-.for a in i386 amd64
-	@${SED} -e 's,110,111, ; /FBSD111_ENV/ { h; s/111/110/; G; }' \
-		${WRKSRC}/src/config/param.${a}_fbsd_110.h \
-		> ${WRKSRC}/src/config/param.${a}_fbsd_111.h
-.endfor
-	@${REINPLACE_CMD} -e '/fbsd_110/ { h; s/110/111/; s/40/41/; x; G; }' \
-		${WRKSRC}/src/config/afs_sysnames.h
 
 create-sample-files:
 	@${ECHO_CMD} openafs.org > ${WRKDIR}/ThisCell

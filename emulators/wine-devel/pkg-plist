@@ -276,6 +276,9 @@ include/wine/windows/devicetopology.idl
 include/wine/windows/devpkey.h
 include/wine/windows/devpropdef.h
 include/wine/windows/dhcpcsdk.h
+include/wine/windows/dhtmldid.h
+include/wine/windows/dhtmled.h
+include/wine/windows/dhtmled.idl
 include/wine/windows/difxapi.h
 include/wine/windows/digitalv.h
 include/wine/windows/dimm.h
@@ -587,6 +590,7 @@ include/wine/windows/ntddstor.h
 include/wine/windows/ntdef.h
 include/wine/windows/ntdsapi.h
 %%STAGING%%include/wine/windows/ntifs.h
+include/wine/windows/ntlsa.h
 include/wine/windows/ntquery.h
 include/wine/windows/ntsecapi.h
 include/wine/windows/ntsecpkg.h
@@ -628,6 +632,7 @@ include/wine/windows/patchapi.h
 %%STAGING%%include/wine/windows/pathcch.h
 include/wine/windows/pdh.h
 include/wine/windows/pdhmsg.h
+include/wine/windows/perflib.h
 include/wine/windows/perhist.h
 include/wine/windows/perhist.idl
 include/wine/windows/physicalmonitorenumerationapi.h
@@ -666,6 +671,8 @@ include/wine/windows/rmxfguid.h
 include/wine/windows/rmxftmpl.h
 include/wine/windows/rmxftmpl.x
 include/wine/windows/roapi.h
+include/wine/windows/roparameterizediid.h
+include/wine/windows/roparameterizediid.idl
 include/wine/windows/row.idl
 include/wine/windows/rowchg.idl
 include/wine/windows/rowpos.idl
@@ -1813,6 +1820,7 @@ lib/wine/fakedlls/kernelbase.dll
 %%WINE32%%lib/wine/fakedlls/krnl386.exe16
 lib/wine/fakedlls/ksuser.dll
 lib/wine/fakedlls/ktmw32.dll
+%%MPG123%%lib/wine/fakedlls/l3codeca.acm
 lib/wine/fakedlls/loadperf.dll
 lib/wine/fakedlls/localspl.dll
 lib/wine/fakedlls/localui.dll
@@ -2115,6 +2123,7 @@ lib/wine/fakedlls/vssapi.dll
 %%WINE32%%lib/wine/fakedlls/w32sys.dll16
 lib/wine/fakedlls/wbemdisp.dll
 lib/wine/fakedlls/wbemprox.dll
+lib/wine/fakedlls/wdscore.dll
 lib/wine/fakedlls/webservices.dll
 lib/wine/fakedlls/wer.dll
 lib/wine/fakedlls/wevtapi.dll
@@ -2142,7 +2151,6 @@ lib/wine/fakedlls/winehid.sys
 lib/wine/fakedlls/winemapi.dll
 lib/wine/fakedlls/winemenubuilder.exe
 lib/wine/fakedlls/winemine.exe
-%%MPG123%%lib/wine/fakedlls/winemp3.acm
 lib/wine/fakedlls/winemsibuilder.exe
 lib/wine/fakedlls/wineoss.drv
 lib/wine/fakedlls/winepath.exe
@@ -2291,6 +2299,7 @@ lib/wine/kernelbase.dll.so
 %%WINE32%%lib/wine/krnl386.exe16.so
 lib/wine/ksuser.dll.so
 lib/wine/ktmw32.dll.so
+%%MPG123%%lib/wine/l3codeca.acm.so
 lib/wine/libaclui.def
 lib/wine/libactiveds.def
 lib/wine/libadsiid.a
@@ -2354,6 +2363,7 @@ lib/wine/libhid.def
 lib/wine/libhidclass.def
 lib/wine/libhlink.def
 lib/wine/libhtmlhelp.def
+lib/wine/libhttpapi.def
 lib/wine/libieframe.def
 lib/wine/libimagehlp.def
 lib/wine/libimm32.def
@@ -2778,6 +2788,7 @@ lib/wine/vssapi.dll.so
 %%WINE32%%lib/wine/w32sys.dll16.so
 lib/wine/wbemdisp.dll.so
 lib/wine/wbemprox.dll.so
+lib/wine/wdscore.dll.so
 lib/wine/webservices.dll.so
 lib/wine/wer.dll.so
 lib/wine/wevtapi.dll.so
@@ -2805,7 +2816,6 @@ lib/wine/winehid.sys.so
 lib/wine/winemapi.dll.so
 lib/wine/winemenubuilder.exe.so
 lib/wine/winemine.exe.so
-%%MPG123%%lib/wine/winemp3.acm.so
 lib/wine/winemsibuilder.exe.so
 lib/wine/wineoss.drv.so
 lib/wine/winepath.exe.so

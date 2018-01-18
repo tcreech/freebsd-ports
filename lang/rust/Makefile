@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	rust
-PORTVERSION?=	1.21.0
-PORTREVISION=	1
+PORTVERSION?=	1.22.1
+PORTREVISION?=	2
 CATEGORIES=	lang
 MASTER_SITES=	http://static.rust-lang.org/dist/:src \
 		LOCAL/dumbbell/rust:rust_bootstrap \
@@ -43,13 +43,13 @@ ONLY_FOR_ARCHS_REASON=	requires prebuilt bootstrap compiler
 #CONFLICTS_BUILD+=	${PKGBASE}
 CONFLICTS_INSTALL?=	rust-nightly
 
-BOOTSTRAPS_DATE?=		2017-08-31
+BOOTSTRAPS_DATE?=		2017-10-12
 
-RUST_BOOTSTRAP_VERSION?=	1.20.0
+RUST_BOOTSTRAP_VERSION?=	1.21.0
 RUSTC_BOOTSTRAP=		${BOOTSTRAPS_DATE_${ARCH}:U${BOOTSTRAPS_DATE}}/rustc-${RUST_BOOTSTRAP_VERSION_${ARCH}:U${RUST_BOOTSTRAP_VERSION}}-${RUST_TARGET}.tar.gz
 RUST_STD_BOOTSTRAP=		${BOOTSTRAPS_DATE_${ARCH}:U${BOOTSTRAPS_DATE}}/rust-std-${RUST_BOOTSTRAP_VERSION_${ARCH}:U${RUST_BOOTSTRAP_VERSION}}-${RUST_TARGET}.tar.gz
 
-CARGO_BOOTSTRAP_VERSION?=	0.21.0
+CARGO_BOOTSTRAP_VERSION?=	0.22.0
 CARGO_BOOTSTRAP=		${BOOTSTRAPS_DATE_${ARCH}:U${BOOTSTRAPS_DATE}}/cargo-${CARGO_BOOTSTRAP_VERSION_${ARCH}:U${CARGO_BOOTSTRAP_VERSION}}-${RUST_TARGET}${EXTRACT_SUFX}
 
 RUST_CHANNEL=	${PKGNAMESUFFIX:Ustable:S/^-//}
@@ -64,19 +64,13 @@ PLIST_SUB+=		RUST_TARGET=${RUST_TARGET}
 
 USES=		compiler gmake libedit pkgconfig python:2.7,build ssl
 
-OPTIONS_DEFINE=		DOCS GDB LLNEXTGEN PORT_LLVM SOURCES
+OPTIONS_DEFINE=		DOCS GDB LLNEXTGEN SOURCES
 GDB_DESC=		Install ports gdb (necessary for debugging rust programs)
 LLNEXTGEN_DESC=		Build with grammar verification
 SOURCES_DESC=		Install source files
 
 GDB_RUN_DEPENDS=		${LOCALBASE}/bin/gdb:devel/gdb
 LLNEXTGEN_BUILD_DEPENDS=	LLnextgen:devel/llnextgen
-
-# Rust may pass more regression tests with bundled LLVM
-PORT_LLVM_DESC=	Build against devel/llvm${LLVM_VER} instead of bundled version
-PORT_LLVM_BUILD_DEPENDS=	${LOCALBASE}/bin/FileCheck${LLVM_VER}:devel/llvm${LLVM_VER}
-LLVM_VER?=			40
-LLVM_CONFIG=			${LOCALBASE}/bin/llvm-config${LLVM_VER}
 
 # Rust manifests list all files and directories installed by rust-installer.
 # We use them in:
@@ -132,11 +126,6 @@ pre-fetch:
 	fi
 
 RUST_STD_DIR=		${RUST_STD_BOOTSTRAP:T:R:R}
-LIBSTD_SUFFIX_aarch64=	8eed00280b051035
-LIBSTD_SUFFIX_amd64=	fdf1c4a03a15a71f
-LIBSTD_SUFFIX_i386=	aaa09cdd21ad338f
-LIBSTD=			${RUST_STD_DIR}/rust-std-${RUST_TARGET}/lib/rustlib/${RUST_TARGET}/lib/libstd-${LIBSTD_SUFFIX_${ARCH}:U${LIBSTD_SUFFIX}}.rlib
-STDF=			${LIBSTD:T:R:S/lib//}.0.o
 
 post-extract:
 	@${MKDIR} \
@@ -153,12 +142,16 @@ post-extract:
 .if ${OPSYS} == FreeBSD && ${OSVERSION} >= 1200031
 	${TAR} -x -C ${WRKSRC} -f ${DISTDIR}/${DIST_SUBDIR}/${RUST_STD_BOOTSTRAP}
 	${CC} ${CFLAGS} -fPIC -c -o ${WRKSRC}/old_fstat.o ${FILESDIR}/old_fstat.c
-	(cd ${WRKSRC} && ${AR} x ${WRKSRC}/${LIBSTD} ${STDF})
-	${LD} -r -o ${WRKSRC}/std.xx.o ${WRKSRC}/${STDF} ${WRKSRC}/old_fstat.o
-	${MV} ${WRKSRC}/std.xx.o ${WRKSRC}/${STDF}
-	(cd ${WRKSRC} && ${AR} r ${WRKSRC}/${LIBSTD} ${STDF})
-	${TAR} -cy --format=ustar -C ${WRKSRC} -f ${WRKSRC}/rustc.tbz ${RUST_STD_DIR}
-	${MV} ${WRKSRC}/rustc.tbz ${WRKSRC}/build/cache/${RUST_STD_BOOTSTRAP}
+	(set -ex; cd ${WRKSRC}; \
+	 libstd="$$(echo "${RUST_STD_DIR}/rust-std-${RUST_TARGET}/lib/rustlib/${RUST_TARGET}/lib/"libstd-*.rlib)"; \
+	 hash="$$(basename "$$libstd" .rlib | ${SED} 's/^libstd-//')"; \
+	 std_o="std-$$hash.0.o"; \
+	 ${AR} x "$$libstd" "$$std_o"; \
+	 ${LD} -r -o std.xx.o "$$std_o" old_fstat.o; \
+	 ${MV} std.xx.o "$$std_o"; \
+	 ${AR} r "$$libstd" "$$std_o")
+	${TAR} -cz --format=ustar -C ${WRKSRC} -f ${WRKSRC}/rust-std.tar.gz ${RUST_STD_DIR}
+	${MV} ${WRKSRC}/rust-std.tar.gz ${WRKSRC}/build/cache/${RUST_STD_BOOTSTRAP}
 .endif
 
 post-patch:
@@ -167,27 +160,21 @@ post-patch:
 # If we override the versions and date of the bootstraps (for instance
 # on aarch64 where we provide our own bootstraps), we need to update
 # places where they are recorded.
-	@if test "${BOOTSTRAPS_DATE_${ARCH}}" && \
-	test "${BOOTSTRAPS_DATE_${ARCH}}" != "${BOOTSTRAPS_DATE}"; then \
-		${REINPLACE_CMD} -e \
+	@${REINPLACE_CMD} -e \
 		's|^date:.*|date: ${BOOTSTRAPS_DATE_${ARCH}:U${BOOTSTRAPS_DATE}}|' \
-		${WRKSRC}/src/stage0.txt; \
-	fi
-	@if test "${RUST_BOOTSTRAP_VERSION_${ARCH}}" && \
-	test "${RUST_BOOTSTRAP_VERSION_${ARCH}}" != "${RUST_BOOTSTRAP_VERSION}"; then \
-		${REINPLACE_CMD} -e \
+		${WRKSRC}/src/stage0.txt
+	@${REINPLACE_CMD} -e \
 		's|^rustc:.*|rustc: ${RUST_BOOTSTRAP_VERSION_${ARCH}:U${RUST_BOOTSTRAP_VERSION}}|' \
-		${WRKSRC}/src/stage0.txt; \
-	fi
-	@if test "${CARGO_BOOTSTRAP_VERSION_${ARCH}}" && \
-	test "${CARGO_BOOTSTRAP_VERSION_${ARCH}}" != "${CARGO_BOOTSTRAP_VERSION}"; then \
-		${REINPLACE_CMD} -e \
+		${WRKSRC}/src/stage0.txt
+	@${REINPLACE_CMD} -e \
 		's|^cargo:.*|cargo: ${CARGO_BOOTSTRAP_VERSION_${ARCH}:U${CARGO_BOOTSTRAP_VERSION}}|' \
-		${WRKSRC}/src/stage0.txt; \
-	fi
+		${WRKSRC}/src/stage0.txt
 # After patching crates, we need to update their corresponding
 # `.cargo-checksum.json` to reflect the new checksums verified by Cargo.
 	@for dir in "${WRKSRC}/src/vendor/libc" "${WRKSRC}/src/vendor/openssl" "${WRKSRC}/src/vendor/openssl-sys"; do \
+		if ! test -d "$$dir"; then \
+			continue; \
+		fi; \
 		cd "$$dir"; \
 		for file in $$(${FIND} * -name "*.orig"); do \
 			old_checksum=$$(${SHA256} -q "$$file"); \
@@ -202,6 +189,9 @@ post-patch:
 # fix is applied. We'll need them in `do-configure` to update the
 # `.cargo-checksum.json` files.
 	@for crate in ${CRATES_PATCHED_BY_FBSD10_FIX}; do \
+		if ! test -d "${WRKSRC}/$$crate"; then \
+			continue; \
+		fi; \
 		for file in $$(${FIND} "${WRKSRC}/$$crate" -name "config.rpath"); do \
 			${CP} "$$file" "$$file.orig"; \
 		done; \
@@ -221,6 +211,9 @@ do-configure:
 # `do-configure`. Like after `extra-path-ino64`, we need to update
 # `.cargo-checksum.json`.
 	@for crate in ${CRATES_PATCHED_BY_FBSD10_FIX}; do \
+		if ! test -d "${WRKSRC}/$$crate"; then \
+			continue; \
+		fi; \
 		cd "${WRKSRC}/$$crate"; \
 		for file in $$(${FIND} * -name "*.orig"); do \
 			old_checksum=$$(${SHA256} -q "$$file"); \
@@ -237,12 +230,6 @@ post-configure-DOCS-on:
 
 post-configure-DOCS-off:
 	${REINPLACE_CMD} -e 's,%DOCS%,false,' ${WRKSRC}/config.toml
-
-post-configure-PORT_LLVM-on:
-	${REINPLACE_CMD} -e 's,%LLVM_CONFIG%,${LLVM_CONFIG},' ${WRKSRC}/config.toml
-
-post-configure-PORT_LLVM-off:
-	${REINPLACE_CMD} -e '/%LLVM_CONFIG%/d' ${WRKSRC}/config.toml
 
 do-build:
 	cd ${WRKSRC} && \
@@ -355,7 +342,8 @@ do-test:
 
 BOOTSTRAPS_SOURCE_PKG_FBSDVER=		10
 BOOTSTRAPS_SOURCE_PKG_FBSDVER_aarch64=	11
-BOOTSTRAPS_SOURCE_PKG_URL=	http://pkg.freebsd.org/FreeBSD:${BOOTSTRAPS_SOURCE_PKG_FBSDVER_${ARCH}:U${BOOTSTRAPS_SOURCE_PKG_FBSDVER}}:${ARCH}/latest/All/rust-${RUST_BOOTSTRAP_VERSION_${ARCH}:U${RUST_BOOTSTRAP_VERSION}}.txz
+BOOTSTRAPS_SOURCE_PKG_REV=		_1
+BOOTSTRAPS_SOURCE_PKG_URL=	http://pkg.freebsd.org/FreeBSD:${BOOTSTRAPS_SOURCE_PKG_FBSDVER_${ARCH}:U${BOOTSTRAPS_SOURCE_PKG_FBSDVER}}:${ARCH}/latest/All/rust-${RUST_BOOTSTRAP_VERSION_${ARCH}:U${RUST_BOOTSTRAP_VERSION}}${BOOTSTRAPS_SOURCE_PKG_REV}.txz
 BOOTSTRAPS_SOURCE_PKG=		${_DISTDIR}/${BOOTSTRAPS_DATE_${ARCH}:U${BOOTSTRAPS_DATE}}/rust-${RUST_BOOTSTRAP_VERSION_${ARCH}:U${RUST_BOOTSTRAP_VERSION}}-${ARCH}.txz
 
 package-to-bootstraps: ${BOOTSTRAPS_SOURCE_PKG}

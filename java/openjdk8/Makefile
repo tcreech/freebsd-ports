@@ -2,6 +2,7 @@
 
 PORTNAME=	openjdk
 PORTVERSION=	${JDK_MAJOR_VERSION}.${JDK_UPDATE_VERSION}.${JDK_BUILD_NUMBER:S/^0//}
+PORTREVISION=	2
 CATEGORIES=	java devel
 MASTER_SITES=	http://download.java.net/openjdk/jdk${JDK_MAJOR_VERSION}/promoted/b${DIST_BUILD_NUMBER}/:jdk \
 		https://adopt-openjdk.ci.cloudbees.com/job/jtreg/${JTREG_JENKINS_BUILD}/artifact/:jtreg \
@@ -29,7 +30,8 @@ PATCHFILES=	patch-8u05-b13.xz \
 		patch-8u112-b16.xz \
 		patch-8u121-b13.xz \
 		patch-8u131-b11.xz \
-		patch-8u144-b01.xz
+		patch-8u144-b01.xz \
+		patch-8u152-b16.xz
 
 MAINTAINER=	java@FreeBSD.org
 COMMENT?=	Java Development Kit ${JDK_MAJOR_VERSION}
@@ -37,6 +39,7 @@ COMMENT?=	Java Development Kit ${JDK_MAJOR_VERSION}
 LICENSE=	GPLv2
 
 BUILD_DEPENDS=	zip:archivers/zip \
+		autoconf>0:devel/autoconf \
 		${LOCALBASE}/include/cups/cups.h:print/cups \
 		bash:shells/bash
 LIB_DEPENDS=	libfreetype.so:print/freetype2
@@ -45,7 +48,6 @@ RUN_DEPENDS=	javavm:java/javavmwrapper \
 
 USES=		compiler:features dos2unix gmake iconv pkgconfig \
 		shebangfix
-USE_AUTOTOOLS=	autoconf
 
 .if !exists(/usr/bin/unzip)
 BUILD_DEPENDS+=	${UNZIP_CMD}:archivers/unzip
@@ -202,13 +204,14 @@ NO_CCACHE=		yes
 NOPRECIOUSMAKEVARS=	yes
 
 JDK_MAJOR_VERSION=	8
-JDK_UPDATE_VERSION=	144
-JDK_BUILD_NUMBER=	01
+JDK_UPDATE_VERSION=	152
+JDK_BUILD_NUMBER=	16
 DIST_BUILD_NUMBER=	132
 JTREG_VERSION=		4.1
 JTREG_BUILD_NUMBER=	b08
 JTREG_JENKINS_BUILD=	77
 
+GNU_CONFIGURE=		yes
 CONFIGURE_ARGS=		--with-boot-jdk=${BOOTSTRAPJDKDIR}
 CONFIGURE_ARGS+=	--with-build-number="b${JDK_BUILD_NUMBER}"
 .if ${JDK_UPDATE_VERSION} > 0
@@ -290,8 +293,6 @@ CONFIGURE_ARGS+=	--disable-debug-symbols
 JAVAVMS_COMMENT+=	JRE
 JDK_BUILD_TYPE=		release
 .endif
-
-AUTOCONF_ARGS=	-I . -o generated-configure.sh generated-configure.ac
 
 # XXX configure script rejects CC/CPP/CXX with absolute paths.
 .for t in CC CPP CXX
@@ -408,11 +409,6 @@ post-patch:
 post-patch-ALSA-off:
 	@${REINPLACE_CMD} '/EXTRA_SOUND_JNI_LIBS += jsoundalsa/d' \
 		${WRKSRC}/jdk/make/lib/SoundLibraries.gmk
-
-pre-configure:
-	@cd ${CONFIGURE_WRKSRC} && \
-	${SED} -e "s|@DATE_WHEN_GENERATED@|$$(date +%s)|" configure.ac > \
-	    generated-configure.ac
 
 post-build:
 .if !defined(BUILD_JRE)

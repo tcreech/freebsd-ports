@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	passenger
-PORTVERSION=	5.1.11
+PORTVERSION=	5.1.12
 CATEGORIES=	www rubygems
 MASTER_SITES=	RG
 PKGNAMEPREFIX=	rubygem-
@@ -42,8 +42,6 @@ SHEBANG_FILES=	\
 	dev/ci/scripts/docker-entrypoint.sh \
 	dev/ci/run-tests-natively \
 	dev/ci/setup-host
-
-NOPORTDOCS=	yes
 
 APACHE22_USE=	APACHE=22+
 

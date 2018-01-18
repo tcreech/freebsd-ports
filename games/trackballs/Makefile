@@ -3,6 +3,8 @@
 
 PORTNAME=	trackballs
 PORTVERSION=	1.2.4
+DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	games
 
 MAINTAINER=	martymac@FreeBSD.org
@@ -17,7 +19,6 @@ LIB_DEPENDS=	libguile-2.0.so:lang/guile2 \
 USES=		cmake desktop-file-utils gettext-runtime pkgconfig
 
 USE_GITHUB=	yes
-GH_TAGNAME=	v${PORTVERSION}
 
 USE_GL=		gl
 USE_SDL=	image2 mixer2 sdl2 ttf2
