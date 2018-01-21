@@ -27,7 +27,7 @@ ONLY_FOR_ARCHS=	i386 amd64
 AFS_DISTVERSION=	1.8.0pre4
 DBVERSION=	2016-01-01
 
-USES=		cpe kmod tar:bzip2
+USES=		cpe kmod tar:bzip2 fakeroot
 USE_LDCONFIG=	yes
 HAS_CONFIGURE=	yes
 CONFIGURE_ENV=	_XCFLAGS="${CFLAGS} -fPIC" \
