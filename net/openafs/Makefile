@@ -24,7 +24,7 @@ LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 BROKEN_FreeBSD_12=	does not build (use of undeclared identifier 'ROOTINO')
 ONLY_FOR_ARCHS=	i386 amd64
 
-AFS_DISTVERSION=	1.6.22
+AFS_DISTVERSION=	1.6.22.2
 DBVERSION=	2016-01-01
 
 USES=		cpe kmod tar:bzip2
