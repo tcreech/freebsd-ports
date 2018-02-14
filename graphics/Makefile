@@ -356,6 +356,7 @@
     SUBDIR += hs-svgcairo
     SUBDIR += hugin
     SUBDIR += icat
+    SUBDIR += icc-profiles-adobe-cs4
     SUBDIR += icc-profiles-basiccolor
     SUBDIR += icc-profiles-openicc
     SUBDIR += iccexamin
@@ -378,6 +379,7 @@
     SUBDIR += impressive
     SUBDIR += imv
     SUBDIR += inkscape
+    SUBDIR += instant-meshes
     SUBDIR += intel-backlight
     SUBDIR += intergif
     SUBDIR += inventor
@@ -405,11 +407,11 @@
     SUBDIR += kamera-kde4
     SUBDIR += kcolorchooser
     SUBDIR += kcoloredit
-    SUBDIR += kdegraphics4
-    SUBDIR += kdegraphics4-mobipocket
-    SUBDIR += kdegraphics4-strigi-analyzer
-    SUBDIR += kdegraphics4-svgpart
-    SUBDIR += kdegraphics4-thumbnailers
+    SUBDIR += kdegraphics-kde4
+    SUBDIR += kdegraphics-mobipocket-kde4
+    SUBDIR += kdegraphics-strigi-analyzer-kde4
+    SUBDIR += kdegraphics-svgpart-kde4
+    SUBDIR += kdegraphics-thumbnailers-kde4
     SUBDIR += kdiagram
     SUBDIR += kf5-kimageformats
     SUBDIR += kf5-kplotting
@@ -906,7 +908,6 @@
     SUBDIR += py-pyproj
     SUBDIR += py-qt4-svg
     SUBDIR += py-qt5-svg
-    SUBDIR += py-rabbyt
     SUBDIR += py-sane
     SUBDIR += py-scikit-image
     SUBDIR += py-seqdiag
@@ -918,6 +919,7 @@
     SUBDIR += py-traitsui
     SUBDIR += py-wand
     SUBDIR += py-webcolors
+    SUBDIR += py-yaswfp
     SUBDIR += pygts
     SUBDIR += pymorph
     SUBDIR += pysvg

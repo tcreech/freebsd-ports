@@ -1,6 +1,6 @@
---- Gemfile.orig	2017-12-07 12:02:52 UTC
+--- Gemfile.orig	2018-01-11 16:23:59 UTC
 +++ Gemfile
-@@ -1,49 +1,49 @@
+@@ -1,55 +1,55 @@
  source 'https://rubygems.org'
  
 -gem 'rails', '4.2.8'
@@ -48,10 +48,11 @@
 -gem 'omniauth-saml', '~> 1.7.0'
 -gem 'omniauth-shibboleth', '~> 1.2.0'
 -gem 'omniauth-twitter', '~> 1.2.0'
+-gem 'omniauth_crowd', '~> 2.2.0'
 +gem 'omniauth-saml', '>= 1.7.0'
 +gem 'omniauth-shibboleth', '>= 1.2.0'
 +gem 'omniauth-twitter', '>= 1.2.0'
- gem 'omniauth_crowd', '~> 2.2.0'
++gem 'omniauth_crowd', '>= 2.2.0'
  gem 'omniauth-authentiq', '~> 0.3.1'
 -gem 'rack-oauth2', '~> 1.2.1'
 +gem 'rack-oauth2', '>= 1.2.1'
@@ -63,7 +64,14 @@
  gem 'akismet', '~> 2.0'
  
  # Two-factor authentication
-@@ -73,7 +73,7 @@ gem 'gollum-lib', '~> 4.2', require: fal
+ gem 'devise-two-factor', '~> 3.0.0'
+ gem 'rqrcode-rails3', '~> 0.1.7'
+-gem 'attr_encrypted', '~> 3.0.0'
++gem 'attr_encrypted', '~> 3.0'
+ gem 'u2f', '~> 0.2.1'
+ 
+ # GitLab Pages
+@@ -73,11 +73,11 @@ gem 'gollum-lib', '~> 4.2', require: fal
  gem 'gollum-rugged_adapter', '~> 0.4.4', require: false
  
  # Language detection
@@ -72,6 +80,11 @@
  
  # API
  gem 'grape', '~> 1.0'
+-gem 'grape-entity', '~> 0.6.0'
++gem 'grape-entity', '~> 0.6'
+ gem 'rack-cors', '~> 0.4.0', require: 'rack/cors'
+ 
+ # Disable strong_params so that Mash does not respond to :permitted?
 @@ -87,25 +87,25 @@ gem 'hashie-forbidden_attributes'
  gem 'kaminari', '~> 1.0'
  
@@ -174,7 +187,7 @@
 +gem 'version_sorter', '>= 2.1.0'
  
  # Cache
- gem 'redis-rails', '~> 5.0.1'
+ gem 'redis-rails', '~> 5.0.2'
  
  # Redis
 -gem 'redis', '~> 3.2'

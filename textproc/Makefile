@@ -165,6 +165,7 @@
     SUBDIR += elasticsearch5
     SUBDIR += elasticsearch5-search-guard
     SUBDIR += elasticsearch5-x-pack
+    SUBDIR += elasticsearch6
     SUBDIR += elixir-earmark
     SUBDIR += elixir-ex_doc
     SUBDIR += elixir-funnel
@@ -333,6 +334,7 @@
     SUBDIR += ibus
     SUBDIR += ibus-el
     SUBDIR += ibus-kmfl
+    SUBDIR += ibus-m17n
     SUBDIR += ibus-qt
     SUBDIR += ibus-typing-booster
     SUBDIR += icdiff
@@ -1338,6 +1340,7 @@
     SUBDIR += py-pystache
     SUBDIR += py-pystemmer
     SUBDIR += py-python-augeas
+    SUBDIR += py-python-bidi
     SUBDIR += py-python-docx
     SUBDIR += py-python-gettext
     SUBDIR += py-python-slugify
@@ -1394,6 +1397,7 @@
     SUBDIR += py-xlutils
     SUBDIR += py-xlwriter
     SUBDIR += py-xlwt
+    SUBDIR += py-xml-default-dict
     SUBDIR += py-yapf
     SUBDIR += py-zope.app.i18n
     SUBDIR += py-zope.app.locales
@@ -1585,6 +1589,8 @@
     SUBDIR += rubygem-text
     SUBDIR += rubygem-tidy
     SUBDIR += rubygem-tidy_ffi
+    SUBDIR += rubygem-toml
+    SUBDIR += rubygem-tomlrb
     SUBDIR += rubygem-truncato
     SUBDIR += rubygem-twitter-text
     SUBDIR += rubygem-twitter-text1

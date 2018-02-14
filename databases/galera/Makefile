@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	galera
-PORTVERSION?=	25.3.22
+PORTVERSION?=	25.3.23
 DISTVERSIONPREFIX?=	release_
 CATEGORIES=	databases
 

@@ -1,10 +1,10 @@
 # $FreeBSD$
 
 PORTNAME=	cppcms
-PORTVERSION=	1.1.0
+PORTVERSION=	1.2.0
 PORTREVISION=	1
 CATEGORIES=	www
-MASTER_SITES=	SF/cppcms/${PORTNAME}/${PORTVERSION}-beta
+MASTER_SITES=	SF/cppcms/${PORTNAME}/${PORTVERSION}
 
 MAINTAINER=	ports@FreeBSD.org
 COMMENT=	C++ web development framework
@@ -26,6 +26,8 @@ ICU_DESC=		ICU unicode support
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MICU}
+USES+=		compiler:c++11-lib
+USE_CXXSTD=	gnu++11
 LIB_DEPENDS+=	libicuuc.so:devel/icu
 CMAKE_ARGS+=	-DDISABLE_ICONV:BOOL=ON
 .else

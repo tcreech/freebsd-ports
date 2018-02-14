@@ -118,8 +118,6 @@
     SUBDIR += q4wine
     SUBDIR += qemu
     SUBDIR += qemu-cheri
-    SUBDIR += qemu-cheri128
-    SUBDIR += qemu-cheri128m
     SUBDIR += qemu-devel
     SUBDIR += qemu-launcher
     SUBDIR += qemu-ppcnv
@@ -130,7 +128,6 @@
     SUBDIR += qmc2
     SUBDIR += qtemu
     SUBDIR += quasi88
-    SUBDIR += raine
     SUBDIR += riscv-fesvr
     SUBDIR += riscv-isa-sim
     SUBDIR += rpcs3
