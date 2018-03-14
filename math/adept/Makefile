@@ -1,7 +1,8 @@
 # $FreeBSD$
 
 PORTNAME=	adept
-DISTVERSION=	2.0.4
+DISTVERSION=	2.0.5
+PORTREVISION=	1
 CATEGORIES=	math
 MASTER_SITES=	http://www.met.reading.ac.uk/clouds/adept/
 

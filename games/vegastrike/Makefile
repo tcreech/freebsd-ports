@@ -3,7 +3,7 @@
 
 PORTNAME=	vegastrike
 PORTVERSION=	0.5.1.r1
-PORTREVISION=	10
+PORTREVISION=	11
 CATEGORIES=	games
 MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}/${PORTVERSION:R}/
 DISTNAME=	${PORTNAME}-src-${PORTVERSION}
@@ -15,7 +15,7 @@ LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 RUN_DEPENDS=	${LOCALBASE}/${DATADIR_REL}/vegastrike.ico:games/vegastrike-data
-LIB_DEPENDS=	libboost_python.so:devel/boost-python-libs \
+LIB_DEPENDS=	${PY_BOOST} \
 		libexpat.so:textproc/expat2 \
 		libvorbis.so:audio/libvorbis \
 		libogg.so:audio/libogg

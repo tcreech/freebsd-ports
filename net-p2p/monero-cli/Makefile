@@ -4,7 +4,7 @@
 PORTNAME=	monero-cli
 PORTVERSION=	0.11.1.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	net-p2p finance
 
 MAINTAINER=	vd@FreeBSD.org
@@ -30,6 +30,7 @@ USES=		cmake compiler:c++11-lib pkgconfig readline ssl
 USE_GITHUB=	yes
 GH_ACCOUNT=	monero-project
 GH_PROJECT=	monero
+CFLAGS+=	-D_WANT_SEMUN
 
 OPTIONS_DEFINE=		DOXYGEN
 DOXYGEN_BUILD_DEPENDS=	dot:graphics/graphviz \

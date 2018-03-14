@@ -1,9 +1,8 @@
-# Created by: Jason Bacon <bacon4000@gmail.com>
 # $FreeBSD$
 
 PORTNAME=	x10
 PORTVERSION=	2.2.1
-PORTREVISION=	6
+PORTREVISION=	7
 CATEGORIES=	lang devel java
 MASTER_SITES=	http://dist.codehaus.org/x10/dependencies/ \
 		SF
@@ -20,12 +19,14 @@ DISTFILES=	${DISTNAME}${EXTRACT_SUFX} \
 		bdwgc-7.1.tar.gz
 EXTRACT_ONLY=	${DISTNAME}${EXTRACT_SUFX}
 
-MAINTAINER=	bacon4000@gmail.com
+MAINTAINER=	jwb@FreeBSD.org
 COMMENT=	Object-oriented parallel programming language
 
 LICENSE=	EPL
 
 BROKEN=		Fails to build with modern compilers (cf. PR 219282)
+DEPRECATED=	Broken for more than 6 months
+EXPIRATION_DATE=	2018-03-19
 
 USES=	tar:bzip2
 USE_JAVA=	yes
