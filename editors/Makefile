@@ -36,7 +36,6 @@
     SUBDIR += editorconfig-core-c
     SUBDIR += emacs
     SUBDIR += emacs-devel
-    SUBDIR += emacs-nox11
     SUBDIR += encryptpad
     SUBDIR += fileobj
     SUBDIR += flim
@@ -67,8 +66,8 @@
     SUBDIR += jove
     SUBDIR += jucipp
     SUBDIR += jupp
-    SUBDIR += kate
-    SUBDIR += kate-plugin-pate
+    SUBDIR += kate-kde4
+    SUBDIR += kate-plugin-pate-kde4
     SUBDIR += kile-kde4
     SUBDIR += klat4
     SUBDIR += komodo-edit
@@ -77,6 +76,7 @@
     SUBDIR += lazarus-lcl-gtk2
     SUBDIR += lazarus-lcl-nogui
     SUBDIR += lazarus-lcl-qt
+    SUBDIR += lazarus-lcl-qt5
     SUBDIR += lazarus-lcl-units
     SUBDIR += le
     SUBDIR += leafpad
