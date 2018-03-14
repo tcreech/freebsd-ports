@@ -12,7 +12,7 @@
     SUBDIR += amfm
     SUBDIR += ansiweather
     SUBDIR += apparix
-    SUBDIR += artikulate
+    SUBDIR += artikulate-kde4
     SUBDIR += asbutton
     SUBDIR += asr-manpages
     SUBDIR += astrolog
@@ -57,6 +57,7 @@
     SUBDIR += cpuid
     SUBDIR += crosspad
     SUBDIR += crosti
+    SUBDIR += cryptoballot
     SUBDIR += cs
     SUBDIR += cstream
     SUBDIR += dahdi
@@ -237,18 +238,19 @@
     SUBDIR += kdeedu-kde4
     SUBDIR += kdeutils-kde4
     SUBDIR += kenny
-    SUBDIR += kgeography
-    SUBDIR += klettres
+    SUBDIR += kf5-purpose
+    SUBDIR += kgeography-kde4
+    SUBDIR += klettres-kde4
     SUBDIR += krecipes-kde4
-    SUBDIR += ktouch
-    SUBDIR += kwordquiz
+    SUBDIR += ktouch-kde4
+    SUBDIR += kwordquiz-kde4
     SUBDIR += latex-mk
     SUBDIR += lazyread
     SUBDIR += lc
     SUBDIR += lesspipe
     SUBDIR += libeatmydata
     SUBDIR += libisocodes
-    SUBDIR += libkdeedu
+    SUBDIR += libkdeedu-kde4
     SUBDIR += liblxi
     SUBDIR += libmetalink
     SUBDIR += libpostal
@@ -359,7 +361,7 @@
     SUBDIR += p5-Zen-Koans
     SUBDIR += p5-asterisk-perl
     SUBDIR += pantry
-    SUBDIR += parley
+    SUBDIR += parley-kde4
     SUBDIR += pastebinit
     SUBDIR += patchutils
     SUBDIR += pauker
@@ -427,7 +429,7 @@
     SUBDIR += rpl
     SUBDIR += rtfm
     SUBDIR += rubygem-dotenv
-    SUBDIR += rubygem-dotenv-rails
+    SUBDIR += rubygem-dotenv-rails-rails4
     SUBDIR += rubygem-dotenv-rails-rails5
     SUBDIR += rubygem-dotenv-rails-rails50
     SUBDIR += rubygem-iesd
@@ -477,7 +479,6 @@
     SUBDIR += tkregexp
     SUBDIR += tkrunit
     SUBDIR += toilet
-    SUBDIR += tpp
     SUBDIR += translate
     SUBDIR += ttyrec
     SUBDIR += tudu
@@ -501,6 +502,7 @@
     SUBDIR += viz
     SUBDIR += whichman
     SUBDIR += window
+    SUBDIR += with
     SUBDIR += wmScoreBoard
     SUBDIR += wmcalendar
     SUBDIR += wmjulia

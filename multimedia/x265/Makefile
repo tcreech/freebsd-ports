@@ -3,8 +3,10 @@
 
 PORTNAME=	x265
 PORTVERSION=	2.6
+PORTREVISION=	1
 CATEGORIES=	multimedia
-MASTER_SITES=	http://ftp.videolan.org/pub/videolan/${PORTNAME}/
+MASTER_SITES=	https://downloads.videolan.org/pub/videolan/${PORTNAME}/ \
+		https://mirror.leaseweb.com/videolan/x265/
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
 MAINTAINER=	mi@aldan.algebra.com
@@ -34,7 +36,7 @@ HI12P_DESC=	Enable HI12P Support (64-bit only)
 OPTIMIZED_FLAGS_DESC=	Enable O3 optimization
 
 USE_LDCONFIG=	yes
-CMAKE_ARGS=	-DPLATFORM_LIBS=md -DENABLE_TESTS=on
+CMAKE_ARGS=	-DENABLE_PIC=on -DPLATFORM_LIBS=md -DENABLE_TESTS=on
 CFLAGS_mips=	-DNO_ATOMICS # cannot use lang/gcc
 CFLAGS_mips64=	-DNO_ATOMICS # cannot use lang/gcc
 EXTRACT_AFTER_ARGS+=	--exclude "md5*"
