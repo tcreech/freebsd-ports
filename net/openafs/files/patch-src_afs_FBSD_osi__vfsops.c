@@ -1,6 +1,36 @@
---- src/afs/FBSD/osi_vfsops.c.orig	2016-12-08 04:01:51 UTC
+--- src/afs/FBSD/osi_vfsops.c.orig	2018-04-06 01:21:12 UTC
 +++ src/afs/FBSD/osi_vfsops.c
-@@ -220,15 +220,14 @@ afs_unmount(struct mount *mp, int flags,
+@@ -48,7 +48,13 @@ afs_init(struct vfsconf *vfc)
+ {
+     int code;
+     int offset = AFS_SYSCALL;
+-#if defined(AFS_FBSD90_ENV) || defined(AFS_FBSD82_ENV)
++#if defined(AFS_FBSD120_ENV)
++    struct syscall_helper_data afs_syscalls[] = {
++        { .new_sysent = afs_sysent, .syscall_no = AFS_SYSCALL },
++        SYSCALL_INIT_LAST
++    };
++    syscall_helper_register(afs_syscalls, 0);
++#elif defined(AFS_FBSD90_ENV) || defined(AFS_FBSD82_ENV)
+ # if defined(FBSD_SYSCALL_REGISTER_FOUR_ARGS)
+     code = syscall_register(&offset, &afs_sysent, &old_sysent, 0);
+ # else
+@@ -84,7 +90,13 @@ afs_uninit(struct vfsconf *vfc)
+ 
+     if (afs_globalVFS)
+ 	return EBUSY;
+-#if defined(AFS_FBSD90_ENV) || defined(AFS_FBSD82_ENV)
++#if defined(AFS_FBSD120_ENV)
++    struct syscall_helper_data afs_syscalls[] = {
++        { .old_sysent = old_sysent, .syscall_no = AFS_SYSCALL },
++        SYSCALL_INIT_LAST
++    };
++    syscall_helper_unregister(afs_syscalls);
++#elif defined(AFS_FBSD90_ENV) || defined(AFS_FBSD82_ENV)
+     syscall_deregister(&offset, &old_sysent);
+ #else
+     sysent[AFS_SYSCALL].sy_narg = 0;
+@@ -220,15 +232,14 @@ afs_unmount(struct mount *mp, int flags, struct thread
      }
      if (afs_globalVp)
  	error = EBUSY;
@@ -17,7 +47,7 @@
  #if defined(AFS_FBSD80_ENV)
  	error = vflush(mp, 1, (flags & MNT_FORCE) ? FORCECLOSE : 0, curthread);
  #elif defined(AFS_FBSD53_ENV)
-@@ -236,10 +235,12 @@ afs_unmount(struct mount *mp, int flags,
+@@ -236,10 +247,12 @@ afs_unmount(struct mount *mp, int flags, struct thread
  #else
  	error = vflush(mp, 1, (flags & MNT_FORCE) ? FORCECLOSE : 0);
  #endif
@@ -32,7 +62,7 @@
      AFS_STATCNT(afs_unmount);
      afs_globalVFS = 0;
      afs_shutdown();
-@@ -297,29 +298,28 @@ tryagain:
+@@ -297,29 +310,28 @@ tryagain:
      }
      if (tvp) {
  	struct vnode *vp = AFSTOV(tvp);
