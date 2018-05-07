@@ -3,7 +3,7 @@
 
 PORTNAME=	cjdns
 DISTVERSIONPREFIX=	cjdns-v
-DISTVERSION=	20.1
+DISTVERSION=	20.2
 CATEGORIES=	net security
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -11,6 +11,8 @@ COMMENT=	Routing engine designed for security, scalability, speed
 
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
+
+BROKEN_FreeBSD_10_i386=	fails CC_OUTPUT_921dbbb2_65ad290d=error: invalid value 'c++14' in '-std=c++14' yes
 
 BUILD_DEPENDS=	node:www/node \
 		bash:shells/bash
@@ -28,7 +30,7 @@ post-patch:
 		${WRKSRC}/contrib/sh/run-cjdroute.sh
 
 do-build:
-	cd ${WRKSRC} && ./do
+	@cd ${WRKSRC} && ./do
 
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/cjdroute ${STAGEDIR}${PREFIX}/bin

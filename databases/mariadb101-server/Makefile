@@ -1,8 +1,8 @@
 # $FreeBSD$
 
 PORTNAME?=	mariadb
-PORTVERSION=	10.1.31
-PORTREVISION?=	0
+PORTVERSION=	10.1.32
+PORTREVISION?=	2
 CATEGORIES=	databases ipv6
 MASTER_SITES=	http://ftp.osuosl.org/pub/${SITESDIR}/ \
 		http://mirrors.supportex.net/${SITESDIR}/ \
@@ -27,7 +27,6 @@ BROKEN_SSL=		openssl-devel
 BROKEN_SSL_REASON_openssl-devel=	incomplete definition of type 'struct dh_st'
 
 SUB_FILES=	pkg-message
-PKGMESSAGE=	${WRKDIR}/pkg-message
 
 SLAVEDIRS=	databases/mariadb101-client
 USES=		bison:build cmake:noninja compiler:c++11-lib cpe libedit ncurses \
@@ -136,7 +135,6 @@ ${ENGINE}_CMAKE_ON=	-DPLUGIN_${ENGINE}=DYNAMIC
 CONNECT_EXTRA_LIB_DEPENDS=	libodbc.so:databases/unixODBC
 CONNECT_EXTRA_USE=	gnome=libxml2
 GSSAPI_NONE_CMAKE_ON=	-DPLUGIN_AUTH_GSSAPI=NO
-INNOBASE_EXTRA_PATCHES_OFF=	${FILESDIR}/extra-patch-MDEV-15288
 LZ4_CMAKE_OFF=		-DGRN_WITH_LZ4=OFF -DWITH_INNODB_LZ4=OFF
 LZ4_CMAKE_ON=		-DGRN_WITH_LZ4=${LOCALBASE}/lib -DWITH_INNODB_LZ4=${LOCALBASE}/lib
 LZ4_LIB_DEPENDS=	liblz4.so:archivers/liblz4
@@ -183,6 +181,15 @@ post-install-MROONGA-on:
 		${STAGEDIR}${PREFIX}/share/groonga \
 		${STAGEDIR}${PREFIX}/share/mysql
 .endif # defined(CLIENT_ONLY)
+
+.include <bsd.port.options.mk>
+
+.if ${OPSYS} != FreeBSD || ${OSVERSION} < 1101514 || \
+	${OSVERSION} >= 1200000 && ${OSVERSION} < 1200057
+SUB_LIST+=	LEGACY_LIMITS="" MODERN_LIMITS="@comment "
+.else
+SUB_LIST+=	LEGACY_LIMITS="@comment " MODERN_LIMITS=""
+.endif
 
 .include <bsd.port.pre.mk>
 

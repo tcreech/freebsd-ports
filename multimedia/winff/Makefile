@@ -3,7 +3,7 @@
 
 PORTNAME=	WinFF
 PORTVERSION=	1.5.5
-PORTREVISION=	7
+PORTREVISION=	8
 CATEGORIES=	multimedia
 MASTER_SITES=	http://winff.org/docs/source/
 DISTNAME=	${_PORTNAME}-${PORTVERSION}-source
@@ -19,6 +19,7 @@ BUILD_DEPENDS=	lazbuild:editors/lazarus
 LIB_DEPENDS=	libavutil.so:multimedia/ffmpeg
 
 NO_WRKSUBDIR=	yes
+USES=		fpc
 USE_XORG=	x11
 USE_FPC=	cairo fcl-base fcl-image fcl-json fcl-xml pasjpeg regexpr x11
 USE_GNOME=	cairo

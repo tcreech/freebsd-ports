@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	rust
-PORTVERSION?=	1.24.0
-PORTREVISION?=	1
+PORTVERSION?=	1.25.0
+PORTREVISION?=
 CATEGORIES=	lang
 MASTER_SITES=	http://static.rust-lang.org/dist/:src \
 		LOCAL/dumbbell/rust:rust_bootstrap \
@@ -44,13 +44,13 @@ ONLY_FOR_ARCHS_REASON=	requires prebuilt bootstrap compiler
 CONFLICTS_INSTALL?=	rust-nightly
 
 # See WRKSRC/src/stage0.txt for this date and version values.
-BOOTSTRAPS_DATE?=		2018-01-04
+BOOTSTRAPS_DATE?=		2018-02-15
 
-RUST_BOOTSTRAP_VERSION?=	1.23.0
+RUST_BOOTSTRAP_VERSION?=	1.24.0
 RUSTC_BOOTSTRAP=		${BOOTSTRAPS_DATE_${ARCH}:U${BOOTSTRAPS_DATE}}/rustc-${RUST_BOOTSTRAP_VERSION_${ARCH}:U${RUST_BOOTSTRAP_VERSION}}-${RUST_TARGET}.tar.gz
 RUST_STD_BOOTSTRAP=		${BOOTSTRAPS_DATE_${ARCH}:U${BOOTSTRAPS_DATE}}/rust-std-${RUST_BOOTSTRAP_VERSION_${ARCH}:U${RUST_BOOTSTRAP_VERSION}}-${RUST_TARGET}.tar.gz
 
-CARGO_BOOTSTRAP_VERSION?=	0.24.0
+CARGO_BOOTSTRAP_VERSION?=	0.25.0
 CARGO_BOOTSTRAP=		${BOOTSTRAPS_DATE_${ARCH}:U${BOOTSTRAPS_DATE}}/cargo-${CARGO_BOOTSTRAP_VERSION_${ARCH}:U${CARGO_BOOTSTRAP_VERSION}}-${RUST_TARGET}.tar.gz
 
 RUST_CHANNEL=	${PKGNAMESUFFIX:Ustable:S/^-//}
@@ -92,8 +92,12 @@ PLIST_FILES=		lib/rustlib/components \
 			lib/rustlib/rust-installer-version
 
 .include <bsd.port.pre.mk>
-.if ${OPSYS} == FreeBSD && ${OSVERSION} >= 1200031
-EXTRA_PATCHES+=		${PATCHDIR}/extra-patch-abi
+# ABI patch needed to address ino64 before fixes upstreamed.
+# https://github.com/rust-lang/rust/issues/42681
+.if ${OPSYS} == FreeBSD && ${OSVERSION} >= 1200031 && !defined(NIGHTLY_DATE)
+NEED_ABI_PATCH=		1
+.else
+NEED_ABI_PATCH=		0
 .endif
 
 X_PY_ENV=	HOME="${WRKDIR}" \
@@ -135,13 +139,13 @@ post-extract:
 		${WRKSRC}/build/cache/${BOOTSTRAPS_DATE_${ARCH}:U${BOOTSTRAPS_DATE}}
 	${LN} -sf ${DISTDIR}/${DIST_SUBDIR}/${RUSTC_BOOTSTRAP} \
 		${WRKSRC}/build/cache/${BOOTSTRAPS_DATE_${ARCH}:U${BOOTSTRAPS_DATE}}
-.if ${OPSYS} != FreeBSD || ${OSVERSION} < 1200031
+.if ${NEED_ABI_PATCH} == 0
 	${LN} -sf ${DISTDIR}/${DIST_SUBDIR}/${RUST_STD_BOOTSTRAP} \
 		${WRKSRC}/build/cache/${BOOTSTRAPS_DATE_${ARCH}:U${BOOTSTRAPS_DATE}}
 .endif
 	${LN} -sf ${DISTDIR}/${DIST_SUBDIR}/${CARGO_BOOTSTRAP} \
 		${WRKSRC}/build/cache/${BOOTSTRAPS_DATE_${ARCH}:U${BOOTSTRAPS_DATE}}
-.if ${OPSYS} == FreeBSD && ${OSVERSION} >= 1200031
+.if ${NEED_ABI_PATCH} == 1
 	${TAR} -x -C ${WRKSRC} -f ${DISTDIR}/${DIST_SUBDIR}/${RUST_STD_BOOTSTRAP}
 	${CC} ${CFLAGS} -fPIC -c -o ${WRKSRC}/old_fstat.o ${FILESDIR}/old_fstat.c
 	(set -ex; cd ${WRKSRC}; \
@@ -319,6 +323,7 @@ post-install:
 # but they contain non-object files which make strip(1) unhappy.
 	@${STRIP_CMD} \
 		${STAGEDIR}${PREFIX}/bin/cargo \
+		${STAGEDIR}${PREFIX}/bin/cargo-fmt \
 		${STAGEDIR}${PREFIX}/bin/rls \
 		${STAGEDIR}${PREFIX}/bin/rustc \
 		${STAGEDIR}${PREFIX}/bin/rustdoc \

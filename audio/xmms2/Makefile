@@ -4,7 +4,7 @@
 PORTNAME?=	xmms2
 PORTVERSION=	0.8
 DISTVERSIONSUFFIX=	DrO_o
-PORTREVISION?=	23
+PORTREVISION?=	25
 CATEGORIES?=	audio
 MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}/${PORTVERSION}%20${DISTVERSIONSUFFIX}
 
@@ -158,7 +158,7 @@ XML_CONFIGURE_OFF=	--without-plugins="xml" --without-plugins="rss" \
 
 ET_CONFIGURE_OFF=	--without-optionals="et"
 
-.endif # !XMMS_SLAVE
+.endif # !XMMS2_SLAVE
 
 .include <bsd.port.options.mk>
 
@@ -217,6 +217,8 @@ post-install:
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/*
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/${PORTNAME}/*
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libxmmsclient*
+.else
+	${RM} -R ${STAGEDIR}${PREFIX}/lib/xmms2
 .endif
 
 .include <bsd.port.post.mk>

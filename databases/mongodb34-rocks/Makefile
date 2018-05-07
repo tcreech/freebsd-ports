@@ -3,7 +3,7 @@
 PORTNAME=	mongodb
 PORTVERSION=	3.4.6
 DISTVERSIONPREFIX=	r
-PORTREVISION=	4
+PORTREVISION=	5
 CATEGORIES=	databases net
 MASTER_SITES=	https://fastdl.mongodb.org/src/ \
 		http://fastdl.mongodb.org/src/ \
@@ -20,6 +20,8 @@ LICENSE=	AGPLv3 APACHE20
 LICENSE_COMB=	multi
 
 BROKEN=		fails to link
+DEPRECATED=	Broken for more than 6 months
+EXPIRATION_DATE=	2018-06-06
 BROKEN_SSL=	openssl-devel
 BROKEN_SSL_REASON_openssl-devel=	no member named 'SSLv2_method' in the global namespace
 

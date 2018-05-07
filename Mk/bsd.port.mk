@@ -380,9 +380,6 @@ FreeBSD_MAINTAINER=	portmgr@FreeBSD.org
 #				- If set, the system should use OpenLDAP libraries
 #				  with SASL support.
 ##
-# USE_FPC		- If set, this port relies on the Free Pascal language.
-# 				  Implies inclusion of bsd.fpc.mk.  (Also see
-#				  that file for more information on WANT_FPC_*).
 # USE_JAVA		- If set, this port relies on the Java language.
 #				  Implies inclusion of bsd.java.mk.  (Also see
 #				  that file for more information on USE_JAVA_*).
@@ -1176,7 +1173,7 @@ OSVERSION!=	${AWK} '/^\#define[[:blank:]]__FreeBSD_version/ {print $$3}' < ${SRC
 .endif
 _EXPORTED_VARS+=	OSVERSION
 
-.if (${OPSYS} == FreeBSD && (${OSVERSION} < 1003000 || (${OSVERSION} >= 1100000 && ${OSVERSION} < 1101001))) || \
+.if (${OPSYS} == FreeBSD && (${OSVERSION} < 1004000 || (${OSVERSION} >= 1100000 && ${OSVERSION} < 1101001))) || \
     (${OPSYS} == DragonFly && ${DFLYVERSION} < 400400)
 _UNSUPPORTED_SYSTEM_MESSAGE=	Ports Collection support for your ${OPSYS} version has ended, and no ports\
 								are guaranteed to build on this system. Please upgrade to a supported release.
@@ -1341,8 +1338,12 @@ _SUF2=	,${PORTEPOCH}
 PKGVERSION=	${PORTVERSION:C/[-_,]/./g}${_SUF1}${_SUF2}
 PKGNAME=	${PKGNAMEPREFIX}${PORTNAME}${PKGNAMESUFFIX}-${PKGVERSION}
 DISTVERSIONFULL=	${DISTVERSIONPREFIX}${DISTVERSION:C/:(.)/\1/g}${DISTVERSIONSUFFIX}
-.if defined(USE_GITHUB) && empty(MASTER_SITES:MGHC) && empty(DISTNAME) && empty(USE_GITHUB:Mnodefault)
+.if defined(USE_GITHUB) && empty(MASTER_SITES:MGHC) && empty(USE_GITHUB:Mnodefault)
+.  if empty(DISTNAME)
 _GITHUB_MUST_SET_DISTNAME=		yes
+.  else
+DEV_WARNING+=	"You are using USE_GITHUB and DISTNAME is set which is wrong.  Set GH_ACCOUNT/GH_PROJECT/GH_TAGNAME correctly and remove WRKSRC entirely."
+.  endif
 .else
 DISTNAME?=	${PORTNAME}-${DISTVERSIONFULL}
 .endif
@@ -1373,10 +1374,6 @@ PKGCOMPATDIR?=		${LOCALBASE}/lib/compat/pkg
 .if defined(USE_PHP) && (!defined(USES) || ( defined(USES) && !${USES:Mphp*} ))
 DEV_WARNING+=		"Using USE_PHP alone is deprecated, please use USES=php"
 USES+=	php
-.endif
-
-.if defined(USE_FPC) || defined(WANT_FPC_BASE) || defined(WANT_FPC_ALL)
-.include "${PORTSDIR}/Mk/bsd.fpc.mk"
 .endif
 
 .if defined(USE_JAVA)
@@ -1412,7 +1409,7 @@ USES+=	apache:${USE_APACHE:C/2([0-9])/2.\1/g}
 .include "${PORTSDIR}/Mk/bsd.gecko.mk"
 .endif
 
-.if defined(WANT_GNOME) || defined(USE_GNOME) || defined(INSTALLS_ICONS)
+.if defined(USE_GNOME) || defined(INSTALLS_ICONS)
 USES+=	gnome
 .endif
 
@@ -1844,6 +1841,7 @@ PKG_DEPENDS+=	${LOCALBASE}/sbin/pkg:${PKG_ORIGIN}
 
 .if defined(LLD_UNSAFE) && ${/usr/bin/ld:L:tA} == /usr/bin/ld.lld
 LDFLAGS+=	-fuse-ld=bfd
+BINARY_ALIAS+=	ld=${LD}
 .  if !defined(USE_BINUTILS)
 .    if exists(/usr/bin/ld.bfd)
 LD=	/usr/bin/ld.bfd
@@ -1988,10 +1986,6 @@ _USES_POST+=	php
 
 .if defined(USE_WX) || defined(USE_WX_NOT)
 .include "${PORTSDIR}/Mk/bsd.wx.mk"
-.endif
-
-.if defined(USE_FPC) || defined(WANT_FPC_BASE) || defined(WANT_FPC_ALL)
-.include "${PORTSDIR}/Mk/bsd.fpc.mk"
 .endif
 
 .if defined(USE_GECKO)
@@ -2640,6 +2634,7 @@ CONFIGURE_LOG?=		config.log
 # A default message to print if do-configure fails.
 CONFIGURE_FAIL_MESSAGE?=	"Please report the problem to ${MAINTAINER} [maintainer] and attach the \"${CONFIGURE_WRKSRC}/${CONFIGURE_LOG}\" including the output of the failure of your make command. Also, it might be a good idea to provide an overview of all packages installed on your system (e.g. a ${PKG_INFO} -Ea)."
 
+CONFIG_SITE?=		${PORTSDIR}/Templates/config.site
 .if defined(GNU_CONFIGURE)
 # Maximum command line length
 .if !defined(CONFIGURE_MAX_CMD_LEN)
@@ -2648,7 +2643,6 @@ CONFIGURE_MAX_CMD_LEN!=	${SYSCTL} -n kern.argmax
 _EXPORTED_VARS+=	CONFIGURE_MAX_CMD_LEN
 GNU_CONFIGURE_PREFIX?=	${PREFIX}
 GNU_CONFIGURE_MANPREFIX?=	${MANPREFIX}
-CONFIG_SITE?=		${PORTSDIR}/Templates/config.site
 CONFIGURE_ARGS+=	--prefix=${GNU_CONFIGURE_PREFIX} $${_LATE_CONFIGURE_ARGS}
 .if defined(CROSS_TOOLCHAIN)
 CROSS_HOST=		${CROSS_TOOLCHAIN:C,-.*$,,}-unknown-${OPSYS:tl}${OSREL}
@@ -4053,6 +4047,7 @@ _FLAVOR_RECURSIVE_SH= \
 		${FALSE}; \
 	fi; \
 	for dir in $${recursive_dirs}; do \
+		unset flavor; \
 		case $${dir} in \
 			*@*) \
 				flavor=$${dir\#*@}; \
@@ -4240,6 +4235,7 @@ PACKAGE-DEPENDS-LIST?= \
 	fi; \
 	checked="${PARENT_CHECKED}"; \
 	for dir in ${_LIB_RUN_DEPENDS:C,[^:]*:([^:]*):?.*,\1,}; do \
+		unset flavor; \
 		case $${dir} in \
 		*@*) \
 			flavor=$${dir\#*@}; \

@@ -1,8 +1,8 @@
 # $FreeBSD$
 
 PORTNAME=	llvm
-DISTVERSION=	5.0.1
-PORTREVISION=	0
+DISTVERSION=	5.0.2
+PORTREVISON=	0
 CATEGORIES=	devel lang
 MASTER_SITES=	https://releases.llvm.org/${LLVM_RELEASE}/${RCDIR} LOCAL/brooks
 PKGNAMESUFFIX=	${LLVM_SUFFIX}
@@ -384,7 +384,7 @@ post-patch-CLANG-on:
 post-build-COMPILER_RT-on:
 	${MKDIR} ${WRKDIR}/compiler-rt-build
 	cd ${WRKDIR}/compiler-rt-build && \
-	${CMAKE_BIN} ${CMAKE_ARGS} \
+	${SETENV} ${CONFIGURE_ENV} ${CMAKE_BIN} ${CMAKE_ARGS} \
 	    -DLLVM_CONFIG_PATH=${CONFIGURE_WRKSRC}/bin/llvm-config \
 	    ${WRKSRC_compiler_rt} && \
 	${MAKE_ENV} ${MAKE_CMD}

@@ -2,7 +2,7 @@
 
 PORTNAME=	llvm
 DISTVERSION=	3.9.1
-PORTREVISION=	7
+PORTREVISION=	8
 CATEGORIES=	devel lang
 MASTER_SITES=	http://llvm.org/${PRE_}releases/${LLVM_RELEASE}/${RCDIR}
 PKGNAMESUFFIX=	${LLVM_SUFFIX}
@@ -332,14 +332,14 @@ post-patch-CLANG-on:
 	    ${PATCH_WRKSRC}/tools/clang/lib/Driver/Tools.cpp
 
 post-patch-COMPILER_RT-on:
-	cd ${WRKSRC_compiler_rt} && patch < ${PATCHDIR}/compiler-rt-patch-svn-294806
-	cd ${WRKSRC_compiler_rt} && patch < ${PATCHDIR}/compiler-rt-patch-canonical-syscalls
-	cd ${WRKSRC_compiler_rt} && patch < ${PATCHDIR}/compiler-rt-patch-ino64
+	cd ${WRKSRC_compiler_rt} && patch < ${PATCHDIR}/compiler-rt/patch-svn-294806
+	cd ${WRKSRC_compiler_rt} && patch < ${PATCHDIR}/compiler-rt/patch-lib_sanitizer__common_sanitizer__linux.cc
+	cd ${WRKSRC_compiler_rt} && patch < ${PATCHDIR}/compiler-rt/patch-lib_sanitizer__common_sanitizer__platfrom__limit__posix.h
 
 post-build-COMPILER_RT-on:
 	${MKDIR} ${WRKDIR}/compiler-rt-build
 	cd ${WRKDIR}/compiler-rt-build && \
-	${CMAKE_BIN} ${CMAKE_ARGS} \
+	${SETENV} ${CONFIGURE_ENV} ${CMAKE_BIN} ${CMAKE_ARGS} \
 	    -DLLVM_CONFIG_PATH=${CONFIGURE_WRKSRC}/bin/llvm-config \
 	    ${WRKSRC_compiler_rt} && \
 	${MAKE_ENV} ${MAKE_CMD}
@@ -415,7 +415,7 @@ post-install-LIT-on:
 	    ${STAGEDIR}${PREFIX}/bin/FileCheck${LLVM_SUFFIX}
 
 TEST_CMD=	'(cd ${WRKSRC}/test; ${SETENV} ${MAKE_ENV} LD_LIBRARY_PATH=${WRKSRC}/Release/lib ${MAKE_CMD} check-local-lit)'
-regression-test: ${BUILD_COOKIE}
+do-test:
 	if [ `${ID} -u` = 0 ]; then \
 		${CHOWN} -R nobody ${WRKSRC}/test; \
 		su -m nobody -c ${TEST_CMD}; \

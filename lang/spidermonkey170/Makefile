@@ -29,6 +29,11 @@ CONFIGURE_ARGS=		--with-pthreads \
 OPTIONS_DEFINE=		DEBUG DTRACE GCZEAL JEMALLOC METHODJIT OPTIMIZE READLINE \
 			THREADSAFE TRACEJIT UTF8
 OPTIONS_DEFAULT=	METHODJIT OPTIMIZE READLINE THREADSAFE TRACEJIT
+# ld(1) fails to link probes: Relocations in generic ELF (EM: 0)
+OPTIONS_EXCLUDE_aarch64=	DTRACE
+# dt_modtext:opensolaris/lib/libdtrace/common/dt_link.c: arm not implemented
+OPTIONS_EXCLUDE_armv6=	DTRACE
+OPTIONS_EXCLUDE_armv7=	DTRACE
 OPTIONS_SUB=		yes
 
 DEBUG_CONFIGURE_ENABLE=	debug debug-symbols
@@ -62,7 +67,7 @@ CONFIGURE_TARGET=	${ARCH:S/amd64/x86_64/}-portbld-${OPSYS:tl}${OSREL}
 STRIP_CMD=	${TRUE}
 .endif
 
-regression-test: build
+do-test:
 	@${ECHO_MSG} -n "===> Running jstests.py: "
 	@cd ${WRKSRC} && ${SETENV} TZ=PST8PDT ${PYTHON_CMD} tests/jstests.py \
 	--no-progress ./js17

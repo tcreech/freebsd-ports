@@ -1,6 +1,6 @@
---- testssl.sh.orig	2017-11-05 21:50:58 UTC
+--- testssl.sh.orig	2018-03-17 15:02:25 UTC
 +++ testssl.sh
-@@ -164,6 +164,9 @@ TERM_CURRPOS=0                          
+@@ -175,6 +175,9 @@ TERM_CURRPOS=0                          
  ## CONFIGURATION PART ##
  # following variables make use of $ENV, e.g. OPENSSL=<myprivate_path_to_openssl> ./testssl.sh <host>
  # 0 means (normally) true here. Some of the variables are also accessible with a command line switch, see --help

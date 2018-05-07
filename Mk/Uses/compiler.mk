@@ -145,12 +145,12 @@ _LANG=c
 .if ${CXXSTD:M${std}}
 _LANG=c++
 .endif
-.if defined(OUTPUT_${std:hash}_${_CC_hash})
-OUTPUT_${std}=	${OUTPUT_${std:hash}_${_CC_hash}}
+.if defined(CC_OUTPUT_${_CC_hash}_${std:hash})
+OUTPUT_${std}=	${CC_OUTPUT_${_CC_hash}_${std:hash}}
 .else
-OUTPUT_${std}!=	${CC} -std=${std} -c -x ${_LANG} /dev/null -o /dev/null 2>&1; echo yes
-OUTPUT_${std:hash}_${_CC_hash}=	${OUTPUT_${std}}
-PORTS_ENV_VARS+=		OUTPUT_${std:hash}_${_CC_hash}
+OUTPUT_${std}!=	if ${CC} -std=${std} -c -x ${_LANG} /dev/null -o /dev/null 2>&1; then echo yes; fi; echo
+CC_OUTPUT_${_CC_hash}_${std:hash}=	${OUTPUT_${std}}
+PORTS_ENV_VARS+=			CC_OUTPUT_${_CC_hash}_${std:hash}
 .endif
 .if !${OUTPUT_${std}:M*error*}
 COMPILER_FEATURES+=	${std}
@@ -180,10 +180,10 @@ CC=	clang
 CXX=	clang++
 CHOSEN_COMPILER_TYPE=	clang
 .else
-BUILD_DEPENDS+=	${LOCALBASE}/bin/clang50:devel/llvm50
-CPP=	${LOCALBASE}/bin/clang-cpp50
-CC=	${LOCALBASE}/bin/clang50
-CXX=	${LOCALBASE}/bin/clang++50
+BUILD_DEPENDS+=	${LOCALBASE}/bin/clang60:devel/llvm60
+CPP=	${LOCALBASE}/bin/clang-cpp60
+CC=	${LOCALBASE}/bin/clang60
+CXX=	${LOCALBASE}/bin/clang++60
 CHOSEN_COMPILER_TYPE=	clang
 .endif
 .endif
@@ -202,10 +202,10 @@ CC=	clang
 CXX=	clang++
 CHOSEN_COMPILER_TYPE=	clang
 .else
-BUILD_DEPENDS+=	${LOCALBASE}/bin/clang50:devel/llvm50
-CPP=	${LOCALBASE}/bin/clang-cpp50
-CC=	${LOCALBASE}/bin/clang50
-CXX=	${LOCALBASE}/bin/clang++50
+BUILD_DEPENDS+=	${LOCALBASE}/bin/clang60:devel/llvm60
+CPP=	${LOCALBASE}/bin/clang-cpp60
+CC=	${LOCALBASE}/bin/clang60
+CXX=	${LOCALBASE}/bin/clang++60
 CHOSEN_COMPILER_TYPE=	clang
 .endif
 .endif
@@ -224,11 +224,11 @@ CC=	clang
 CXX=	clang++
 CHOSEN_COMPILER_TYPE=	clang
 .else
-BUILD_DEPENDS+=	${LOCALBASE}/bin/clang50:devel/llvm50
+BUILD_DEPENDS+=	${LOCALBASE}/bin/clang60:devel/llvm60
 CHOSEN_COMPILER_TYPE=	clang
-CPP=	${LOCALBASE}/bin/clang-cpp50
-CC=	${LOCALBASE}/bin/clang50
-CXX=	${LOCALBASE}/bin/clang++50
+CPP=	${LOCALBASE}/bin/clang-cpp60
+CC=	${LOCALBASE}/bin/clang60
+CXX=	${LOCALBASE}/bin/clang++60
 .endif
 .endif
 .endif
@@ -246,11 +246,11 @@ CC=	clang
 CXX=	clang++
 CHOSEN_COMPILER_TYPE=	clang
 .else
-BUILD_DEPENDS+=	${LOCALBASE}/bin/clang50:devel/llvm50
+BUILD_DEPENDS+=	${LOCALBASE}/bin/clang60:devel/llvm60
 CHOSEN_COMPILER_TYPE=	clang
-CPP=	${LOCALBASE}/bin/clang-cpp50
-CC=	${LOCALBASE}/bin/clang50
-CXX=	${LOCALBASE}/bin/clang++50
+CPP=	${LOCALBASE}/bin/clang-cpp60
+CC=	${LOCALBASE}/bin/clang60
+CXX=	${LOCALBASE}/bin/clang++60
 .endif
 .endif
 .endif

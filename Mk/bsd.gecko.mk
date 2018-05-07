@@ -106,7 +106,7 @@ USE_XORG+=	xcb
 .endif
 
 .if ${MOZILLA_VER:R:R} >= 56
-MESA_LLVM_VER?=	50
+MESA_LLVM_VER?=	60
 BUILD_DEPENDS+=	llvm${MESA_LLVM_VER}>0:devel/llvm${MESA_LLVM_VER}
 MOZ_EXPORT+=	LLVM_CONFIG=llvm-config${MESA_LLVM_VER}
 .endif
@@ -365,17 +365,21 @@ post-patch-SNDIO-on:
 . for tests in tests gtest
 	@if [ -f "${MOZSRC}/media/libcubeb/${tests}/moz.build" ]; then \
 		${REINPLACE_CMD} -e 's|OpenBSD|${OPSYS}|g' \
-			 ${MOZSRC}/media/libcubeb/${tests}/moz.build \
-	; fi
+			 ${MOZSRC}/media/libcubeb/${tests}/moz.build; \
+	fi
 . endfor
-	@${REINPLACE_CMD} -e 's|OS==\"openbsd\"|OS==\"${OPSYS:tl}\"|g' \
-		${MOZSRC}/media/webrtc/trunk/webrtc/build/common.gypi
-	@${ECHO_CMD} "OS_LIBS += ['sndio']" >> \
-		${MOZSRC}/media/webrtc/signaling/test/common.build
+	@if [ -f "${MOZSRC}/media/webrtc/trunk/webrtc/build/common.gypi" ]; then \
+		${REINPLACE_CMD} -e 's|OS==\"openbsd\"|OS==\"${OPSYS:tl}\"|g' \
+			${MOZSRC}/media/webrtc/trunk/webrtc/build/common.gypi; \
+	fi
+	@if [ -f "${MOZSRC}/media/webrtc/signaling/test/common.build" ]; then \
+		${ECHO_CMD} "OS_LIBS += ['sndio']" >> \
+			${MOZSRC}/media/webrtc/signaling/test/common.build; \
+	fi
 .endif
 
 .if ${PORT_OPTIONS:MRUST} || ${MOZILLA_VER:R:R} >= 54
-BUILD_DEPENDS+=	${RUST_PORT:T}>=1.22.1:${RUST_PORT}
+BUILD_DEPENDS+=	${RUST_PORT:T}>=1.24:${RUST_PORT}
 RUST_PORT?=		lang/rust
 . if ${MOZILLA_VER:R:R} < 54
 MOZ_OPTIONS+=	--enable-rust

@@ -1,8 +1,8 @@
 # $FreeBSD$
 
 PORTNAME=	cyrus-imapd
-PORTVERSION=	3.0.5
-#PORTREVISION=	0
+PORTVERSION=	3.0.6
+PORTREVISION=	1
 CATEGORIES=	mail ipv6
 MASTER_SITES=	ftp://ftp.cyrusimap.org/cyrus-imapd/ \
 		https://www.cyrusimap.org/releases/
@@ -14,18 +14,19 @@ COMMENT=	The cyrus mail server, supporting POP3 and IMAP4 protocols
 LICENSE=	BSD4CLAUSE
 LICENSE_FILE=	${WRKSRC}/COPYING
 
+BROKEN_armv6=		fails to compile: gmake[1]: *** [Makefile:6747: lib/imapopts.c] Error 1
+BROKEN_armv7=		fails to compile: gmake[1]: *** [Makefile:6718: lib/imapopts.c] Error 1
+BROKEN_powerpc64=	fails to compile: mailbox.h: redefinition of typedef 'message_t'
+
 LIB_DEPENDS=	libsasl2.so:security/cyrus-sasl2 \
 		libicuuc.so:devel/icu \
 		libjansson.so:devel/jansson \
 		libpcre.so:devel/pcre
 
-BROKEN_powerpc64=	fails to compile: mailbox.h: redefinition of typedef 'message_t'
-
 CONFLICTS_INSTALL=	cyrus-imapd-2.* cyrus-imapd2*
 
-USE_RC_SUBR=	imapd
-
 USES=		cpe gmake libtool perl5 pkgconfig ssl
+USE_RC_SUBR=	imapd
 GNU_CONFIGURE=	yes
 CYRUS_PREFIX=	${PREFIX}/cyrus
 CONFIGURE_ARGS=	--libexecdir=${CYRUS_PREFIX}/libexec \
@@ -93,14 +94,14 @@ SNMP_LIB_DEPENDS=	libnetsnmp.so:net-mgmt/net-snmp
 SNMP_CONFIGURE_ON=	--with-snmp=${LOCALBASE}
 SNMP_CONFIGURE_OFF=	--with-snmp=no
 SQLITE_CONFIGURE_ON=	--with-sqlite=${LOCALBASE}
-SQLITE_BROKEN_OFF=	SQLITE is requited
+SQLITE_BROKEN_OFF=	SQLITE is required
 SQUAT_DESC=		Enable Squat support
 SQUAT_CONFIGURE_OFF=	--disable-squat
 XAPIAN_DESC=		Enable Xapian support
 XAPIAN_CONFIGURE_ENABLE=xapian
 XAPIAN_LIB_DEPENDS=	libxapian.so:databases/xapian-core
 
-OPTIONS_RADIO=			GSSAPI
+OPTIONS_RADIO=			GSSAPI READLINE
 OPTIONS_RADIO_GSSAPI=		GSSAPI_HEIMDAL GSSAPI_MIT
 .if exists(/usr/lib/libkrb5.a)
 OPTIONS_RADIO_GSSAPI+=		GSSAPI_BASE
@@ -115,6 +116,12 @@ GSSAPI_HEIMDAL_CONFIGURE_ON=	--enable-gssapi="${GSSAPIBASEDIR}" \
 GSSAPI_MIT_USES=		gssapi:mit
 GSSAPI_MIT_CONFIGURE_ON=	--enable-gssapi="${GSSAPIBASEDIR}" \
 				--with-gss_impl=mit
+
+OPTIONS_RADIO_READLINE=		READLINE_GNU READLINE_PERL
+READLINE_GNU_DESC=		Use Term::Readline::GNU for cyradm
+READLINE_GNU_RUN_DEPENDS=	p5-Term-ReadLine-Gnu>=0:devel/p5-Term-ReadLine-Gnu
+READLINE_PERL_DESC=		Use Term::Readline::Perl for cyradm
+READLINE_PERL_RUN_DEPENDS=	p5-Term-ReadLine-Perl>=0:devel/p5-Term-ReadLine-Perl
 
 MANDIRS=	${CYRUS_PREFIX}/man
 
@@ -168,8 +175,11 @@ CYRUS_MAN8+=	fetchnews nntpd
 .if ${PORT_OPTIONS:MREPLICATION}
 CYRUS_MAN8+=	sync_client sync_reset sync_server
 .endif
-.if ${PORT_OPTIONS:MSQUAT}
+.if ${PORT_OPTIONS:MSQUAT} || ${PORT_OPTIONS:MXAPIAN}
 CYRUS_MAN8+=	squatter
+PLIST_SUB+=	SQUATTER=""
+.else
+PLIST_SUB+=	SQUATTER="@comment "
 .endif
 
 .if ${PORT_OPTIONS:MDRAC}

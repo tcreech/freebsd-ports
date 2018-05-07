@@ -2,8 +2,9 @@
 
 PORTNAME=	rpcs3
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.0.5-54
-DISTVERSIONSUFFIX=	-gb8e920873
+DISTVERSION=	0.0.5-232
+DISTVERSIONSUFFIX=	-g98b715d8c
+PORTREVISION=	2
 CATEGORIES=	emulators
 
 MAINTAINER=	jbeich@FreeBSD.org
@@ -35,7 +36,7 @@ GH_TUPLE=	RPCS3:hidapi:hidapi-0.8.0-rc1-25-gca39ce8:hidapi/3rdparty/hidapi \
 USES=		cmake compiler:c++14-lang iconv:wchar_t localbase:ldflags \
 		openal:soft pkgconfig
 USE_GL=		gl glew
-USE_QT5=	qmake_build buildtools_build core dbus gui network widgets
+USE_QT5=	qmake_build buildtools_build core dbus gui network widgets qml
 USE_XORG=	x11
 EXTRA_PATCHES+=	${EXTRA_PATCHES_${OPSYS}_${OSREL}}
 EXTRA_PATCHES_FreeBSD_10.3=	${PATCHDIR}/extra-patch-no-thread_local
@@ -44,7 +45,7 @@ CMAKE_OFF=	USE_NATIVE_INSTRUCTIONS
 CXXFLAGS+=	-D_GLIBCXX_USE_C99 # XXX ports/193528
 CXXFLAGS+=	-Wno-macro-redefined # __STDC_*_MACROS sys/cdefs.h vs. llvm-config
 LDFLAGS+=	-Wl,--as-needed # GLU
-MESA_LLVM_VER?=	50
+MESA_LLVM_VER?=	60
 
 OPTIONS_DEFINE=	ALSA EVDEV GDB LLVM PULSEAUDIO VULKAN
 OPTIONS_DEFAULT=ALSA LLVM VULKAN

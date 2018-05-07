@@ -4,6 +4,7 @@
     COMMENT = Multimedia software
 
     SUBDIR += 2mandvd
+    SUBDIR += Bento4
     SUBDIR += QtAV
     SUBDIR += ab25
     SUBDIR += abby
@@ -41,6 +42,7 @@
     SUBDIR += deforaos-player
     SUBDIR += devede
     SUBDIR += dirac
+    SUBDIR += dragon
     SUBDIR += dragon-kde4
     SUBDIR += dtv-scan-tables
     SUBDIR += dumpmpeg
@@ -74,7 +76,6 @@
     SUBDIR += gcfilms
     SUBDIR += gdialog
     SUBDIR += gdvrecv
-    SUBDIR += gmencoder
     SUBDIR += gmerlin
     SUBDIR += gmerlin-avdecoder
     SUBDIR += gmimms
@@ -147,8 +148,7 @@
     SUBDIR += gstreamer1-plugins-vpx
     SUBDIR += gstreamer1-plugins-x264
     SUBDIR += gstreamer1-plugins-x265
-    SUBDIR += gstreamer1-qt4
-    SUBDIR += gstreamer1-qt5
+    SUBDIR += gstreamer1-qt
     SUBDIR += gstreamer1-rtsp-server
     SUBDIR += gstreamer1-vaapi
     SUBDIR += gstreamer1-validate
@@ -164,10 +164,14 @@
     SUBDIR += jmref
     SUBDIR += k9copy-kde4
     SUBDIR += kaffeine
+    SUBDIR += kamoso
+    SUBDIR += kdemultimedia
+    SUBDIR += kdemultimedia-ffmpegthumbs
     SUBDIR += kdemultimedia-kde4
     SUBDIR += kdemultimedia-ffmpegthumbs-kde4
     SUBDIR += kdemultimedia-mplayerthumbs-kde4
     SUBDIR += kdenlive
+    SUBDIR += kdenlive-kde4
     SUBDIR += kf5-kmediaplayer
     SUBDIR += kissdx
     SUBDIR += kmplayer-kde4
@@ -312,7 +316,6 @@
     SUBDIR += playd
     SUBDIR += plexmediaserver
     SUBDIR += plexmediaserver-plexpass
-    SUBDIR += plexpy
     SUBDIR += plexwatch
     SUBDIR += podcastdl
     SUBDIR += poe
@@ -397,6 +400,7 @@
     SUBDIR += swfdec-gnome
     SUBDIR += syncplay
     SUBDIR += szap-s2
+    SUBDIR += tautulli
     SUBDIR += tcmplex-panteltje
     SUBDIR += tivodecode
     SUBDIR += totem
