@@ -2,17 +2,13 @@
 # $FreeBSD$
 
 PORTNAME=	clickhouse
-PORTVERSION=	1.1.54342
+PORTVERSION=	1.1.54381
 DISTVERSIONPREFIX=	v
 DISTVERSIONSUFFIX=	-stable
-PORTREVISION=	1
 CATEGORIES=	databases
 
-PATCH_SITES=	https://github.com/proller/${GH_PROJECT}/commit/
-PATCHFILES=	05b203574ae2.patch:-p1
-
 MAINTAINER=	proler@gmail.com
-COMMENT=	ClickHouse is an column-oriented database management system
+COMMENT=	ClickHouse is a column-oriented database management system
 
 LICENSE=	APACHE20
 
@@ -21,10 +17,9 @@ ONLY_FOR_ARCHS=	amd64
 ONLY_FOR_ARCHS_REASON=	"Only supported on amd64"
 
 BUILD_DEPENDS=	bash:shells/bash \
-				sparsehash>=0:devel/sparsehash \
-				cctz>=0:devel/cctz \
-				libdouble-conversion>=0:devel/libdouble-conversion
-
+		sparsehash>=0:devel/sparsehash \
+		cctz>=0:devel/cctz \
+		libdouble-conversion>=0:devel/libdouble-conversion
 LIB_DEPENDS=	libtcmalloc.so:devel/google-perftools \
 		libodbc.so:databases/unixODBC \
 		libltdl.so:devel/libltdl \
@@ -40,7 +35,7 @@ LIB_DEPENDS=	libtcmalloc.so:devel/google-perftools \
 		librdkafka.so:net/librdkafka \
 		libgtest.so:devel/googletest
 
-USES=		compiler:c++14-lang cmake iconv mysql ssl readline
+USES=		compiler:c++14-lang cmake iconv mysql python ssl readline shebangfix
 USE_LDCONFIG=	yes
 CMAKE_ARGS=	-DUNBUNDLED=1 \
 		-DUSE_STATIC_LIBRARIES=0 \
@@ -52,13 +47,25 @@ CMAKE_ARGS=	-DUNBUNDLED=1 \
 USE_GITHUB=	yes
 GH_ACCOUNT=	yandex
 GH_PROJECT=	ClickHouse
-
 USE_RC_SUBR=	${PORTNAME}
+SHEBANG_FILES=	dbms/tests/performance/create_benchmark_page.py \
+		dbms/tests/external_dictionaries/generate_and_test.py \
+		dbms/tests/external_dictionaries/http_server.py \
+		dbms/tests/clickhouse-test
+
 USERS=		clickhouse
 GROUPS=		clickhouse
 
 SOVERSION=	${PORTVERSION}
 PLIST_SUB=	SOVERSION=${SOVERSION}
+
+.include <bsd.port.options.mk>
+
+.if ${OPSYS} == FreeBSD && ${OSVERSION} >= 1200057
+SUB_LIST+=	LEGACY_LIMITS="@comment " MODERN_LIMITS=""
+.else
+SUB_LIST+=	LEGACY_LIMITS="" MODERN_LIMITS="@comment "
+.endif
 
 .include <bsd.port.pre.mk>
 
@@ -77,6 +84,8 @@ post-install:
 	@${RM} ${STAGEDIR}${PREFIX}/bin/corrector_utf8
 	@${RM} -r ${STAGEDIR}${PREFIX}/include/gtest
 	@${RM} ${STAGEDIR}${PREFIX}/lib/libgtest*
+
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/share/clickhouse-test/external_dictionaries/dictionary_library/lib*.so
 
 	${INSTALL_DATA} ${STAGEDIR}${PREFIX}/etc/clickhouse-client/config.xml \
 		${STAGEDIR}${PREFIX}/etc/clickhouse-client/config.xml.sample

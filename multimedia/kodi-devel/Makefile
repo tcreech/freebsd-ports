@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	kodi
-DISTVERSION=	18.0.g201801112007
+DISTVERSION=	18.0.g201804180937
 PORTREVISION=	1
 CATEGORIES=	multimedia
 PKGNAMESUFFIX?=	-devel
@@ -32,6 +32,7 @@ LIB_DEPENDS=	libass.so:multimedia/libass \
 		libfreetype.so:print/freetype2 \
 		libfribidi.so:converters/fribidi \
 		libgif.so:graphics/giflib \
+		libgnutls.so:security/gnutls \
 		liblcms2.so:graphics/lcms2 \
 		liblzo2.so:archivers/lzo2 \
 		libpcre.so:devel/pcre \
@@ -53,7 +54,7 @@ USES=		autoreconf:build cmake:outsource,noninja compiler:c++11-lib \
 USE_GITHUB=	yes
 GH_ACCOUNT=	xbmc
 GH_PROJECT=	xbmc
-GH_TAGNAME=	4e01f3da2b0f17bd4da4c507691666695393527a
+GH_TAGNAME=	f4489bffe22487bc906e79130832c14360a42a8a
 USE_GNOME=	libxslt libxml2
 USE_JAVA=	yes
 JAVA_BUILD=	yes
@@ -73,29 +74,24 @@ CONFIGURE_ENV=	OPENSSL_LIBS="-L${OPENSSLLIB}" OPENSSL_CFLAGS="-I${OPENSSLINC}"
 KODIARCH_i386=	x86
 KODIARCH_amd64=	x86_64
 
-PLIST_SUB=	ARCH=${KODIARCH_${ARCH}:U${ARCH}} OPSYS=${OPSYS:tl} \
-		WAYLAND="@comment "
+PLIST_SUB=	ARCH=${KODIARCH_${ARCH}:U${ARCH}} OPSYS=${OPSYS:tl}
 
 OPTIONS_DEFINE=	AVAHI CEC DBUS LIBBLURAY MYSQL NFS SMB SSH UPNP VAAPI	\
 		VDPAU WEBSERVER
-OPTIONS_DEFAULT=	SNDIO SSH UPNP VAAPI VDPAU WEBSERVER X11
+OPTIONS_DEFAULT=	LIBBLURAY SSH UPNP VAAPI VDPAU WEBSERVER X11
 OPTIONS_SINGLE=	PLATFORM
-OPTIONS_SINGLE_PLATFORM=	GBM RPI X11
+OPTIONS_SINGLE_PLATFORM=	GBM RPI WAYLAND X11
 OPTIONS_EXCLUDE_amd64=	RPI
 OPTIONS_EXCLUDE_i386=	RPI
 OPTIONS_SUB=	yes
 
-# Choosing one of SNDIO or PULSEAUDIO is mandatory right now if you
-# want audio output.  The OSS backend is currently not hooked into
-# Kodi's audio sink factory due to recent refactorings.
-OPTIONS_MULTI=		SOUND
-OPTIONS_MULTI_SOUND=	PULSEAUDIO SNDIO
+OPTIONS_GROUP=		SOUND
+OPTIONS_GROUP_SOUND=	PULSEAUDIO SNDIO
 
 CEC_DESC=	CEC adapter support
 GBM_DESC=	GBM support (requires a kernel with evdev support)
 PLATFORM_DESC=	Platform
 RPI_DESC=	Raspberry Pi support
-WAYLAND_DESC=	Wayland support (broken)
 
 AVAHI_LIB_DEPENDS=	libavahi-client.so:net/avahi-app
 AVAHI_CMAKE_BOOL=	ENABLE_AVAHI
@@ -142,6 +138,7 @@ UPNP_CMAKE_BOOL=	ENABLE_UPNP
 # XXX: Upstream is https://github.com/plutinosoft/Neptune
 UPNP_CXXFLAGS=		-DNPT_CONFIG_HAVE_ARPA_INET_H \
 			-DNPT_CONFIG_HAVE_GETADDRINFO \
+			-DNPT_CONFIG_HAVE_GETIFADDRS \
 			-DNPT_CONFIG_HAVE_INET_NTOP \
 			-DNPT_CONFIG_HAVE_INET_PTON \
 			-DNPT_CONFIG_HAVE_NET_IF_DL_H \
@@ -154,11 +151,11 @@ VAAPI_CMAKE_BOOL=	ENABLE_VAAPI
 VDPAU_LIB_DEPENDS=	libvdpau.so:multimedia/libvdpau
 VDPAU_CMAKE_BOOL=	ENABLE_VDPAU
 
-WAYLAND_BROKEN=	Requires default WAYLAND in graphics/mesa-libs and missing graphics/waylandpp port
 WAYLAND_BUILD_DEPENDS=	wayland-protocols>=0:graphics/wayland-protocols
 WAYLAND_CMAKE_ON=	-DCORE_PLATFORM_NAME:STRING="wayland" \
 			-DWAYLAND_RENDER_SYSTEM:STRING="gl"
 WAYLAND_LIB_DEPENDS=	libwayland-client++.so:graphics/waylandpp \
+			libwayland-client.so:graphics/wayland \
 			libxkbcommon.so:x11/libxkbcommon
 
 WEBSERVER_LIB_DEPENDS=	libmicrohttpd.so:www/libmicrohttpd
@@ -166,6 +163,12 @@ WEBSERVER_CMAKE_BOOL=	ENABLE_MICROHTTPD
 
 X11_CMAKE_ON=		-DCORE_PLATFORM_NAME:STRING="x11"
 X11_USE=		XORG=x11,xext,xrandr
+
+.include <bsd.port.options.mk>
+
+.if ${SLAVE_PORT} == no
+PORTDATA=	*
+.endif
 
 post-patch:
 # Do not try to download dvdnav/dvdread during the build, instead
@@ -175,9 +178,13 @@ post-patch:
 		${WRKSRC}/cmake/modules/FindLibDvd.cmake
 	@${CP} ${WRKSRC}/cmake/platform/linux/gbm.cmake \
 		${WRKSRC}/cmake/platform/linux/rbpi.cmake \
-		${WRKSRC}/cmake/platform/linux/wayland.cmake \
 		${WRKSRC}/cmake/platform/freebsd
+	@${CP} ${WRKSRC}/cmake/scripts/linux/ExtraTargets.cmake \
+		${WRKSRC}/cmake/scripts/freebsd/ExtraTargets.cmake
+	@${CP} ${WRKSRC}/system/settings/linux.xml \
+		${WRKSRC}/system/settings/freebsd.xml
 
+.if ${SLAVE_PORT} == no
 post-install:
 	${INSTALL_MAN} ${WRKSRC}/docs/manpages/kodi.bin.1 ${STAGEDIR}${MAN1PREFIX}/man/man1
 	@cd ${STAGEDIR}${MAN1PREFIX}/man/man1 && ${LN} -sf kodi.bin.1.gz kodi.1.gz
@@ -185,5 +192,6 @@ post-install:
 	@${FIND} ${STAGEDIR}${PREFIX}/lib/kodi -name '*.so' | ${XARGS} ${STRIP_CMD}
 # Nothing useful here...
 	@${RM} -rf ${STAGEDIR}${DOCSDIR}
+.endif
 
 .include <bsd.port.mk>
