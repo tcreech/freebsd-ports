@@ -7,16 +7,21 @@ PORTVERSION=	${ISCVERSION:S/-P/P/:S/b/.b/:S/a/.a/:S/rc/.rc/}
 # dns/bind-tools here
 PORTREVISION=	0
 .else
+# XXX: correct version
 # dns/bind9xx here
 PORTREVISION=	0
 .endif
 CATEGORIES=	dns net ipv6
+# XXX: put the ISC master_site
+#MASTER_SITES=	ISC/bind9/${ISCVERSION}
 MASTER_SITES=	LOCAL/mat/bind
 .if defined(BIND_TOOLS_SLAVE)
 PKGNAMESUFFIX=	-tools
 .else
 PKGNAMESUFFIX=	9-devel
 .endif
+# XXX: correct DISTNAME.
+#DISTNAME=	${PORTNAME}-${ISCVERSION}
 
 MAINTAINER=	mat@FreeBSD.org
 .if defined(BIND_TOOLS_SLAVE)
@@ -29,14 +34,16 @@ LICENSE=	MPL20
 LICENSE_FILE=	${WRKSRC}/COPYRIGHT
 
 # ISC releases things like 9.8.0-P1, which our versioning doesn't like
-ISCVERSION=	9.13.0a0.2018.03.10
+ISCVERSION=	9.13.0a0.2018.05.14
+# XXX: Remove gitlab
 USE_GITLAB=	yes
 GL_SITE=	https://gitlab.isc.org
 GL_ACCOUNT=	isc-projects
 GL_PROJECT=	bind9
-GL_COMMIT=	129e13b92d1af4c45c93fa81dd2105348c35e23c
+GL_COMMIT=	34de85dab844040f896f56d4891bc5afd4f30d1b
 
-USES=	cpe libedit tar:bz2
+# XXX: remove tar:bz2
+USES=	cpe libedit ssl tar:bz2
 
 CPE_VENDOR=	isc
 CPE_VERSION=	${ISCVERSION:C/-.*//}
@@ -53,13 +60,16 @@ CONFIGURE_ARGS=	--localstatedir=/var --disable-linux-caps \
 		--with-libxml2=${LOCALBASE} \
 		--with-readline="-L${LOCALBASE}/lib -ledit" \
 		--with-dlopen=yes \
+		--with-openssl=${OPENSSLBASE} \
 		--sysconfdir=${ETCDIR}
 ETCDIR=		${PREFIX}/etc/namedb
 
+# XXX: Add -devel
 CONFLICTS=	bind99 bind910 bind911 bind912
 
 .if defined(BIND_TOOLS_SLAVE)
 CONFIGURE_ARGS+=	--disable-shared
+# XXX: Change to the correct version
 CONFLICTS+=		bind9-devel
 .else
 USE_RC_SUBR=	named
@@ -71,12 +81,12 @@ MAKE_JOBS_UNSAFE=	yes
 
 PORTDOCS=	*
 
-OPTIONS_DEFAULT=	SSL THREADS SIGCHASE IDN GSSAPI_NONE JSON PYTHON
+OPTIONS_DEFAULT=	THREADS SIGCHASE IDN GSSAPI_NONE JSON PYTHON
 OPTIONS_DEFINE=		IDN LARGE_FILE PYTHON JSON \
 			FIXED_RRSET SIGCHASE IPV6 THREADS
 
 OPTIONS_RADIO=	CRYPTO GOSTDEF
-OPTIONS_RADIO_CRYPTO=	SSL NATIVE_PKCS11
+OPTIONS_RADIO_CRYPTO=	NATIVE_PKCS11
 OPTIONS_RADIO_GOSTDEF=	GOST GOST_ASN1
 
 .if !defined(BIND_TOOLS_SLAVE)
@@ -104,7 +114,7 @@ DLZ_STUB_DESC=		DLZ stub driver
 DNSTAP_DESC=		Provides fast passive logging of DNS messages
 FIXED_RRSET_DESC=	Enable fixed rrset ordering
 GEOIP_DESC=		Allow geographically based ACL.
-GOSTDEF_DESC=		Enable GOST ciphers, needs SSL
+GOSTDEF_DESC=		Enable GOST ciphers
 GOST_ASN1_DESC=		GOST using ASN.1
 GOST_DESC=		GOST raw keys (new default)
 GSSAPI_BASE_DESC=	Using Heimdal in base
@@ -121,7 +131,6 @@ QUERYTRACE_DESC=	Enable the very verbose query tracelogging
 RPZ_NSDNAME_DESC=	Enable RPZ NSDNAME policy records
 RPZ_NSIP_DESC=		Enable RPZ NSIP trigger rules
 SIGCHASE_DESC=		dig/host/nslookup will do DNSSEC validation
-SSL_DESC=		Build with OpenSSL (Required for DNSSEC)
 START_LATE_DESC=	Start BIND late in the boot process (see help)
 TCP_FASTOPEN_DESC=	RFC 7413 support
 TUNING_LARGE_DESC=	Tune named for large systems (**READ HELP**)
@@ -171,19 +180,19 @@ GSSAPI_MIT_USES=	gssapi:mit
 
 GSSAPI_NONE_CONFIGURE_ON=	--without-gssapi
 
-IDN_CONFIGURE_OFF=	--without-idn
-IDN_CONFIGURE_ON=	--with-idn=${LOCALBASE} ${ICONV_CONFIGURE_BASE}
-IDN_LIB_DEPENDS=	libidnkit.so:dns/idnkit
+IDN_CONFIGURE_OFF=	--without-libidn2
+IDN_CONFIGURE_ON=	--with-libidn2=${LOCALBASE} ${ICONV_CONFIGURE_BASE}
+IDN_LIB_DEPENDS=	libidn2.so:dns/libidn2
 IDN_USES=		iconv
 
 IPV6_CONFIGURE_ENABLE=	ipv6
 
-JSON_CONFIGURE_WITH=	libjson
+JSON_CONFIGURE_WITH=	libjson=${LOCALBASE}
 JSON_LIB_DEPENDS=	libjson-c.so:devel/json-c
 
 LARGE_FILE_CONFIGURE_ENABLE=	largefile
 
-LMDB_CONFIGURE_WITH=	lmdb
+LMDB_CONFIGURE_WITH=	lmdb=${LOCALBASE}
 LMDB_LIB_DEPENDS=	liblmdb.so:databases/lmdb
 
 MINCACHE_EXTRA_PATCHES=	${FILESDIR}/extrapatch-bind-min-override-ttl
@@ -204,9 +213,6 @@ RPZ_NSIP_CONFIGURE_ENABLE=	rpz-nsip
 
 SIGCHASE_CONFIGURE_ON=	STD_CDEFINES="-DDIG_SIGCHASE=1"
 
-SSL_CONFIGURE_OFF=	--disable-openssl-version-check --without-openssl
-SSL_CONFIGURE_ON=	--with-openssl=${OPENSSLBASE}
-SSL_USES=		ssl
 
 START_LATE_SUB_LIST=	NAMED_REQUIRE="SERVERS cleanvar" \
 			NAMED_BEFORE="LOGIN"
@@ -233,9 +239,11 @@ BROKEN=	OpenSSL from the base system does not support GOST, add \
 	that needs SSL.
 .endif
 
+# XXX: Remove
 post-extract:
 	echo "SRCID=${GL_COMMIT}" > ${WRKSRC}/srcid
 
+# XXX: Remove first REINPLACE_CMD
 post-patch:
 	@${REINPLACE_CMD} -e '/RELEASETYPE=/s#$$#-${GL_COMMIT}#' \
 		${WRKSRC}/version

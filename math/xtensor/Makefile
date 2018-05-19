@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	xtensor
-DISTVERSION=	0.15.5
+DISTVERSION=	0.16.0
 CATEGORIES=	math
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -15,7 +15,7 @@ TEST_DEPENDS=	googletest>0:devel/googletest
 USES=		cmake
 USE_GITHUB=	yes
 GH_ACCOUNT=	QuantStack
-GH_TUPLE=	QuantStack:xtl:0.4.4:xtl/xtl
+GH_TUPLE=	QuantStack:xtl:0.4.9:xtl/xtl
 NO_BUILD=	yes
 NO_ARCH=	yes
 
@@ -25,7 +25,7 @@ post-install:
 do-test:
 	@${RLN} ${STAGEDIR}${PREFIX}/include ${WRKSRC}/test/staged-include
 	@cd ${WRKSRC}/test && \
-		${CMAKE_BIN} ${CMAKE_ARGS} . && \
+		${SETENV} ${CONFIGURE_ENV} ${CMAKE_BIN} ${CMAKE_ARGS} . && \
 		${MAKE_ENV} ${MAKE_CMD} ${MAKE_ARGS} && \
 		${MAKE_ENV} ${MAKE_CMD} ${MAKE_ARGS} xtest
 

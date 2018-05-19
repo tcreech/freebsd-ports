@@ -6,7 +6,7 @@ CATEGORIES=	www rubygems
 MASTER_SITES=	RG
 PKGNAMESUFFIX=	26
 
-MAINTAINER=	idefix@fechner.net
+MAINTAINER=	mfechner@FreeBSD.org
 COMMENT=	High Performance Haml Implementation
 
 LICENSE=	MIT
@@ -16,7 +16,7 @@ RUN_DEPENDS=	rubygem-temple07>=0.7.6:devel/rubygem-temple07 \
 		rubygem-thor>=0:devel/rubygem-thor \
 		rubygem-tilt>=0:devel/rubygem-tilt
 
-CONFLICT_INSTALL=	rubygem-hamlit
+CONFLICTS_INSTALL=	rubygem-hamlit
 PORTSCOUT=	limit:^2\.6\.
 
 USES=		gem shebangfix

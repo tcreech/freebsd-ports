@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	swoole
-PORTVERSION=	1.10.1
+PORTVERSION=	1.10.5
 CATEGORIES=	devel net
 
 MAINTAINER=	vanilla@FreeBSD.org
@@ -13,9 +13,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BROKEN_powerpc64=	fails to build: swoole_config.h: error GCC 4.4 or later required
 
-USES=		php:pecl ssl
-CFLAGS+=	-I${LOCALBASE}/include
-LDFLAGS+=	-L${LOCALBASE}/lib
+USES=		localbase:ldflags php:pecl ssl
 USE_PHP=	pcre
 
 OPTIONS_DEFINE=	HTTP2 REDIS SOCKETS
@@ -23,7 +21,7 @@ HTTP2_LIB_DEPENDS=	libnghttp2.so:www/libnghttp2
 HTTP2_CONFIGURE_ON=	--enable-http2 --enable-openssl
 REDIS_LIB_DEPENDS=	libhiredis.so:databases/hiredis
 REDIS_CONFIGURE_ON=	--enable-async-redis
-SOCKETS_USE=		PHP=sockets:build
+SOCKETS_USE=	PHP=sockets:build
 SOCKETS_DESC=	Use native php sockets extension
 SOCKETS_CONFIGURE_ON=	--enable-sockets
 

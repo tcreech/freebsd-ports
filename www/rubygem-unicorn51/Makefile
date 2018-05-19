@@ -6,7 +6,7 @@ CATEGORIES=	www rubygems
 MASTER_SITES=	RG
 PKGNAMESUFFIX=	51
 
-MAINTAINER=	idefix@fechner.net
+MAINTAINER=	mfechner@FreeBSD.org
 COMMENT=	Unicorn is an HTTP server for Rack applications
 
 LICENSE=	GPLv2 GPLv3 RUBY
@@ -20,7 +20,7 @@ RUN_DEPENDS=	rubygem-kgio>=2.6:devel/rubygem-kgio \
 USES=		gem shebangfix
 USE_RUBY=	yes
 
-CONFLICT_INSTALL=	rubygems-unicorn
+CONFLICTS_INSTALL=	rubygem-unicorn
 PORTSCOUT=	limit:^5\.1
 
 PLIST_FILES=	bin/unicorn bin/unicorn_rails

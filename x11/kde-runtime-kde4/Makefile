@@ -2,7 +2,7 @@
 
 PORTNAME=	kde-runtime
 PORTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	9
+PORTREVISION=	10
 CATEGORIES=	x11 kde kde-applications
 PKGNAMESUFFIX=	-kde4
 
@@ -57,6 +57,9 @@ ZEITGEIST_RUN_DEPENDS=	zeitgeist-daemon:sysutils/zeitgeist
 # Explicitly disable ALSA, see for details:
 # http://mail.kde.org/pipermail/kde-freebsd/2010-March/008015.html
 CMAKE_ARGS+=	-DWITH_ALSA:BOOL=OFF
+
+# Override KDE_APPLICATIONS_VERSION
+KDE_APPLICATIONS_VERSION=	16.12.3
 
 post-extract:
 # Don't install share/icons/hicolor/index.theme to avoid conflcit with

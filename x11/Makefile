@@ -124,10 +124,12 @@
     SUBDIR += kactivitymanagerd
     SUBDIR += kb2mb2
     SUBDIR += kbproto
+    SUBDIR += kde-baseapps
     SUBDIR += kde-baseapps-kde4
     SUBDIR += kde-runtime-kde4
     SUBDIR += kde-workspace-kde4
     SUBDIR += kde4
+    SUBDIR += kde5
     SUBDIR += kdelibs-kde4
     SUBDIR += keybinder
     SUBDIR += keybinder-gtk3
@@ -136,6 +138,7 @@
     SUBDIR += kf5-frameworkintegration
     SUBDIR += kf5-frameworks
     SUBDIR += kf5-kactivities
+    SUBDIR += kf5-kactivities-stats
     SUBDIR += kf5-kded
     SUBDIR += kf5-kdelibs4support
     SUBDIR += kf5-kglobalaccel
@@ -145,6 +148,7 @@
     SUBDIR += kf5-kwindowsystem
     SUBDIR += kf5-plasma-framework
     SUBDIR += kgamma-kde4
+    SUBDIR += konsole
     SUBDIR += konsole-kde4
     SUBDIR += leechcraft
     SUBDIR += lemonbar
@@ -265,6 +269,15 @@
     SUBDIR += pixman
     SUBDIR += plasma-scriptengine-python-kde4
     SUBDIR += plasma-scriptengine-ruby-kde4
+    SUBDIR += plasma5-kactivitymanagerd
+    SUBDIR += plasma5-kgamma5
+    SUBDIR += plasma5-kscreen
+    SUBDIR += plasma5-kwayland-integration
+    SUBDIR += plasma5-libkscreen
+    SUBDIR += plasma5-plasma
+    SUBDIR += plasma5-plasma-desktop
+    SUBDIR += plasma5-plasma-integration
+    SUBDIR += plasma5-plasma-workspace
     SUBDIR += polybar
     SUBDIR += presentproto
     SUBDIR += printproto
@@ -274,6 +287,7 @@
     SUBDIR += py-qt4-opengl
     SUBDIR += py-qt5-opengl
     SUBDIR += py-xdot
+    SUBDIR += py-xdot06
     SUBDIR += qimageblitz
     SUBDIR += qt4-graphicssystems-opengl
     SUBDIR += qt4-inputmethods
@@ -539,6 +553,7 @@
     SUBDIR += xxkb
     SUBDIR += xzoom
     SUBDIR += yad
+    SUBDIR += yakuake
     SUBDIR += yakuake-kde4
     SUBDIR += yalias
     SUBDIR += yeahconsole

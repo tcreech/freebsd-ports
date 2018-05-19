@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gtksourceview
-PORTVERSION=	3.22.2
+PORTVERSION=	3.24.7
 CATEGORIES=	x11-toolkits gnome
 MASTER_SITES=	GNOME
 PKGNAMESUFFIX=	3
@@ -19,7 +19,8 @@ PORTSCOUT=	limitw:1,even
 
 BUILD_DEPENDS=	vala:lang/vala
 
-USES+=		gettext gmake gnome libtool pathfix pkgconfig
+USES+=		compiler:c11 gettext gmake gnome libtool pathfix pkgconfig
+USE_CSTD=	c11
 USE_GNOME=	cairo gdkpixbuf2 gnomeprefix gtk30 intlhack \
 		introspection:build libxml2 referencehack
 GNU_CONFIGURE=	yes
@@ -33,6 +34,8 @@ LIBS+=		-L${LOCALBASE}/lib
 INSTALL_TARGET=	install-strip
 
 post-patch:
+	@${REINPLACE_CMD} -e 's|tests testsuite||g' \
+		${WRKSRC}/Makefile.in
 	@${REINPLACE_CMD} -e 's|--warn-all||g' \
 		${WRKSRC}/gtksourceview/Makefile.in
 

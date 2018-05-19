@@ -9,14 +9,14 @@ COMMENT=	Amazon S3 compatible object storage server
 
 LICENSE=	APACHE20
 
-BUILD_DEPENDS=	go>=1.7:lang/go
+BUILD_DEPENDS=	go>=1.9.4:lang/go
 
 USES=		compiler
 
 USE_GITHUB=	yes
-GH_TAGNAME=	RELEASE.2018-01-18T20-33-21Z
+GH_TAGNAME=	RELEASE.2018-05-11T00-29-24Z
 GH_SUBDIR=	src/github.com/${PORTNAME}/${PORTNAME}
-COMMIT_ID=	e2d5a87b2676e3e01f0f4fa7ebd01205364cfb16
+COMMIT_ID=	c872c30ea3c925bdae4f96b71b4fc4a1ca631f9f
 
 PLIST_FILES=	bin/minio
 
