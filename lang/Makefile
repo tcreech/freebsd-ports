@@ -4,6 +4,7 @@
     COMMENT = Programming languages
 
     SUBDIR += Gofer
+    SUBDIR += J
     SUBDIR += abcl
     SUBDIR += adacontrol
     SUBDIR += afnix
@@ -45,6 +46,7 @@
     SUBDIR += cmucl
     SUBDIR += cmucl-extra
     SUBDIR += cocor
+    SUBDIR += coffeescript
     SUBDIR += cparser
     SUBDIR += crystal
     SUBDIR += csharp-mode.el
@@ -55,6 +57,7 @@
     SUBDIR += dmd1
     SUBDIR += dmd2
     SUBDIR += duktape
+    SUBDIR += duktape-lib
     SUBDIR += ecl
     SUBDIR += elan
     SUBDIR += elixir
@@ -62,6 +65,7 @@
     SUBDIR += elk
     SUBDIR += emacs-lisp-intro
     SUBDIR += erlang
+    SUBDIR += erlang-doc
     SUBDIR += erlang-java
     SUBDIR += erlang-riak
     SUBDIR += erlang-runtime15
@@ -105,6 +109,7 @@
     SUBDIR += gcc7
     SUBDIR += gcc7-devel
     SUBDIR += gcc8-devel
+    SUBDIR += gcc9-devel
     SUBDIR += gforth
     SUBDIR += ghc
     SUBDIR += gjs
@@ -150,6 +155,8 @@
     SUBDIR += jython
     SUBDIR += kawa
     SUBDIR += kf5-kross
+    SUBDIR += kross-interpreters
+    SUBDIR += kturtle
     SUBDIR += kturtle-kde4
     SUBDIR += lafontaine
     SUBDIR += lci
@@ -182,6 +189,7 @@
     SUBDIR += mosh
     SUBDIR += mosml
     SUBDIR += mtasc
+    SUBDIR += mujs
     SUBDIR += munger
     SUBDIR += myrddin
     SUBDIR += nawk
@@ -267,7 +275,6 @@
     SUBDIR += ponyc
     SUBDIR += ptoc
     SUBDIR += pure
-    SUBDIR += py-clojure_py
     SUBDIR += py-hy
     SUBDIR += py-mx-base
     SUBDIR += py-prolog
@@ -363,7 +370,6 @@
     SUBDIR += v8-devel
     SUBDIR += vala
     SUBDIR += visualworks
-    SUBDIR += x10
     SUBDIR += yabasic
     SUBDIR += yap
     SUBDIR += yap-devel

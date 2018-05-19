@@ -6,7 +6,7 @@ CATEGORIES=	net rubygems
 MASTER_SITES=	RG
 PKGNAMESUFFIX=	220
 
-MAINTAINER=	idefix@fechner.net
+MAINTAINER=	mfechner@FreeBSD.org
 COMMENT=	Synchronizes Assets between Rails and S3
 
 LICENSE=	MIT
@@ -16,7 +16,7 @@ RUN_DEPENDS=	rubygem-activemodel4>=4.1.0:databases/rubygem-activemodel4 \
 		rubygem-mime-types>=2.99:misc/rubygem-mime-types \
 		rubygem-unf>=0:textproc/rubygem-unf
 
-CONFLICT_INSTALL=	asset_sync
+CONFLICTS_INSTALL=	asset_sync
 
 PORTSCOUT=	limit:^2\.2\.
 

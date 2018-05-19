@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	unifi5
-PORTVERSION=	5.6.30
+PORTVERSION=	5.7.23
 PORTREVISION=	0
 CATEGORIES=	net-mgmt java
 MASTER_SITES=	http://dl.ubnt.com/unifi/${PORTVERSION}/
@@ -13,7 +13,7 @@ DIST_SUBDIR=	${PORTNAME}-${PORTVERSION}
 MAINTAINER=	feld@FreeBSD.org
 COMMENT=	UniFi Controller v5
 
-RUN_DEPENDS=	mongodb>0:databases/mongodb \
+RUN_DEPENDS=	mongodb34>0:databases/mongodb34 \
 		snappyjava>0:archivers/snappy-java
 
 SUB_LIST+=	USERS=${USERS} GROUPS=${GROUPS} JAVASHAREDIR=${JAVASHAREDIR} \
@@ -42,13 +42,12 @@ GROUPS=		unifi
 
 NO_WRKSUBDIR=	yes
 
-CONFLICTS=	unifi2-* unifi3-* unifi4-* unifi-devel-*
+CONFLICTS=	unifi-devel-*
 
 DIR_LIST=	conf data logs run work
 
 post-patch:
-	${RM} ${WRKSRC}/usr/lib/unifi/lib/snappy-java-1.1.2.6.jar ${WRKSRC}/usr/lib/unifi/bin/*
-	(cd ${WRKSRC}/usr/lib/unifi/lib && ${LN} -s ${JAVAJARDIR}/snappy-java.jar snappy-java-1.1.2.6.jar)
+	(cd ${WRKSRC}/usr/lib/unifi/lib && ${LN} -f -s ${JAVAJARDIR}/snappy-java.jar snappy-java-*.jar)
 	${RM} -r ${WRKSRC}/usr/lib/unifi/lib/native
 
 do-install:

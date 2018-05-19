@@ -1,6 +1,15 @@
---- xbmc/windowing/wayland/WinSystemWayland.cpp.orig	2018-01-05 12:46:19 UTC
+--- cmake/treedata/freebsd/subdirs.txt.orig	2018-04-18 09:37:24 UTC
++++ cmake/treedata/freebsd/subdirs.txt
+@@ -9,3 +9,6 @@ xbmc/platform/linux/powermanagement platform/linux/pow
+ xbmc/platform/linux/storage         platform/linux/storage
+ xbmc/input/touch                    input/touch
+ xbmc/input/touch/generic            input/touch/generic
++xbmc/cores/RetroPlayer/process/rbpi cores/RetroPlayer/process/rbpi
++xbmc/cores/VideoPlayer/Process/rbpi cores/VideoPlayer/Process/rbpi
++xbmc/windowing/linux                windowing/linux
+--- xbmc/windowing/wayland/WinSystemWayland.cpp.orig	2018-04-18 09:37:24 UTC
 +++ xbmc/windowing/wayland/WinSystemWayland.cpp
-@@ -1308,7 +1308,7 @@ void CWinSystemWayland::PrepareFramePresentation()
+@@ -1333,7 +1333,7 @@ void CWinSystemWayland::PrepareFramePresentation()
      };
      feedback.on_presented() = [this,iter](std::uint32_t tvSecHi, std::uint32_t tvSecLo, std::uint32_t tvNsec, std::uint32_t refresh, std::uint32_t seqHi, std::uint32_t seqLo, wayland::presentation_feedback_kind flags)
      {
