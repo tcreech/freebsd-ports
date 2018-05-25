@@ -935,6 +935,7 @@
     SUBDIR += py-first-server
     SUBDIR += py-flask-httpauth
     SUBDIR += py-flask-kerberos
+    SUBDIR += py-flask-saml
     SUBDIR += py-gixy
     SUBDIR += py-gnupg
     SUBDIR += py-gnutls
@@ -1005,6 +1006,7 @@
     SUBDIR += py-pywinrm
     SUBDIR += py-rekall
     SUBDIR += py-rekall-core
+    SUBDIR += py-rekall_lib
     SUBDIR += py-requests-credssp
     SUBDIR += py-requests-kerberos
     SUBDIR += py-rsa
