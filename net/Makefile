@@ -88,7 +88,8 @@
     SUBDIR += coda6_server
     SUBDIR += concourse-fly
     SUBDIR += corkscrew
-    SUBDIR += corosync
+    SUBDIR += corosync2
+    SUBDIR += corosync3
     SUBDIR += courier-authlib-ldap
     SUBDIR += cppzmq
     SUBDIR += crtmpserver
@@ -416,6 +417,7 @@
     SUBDIR += librdkafka
     SUBDIR += librouteros
     SUBDIR += librsync2
+    SUBDIR += libsignal
     SUBDIR += libsocket++
     SUBDIR += libsrtp
     SUBDIR += libstorj
@@ -903,7 +905,8 @@
     SUBDIR += p5-ldap2pw
     SUBDIR += p5-perl-ldap
     SUBDIR += p5-srv2pf
-    SUBDIR += pacemaker
+    SUBDIR += pacemaker1
+    SUBDIR += pacemaker2
     SUBDIR += packetdrill
     SUBDIR += packter-agent
     SUBDIR += panoptis
@@ -1229,6 +1232,7 @@
     SUBDIR += rubygem-fog-atmos
     SUBDIR += rubygem-fog-aws
     SUBDIR += rubygem-fog-aws1
+    SUBDIR += rubygem-fog-aws2
     SUBDIR += rubygem-fog-azure
     SUBDIR += rubygem-fog-brightbox
     SUBDIR += rubygem-fog-cloudatcost
@@ -1266,6 +1270,7 @@
     SUBDIR += rubygem-gitaly-proto094
     SUBDIR += rubygem-gitaly-proto095
     SUBDIR += rubygem-gitaly-proto096
+    SUBDIR += rubygem-gitaly-proto099
     SUBDIR += rubygem-gitlab_omniauth-ldap
     SUBDIR += rubygem-gitlab_omniauth-ldap1
     SUBDIR += rubygem-grpc
@@ -1517,6 +1522,8 @@
     SUBDIR += wakeonlan
     SUBDIR += whois
     SUBDIR += widentd
+    SUBDIR += wireguard
+    SUBDIR += wireguard-go
     SUBDIR += wireshark
     SUBDIR += wireshark-lite
     SUBDIR += wireshark-qt5

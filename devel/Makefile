@@ -1696,6 +1696,7 @@
     SUBDIR += lua-lunit
     SUBDIR += lua-posix
     SUBDIR += lua-pty
+    SUBDIR += lua-rds-parser
     SUBDIR += lua-stdlib
     SUBDIR += lua-stdlib-debug
     SUBDIR += lua-stdlib-normalize
@@ -3252,6 +3253,7 @@
     SUBDIR += p5-Readonly
     SUBDIR += p5-Readonly-XS
     SUBDIR += p5-ReadonlyX
+    SUBDIR += p5-Reaper
     SUBDIR += p5-Ref-Util
     SUBDIR += p5-Ref-Util-XS
     SUBDIR += p5-Reflex
@@ -3413,6 +3415,7 @@
     SUBDIR += p5-Sys-Trace
     SUBDIR += p5-Sys-Virt
     SUBDIR += p5-System-Command
+    SUBDIR += p5-System-Info
     SUBDIR += p5-System-Sub
     SUBDIR += p5-System2
     SUBDIR += p5-TAP-Formatter-JUnit
@@ -3789,7 +3792,6 @@
     SUBDIR += p5-perlqt-kde4
     SUBDIR += p5-pip
     SUBDIR += p5-prefork
-    SUBDIR += p5-reaper
     SUBDIR += p5-relative
     SUBDIR += p5-rpm-build-perl
     SUBDIR += p5-self
@@ -4451,6 +4453,7 @@
     SUBDIR += py-docopt
     SUBDIR += py-dogpile.cache
     SUBDIR += py-doit
+    SUBDIR += py-dtfabric
     SUBDIR += py-durus
     SUBDIR += py-dynrules
     SUBDIR += py-easyprocess
@@ -4742,6 +4745,7 @@
     SUBDIR += py-p4python
     SUBDIR += py-packaging
     SUBDIR += py-palm
+    SUBDIR += py-parallax
     SUBDIR += py-parsedatetime
     SUBDIR += py-path.py
     SUBDIR += py-pathlib
@@ -4917,6 +4921,7 @@
     SUBDIR += py-rcsparse
     SUBDIR += py-rebulk
     SUBDIR += py-rednose
+    SUBDIR += py-rekall-efilter
     SUBDIR += py-repoze.lru
     SUBDIR += py-repoze.sphinx.autointerface
     SUBDIR += py-repoze.tm2
@@ -5095,6 +5100,7 @@
     SUBDIR += py-wsgitools
     SUBDIR += py-wsgiutils
     SUBDIR += py-wsme
+    SUBDIR += py-xarray
     SUBDIR += py-xattr
     SUBDIR += py-xcaplib
     SUBDIR += py-xdg
@@ -5471,6 +5477,7 @@
     SUBDIR += rubygem-deprecated
     SUBDIR += rubygem-deprecated2
     SUBDIR += rubygem-descendants_tracker
+    SUBDIR += rubygem-device_detector
     SUBDIR += rubygem-devise
     SUBDIR += rubygem-devise-rails5
     SUBDIR += rubygem-devise-rails50
@@ -5895,6 +5902,7 @@
     SUBDIR += rubygem-stella
     SUBDIR += rubygem-stemmer
     SUBDIR += rubygem-stomp
+    SUBDIR += rubygem-stoplight
     SUBDIR += rubygem-storable
     SUBDIR += rubygem-stream
     SUBDIR += rubygem-streetaddress
