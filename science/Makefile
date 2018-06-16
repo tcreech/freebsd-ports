@@ -22,9 +22,11 @@
     SUBDIR += R-cran-snow
     SUBDIR += R-cran-som
     SUBDIR += R-cran-udunits2
+    SUBDIR += abinit
     SUBDIR += afni
     SUBDIR += aircraft-datcom
     SUBDIR += antioch
+    SUBDIR += atompaw
     SUBDIR += avogadro
     SUBDIR += bddsolve
     SUBDIR += bft
@@ -122,10 +124,6 @@
     SUBDIR += nifticlib
     SUBDIR += openbabel
     SUBDIR += openkim
-    SUBDIR += orthanc
-    SUBDIR += orthanc-dicomweb
-    SUBDIR += orthanc-postgresql
-    SUBDIR += orthanc-webviewer
     SUBDIR += p5-Algorithm-SVMLight
     SUBDIR += p5-Chemistry-3DBuilder
     SUBDIR += p5-Chemistry-Bond-Find
@@ -167,6 +165,7 @@
     SUBDIR += py-MDAnalysis
     SUBDIR += py-MDAnalysisTests
     SUBDIR += py-OpenFermion
+    SUBDIR += py-abipy
     SUBDIR += py-cdo
     SUBDIR += py-coards
     SUBDIR += py-dlib
@@ -183,6 +182,7 @@
     SUBDIR += py-pupynere
     SUBDIR += py-pyaixi
     SUBDIR += py-pydicom
+    SUBDIR += py-pymatgen
     SUBDIR += py-pymol
     SUBDIR += py-pyosf
     SUBDIR += py-pysal
@@ -196,6 +196,7 @@
     SUBDIR += py-scimath
     SUBDIR += py-scipy
     SUBDIR += py-scoria
+    SUBDIR += py-spglib
     SUBDIR += py-tensorflow
     SUBDIR += py-veusz
     SUBDIR += py-ws2300
@@ -220,6 +221,7 @@
     SUBDIR += silo
     SUBDIR += simlib
     SUBDIR += simsmith
+    SUBDIR += spglib
     SUBDIR += step
     SUBDIR += step-kde4
     SUBDIR += svmlight

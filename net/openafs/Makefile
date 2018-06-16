@@ -81,6 +81,9 @@ CFLAGS+=	-mstackrealign -Wno-shift-negative-value -Wno-pointer-sign
 # Upstream does not support the client on 13 and newer
 CONFIGURE_ARGS += --disable-kernel-module
 PLIST_SUB+=	KMOD="@comment "
+
+post-install:
+	@${RMDIR} ${STAGEDIR}${PREFIX}/lib/openafs
 .else
 CONFIGURE_ARGS += --enable-kernel-module
 PLIST_SUB+=	KMOD=

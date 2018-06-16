@@ -100,8 +100,10 @@
     SUBDIR += csso
     SUBDIR += csstidy
     SUBDIR += ctemplate
+    SUBDIR += cutelyst
     SUBDIR += cutycapt
     SUBDIR += davical
+    SUBDIR += davix
     SUBDIR += dddbl
     SUBDIR += ddgr
     SUBDIR += decss
@@ -523,7 +525,6 @@
     SUBDIR += nginx-naxsi
     SUBDIR += nibbleblog
     SUBDIR += node
-    SUBDIR += node4
     SUBDIR += node6
     SUBDIR += node8
     SUBDIR += nostromo
@@ -533,7 +534,6 @@
     SUBDIR += npapi-xine
     SUBDIR += npc
     SUBDIR += npm
-    SUBDIR += npm-node4
     SUBDIR += npm-node6
     SUBDIR += npm-node8
     SUBDIR += nspluginwrapper
@@ -554,7 +554,6 @@
     SUBDIR += nuvolaplayer-yandex-music
     SUBDIR += nuvolaplayer-youtube
     SUBDIR += obhttpd
-    SUBDIR += ocaml-net
     SUBDIR += opencart
     SUBDIR += opera
     SUBDIR += opera-linuxplugins
@@ -1916,6 +1915,7 @@
     SUBDIR += qupzilla-qt5
     SUBDIR += qutebrowser
     SUBDIR += radicale
+    SUBDIR += radicale2
     SUBDIR += red5
     SUBDIR += redaxo
     SUBDIR += redmine
@@ -2253,6 +2253,8 @@
     SUBDIR += sogo2-activesync
     SUBDIR += sogo3
     SUBDIR += sogo3-activesync
+    SUBDIR += sogo4
+    SUBDIR += sogo4-activesync
     SUBDIR += spawn-fcgi
     SUBDIR += spdylay
     SUBDIR += spreadlogd
