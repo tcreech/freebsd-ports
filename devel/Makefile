@@ -116,6 +116,7 @@
     SUBDIR += appstream-glib
     SUBDIR += apr1
     SUBDIR += apr2
+    SUBDIR += arachne-pnr
     SUBDIR += arcanist
     SUBDIR += arduino
     SUBDIR += arduino-avrdude
@@ -165,7 +166,6 @@
     SUBDIR += autodist
     SUBDIR += autogen
     SUBDIR += automake
-    SUBDIR += automake-wrapper
     SUBDIR += automoc4
     SUBDIR += autotools
     SUBDIR += avalon-framework
@@ -665,6 +665,7 @@
     SUBDIR += fpp
     SUBDIR += frama-c
     SUBDIR += frink
+    SUBDIR += fsmtrie
     SUBDIR += fstrm
     SUBDIR += ftjam
     SUBDIR += ftnchek
@@ -1206,7 +1207,9 @@
     SUBDIR += hwloc
     SUBDIR += hyperscan
     SUBDIR += ice
+    SUBDIR += icestorm
     SUBDIR += icmake
+    SUBDIR += icontheme
     SUBDIR += icu
     SUBDIR += icu-le-hb
     SUBDIR += icu-lx
@@ -1216,6 +1219,7 @@
     SUBDIR += include-what-you-use
     SUBDIR += inifiled
     SUBDIR += inilib
+    SUBDIR += inilike
     SUBDIR += iniparser
     SUBDIR += initutil
     SUBDIR += injeqt
@@ -1223,6 +1227,7 @@
     SUBDIR += ipython
     SUBDIR += ireport
     SUBDIR += isa-l
+    SUBDIR += isfreedesktop
     SUBDIR += isl
     SUBDIR += ispc
     SUBDIR += itext
@@ -1324,6 +1329,9 @@
     SUBDIR += kyra
     SUBDIR += kyua
     SUBDIR += lasi
+    SUBDIR += lattice-ice40-examples-hx1k
+    SUBDIR += lattice-ice40-examples-hx8k
+    SUBDIR += lattice-ice40-tools
     SUBDIR += lcov
     SUBDIR += leaktracer
     SUBDIR += leatherman
@@ -1721,6 +1729,7 @@
     SUBDIR += lxqt-build-tools
     SUBDIR += m17n-db
     SUBDIR += m17n-docs
+    SUBDIR += m17n-inscript2
     SUBDIR += m17n-lib
     SUBDIR += m4
     SUBDIR += mage
@@ -2666,6 +2675,7 @@
     SUBDIR += p5-Glib2
     SUBDIR += p5-Gnome2-GConf
     SUBDIR += p5-Goo-Canvas
+    SUBDIR += p5-Goo-Canvas2
     SUBDIR += p5-Google-Checkout
     SUBDIR += p5-Google-ProtocolBuffers
     SUBDIR += p5-Gravatar-URL
@@ -4389,6 +4399,7 @@
     SUBDIR += py-click-plugins
     SUBDIR += py-click-threading
     SUBDIR += py-cliff
+    SUBDIR += py-cligj
     SUBDIR += py-clint
     SUBDIR += py-clonedigger
     SUBDIR += py-cloudpickle
@@ -4683,11 +4694,14 @@
     SUBDIR += py-mongoengine
     SUBDIR += py-mongokit
     SUBDIR += py-monotonic
+    SUBDIR += py-monty
     SUBDIR += py-more-itertools
     SUBDIR += py-mox
+    SUBDIR += py-mox3
     SUBDIR += py-msgpack
     SUBDIR += py-multi_key_dict
     SUBDIR += py-multipledispatch
+    SUBDIR += py-munch
     SUBDIR += py-mwlib
     SUBDIR += py-mwlib.ext
     SUBDIR += py-mwlib.rl
@@ -4728,6 +4742,7 @@
     SUBDIR += py-ordereddict
     SUBDIR += py-os-brick
     SUBDIR += py-os-client-config
+    SUBDIR += py-os-service-types
     SUBDIR += py-os-vif
     SUBDIR += py-os-win
     SUBDIR += py-osc-lib
@@ -4782,6 +4797,7 @@
     SUBDIR += py-plan
     SUBDIR += py-plex
     SUBDIR += py-pluggy
+    SUBDIR += py-pluginbase
     SUBDIR += py-ply
     SUBDIR += py-podcastparser
     SUBDIR += py-polib
@@ -4886,6 +4902,7 @@
     SUBDIR += py-python-pcre
     SUBDIR += py-python-socketio
     SUBDIR += py-python-statsd
+    SUBDIR += py-python-subunit
     SUBDIR += py-python2-pythondialog
     SUBDIR += py-pythonbrew
     SUBDIR += py-pytimeparse
@@ -5954,6 +5971,7 @@
     SUBDIR += rubygem-tty
     SUBDIR += rubygem-tty-color
     SUBDIR += rubygem-tty-command
+    SUBDIR += rubygem-tty-config
     SUBDIR += rubygem-tty-cursor
     SUBDIR += rubygem-tty-editor
     SUBDIR += rubygem-tty-file
@@ -6081,6 +6099,7 @@
     SUBDIR += statcvs
     SUBDIR += statik
     SUBDIR += statsvn
+    SUBDIR += stdx-allocator
     SUBDIR += stfl
     SUBDIR += stlfilt
     SUBDIR += stlink
@@ -6093,7 +6112,6 @@
     SUBDIR += subcommander2
     SUBDIR += subversion
     SUBDIR += subversion-book
-    SUBDIR += subversion-static
     SUBDIR += subversion19
     SUBDIR += subversive
     SUBDIR += svk
@@ -6209,6 +6227,7 @@
     SUBDIR += xc3sprog
     SUBDIR += xdg-user-dirs
     SUBDIR += xdg-utils
+    SUBDIR += xdgpaths
     SUBDIR += xfce4-dev-tools
     SUBDIR += xfce4-vala
     SUBDIR += xmake
@@ -6234,6 +6253,7 @@
     SUBDIR += yaml2argdata
     SUBDIR += yasm
     SUBDIR += yasm-devel
+    SUBDIR += yosys
     SUBDIR += youcompleteme
     SUBDIR += z80-asm
     SUBDIR += z80asm

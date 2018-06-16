@@ -36,6 +36,7 @@
     SUBDIR += R-cran-backports
     SUBDIR += R-cran-bdsmatrix
     SUBDIR += R-cran-car
+    SUBDIR += R-cran-carData
     SUBDIR += R-cran-coda
     SUBDIR += R-cran-combinat
     SUBDIR += R-cran-conf.design
@@ -151,7 +152,6 @@
     SUBDIR += clblas
     SUBDIR += clblast
     SUBDIR += clfft
-    SUBDIR += clipper
     SUBDIR += cln
     SUBDIR += cloog
     SUBDIR += clp
@@ -171,6 +171,7 @@
     SUBDIR += drgeo
     SUBDIR += dynare
     SUBDIR += e
+    SUBDIR += ecos
     SUBDIR += edenmath
     SUBDIR += eigen2
     SUBDIR += eigen3
@@ -690,6 +691,7 @@
     SUBDIR += py-pandas
     SUBDIR += py-pandas-datareader
     SUBDIR += py-patsy
+    SUBDIR += py-petsc4py
     SUBDIR += py-piranha
     SUBDIR += py-plastex
     SUBDIR += py-probstat
@@ -713,6 +715,7 @@
     SUBDIR += py-scikit-umfpack
     SUBDIR += py-seaborn
     SUBDIR += py-secp256k1
+    SUBDIR += py-simhash
     SUBDIR += py-statsmodels
     SUBDIR += py-svgmath
     SUBDIR += py-sym
@@ -761,7 +764,6 @@
     SUBDIR += sc-im
     SUBDIR += scalapack
     SUBDIR += scilab
-    SUBDIR += scilab-toolbox-sivp
     SUBDIR += scilab-toolbox-swt
     SUBDIR += sdpa
     SUBDIR += sdpara
