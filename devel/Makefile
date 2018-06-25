@@ -353,6 +353,7 @@
     SUBDIR += cpan-upload-http
     SUBDIR += cpp-hocon
     SUBDIR += cpp-netlib
+    SUBDIR += cpp2py
     SUBDIR += cppcheck
     SUBDIR += cppcheck-gui
     SUBDIR += cppi
@@ -1177,12 +1178,12 @@
     SUBDIR += hs-typed-process
     SUBDIR += hs-unamb
     SUBDIR += hs-unexceptionalio
+    SUBDIR += hs-unicode-show
     SUBDIR += hs-uniplate
     SUBDIR += hs-unix-compat
     SUBDIR += hs-unix-time
     SUBDIR += hs-unliftio
     SUBDIR += hs-unliftio-core
-    SUBDIR += hs-unicode-show
     SUBDIR += hs-unordered-containers
     SUBDIR += hs-utf8-light
     SUBDIR += hs-utf8-string
@@ -1289,8 +1290,8 @@
     SUBDIR += kdevelop-kde4
     SUBDIR += kdevelop-pg-qt
     SUBDIR += kdevelop-pg-qt-kde4
-    SUBDIR += kdevelop-php-kde4
     SUBDIR += kdevelop-php-docs-kde4
+    SUBDIR += kdevelop-php-kde4
     SUBDIR += kdevplatform-kde4
     SUBDIR += kf5-extra-cmake-modules
     SUBDIR += kf5-kapidox
@@ -1571,6 +1572,7 @@
     SUBDIR += libsimdpp
     SUBDIR += libslang2
     SUBDIR += libsmdev
+    SUBDIR += libsml
     SUBDIR += libsmpp34
     SUBDIR += libsmraw
     SUBDIR += libsoup
@@ -3337,6 +3339,7 @@
     SUBDIR += p5-Scalar-String
     SUBDIR += p5-Scalar-Util-LooksLikeNumber
     SUBDIR += p5-Scalar-Util-Numeric
+    SUBDIR += p5-Scope-Container
     SUBDIR += p5-Scope-Guard
     SUBDIR += p5-Scope-Upper
     SUBDIR += p5-Script-isAperlScript
@@ -3359,6 +3362,7 @@
     SUBDIR += p5-Shell-Source
     SUBDIR += p5-ShipIt
     SUBDIR += p5-ShipIt-Step-Manifest
+    SUBDIR += p5-Signal-Mask
     SUBDIR += p5-Slurp
     SUBDIR += p5-Smart-Comments
     SUBDIR += p5-Sort-Array
@@ -3506,12 +3510,14 @@
     SUBDIR += p5-Test-Debugger
     SUBDIR += p5-Test-Declare
     SUBDIR += p5-Test-Deep
+    SUBDIR += p5-Test-Deep-UnorderedPairs
     SUBDIR += p5-Test-Dependencies
     SUBDIR += p5-Test-DependentModules
     SUBDIR += p5-Test-Differences
     SUBDIR += p5-Test-Distribution
     SUBDIR += p5-Test-EOL
     SUBDIR += p5-Test-Exception
+    SUBDIR += p5-Test-Exit
     SUBDIR += p5-Test-Expect
     SUBDIR += p5-Test-FailWarnings
     SUBDIR += p5-Test-Fake-HTTPD
@@ -3551,6 +3557,7 @@
     SUBDIR += p5-Test-Mock-Guard
     SUBDIR += p5-Test-Mock-LWP
     SUBDIR += p5-Test-Mock-LWP-Dispatch
+    SUBDIR += p5-Test-Mock-Redis
     SUBDIR += p5-Test-MockDateTime
     SUBDIR += p5-Test-MockModule
     SUBDIR += p5-Test-MockObject
@@ -3610,6 +3617,7 @@
     SUBDIR += p5-Test-Timer
     SUBDIR += p5-Test-TinyMocker
     SUBDIR += p5-Test-Trap
+    SUBDIR += p5-Test-UNIXSock
     SUBDIR += p5-Test-Unit
     SUBDIR += p5-Test-UseAllModules
     SUBDIR += p5-Test-Version
@@ -3685,6 +3693,7 @@
     SUBDIR += p5-Time-Interval
     SUBDIR += p5-Time-Local
     SUBDIR += p5-Time-Mock
+    SUBDIR += p5-Time-Moment
     SUBDIR += p5-Time-Object
     SUBDIR += p5-Time-Out
     SUBDIR += p5-Time-ParseDate
@@ -4634,6 +4643,7 @@
     SUBDIR += py-jupyter_client
     SUBDIR += py-jupyter_console
     SUBDIR += py-jupyter_core
+    SUBDIR += py-jupyterlab_launcher
     SUBDIR += py-kaitaistruct
     SUBDIR += py-kaptan
     SUBDIR += py-kayako
@@ -4942,6 +4952,7 @@
     SUBDIR += py-qt5-test
     SUBDIR += py-qtconsole
     SUBDIR += py-ramlfications
+    SUBDIR += py-ratelimiter
     SUBDIR += py-rauth
     SUBDIR += py-raven
     SUBDIR += py-rcsparse
@@ -4957,6 +4968,7 @@
     SUBDIR += py-repoze.who-friendlyform
     SUBDIR += py-repoze.who-testutil
     SUBDIR += py-repoze.xmliter
+    SUBDIR += py-represent
     SUBDIR += py-requestsexceptions
     SUBDIR += py-resolver
     SUBDIR += py-resourcepackage
@@ -5051,6 +5063,7 @@
     SUBDIR += py-testinfra
     SUBDIR += py-testoob
     SUBDIR += py-testpath
+    SUBDIR += py-testrepository
     SUBDIR += py-testresources
     SUBDIR += py-testscenarios
     SUBDIR += py-testtools
