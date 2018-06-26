@@ -410,13 +410,14 @@
     SUBDIR += libpcap
     SUBDIR += libpcapnav
     SUBDIR += libproxy
-    SUBDIR += libproxy-gnome
+    SUBDIR += libproxy-gnome2
     SUBDIR += libproxy-gnome3
     SUBDIR += libproxy-kde
     SUBDIR += libproxy-mozjs
     SUBDIR += libproxy-perl
     SUBDIR += libproxy-python
     SUBDIR += libproxy-webkit
+    SUBDIR += libproxy-webkit3
     SUBDIR += librdkafka
     SUBDIR += librouteros
     SUBDIR += librsync2
@@ -1421,9 +1422,6 @@
     SUBDIR += sup
     SUBDIR += svnup
     SUBDIR += syncthing
-    SUBDIR += syncthing-cli
-    SUBDIR += syncthing-discosrv
-    SUBDIR += syncthing-inotify
     SUBDIR += syndication
     SUBDIR += tableutil
     SUBDIR += tac_plus4
