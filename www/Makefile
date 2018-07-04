@@ -1497,6 +1497,7 @@
     SUBDIR += py-WebError
     SUBDIR += py-WebFlash
     SUBDIR += py-WebTest
+    SUBDIR += py-aioh2
     SUBDIR += py-aiohttp
     SUBDIR += py-aiohttp-wsgi
     SUBDIR += py-albatross
@@ -1805,6 +1806,7 @@
     SUBDIR += py-poster
     SUBDIR += py-praw
     SUBDIR += py-prewikka
+    SUBDIR += py-priority
     SUBDIR += py-puppetboard
     SUBDIR += py-puppetboard02
     SUBDIR += py-puppetboard03
@@ -2080,7 +2082,6 @@
     SUBDIR += rubygem-kaminari-rails50
     SUBDIR += rubygem-kensa
     SUBDIR += rubygem-kubeclient
-    SUBDIR += rubygem-kubeclient22
     SUBDIR += rubygem-layout_yullio_generator
     SUBDIR += rubygem-less
     SUBDIR += rubygem-lighthouse-api
