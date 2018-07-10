@@ -1,4 +1,4 @@
---- src/afs/afs_vcache.c.orig	2018-02-19 14:40:36 UTC
+--- src/afs/afs_vcache.c.orig	2018-07-01 19:11:21 UTC
 +++ src/afs/afs_vcache.c
 @@ -46,6 +46,11 @@
  #include "afs/afs_cbqueue.h"
@@ -57,17 +57,3 @@
  #elif defined(AFS_FBSD60_ENV)
  	iheldthelock = VOP_ISLOCKED(vp, curthread);
  	if (!iheldthelock)
-@@ -3252,7 +3270,12 @@ afs_StaleVCacheFlags(struct vcache *avc,
-     }
- 
-     if (do_dnlc) {
--	if ((avc->f.fid.Fid.Vnode & 1) || vType(avc) == VDIR ||
-+	if ((avc->f.fid.Fid.Vnode & 1) ||
-+#if defined(AFS_FBSD_ENV)
-+	    (AFSTOV(avc) && (vType(avc) == VDIR)) ||
-+#else
-+	    vType(avc) == VDIR ||
-+#endif
- 	    (avc->f.states & CForeign)) {
- 	    /* This vcache is (or could be) a directory. */
- 	    osi_dnlc_purgedp(avc);

@@ -3,8 +3,8 @@
 PORTNAME=	openafs
 DISTVERSION=	${AFS_DISTVERSION}.${DBVERSION:S/-//g}
 CATEGORIES=	net
-MASTER_SITES=	http://dl.central.org/dl/openafs/${AFS_DISTVERSION}/:openafs \
-		http://dl.openafs.org/dl/openafs/${AFS_DISTVERSION}/:openafs \
+MASTER_SITES=	http://dl.central.org/dl/openafs/candidate/${AFS_DISTVERSION}/:openafs \
+		http://dl.openafs.org/dl/openafs/candidate/${AFS_DISTVERSION}/:openafs \
 		http://dl.central.org/dl/cellservdb/:gco \
 		http://grand.central.org/dl/cellservdb/:gco
 DISTFILES=	${PORTNAME}-${AFS_DISTVERSION}-src.tar.bz2:openafs \
@@ -24,7 +24,7 @@ LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 #BROKEN_FreeBSD_12=	does not build (use of undeclared identifier 'ROOTINO')
 ONLY_FOR_ARCHS=	i386 amd64
 
-AFS_DISTVERSION=	1.8.0
+AFS_DISTVERSION=	1.8.1pre2
 DBVERSION=	2018-05-14
 
 USES=		cpe kmod tar:bzip2 fakeroot
