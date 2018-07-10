@@ -4781,6 +4781,7 @@
     SUBDIR += py-oslo.utils
     SUBDIR += py-oslo.versionedobjects
     SUBDIR += py-oslo.vmware
+    SUBDIR += py-oslotest
     SUBDIR += py-osprofiler
     SUBDIR += py-p4python
     SUBDIR += py-packaging
@@ -4959,6 +4960,7 @@
     SUBDIR += py-qt5-qscintilla2
     SUBDIR += py-qt5-test
     SUBDIR += py-qtconsole
+    SUBDIR += py-qutip
     SUBDIR += py-ramlfications
     SUBDIR += py-ratelimiter
     SUBDIR += py-rauth
