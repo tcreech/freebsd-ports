@@ -28,8 +28,6 @@ bin/xstat_fs_test
 %%ETCDIR%%/CellServDB.sample
 %%ETCDIR%%/ThisCell.sample
 %%ETCDIR%%/cacheinfo.sample
-etc/rc.d/%%AFSMNTDIR%%d
-etc/rc.d/%%AFSMNTDIR%%server
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/acl.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/%%AFSMNTDIR%%.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/%%AFSMNTDIR%%_args.h
