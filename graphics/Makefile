@@ -492,6 +492,7 @@
     SUBDIR += l2p
     SUBDIR += largetifftools
     SUBDIR += laternamagica
+    SUBDIR += lazpaint
     SUBDIR += lcdtest
     SUBDIR += lcms
     SUBDIR += lcms-python
@@ -988,6 +989,7 @@
     SUBDIR += rawstudio
     SUBDIR += rawtherapee
     SUBDIR += rayshade
+    SUBDIR += reactphysics3d
     SUBDIR += reallyslick
     SUBDIR += recoverjpeg
     SUBDIR += renrot

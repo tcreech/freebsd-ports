@@ -726,6 +726,7 @@
     SUBDIR += py-simhash
     SUBDIR += py-slepc4py
     SUBDIR += py-spectral
+    SUBDIR += py-spot
     SUBDIR += py-statsmodels
     SUBDIR += py-svgmath
     SUBDIR += py-sym
@@ -737,7 +738,7 @@
     SUBDIR += py-uncertainties
     SUBDIR += py-viper
     SUBDIR += py-yt
-    SUBDIR += py-z3
+    SUBDIR += py-z3-solver
     SUBDIR += qalculate
     SUBDIR += qd
     SUBDIR += qhull
@@ -795,6 +796,7 @@
     SUBDIR += speedcrunch
     SUBDIR += spooles
     SUBDIR += spooles-mpich
+    SUBDIR += spot
     SUBDIR += stp
     SUBDIR += suitesparse
     SUBDIR += sundials
@@ -843,6 +845,7 @@
     SUBDIR += yacas
     SUBDIR += yices
     SUBDIR += z3
+    SUBDIR += zegrapher
     SUBDIR += zimpl
 
 .include <bsd.port.subdir.mk>

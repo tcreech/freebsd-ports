@@ -188,6 +188,7 @@
     SUBDIR += b2
     SUBDIR += babeltrace
     SUBDIR += bam
+    SUBDIR += bashdb
     SUBDIR += bats-core
     SUBDIR += bazel
     SUBDIR += bazel-clang38
@@ -195,6 +196,7 @@
     SUBDIR += bbfreeze-loader
     SUBDIR += bcc
     SUBDIR += bcpp
+    SUBDIR += bcunit
     SUBDIR += bear
     SUBDIR += bennugd-core
     SUBDIR += bennugd-modules
@@ -924,6 +926,7 @@
     SUBDIR += hs-ConfigFile
     SUBDIR += hs-EdisonAPI
     SUBDIR += hs-EdisonCore
+    SUBDIR += hs-GenericPretty
     SUBDIR += hs-Glob
     SUBDIR += hs-HUnit
     SUBDIR += hs-IfElse
@@ -1034,6 +1037,7 @@
     SUBDIR += hs-filemanip
     SUBDIR += hs-filestore
     SUBDIR += hs-fmlist
+    SUBDIR += hs-fortran-src
     SUBDIR += hs-foundation
     SUBDIR += hs-free
     SUBDIR += hs-fsnotify
@@ -1233,6 +1237,7 @@
     SUBDIR += injeqt
     SUBDIR += ioncube
     SUBDIR += ipython
+    SUBDIR += ipython5
     SUBDIR += ireport
     SUBDIR += isa-l
     SUBDIR += isfreedesktop
@@ -1606,6 +1611,7 @@
     SUBDIR += libtsm
     SUBDIR += libtuntap
     SUBDIR += libublio
+    SUBDIR += libubox
     SUBDIR += libudev-devd
     SUBDIR += libukcprog
     SUBDIR += libunicode
@@ -4363,6 +4369,7 @@
     SUBDIR += py-avro
     SUBDIR += py-babel
     SUBDIR += py-babelfish
+    SUBDIR += py-backcall
     SUBDIR += py-backports
     SUBDIR += py-backports.csv
     SUBDIR += py-backports.functools_lru_cache
@@ -4405,6 +4412,7 @@
     SUBDIR += py-capstone
     SUBDIR += py-castellan
     SUBDIR += py-cbor
+    SUBDIR += py-cbor2
     SUBDIR += py-cclib
     SUBDIR += py-cdg
     SUBDIR += py-celery
@@ -4415,6 +4423,7 @@
     SUBDIR += py-characteristic
     SUBDIR += py-check-manifest
     SUBDIR += py-cheetah
+    SUBDIR += py-cheetah3
     SUBDIR += py-ciphon
     SUBDIR += py-circuits
     SUBDIR += py-cjson
@@ -4640,6 +4649,7 @@
     SUBDIR += py-jcc
     SUBDIR += py-jdcal
     SUBDIR += py-jedi
+    SUBDIR += py-jeepney
     SUBDIR += py-jellyfish
     SUBDIR += py-jenkins-job-builder
     SUBDIR += py-jep
@@ -4895,6 +4905,7 @@
     SUBDIR += py-pyopencl
     SUBDIR += py-pyparsing
     SUBDIR += py-pyperclip
+    SUBDIR += py-pyplusplus
     SUBDIR += py-pypugjs
     SUBDIR += py-pyqi
     SUBDIR += py-pyqtree
@@ -5642,7 +5653,6 @@
     SUBDIR += rubygem-graf
     SUBDIR += rubygem-grape
     SUBDIR += rubygem-grape-entity
-    SUBDIR += rubygem-grape-entity060
     SUBDIR += rubygem-grape-path-helpers
     SUBDIR += rubygem-grape-route-helpers
     SUBDIR += rubygem-grape-swagger
@@ -5682,6 +5692,7 @@
     SUBDIR += rubygem-iobuffer
     SUBDIR += rubygem-iso8601
     SUBDIR += rubygem-jammit
+    SUBDIR += rubygem-jaro_winkler
     SUBDIR += rubygem-jasmine-core
     SUBDIR += rubygem-jbuilder
     SUBDIR += rubygem-jbuilder-rails5
