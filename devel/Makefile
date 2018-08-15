@@ -191,7 +191,6 @@
     SUBDIR += bashdb
     SUBDIR += bats-core
     SUBDIR += bazel
-    SUBDIR += bazel-clang38
     SUBDIR += bbfreeze
     SUBDIR += bbfreeze-loader
     SUBDIR += bcc
@@ -416,6 +415,7 @@
     SUBDIR += cx_Freeze
     SUBDIR += cxmon
     SUBDIR += cxref
+    SUBDIR += cxxopts
     SUBDIR += cxxtest
     SUBDIR += cxxtools
     SUBDIR += d-feet
@@ -454,6 +454,7 @@
     SUBDIR += diffuse
     SUBDIR += ding-libs
     SUBDIR += directfb
+    SUBDIR += dispy
     SUBDIR += dissy
     SUBDIR += distcc
     SUBDIR += distel
@@ -1681,17 +1682,15 @@
     SUBDIR += listserialc
     SUBDIR += liteide
     SUBDIR += llbuild
-    SUBDIR += lldb38
     SUBDIR += llnextgen
     SUBDIR += llvm-cheri
     SUBDIR += llvm-devel
-    SUBDIR += llvm33
-    SUBDIR += llvm34
     SUBDIR += llvm35
     SUBDIR += llvm38
     SUBDIR += llvm40
     SUBDIR += llvm50
     SUBDIR += llvm60
+    SUBDIR += llvm70
     SUBDIR += lm4tools
     SUBDIR += lmdbg
     SUBDIR += lndir
@@ -4341,6 +4340,7 @@
     SUBDIR += py-apns2
     SUBDIR += py-appdirs
     SUBDIR += py-application
+    SUBDIR += py-applicationinsights
     SUBDIR += py-apptools
     SUBDIR += py-apscheduler
     SUBDIR += py-archetypes.querywidget
@@ -4684,6 +4684,7 @@
     SUBDIR += py-kid
     SUBDIR += py-kitchen
     SUBDIR += py-kjbuckets
+    SUBDIR += py-knack
     SUBDIR += py-kqueue
     SUBDIR += py-krosspython-kde4
     SUBDIR += py-lazr.config
@@ -5287,6 +5288,7 @@
     SUBDIR += pycanberra
     SUBDIR += pycharm-ce
     SUBDIR += pychecker
+    SUBDIR += pycos
     SUBDIR += pycount
     SUBDIR += pydbus-common
     SUBDIR += pygobject3-common
@@ -5500,6 +5502,8 @@
     SUBDIR += rubygem-celluloid-pool
     SUBDIR += rubygem-celluloid-supervision
     SUBDIR += rubygem-cf-uaa-lib
+    SUBDIR += rubygem-chef-provisioning
+    SUBDIR += rubygem-cheffish
     SUBDIR += rubygem-childprocess
     SUBDIR += rubygem-chronic
     SUBDIR += rubygem-chronic_duration
@@ -5528,6 +5532,7 @@
     SUBDIR += rubygem-configatron
     SUBDIR += rubygem-configstruct
     SUBDIR += rubygem-configuration
+    SUBDIR += rubygem-cookbook-omnifetch
     SUBDIR += rubygem-cool.io
     SUBDIR += rubygem-corefines
     SUBDIR += rubygem-crack
@@ -5752,12 +5757,15 @@
     SUBDIR += rubygem-mixlib-authentication
     SUBDIR += rubygem-mixlib-cli
     SUBDIR += rubygem-mixlib-config
+    SUBDIR += rubygem-mixlib-install
     SUBDIR += rubygem-mixlib-log
     SUBDIR += rubygem-mixlib-shellout
+    SUBDIR += rubygem-mixlib-versioning
     SUBDIR += rubygem-mize
     SUBDIR += rubygem-mkrf
     SUBDIR += rubygem-mmap2
     SUBDIR += rubygem-mocha
+    SUBDIR += rubygem-molinillo
     SUBDIR += rubygem-moneta
     SUBDIR += rubygem-mongo
     SUBDIR += rubygem-mono_logger
@@ -5799,6 +5807,7 @@
     SUBDIR += rubygem-os
     SUBDIR += rubygem-p4ruby
     SUBDIR += rubygem-paint
+    SUBDIR += rubygem-paint1
     SUBDIR += rubygem-paperclip
     SUBDIR += rubygem-paperclip-rails5
     SUBDIR += rubygem-paperclip-rails50
@@ -5934,6 +5943,7 @@
     SUBDIR += rubygem-semantic_puppet
     SUBDIR += rubygem-semi_semantic
     SUBDIR += rubygem-semver2
+    SUBDIR += rubygem-semverse
     SUBDIR += rubygem-sentry-raven
     SUBDIR += rubygem-sentry-raven25
     SUBDIR += rubygem-sequel
@@ -5963,6 +5973,7 @@
     SUBDIR += rubygem-slop
     SUBDIR += rubygem-slop3
     SUBDIR += rubygem-soap4r
+    SUBDIR += rubygem-solve
     SUBDIR += rubygem-spring
     SUBDIR += rubygem-spring-rails5
     SUBDIR += rubygem-spring-rails50
@@ -6048,6 +6059,7 @@
     SUBDIR += rubygem-uber
     SUBDIR += rubygem-unicode
     SUBDIR += rubygem-unicode-display_width
+    SUBDIR += rubygem-unicode_utils
     SUBDIR += rubygem-useragent
     SUBDIR += rubygem-uuid
     SUBDIR += rubygem-uuidtools
@@ -6285,6 +6297,7 @@
     SUBDIR += xdg-user-dirs
     SUBDIR += xdg-utils
     SUBDIR += xdgpaths
+    SUBDIR += xeus
     SUBDIR += xfce4-dev-tools
     SUBDIR += xfce4-vala
     SUBDIR += xmake
@@ -6294,6 +6307,7 @@
     SUBDIR += xsd
     SUBDIR += xtensa-esp32-elf
     SUBDIR += xtl
+    SUBDIR += xtl-quant-stack
     SUBDIR += xtoolchain-llvm-devel
     SUBDIR += xtoolchain-llvm40
     SUBDIR += xtoolchain-llvm50
@@ -6315,6 +6329,7 @@
     SUBDIR += z80-asm
     SUBDIR += z80asm
     SUBDIR += z80ex
+    SUBDIR += zapcc
     SUBDIR += zeal
     SUBDIR += zookeeper
     SUBDIR += zpu-binutils
