@@ -147,7 +147,6 @@
     SUBDIR += arpc
     SUBDIR += art
     SUBDIR += artifactory
-    SUBDIR += as31
     SUBDIR += asl
     SUBDIR += asmutils
     SUBDIR += asmx
@@ -695,7 +694,6 @@
     SUBDIR += gconfmm26
     SUBDIR += gcvs
     SUBDIR += gdb
-    SUBDIR += gdbmods
     SUBDIR += gdcm
     SUBDIR += geany
     SUBDIR += geany-plugin-addons
@@ -1334,7 +1332,6 @@
     SUBDIR += kf5-kunitconversion
     SUBDIR += kf5-solid
     SUBDIR += kf5-threadweaver
-    SUBDIR += kickassembler
     SUBDIR += kimwitu
     SUBDIR += kio-extras
     SUBDIR += kodi-platform
@@ -4416,6 +4413,7 @@
     SUBDIR += py-cclib
     SUBDIR += py-cdg
     SUBDIR += py-celery
+    SUBDIR += py-cerberus
     SUBDIR += py-certsrv
     SUBDIR += py-cffi
     SUBDIR += py-cfgparse
@@ -4431,6 +4429,7 @@
     SUBDIR += py-cli-helpers
     SUBDIR += py-cliapp
     SUBDIR += py-click
+    SUBDIR += py-click-completion
     SUBDIR += py-click-log
     SUBDIR += py-click-plugins
     SUBDIR += py-click-threading
@@ -5050,6 +5049,7 @@
     SUBDIR += py-setuptools_scm
     SUBDIR += py-sh
     SUBDIR += py-shapely
+    SUBDIR += py-shellingham
     SUBDIR += py-should_dsl
     SUBDIR += py-simpleeval
     SUBDIR += py-simplegeneric
