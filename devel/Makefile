@@ -672,6 +672,7 @@
     SUBDIR += frama-c
     SUBDIR += frink
     SUBDIR += fsmtrie
+    SUBDIR += fstrcmp
     SUBDIR += fstrm
     SUBDIR += ftjam
     SUBDIR += ftnchek
@@ -6298,6 +6299,7 @@
     SUBDIR += xdg-utils
     SUBDIR += xdgpaths
     SUBDIR += xeus
+    SUBDIR += xeus-cling
     SUBDIR += xfce4-dev-tools
     SUBDIR += xfce4-vala
     SUBDIR += xmake
@@ -6329,6 +6331,7 @@
     SUBDIR += z80-asm
     SUBDIR += z80asm
     SUBDIR += z80ex
+    SUBDIR += zanata-cli
     SUBDIR += zapcc
     SUBDIR += zeal
     SUBDIR += zookeeper
