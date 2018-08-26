@@ -492,11 +492,11 @@
     SUBDIR += mod_xsendfile
     SUBDIR += mohawk
     SUBDIR += moinmoin
+    SUBDIR += moinmoincli
     SUBDIR += monast
     SUBDIR += mongoose
     SUBDIR += mongrel2
     SUBDIR += moodle31
-    SUBDIR += moodle32
     SUBDIR += moodle33
     SUBDIR += moodle34
     SUBDIR += moodle35
@@ -1628,7 +1628,6 @@
     SUBDIR += py-django-voting
     SUBDIR += py-django-widget-tweaks
     SUBDIR += py-django111
-    SUBDIR += py-django18
     SUBDIR += py-django20
     SUBDIR += py-django21
     SUBDIR += py-django_compressor
@@ -1906,7 +1905,6 @@
     SUBDIR += py-zope.app.wsgi
     SUBDIR += pyblosxom
     SUBDIR += pycarddav
-    SUBDIR += pydio
     SUBDIR += pyjamas
     SUBDIR += qdecoder
     SUBDIR += qhttpengine

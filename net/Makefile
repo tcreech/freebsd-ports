@@ -75,7 +75,6 @@
     SUBDIR += calendarsupport
     SUBDIR += ccxstream
     SUBDIR += ceph
-    SUBDIR += ceph-devel
     SUBDIR += cf
     SUBDIR += chrony
     SUBDIR += citrix_ica
@@ -84,8 +83,6 @@
     SUBDIR += cloud-init-azure
     SUBDIR += clusterit
     SUBDIR += cnd
-    SUBDIR += coda6_client
-    SUBDIR += coda6_server
     SUBDIR += concourse-fly
     SUBDIR += corkscrew
     SUBDIR += corosync2
@@ -338,6 +335,7 @@
     SUBDIR += kio-upnp-ms
     SUBDIR += kippo
     SUBDIR += kissd
+    SUBDIR += kitinerary
     SUBDIR += kldap
     SUBDIR += kmailtransport
     SUBDIR += kmbox
@@ -569,8 +567,6 @@
     SUBDIR += openmpi
     SUBDIR += openmpi2
     SUBDIR += openmpi3
-    SUBDIR += openmq
-    SUBDIR += openmq-client
     SUBDIR += openntpd
     SUBDIR += opennx
     SUBDIR += openpgm

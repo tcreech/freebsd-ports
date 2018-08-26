@@ -147,8 +147,6 @@
     SUBDIR += fakebo
     SUBDIR += fakeident
     SUBDIR += fakeroot
-    SUBDIR += fastd
-    SUBDIR += fastd-devel
     SUBDIR += fbopenssl
     SUBDIR += fcheck
     SUBDIR += fcrackzip
@@ -294,6 +292,7 @@
     SUBDIR += jbrofuzz
     SUBDIR += john
     SUBDIR += kbfs
+    SUBDIR += kbfsd
     SUBDIR += kc
     SUBDIR += kc24
     SUBDIR += kdbx-viewer
@@ -316,6 +315,7 @@
     SUBDIR += knock
     SUBDIR += knocker
     SUBDIR += kpcli
+    SUBDIR += kpkpass
     SUBDIR += kqoauth
     SUBDIR += kr
     SUBDIR += krb5

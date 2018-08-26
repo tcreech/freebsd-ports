@@ -154,6 +154,7 @@
     SUBDIR += drawpile
     SUBDIR += driconf
     SUBDIR += drm-devel-kmod
+    SUBDIR += drm-legacy-kmod
     SUBDIR += drm-next-kmod
     SUBDIR += drm-stable-kmod
     SUBDIR += dspdfviewer
@@ -533,6 +534,7 @@
     SUBDIR += libgnomecanvasmm26
     SUBDIR += libgphoto2
     SUBDIR += libgxps
+    SUBDIR += libheif
     SUBDIR += libimg
     SUBDIR += libiptcdata
     SUBDIR += libjpeg-turbo
@@ -659,6 +661,7 @@
     SUBDIR += ogre3d
     SUBDIR += okular
     SUBDIR += okular-kde4
+    SUBDIR += open3d
     SUBDIR += opencollada
     SUBDIR += opencolorio
     SUBDIR += opencolorio-tools
@@ -918,6 +921,7 @@
     SUBDIR += py-mcomix
     SUBDIR += py-ming
     SUBDIR += py-nwdiag
+    SUBDIR += py-open3d-python
     SUBDIR += py-opencolorio
     SUBDIR += py-opencv
     SUBDIR += py-openexr
