@@ -1,19 +1,18 @@
 --- /dev/null
-+++ src/config/param.i386_fbsd_111.h
-@@ -0,0 +1,219 @@
++++ src/config/param.amd64_fbsd_112.h
+@@ -0,0 +1,222 @@
 +#ifndef	AFS_PARAM_H
 +#define	AFS_PARAM_H
 +
 +/* Machine / Operating system information */
 +/* XXX temporarily use old sysname until new one is assigned */
-+#define SYS_NAME	"i386_fbsd_110"
-+#define SYS_NAME_ID	SYS_NAME_ID_i386_fbsd_110
++#define SYS_NAME	"amd64_fbsd_110"
++#define SYS_NAME_ID	SYS_NAME_ID_amd64_fbsd_110
 +
 +#define AFSLITTLE_ENDIAN    1
 +#define AFS_HAVE_FFS        1	/* Use system's ffs. */
 +#define AFS_HAVE_STATVFS    1	/* System doesn't support statvfs */
 +//#define AFS_VM_RDWR_ENV   1	/* read/write implemented via VM */
-+#define AFS_FAKEOPEN_ENV    1   /* call afs_FakeOpen as if !AFS_VM_RDWR */
 +
 +
 +#ifndef UKERNEL
@@ -29,6 +28,8 @@
 +#define AFS_NAMEI_ENV     1	/* User space interface to file system */
 +#define AFS_64BIT_ENV     1
 +#define AFS_64BIT_CLIENT 1
++#define AFS_64BITPOINTER_ENV 1
++#define AFS_64BITUSERPOINTER_ENV	1
 +#define AFS_64BIT_IOPS_ENV 1	/* Needed for NAMEI */
 +#define AFS_FBSD_ENV 1
 +#define AFS_FBSD50_ENV 1
@@ -46,6 +47,7 @@
 +#define AFS_FBSD91_ENV 1
 +#define AFS_FBSD100_ENV 1
 +#define AFS_FBSD110_ENV 1
++#define AFS_FBSD112_ENV 1
 +#define AFS_X86_FBSD_ENV 1
 +#define AFS_X86_FBSD50_ENV 1
 +#define AFS_X86_FBSD60_ENV 1 /* added at 70--ie, some changes should port <-- */
@@ -58,7 +60,7 @@
 +#define AFS_X86_FBSD91_ENV 1
 +#define AFS_X86_FBSD100_ENV 1
 +#define AFS_X86_FBSD110_ENV 1
-+#define AFS_X86_FBSD111_ENV 1
++#define AFS_X86_FBSD112_ENV 1
 +#define AFS_X86_ENV 1
 +#undef  AFS_NONFSTRANS
 +#define AFS_NONFSTRANS 1
@@ -169,7 +171,7 @@
 +#define AFS_USR_FBSD91_ENV	1
 +#define AFS_USR_FBSD100_ENV	1
 +#define AFS_USR_FBSD110_ENV	1
-+#define AFS_USR_FBSD111_ENV	1
++#define AFS_USR_FBSD112_ENV	1
 +#define AFS_USR_FBSD_ENV	1
 +#undef  AFS_NONFSTRANS
 +#define AFS_NONFSTRANS 1
@@ -178,6 +180,7 @@
 +#define AFS_SYSCALL 339
 +#define AFS_NAMEI_ENV         1	/* User space interface to file system */
 +#define AFS_64BIT_ENV         1
++#define AFS_64BITPOINTER_ENV  1
 +#define AFS_64BIT_IOPS_ENV    1	/* Needed for NAMEI */
 +#define AFS_USERSPACE_IP_ADDR 1
 +#define RXK_LISTENER_ENV      1
