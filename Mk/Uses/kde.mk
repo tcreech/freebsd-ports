@@ -70,16 +70,16 @@ KDE_PLASMA_VERSION?=		5.12.5
 KDE_PLASMA_BRANCH?=		stable
 
 # Current KDE frameworks.
-KDE_FRAMEWORKS_VERSION?=	5.46.0
+KDE_FRAMEWORKS_VERSION?=	5.50.0
 KDE_FRAMEWORKS_BRANCH?= 	stable
 
 # Current KDE applications.
-KDE_APPLICATIONS_VERSION?=	18.04.1
-KDE_APPLICATIONS_SHLIB_VER?=	5.8.1
+KDE_APPLICATIONS_VERSION?=	18.08.1
+KDE_APPLICATIONS_SHLIB_VER?=	5.9.1
 KDE_APPLICATIONS_BRANCH?=	stable
 # Upstream moves old software to Attic/. Specify the newest applications release there.
 # Only the major version is used for the comparison.
-_KDE_APPLICATIONS_ATTIC_VERSION=	16.12.3
+_KDE_APPLICATIONS_ATTIC_VERSION=	17.08.3
 
 # Extended KDE universe applications.
 CALLIGRA_VERSION?=		2.9.11
@@ -124,14 +124,14 @@ PORTVERSION?=		${KDE4_VERSION}
 MASTER_SITES?=		KDE/${KDE4_BRANCH}/${KDE4_VERSION}/src
 DIST_SUBDIR?=		KDE/${KDE4_VERSION}
 PKGNAMESUFFIX=		-kde4
-CONFLICTS_INSTALL=	${PORTNAME:C/-kde4//}-4.*
+CONFLICTS_INSTALL=	${PORTNAME}
 .    elif  ${_KDE_CATEGORY:Mkde-applications}
 PORTVERSION?=		${KDE_APPLICATIONS_VERSION}
 .      if ${_KDE_VERSION:M4}
 CONFLICTS_INSTALL?=	${PORTNAME}-[0-9]*
 PKGNAMESUFFIX?=		-kde4
 .      else
-CONFLICTS_INSTALL?=	${PORTNAME}-kde4-[0-9]*
+CONFLICTS_INSTALL?=	${PORTNAME}-kde4
 .      endif
 # Decide where the file lies on KDE's servers: Check whether the file lies in Attic
 .      if ${KDE_APPLICATIONS_VERSION:R:R} <= ${_KDE_APPLICATIONS_ATTIC_VERSION:R:R}
@@ -228,14 +228,14 @@ _USE_KDE_BOTH=		akonadi attica libkcddb libkcompactdisc libkdcraw libkdegames \
 			libkeduvocdocument libkexiv2 libkipi libksane okular \
 			baloo baloo-widgets kate marble
 
-_USE_KDE4_ALL=		baloo baloo-widgets baseapps kactivities kdelibs \
+_USE_KDE4_ALL=		baseapps kactivities kdelibs \
 			kfilemetadata korundum \
 			libkonq  nepomuk-core nepomuk-widgets \
 			oxygen-icons5 perlkde perlqt pimlibs pykde4 \
 			pykdeuic4 qtruby runtime smokegen smokekde smokeqt \
 			workspace
 # These components are not part of the Software Compilation.
-_USE_KDE4_ALL+=		akonadi automoc4 ontologies qimageblitz soprano \
+_USE_KDE4_ALL+=		automoc4 ontologies qimageblitz soprano \
 			strigi
 
 _USE_KDE4_ALL+= 	${_USE_KDE_BOTH}
@@ -245,14 +245,14 @@ _USE_KDE4_ALL+= 	${_USE_KDE_BOTH}
 # that our list of frameworks matches the structure offered upstream.
 _USE_FRAMEWORKS_TIER1=	apidox archive attica5 breeze-icons codecs config \
 			coreaddons dbusaddons dnssd holidays i18n idletime itemmodels \
-			itemviews kirigami2 oxygen-icons5 plotting prison solid \
-			sonnet syntaxhighlighting threadweaver wayland \
-			widgetsaddons windowsystem
+			itemviews kirigami2 oxygen-icons5 plotting prison \
+			qqc2-desktop-style solid sonnet syntaxhighlighting \
+			threadweaver wayland widgetsaddons windowsystem
 # NOT LISTED TIER1: modemmanagerqt networkmanagerqt (not applicable)
 
 _USE_FRAMEWORKS_TIER2=	auth completion crash doctools \
 			filemetadata kimageformats jobwidgets notifications \
-			package pty unitconversion
+			package pty syndication unitconversion
 
 _USE_FRAMEWORKS_TIER3=	activities activities-stats baloo5 bookmarks configwidgets \
 			designerplugin emoticons globalaccel guiaddons \
@@ -296,10 +296,10 @@ _USE_KDEPIM5_ALL=	akonadicontacts akonadiimportwizard akonadimime akonadinotes \
 			contacts eventviews gapi grantleetheme \
 			gravatar identitymanagement imap \
 			incidenceeditor kdepim-addons kdepim-apps-libs \
-			kdepim-runtime5 kontactinterface kpimdav \
+			kdepim-runtime5 kitinerary kontactinterface kpimdav kpkpass \
 			ksmtp ldap libkdepim libkleo libksieve mailcommon \
 			mailimporter mailtransport mbox messagelib \
-			mime pimcommon pimtextedit syndication tnef \
+			mime pimcommon pimtextedit tnef \
 			kalarm kontact kmail account-wizard mbox-importer \
 			akonadiconsole akregator grantlee-editor kaddressbook \
 			kalarm kmail-account-wizard kmail knotes kontact \
@@ -578,6 +578,9 @@ pty_LIB=		libKF5Pty.so
 purpose_PORT=		misc/kf5-purpose
 purpose_LIB=		libKF5Purpose.so
 
+qqc2-desktop-style_PORT=	x11-themes/kf5-qqc2-desktop-style
+qqc2-desktop-style_PATH=	${QT_PLUGINDIR}/kf5/kirigami/org.kde.desktop.so
+
 runner_PORT=		x11/kf5-krunner
 runner_LIB=		libKF5Runner.so
 
@@ -589,6 +592,9 @@ solid_LIB=		libKF5Solid.so
 
 sonnet_PORT=		textproc/kf5-sonnet
 sonnet_LIB=		libKF5SonnetCore.so
+
+syndication_PORT=	net/kf5-syndication
+syndication_LIB=	libKF5Syndication.so
 
 syntaxhighlighting_PORT=	textproc/kf5-syntax-highlighting
 syntaxhighlighting_LIB=		libKF5SyntaxHighlighting.so
@@ -799,13 +805,19 @@ kdepim-apps-libs_PORT=	deskutils/kdepim-apps-libs
 kdepim-apps-libs_LIB=	libKF5SendLater.so
 
 kdepim-runtime5_PORT=	deskutils/kdepim-runtime
-kdepim-runtime5_LIB=	libakonadi-filestore.so.5
+kdepim-runtime5_PATH=	${KDE_PREFIX}/bin/gidmigrator
+
+kitinerary_PORT=	net/kitinerary
+kitinerary_LIB=		libKPimItinerary.so
 
 kontactinterface_PORT=	net/kontactinterface
 kontactinterface_LIB=	libKF5KontactInterface.so
 
 kpimdav_PORT=		net/kdav
 kpimdav_LIB=		libKPimKDAV.so
+
+kpkpass_PORT=		security/kpkpass
+kpkpass_LIB=		libKPimPkPass.so
 
 ksmtp_PORT=		net/ksmtp
 ksmtp_LIB=		libKPimSMTP.so
@@ -845,9 +857,6 @@ pimcommon_LIB=		libKF5PimCommon.so
 
 pimtextedit_PORT=	net/kpimtextedit
 pimtextedit_LIB=	libKF5PimTextEdit.so
-
-syndication_PORT=	net/syndication
-syndication_LIB=	libKF5Syndication.so
 
 tnef_PORT=		net/ktnef
 tnef_LIB=		libKF5Tnef.so
@@ -901,10 +910,12 @@ attica4_LIB=		libattica.so
 
 baloo4_PORT=		sysutils/baloo-kde4
 baloo4_LIB=		libbaloocore.so
+# baloo5 defined above, under KDE5 components
 
 baloo-widgets4_PORT=	sysutils/baloo-widgets-kde4
 baloo-widgets4_LIB=	libbaloowidgets.so
-
+baloo-widgets5_PORT=	sysutils/baloo-widgets
+baloo-widgets5_LIB=	libKF5BalooWidgets.so
 
 kate4_PORT=		editors/kate-kde4
 kate4_LIB=		libkateinterfaces.so
@@ -913,9 +924,13 @@ kate5_PATH=		${QT_PLUGINDIR}/ktexteditor/katebacktracebrowserplugin.so
 
 libkcddb4_PORT=		audio/libkcddb-kde4
 libkcddb4_LIB=		libkcddb.so
+libkcddb5_PORT=		audio/libkcddb
+libkcddb5_LIB=		libKF5Cddb.so
 
 libkcompactdisc4_PORT=	audio/libkcompactdisc-kde4
 libkcompactdisc4_LIB=	libkcompactdisc.so
+libkcompactdisc5_PORT=	audio/libkcompactdisc-kde5
+libkcompactdisc5_LIB=	libKF5CompactDisc.so
 
 libkdcraw4_PORT=	graphics/libkdcraw-kde4
 libkdcraw4_LIB=		libkdcraw.so

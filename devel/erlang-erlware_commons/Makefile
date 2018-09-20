@@ -5,7 +5,7 @@ PORTVERSION=	1.1.0
 CATEGORIES=	devel
 PKGNAMEPREFIX=	erlang-
 
-MAINTAINER=	olgeni@FreeBSD.org
+MAINTAINER=	erlang@FreeBSD.org
 COMMENT=	Erlang project focused on all aspects of reusable components
 
 LICENSE=	MIT
@@ -16,5 +16,7 @@ GH_ACCOUNT=	erlware
 
 ERL_BUILD_DEPS= devel/erlang-cf
 ERL_RUN_DEPS:=  ${ERL_BUILD_DEPS}
+
+OPTIONS_DEFINE=	DOCS
 
 .include <bsd.port.mk>

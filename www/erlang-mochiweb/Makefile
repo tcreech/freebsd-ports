@@ -6,7 +6,7 @@ DISTVERSIONPREFIX=	v
 CATEGORIES=	www devel
 PKGNAMEPREFIX=	erlang-
 
-MAINTAINER=	olgeni@FreeBSD.org
+MAINTAINER=	erlang@FreeBSD.org
 COMMENT=	Erlang library for building lightweight HTTP servers
 
 LICENSE=	MIT
@@ -18,7 +18,9 @@ CPE_VENDOR=	mochiweb_project
 USE_GITHUB=	yes
 GH_ACCOUNT=	mochi
 
-post-install:
+OPTIONS_DEFINE=	DOCS EXAMPLES
+
+post-install-EXAMPLES-on:
 	@${MKDIR} ${STAGEDIR}${EXAMPLESDIR}
 	cd ${WRKSRC}/examples && ${COPYTREE_SHARE} \* ${STAGEDIR}${EXAMPLESDIR}
 

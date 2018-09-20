@@ -5,7 +5,7 @@ PORTVERSION=	0.3.10
 CATEGORIES=	devel
 PKGNAMEPREFIX=	erlang-
 
-MAINTAINER=	olgeni@FreeBSD.org
+MAINTAINER=	erlang@FreeBSD.org
 COMMENT=	CLI Framework for Erlang
 
 LICENSE=	APACHE20
@@ -16,5 +16,7 @@ GH_ACCOUNT=	basho
 
 ERL_BUILD_DEPS=	devel/erlang-cuttlefish
 ERL_RUN_DEPS:=	${ERL_BUILD_DEPS}
+
+OPTIONS_DEFINE=	DOCS
 
 .include <bsd.port.mk>

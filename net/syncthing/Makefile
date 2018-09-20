@@ -1,8 +1,7 @@
-# Created by: Steve Wills <swills@FreeBSD.org>
 # $FreeBSD$
 
 PORTNAME=	syncthing
-PORTVERSION=	0.14.47
+PORTVERSION=	0.14.48
 DISTVERSIONPREFIX=	v
 CATEGORIES=	net
 
@@ -26,6 +25,8 @@ PORTDOCS=	*
 
 USERS=		syncthing
 GROUPS=		syncthing
+
+OPTIONS_DEFINE=	DOCS
 
 do-build:
 	@cd ${WRKSRC}/src/github.com/${PORTNAME}/${PORTNAME} ; \

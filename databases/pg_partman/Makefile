@@ -14,12 +14,15 @@ LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 RUN_DEPENDS=	${PYTHON_SITELIBDIR}/psycopg2/__init__.py:databases/py-psycopg2
 
 USES=		gmake pgsql:9.4+ python uidfix shebangfix
+LLD_UNSAFE=	yes
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	keithf4
 
 WANT_PGSQL=	server
 SHEBANG_GLOB=	*.py
+
+OPTIONS_DEFINE=	DOCS
 
 OPTIONS_DEFINE=	DOCS
 

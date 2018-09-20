@@ -3,11 +3,11 @@
 
 PORTNAME=	nginx
 PORTVERSION=	1.14.0
-PORTREVISION?=	3
+PORTREVISION?=	11
 PORTEPOCH=	2
 CATEGORIES=	www
 MASTER_SITES=	http://nginx.org/download/ \
-		LOCAL/osa
+		LOCAL/joneum
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
 
 MAINTAINER?=	joneum@FreeBSD.org
@@ -17,7 +17,7 @@ LICENSE=	BSD2CLAUSE
 
 CONFLICTS_INSTALL=	nginx-devel
 
-PORTSCOUT=	limit:^1\.12\.[0-9]*
+PORTSCOUT=	limit:^1\.14\.[0-9]*
 
 USES=		cpe
 
@@ -179,7 +179,7 @@ MAIL_SSL_CONFIGURE_ON=		--with-mail_ssl_module
 STREAM_VARS=			DSO_BASEMODS+=stream
 STREAM_SSL_IMPLIES=		HTTP_SSL
 STREAM_SSL_CONFIGURE_ON=	--with-stream_ssl_module
-STREAM_SSL_PREREAD_OFF=		--without-stream_ssl_preread_module
+STREAM_SSL_PREREAD_CONFIGURE_ON=	--with-stream_ssl_preread_module
 
 ### External modules
 .include "Makefile.extmod"
@@ -195,6 +195,12 @@ _addextmod=	add-module
 
 .for mod in ${DSO_BASEMODS}
 CONFIGURE_ARGS+=	--with-${mod}${_addbasemod}
+.endfor
+
+# Some modules depend on other being there before, for example, devel_kit needs
+# to be there before a few other.
+.for mod in ${FIRST_DSO_EXTMODS}
+CONFIGURE_ARGS+=	--${_addextmod}=${WRKSRC_${mod}}${${mod:tu}_SUBDIR}
 .endfor
 
 .for mod in ${DSO_EXTMODS}

@@ -3,7 +3,6 @@
 
     COMMENT = Biology
 
-    SUBDIR += ariadne
     SUBDIR += artemis
     SUBDIR += avida
     SUBDIR += babel
@@ -11,7 +10,6 @@
     SUBDIR += bcftools
     SUBDIR += bedtools
     SUBDIR += biococoa
-    SUBDIR += blat
     SUBDIR += bowtie
     SUBDIR += bowtie2
     SUBDIR += bwa
@@ -19,12 +17,15 @@
     SUBDIR += cd-hit
     SUBDIR += cdbfasta
     SUBDIR += chemeq
+    SUBDIR += clustal-omega
     SUBDIR += clustalw
+    SUBDIR += clustalx
     SUBDIR += consed
-    SUBDIR += crux
+    SUBDIR += cytoscape
     SUBDIR += ddocent
     SUBDIR += diamond
     SUBDIR += emboss
+    SUBDIR += exonerate
     SUBDIR += fasta
     SUBDIR += fasta3
     SUBDIR += fastahack
@@ -43,6 +44,8 @@
     SUBDIR += hmmer
     SUBDIR += htslib
     SUBDIR += hyphy
+    SUBDIR += igv
+    SUBDIR += infernal
     SUBDIR += iolib
     SUBDIR += iqtree
     SUBDIR += jalview
@@ -63,6 +66,7 @@
     SUBDIR += muscle
     SUBDIR += ncbi-blast+
     SUBDIR += ncbi-toolkit
+    SUBDIR += ngs-sdk
     SUBDIR += njplot
     SUBDIR += p5-AcePerl
     SUBDIR += p5-Bio-ASN1-EntrezGene
@@ -90,16 +94,18 @@
     SUBDIR += phred
     SUBDIR += phylip
     SUBDIR += phyml
-    SUBDIR += plink
     SUBDIR += plinkseq
     SUBDIR += primer3
     SUBDIR += protomol
     SUBDIR += psi88
+    SUBDIR += py-Genesis-PyAPI
     SUBDIR += py-biom-format
     SUBDIR += py-biopython
     SUBDIR += py-bx-python
     SUBDIR += py-cutadapt
     SUBDIR += py-macs2
+    SUBDIR += py-orange3-bioinformatics
+    SUBDIR += py-orange3-single-cell
     SUBDIR += py-pysam
     SUBDIR += pycogent
     SUBDIR += pyfasta
@@ -119,8 +125,8 @@
     SUBDIR += sim4
     SUBDIR += slclust
     SUBDIR += smithwaterman
-    SUBDIR += ssaha
     SUBDIR += stacks
+    SUBDIR += stringtie
     SUBDIR += tRNAscan-SE
     SUBDIR += t_coffee
     SUBDIR += tabixpp
@@ -130,8 +136,8 @@
     SUBDIR += trimmomatic
     SUBDIR += ugene
     SUBDIR += unanimity
-    SUBDIR += vcftools
     SUBDIR += vcflib
+    SUBDIR += vcftools
     SUBDIR += velvet
     SUBDIR += wise
     SUBDIR += xmolwt

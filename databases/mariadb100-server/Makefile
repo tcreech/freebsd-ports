@@ -1,8 +1,8 @@
 # $FreeBSD$
 
 PORTNAME?=	mariadb
-PORTVERSION=	10.0.35
-PORTREVISION?=	0
+PORTVERSION=	10.0.36
+PORTREVISION?=	1
 CATEGORIES=	databases ipv6
 MASTER_SITES=	http://ftp.osuosl.org/pub/${SITESDIR}/ \
 		http://mirrors.supportex.net/${SITESDIR}/ \
@@ -73,7 +73,7 @@ CONFLICTS_INSTALL=	mariadb5*-${PKGNAMESUFFIX:C/^[0-9]*-//}-* \
 
 .if !defined(CLIENT_ONLY)
 # MySQL-Server options
-OPTIONS_DEFINE+=	CONNECT_EXTRA MAXKEY
+OPTIONS_DEFINE+=	CONNECT_EXTRA MAXKEY DOCS
 OPTIONS_DEFAULT+=	MAXKEY
 OPTIONS_GROUP=		ENGINES
 OPTIONS_GROUP_ENGINES=	INNOBASE MROONGA OQGRAPH SPHINX SPIDER TOKUDB
@@ -123,6 +123,7 @@ OQGRAPH_LIB_DEPENDS=	libboost_system.so:devel/boost-libs \
 TOKUDB_LIB_DEPENDS=	libsnappy.so:archivers/snappy
 TOKUDB_PORTDOCS=	PATENTS README.md
 TOKUDB_VARS=		LICENSE+=PerconaFT LICENSE_COMB=multi
+TOKUDB_IMPLIES=		DOCS
 
 post-install:
 	# Remove programs to avoid conflict with mariadb100-client

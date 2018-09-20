@@ -3,7 +3,7 @@
 
 PORTNAME=	vegastrike
 PORTVERSION=	0.5.1.r1
-PORTREVISION=	12
+PORTREVISION=	13
 CATEGORIES=	games
 MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}/${PORTVERSION:R}/
 DISTNAME=	${PORTNAME}-src-${PORTVERSION}
@@ -20,8 +20,9 @@ LIB_DEPENDS=	${PY_BOOST} \
 		libvorbis.so:audio/libvorbis \
 		libogg.so:audio/libogg
 
-USES=		dos2unix gmake localbase:ldflags openal:al pkgconfig python \
+USES=		dos2unix gmake localbase:ldflags openal:al pkgconfig python:2.7 \
 		tar:bzip2
+USE_CXXSTD=	c++98
 GNU_CONFIGURE=	yes
 USE_SDL=	sdl
 USE_GL=		glut
@@ -42,7 +43,7 @@ BIN_FILES=	bin/vegastrike bin/vssetup bin/vegaserver
 PLIST_FILES=	${BIN_FILES}
 PORTDOCS=	README
 
-OPTIONS_DEFINE=	MESHER
+OPTIONS_DEFINE=	MESHER DOCS
 MESHER_DESC=	Enable mesher modelling tool
 
 MESHER_PLIST_FILES=	bin/mesher

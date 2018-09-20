@@ -15,7 +15,7 @@
 # was removed.
 #
 # $FreeBSD$
-# $MCom: portlint/portlint.pl,v 1.463 2018/05/12 22:12:18 jclarke Exp $
+# $MCom: portlint/portlint.pl,v 1.473 2018/09/16 17:48:44 jclarke Exp $
 #
 
 use strict;
@@ -50,7 +50,7 @@ $portdir = '.';
 # version variables
 my $major = 2;
 my $minor = 18;
-my $micro = 2;
+my $micro = 4;
 
 # default setting - for FreeBSD
 my $portsdir = '/usr/ports';
@@ -153,14 +153,14 @@ my @varlist =  qw(
 	WRKDIR WRKSRC NO_WRKSUBDIR SCRIPTDIR FILESDIR
 	PKGDIR COMMENT DESCR PLIST PKGCATEGORY PKGINSTALL PKGDEINSTALL
 	PKGREQ PKGMESSAGE DISTINFO_FILE .CURDIR USE_LDCONFIG USE_AUTOTOOLS
-	USE_GNOME USE_PERL5 USE_QT5 INDEXFILE PKGORIGIN CONFLICTS PKG_VERSION
+	USE_GNOME USE_PERL5 USE_QT USE_QT5 INDEXFILE PKGORIGIN CONFLICTS PKG_VERSION
 	PLIST_FILES PLIST_DIRS PORTDOCS PORTEXAMPLES
 	OPTIONS_DEFINE OPTIONS_RADIO OPTIONS_SINGLE OPTIONS_MULTI
 	OPTIONS_GROUP OPTIONS_SUB INSTALLS_OMF USE_RC_SUBR USES DIST_SUBDIR
 	ALLFILES CHECKSUM_ALGORITHMS INSTALLS_ICONS GNU_CONFIGURE
 	CONFIGURE_ARGS MASTER_SITE_SUBDIR LICENSE LICENSE_COMB NO_STAGE
 	DEVELOPER SUB_FILES SHEBANG_LANG MASTER_SITES_SUBDIRS FLAVORS
-	USE_PYTHON
+	USE_PYTHON LICENSE_PERMS
 );
 
 my %makevar;
@@ -1149,18 +1149,9 @@ sub check_depends_syntax {
 			# check Python flavor
 			my $bdir = basename($m{'dir'});
 			if ($bdir =~ /^py-/) {
-				if (!defined($makevar{USE_PYTHON}) ||
-					$makevar{USE_PYTHON} eq 'noflavors' ||
-					$makevar{USE_PYTHON} eq '') {
-					if ($m{'fla'} ne '${PY_FLAVOR}') {
-						&perror("WARN", $file, -1, "you may want directory for ".
-							"dependency $m{'dep'} to be $m{'dir'}:\@\${PY_FLAVOR}");
-					}
-				} else {
-					if ($m{'fla'} ne '${FLAVOR}') {
-						&perror("WARN", $file, -1, "you may want directory for ".
-							"dependency $m{'dep'} to be $m{'dir'}:\@\${FLAVOR}");
-					}
+				if ($m{'fla'} ne '${PY_FLAVOR}') {
+					&perror("WARN", $file, -1, "you may want directory for ".
+						"dependency $m{'dep'} to be $m{'dir'}\@\${PY_FLAVOR}");
 				}
 			}
 
@@ -1722,7 +1713,7 @@ sub checkmakefile {
 		# skip global options
 		next if ($i eq 'DOCS' or $i eq 'NLS' or $i eq 'EXAMPLES' or $i eq 'IPV6' or $i eq 'X11' or $i eq 'DEBUG');
 		if (!grep(/^$i$/, (@mopt, @popt))) {
-			if ($whole !~ /\n${i}_($m)(_\w+)?(.)?=[^\n]+/) {
+			if ($whole !~ /\n${i}_($m)(_\w+)?(.)?=[^\n]+/ and $whole !~ /\n[-\w]+-${i}-(on|off):\n/) {
 				if (!$slaveport) {
 					&perror("WARN", $file, -1, "$i is listed in ".
 						"OPTIONS_DEFINE, but no PORT_OPTIONS:M$i appears.");
@@ -2767,9 +2758,14 @@ DIST_SUBDIR EXTRACT_ONLY
 				foreach my $mss (split(/\s+/, $makevar{MASTER_SITES_SUBDIRS})) {
 					my ($ms, $sd) = split(/:/, $mss);
 					if ($i =~ /^$ms/ && $i ne $ms) {
-						&perror("WARN", $file, -1, "typically when you specify magic site $ms ".
-							"you do not need anything else as $sd is assumed");
-						$good_ms = 0;
+						my $ip = $i;
+						$ip =~ s/^$ms\///;
+						my $exp_sd = get_makevar($ip);
+						if ($exp_sd eq $sd) {
+							&perror("WARN", $file, -1, "typically when you specify magic site $ms ".
+								"you do not need anything else as $sd is assumed");
+							$good_ms = 0;
+						}
 					}
 				}
 				if ($good_ms) {
@@ -3105,6 +3101,21 @@ MAINTAINER COMMENT
 			&perror("FATAL", $file, -1, "LICENSE_COMB contains invalid value '$1' - must be one of 'single', 'dual', 'multi'");
 		}
 
+		# Check for proper license file usage
+		if ($tmp =~ /\nLICENSE_FILE_([^\s=]+)([\s=])/) {
+			my $lfn = $1;
+			my $nchar = $2;
+			if ($lfn ne $makevar{LICENSE}) {
+				&perror("FATAL", $file, -1, "license specified is $makevar{LICENSE}, ".
+					"but LICENSE_FILE specified is for $lfn.");
+			}
+
+			if ($lfn =~ /\+$/ && $nchar eq '=') {
+				&perror("WARN", $file, -1, "if license ends with a '+', make sure ".
+					"LICENSE_FILE_$lfn is followed by a space before the '='.");
+			}
+		}
+
 		$idx++;
 
 		push(@varnames, qw(
@@ -3188,8 +3199,55 @@ TEST_DEPENDS FETCH_DEPENDS DEPENDS_TARGET
 	push(@varnames, @linestocheck);
 	&checkearlier($file, $tmp, @varnames);
 
+	# section 8: FLAVORS/FLAVOR(optional)
 	#
-	# Makefile 7: check the rest of file
+	print "OK: check eighth section of $file (FLAVORS: optional).\n"
+		if ($verbose);
+	$tmp = $sections[$idx] // '';
+
+	if ($tmp =~ /(FLAVORS|FLAVOR)/) {
+		&checkearlier($file, $tmp, @varnames);
+
+		$idx++;
+	}
+
+	push(@varnames, qw(
+		FLAVORS FLAVOR
+	));
+
+	# section 9: USES/USE_x(optional)
+	#
+	print "OK: check ninth section of $file (USES: optional).\n"
+		if ($verbose);
+	$tmp = $sections[$idx] // '';
+
+	if ($tmp =~ /(USES|USE_)/) {
+		&checkearlier($file, $tmp, @varnames);
+
+		foreach my $line (split(/(USE(?:S[?+]|[_\w\d]+)?=[^\n]+\n)/, $tmp)) {
+			if ($line =~ /USES[?+]?=[^\n]+\n/) {
+				print "OK: seen USES.\n" if ($verbose);
+				$tmp =~ s/USES[?+]?=[^\n]+\n//;
+				next;
+			}
+			if ($line =~ /USE([_\w\d]+)=[^\n]+\n/) {
+				print "OK: seen USE$1.\n" if ($verbose);
+				$tmp =~ s/USE([_\w\d]+)=[^\n]+\n//;
+				next;
+			}
+		}
+
+		&checkextra($tmp, 'USES/USE_x', $file);
+
+		$idx++;
+	}
+
+	push(@varnames, qw(
+		USES
+	));
+
+	#
+	# Makefile 10: check the rest of file
 	#
 	print "OK: checking the rest of the $file.\n" if ($verbose);
 	$tmp = join("\n\n", @sections[$idx .. scalar(@sections)-1]);
@@ -3257,9 +3315,16 @@ TEST_DEPENDS FETCH_DEPENDS DEPENDS_TARGET
 
 	# check RESTRICTED/NO_CDROM/NO_PACKAGE
 	print "OK: checking RESTRICTED/NO_CDROM/NO_PACKAGE.\n" if ($verbose);
-	if ($committer && $tmp =~ /\n(RESTRICTED|NO_CDROM|NO_PACKAGE)[+?]?=/) {
-		&perror("WARN", $file, -1, "\"$1\" found. do not forget to update ".
-			"ports/LEGAL.");
+	my $lps = $makevar{LICENSE_PERMS} // '';
+	if ($committer && ($tmp =~ /\n(RESTRICTED|NO_CDROM|NO_PACKAGE)[+?]?=/ ||
+		$lps =~ /\bno-\b/)) {
+		&perror("WARN", $file, -1, "Restrictive licensing found.  ".
+			"Do not forget to update ports/LEGAL.");
+	}
+
+	if ($tmp =~ /\nNO_PACKAGE[+?]?=/) {
+		&perror("WARN", $file, -1, "NO_PACKAGE is obsolete.  It should be ".
+			"replaced with \"LICENSE_PERMS=no-pkg-mirror\"");
 	}
 
 	# check NO_STAGE
@@ -3305,6 +3370,7 @@ TEST_DEPENDS FETCH_DEPENDS DEPENDS_TARGET
 		&perror("WARN", $file, -1, "since you already have GNU_CONFIGURE, ".
 			"you do not need $1.");
 	}
+
 
 	# check direct use of important make targets.
 	if ($tmp =~ /\n(fetch|extract|patch|configure|build|install):/) {
@@ -3627,7 +3693,7 @@ EOF
 sub get_makevar {
 	my($cmd, $result);
 
-	$cmd = join(' -V ', "make $makeenv MASTER_SITE_BACKUP=''", @_);
+	$cmd = join(' -V ', "make $makeenv MASTER_SITE_BACKUP=''", map { "'$_'" } @_);
 	$result = `$cmd`;
 	chomp $result;
 
@@ -3642,7 +3708,7 @@ sub get_makevar {
 sub get_makevar_raw {
 	my($cmd, $result);
 
-	$cmd = join(' -XV ', "make $makeenv MASTER_SITE_BACKUP=''", @_);
+	$cmd = join(' -XV ', "make $makeenv MASTER_SITE_BACKUP=''", map { "'$_'" } @_);
 	$result = `$cmd`;
 	chomp $result;
 
@@ -3695,7 +3761,7 @@ sub urlcheck {
 # GNOME wants INSTALL_ICONS, but Qt-based applications, including KDE, don't.
 # Be pessimistic: everything needs it unless we know it doesn't.
 sub needs_installs_icons {
-	return $makevar{USE_QT5} eq ''
+	return $makevar{USE_QT5} eq '' && $makevar{USE_QT} eq ''
 }
 
 sub TRUE {1;}

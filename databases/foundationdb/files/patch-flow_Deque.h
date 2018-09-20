@@ -1,4 +1,4 @@
---- flow/Deque.h.orig	2018-04-22 14:36:29 UTC
+--- flow/Deque.h.orig	2018-08-01 01:25:10 UTC
 +++ flow/Deque.h
 @@ -166,7 +166,7 @@ private:
  			new (&newArr[i - begin]) T(std::move(arr[i&mask]));

@@ -16,8 +16,6 @@
     SUBDIR += adodb5
     SUBDIR += akonadi
     SUBDIR += akonadi-kde4
-    SUBDIR += animenfo-client
-    SUBDIR += animenfo-client-gtk
     SUBDIR += apq
     SUBDIR += apq-mysql
     SUBDIR += apq-odbc
@@ -32,6 +30,7 @@
     SUBDIR += c3p0
     SUBDIR += cassandra-cpp-driver
     SUBDIR += casstcl
+    SUBDIR += cayley
     SUBDIR += cdb
     SUBDIR += cego
     SUBDIR += cegobridge
@@ -52,8 +51,8 @@
     SUBDIR += db6
     SUBDIR += dbconnect
     SUBDIR += dbf
-    SUBDIR += dbf2mysql
     SUBDIR += dbh
+    SUBDIR += dbixx
     SUBDIR += dbow
     SUBDIR += dbtool
     SUBDIR += dbview
@@ -189,6 +188,8 @@
     SUBDIR += mariadb101-server
     SUBDIR += mariadb102-client
     SUBDIR += mariadb102-server
+    SUBDIR += mariadb103-client
+    SUBDIR += mariadb103-server
     SUBDIR += mariadb55-client
     SUBDIR += mariadb55-server
     SUBDIR += mdbtools
@@ -197,13 +198,12 @@
     SUBDIR += memcacheq
     SUBDIR += metakit
     SUBDIR += monetdb
-    SUBDIR += mongodb
     SUBDIR += mongodb32
     SUBDIR += mongodb32-tools
     SUBDIR += mongodb34
-    SUBDIR += mongodb34-rocks
     SUBDIR += mongodb34-tools
     SUBDIR += mongodb36
+    SUBDIR += mongodb36-tools
     SUBDIR += mroonga
     SUBDIR += mrtg-mysql-load
     SUBDIR += mtools-mongodb
@@ -252,6 +252,7 @@
     SUBDIR += ocaml-mysql
     SUBDIR += ocaml-sqlite3
     SUBDIR += openark-kit
+    SUBDIR += opendbviewer
     SUBDIR += opendbx
     SUBDIR += opentsdb
     SUBDIR += ora2pg
@@ -267,11 +268,14 @@
     SUBDIR += p5-AsciiDB-TagFile
     SUBDIR += p5-BDB
     SUBDIR += p5-BSON
+    SUBDIR += p5-BSON-XS
     SUBDIR += p5-BerkeleyDB
     SUBDIR += p5-Bucardo
     SUBDIR += p5-CDB_File
     SUBDIR += p5-CDB_File-Generator
     SUBDIR += p5-CGI-Session-Driver-memcached
+    SUBDIR += p5-CHI-Driver-Memcached
+    SUBDIR += p5-CHI-Driver-Redis
     SUBDIR += p5-Cache-BDB
     SUBDIR += p5-Cache-Memcached
     SUBDIR += p5-Cache-Memcached-Fast
@@ -471,6 +475,7 @@
     SUBDIR += p5-Protocol-CassandraCQL
     SUBDIR += p5-RRD-Simple
     SUBDIR += p5-Redis
+    SUBDIR += p5-Redis-Fast
     SUBDIR += p5-Redis-hiredis
     SUBDIR += p5-RedisDB
     SUBDIR += p5-RedisDB-Parser
@@ -491,6 +496,7 @@
     SUBDIR += p5-SQL-Statement
     SUBDIR += p5-SQL-Translator
     SUBDIR += p5-SQLite-Work
+    SUBDIR += p5-Scope-Container-DBI
     SUBDIR += p5-Search-InvertedIndex
     SUBDIR += p5-Search-Namazu
     SUBDIR += p5-Search-Xapian10
@@ -584,6 +590,7 @@
     SUBDIR += pg_qualstats
     SUBDIR += pg_reorg
     SUBDIR += pg_repack
+    SUBDIR += pg_similarity
     SUBDIR += pg_stat_kcache
     SUBDIR += pgaccess
     SUBDIR += pgadmin3
@@ -600,7 +607,6 @@
     SUBDIR += pgmetrics
     SUBDIR += pgmodeler
     SUBDIR += pgpool
-    SUBDIR += pgpool-II-33
     SUBDIR += pgpool-II-35
     SUBDIR += pgpool-II-36
     SUBDIR += pgpool-II-37
@@ -617,7 +623,6 @@
     SUBDIR += php-mdcached
     SUBDIR += php-memcache
     SUBDIR += php-xapian
-    SUBDIR += php5-pdo_cassandra
     SUBDIR += php5-tarantool
     SUBDIR += php56-dba
     SUBDIR += php56-interbase
@@ -769,8 +774,11 @@
     SUBDIR += py-PyGreSQL
     SUBDIR += py-Pyrseas
     SUBDIR += py-agate-sql
+    SUBDIR += py-aiopg
+    SUBDIR += py-aioredis
     SUBDIR += py-alembic
     SUBDIR += py-apsw
+    SUBDIR += py-asyncpg
     SUBDIR += py-bsddb
     SUBDIR += py-bsddb3
     SUBDIR += py-carbon
@@ -809,6 +817,7 @@
     SUBDIR += py-pg8000
     SUBDIR += py-pg_pqueue
     SUBDIR += py-pgcli
+    SUBDIR += py-pgdbconn
     SUBDIR += py-pglite
     SUBDIR += py-pgspecial
     SUBDIR += py-pgxnclient
@@ -886,16 +895,14 @@
     SUBDIR += qt5-sqldrivers-sqlite3
     SUBDIR += qt5-sqldrivers-tds
     SUBDIR += radix.v2
-    SUBDIR += rdb
-    SUBDIR += rdfdb
     SUBDIR += recutils
     SUBDIR += redigo
     SUBDIR += redis
     SUBDIR += redis-devel
+    SUBDIR += redis_exporter
     SUBDIR += redisdesktopmanager
     SUBDIR += retcl
     SUBDIR += riak
-    SUBDIR += riak2
     SUBDIR += rocksdb
     SUBDIR += rocksdb-lite
     SUBDIR += rrdman
@@ -904,7 +911,6 @@
     SUBDIR += rrdtool12
     SUBDIR += ruby-bdb
     SUBDIR += ruby-gdbm
-    SUBDIR += ruby-mysql
     SUBDIR += ruby-odbc
     SUBDIR += ruby-qdbm
     SUBDIR += ruby-tokyocabinet
@@ -963,7 +969,6 @@
     SUBDIR += rubygem-em-redis-unified
     SUBDIR += rubygem-familia
     SUBDIR += rubygem-flipper-active_record
-    SUBDIR += rubygem-flipper-active_record011
     SUBDIR += rubygem-flipper-active_record013
     SUBDIR += rubygem-globalid
     SUBDIR += rubygem-globalid-rails5
@@ -982,9 +987,9 @@
     SUBDIR += rubygem-peek-mysql2
     SUBDIR += rubygem-peek-pg
     SUBDIR += rubygem-pg
-    SUBDIR += rubygem-pg_array_parser
     SUBDIR += rubygem-pg0
     SUBDIR += rubygem-pg018
+    SUBDIR += rubygem-pg_array_parser
     SUBDIR += rubygem-pghero
     SUBDIR += rubygem-pghero-rails5
     SUBDIR += rubygem-pghero-rails50
@@ -995,7 +1000,6 @@
     SUBDIR += rubygem-redis-actionpack-rails5
     SUBDIR += rubygem-redis-actionpack-rails50
     SUBDIR += rubygem-redis-namespace
-    SUBDIR += rubygem-redis-namespace15
     SUBDIR += rubygem-redis3
     SUBDIR += rubygem-seed-fu
     SUBDIR += rubygem-sqlite3
@@ -1065,6 +1069,7 @@
     SUBDIR += xapian-core
     SUBDIR += xapian-core10
     SUBDIR += xapian-core12
+    SUBDIR += xrootd
     SUBDIR += xtrabackup
     SUBDIR += zabbix22-libzbxpgsql
     SUBDIR += zabbix3-libzbxpgsql

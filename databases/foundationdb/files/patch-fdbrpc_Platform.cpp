@@ -1,4 +1,4 @@
---- fdbrpc/Platform.cpp.orig	2018-04-19 02:55:50 UTC
+--- fdbrpc/Platform.cpp.orig	2018-08-01 01:25:10 UTC
 +++ fdbrpc/Platform.cpp
 @@ -87,7 +87,7 @@ int eraseDirectoryRecursive(std::string 
  	__eraseDirectoryRecurseiveCount = 0;

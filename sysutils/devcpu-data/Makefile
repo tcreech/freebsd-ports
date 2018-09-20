@@ -2,16 +2,15 @@
 # $FreeBSD$
 
 PORTNAME=	data
-PORTVERSION=	1.16
-PORTREVISION=	1
+PORTVERSION=	1.20
 CATEGORIES=	sysutils
-MASTER_SITES=	https://downloadmirror.intel.com/27591/eng/:intel \
+MASTER_SITES=	https://downloadmirror.intel.com/28039/eng/:intel \
 		LOCAL/sbruno:amd
 PKGNAMEPREFIX=	devcpu-
-DISTFILES=	microcode-20180312.tgz:intel \
-		amd64-microcode_3.20171205.1.tar.xz:amd
+DISTFILES=	microcode-20180807.tgz:intel \
+		amd64-microcode.20180525.tar.xz:amd
 
-MAINTAINER=	sbruno@freebsd.org
+MAINTAINER=	sbruno@FreeBSD.org
 COMMENT=	Intel and AMD CPUs microcode updates
 
 LICENSE=	EULA
@@ -24,18 +23,22 @@ NO_ARCH=	yes
 NO_WRKSUBDIR=	yes
 
 DATADIR=	${PREFIX}/share/cpucontrol
+FWDIR=		/boot/firmware
 
 USE_RC_SUBR=	microcode_update
 
 post-extract:
 	${CP} -p ${FILESDIR}/Makefile ${FILESDIR}/ucode-split.c ${WRKSRC}
+	${CAT} ${WRKSRC}/intel-ucode/* ${WRKSRC}/intel-ucode-with-caveats/* > ${WRKSRC}/intel-ucode.bin
 
 do-install:
 	${MKDIR} ${STAGEDIR}${DATADIR}/
-	${INSTALL_DATA} ${WRKSRC}/amd64-microcode-3.20171205.1/microcode_amd.bin ${STAGEDIR}${DATADIR}/
-	${INSTALL_DATA} ${WRKSRC}/amd64-microcode-3.20171205.1/microcode_amd_fam15h.bin ${STAGEDIR}${DATADIR}/
-	${INSTALL_DATA} ${WRKSRC}/amd64-microcode-3.20171205.1/microcode_amd_fam16h.bin ${STAGEDIR}${DATADIR}/
-	${INSTALL_DATA} ${WRKSRC}/amd64-microcode-3.20171205.1/microcode_amd_fam17h.bin ${STAGEDIR}${DATADIR}/
+	${INSTALL_DATA} ${WRKSRC}/microcode_amd.bin ${STAGEDIR}${DATADIR}/
+	${INSTALL_DATA} ${WRKSRC}/microcode_amd_fam15h.bin ${STAGEDIR}${DATADIR}/
+	${INSTALL_DATA} ${WRKSRC}/microcode_amd_fam16h.bin ${STAGEDIR}${DATADIR}/
+	${INSTALL_DATA} ${WRKSRC}/microcode_amd_fam17h.bin ${STAGEDIR}${DATADIR}/
 	${INSTALL_DATA} ${WRKSRC}/mcodes/* ${STAGEDIR}${DATADIR}/
+	${MKDIR} ${STAGEDIR}${FWDIR}
+	${INSTALL_DATA} ${WRKSRC}/intel-ucode.bin ${STAGEDIR}${FWDIR}/
 
 .include <bsd.port.mk>

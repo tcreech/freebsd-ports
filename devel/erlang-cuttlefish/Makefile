@@ -6,7 +6,7 @@ PORTREVISION=	2
 CATEGORIES=	devel
 PKGNAMEPREFIX=	erlang-
 
-MAINTAINER=	olgeni@FreeBSD.org
+MAINTAINER=	erlang@FreeBSD.org
 COMMENT=	Configuration library for Erlang
 
 LICENSE=	APACHE20
@@ -20,5 +20,7 @@ ERL_BUILD_DEPS=	devel/erlang-getopt \
 		devel/erlang-lager \
 		devel/erlang-neotoma
 ERL_RUN_DEPS:=	${ERL_BUILD_DEPS}
+
+OPTIONS_DEFINE=	DOCS
 
 .include <bsd.port.mk>
