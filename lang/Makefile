@@ -153,6 +153,8 @@
     SUBDIR += jruby
     SUBDIR += js_of_ocaml
     SUBDIR += julia
+    SUBDIR += julia06
+    SUBDIR += julia07
     SUBDIR += jython
     SUBDIR += kawa
     SUBDIR += kf5-kross
@@ -222,6 +224,7 @@
     SUBDIR += oo2c
     SUBDIR += opencoarrays
     SUBDIR += opendylan
+    SUBDIR += ott
     SUBDIR += owl-lisp
     SUBDIR += p2c
     SUBDIR += p5-Data-JavaScript
