@@ -206,6 +206,8 @@ include/wine/windows/d3d11_3.h
 include/wine/windows/d3d11_3.idl
 include/wine/windows/d3d11_4.h
 include/wine/windows/d3d11_4.idl
+include/wine/windows/d3d11on12.h
+include/wine/windows/d3d11on12.idl
 include/wine/windows/d3d11sdklayers.h
 include/wine/windows/d3d11sdklayers.idl
 include/wine/windows/d3d11shader.h
@@ -574,6 +576,8 @@ include/wine/windows/msxml6did.h
 include/wine/windows/msxmldid.h
 include/wine/windows/mtxdm.h
 include/wine/windows/multimon.h
+%%STAGING%%include/wine/windows/natupnp.h
+%%STAGING%%include/wine/windows/natupnp.idl
 include/wine/windows/nb30.h
 include/wine/windows/ncrypt.h
 include/wine/windows/ndrtypes.h

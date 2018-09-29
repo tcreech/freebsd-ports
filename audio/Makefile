@@ -438,6 +438,7 @@
     SUBDIR += liboggz
     SUBDIR += libopenmpt
     SUBDIR += libopenspc
+    SUBDIR += libopusenc
     SUBDIR += libsamplerate
     SUBDIR += libshairport
     SUBDIR += libshout
@@ -724,6 +725,7 @@
     SUBDIR += rexima
     SUBDIR += rezound
     SUBDIR += rhvoice
+    SUBDIR += rhvoice-dictionary
     SUBDIR += rhythmbox
     SUBDIR += rio500
     SUBDIR += rioutil

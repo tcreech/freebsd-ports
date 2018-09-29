@@ -37,6 +37,7 @@
     SUBDIR += clickhouse
     SUBDIR += cockroach
     SUBDIR += couchdb
+    SUBDIR += couchdb2
     SUBDIR += courier-authlib-mysql
     SUBDIR += courier-authlib-pgsql
     SUBDIR += courier-authlib-userdb
@@ -759,10 +760,13 @@
     SUBDIR += proftpd-mod_sql_sqlite
     SUBDIR += proftpd-mod_sql_tds
     SUBDIR += pspg
+    SUBDIR += puppetdb-cli
     SUBDIR += puppetdb-terminus4
     SUBDIR += puppetdb-terminus5
+    SUBDIR += puppetdb-terminus6
     SUBDIR += puppetdb4
     SUBDIR += puppetdb5
+    SUBDIR += puppetdb6
     SUBDIR += pure-sql3
     SUBDIR += puredb
     SUBDIR += pxlib

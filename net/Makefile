@@ -429,6 +429,7 @@
     SUBDIR += libutp
     SUBDIR += libvncserver
     SUBDIR += libwebsockets
+    SUBDIR += libyang
     SUBDIR += libzapojit
     SUBDIR += libzmq2
     SUBDIR += libzmq3
@@ -1075,6 +1076,7 @@
     SUBDIR += py-matrix-synapse-ldap3
     SUBDIR += py-maxminddb
     SUBDIR += py-miniupnpc
+    SUBDIR += py-mpi4py
     SUBDIR += py-msrplib
     SUBDIR += py-ndg_httpsclient
     SUBDIR += py-netaddr
