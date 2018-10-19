@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	rust
-PORTVERSION?=	1.29.1
+PORTVERSION?=	1.29.2
 PORTREVISION?=	0
 CATEGORIES=	lang
 MASTER_SITES=	http://static.rust-lang.org/dist/:src \
@@ -162,8 +162,7 @@ post-patch:
 # `.cargo-checksum.json` to reflect the new checksums verified by Cargo.
 	@for dir in "${WRKSRC}/src/vendor/libc" \
 	"${WRKSRC}/src/vendor/libgit2-sys" \
-	"${WRKSRC}/src/vendor/openssl" \
-	"${WRKSRC}/src/vendor/openssl-sys"; do \
+	"${WRKSRC}/src/vendor/openssl"; do \
 		if ! test -d "$$dir"; then \
 			continue; \
 		fi; \
