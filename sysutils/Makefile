@@ -122,7 +122,6 @@
     SUBDIR += bsdhwmon
     SUBDIR += bsdinfo
     SUBDIR += bsdisks
-    SUBDIR += bsdmoted
     SUBDIR += bsdploy
     SUBDIR += bsdstats
     SUBDIR += bstack
@@ -521,6 +520,7 @@
     SUBDIR += intel-pcm-devel
     SUBDIR += intel-qcu
     SUBDIR += iocage
+    SUBDIR += iocage-devel
     SUBDIR += iocell
     SUBDIR += iogen
     SUBDIR += iograph
@@ -551,6 +551,7 @@
     SUBDIR += jkill
     SUBDIR += jobd
     SUBDIR += jps
+    SUBDIR += jstest-gtk
     SUBDIR += jtop
     SUBDIR += jtopen
     SUBDIR += jvmtop
@@ -770,6 +771,7 @@
     SUBDIR += nrg2iso
     SUBDIR += nut
     SUBDIR += nvclock
+    SUBDIR += nvme-cli
     SUBDIR += nvramtool
     SUBDIR += oak
     SUBDIR += obliterate
@@ -972,6 +974,7 @@
     SUBDIR += py-XenAPI
     SUBDIR += py-analyzemft
     SUBDIR += py-ansible-lint
+    SUBDIR += py-ansible-runner
     SUBDIR += py-bcfg2
     SUBDIR += py-cdmi
     SUBDIR += py-consul
@@ -999,6 +1002,7 @@
     SUBDIR += py-mqttwarn
     SUBDIR += py-nagiosplugin
     SUBDIR += py-nomad
+    SUBDIR += py-packet-python
     SUBDIR += py-pkginfo
     SUBDIR += py-ploy
     SUBDIR += py-ploy_ansible
@@ -1029,7 +1033,6 @@
     SUBDIR += qchroot
     SUBDIR += qdirstat
     SUBDIR += qjail
-    SUBDIR += qjail4
     SUBDIR += qlogtools
     SUBDIR += qpxtool
     SUBDIR += qsudo
@@ -1154,6 +1157,7 @@
     SUBDIR += rubygem-vagrant-bhyve
     SUBDIR += rubygem-vagrant-mutate
     SUBDIR += rubygem-vagrant-vbguest
+    SUBDIR += rubygem-vagrant_cloud
     SUBDIR += rubygem-vmstat
     SUBDIR += rubygem-win32-file
     SUBDIR += rubygem-win32-file-security
@@ -1187,7 +1191,6 @@
     SUBDIR += scanbuttond
     SUBDIR += scct
     SUBDIR += schedutils
-    SUBDIR += scprotect
     SUBDIR += screen
     SUBDIR += screenfetch
     SUBDIR += screenie
@@ -1256,6 +1259,7 @@
     SUBDIR += symlinks
     SUBDIR += symon
     SUBDIR += synergy
+    SUBDIR += synergy-1
     SUBDIR += sysadm
     SUBDIR += sysadm-client
     SUBDIR += sysgather

@@ -3,6 +3,7 @@
 
 PORTNAME=	firefox
 DISTVERSION=	60.3.0
+PORTREVISION=	2
 PORTEPOCH=	1
 CATEGORIES=	www ipv6
 MASTER_SITES=	MOZILLA/${PORTNAME}/releases/${DISTVERSION}esr/source \
@@ -36,7 +37,6 @@ CONFLICTS_INSTALL=	firefox
 MOZ_PKGCONFIG_FILES=	# empty
 USE_MOZILLA=	-cairo -soundtouch
 
-USE_GL=		gl
 USES=		tar:xz
 
 FIREFOX_ICON=		${MOZILLA}.png

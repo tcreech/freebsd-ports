@@ -1180,7 +1180,7 @@ OSVERSION!=	${AWK} '/^\#define[[:blank:]]__FreeBSD_version/ {print $$3}' < ${SRC
 .endif
 _EXPORTED_VARS+=	OSVERSION
 
-.if (${OPSYS} == FreeBSD && (${OSVERSION} < 1004000 || (${OSVERSION} >= 1100000 && ${OSVERSION} < 1102000))) || \
+.if (${OPSYS} == FreeBSD && ${OSVERSION} < 1102000) || \
     (${OPSYS} == DragonFly && ${DFLYVERSION} < 400400)
 _UNSUPPORTED_SYSTEM_MESSAGE=	Ports Collection support for your ${OPSYS} version has ended, and no ports\
 								are guaranteed to build on this system. Please upgrade to a supported release.
@@ -2191,7 +2191,6 @@ PLIST?=			${PKGDIR}/pkg-plist
 PKGHELP?=		${PKGDIR}/pkg-help
 PKGINSTALL?=	${PKGDIR}/pkg-install
 PKGDEINSTALL?=	${PKGDIR}/pkg-deinstall
-PKGREQ?=		${PKGDIR}/pkg-req
 PKGMESSAGE?=	${PKGDIR}/pkg-message
 _PKGMESSAGES+=	${PKGMESSAGE}
 
@@ -2202,7 +2201,7 @@ PKG_SUFX?=		.tar
 .else
 PKG_SUFX?=		.txz
 .endif
-# where pkg_add records its dirty deeds.
+# where pkg(8) stores its data
 PKG_DBDIR?=		/var/db/pkg
 
 ALL_TARGET?=		all
