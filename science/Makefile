@@ -32,6 +32,7 @@
     SUBDIR += avogadro2
     SUBDIR += avogadrolibs
     SUBDIR += bagel
+    SUBDIR += berkeleygw
     SUBDIR += bddsolve
     SUBDIR += bodr
     SUBDIR += brian
@@ -164,6 +165,7 @@
     SUBDIR += openbabel
     SUBDIR += openkim
     SUBDIR += openmx
+    SUBDIR += opensim-core
     SUBDIR += openstructure
     SUBDIR += p5-Algorithm-SVMLight
     SUBDIR += p5-Chemistry-3DBuilder
