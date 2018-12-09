@@ -1,6 +1,36 @@
---- src/afs/FBSD/osi_vfsops.c.orig	2016-11-30 20:06:42 UTC
+--- src/afs/FBSD/osi_vfsops.c.orig	2018-09-11 15:54:34 UTC
 +++ src/afs/FBSD/osi_vfsops.c
-@@ -220,13 +220,11 @@ afs_unmount(struct mount *mp, int flags,
+@@ -48,7 +48,13 @@ afs_init(struct vfsconf *vfc)
+ {
+     int code;
+     int offset = AFS_SYSCALL;
+-#if defined(AFS_FBSD90_ENV) || defined(AFS_FBSD82_ENV)
++#if defined(AFS_FBSD120_ENV)
++    struct syscall_helper_data afs_syscalls[] = {
++        { .new_sysent = afs_sysent, .syscall_no = AFS_SYSCALL },
++        SYSCALL_INIT_LAST
++    };
++    syscall_helper_register(afs_syscalls, 0);
++#elif defined(AFS_FBSD90_ENV) || defined(AFS_FBSD82_ENV)
+ # if defined(AFS_FBSD110_ENV)
+     code = syscall_register(&offset, &afs_sysent, &old_sysent, 0);
+ # else
+@@ -84,7 +90,13 @@ afs_uninit(struct vfsconf *vfc)
+ 
+     if (afs_globalVFS)
+ 	return EBUSY;
+-#if defined(AFS_FBSD90_ENV) || defined(AFS_FBSD82_ENV)
++#if defined(AFS_FBSD120_ENV)
++    struct syscall_helper_data afs_syscalls[] = {
++        { .old_sysent = old_sysent, .syscall_no = AFS_SYSCALL },
++        SYSCALL_INIT_LAST
++    };
++    syscall_helper_unregister(afs_syscalls);
++#elif defined(AFS_FBSD90_ENV) || defined(AFS_FBSD82_ENV)
+     syscall_deregister(&offset, &old_sysent);
+ #else
+     sysent[AFS_SYSCALL].sy_narg = 0;
+@@ -220,13 +232,11 @@ afs_unmount(struct mount *mp, int flags, struct thread
      }
      if (afs_globalVp)
  	error = EBUSY;
@@ -14,7 +44,7 @@
       */
      if (!error) {
  #if defined(AFS_FBSD80_ENV)
-@@ -237,9 +235,10 @@ afs_unmount(struct mount *mp, int flags,
+@@ -237,9 +247,10 @@ afs_unmount(struct mount *mp, int flags, struct thread
  	error = vflush(mp, 1, (flags & MNT_FORCE) ? FORCECLOSE : 0);
  #endif
      }
@@ -27,7 +57,7 @@
      AFS_STATCNT(afs_unmount);
      afs_globalVFS = 0;
      afs_shutdown();
-@@ -297,20 +296,6 @@ tryagain:
+@@ -297,20 +308,6 @@ tryagain:
      }
      if (tvp) {
  	struct vnode *vp = AFSTOV(tvp);
@@ -48,7 +78,7 @@
  	/*
  	 * I'm uncomfortable about this.  Shouldn't this happen at a
  	 * higher level, and shouldn't we busy the top-level directory
-@@ -320,11 +305,22 @@ tryagain:
+@@ -320,11 +317,22 @@ tryagain:
  
  	afs_globalVFS = mp;
  	*vpp = vp;

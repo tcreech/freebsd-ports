@@ -1,39 +1,51 @@
---- src/afs/FBSD/osi_vnodeops.c.orig	2016-11-30 20:06:42 UTC
+--- src/afs/FBSD/osi_vnodeops.c.orig	2018-12-13 11:08:47 UTC
 +++ src/afs/FBSD/osi_vnodeops.c
-@@ -79,7 +79,6 @@ static vop_mkdir_t	afs_vop_mkdir;
- static vop_mknod_t	afs_vop_mknod;
- static vop_open_t	afs_vop_open;
- static vop_pathconf_t	afs_vop_pathconf;
--static vop_poll_t	afs_vop_poll;
- static vop_print_t	afs_vop_print;
- static vop_putpages_t	afs_vop_putpages;
- static vop_read_t	afs_vop_read;
-@@ -120,7 +119,6 @@ struct vop_vector afs_vnodeops = {
- 	.vop_mknod =		afs_vop_mknod,
- 	.vop_open =		afs_vop_open,
- 	.vop_pathconf =		afs_vop_pathconf,
--	.vop_poll =		afs_vop_poll,
- 	.vop_print =		afs_vop_print,
- 	.vop_putpages =		afs_vop_putpages,
- 	.vop_read =		afs_vop_read,
-@@ -157,7 +155,6 @@ int afs_vop_getpages(struct vop_getpages
- int afs_vop_putpages(struct vop_putpages_args *);
- int afs_vop_ioctl(struct vop_ioctl_args *);
- static int afs_vop_pathconf(struct vop_pathconf_args *);
--int afs_vop_poll(struct vop_poll_args *);
- int afs_vop_fsync(struct vop_fsync_args *);
- int afs_vop_remove(struct vop_remove_args *);
- int afs_vop_link(struct vop_link_args *);
-@@ -200,7 +197,7 @@ struct vnodeopv_entry_desc afs_vnodeop_e
-     {&vop_mknod_desc, (vop_t *) afs_vop_mknod},	/* mknod */
-     {&vop_open_desc, (vop_t *) afs_vop_open},	/* open */
-     {&vop_pathconf_desc, (vop_t *) afs_vop_pathconf},	/* pathconf */
--    {&vop_poll_desc, (vop_t *) afs_vop_poll},	/* select */
-+    {&vop_poll_desc, (vop_t *) vop_nopoll},	/* select */
-     {&vop_print_desc, (vop_t *) afs_vop_print},	/* print */
-     {&vop_read_desc, (vop_t *) afs_vop_read},	/* read */
-     {&vop_readdir_desc, (vop_t *) afs_vop_readdir},	/* readdir */
-@@ -339,17 +336,12 @@ afs_vop_unlock(ap)
+@@ -61,6 +61,9 @@
+ #include <vm/vm_object.h>
+ #include <vm/vm_pager.h>
+ #include <vm/vnode_pager.h>
++#if defined(AFS_FBSD120_ENV)
++#include <sys/vmmeter.h>
++#endif
+ extern int afs_pbuf_freecnt;
+ 
+ #ifdef AFS_FBSD60_ENV
+@@ -229,11 +232,11 @@ struct vnodeopv_desc afs_vnodeop_opv_desc =
+ #define GETNAME()       \
+     struct componentname *cnp = ap->a_cnp; \
+     char *name; \
+-    MALLOC(name, char *, cnp->cn_namelen+1, M_TEMP, M_WAITOK); \
++    name =  malloc(cnp->cn_namelen+1, M_TEMP, M_WAITOK); \
+     memcpy(name, cnp->cn_nameptr, cnp->cn_namelen); \
+     name[cnp->cn_namelen] = '\0'
+ 
+-#define DROPNAME() FREE(name, M_TEMP)
++#define DROPNAME() free(name, M_TEMP)
+ 
+ /*
+  * Here we define compatibility functions/macros for interfaces that
+@@ -261,12 +264,15 @@ static __inline void ma_vm_page_unlock(vm_page_t m) {}
+ #define MA_VOP_UNLOCK(vp, flags, p) (VOP_UNLOCK(vp, flags, p))
+ #endif
+ 
+-#if defined(AFS_FBSD70_ENV)
+-#define MA_PCPU_INC(c) PCPU_INC(c)
+-#define	MA_PCPU_ADD(c, n) PCPU_ADD(c, n)
++#if defined(AFS_FBSD120_ENV)
++#define MA_PCPU_INC(c) VM_CNT_INC(c)
++#define	MA_PCPU_ADD(c, n) VM_CNT_ADD(c, n)
++#elif defined(AFS_FBSD70_ENV)
++#define MA_PCPU_INC(c) PCPU_INC(cnt.c)
++#define	MA_PCPU_ADD(c, n) PCPU_ADD(cnt.c, n)
+ #else
+-#define MA_PCPU_INC(c) PCPU_LAZY_INC(c)
+-#define	MA_PCPU_ADD(c, n) (c) += (n)
++#define MA_PCPU_INC(c) PCPU_LAZY_INC(cnt.##c)
++#define	MA_PCPU_ADD(c, n) (cnt.##c) += (n)
+ #endif
+ 
+ #if __FreeBSD_version >= 1000030
+@@ -339,17 +345,12 @@ afs_vop_unlock(ap)
      int code = 0;
      u_int op;
      op = ((ap->a_flags) | LK_RELEASE) & LK_TYPE_MASK;
@@ -51,98 +63,42 @@
      return(code);
  #else
      /* possibly in current code path where this
-@@ -495,6 +487,9 @@ afs_vop_lookup(ap)
- #ifndef AFS_FBSD80_ENV
-     struct thread *p = ap->a_cnp->cn_thread;
- #endif
-+    int nmlen = ap->a_cnp->cn_namelen;
-+    char *cname = ap->a_cnp->cn_nameptr;
-+    int isdot = (nmlen == 1 && cname[0] == '.');
- 
-     dvp = ap->a_dvp;
-     if (dvp->v_type != VDIR) {
-@@ -512,6 +507,14 @@ afs_vop_lookup(ap)
-     lockparent = flags & LOCKPARENT;
-     wantparent = flags & (LOCKPARENT | WANTPARENT);
- 
-+    if (0 && isdot) {
-+        afs_warn("isdot: no afs_lookup.\n");
-+        VREF(dvp);
-+        *ap->a_vpp = dvp;
-+        error = 0;
-+        goto out;
-+    }
-+
- #if __FreeBSD_version < 1000021
-     cnp->cn_flags |= MPSAFE; /* steel */
- #endif
-@@ -542,27 +545,30 @@ afs_vop_lookup(ap)
-      * we also always return the vnode locked. */
- 
-     if (flags & ISDOTDOT) {
-+        if(vp == dvp) panic("ISDOTDOT and vp == dvp");
- 	/* vp before dvp since we go root to leaf, and .. comes first */
--	ma_vn_lock(vp, LK_EXCLUSIVE | LK_RETRY, p);
--	ma_vn_lock(dvp, LK_EXCLUSIVE | LK_RETRY, p);
--	/* always return the child locked */
--	if (lockparent && (flags & ISLASTCN)
--	    && (error = ma_vn_lock(dvp, LK_EXCLUSIVE, p))) {
--	    vput(vp);
--	    DROPNAME();
--	    return (error);
--	}
+@@ -398,7 +399,7 @@ afs_vop_pathconf(struct vop_pathconf_args *ap)
+ 	error = 0;
+ 	switch (ap->a_name) {
+ 	case _PC_LINK_MAX:
+-		*ap->a_retval = LINK_MAX;
++		*ap->a_retval = 32767;
+ 		break;
+ 	case _PC_NAME_MAX:
+ 		*ap->a_retval = NAME_MAX;
+@@ -546,16 +547,21 @@ afs_vop_lookup(ap)
+ 	ma_vn_lock(vp, LK_EXCLUSIVE | LK_RETRY, p);
+ 	ma_vn_lock(dvp, LK_EXCLUSIVE | LK_RETRY, p);
+ 	/* always return the child locked */
++#ifndef AFS_FBSD70_ENV
+ 	if (lockparent && (flags & ISLASTCN)
+ 	    && (error = ma_vn_lock(dvp, LK_EXCLUSIVE, p))) {
+ 	    vput(vp);
+ 	    DROPNAME();
+ 	    return (error);
+ 	}
 -    } else if (vp == dvp) {
 -	/* they're the same; afs_lookup() already ref'ed the leaf.
 -	 * It came in locked, so we don't need to ref OR lock it */
 -    } else {
--	if (!lockparent || !(flags & ISLASTCN)) {
--#ifndef AFS_FBSD70_ENV /* 6 too? */
--	    MA_VOP_UNLOCK(dvp, 0, p);	/* done with parent. */
--#endif
--	}
--	ma_vn_lock(vp, LK_EXCLUSIVE | LK_CANRECURSE | LK_RETRY, p);
- 	/* always return the child locked */
-+	ma_vn_lock(vp, LK_EXCLUSIVE | LK_RETRY, p);
-+        /* I guess we always lock dvp regardless of LOCKPARENT and ISLASTCN. */
-+        ma_vn_lock(dvp, LK_EXCLUSIVE | LK_RETRY, p);
-+        if ((dvp->v_iflag & VI_DOOMED) != 0) panic("need to handle some DOOM");
-+        if (VOP_ISLOCKED(vp) != LK_EXCLUSIVE)  afs_warn("ISDOTDOT: vp  not locked.\n");
-+        if (VOP_ISLOCKED(dvp) != LK_EXCLUSIVE) afs_warn("ISDOTDOT: dvp not locked.\n");
++#endif
 +    } else if (vp != dvp) {
-+        /* If they were the same, afs_lookup() already ref'ed the leaf.  It
-+         * came in locked, so we didn't need to ref OR lock it.  Otherwise,
-+         * lock dvp and vp according to flags. */
++	/* If they were the same, afs_lookup() already ref'ed the leaf.  It
++	 * came in locked, so we didn't need to ref OR lock it.  Otherwise,
++	 * lock dvp and vp according to flags. */
 +
-+        /* Return the parent unlocked unless LOCKPARENT and ISLASTCN are
-+            * both specified. */
-+        if (0 && !(lockparent && (flags & ISLASTCN))) {
-+            MA_VOP_UNLOCK(dvp, 0, p);
-+        }
-+
-+        /* always return the child locked */
-+        ma_vn_lock(vp, LK_EXCLUSIVE | LK_CANRECURSE | LK_RETRY, p);
-+        if (VOP_ISLOCKED(vp) != LK_EXCLUSIVE)  afs_warn("NORMAL: vp  not locked.\n");
-+        if (VOP_ISLOCKED(dvp) != LK_EXCLUSIVE) afs_warn("NORMAL: dvp not locked.\n");
-     }
-     *ap->a_vpp = vp;
- 
-@@ -570,6 +576,7 @@ afs_vop_lookup(ap)
- 	|| (cnp->cn_nameiop != LOOKUP && (flags & ISLASTCN)))
- 	cnp->cn_flags |= SAVENAME;
- 
-+out:
-     DROPNAME();
-     return error;
- }
-@@ -592,6 +599,7 @@ afs_vop_create(ap)
-     GETNAME();
- 
-     AFS_GLOCK();
-+    ap->a_vap->va_mode |= S_IRUSR;
-     error =
- 	afs_create(VTOAFS(dvp), name, ap->a_vap,
- 		   ap->a_vap->va_vaflags & VA_EXCLUSIVE ? EXCL : NONEXCL,
-@@ -784,20 +792,21 @@ afs_vop_read(ap)
++	/* For older FreeBSD, leave the parent locked if
++	 * both LOCKPARENT and ISLASTCN. */
+ 	if (!lockparent || !(flags & ISLASTCN)) {
+ #ifndef AFS_FBSD70_ENV /* 6 too? */
+ 	    MA_VOP_UNLOCK(dvp, 0, p);	/* done with parent. */
+@@ -784,20 +790,21 @@ afs_vop_read(ap)
   *	struct vnode *a_vp;
   *	vm_page_t *a_m;
   *	int a_count;
@@ -167,99 +123,83 @@
      struct vnode *vp;
      struct vcache *avc;
  
-@@ -806,52 +815,80 @@ afs_vop_getpages(struct vop_getpages_arg
+@@ -806,11 +813,22 @@ afs_vop_getpages(struct vop_getpages_args *ap)
  
      vp = ap->a_vp;
      avc = VTOAFS(vp);
 +    pages = ap->a_m;
-+#ifdef AFS_FBSD110_ENV
++#if __FreeBSD_version >= 1100092
 +    npages = ap->a_count;
++    if (ap->a_rbehind)
++        *ap->a_rbehind = 0;
++    if (ap->a_rahead)
++        *ap->a_rahead = 0;
 +#else
 +    npages = btoc(ap->a_count);
 +#endif
 +
      if ((object = vp->v_object) == NULL) {
--	printf("afs_getpages: called with non-merged cache vnode??\n");
--	return VM_PAGER_ERROR;
-+        printf("afs_getpages: called with non-merged cache vnode??\n");
-+        return VM_PAGER_ERROR;
+ 	printf("afs_getpages: called with non-merged cache vnode??\n");
+ 	return VM_PAGER_ERROR;
      }
 -    npages = btoc(ap->a_count);
 +
      /*
       * If the requested page is partially valid, just return it and
       * allow the pager to zero-out the blanks.  Partially valid pages
-      * can only occur at the file EOF.
+@@ -818,40 +836,57 @@ afs_vop_getpages(struct vop_getpages_args *ap)
       */
--
+ 
      {
 -	vm_page_t m = ap->a_m[ap->a_reqpage];
-+#ifdef AFS_FBSD110_ENV
-+        AFS_VM_OBJECT_WLOCK(object);
-+        ma_vm_page_lock_queues();
-+        if(pages[npages - 1]->valid != 0) {
-+            if (--npages == 0) {
-+                ma_vm_page_unlock_queues();
-+                AFS_VM_OBJECT_WUNLOCK(object);
  
--	AFS_VM_OBJECT_WLOCK(object);
--	ma_vm_page_lock_queues();
--	if (m->valid != 0) {
--	    /* handled by vm_fault now        */
--	    /* vm_page_zero_invalid(m, TRUE); */
--	    for (i = 0; i < npages; ++i) {
--		if (i != ap->a_reqpage) {
++#if __FreeBSD_version >= 1100092
+ 	AFS_VM_OBJECT_WLOCK(object);
+ 	ma_vm_page_lock_queues();
++	if(pages[npages - 1]->valid != 0) {
++	    if (--npages == 0) {
++		ma_vm_page_unlock_queues();
++		AFS_VM_OBJECT_WUNLOCK(object);
++		return (VM_PAGER_OK);
++	    }
++	}
++#else
++	vm_page_t m = pages[ap->a_reqpage];
++	AFS_VM_OBJECT_WLOCK(object);
++	ma_vm_page_lock_queues();
+ 	if (m->valid != 0) {
+ 	    /* handled by vm_fault now        */
+ 	    /* vm_page_zero_invalid(m, TRUE); */
+ 	    for (i = 0; i < npages; ++i) {
+ 		if (i != ap->a_reqpage) {
 -		    ma_vm_page_lock(ap->a_m[i]);
 -		    vm_page_free(ap->a_m[i]);
 -		    ma_vm_page_unlock(ap->a_m[i]);
--		}
--	    }
--	    ma_vm_page_unlock_queues();
--	    AFS_VM_OBJECT_WUNLOCK(object);
--	    return (0);
--	}
--	ma_vm_page_unlock_queues();
--	AFS_VM_OBJECT_WUNLOCK(object);
-+                if (ap->a_rbehind)
-+                    *ap->a_rbehind = 0;
-+                if (ap->a_rahead)
-+                    *ap->a_rahead = 0;
-+
-+                return (VM_PAGER_OK);
-+            }
-+        }
-+#else
-+        vm_page_t m = pages[ap->a_reqpage];
-+        AFS_VM_OBJECT_WLOCK(object);
-+        ma_vm_page_lock_queues();
-+        if (m->valid != 0) {
-+            /* handled by vm_fault now        */
-+            /* vm_page_zero_invalid(m, TRUE); */
-+            for (i = 0; i < npages; ++i) {
-+                if (i != ap->a_reqpage) {
-+                    ma_vm_page_lock(pages[i]);
-+                    vm_page_free(pages[i]);
-+                    ma_vm_page_unlock(pages[i]);
-+                }
-+            }
-+            ma_vm_page_unlock_queues();
-+            AFS_VM_OBJECT_WUNLOCK(object);
-+            return (0);
-+        }
++		    ma_vm_page_lock(pages[i]);
++		    vm_page_free(pages[i]);
++		    ma_vm_page_unlock(pages[i]);
+ 		}
+ 	    }
+ 	    ma_vm_page_unlock_queues();
+ 	    AFS_VM_OBJECT_WUNLOCK(object);
+ 	    return (0);
+ 	}
 +#endif
-+        ma_vm_page_unlock_queues();
-+        AFS_VM_OBJECT_WUNLOCK(object);
+ 	ma_vm_page_unlock_queues();
+ 	AFS_VM_OBJECT_WUNLOCK(object);
      }
      bp = getpbuf(&afs_pbuf_freecnt);
  
      kva = (vm_offset_t) bp->b_data;
 -    pmap_qenter(kva, ap->a_m, npages);
+-    MA_PCPU_INC(cnt.v_vnodein);
+-    MA_PCPU_ADD(cnt.v_vnodepgsin, npages);
 +    pmap_qenter(kva, pages, npages);
-     MA_PCPU_INC(cnt.v_vnodein);
-     MA_PCPU_ADD(cnt.v_vnodepgsin, npages);
++    MA_PCPU_INC(v_vnodein);
++    MA_PCPU_ADD(v_vnodepgsin, npages);
  
-+#ifdef AFS_FBSD110_ENV
-+    count = npages << PAGE_SHIFT;
++#if __FreeBSD_version >= 1100092
++    count = ctob(npages);
 +#else
 +    count = ap->a_count;
 +#endif
@@ -275,13 +215,13 @@
      uio.uio_segflg = UIO_SYSSPACE;
      uio.uio_rw = UIO_READ;
      uio.uio_td = curthread;
-@@ -864,91 +901,105 @@ afs_vop_getpages(struct vop_getpages_arg
+@@ -864,25 +899,27 @@ afs_vop_getpages(struct vop_getpages_args *ap)
  
      relpbuf(bp, &afs_pbuf_freecnt);
  
 -    if (code && (uio.uio_resid == ap->a_count)) {
 +    if (code && (uio.uio_resid == count)) {
-+#ifndef AFS_FBSD110_ENV
++#if __FreeBSD_version < 1100092
  	AFS_VM_OBJECT_WLOCK(object);
  	ma_vm_page_lock_queues();
  	for (i = 0; i < npages; ++i) {
@@ -291,9 +231,8 @@
  	}
  	ma_vm_page_unlock_queues();
  	AFS_VM_OBJECT_WUNLOCK(object);
--	return VM_PAGER_ERROR;
 +#endif
-+        return VM_PAGER_ERROR;
+ 	return VM_PAGER_ERROR;
      }
  
 -    size = ap->a_count - uio.uio_resid;
@@ -301,175 +240,80 @@
      AFS_VM_OBJECT_WLOCK(object);
      ma_vm_page_lock_queues();
      for (i = 0, toff = 0; i < npages; i++, toff = nextoff) {
--	vm_page_t m;
--	nextoff = toff + PAGE_SIZE;
+ 	vm_page_t m;
+ 	nextoff = toff + PAGE_SIZE;
 -	m = ap->a_m[i];
-+        vm_page_t m;
-+        nextoff = toff + PAGE_SIZE;
-+        m = pages[i];
++	m = pages[i];
  
--	/* XXX not in nfsclient? */
--	m->flags &= ~PG_ZERO;
-+        /* XXX not in nfsclient? */
-+        m->flags &= ~PG_ZERO;
+ 	/* XXX not in nfsclient? */
+ 	m->flags &= ~PG_ZERO;
+@@ -906,6 +943,7 @@ afs_vop_getpages(struct vop_getpages_args *ap)
+ 	    KASSERT(m->dirty == 0, ("afs_getpages: page %p is dirty", m));
+ 	}
  
--	if (nextoff <= size) {
--	    /*
--	     * Read operation filled an entire page
--	     */
--	    m->valid = VM_PAGE_BITS_ALL;
-+        if (nextoff <= size) {
-+            /*
-+             * Read operation filled an entire page
-+             */
-+            m->valid = VM_PAGE_BITS_ALL;
- #ifndef AFS_FBSD80_ENV
--	    vm_page_undirty(m);
-+            vm_page_undirty(m);
- #else
--	    KASSERT(m->dirty == 0, ("afs_getpages: page %p is dirty", m));
-+            KASSERT(m->dirty == 0, ("afs_getpages: page %p is dirty", m));
- #endif
--	} else if (size > toff) {
--	    /*
--	     * Read operation filled a partial page.
--	     */
--	    m->valid = 0;
--	    vm_page_set_validclean(m, 0, size - toff);
--	    KASSERT(m->dirty == 0, ("afs_getpages: page %p is dirty", m));
--	}
-+        } else if (size > toff) {
-+            /*
-+             * Read operation filled a partial page.
-+             */
-+            m->valid = 0;
-+#ifdef AFS_FBSD110_ENV
-+            vm_page_set_valid_range(m, 0, size - toff);
-+#else
-+            vm_page_set_validclean(m, 0, size - toff);
-+#endif
-+            KASSERT(m->dirty == 0, ("afs_getpages: page %p is dirty", m));
-+        }
- 
--	if (i != ap->a_reqpage) {
-+#ifndef AFS_FBSD110_ENV
-+        if (i != ap->a_reqpage) {
++#if __FreeBSD_version < 1100092
+ 	if (i != ap->a_reqpage) {
  #if __FreeBSD_version >= 1000042
--	    vm_page_readahead_finish(m);
-+            vm_page_readahead_finish(m);
- #else
--	    /*
--	     * Whether or not to leave the page activated is up in
--	     * the air, but we should put the page on a page queue
--	     * somewhere (it already is in the object).  Result:
--	     * It appears that emperical results show that
--	     * deactivating pages is best.
--	     */
-+            /*
-+             * Whether or not to leave the page activated is up in
-+             * the air, but we should put the page on a page queue
-+             * somewhere (it already is in the object).  Result:
-+             * It appears that emperical results show that
-+             * deactivating pages is best.
-+             */
- 
--	    /*
--	     * Just in case someone was asking for this page we
--	     * now tell them that it is ok to use.
--	     */
--	    if (!code) {
-+            /*
-+             * Just in case someone was asking for this page we
-+             * now tell them that it is ok to use.
-+             */
-+            if (!code) {
- #if defined(AFS_FBSD70_ENV)
--		if (m->oflags & VPO_WANTED) {
-+                if (m->oflags & VPO_WANTED) {
- #else
--		if (m->flags & PG_WANTED) {
-+                if (m->flags & PG_WANTED) {
- #endif
--		    ma_vm_page_lock(m);
--		    vm_page_activate(m);
--		    ma_vm_page_unlock(m);
--		}
--		else {
--		    ma_vm_page_lock(m);
--		    vm_page_deactivate(m);
--		    ma_vm_page_unlock(m);
--		}
--		vm_page_wakeup(m);
--	    } else {
--		ma_vm_page_lock(m);
--		vm_page_free(m);
--		ma_vm_page_unlock(m);
--	    }
-+                    ma_vm_page_lock(m);
-+                    vm_page_activate(m);
-+                    ma_vm_page_unlock(m);
-+                }
-+                else {
-+                    ma_vm_page_lock(m);
-+                    vm_page_deactivate(m);
-+                    ma_vm_page_unlock(m);
-+                }
-+                vm_page_wakeup(m);
-+            } else {
-+                ma_vm_page_lock(m);
-+                vm_page_free(m);
-+                ma_vm_page_unlock(m);
-+            }
+ 	    vm_page_readahead_finish(m);
+@@ -945,10 +983,11 @@ afs_vop_getpages(struct vop_getpages_args *ap)
+ 	    }
  #endif	/* __FreeBSD_version 1000042 */
--	}
-+        }
-+#endif   /* ndef AFS_FBSD110_ENV */
+ 	}
++#endif   /* ndef FBSD_VOP_GETPAGES_BUSIED */
      }
      ma_vm_page_unlock_queues();
      AFS_VM_OBJECT_WUNLOCK(object);
 -    return 0;
-+#ifdef AFS_FBSD110_ENV
-+    if (ap->a_rbehind)
-+        *ap->a_rbehind = 0;
-+    if (ap->a_rahead)
-+        *ap->a_rahead = 0;
-+#endif
 +    return VM_PAGER_OK;
  }
  
  int
-@@ -977,7 +1028,6 @@ afs_vop_write(ap)
-  *	int a_count;
-  *	int a_sync;
-  *	int *a_rtvals;
-- *	vm_oofset_t a_offset;
-  * };
-  */
- /*
-@@ -1081,22 +1131,6 @@ afs_vop_ioctl(ap)
-     }
- }
+@@ -1017,8 +1056,8 @@ afs_vop_putpages(struct vop_putpages_args *ap)
  
--/* ARGSUSED */
--int
--afs_vop_poll(ap)
--     struct vop_poll_args	/* {
--				 * struct vnode *a_vp;
--				 * int  a_events;
--				 * struct ucred *a_cred;
--				 * struct thread *td;
--				 * } */ *ap;
--{
--    /*
--     * We should really check to see if I/O is possible.
--     */
--    return (1);
--}
--
- int
- afs_vop_fsync(ap)
-      struct vop_fsync_args	/* {
-@@ -1589,12 +1623,21 @@ afs_vop_advlock(ap)
+     kva = (vm_offset_t) bp->b_data;
+     pmap_qenter(kva, ap->a_m, npages);
+-    MA_PCPU_INC(cnt.v_vnodeout);
+-    MA_PCPU_ADD(cnt.v_vnodepgsout, ap->a_count);
++    MA_PCPU_INC(v_vnodeout);
++    MA_PCPU_ADD(v_vnodepgsout, ap->a_count);
+ 
+     iov.iov_base = (caddr_t) kva;
+     iov.iov_len = ap->a_count;
+@@ -1264,10 +1303,10 @@ afs_vop_rename(ap)
+     if ((error = ma_vn_lock(fvp, LK_EXCLUSIVE, p)) != 0)
+ 	goto abortit;
+ 
+-    MALLOC(fname, char *, fcnp->cn_namelen + 1, M_TEMP, M_WAITOK);
++    fname = malloc(fcnp->cn_namelen + 1, M_TEMP, M_WAITOK);
+     memcpy(fname, fcnp->cn_nameptr, fcnp->cn_namelen);
+     fname[fcnp->cn_namelen] = '\0';
+-    MALLOC(tname, char *, tcnp->cn_namelen + 1, M_TEMP, M_WAITOK);
++    tname = malloc(tcnp->cn_namelen + 1, M_TEMP, M_WAITOK);
+     memcpy(tname, tcnp->cn_nameptr, tcnp->cn_namelen);
+     tname[tcnp->cn_namelen] = '\0';
+ 
+@@ -1278,8 +1317,8 @@ afs_vop_rename(ap)
+ 	afs_rename(VTOAFS(fdvp), fname, VTOAFS(tdvp), tname, tcnp->cn_cred);
+     AFS_GUNLOCK();
+ 
+-    FREE(fname, M_TEMP);
+-    FREE(tname, M_TEMP);
++    free(fname, M_TEMP);
++    free(tname, M_TEMP);
+     if (tdvp == tvp)
+ 	vrele(tdvp);
+     else
+@@ -1422,8 +1461,7 @@ afs_vop_readdir(ap)
+ 	     dp = (const struct dirent *)((const char *)dp + dp->d_reclen))
+ 	    ncookies++;
+ 
+-	MALLOC(cookies, u_long *, ncookies * sizeof(u_long), M_TEMP,
+-	       M_WAITOK);
++	cookies = malloc(ncookies * sizeof(u_long), M_TEMP, M_WAITOK);
+ 	for (dp = dp_start, cookiep = cookies; dp < dp_end;
+ 	     dp = (const struct dirent *)((const char *)dp + dp->d_reclen)) {
+ 	    off += dp->d_reclen;
+@@ -1589,12 +1627,21 @@ afs_vop_advlock(ap)
  				 * int  a_flags;
  				 * } */ *ap;
  {
@@ -482,7 +326,7 @@
 +	/* This makes no sense; I think passing F_UNLCK rather than
 +	 * F_SETLCK in FreeBSD's kern_fcntl is a bug. (We certainly aren't
 +	 * being asked to F_SETFD, which happens to equal F_UNLCK.) */
-+        /* Quietly alter the erroneous op: */
++	/* Quietly alter the erroneous op: */
 +	new_a_op = F_SETLK;
 +    }
 +
