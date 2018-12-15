@@ -1,17 +1,18 @@
 # $FreeBSD$
 
-PORTNAME=	openafs
+PORTNAME=	openafs16
+AFS_NAME=	${PORTNAME:C/[0-9][0-9]//g}
 DISTVERSION=	${AFS_DISTVERSION}.${DBVERSION:S/-//g}
 CATEGORIES=	net
 MASTER_SITES=	http://dl.central.org/dl/openafs/${AFS_DISTVERSION}/:openafs \
 		http://dl.openafs.org/dl/openafs/${AFS_DISTVERSION}/:openafs \
 		http://dl.central.org/dl/cellservdb/:gco \
 		http://grand.central.org/dl/cellservdb/:gco
-DISTFILES=	${PORTNAME}-${AFS_DISTVERSION}-src.tar.bz2:openafs \
-		${PORTNAME}-${AFS_DISTVERSION}-doc.tar.bz2:openafs \
+DISTFILES=	${AFS_NAME}-${AFS_DISTVERSION}-src.tar.bz2:openafs \
+		${AFS_NAME}-${AFS_DISTVERSION}-doc.tar.bz2:openafs \
 		CellServDB.${DBVERSION}:gco
-EXTRACT_ONLY=	${PORTNAME}-${AFS_DISTVERSION}-src.tar.bz2 \
-		${PORTNAME}-${AFS_DISTVERSION}-doc.tar.bz2
+EXTRACT_ONLY=	${AFS_NAME}-${AFS_DISTVERSION}-src.tar.bz2 \
+		${AFS_NAME}-${AFS_DISTVERSION}-doc.tar.bz2
 
 MAINTAINER=	bjk@FreeBSD.org
 COMMENT=	AFS implementation from openafs.org
@@ -43,16 +44,20 @@ CONFIGURE_ARGS=	--prefix=${PREFIX} \
 		--enable-debug-lwp \
 		--includedir=${PREFIX}/include/openafs \
 		${CONFIGURE_TARGET}
-WRKSRC=		${WRKDIR}/${PORTNAME}-${AFS_DISTVERSION}
+WRKSRC=		${WRKDIR}/${AFS_NAME}-${AFS_DISTVERSION}
 MAKE_ENV=	COMPILER_TYPE=${COMPILER_TYPE}
 USE_RC_SUBR=	afsserver
 
 CPE_VERSION=	${AFS_DISTVERSION}
 
 CONFLICTS=	coda-server-6.[0-9]* heimdal-[0-9]*
+CONFLICTS_INSTALL=	${AFS_NAME}-[0-9]*
+
+ETCDIR?=	${PREFIX}/etc/${AFS_NAME}
+DATADIR?=	${PREFIX}/share/${AFS_NAME}
 
 AFSMNTDIR?=	/afs
-AFSSTATEDIR?=	/var/${PORTNAME}
+AFSSTATEDIR?=	/var/${AFS_NAME}
 AFSCACHEDIR?=	${AFSSTATEDIR}/cache
 PLIST_SUB+=	AFSMNTDIR=${AFSMNTDIR:C,^/,,} \
 		AFSSTATEDIR=${AFSSTATEDIR:C,^/,,} \

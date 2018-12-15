@@ -562,7 +562,7 @@
     SUBDIR += onioncat
     SUBDIR += opal
     SUBDIR += open-isns
-    SUBDIR += openafs
+    SUBDIR += openafs16
     SUBDIR += openbgpd
     SUBDIR += openbsc
     SUBDIR += openggsn
