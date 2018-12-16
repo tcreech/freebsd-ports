@@ -100,6 +100,7 @@
     SUBDIR += confetti
     SUBDIR += confget
     SUBDIR += consul-template
+    SUBDIR += crex
     SUBDIR += crimson
     SUBDIR += crunch
     SUBDIR += cs-aspell
@@ -223,7 +224,6 @@
     SUBDIR += glark
     SUBDIR += gmetadom
     SUBDIR += gnome-doc-utils
-    SUBDIR += gnome-spell
     SUBDIR += gnugrep
     SUBDIR += go.text
     SUBDIR += goldendict
@@ -422,6 +422,7 @@
     SUBDIR += libexttextcat
     SUBDIR += libflate
     SUBDIR += libfo
+    SUBDIR += libfolia
     SUBDIR += libgepub
     SUBDIR += libguess
     SUBDIR += libkmfl
@@ -745,6 +746,7 @@
     SUBDIR += p5-Pod-Perldoc
     SUBDIR += p5-Pod-ProjectDocs
     SUBDIR += p5-Pod-Readme
+    SUBDIR += p5-Pod-Section
     SUBDIR += p5-Pod-Simple
     SUBDIR += p5-Pod-Spell
     SUBDIR += p5-Pod-Strip
@@ -1226,16 +1228,6 @@
     SUBDIR += php56-xmlreader
     SUBDIR += php56-xmlwriter
     SUBDIR += php56-xsl
-    SUBDIR += php70-ctype
-    SUBDIR += php70-dom
-    SUBDIR += php70-enchant
-    SUBDIR += php70-pspell
-    SUBDIR += php70-simplexml
-    SUBDIR += php70-wddx
-    SUBDIR += php70-xml
-    SUBDIR += php70-xmlreader
-    SUBDIR += php70-xmlwriter
-    SUBDIR += php70-xsl
     SUBDIR += php71-ctype
     SUBDIR += php71-dom
     SUBDIR += php71-enchant
@@ -1527,6 +1519,7 @@
     SUBDIR += rubygem-albino
     SUBDIR += rubygem-amatch
     SUBDIR += rubygem-asciidoctor
+    SUBDIR += rubygem-asciidoctor-diagram
     SUBDIR += rubygem-asciidoctor-plantuml
     SUBDIR += rubygem-autoprefixer-rails
     SUBDIR += rubygem-babel-source
@@ -1566,7 +1559,6 @@
     SUBDIR += rubygem-gemoji
     SUBDIR += rubygem-gherkin
     SUBDIR += rubygem-github-linguist
-    SUBDIR += rubygem-github-linguist53
     SUBDIR += rubygem-github-markup
     SUBDIR += rubygem-github-markup17
     SUBDIR += rubygem-gitlab-grit
@@ -1684,7 +1676,6 @@
     SUBDIR += rxp
     SUBDIR += s5
     SUBDIR += sablotron
-    SUBDIR += sagasu
     SUBDIR += sansi
     SUBDIR += sarep
     SUBDIR += sary
@@ -1716,6 +1707,7 @@
     SUBDIR += sgmls
     SUBDIR += sgrep
     SUBDIR += sgrep2
+    SUBDIR += sift
     SUBDIR += sigil
     SUBDIR += silvercity
     SUBDIR += simplexml
@@ -1797,6 +1789,8 @@
     SUBDIR += txt2man
     SUBDIR += txt2tags
     SUBDIR += uchardet
+    SUBDIR += ucto
+    SUBDIR += uctodata
     SUBDIR += uim
     SUBDIR += uim-el
     SUBDIR += uim-gtk

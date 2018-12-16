@@ -176,7 +176,6 @@
     SUBDIR += gcr
     SUBDIR += git-crypt
     SUBDIR += git-remote-gcrypt
-    SUBDIR += gnome-gpg
     SUBDIR += gnome-keyring
     SUBDIR += gnome-keyring-sharp
     SUBDIR += gnome-password-generator
@@ -193,7 +192,6 @@
     SUBDIR += govpn
     SUBDIR += gpa
     SUBDIR += gpasman
-    SUBDIR += gpass
     SUBDIR += gpgdir
     SUBDIR += gpgme
     SUBDIR += gpgme-cpp
@@ -343,7 +341,6 @@
     SUBDIR += libfprint
     SUBDIR += libgcrypt
     SUBDIR += libgnome-keyring
-    SUBDIR += libgnomesu
     SUBDIR += libgpg-error
     SUBDIR += libgringotts
     SUBDIR += libhijack
@@ -423,6 +420,7 @@
     SUBDIR += mhash
     SUBDIR += mindterm-binary
     SUBDIR += minisign
+    SUBDIR += modsecurity3
     SUBDIR += monkeysphere
     SUBDIR += morphis
     SUBDIR += munge
@@ -846,10 +844,6 @@
     SUBDIR += php56-hash
     SUBDIR += php56-mcrypt
     SUBDIR += php56-openssl
-    SUBDIR += php70-filter
-    SUBDIR += php70-hash
-    SUBDIR += php70-mcrypt
-    SUBDIR += php70-openssl
     SUBDIR += php71-filter
     SUBDIR += php71-hash
     SUBDIR += php71-mcrypt
@@ -987,6 +981,7 @@
     SUBDIR += py-mhash
     SUBDIR += py-mixbox
     SUBDIR += py-mnemonic
+    SUBDIR += py-msoffcrypto-tool
     SUBDIR += py-netmiko
     SUBDIR += py-ntlm-auth
     SUBDIR += py-oauth2client
@@ -994,6 +989,7 @@
     SUBDIR += py-obfsproxy-tor
     SUBDIR += py-onetime
     SUBDIR += py-openssl
+    SUBDIR += py-ospd
     SUBDIR += py-paramiko
     SUBDIR += py-paramiko1
     SUBDIR += py-passlib
@@ -1051,6 +1047,8 @@
     SUBDIR += py-sslstrip
     SUBDIR += py-stem
     SUBDIR += py-stix
+    SUBDIR += py-stix2
+    SUBDIR += py-stix2-patterns
     SUBDIR += py-tlslite
     SUBDIR += py-trezor
     SUBDIR += py-trustedpickle
@@ -1133,6 +1131,7 @@
     SUBDIR += rubygem-encryptor
     SUBDIR += rubygem-ezcrypto
     SUBDIR += rubygem-googleauth
+    SUBDIR += rubygem-googleauth06
     SUBDIR += rubygem-gpgme
     SUBDIR += rubygem-gpgr
     SUBDIR += rubygem-gssapi
@@ -1224,6 +1223,7 @@
     SUBDIR += scanssh
     SUBDIR += scrypt
     SUBDIR += seahorse
+    SUBDIR += seal
     SUBDIR += seccure
     SUBDIR += secpanel
     SUBDIR += sectok
@@ -1332,8 +1332,8 @@
     SUBDIR += unhide
     SUBDIR += unicornscan
     SUBDIR += unssh
-    SUBDIR += vault
     SUBDIR += vanguards-tor
+    SUBDIR += vault
     SUBDIR += veracrypt
     SUBDIR += vinetto
     SUBDIR += vlock

@@ -3,7 +3,7 @@
 
 PORTNAME=	cool-retro-term
 PORTVERSION=	1.0.0
-PORTREVISION=	5
+PORTREVISION=	6
 DISTVERSIONPREFIX=	v
 CATEGORIES=	x11
 
@@ -23,7 +23,7 @@ USE_QT=		qmake_build buildtools_build core declarative gui widgets \
 
 .include <bsd.port.pre.mk>
 
-.if ${ARCH} == powerpc
+.if ${ARCH:Mmips*} || ${ARCH:Mpowerpc*} || ${ARCH} == sparc64
 USE_GCC=	yes
 .else
 CC=		clang

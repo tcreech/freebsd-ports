@@ -2,6 +2,7 @@
 
 PORTNAME=	ignition-common
 DISTVERSION=	3.0.0
+PORTREVISION=	1
 CATEGORIES=	devel
 MASTER_SITES=	https://bitbucket.org/${BB_ACCOUNT}/${BB_PROJECT}/get/${BB_COMMIT}.tar.gz?dummy=/
 
@@ -32,6 +33,12 @@ BB_COMMIT=	a5c4d5a35bb8
 
 WRKSRC=		${WRKDIR}/${BB_ACCOUNT}-${BB_PROJECT}-${BB_COMMIT}
 
-PLIST_SUB+=	COMMON_IGN_VER=common${DISTVERSION:R:R}
+PLIST_SUB=	COMMON_IGN_VER=common${DISTVERSION:R:R}
+
+do-test:
+	@cd ${BUILD_WRKSRC} && \
+		${SETENV} ${CONFIGURE_ENV} ${CMAKE_BIN} ${CMAKE_ARGS} -DBUILD_TESTING=ON ${CMAKE_SOURCE_PATH} && \
+		${SETENV} ${MAKE_ENV} ${MAKE_CMD} ${MAKE_ARGS} ${ALL_TARGET} && \
+		${SETENV} ${MAKE_ENV} ${MAKE_CMD} ${MAKE_ARGS} test
 
 .include <bsd.port.mk>
