@@ -44,6 +44,7 @@
     SUBDIR += avahi-header
     SUBDIR += avahi-libdns
     SUBDIR += avahi-qt4
+    SUBDIR += avahi-qt5
     SUBDIR += avahi-sharp
     SUBDIR += axa
     SUBDIR += babeld
@@ -1033,6 +1034,7 @@
     SUBDIR += pxe-pdhcp
     SUBDIR += py-GeoIP
     SUBDIR += py-GeoIP2
+    SUBDIR += py-aiohttp-socks
     SUBDIR += py-amqp
     SUBDIR += py-amqplib
     SUBDIR += py-avahi
