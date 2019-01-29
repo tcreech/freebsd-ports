@@ -84,8 +84,8 @@
     SUBDIR += cdif
     SUBDIR += cdiff
     SUBDIR += cgrep
-    SUBDIR += chpp
     SUBDIR += chkascii
+    SUBDIR += chpp
     SUBDIR += cl-meta
     SUBDIR += cl-meta-sbcl
     SUBDIR += cl-ppcre
@@ -253,6 +253,7 @@
     SUBDIR += hr-aspell
     SUBDIR += hs-Diff
     SUBDIR += hs-HStringTemplate
+    SUBDIR += hs-HsYAML
     SUBDIR += hs-appar
     SUBDIR += hs-attoparsec
     SUBDIR += hs-attoparsec-iso8601
@@ -280,6 +281,7 @@
     SUBDIR += hs-lhs2tex
     SUBDIR += hs-libxml
     SUBDIR += hs-libxml-sax
+    SUBDIR += hs-libyaml
     SUBDIR += hs-magic
     SUBDIR += hs-pandoc
     SUBDIR += hs-pandoc-citeproc
@@ -303,6 +305,7 @@
     SUBDIR += hs-tagsoup
     SUBDIR += hs-tagstream-conduit
     SUBDIR += hs-texmath
+    SUBDIR += hs-unicode-transforms
     SUBDIR += hs-uri
     SUBDIR += hs-uri-bytestring
     SUBDIR += hs-uri-bytestring-aeson
@@ -501,6 +504,7 @@
     SUBDIR += mi-aspell
     SUBDIR += mifluz
     SUBDIR += miller
+    SUBDIR += minify
     SUBDIR += minised
     SUBDIR += minixmlto
     SUBDIR += mk-aspell
@@ -556,6 +560,7 @@
     SUBDIR += p5-CSS-Minifier-XS
     SUBDIR += p5-CSS-Packer
     SUBDIR += p5-CSS-SAC
+    SUBDIR += p5-CSS-Sass
     SUBDIR += p5-CSS-Simple
     SUBDIR += p5-CSS-Squish
     SUBDIR += p5-CSS-Tiny
@@ -685,6 +690,7 @@
     SUBDIR += p5-PDF-API3
     SUBDIR += p5-PDF-Create
     SUBDIR += p5-PDF-FromHTML
+    SUBDIR += p5-PDF-Reuse
     SUBDIR += p5-PDF-Table
     SUBDIR += p5-PDF-Tiny
     SUBDIR += p5-PDF-WebKit
@@ -801,6 +807,7 @@
     SUBDIR += p5-Sphinx-Search
     SUBDIR += p5-Spreadsheet-GenerateXLSX
     SUBDIR += p5-Spreadsheet-ParseExcel
+    SUBDIR += p5-Spreadsheet-ParseXLSX
     SUBDIR += p5-Spreadsheet-Read
     SUBDIR += p5-Spreadsheet-ReadSXC
     SUBDIR += p5-Spreadsheet-WriteExcel
@@ -886,6 +893,7 @@
     SUBDIR += p5-Text-Diff-HTML
     SUBDIR += p5-Text-Diff-Parser
     SUBDIR += p5-Text-Diff3
+    SUBDIR += p5-Text-Distill
     SUBDIR += p5-Text-DoubleMetaphone
     SUBDIR += p5-Text-Emoticon
     SUBDIR += p5-Text-Emoticon-GoogleTalk
@@ -1158,6 +1166,7 @@
     SUBDIR += p5-YAPE-Regex-Explain
     SUBDIR += p5-ack
     SUBDIR += p5-dTemplate
+    SUBDIR += p5-docx2txt
     SUBDIR += p5-libsoldout
     SUBDIR += p5-libxml
     SUBDIR += p5-pod2pdf
@@ -1207,6 +1216,7 @@
     SUBDIR += peco
     SUBDIR += perl2html
     SUBDIR += permute
+    SUBDIR += pict
     SUBDIR += php-mecab
     SUBDIR += php71-ctype
     SUBDIR += php71-dom
@@ -1270,9 +1280,11 @@
     SUBDIR += py-citeproc-py-styles
     SUBDIR += py-cjkwrap
     SUBDIR += py-cloud_sptheme
+    SUBDIR += py-cmarkgfm
     SUBDIR += py-colorclass
     SUBDIR += py-creole
     SUBDIR += py-csvkit
+    SUBDIR += py-custom_inherit
     SUBDIR += py-dbfread
     SUBDIR += py-diff-match-patch
     SUBDIR += py-docutils
@@ -1307,6 +1319,7 @@
     SUBDIR += py-hyperestraier-python
     SUBDIR += py-hypua2jamo
     SUBDIR += py-jaxml
+    SUBDIR += py-jsonslicer
     SUBDIR += py-jtextfsm
     SUBDIR += py-junit-xml
     SUBDIR += py-laserhammer
@@ -1343,6 +1356,7 @@
     SUBDIR += py-pdfminer.six
     SUBDIR += py-pdfminer3k
     SUBDIR += py-pdfrw
+    SUBDIR += py-precis_i18n
     SUBDIR += py-pss
     SUBDIR += py-pyPEG2
     SUBDIR += py-pyahocorasick
@@ -1515,6 +1529,7 @@
     SUBDIR += rubygem-colored
     SUBDIR += rubygem-commonmarker
     SUBDIR += rubygem-compass
+    SUBDIR += rubygem-compass-blueprint
     SUBDIR += rubygem-compass-core
     SUBDIR += rubygem-compass-import-once
     SUBDIR += rubygem-creole
@@ -1664,6 +1679,8 @@
     SUBDIR += saxon-devel
     SUBDIR += saxon-he
     SUBDIR += sc-aspell
+    SUBDIR += scancode-toolkit
+    SUBDIR += scdoc
     SUBDIR += scew
     SUBDIR += scim
     SUBDIR += scim-bridge
@@ -1864,6 +1881,7 @@
     SUBDIR += yould
     SUBDIR += zenxml
     SUBDIR += zorba
+    SUBDIR += zsh-autosuggestions
     SUBDIR += zsh-syntax-highlighting
     SUBDIR += zu-aspell
     SUBDIR += zu-hunspell

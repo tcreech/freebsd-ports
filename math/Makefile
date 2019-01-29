@@ -130,6 +130,7 @@
     SUBDIR += armadillo
     SUBDIR += arpack++
     SUBDIR += arpack-ng
+    SUBDIR += ascent
     SUBDIR += aspcud
     SUBDIR += asymptote
     SUBDIR += atlas
@@ -234,6 +235,7 @@
     SUBDIR += geonext
     SUBDIR += gexpr
     SUBDIR += ggobi
+    SUBDIR += gh-bc
     SUBDIR += giacxcas
     SUBDIR += givaro
     SUBDIR += gkmap
@@ -270,6 +272,7 @@
     SUBDIR += hs-contravariant
     SUBDIR += hs-data-lens
     SUBDIR += hs-data-lens-template
+    SUBDIR += hs-dense-linear-algebra
     SUBDIR += hs-distributive
     SUBDIR += hs-erf
     SUBDIR += hs-fixed
@@ -285,8 +288,8 @@
     SUBDIR += hs-semigroups
     SUBDIR += hs-statistics
     SUBDIR += hs-vector-space
-    SUBDIR += igraph
     SUBDIR += ignition-math
+    SUBDIR += igraph
     SUBDIR += intervaltree
     SUBDIR += ipopt
     SUBDIR += ised
@@ -306,13 +309,13 @@
     SUBDIR += kktdirect
     SUBDIR += kmplot
     SUBDIR += labplot
-    SUBDIR += latte-integrale
     SUBDIR += lambda
     SUBDIR += lapack
     SUBDIR += lapack++
     SUBDIR += lapack95
     SUBDIR += lapacke
     SUBDIR += laspack
+    SUBDIR += latte-integrale
     SUBDIR += ldouble
     SUBDIR += lean
     SUBDIR += lemon
@@ -684,11 +687,13 @@
     SUBDIR += py-apgl
     SUBDIR += py-basemap
     SUBDIR += py-basemap-data
+    SUBDIR += py-bayesian-optimization
     SUBDIR += py-bitmath
     SUBDIR += py-bitvector
     SUBDIR += py-bottleneck
     SUBDIR += py-cdecimal
     SUBDIR += py-chaospy
+    SUBDIR += py-cma
     SUBDIR += py-colormath
     SUBDIR += py-cryptominisat
     SUBDIR += py-cvxopt
@@ -720,6 +725,7 @@
     SUBDIR += py-mpmath
     SUBDIR += py-munkres
     SUBDIR += py-networkx
+    SUBDIR += py-networkx1
     SUBDIR += py-numarray
     SUBDIR += py-numeric
     SUBDIR += py-numexpr

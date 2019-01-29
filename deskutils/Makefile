@@ -46,12 +46,12 @@
     SUBDIR += easystroke
     SUBDIR += egroupware
     SUBDIR += everygui
+    SUBDIR += fasd
     SUBDIR += fbreader
     SUBDIR += fet
     SUBDIR += flameshot
     SUBDIR += freemind
     SUBDIR += freeplane
-    SUBDIR += fasd
     SUBDIR += fusenshi
     SUBDIR += ganttproject
     SUBDIR += ganyremote
@@ -202,9 +202,11 @@
     SUBDIR += py-bugwarrior
     SUBDIR += py-khal
     SUBDIR += py-khard
+    SUBDIR += py-py3status
     SUBDIR += py-pystash
     SUBDIR += py-send2trash
     SUBDIR += py-taskw
+    SUBDIR += py-todoman
     SUBDIR += py-vdirsyncer
     SUBDIR += py-vobject
     SUBDIR += pybookreader

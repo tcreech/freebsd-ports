@@ -158,12 +158,14 @@
     SUBDIR += rubygem-serialport
     SUBDIR += rxtx
     SUBDIR += scmxx
+    SUBDIR += scrcpy
     SUBDIR += sdr-wspr
     SUBDIR += ser2net
     SUBDIR += serialoverip
     SUBDIR += seyon
     SUBDIR += sms_client
     SUBDIR += smstools3
+    SUBDIR += snap7
     SUBDIR += spandsp
     SUBDIR += splat
     SUBDIR += sredird

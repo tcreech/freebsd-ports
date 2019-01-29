@@ -155,6 +155,7 @@
     SUBDIR += dynamechs
     SUBDIR += easypaint
     SUBDIR += edje_viewer
+    SUBDIR += electricsheep
     SUBDIR += electrix
     SUBDIR += embree
     SUBDIR += enblend
@@ -266,6 +267,7 @@
     SUBDIR += gkrellkam2
     SUBDIR += gle
     SUBDIR += gle-graphics
+    SUBDIR += glee
     SUBDIR += glew
     SUBDIR += glexcess
     SUBDIR += glfw
@@ -372,8 +374,8 @@
     SUBDIR += imgtops
     SUBDIR += imgv
     SUBDIR += imlib2
-    SUBDIR += imlib2_loaders
     SUBDIR += imlib2-webp
+    SUBDIR += imlib2_loaders
     SUBDIR += impressive
     SUBDIR += imv
     SUBDIR += inkscape
@@ -440,6 +442,7 @@
     SUBDIR += libGLw
     SUBDIR += libQGLViewer
     SUBDIR += libafterimage
+    SUBDIR += libansilove
     SUBDIR += libart_lgpl
     SUBDIR += libboard
     SUBDIR += libbpg
@@ -497,6 +500,7 @@
     SUBDIR += libraw
     SUBDIR += libreatlas
     SUBDIR += librsvg2
+    SUBDIR += librsvg2-rust
     SUBDIR += libsixel
     SUBDIR += libspiro
     SUBDIR += libsvg
@@ -670,6 +674,7 @@
     SUBDIR += p5-Graphics-Color
     SUBDIR += p5-Graphics-ColorNames
     SUBDIR += p5-Graphics-ColorNames-WWW
+    SUBDIR += p5-Graphics-ColorUtils
     SUBDIR += p5-Graphics-GnuplotIF
     SUBDIR += p5-Graphics-Primitive
     SUBDIR += p5-Graphics-Primitive-Driver-Cairo
@@ -775,6 +780,7 @@
     SUBDIR += png2ico
     SUBDIR += pngcheck
     SUBDIR += pngcrush
+    SUBDIR += pnglite
     SUBDIR += pngnq
     SUBDIR += pngquant
     SUBDIR += pngrewrite
@@ -841,6 +847,7 @@
     SUBDIR += py-mayavi
     SUBDIR += py-mcomix
     SUBDIR += py-ming
+    SUBDIR += py-mpl-scatter-density
     SUBDIR += py-nwdiag
     SUBDIR += py-open3d-python
     SUBDIR += py-opencolorio
@@ -883,6 +890,7 @@
     SUBDIR += py-traitsui
     SUBDIR += py-wand
     SUBDIR += py-webcolors
+    SUBDIR += py-willow
     SUBDIR += py-yaswfp
     SUBDIR += pygts
     SUBDIR += pymorph
@@ -1089,6 +1097,7 @@
     SUBDIR += xv
     SUBDIR += xv-m17n
     SUBDIR += xwpick
+    SUBDIR += xzgv
     SUBDIR += yafaray
     SUBDIR += yagf
     SUBDIR += yed

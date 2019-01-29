@@ -52,6 +52,7 @@
     SUBDIR += autozen
     SUBDIR += avldrums-lv2
     SUBDIR += aylet
+    SUBDIR += bambootracker
     SUBDIR += baresip
     SUBDIR += baudline
     SUBDIR += bcg729
@@ -789,6 +790,7 @@
     SUBDIR += spiralsynthmodular
     SUBDIR += splay
     SUBDIR += splaytk
+    SUBDIR += spotifyd
     SUBDIR += squash
     SUBDIR += sratom
     SUBDIR += stk
@@ -840,6 +842,7 @@
     SUBDIR += umurmur
     SUBDIR += vagalume
     SUBDIR += vamp-plugin-sdk
+    SUBDIR += vgmplay
     SUBDIR += virtual_oss
     SUBDIR += virtual_oss_ctl
     SUBDIR += vitunes

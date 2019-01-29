@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	passenger
-PORTVERSION=	6.0.0
-PORTREVISION=	1
+PORTVERSION=	6.0.1
 CATEGORIES=	www rubygems
 MASTER_SITES=	RG
 PKGNAMEPREFIX=	rubygem-
@@ -43,7 +42,6 @@ SHEBANG_FILES=	src/cxx_supportlib/vendor-copy/libuv/gyp_uv.py
 
 LIB_DEPENDS+=	libuv.so:devel/libuv \
 		libcurl.so:ftp/curl \
-		libunwind.so:devel/libunwind \
 		libapr-1.so:devel/apr1
 
 BUILD_DEPENDS+=	rubygem-rack>=0:www/rubygem-rack
