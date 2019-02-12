@@ -569,6 +569,7 @@
     SUBDIR += ncmpc
     SUBDIR += ncmpcpp
     SUBDIR += nekobee
+    SUBDIR += nekobi-lv2
     SUBDIR += noise-repellent-lv2
     SUBDIR += normalize
     SUBDIR += nosefart
@@ -661,6 +662,7 @@
     SUBDIR += pulseaudio
     SUBDIR += pulseaudio-module-sndio
     SUBDIR += pulseaudio-module-xrdp
+    SUBDIR += pulseeffects
     SUBDIR += py-SoundFile
     SUBDIR += py-al
     SUBDIR += py-ao
@@ -704,6 +706,7 @@
     SUBDIR += pytone
     SUBDIR += qjackctl
     SUBDIR += qmidiarp
+    SUBDIR += qmidictl
     SUBDIR += qmpdclient
     SUBDIR += qsampler
     SUBDIR += qsynth
@@ -765,6 +768,7 @@
     SUBDIR += snack
     SUBDIR += snd
     SUBDIR += sndio
+    SUBDIR += so-synth-lv2
     SUBDIR += solfege
     SUBDIR += sonata
     SUBDIR += sonic-visualiser
@@ -793,6 +797,7 @@
     SUBDIR += spotifyd
     SUBDIR += squash
     SUBDIR += sratom
+    SUBDIR += stegosaurus-lv2
     SUBDIR += stk
     SUBDIR += streamripper
     SUBDIR += streamtranscoder

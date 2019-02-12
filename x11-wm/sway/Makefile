@@ -1,8 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	sway
-DISTVERSION=	1.0-beta.2-287
-DISTVERSIONSUFFIX=	-g606f6a37
+DISTVERSION=	1.0-rc2
 CATEGORIES=	x11-wm
 
 MAINTAINER=	jbeich@FreeBSD.org
@@ -13,7 +12,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	evdev-proto>0:devel/evdev-proto \
 		wayland-protocols>=1.14:graphics/wayland-protocols \
-		wlroots>=0.2.178:x11-toolkits/wlroots
+		wlroots>=0.3:x11-toolkits/wlroots
 LIB_DEPENDS=	libjson-c.so:devel/json-c \
 		libevdev.so:devel/libevdev \
 		libpcre.so:devel/pcre \
@@ -27,13 +26,12 @@ USE_GITHUB=	yes
 USE_GNOME=	cairo pango
 USE_XORG=	pixman
 GH_ACCOUNT=	swaywm
-MESON_ARGS=	-Dsway-version="${DISTVERSIONFULL}"
 
 OPTIONS_DEFINE=	MANPAGES PIXBUF SUID X11
 OPTIONS_DEFAULT=MANPAGES PIXBUF SUID X11
 OPTIONS_SUB=	yes
 
-MANPAGES_BUILD_DEPENDS=	scdoc>=1.8.0:textproc/scdoc
+MANPAGES_BUILD_DEPENDS=	scdoc>=1.8.1:textproc/scdoc
 MANPAGES_MESON_ON=	-Dman-pages=enabled
 MANPAGES_MESON_OFF=	-Dman-pages=disabled
 
@@ -52,6 +50,10 @@ X11_MESON_OFF=		-Dxwayland=disabled
 post-patch:
 # Let @sample handle default files under etc/
 	@${REINPLACE_CMD} -e '/config\.in/{ N; s/@BASENAME@/&.sample/; }' \
+		${WRKSRC}/meson.build
+# Extract (snapshot) version from the port instead of meson.build
+	@${REINPLACE_CMD} -i .nogit -e 's/git.found()/false/' \
+		-e '/project_version/s/@0@/${DISTVERSIONFULL}/' \
 		${WRKSRC}/meson.build
 
 .include <bsd.port.mk>

@@ -766,10 +766,12 @@
     SUBDIR += gettext-runtime
     SUBDIR += gettext-tools
     SUBDIR += gflags
+    SUBDIR += ghq
     SUBDIR += ghub
     SUBDIR += gindent
     SUBDIR += gio-sharp
     SUBDIR += git
+    SUBDIR += git-absorb
     SUBDIR += git-bzr-ng
     SUBDIR += git-cinnabar
     SUBDIR += git-codereview
@@ -1201,8 +1203,6 @@
     SUBDIR += hs-utf8-light
     SUBDIR += hs-utf8-string
     SUBDIR += hs-utility-ht
-    SUBDIR += hs-uuagc
-    SUBDIR += hs-uuagc-bootstrap
     SUBDIR += hs-uuagc-cabal
     SUBDIR += hs-uuid
     SUBDIR += hs-uuid-types
@@ -1248,6 +1248,7 @@
     SUBDIR += iniparser
     SUBDIR += initutil
     SUBDIR += injeqt
+    SUBDIR += interactive_rebase_tool
     SUBDIR += ioncube
     SUBDIR += ipython
     SUBDIR += ipython5
@@ -3235,6 +3236,7 @@
     SUBDIR += p5-Perl-OSType
     SUBDIR += p5-Perl-PrereqScanner
     SUBDIR += p5-Perl-PrereqScanner-Lite
+    SUBDIR += p5-Perl-PrereqScanner-NotQuiteLite
     SUBDIR += p5-Perl-Tidy
     SUBDIR += p5-Perl-Unsafe-Signals
     SUBDIR += p5-Perl-Version
@@ -3310,6 +3312,7 @@
     SUBDIR += p5-Regexp-RegGrp
     SUBDIR += p5-Regexp-Shellish
     SUBDIR += p5-Regexp-Subst-Parallel
+    SUBDIR += p5-Regexp-Trie
     SUBDIR += p5-Religion
     SUBDIR += p5-Reply
     SUBDIR += p5-ResourcePool
@@ -4048,6 +4051,7 @@
     SUBDIR += pear-codegen
     SUBDIR += pear-ezc_Base
     SUBDIR += pear-ezc_ConsoleTools
+    SUBDIR += pear-geshi
     SUBDIR += pear-htmlpurifier
     SUBDIR += pear-pdepend-staticReflection
     SUBDIR += pear-phing
@@ -4334,11 +4338,13 @@
     SUBDIR += py-attrs
     SUBDIR += py-automaton
     SUBDIR += py-avro
+    SUBDIR += py-aws-xray-sdk
     SUBDIR += py-azure-batch
     SUBDIR += py-azure-datalake-store
     SUBDIR += py-azure-graphrbac
     SUBDIR += py-azure-keyvault
     SUBDIR += py-azure-mgmt-advisor
+    SUBDIR += py-azure-mgmt-applicationinsights
     SUBDIR += py-azure-mgmt-authorization
     SUBDIR += py-azure-mgmt-batch
     SUBDIR += py-azure-mgmt-batchai
@@ -4509,6 +4515,7 @@
     SUBDIR += py-dal
     SUBDIR += py-darcsver
     SUBDIR += py-darts.util.lru
+    SUBDIR += py-datatest
     SUBDIR += py-dateutil
     SUBDIR += py-dateutils
     SUBDIR += py-datrie
@@ -4783,6 +4790,7 @@
     SUBDIR += py-mox
     SUBDIR += py-mox3
     SUBDIR += py-msgpack
+    SUBDIR += py-msgpack05
     SUBDIR += py-multi_key_dict
     SUBDIR += py-multipledispatch
     SUBDIR += py-multiprocess
@@ -4818,7 +4826,6 @@
     SUBDIR += py-oletools
     SUBDIR += py-omnijson
     SUBDIR += py-omniorb
-    SUBDIR += py-omniorb-3
     SUBDIR += py-openapi-codec
     SUBDIR += py-opendht
     SUBDIR += py-opengrok-tools
@@ -5386,6 +5393,8 @@
     SUBDIR += pyrex
     SUBDIR += pyside
     SUBDIR += pyside-tools
+    SUBDIR += pyside2
+    SUBDIR += pyside2-tools
     SUBDIR += pyst
     SUBDIR += pysvn
     SUBDIR += pythk
@@ -5558,6 +5567,7 @@
     SUBDIR += rubygem-bacon
     SUBDIR += rubygem-baf
     SUBDIR += rubygem-batch-loader
+    SUBDIR += rubygem-batch-loader12
     SUBDIR += rubygem-benelux
     SUBDIR += rubygem-bin_utils
     SUBDIR += rubygem-bindata
@@ -6115,7 +6125,6 @@
     SUBDIR += rubygem-tdiff
     SUBDIR += rubygem-templater
     SUBDIR += rubygem-temple
-    SUBDIR += rubygem-temple07
     SUBDIR += rubygem-term-ansicolor
     SUBDIR += rubygem-terrapin
     SUBDIR += rubygem-test-unit
@@ -6226,6 +6235,7 @@
     SUBDIR += shflags
     SUBDIR += shfmt
     SUBDIR += shiboken
+    SUBDIR += shiboken2
     SUBDIR += shmap
     SUBDIR += shtk
     SUBDIR += shtool

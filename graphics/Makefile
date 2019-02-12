@@ -76,6 +76,7 @@
     SUBDIR += bmp2html
     SUBDIR += box
     SUBDIR += boxer
+    SUBDIR += bsd-plotutils
     SUBDIR += bugle
     SUBDIR += burplex
     SUBDIR += c-a-i-r
@@ -491,6 +492,7 @@
     SUBDIR += libpcd
     SUBDIR += libpgf
     SUBDIR += libpillowfight
+    SUBDIR += libplacebo
     SUBDIR += libpotrace
     SUBDIR += libprojectm
     SUBDIR += libpuzzle
@@ -834,6 +836,7 @@
     SUBDIR += py-gimp
     SUBDIR += py-gizeh
     SUBDIR += py-glewpy
+    SUBDIR += py-glfw
     SUBDIR += py-goocanvas
     SUBDIR += py-gphoto2
     SUBDIR += py-graph-core
@@ -841,6 +844,7 @@
     SUBDIR += py-graphy
     SUBDIR += py-gvgen
     SUBDIR += py-imageio
+    SUBDIR += py-imageio-ffmpeg
     SUBDIR += py-imagesize
     SUBDIR += py-imgurpython
     SUBDIR += py-leather
@@ -858,6 +862,7 @@
     SUBDIR += py-photocollage
     SUBDIR += py-pillow
     SUBDIR += py-pivy
+    SUBDIR += py-pivy-devel
     SUBDIR += py-plotly
     SUBDIR += py-png
     SUBDIR += py-poppler
@@ -992,6 +997,7 @@
     SUBDIR += seom
     SUBDIR += separate
     SUBDIR += seq2gif
+    SUBDIR += shaderc
     SUBDIR += shared-color-profiles
     SUBDIR += sharpconstruct
     SUBDIR += shotwell
@@ -1085,6 +1091,7 @@
     SUBDIR += xnview
     SUBDIR += xoris
     SUBDIR += xournal
+    SUBDIR += xournalpp
     SUBDIR += xpaint
     SUBDIR += xpdf
     SUBDIR += xpdf3
