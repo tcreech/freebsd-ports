@@ -245,6 +245,7 @@
     SUBDIR += gqradio
     SUBDIR += gradio
     SUBDIR += gramofile
+    SUBDIR += gsequencer
     SUBDIR += gsm
     SUBDIR += gsound
     SUBDIR += gstreamer-plugins-a52dec
@@ -905,6 +906,7 @@
     SUBDIR += zinf
     SUBDIR += zita-convolver
     SUBDIR += zita-resampler
+    SUBDIR += zrythm
     SUBDIR += zynaddsubfx
 
 .include <bsd.port.subdir.mk>
