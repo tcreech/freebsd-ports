@@ -76,7 +76,7 @@
     SUBDIR += cagibi
     SUBDIR += calendarsupport
     SUBDIR += ccxstream
-    SUBDIR += ceph
+    SUBDIR += ceph12
     SUBDIR += ceph13
     SUBDIR += cf
     SUBDIR += charm
@@ -969,6 +969,7 @@
     SUBDIR += pecl-smbclient
     SUBDIR += pecl-yaz
     SUBDIR += pecl-zmq
+    SUBDIR += pen
     SUBDIR += pfinger
     SUBDIR += phamm
     SUBDIR += php71-ldap

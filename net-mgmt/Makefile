@@ -133,7 +133,6 @@
     SUBDIR += nagcon
     SUBDIR += nagios
     SUBDIR += nagios-certexp-plugin
-    SUBDIR += nagios-check_bacula
     SUBDIR += nagios-check_bacula9
     SUBDIR += nagios-check_clamav
     SUBDIR += nagios-check_cpu_usage
@@ -204,6 +203,7 @@
     SUBDIR += nsca27
     SUBDIR += nsca27-client
     SUBDIR += nstat
+    SUBDIR += nsd_exporter
     SUBDIR += nstreams
     SUBDIR += nvidia_gpu_prometheus_exporter
     SUBDIR += observium
@@ -309,6 +309,7 @@
     SUBDIR += py-napalm
     SUBDIR += py-napalm-logs
     SUBDIR += py-ncclient
+    SUBDIR += py-nxapi-plumbing
     SUBDIR += py-pdagent
     SUBDIR += py-prometheus-client
     SUBDIR += py-pyIOSXR

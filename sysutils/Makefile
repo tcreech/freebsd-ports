@@ -75,11 +75,6 @@
     SUBDIR += backuppc-devel
     SUBDIR += backuppc4
     SUBDIR += backupuser
-    SUBDIR += bacula-bat
-    SUBDIR += bacula-client
-    SUBDIR += bacula-client-static
-    SUBDIR += bacula-docs
-    SUBDIR += bacula-server
     SUBDIR += bacula9-bat
     SUBDIR += bacula9-client
     SUBDIR += bacula9-client-static
@@ -945,10 +940,8 @@
     SUBDIR += ptools
     SUBDIR += puppet-lint
     SUBDIR += puppet-mode.el
-    SUBDIR += puppet4
     SUBDIR += puppet5
     SUBDIR += puppet6
-    SUBDIR += puppetserver
     SUBDIR += puppetserver5
     SUBDIR += puppetserver6
     SUBDIR += pv
@@ -993,6 +986,7 @@
     SUBDIR += py-azure-cli-iot
     SUBDIR += py-azure-cli-iotcentral
     SUBDIR += py-azure-cli-keyvault
+    SUBDIR += py-azure-cli-kusto
     SUBDIR += py-azure-cli-lab
     SUBDIR += py-azure-cli-maps
     SUBDIR += py-azure-cli-monitor
@@ -1006,6 +1000,7 @@
     SUBDIR += py-azure-cli-resource
     SUBDIR += py-azure-cli-role
     SUBDIR += py-azure-cli-search
+    SUBDIR += py-azure-cli-security
     SUBDIR += py-azure-cli-servicebus
     SUBDIR += py-azure-cli-servicefabric
     SUBDIR += py-azure-cli-signalr
@@ -1318,6 +1313,7 @@
     SUBDIR += syslog-ng317
     SUBDIR += syslog-ng318
     SUBDIR += syslog-ng319
+    SUBDIR += syslog-ng320
     SUBDIR += syslog-ng39
     SUBDIR += syslogger
     SUBDIR += sysrc
@@ -1503,7 +1499,7 @@
     SUBDIR += xe
     SUBDIR += xe-guest-utilities
     SUBDIR += xen-guest-tools
-    SUBDIR += xen-tools411
+    SUBDIR += xen-tools
     SUBDIR += xen-tools47
     SUBDIR += xfburn
     SUBDIR += xfce4-battery-plugin

@@ -4375,6 +4375,7 @@
     SUBDIR += py-azure-mgmt-iothub
     SUBDIR += py-azure-mgmt-iothubprovisioningservices
     SUBDIR += py-azure-mgmt-keyvault
+    SUBDIR += py-azure-mgmt-kusto
     SUBDIR += py-azure-mgmt-loganalytics
     SUBDIR += py-azure-mgmt-managementgroups
     SUBDIR += py-azure-mgmt-maps
@@ -4392,6 +4393,7 @@
     SUBDIR += py-azure-mgmt-reservations
     SUBDIR += py-azure-mgmt-resource
     SUBDIR += py-azure-mgmt-search
+    SUBDIR += py-azure-mgmt-security
     SUBDIR += py-azure-mgmt-servicebus
     SUBDIR += py-azure-mgmt-servicefabric
     SUBDIR += py-azure-mgmt-signalr
@@ -5085,6 +5087,7 @@
     SUBDIR += py-ratelimiter
     SUBDIR += py-rauth
     SUBDIR += py-raven
+    SUBDIR += py-rchitect
     SUBDIR += py-rcsparse
     SUBDIR += py-readme_renderer
     SUBDIR += py-rebulk
@@ -5128,6 +5131,7 @@
     SUBDIR += py-rx
     SUBDIR += py-sanetime
     SUBDIR += py-sarge
+    SUBDIR += py-schedule
     SUBDIR += py-schema
     SUBDIR += py-schematics-patched
     SUBDIR += py-scripttest
@@ -5488,6 +5492,7 @@
     SUBDIR += racer
     SUBDIR += racerd
     SUBDIR += radare2
+    SUBDIR += radian
     SUBDIR += ragel
     SUBDIR += raknet
     SUBDIR += range-v3
@@ -5527,7 +5532,6 @@
     SUBDIR += rpm-spec-mode.el
     SUBDIR += rsvndump
     SUBDIR += rth
-    SUBDIR += rtichoke
     SUBDIR += ruby-bsearch
     SUBDIR += ruby-build
     SUBDIR += ruby-gems
@@ -5780,7 +5784,6 @@
     SUBDIR += rubygem-grape-path-helpers
     SUBDIR += rubygem-grape-route-helpers
     SUBDIR += rubygem-grape-swagger
-    SUBDIR += rubygem-grape0
     SUBDIR += rubygem-grape11
     SUBDIR += rubygem-grape_logging
     SUBDIR += rubygem-graphiql-rails
@@ -5816,6 +5819,7 @@
     SUBDIR += rubygem-io-like
     SUBDIR += rubygem-iobuffer
     SUBDIR += rubygem-iso8601
+    SUBDIR += rubygem-jaeger-client
     SUBDIR += rubygem-jammit
     SUBDIR += rubygem-jaro_winkler
     SUBDIR += rubygem-jasmine-core
@@ -5927,6 +5931,7 @@
     SUBDIR += rubygem-open3_backport
     SUBDIR += rubygem-open4
     SUBDIR += rubygem-opentracing
+    SUBDIR += rubygem-opentracing04
     SUBDIR += rubygem-opt_parse_validator
     SUBDIR += rubygem-optimist
     SUBDIR += rubygem-orm_adapter
@@ -6387,7 +6392,6 @@
     SUBDIR += truc
     SUBDIR += ua_parser-core
     SUBDIR += uatraits
-    SUBDIR += uboot-mkimage
     SUBDIR += uclcmd
     SUBDIR += ucommon
     SUBDIR += ucpp

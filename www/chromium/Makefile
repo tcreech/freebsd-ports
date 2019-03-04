@@ -2,7 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	chromium
-PORTVERSION=	72.0.3626.119
+PORTVERSION=	72.0.3626.121
+PORTREVISION=	1
 CATEGORIES?=	www
 MASTER_SITES=	https://commondatastorage.googleapis.com/chromium-browser-official/ \
 		LOCAL/cpm/chromium/:fonts
@@ -62,7 +63,7 @@ LIB_DEPENDS=	libatk-bridge-2.0.so:accessibility/at-spi2-atk \
 		libfontconfig.so:x11-fonts/fontconfig
 
 RUN_DEPENDS=	xdg-open:devel/xdg-utils \
-		noto-lite>0:x11-fonts/noto-lite
+		noto-basic>0:x11-fonts/noto-basic
 
 BROKEN_FreeBSD_11_aarch64=	components/safe_browsing_db/v4_rice.cc:120:18: use of overloaded operator '&' is ambiguous
 ONLY_FOR_ARCHS=			aarch64 amd64 i386
@@ -215,7 +216,7 @@ PLIST_SUB+=	NOT_AARCH64=""
 .endif
 
 # Make better javascript with java
-.if ${ARCH} == amd64 && !defined(GN_ONLY)
+.if (${ARCH} == amd64 || ${ARCH} == i386) && !defined(GN_ONLY)
 JAVA_BUILD=	yes
 JAVA_VERSION=	1.8
 USE_JAVA=	yes
@@ -274,8 +275,8 @@ do-configure:
 	@${MKDIR} ${WRKSRC}/third_party/node/freebsd/node-freebsd-x64/bin
 	${LN} -sf ${LOCALBASE}/bin/node ${WRKSRC}/third_party/node/freebsd/node-freebsd-x64/bin/node
 
-	# Setup java dependency on amd64
-.if ${ARCH} == amd64
+	# Setup java dependency on amd64 and i386
+.if ${ARCH} == amd64 || ${ARCH} == i386
 	@${MKDIR} ${WRKDIR}/bin
 	${LN} -sf ${LOCALBASE}/openjdk8/bin/java ${WRKDIR}/bin/java
 .endif

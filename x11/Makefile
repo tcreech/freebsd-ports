@@ -110,6 +110,7 @@
     SUBDIR += imwheel
     SUBDIR += innerspace
     SUBDIR += ipager
+    SUBDIR += j4-dmenu-desktop
     SUBDIR += kb2mb2
     SUBDIR += kde-baseapps
     SUBDIR += kde5
@@ -282,6 +283,7 @@
     SUBDIR += rendercheck
     SUBDIR += rgb
     SUBDIR += rofi
+    SUBDIR += rofi-pass
     SUBDIR += rox-wallpaper
     SUBDIR += roxbg
     SUBDIR += roxterm
