@@ -752,6 +752,7 @@
     SUBDIR += npadmin
     SUBDIR += nq
     SUBDIR += nrg2iso
+    SUBDIR += nsysctl
     SUBDIR += ntfy
     SUBDIR += nut
     SUBDIR += nvclock
