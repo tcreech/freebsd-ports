@@ -1009,6 +1009,7 @@
     SUBDIR += py-bcfg2
     SUBDIR += py-bitrot
     SUBDIR += py-cdmi
+    SUBDIR += py-cpuinfo
     SUBDIR += py-croniter
     SUBDIR += py-crontab
     SUBDIR += py-diffoscope
