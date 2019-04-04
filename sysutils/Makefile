@@ -215,7 +215,6 @@
     SUBDIR += cronolog
     SUBDIR += cronolog-devel
     SUBDIR += ctop
-    SUBDIR += curly
     SUBDIR += currtime
     SUBDIR += cw
     SUBDIR += daa2iso
