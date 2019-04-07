@@ -21,7 +21,10 @@ LICENSE_NAME=	IBM Public License Version 1.0
 LICENSE_FILE=	${WRKSRC}/doc/LICENSE
 LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
-#BROKEN_FreeBSD_12=	does not build (use of undeclared identifier 'ROOTINO')
+# NOTE: upstream has marked net/openafs as deprecated
+#BROKEN=		fails to build
+#DEPRECATED=	Broken for more than 6 months
+#EXPIRATION_DATE=	2019-05-08
 ONLY_FOR_ARCHS=	i386 amd64
 
 AFS_DISTVERSION=	1.8.2
