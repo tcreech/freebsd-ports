@@ -1020,6 +1020,7 @@
     SUBDIR += py-beanstalkc
     SUBDIR += py-cjdns
     SUBDIR += py-cloudflare-scrape
+    SUBDIR += py-cloudflare-scrape-js2py
     SUBDIR += py-coherence
     SUBDIR += py-confluent-kafka
     SUBDIR += py-cymruwhois
