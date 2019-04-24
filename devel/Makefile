@@ -4121,6 +4121,7 @@
     SUBDIR += phpunit7
     SUBDIR += phpunit8
     SUBDIR += physfs
+    SUBDIR += picojson
     SUBDIR += picp
     SUBDIR += picprog
     SUBDIR += pig
@@ -5977,7 +5978,6 @@
     SUBDIR += rubygem-react-rails-rails5
     SUBDIR += rubygem-readwritesettings
     SUBDIR += rubygem-recaptcha
-    SUBDIR += rubygem-recaptcha3
     SUBDIR += rubygem-recursive-open-struct
     SUBDIR += rubygem-redis-activesupport
     SUBDIR += rubygem-redis-activesupport-rails5
