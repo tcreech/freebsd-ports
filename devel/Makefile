@@ -323,6 +323,7 @@
     SUBDIR += clig
     SUBDIR += cligen
     SUBDIR += clinfo
+    SUBDIR += clipp
     SUBDIR += clisp-hyperspec
     SUBDIR += clixon
     SUBDIR += clojure-cider
@@ -4667,6 +4668,7 @@
     SUBDIR += py-pika-pool
     SUBDIR += py-pinocchio
     SUBDIR += py-pip
+    SUBDIR += py-pip-api
     SUBDIR += py-pip-tools
     SUBDIR += py-pipenv
     SUBDIR += py-pkgconfig
@@ -5035,6 +5037,7 @@
     SUBDIR += py-wcwidth
     SUBDIR += py-weakrefmethod
     SUBDIR += py-weblib
+    SUBDIR += py-websockets
     SUBDIR += py-websockify
     SUBDIR += py-wheel
     SUBDIR += py-whichcraft
@@ -6197,6 +6200,7 @@
     SUBDIR += z80asm
     SUBDIR += z80ex
     SUBDIR += zanata-cli
+    SUBDIR += zanata-platform
     SUBDIR += zapcc
     SUBDIR += zeal
     SUBDIR += zfp
