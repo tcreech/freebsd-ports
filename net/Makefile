@@ -527,6 +527,7 @@
     SUBDIR += opal
     SUBDIR += open-isns
     SUBDIR += openafs
+    SUBDIR += openafs-devel
     SUBDIR += openafs16
     SUBDIR += openbgpd
     SUBDIR += openbsc
