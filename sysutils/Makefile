@@ -674,6 +674,7 @@
     SUBDIR += mgeupsd
     SUBDIR += minikube
     SUBDIR += minimunin
+    SUBDIR += minipro
     SUBDIR += minirsyslogd
     SUBDIR += mixer
     SUBDIR += mkdesktop
@@ -1028,6 +1029,8 @@
     SUBDIR += py-honcho
     SUBDIR += py-hpilo
     SUBDIR += py-iowait
+    SUBDIR += py-leviathan
+    SUBDIR += py-mitogen
     SUBDIR += py-mqttwarn
     SUBDIR += py-nagiosplugin
     SUBDIR += py-packet-python
@@ -1285,6 +1288,7 @@
     SUBDIR += swapd
     SUBDIR += swapexd
     SUBDIR += swapmon
+    SUBDIR += swapusage
     SUBDIR += sweeper
     SUBDIR += symlinks
     SUBDIR += symon
