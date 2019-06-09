@@ -78,6 +78,7 @@
     SUBDIR += R-cran-tidyr
     SUBDIR += R-cran-tidyselect
     SUBDIR += R-cran-vcd
+    SUBDIR += R-cran-vctrs
     SUBDIR += R-cran-withr
     SUBDIR += RStudio
     SUBDIR += SpecTcl
@@ -3836,7 +3837,6 @@
     SUBDIR += pecl-propro2
     SUBDIR += pecl-protobuf
     SUBDIR += pecl-psr
-    SUBDIR += pecl-pthreads
     SUBDIR += pecl-raphf2
     SUBDIR += pecl-request
     SUBDIR += pecl-swoole
@@ -4369,6 +4369,7 @@
     SUBDIR += py-flake8-polyfill
     SUBDIR += py-flake8-quotes
     SUBDIR += py-flask-babel
+    SUBDIR += py-flatbuffers
     SUBDIR += py-flex
     SUBDIR += py-flexmock
     SUBDIR += py-fluent-logger
@@ -5240,6 +5241,7 @@
     SUBDIR += qtcreator
     SUBDIR += quickcheck++
     SUBDIR += quilt
+    SUBDIR += R-cran-zeallot
     SUBDIR += rabs
     SUBDIR += racer
     SUBDIR += racerd
@@ -5978,6 +5980,7 @@
     SUBDIR += rubygem-wisper
     SUBDIR += rubygem-wmi-lite
     SUBDIR += rubygem-xdg
+    SUBDIR += rubygem-xdg2
     SUBDIR += rubygem-xpath
     SUBDIR += rubygem-yajl-ruby
     SUBDIR += rubygem-yui-compressor
