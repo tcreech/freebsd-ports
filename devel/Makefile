@@ -1558,6 +1558,7 @@
     SUBDIR += msp430-debug-stack
     SUBDIR += mspdebug
     SUBDIR += mtbl
+    SUBDIR += mutagen
     SUBDIR += myrepos
     SUBDIR += nana
     SUBDIR += nant
@@ -1601,6 +1602,7 @@
     SUBDIR += ocaml-cmdliner
     SUBDIR += ocaml-cppo
     SUBDIR += ocaml-deriving-ocsigen
+    SUBDIR += ocaml-dune
     SUBDIR += ocaml-extlib
     SUBDIR += ocaml-findlib
     SUBDIR += ocaml-ipaddr
@@ -4256,6 +4258,7 @@
     SUBDIR += py-collective.z3cform.datetimewidget
     SUBDIR += py-colorama
     SUBDIR += py-coloredlogs
+    SUBDIR += py-colorful
     SUBDIR += py-colorlog
     SUBDIR += py-columnize
     SUBDIR += py-conditional
@@ -4695,6 +4698,7 @@
     SUBDIR += py-pip
     SUBDIR += py-pip-api
     SUBDIR += py-pip-tools
+    SUBDIR += py-pip-tools2
     SUBDIR += py-pipenv
     SUBDIR += py-pkgconfig
     SUBDIR += py-plan
@@ -4713,6 +4717,7 @@
     SUBDIR += py-pqueue
     SUBDIR += py-pre-commit
     SUBDIR += py-pretend
+    SUBDIR += py-prettyprinter
     SUBDIR += py-prettytable
     SUBDIR += py-prioritized_methods
     SUBDIR += py-proglog
@@ -4915,6 +4920,7 @@
     SUBDIR += py-schedule
     SUBDIR += py-schema
     SUBDIR += py-schematics-patched
+    SUBDIR += py-scikit-build
     SUBDIR += py-scripttest
     SUBDIR += py-selection
     SUBDIR += py-selectors2
