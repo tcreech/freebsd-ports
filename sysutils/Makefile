@@ -760,6 +760,8 @@
     SUBDIR += openhpi
     SUBDIR += openipmi
     SUBDIR += openupsd
+    SUBDIR += openzfs
+    SUBDIR += openzfs-kmod
     SUBDIR += ori
     SUBDIR += osinfo-db-tools
     SUBDIR += osquery
@@ -1549,8 +1551,6 @@
     SUBDIR += zisofs-tools
     SUBDIR += znapzend
     SUBDIR += zogftw
-    SUBDIR += zol
-    SUBDIR += zol-kmod
     SUBDIR += zrep
     SUBDIR += zrepl
     SUBDIR += zsd
