@@ -225,6 +225,7 @@
     SUBDIR += daemonize
     SUBDIR += daemontools
     SUBDIR += daemontools-encore
+    SUBDIR += daggy
     SUBDIR += dar
     SUBDIR += dateutils
     SUBDIR += dc3dd
