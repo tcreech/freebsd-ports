@@ -1188,7 +1188,6 @@
     SUBDIR += libev
     SUBDIR += libevdev
     SUBDIR += libevent
-    SUBDIR += libevent-hiphop
     SUBDIR += libevt
     SUBDIR += libevtx
     SUBDIR += libewf
@@ -3846,6 +3845,7 @@
     SUBDIR += pear-phing
     SUBDIR += pecl-APCu
     SUBDIR += pecl-dio
+    SUBDIR += pecl-ds
     SUBDIR += pecl-eio
     SUBDIR += pecl-ev
     SUBDIR += pecl-event
@@ -4077,6 +4077,7 @@
     SUBDIR += py-XStatic-term.js
     SUBDIR += py-XStatic-tv4
     SUBDIR += py-ZopeUndo
+    SUBDIR += py-absl
     SUBDIR += py-adb
     SUBDIR += py-addict
     SUBDIR += py-aenum
@@ -4429,6 +4430,7 @@
     SUBDIR += py-game
     SUBDIR += py-game_sdl2
     SUBDIR += py-gamin
+    SUBDIR += py-gast
     SUBDIR += py-gdata
     SUBDIR += py-gdbgui
     SUBDIR += py-gearman
@@ -5898,6 +5900,7 @@
     SUBDIR += rubygem-simple_form-rails5
     SUBDIR += rubygem-simple_form-rails50
     SUBDIR += rubygem-simplecov
+    SUBDIR += rubygem-skiptrace
     SUBDIR += rubygem-slack-notifier
     SUBDIR += rubygem-slack-notifier1
     SUBDIR += rubygem-slim
@@ -6132,6 +6135,7 @@
     SUBDIR += synfig
     SUBDIR += sysconftool
     SUBDIR += sysfsutils
+    SUBDIR += systemc
     SUBDIR += t1lib
     SUBDIR += ta-lib
     SUBDIR += tablist
