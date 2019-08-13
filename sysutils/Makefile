@@ -758,7 +758,6 @@
     SUBDIR += ohmu
     SUBDIR += omnibackup
     SUBDIR += open
-    SUBDIR += openhpi
     SUBDIR += openipmi
     SUBDIR += openupsd
     SUBDIR += openzfs
