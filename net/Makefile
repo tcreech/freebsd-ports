@@ -1410,6 +1410,7 @@
     SUBDIR += syncthing
     SUBDIR += tableutil
     SUBDIR += tac_plus4
+    SUBDIR += tacacs
     SUBDIR += tapidbus
     SUBDIR += tayga
     SUBDIR += tclsoap
