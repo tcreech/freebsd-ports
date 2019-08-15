@@ -1237,6 +1237,7 @@
     SUBDIR += sdparm
     SUBDIR += seatools
     SUBDIR += sec
+    SUBDIR += sensu-go
     SUBDIR += serf
     SUBDIR += setcdboot
     SUBDIR += setquota
