@@ -30,38 +30,6 @@
      syscall_deregister(&offset, &old_sysent);
  #else
      sysent[AFS_SYSCALL].sy_narg = 0;
-@@ -220,15 +232,14 @@ afs_unmount(struct mount *mp, int flags, struct thread
-     }
-     if (afs_globalVp)
- 	error = EBUSY;
--    AFS_GUNLOCK();
- 
-     /*
-      * Release any remaining vnodes on this mount point.
-      * The `1' means that we hold one extra reference on
-      * the root vnode (this is just a guess right now).
--     * This has to be done outside the global lock.
-      */
-     if (!error) {
-+	AFS_GUNLOCK();
- #if defined(AFS_FBSD80_ENV)
- 	error = vflush(mp, 1, (flags & MNT_FORCE) ? FORCECLOSE : 0, curthread);
- #elif defined(AFS_FBSD53_ENV)
-@@ -236,10 +247,12 @@ afs_unmount(struct mount *mp, int flags, struct thread
- #else
- 	error = vflush(mp, 1, (flags & MNT_FORCE) ? FORCECLOSE : 0);
- #endif
-+	AFS_GLOCK();
-     }
--    if (error)
-+    if (error) {
-+	AFS_GUNLOCK();
- 	goto out;
--    AFS_GLOCK();
-+    }
-     AFS_STATCNT(afs_unmount);
-     afs_globalVFS = 0;
-     afs_shutdown();
 @@ -297,29 +310,28 @@ tryagain:
      }
      if (tvp) {
