@@ -96,7 +96,6 @@
     SUBDIR += abi-compliance-checker
     SUBDIR += abseil
     SUBDIR += ace
-    SUBDIR += ace+tao-doc
     SUBDIR += acsccid
     SUBDIR += activitymail
     SUBDIR += ada-util
@@ -473,7 +472,6 @@
     SUBDIR += dev86
     SUBDIR += devhelp
     SUBDIR += devtodo
-    SUBDIR += dfmt
     SUBDIR += dfuife-curses
     SUBDIR += dia2code
     SUBDIR += dia2code+
@@ -1000,7 +998,6 @@
     SUBDIR += ignition-msgs
     SUBDIR += ignition-plugin
     SUBDIR += ignition-tools
-    SUBDIR += ignition-transport
     SUBDIR += ikos
     SUBDIR += imake
     SUBDIR += inastemp
@@ -4157,9 +4154,12 @@
     SUBDIR += py-azure-batch
     SUBDIR += py-azure-cosmos
     SUBDIR += py-azure-datalake-store
+    SUBDIR += py-azure-functions-devops-build
     SUBDIR += py-azure-graphrbac
     SUBDIR += py-azure-keyvault
     SUBDIR += py-azure-mgmt-advisor
+    SUBDIR += py-azure-mgmt-apimanagement
+    SUBDIR += py-azure-mgmt-appconfiguration
     SUBDIR += py-azure-mgmt-applicationinsights
     SUBDIR += py-azure-mgmt-authorization
     SUBDIR += py-azure-mgmt-batch
@@ -4177,25 +4177,30 @@
     SUBDIR += py-azure-mgmt-datalake-analytics
     SUBDIR += py-azure-mgmt-datalake-store
     SUBDIR += py-azure-mgmt-datamigration
+    SUBDIR += py-azure-mgmt-deploymentmanager
     SUBDIR += py-azure-mgmt-devtestlabs
     SUBDIR += py-azure-mgmt-dns
     SUBDIR += py-azure-mgmt-eventgrid
     SUBDIR += py-azure-mgmt-eventhub
     SUBDIR += py-azure-mgmt-hdinsight
+    SUBDIR += py-azure-mgmt-imagebuilder
     SUBDIR += py-azure-mgmt-iotcentral
     SUBDIR += py-azure-mgmt-iothub
     SUBDIR += py-azure-mgmt-iothubprovisioningservices
     SUBDIR += py-azure-mgmt-keyvault
     SUBDIR += py-azure-mgmt-kusto
     SUBDIR += py-azure-mgmt-loganalytics
+    SUBDIR += py-azure-mgmt-managedservices
     SUBDIR += py-azure-mgmt-managementgroups
     SUBDIR += py-azure-mgmt-maps
     SUBDIR += py-azure-mgmt-marketplaceordering
     SUBDIR += py-azure-mgmt-media
     SUBDIR += py-azure-mgmt-monitor
     SUBDIR += py-azure-mgmt-msi
+    SUBDIR += py-azure-mgmt-netapp
     SUBDIR += py-azure-mgmt-network
     SUBDIR += py-azure-mgmt-policyinsights
+    SUBDIR += py-azure-mgmt-privatedns
     SUBDIR += py-azure-mgmt-rdbms
     SUBDIR += py-azure-mgmt-recoveryservices
     SUBDIR += py-azure-mgmt-recoveryservicesbackup
@@ -4316,6 +4321,7 @@
     SUBDIR += py-constantly
     SUBDIR += py-construct
     SUBDIR += py-contextlib2
+    SUBDIR += py-convertdate
     SUBDIR += py-cookiecutter
     SUBDIR += py-coreapi
     SUBDIR += py-coreschema
@@ -4398,6 +4404,7 @@
     SUBDIR += py-extremes
     SUBDIR += py-ezpyinline
     SUBDIR += py-fabric
+    SUBDIR += py-fabric1
     SUBDIR += py-fabric3
     SUBDIR += py-fam
     SUBDIR += py-fastcache
@@ -4405,6 +4412,7 @@
     SUBDIR += py-fastentrypoints
     SUBDIR += py-fastimport
     SUBDIR += py-fastnumbers
+    SUBDIR += py-fbprophet
     SUBDIR += py-filemagic
     SUBDIR += py-fileutils
     SUBDIR += py-first
@@ -4493,6 +4501,7 @@
     SUBDIR += py-hghooks
     SUBDIR += py-hgsubversion
     SUBDIR += py-hgtools
+    SUBDIR += py-holidays
     SUBDIR += py-http-prompt
     SUBDIR += py-humanize
     SUBDIR += py-hypothesis
@@ -4594,6 +4603,7 @@
     SUBDIR += py-lazr.uri
     SUBDIR += py-lazy
     SUBDIR += py-lazy-object-proxy
+    SUBDIR += py-libioc
     SUBDIR += py-libiocage
     SUBDIR += py-liblarch
     SUBDIR += py-libpeas
@@ -4618,6 +4628,7 @@
     SUBDIR += py-logilab-common
     SUBDIR += py-logutils
     SUBDIR += py-louie
+    SUBDIR += py-lunardate
     SUBDIR += py-lxml
     SUBDIR += py-macholib
     SUBDIR += py-magic
@@ -5134,6 +5145,7 @@
     SUBDIR += py-virtualenvwrapper
     SUBDIR += py-visitor
     SUBDIR += py-voluptuous
+    SUBDIR += py-vsts
     SUBDIR += py-vsts-cd-manager
     SUBDIR += py-vulture
     SUBDIR += py-wadllib
@@ -5834,8 +5846,10 @@
     SUBDIR += rubygem-grape-swagger
     SUBDIR += rubygem-grape11
     SUBDIR += rubygem-grape_logging
+    SUBDIR += rubygem-grape_logging181
     SUBDIR += rubygem-graphiql-rails
     SUBDIR += rubygem-graphql
+    SUBDIR += rubygem-graphql-docs
     SUBDIR += rubygem-grit
     SUBDIR += rubygem-guess_html_encoding
     SUBDIR += rubygem-gyoku
@@ -6359,7 +6373,6 @@
     SUBDIR += spatialindex
     SUBDIR += spdlog
     SUBDIR += spice-protocol
-    SUBDIR += spin
     SUBDIR += spirv-tools
     SUBDIR += splint
     SUBDIR += spread-sheet-widget

@@ -88,7 +88,6 @@
     SUBDIR += clamav
     SUBDIR += clamav-milter
     SUBDIR += clamav-unofficial-sigs
-    SUBDIR += clamcour
     SUBDIR += clamd-stream-client
     SUBDIR += clamfs
     SUBDIR += clamsmtp
@@ -218,7 +217,6 @@
     SUBDIR += hlfl
     SUBDIR += hmap
     SUBDIR += hockeypuck
-    SUBDIR += honeybadger
     SUBDIR += honggfuzz
     SUBDIR += hotssh
     SUBDIR += hpenc
@@ -1227,6 +1225,7 @@
     SUBDIR += softhsm2
     SUBDIR += sops
     SUBDIR += spass
+    SUBDIR += spass-qt5
     SUBDIR += spike-proxy
     SUBDIR += spybye
     SUBDIR += sqlmap
@@ -1262,6 +1261,7 @@
     SUBDIR += sudoscript
     SUBDIR += super
     SUBDIR += suricata
+    SUBDIR += suricata5
     SUBDIR += swatch
     SUBDIR += switzerland
     SUBDIR += symbion-sslproxy

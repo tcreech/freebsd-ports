@@ -1251,6 +1251,7 @@
     SUBDIR += py-docutils
     SUBDIR += py-docx2txt
     SUBDIR += py-dominate
+    SUBDIR += py-dparse
     SUBDIR += py-dsv
     SUBDIR += py-duecredit
     SUBDIR += py-elasticsearch
@@ -1258,6 +1259,7 @@
     SUBDIR += py-elasticsearch-curator
     SUBDIR += py-elasticsearch-dsl
     SUBDIR += py-elasticsearch5
+    SUBDIR += py-elasticsearch6
     SUBDIR += py-elib.intl
     SUBDIR += py-empy
     SUBDIR += py-enchant
@@ -1281,6 +1283,7 @@
     SUBDIR += py-hypua2jamo
     SUBDIR += py-jaxml
     SUBDIR += py-jsonslicer
+    SUBDIR += py-jsx-lexer
     SUBDIR += py-jtextfsm
     SUBDIR += py-junit-xml
     SUBDIR += py-langdetect
@@ -1296,6 +1299,7 @@
     SUBDIR += py-markdown-math
     SUBDIR += py-markdown2
     SUBDIR += py-markups
+    SUBDIR += py-misaka
     SUBDIR += py-mistune
     SUBDIR += py-mkdocs
     SUBDIR += py-mkdocs-nature
@@ -1307,7 +1311,6 @@
     SUBDIR += py-openpyxl
     SUBDIR += py-openpyxl24
     SUBDIR += py-openstackdocstheme
-    SUBDIR += py-orange3-text
     SUBDIR += py-os-api-ref
     SUBDIR += py-packageurl-python
     SUBDIR += py-pager
@@ -1526,6 +1529,7 @@
     SUBDIR += rubygem-emot
     SUBDIR += rubygem-escape_utils
     SUBDIR += rubygem-escape_utils11
+    SUBDIR += rubygem-extended-markdown-filter
     SUBDIR += rubygem-ezamar
     SUBDIR += rubygem-fast_xs
     SUBDIR += rubygem-ferret
@@ -1554,11 +1558,14 @@
     SUBDIR += rubygem-jekyll-paginate
     SUBDIR += rubygem-jekyll-redirect-from
     SUBDIR += rubygem-jekyll-sass-converter
+    SUBDIR += rubygem-jekyll-sass-converter1
     SUBDIR += rubygem-jekyll-sitemap
     SUBDIR += rubygem-jemoji
     SUBDIR += rubygem-js_regex
     SUBDIR += rubygem-jsmin
     SUBDIR += rubygem-kramdown
+    SUBDIR += rubygem-kramdown-parser-gfm
+    SUBDIR += rubygem-kramdown1
     SUBDIR += rubygem-kwalify
     SUBDIR += rubygem-libxml-ruby
     SUBDIR += rubygem-linguistics
