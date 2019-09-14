@@ -11925,7 +11925,6 @@ x11/py-qt4-opengl||2019-03-16|Has expired: Qt4 has been EOL since december 2015
 x11/qt4-graphicssystems-opengl||2019-03-16|Has expired: Qt4 has been EOL since december 2015
 x11/qt4-inputmethods||2019-03-16|Has expired: Qt4 has been EOL since december 2015
 x11/qxkb||2019-03-16|Has expired: Qt4 has been EOL since december 2015
-x11-fonts/fontmatrix||2019-03-16|Has expired: Qt4 has been EOL since december 2015
 x11-themes/qt4-style-float||2019-03-16|Has expired: Qt4 has been EOL since december 2015
 x11-themes/qt4-style-phase||2019-03-16|Has expired: Qt4 has been EOL since december 2015
 x11-themes/qt4-style-quantumstyle||2019-03-16|Has expired: Qt4 has been EOL since december 2015
@@ -12951,3 +12950,4 @@ x11-wm/pawm||2019-09-05|Has expired: Broken for more than 6 months
 x11-toolkits/p5-Wx||2019-09-07|Has expired: Broken for more than 6 months
 graphics/luxrender14||2019-09-07|Has expired: Depends on expiring graphics/embree, broken with boost 1.70
 graphics/luxrender||2019-09-07|Has expired: Depends on expiring graphics/embree, broken with boost 1.70
+sysutils/libutempter||2019-09-11|Belong to base in all supported version of FreeBSD
