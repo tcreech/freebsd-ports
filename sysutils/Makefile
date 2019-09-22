@@ -777,6 +777,7 @@
     SUBDIR += p5-File-Listing
     SUBDIR += p5-File-Log
     SUBDIR += p5-File-Next
+    SUBDIR += p5-File-Rename
     SUBDIR += p5-File-Signature
     SUBDIR += p5-File-Stat-Bits
     SUBDIR += p5-File-Stat-ModeString
@@ -1031,6 +1032,7 @@
     SUBDIR += py-google-compute-engine
     SUBDIR += py-halite
     SUBDIR += py-hared
+    SUBDIR += py-hcloud
     SUBDIR += py-honcho
     SUBDIR += py-hpilo
     SUBDIR += py-iowait
