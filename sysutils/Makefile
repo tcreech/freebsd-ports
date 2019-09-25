@@ -104,7 +104,6 @@
     SUBDIR += bfs
     SUBDIR += bhyve-firmware
     SUBDIR += bhyve-rc
-    SUBDIR += bibelot
     SUBDIR += biosfont
     SUBDIR += bkpupsd
     SUBDIR += bksh
@@ -631,7 +630,6 @@
     SUBDIR += mac_nonet
     SUBDIR += mac_rtprio
     SUBDIR += magicrescue
-    SUBDIR += makeztxt
     SUBDIR += manck
     SUBDIR += mapchan
     SUBDIR += mapdir
@@ -743,6 +741,7 @@
     SUBDIR += no-login
     SUBDIR += node_exporter
     SUBDIR += nomad
+    SUBDIR += nomad-pot-driver
     SUBDIR += npadmin
     SUBDIR += nq
     SUBDIR += nrg2iso
@@ -1306,6 +1305,7 @@
     SUBDIR += synergy-1
     SUBDIR += sysadm
     SUBDIR += sysadm-client
+    SUBDIR += sysctlinfo-kmod
     SUBDIR += sysgather
     SUBDIR += sysinfo
     SUBDIR += syslinux

@@ -77,6 +77,7 @@
     SUBDIR += R-cran-rstudioapi
     SUBDIR += R-cran-sfsmisc
     SUBDIR += R-cran-sourcetools
+    SUBDIR += R-cran-sys
     SUBDIR += R-cran-testthat
     SUBDIR += R-cran-tibble
     SUBDIR += R-cran-tidyr
@@ -834,6 +835,7 @@
     SUBDIR += glib20-reference
     SUBDIR += glibmm
     SUBDIR += glibmm-reference
+    SUBDIR += gllvm
     SUBDIR += global
     SUBDIR += glog
     SUBDIR += glrparser
@@ -1191,7 +1193,6 @@
     SUBDIR += libdwarf
     SUBDIR += libe
     SUBDIR += libedit
-    SUBDIR += libee
     SUBDIR += libeio
     SUBDIR += libelf
     SUBDIR += libepoll-shim
@@ -1271,7 +1272,6 @@
     SUBDIR += libltdl
     SUBDIR += liblxqt
     SUBDIR += libmaa
-    SUBDIR += libmal
     SUBDIR += libmatheval
     SUBDIR += libmba
     SUBDIR += libmill
