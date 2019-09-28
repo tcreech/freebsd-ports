@@ -899,6 +899,7 @@
     SUBDIR += phybs
     SUBDIR += pick
     SUBDIR += pidof
+    SUBDIR += pies
     SUBDIR += pipemeter
     SUBDIR += plasma-pass
     SUBDIR += plasma5-discover

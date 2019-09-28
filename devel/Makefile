@@ -977,6 +977,7 @@
     SUBDIR += hs-random
     SUBDIR += hs-setlocale
     SUBDIR += hs-shake
+    SUBDIR += hs-spago
     SUBDIR += hs-threadscope
     SUBDIR += hs-transformers-compat
     SUBDIR += hs-unordered-containers
@@ -4869,7 +4870,7 @@
     SUBDIR += py-pyinstaller
     SUBDIR += py-pyjsparser
     SUBDIR += py-pyke
-    SUBDIR += py-pylama 
+    SUBDIR += py-pylama
     SUBDIR += py-pylibsrtp
     SUBDIR += py-pylru
     SUBDIR += py-pylru-cache
@@ -5027,6 +5028,7 @@
     SUBDIR += py-selectors2
     SUBDIR += py-selectors34
     SUBDIR += py-semantic_version
+    SUBDIR += py-semantic_version26
     SUBDIR += py-semver
     SUBDIR += py-serializable
     SUBDIR += py-serpent
@@ -5394,6 +5396,9 @@
     SUBDIR += robodoc
     SUBDIR += root-doc
     SUBDIR += ros-catkin_pkg
+    SUBDIR += ros-console_bridge
+    SUBDIR += ros-urdfdom
+    SUBDIR += ros-urdfdom_headers
     SUBDIR += ros-rosdep
     SUBDIR += ros-rosdistro
     SUBDIR += ros-rosinstall
