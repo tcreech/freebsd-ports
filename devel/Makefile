@@ -50,6 +50,7 @@
     SUBDIR += R-cran-iterators
     SUBDIR += R-cran-itertools
     SUBDIR += R-cran-later
+    SUBDIR += R-cran-lifecycle
     SUBDIR += R-cran-lubridate
     SUBDIR += R-cran-magrittr
     SUBDIR += R-cran-memoise
@@ -1258,6 +1259,7 @@
     SUBDIR += libiqxmlrpc
     SUBDIR += libisofs
     SUBDIR += libixp
+    SUBDIR += libjitterentropy
     SUBDIR += libjson++
     SUBDIR += libk8055
     SUBDIR += libklel
@@ -1551,6 +1553,7 @@
     SUBDIR += mergify
     SUBDIR += meson
     SUBDIR += mill
+    SUBDIR += mimalloc
     SUBDIR += mime
     SUBDIR += mimir
     SUBDIR += mingw32-bin-msvcrt
@@ -1984,6 +1987,7 @@
     SUBDIR += p5-Commands-Guarded
     SUBDIR += p5-CommitBit
     SUBDIR += p5-Compiler-Lexer
+    SUBDIR += p5-Config-AST
     SUBDIR += p5-Config-Any
     SUBDIR += p5-Config-ApacheFormat
     SUBDIR += p5-Config-Auto
@@ -2009,6 +2013,8 @@
     SUBDIR += p5-Config-MySQL
     SUBDIR += p5-Config-Objective
     SUBDIR += p5-Config-Options
+    SUBDIR += p5-Config-Parser
+    SUBDIR += p5-Config-Parser-ldap
     SUBDIR += p5-Config-Perl-V
     SUBDIR += p5-Config-Properties
     SUBDIR += p5-Config-Record
@@ -3889,6 +3895,7 @@
     SUBDIR += pecl-request
     SUBDIR += pecl-swoole
     SUBDIR += pecl-sync
+    SUBDIR += pecl-uploadprogress
     SUBDIR += pecl-uuid
     SUBDIR += pecl-uv
     SUBDIR += pecl-vld
@@ -4391,6 +4398,7 @@
     SUBDIR += py-dis3
     SUBDIR += py-distlib
     SUBDIR += py-distorm
+    SUBDIR += py-dj22-django-rq
     SUBDIR += py-django-rq
     SUBDIR += py-django-rq-dashboard
     SUBDIR += py-django-tastypie-mongoengine
@@ -4789,9 +4797,9 @@
     SUBDIR += py-pip
     SUBDIR += py-pip-api
     SUBDIR += py-pip-tools
-    SUBDIR += py-pip-tools3
     SUBDIR += py-pipdeptree
     SUBDIR += py-pipenv
+    SUBDIR += py-pipreqs
     SUBDIR += py-pkgconfig
     SUBDIR += py-plac
     SUBDIR += py-plan
@@ -5121,6 +5129,7 @@
     SUBDIR += py-traitlets
     SUBDIR += py-traits
     SUBDIR += py-transaction
+    SUBDIR += py-transitions
     SUBDIR += py-tree-format
     SUBDIR += py-trollius
     SUBDIR += py-ttystatus
@@ -5202,9 +5211,11 @@
     SUBDIR += py-xxhash
     SUBDIR += py-yaml
     SUBDIR += py-yamllint
+    SUBDIR += py-yamlordereddictloader
     SUBDIR += py-yandex-money-sdk
     SUBDIR += py-yappi
     SUBDIR += py-yapps2
+    SUBDIR += py-yarg
     SUBDIR += py-yattag
     SUBDIR += py-ydbf
     SUBDIR += py-yg.lockfile
@@ -5706,6 +5717,7 @@
     SUBDIR += rubygem-chef-provisioning
     SUBDIR += rubygem-cheffish
     SUBDIR += rubygem-childprocess
+    SUBDIR += rubygem-childprocess2
     SUBDIR += rubygem-chronic
     SUBDIR += rubygem-chronic_duration
     SUBDIR += rubygem-clamp
@@ -5740,6 +5752,7 @@
     SUBDIR += rubygem-cookbook-omnifetch
     SUBDIR += rubygem-cool.io
     SUBDIR += rubygem-corefines
+    SUBDIR += rubygem-countries
     SUBDIR += rubygem-crack
     SUBDIR += rubygem-cri
     SUBDIR += rubygem-cucumber
@@ -5800,6 +5813,7 @@
     SUBDIR += rubygem-extras
     SUBDIR += rubygem-facets
     SUBDIR += rubygem-faker
+    SUBDIR += rubygem-faraday_middleware-aws-signers-v4
     SUBDIR += rubygem-faraday_middleware-multi_json
     SUBDIR += rubygem-fast-stemmer
     SUBDIR += rubygem-fast_blank
@@ -5864,8 +5878,11 @@
     SUBDIR += rubygem-github_api
     SUBDIR += rubygem-gitlab-default_value_for
     SUBDIR += rubygem-gitlab-labkit
+    SUBDIR += rubygem-gitlab-license
+    SUBDIR += rubygem-gitlab-peek-rails52
     SUBDIR += rubygem-gitlab-pygments.rb
     SUBDIR += rubygem-gitlab-sidekiq-fetcher
+    SUBDIR += rubygem-gitlab_chronic_duration
     SUBDIR += rubygem-gitlab_git
     SUBDIR += rubygem-gitlab_meta
     SUBDIR += rubygem-glib2
@@ -5884,7 +5901,6 @@
     SUBDIR += rubygem-grape-swagger
     SUBDIR += rubygem-grape11
     SUBDIR += rubygem-grape_logging
-    SUBDIR += rubygem-grape_logging181
     SUBDIR += rubygem-graphiql-rails
     SUBDIR += rubygem-graphql
     SUBDIR += rubygem-graphql-docs
@@ -5910,6 +5926,7 @@
     SUBDIR += rubygem-holidays
     SUBDIR += rubygem-http_accept_language
     SUBDIR += rubygem-i18n
+    SUBDIR += rubygem-i18n_data
     SUBDIR += rubygem-icalendar
     SUBDIR += rubygem-ice_cube
     SUBDIR += rubygem-ice_nine
@@ -6220,7 +6237,7 @@
     SUBDIR += rubygem-sprockets
     SUBDIR += rubygem-sprockets-es6
     SUBDIR += rubygem-sprockets-helpers
-    SUBDIR += rubygem-sprockets-rails
+    SUBDIR += rubygem-sprockets-rails-rails4
     SUBDIR += rubygem-sprockets-rails-rails5
     SUBDIR += rubygem-sprockets-rails-rails50
     SUBDIR += rubygem-sprockets-rails-rails52
@@ -6284,6 +6301,7 @@
     SUBDIR += rubygem-tty-editor
     SUBDIR += rubygem-tty-file
     SUBDIR += rubygem-tty-font
+    SUBDIR += rubygem-tty-logger
     SUBDIR += rubygem-tty-markdown
     SUBDIR += rubygem-tty-pager
     SUBDIR += rubygem-tty-pie
@@ -6304,6 +6322,7 @@
     SUBDIR += rubygem-unicode
     SUBDIR += rubygem-unicode-display_width
     SUBDIR += rubygem-unicode_utils
+    SUBDIR += rubygem-unleash
     SUBDIR += rubygem-useragent
     SUBDIR += rubygem-uuid
     SUBDIR += rubygem-uuidtools
