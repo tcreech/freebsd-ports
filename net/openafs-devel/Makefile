@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	openafs-devel
-DISTVERSION=	g20190913.${DBVERSION:S/-//g}
+DISTVERSION=	g20191008.${DBVERSION:S/-//g}
 CATEGORIES=	net
 DISTFILES=	CellServDB.${DBVERSION}:gco
 MASTER_SITES= GH \
@@ -9,7 +9,7 @@ MASTER_SITES= GH \
 		http://grand.central.org/dl/cellservdb/:gco
 
 USE_GITHUB=	yes
-GH_TAGNAME=	3be5880d1d2a0aef6600047ed43d602949cd5f4d
+GH_TAGNAME=	860cbec815d61db2d82870290652a3bc7471b8e3
 GH_ACCOUNT=	openafs
 GH_PROJECT=	openafs
 
