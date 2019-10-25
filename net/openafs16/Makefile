@@ -25,7 +25,7 @@ LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 #BROKEN=		fails to build
 ONLY_FOR_ARCHS=	i386 amd64
 
-AFS_DISTVERSION=	1.6.23
+AFS_DISTVERSION=	1.6.24
 DBVERSION=	2018-05-14
 
 USES=		cpe kmod tar:bzip2
