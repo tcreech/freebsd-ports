@@ -5,14 +5,12 @@ PORTNAME=	WinFF
 PORTVERSION=	1.5.5
 PORTREVISION=	15
 CATEGORIES=	multimedia
-MASTER_SITES=	http://winff.org/docs/source/
+MASTER_SITES=	LOCAL/thierry
 PKGNAMESUFFIX=	${LAZARUS_PKGNAMESUFFIX}
 DISTNAME=	${_PORTNAME}-${PORTVERSION}-source
 
 MAINTAINER=	thierry@FreeBSD.org
 COMMENT=	Convert your videos quickly, easily, and all at once
-
-BROKEN=		unfetchable
 
 LICENSE=	GPLv3
 
@@ -41,6 +39,7 @@ LAZBUILD_ARGS=		-d
 BUILD_WRKSRC=	${WRKDIR}/${PKGNAME}/${_PORTNAME}
 
 .if ${FLAVOR:Ugtk2:Mgtk2}
+USES+=		gnome
 USE_FPC+=	cairo
 USE_GNOME+=	cairo
 INSTALLS_ICONS=yes

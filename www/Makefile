@@ -253,6 +253,7 @@
     SUBDIR += httpasyncclient
     SUBDIR += httpclient
     SUBDIR += httpcore
+    SUBDIR += httpdirfs
     SUBDIR += httptunnel
     SUBDIR += httrack
     SUBDIR += hypermail
@@ -1903,6 +1904,7 @@
     SUBDIR += radicale2
     SUBDIR += red5
     SUBDIR += redmine
+    SUBDIR += redmine4
     SUBDIR += redmine-a_common_libs
     SUBDIR += redmine-basecamp
     SUBDIR += redmine-default_assign
