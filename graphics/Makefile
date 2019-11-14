@@ -866,6 +866,7 @@
     SUBDIR += py-pyproj
     SUBDIR += py-pyqrcode
     SUBDIR += py-pyqtgraph
+    SUBDIR += py-pyrsgis
     SUBDIR += py-python-poppler-qt5
     SUBDIR += py-pyvips
     SUBDIR += py-qt5-svg
@@ -881,6 +882,7 @@
     SUBDIR += py-termtosvg
     SUBDIR += py-toyplot
     SUBDIR += py-traitsui
+    SUBDIR += py-visvis
     SUBDIR += py-wand
     SUBDIR += py-webcolors
     SUBDIR += py-willow
