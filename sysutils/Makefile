@@ -1310,6 +1310,7 @@
     SUBDIR += topless
     SUBDIR += torque
     SUBDIR += toshctl
+    SUBDIR += toybox
     SUBDIR += tracker
     SUBDIR += tracker-miners
     SUBDIR += tree
