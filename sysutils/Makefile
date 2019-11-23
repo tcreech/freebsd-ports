@@ -381,6 +381,7 @@
     SUBDIR += fusefs-gstfs
     SUBDIR += fusefs-gunzip
     SUBDIR += fusefs-hfsfuse
+    SUBDIR += fusefs-httpdirfs
     SUBDIR += fusefs-httpfs
     SUBDIR += fusefs-ifuse
     SUBDIR += fusefs-jmtpfs
