@@ -2522,7 +2522,6 @@ www/mediawiki115||2011-09-03|Unsupported upstream
 www/p5-Catalyst-Plugin-Authentication-Store-DBIC||2011-09-03|Use p5-Catalyst-Authentication-Store-DBIx-Class instead
 net/uproxy||2011-09-04|Master site disappeared, abandonware
 x11/ebuttons||2011-09-05|Has expired: Website has disappeared
-cad/oregano||2011-09-05|Has expired: Website has disappeared
 devel/jakelib2||2011-09-05|Has expired: Website has disappeared
 x11-wm/epiwm||2011-09-07|Has expired: Abandonware
 x11-toolkits/p5-GdkPixbuf||2011-09-07|Has expired: Disappear from CPAN
@@ -13468,7 +13467,6 @@ devel/powerpc64-binutils|devel/binutils@powerpc64|2019-11-05|Moved to a flavored
 devel/riscv64-binutils|devel/binutils@riscv64|2019-11-05|Moved to a flavored version
 devel/s390x-binutils|devel/binutils@s390x|2019-11-05|Moved to a flavored version
 devel/sparc64-binutils|devel/binutils@sparc64|2019-11-05|Moved to a flavored version
-devel/xtoolchain-llvm-devel|devel/llvm-devel|2019-11-15|Subsumed into devel/llvm-devel
 mail/opensmtpd-extras-filter-clamav||2019-11-15| Deprecated upstream
 mail/opensmtpd-extras-filter-dkim||2019-11-15| Deprecated upstream
 mail/opensmtpd-extras-filter-dnsbl||2019-11-15| Deprecated upstream
