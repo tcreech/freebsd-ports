@@ -547,6 +547,7 @@
     SUBDIR += jvmtop
     SUBDIR += jx
     SUBDIR += k3b
+    SUBDIR += k4dirstat
     SUBDIR += k8temp
     SUBDIR += kbackup
     SUBDIR += kcron
@@ -554,7 +555,6 @@
     SUBDIR += kdebugsettings
     SUBDIR += kdf
     SUBDIR += kdialog
-    SUBDIR += kdirstat
     SUBDIR += keyboard-daemon
     SUBDIR += kf5-baloo
     SUBDIR += kf5-kwallet
