@@ -21,10 +21,11 @@ RUN_DEPENDS=	gsettings-desktop-schemas>0:devel/gsettings-desktop-schemas
 
 USES=		cargo compiler:c11 gettext-tools gnome meson pkgconfig
 USE_GITLAB=	yes
-USE_GNOME=	cairo gtk30
+USE_GNOME=	cairo gdkpixbuf2 gtk30
 GL_SITE=	https://source.puri.sm
 GL_ACCOUNT=	Librem5
 GL_COMMIT=	579ba8ab87f395c550eede40922b498feb245300
+MAKE_ENV=	${CARGO_ENV}
 PLIST_FILES=	bin/${PORTNAME} \
 		bin/${PORTNAME}-real \
 		share/applications/sm.puri.Squeekboard.desktop
@@ -73,28 +74,17 @@ CARGO_CRATES=	aho-corasick-0.7.6 \
 		winapi-x86_64-pc-windows-gnu-0.4.0 \
 		xkbcommon-0.4.0 \
 		yaml-rust-0.4.3
+CARGO_BUILD=	no
+CARGO_INSTALL=	no
+CARGO_TEST=	no
 
 post-patch:
-# Pass USES=cargo environment to USES=meson
 # Add --verbose after each cargo subcommand
 # Don't use BSD realpath(1) against non-existing files
 	@${REINPLACE_CMD} -e '/^cargo/ { \
-		  s,^,cmd=$$1;shift;${CARGO_ENV:N*TARGET_DIR*} ,; \
+		  s,^,cmd=$$1; shift; ,; \
 		  s,"$$@","$$cmd" --verbose &,; }' \
 		-e '/OUT_PATH=/s,=.*,=$$PWD/$$1,' \
 		${WRKSRC}/cargo*.sh
-
-post-configure:
-# Run USES=meson after USES=cargo configures vendoring
-	@(cd ${CONFIGURE_WRKSRC} && ${SETENV} \
-		${MAKE_ENV} ${CONFIGURE_CMD} ${CONFIGURE_ARGS})
-
-# Let USES=meson handle the rest
-do-build:
-	@${DO_MAKE_BUILD} -C${BUILD_WRKSRC} ${ALL_TARGET}
-do-install:
-	@${DO_MAKE_BUILD} -C${INSTALL_WRKSRC} ${INSTALL_TARGET}
-do-test:
-	@${DO_MAKE_BUILD} -C${TEST_WRKSRC} ${TEST_TARGET}
 
 .include <bsd.port.mk>
