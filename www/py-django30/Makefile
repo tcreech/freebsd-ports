@@ -2,12 +2,12 @@
 # $FreeBSD$
 
 PORTNAME=	django
-PORTVERSION=	2.1.15
+PORTVERSION=	3.0
 CATEGORIES=	www python
 MASTER_SITES=	CHEESESHOP \
 		https://www.djangoproject.com/m/releases/${PORTVERSION}/
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
-PKGNAMESUFFIX=	21
+PKGNAMESUFFIX=	30
 DISTNAME=	Django-${PORTVERSION}
 DIST_SUBDIR=	python
 
@@ -17,16 +17,19 @@ COMMENT=	High-level Python Web Framework
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}pytz>0:devel/py-pytz@${PY_FLAVOR}
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}pytz>0:devel/py-pytz@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}asgiref>0:www/py-asgiref@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}sqlparse>=0:databases/py-sqlparse@${PY_FLAVOR}
+TEST_DEPENDS=	${PYTHON_PKGNAMEPREFIX}tblib>0:devel/py-tblib@${PY_FLAVOR}
 
 NO_ARCH=	yes
-USES=		cpe python:3.5+ shebangfix
+USES=		cpe python:3.6+ shebangfix
 USE_PYTHON=	autoplist distutils
 SHEBANG_FILES=	django/bin/django-admin.py \
 		django/conf/project_template/manage.py-tpl
 
-CONFLICTS_INSTALL=	${PYTHON_PKGNAMEPREFIX}django111 ${PYTHON_PKGNAMEPREFIX}django22 \
-			${PYTHON_PKGNAMEPREFIX}django30
+CONFLICTS_INSTALL=	${PYTHON_PKGNAMEPREFIX}django111 ${PYTHON_PKGNAMEPREFIX}django21 \
+			${PYTHON_PKGNAMEPREFIX}django22
 CPE_VENDOR=		djangoproject
 
 DOCSDIR=		${PREFIX}/share/doc/py-django
@@ -61,5 +64,8 @@ post-install:
 post-install-HTMLDOCS-on:
 	${MKDIR} ${STAGEDIR}/${DOCSDIR}
 	${CP} -R ${WRKSRC}/docs/_build/html ${STAGEDIR}/${DOCSDIR}
+
+do-test:
+	@cd ${WRKSRC} && ${PYTHON_CMD} tests/runtests.py --settings=test_sqlite
 
 .include <bsd.port.mk>
