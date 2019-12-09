@@ -1422,6 +1422,7 @@
     SUBDIR += vii
     SUBDIR += vils
     SUBDIR += vimpager
+    SUBDIR += virt-what
     SUBDIR += virtualmin
     SUBDIR += vm-bhyve
     SUBDIR += vmdktool
