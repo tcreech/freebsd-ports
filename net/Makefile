@@ -1413,6 +1413,7 @@
     SUBDIR += ssspl
     SUBDIR += ssvnc
     SUBDIR += stone
+    SUBDIR += storj
     SUBDIR += stund
     SUBDIR += subnetcalc
     SUBDIR += suckblow
