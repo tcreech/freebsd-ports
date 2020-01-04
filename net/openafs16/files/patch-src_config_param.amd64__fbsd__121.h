@@ -1,6 +1,6 @@
 --- /dev/null
 +++ src/config/param.amd64_fbsd_121.h
-@@ -0,0 +1,225 @@
+@@ -0,0 +1,228 @@
 +#ifndef	AFS_PARAM_H
 +#define	AFS_PARAM_H
 +

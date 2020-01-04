@@ -1,6 +1,6 @@
 --- /dev/null
 +++ src/config/param.i386_fbsd_121.h
-@@ -0,0 +1,221 @@
+@@ -0,0 +1,226 @@
 +#ifndef	AFS_PARAM_H
 +#define	AFS_PARAM_H
 +
