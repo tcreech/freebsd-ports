@@ -26,6 +26,7 @@
     SUBDIR += R-cran-gridBase
     SUBDIR += R-cran-gridExtra
     SUBDIR += R-cran-munsell
+    SUBDIR += R-cran-pROC
     SUBDIR += R-cran-pixmap
     SUBDIR += R-cran-png
     SUBDIR += R-cran-qcc
@@ -66,6 +67,7 @@
     SUBDIR += barcode
     SUBDIR += batik
     SUBDIR += bitmap
+    SUBDIR += blend2d
     SUBDIR += blender
     SUBDIR += blender-doc
     SUBDIR += bmeps
@@ -73,7 +75,6 @@
     SUBDIR += box
     SUBDIR += boxer
     SUBDIR += bsd-plotutils
-    SUBDIR += bugle
     SUBDIR += c-a-i-r
     SUBDIR += cadubi
     SUBDIR += caffe
@@ -421,6 +422,7 @@
     SUBDIR += libafterimage
     SUBDIR += libansilove
     SUBDIR += libart_lgpl
+    SUBDIR += libavif
     SUBDIR += libboard
     SUBDIR += libbpg
     SUBDIR += libcaca
@@ -523,7 +525,6 @@
     SUBDIR += maim
     SUBDIR += mandelbulber
     SUBDIR += mapcache
-    SUBDIR += mapnik
     SUBDIR += mapserver
     SUBDIR += mapyrus
     SUBDIR += megapov
@@ -840,7 +841,7 @@
     SUBDIR += py-paint
     SUBDIR += py-photocollage
     SUBDIR += py-pillow
-    SUBDIR += py-pivy-devel
+    SUBDIR += py-pivy
     SUBDIR += py-plotly
     SUBDIR += py-png
     SUBDIR += py-poppler
@@ -952,6 +953,7 @@
     SUBDIR += rubygem-rsvg2
     SUBDIR += rubygem-ruby-graphviz
     SUBDIR += rubygem-scruffy
+    SUBDIR += rx
     SUBDIR += s10sh
     SUBDIR += s2tc
     SUBDIR += sage
@@ -1040,6 +1042,7 @@
     SUBDIR += vkd3d
     SUBDIR += volpack
     SUBDIR += vp
+    SUBDIR += vpaint
     SUBDIR += vulkan-loader
     SUBDIR += vv
     SUBDIR += waffle

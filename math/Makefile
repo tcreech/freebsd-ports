@@ -211,7 +211,6 @@
     SUBDIR += djbfft
     SUBDIR += drgeo
     SUBDIR += dsdp
-    SUBDIR += dynare
     SUBDIR += e
     SUBDIR += ecos
     SUBDIR += edenmath
@@ -404,6 +403,7 @@
     SUBDIR += octave
     SUBDIR += octave-forge
     SUBDIR += octave-forge-actuarial
+    SUBDIR += octave-forge-audio
     SUBDIR += octave-forge-base
     SUBDIR += octave-forge-bim
     SUBDIR += octave-forge-bioinfo
@@ -672,6 +672,7 @@
     SUBDIR += ploticus-nox11
     SUBDIR += plplot
     SUBDIR += plplot-ada
+    SUBDIR += poly2tri
     SUBDIR += polylib
     SUBDIR += primegen
     SUBDIR += primesieve
