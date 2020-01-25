@@ -997,6 +997,7 @@
     SUBDIR += poptop
     SUBDIR += portfwd
     SUBDIR += pptpclient
+    SUBDIR += proby
     SUBDIR += proftpd-mod_ldap
     SUBDIR += prosearch
     SUBDIR += proxy-connect
