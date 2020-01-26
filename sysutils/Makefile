@@ -1284,6 +1284,7 @@
     SUBDIR += tclsyslog
     SUBDIR += tcplist
     SUBDIR += tdir
+    SUBDIR += tealdeer
     SUBDIR += tenshi
     SUBDIR += tentakel
     SUBDIR += terraform
