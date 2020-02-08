@@ -4587,7 +4587,7 @@
     SUBDIR += py-mdv
     SUBDIR += py-medikit
     SUBDIR += py-meliae
-    SUBDIR += py-memory_profiler
+    SUBDIR += py-memory-profiler
     SUBDIR += py-microversion_parse
     SUBDIR += py-minimongo
     SUBDIR += py-minio
@@ -4669,6 +4669,7 @@
     SUBDIR += py-oslo.limit
     SUBDIR += py-oslo.log
     SUBDIR += py-oslo.messaging
+    SUBDIR += py-oslo.messaging10
     SUBDIR += py-oslo.middleware
     SUBDIR += py-oslo.policy
     SUBDIR += py-oslo.privsep
@@ -5047,6 +5048,7 @@
     SUBDIR += py-timelib
     SUBDIR += py-tinyarray
     SUBDIR += py-tinyrpc
+    SUBDIR += py-tinyrpc0
     SUBDIR += py-tipper
     SUBDIR += py-tokenize-rt
     SUBDIR += py-toolz
