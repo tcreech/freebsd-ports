@@ -2,10 +2,11 @@
 # $FreeBSD$
 
 PORTNAME=	python-cinderclient
-PORTVERSION=	6.0.0
+PORTVERSION=	5.0.0
 CATEGORIES=	net python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+PKGNAMESUFFIX=	5
 
 MAINTAINER=	sunpoet@FreeBSD.org
 COMMENT=	OpenStack Block Storage API Client Library
@@ -24,10 +25,12 @@ RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}Babel>=2.3.4:devel/py-babel@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}simplejson>=3.5.1:devel/py-simplejson@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}six>=1.10.0:devel/py-six@${PY_FLAVOR}
 
-USES=		python:3.6+ shebangfix
+USES=		python shebangfix
 USE_PYTHON=	autoplist concurrent distutils
 
 NO_ARCH=	yes
+
+PORTSCOUT=	limit:^5\.
 
 SHEBANG_GLOB=	*.sh
 
