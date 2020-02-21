@@ -1,22 +1,20 @@
 # Created by: Po-Chuan Hsieh <sunpoet@FreeBSD.org>
 # $FreeBSD$
 
-PORTNAME=	dask
-PORTVERSION=	2.11.0
-CATEGORIES=	devel python
+PORTNAME=	partd
+PORTVERSION=	1.1.0
+CATEGORIES=	databases python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
 MAINTAINER=	sunpoet@FreeBSD.org
-COMMENT=	Parallel PyData with Task Scheduling
+COMMENT=	Appendable key-value storage
 
 LICENSE=	BSD4CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
-TEST_DEPENDS=	${PYTHON_PKGNAMEPREFIX}pytest>=0:devel/py-pytest@${PY_FLAVOR}
-
-USES=		python:3.6+
-USE_PYTHON=	autoplist distutils
+USES=		python:3.5+
+USE_PYTHON=	autoplist concurrent distutils
 
 NO_ARCH=	yes
 
