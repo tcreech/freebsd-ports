@@ -277,6 +277,7 @@
     SUBDIR += dtc
     SUBDIR += dtpstree
     SUBDIR += du2ps
+    SUBDIR += dua-cli
     SUBDIR += duff
     SUBDIR += dunst
     SUBDIR += dupd

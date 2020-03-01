@@ -66,6 +66,7 @@
     SUBDIR += barbecue
     SUBDIR += barcode
     SUBDIR += batik
+    SUBDIR += birdfont
     SUBDIR += bitmap
     SUBDIR += blend2d
     SUBDIR += blender
@@ -695,6 +696,7 @@
     SUBDIR += p5-ming
     SUBDIR += panoglview
     SUBDIR += panomatic
+    SUBDIR += pastel
     SUBDIR += pcl-pointclouds
     SUBDIR += pdf2svg
     SUBDIR += pdfpc
