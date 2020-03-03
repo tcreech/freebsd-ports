@@ -1,10 +1,9 @@
---- /dev/null
+--- src/config/param.amd64_fbsd_111.h.orig	2020-02-21 20:17:12 UTC
 +++ src/config/param.amd64_fbsd_111.h
-@@ -0,0 +1,89 @@
-+#ifndef	AFS_PARAM_H
-+#define	AFS_PARAM_H
-+
-+/* Machine / Operating system information */
+@@ -2,6 +2,95 @@
+ #define	AFS_PARAM_H
+ 
+ /* Machine / Operating system information */
 +/* XXX temporarily use old sysname until new one is assigned */
 +#define SYS_NAME	"amd64_fbsd_110"
 +#define SYS_NAME_ID	SYS_NAME_ID_amd64_fbsd_110
@@ -90,3 +89,10 @@
 +#endif /* !defined(UKERNEL) */
 +
 +#endif /* AFS_PARAM_H */
++#ifndef	AFS_PARAM_H
++#define	AFS_PARAM_H
++
++/* Machine / Operating system information */
+ #define SYS_NAME	"amd64_fbsd_111"
+ #define SYS_NAME_ID	SYS_NAME_ID_amd64_fbsd_111
+ 

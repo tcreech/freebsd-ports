@@ -1,6 +1,6 @@
---- src/afs/FBSD/osi_vnodeops.c.orig	2018-04-06 01:21:12 UTC
+--- src/afs/FBSD/osi_vnodeops.c.orig	2020-02-21 20:17:12 UTC
 +++ src/afs/FBSD/osi_vnodeops.c
-@@ -61,6 +61,9 @@
+@@ -61,16 +61,19 @@
  #include <vm/vm_object.h>
  #include <vm/vm_pager.h>
  #include <vm/vnode_pager.h>
@@ -9,8 +9,6 @@
 +#endif
  extern int afs_pbuf_freecnt;
  
- #ifdef AFS_FBSD60_ENV
-@@ -226,11 +229,11 @@ struct vnodeopv_desc afs_vnodeop_opv_desc =
  #define GETNAME()       \
      struct componentname *cnp = ap->a_cnp; \
      char *name; \
@@ -24,46 +22,21 @@
  
  /*
   * Here we define compatibility functions/macros for interfaces that
-@@ -258,12 +261,15 @@ static __inline void ma_vm_page_unlock(vm_page_t m) {}
- #define MA_VOP_UNLOCK(vp, flags, p) (VOP_UNLOCK(vp, flags, p))
- #endif
+@@ -85,8 +88,13 @@ static __inline void ma_vm_page_unlock(vm_page_t m) { 
+ #define MA_VOP_LOCK(vp, flags, p) (VOP_LOCK(vp, flags))
+ #define MA_VOP_UNLOCK(vp, flags, p) (VOP_UNLOCK(vp, flags))
  
--#if defined(AFS_FBSD70_ENV)
--#define MA_PCPU_INC(c) PCPU_INC(c)
--#define	MA_PCPU_ADD(c, n) PCPU_ADD(c, n)
 +#if defined(AFS_FBSD120_ENV)
 +#define MA_PCPU_INC(c) VM_CNT_INC(c)
 +#define	MA_PCPU_ADD(c, n) VM_CNT_ADD(c, n)
-+#elif defined(AFS_FBSD70_ENV)
-+#define MA_PCPU_INC(c) PCPU_INC(cnt.c)
-+#define	MA_PCPU_ADD(c, n) PCPU_ADD(cnt.c, n)
- #else
--#define MA_PCPU_INC(c) PCPU_LAZY_INC(c)
--#define	MA_PCPU_ADD(c, n) (c) += (n)
-+#define MA_PCPU_INC(c) PCPU_LAZY_INC(cnt.##c)
-+#define	MA_PCPU_ADD(c, n) (cnt.##c) += (n)
- #endif
++#else
+ #define MA_PCPU_INC(c) PCPU_INC(c)
+ #define	MA_PCPU_ADD(c, n) PCPU_ADD(c, n)
++#endif /* AFS_FBSD120_ENV */
  
  #if __FreeBSD_version >= 1000030
-@@ -336,17 +342,12 @@ afs_vop_unlock(ap)
-     int code = 0;
-     u_int op;
-     op = ((ap->a_flags) | LK_RELEASE) & LK_TYPE_MASK;
--    int glocked = ISAFS_GLOCK();
--    if (glocked)
--	AFS_GUNLOCK();
-     if ((op & (op - 1)) != 0) {
-       afs_warn("afs_vop_unlock: Shit.\n");
-       goto done;
-     }
-     code = lockmgr(lkp, ap->a_flags | LK_RELEASE, VI_MTX(vp));
-  done:
--    if (glocked)
--	AFS_GLOCK();
-     return(code);
- #else
-     /* possibly in current code path where this
-@@ -395,7 +396,7 @@ afs_vop_pathconf(struct vop_pathconf_args *ap)
+ #define AFS_VM_OBJECT_WLOCK(o)	VM_OBJECT_WLOCK(o)
+@@ -110,7 +118,7 @@ afs_vop_pathconf(struct vop_pathconf_args *ap)
  	error = 0;
  	switch (ap->a_name) {
  	case _PC_LINK_MAX:
@@ -72,33 +45,7 @@
  		break;
  	case _PC_NAME_MAX:
  		*ap->a_retval = NAME_MAX;
-@@ -543,16 +544,21 @@ afs_vop_lookup(ap)
- 	ma_vn_lock(vp, LK_EXCLUSIVE | LK_RETRY, p);
- 	ma_vn_lock(dvp, LK_EXCLUSIVE | LK_RETRY, p);
- 	/* always return the child locked */
-+#ifndef AFS_FBSD70_ENV
- 	if (lockparent && (flags & ISLASTCN)
- 	    && (error = ma_vn_lock(dvp, LK_EXCLUSIVE, p))) {
- 	    vput(vp);
- 	    DROPNAME();
- 	    return (error);
- 	}
--    } else if (vp == dvp) {
--	/* they're the same; afs_lookup() already ref'ed the leaf.
--	 * It came in locked, so we don't need to ref OR lock it */
--    } else {
-+#endif
-+    } else if (vp != dvp) {
-+	/* If they were the same, afs_lookup() already ref'ed the leaf.  It
-+	 * came in locked, so we didn't need to ref OR lock it.  Otherwise,
-+	 * lock dvp and vp according to flags. */
-+
-+	/* For older FreeBSD, leave the parent locked if
-+	 * both LOCKPARENT and ISLASTCN. */
- 	if (!lockparent || !(flags & ISLASTCN)) {
- #ifndef AFS_FBSD70_ENV /* 6 too? */
- 	    MA_VOP_UNLOCK(dvp, 0, p);	/* done with parent. */
-@@ -862,8 +868,8 @@ afs_vop_getpages(struct vop_getpages_args *ap)
+@@ -534,8 +542,8 @@ afs_vop_getpages(struct vop_getpages_args *ap)
  
      kva = (vm_offset_t) bp->b_data;
      pmap_qenter(kva, pages, npages);
@@ -109,7 +56,7 @@
  
  #ifdef FBSD_VOP_GETPAGES_BUSIED
      count = ctob(npages);
-@@ -1045,8 +1051,8 @@ afs_vop_putpages(struct vop_putpages_args *ap)
+@@ -709,8 +717,8 @@ afs_vop_putpages(struct vop_putpages_args *ap)
  
      kva = (vm_offset_t) bp->b_data;
      pmap_qenter(kva, ap->a_m, npages);
@@ -120,7 +67,7 @@
  
      iov.iov_base = (caddr_t) kva;
      iov.iov_len = ap->a_count;
-@@ -1276,10 +1282,10 @@ afs_vop_rename(ap)
+@@ -927,10 +935,10 @@ afs_vop_rename(ap)
      if ((error = ma_vn_lock(fvp, LK_EXCLUSIVE, p)) != 0)
  	goto abortit;
  
@@ -133,7 +80,7 @@
      memcpy(tname, tcnp->cn_nameptr, tcnp->cn_namelen);
      tname[tcnp->cn_namelen] = '\0';
  
-@@ -1290,8 +1296,8 @@ afs_vop_rename(ap)
+@@ -941,8 +949,8 @@ afs_vop_rename(ap)
  	afs_rename(VTOAFS(fdvp), fname, VTOAFS(tdvp), tname, tcnp->cn_cred);
      AFS_GUNLOCK();
  
@@ -144,7 +91,7 @@
      if (tdvp == tvp)
  	vrele(tdvp);
      else
-@@ -1434,8 +1440,7 @@ afs_vop_readdir(ap)
+@@ -1082,8 +1090,7 @@ afs_vop_readdir(ap)
  	     dp = (const struct dirent *)((const char *)dp + dp->d_reclen))
  	    ncookies++;
  

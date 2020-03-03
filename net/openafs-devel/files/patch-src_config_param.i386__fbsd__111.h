@@ -1,10 +1,9 @@
---- /dev/null
+--- src/config/param.i386_fbsd_111.h.orig	2020-02-21 20:17:12 UTC
 +++ src/config/param.i386_fbsd_111.h
-@@ -0,0 +1,96 @@
-+#ifndef	AFS_PARAM_H
-+#define	AFS_PARAM_H
-+
-+/* Machine / Operating system information */
+@@ -2,6 +2,102 @@
+ #define	AFS_PARAM_H
+ 
+ /* Machine / Operating system information */
 +/* XXX temporarily use old sysname until new one is assigned */
 +#define SYS_NAME	"i386_fbsd_110"
 +#define SYS_NAME_ID	SYS_NAME_ID_i386_fbsd_110
@@ -97,3 +96,10 @@
 +#endif /* !defined(UKERNEL) */
 +
 +#endif /* AFS_PARAM_H */
++#ifndef	AFS_PARAM_H
++#define	AFS_PARAM_H
++
++/* Machine / Operating system information */
+ #define SYS_NAME	"i386_fbsd_111"
+ #define SYS_NAME_ID	SYS_NAME_ID_i386_fbsd_111
+ 

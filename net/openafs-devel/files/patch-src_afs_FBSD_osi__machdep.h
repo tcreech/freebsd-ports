@@ -1,4 +1,4 @@
---- src/afs/FBSD/osi_machdep.h.orig	2016-12-08 04:01:51 UTC
+--- src/afs/FBSD/osi_machdep.h.orig	2020-02-21 20:17:12 UTC
 +++ src/afs/FBSD/osi_machdep.h
 @@ -22,6 +22,9 @@
  #include <sys/lock.h>
@@ -8,9 +8,9 @@
 +#include <sys/lock.h>
 +#include <sys/sx.h>
  #include <sys/vnode.h>
- #if defined(AFS_FBSD80_ENV)
  #include <sys/priv.h>
-@@ -115,31 +118,31 @@ extern void osi_fbsd_free(void *p);
+ 
+@@ -97,31 +100,31 @@ extern void osi_fbsd_free(void *p);
  #define simple_unlock(x) mtx_unlock(x)
  #define        gop_rdwr(rw,gp,base,len,offset,segflg,unit,cred,aresid) \
    vn_rdwr((rw),(gp),(base),(len),(offset),(segflg),(unit),(cred),(cred),(aresid), curthread)
@@ -35,7 +35,7 @@
      } while (0)
 -#define ISAFS_GLOCK() (mtx_owned(&afs_global_mtx))
 +#define ISAFS_GLOCK() (sx_xlocked(&afs_global_sx))
- # if defined(AFS_FBSD80_ENV) && defined(WITNESS)
+ # ifdef WITNESS
  #  define osi_InitGlock() \
  	do { \
 -	    memset(&afs_global_mtx, 0, sizeof(struct mtx)); \

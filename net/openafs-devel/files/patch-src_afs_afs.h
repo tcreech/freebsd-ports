@@ -1,6 +1,6 @@
---- src/afs/afs.h.orig	2016-12-08 04:01:51 UTC
+--- src/afs/afs.h.orig	2020-02-21 20:17:12 UTC
 +++ src/afs/afs.h
-@@ -1609,8 +1609,10 @@ typedef struct afs_event {
+@@ -1611,8 +1611,10 @@ typedef struct afs_event {
      thread_t owner;
  # endif
      /* no cond member */

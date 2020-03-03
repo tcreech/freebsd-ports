@@ -1,36 +1,42 @@
---- src/afs/FBSD/osi_vfsops.c.orig	2018-04-06 01:21:12 UTC
+--- src/afs/FBSD/osi_vfsops.c.orig	2020-02-21 20:17:12 UTC
 +++ src/afs/FBSD/osi_vfsops.c
-@@ -48,7 +48,13 @@ afs_init(struct vfsconf *vfc)
+@@ -38,11 +38,19 @@ afs_init(struct vfsconf *vfc)
  {
      int code;
      int offset = AFS_SYSCALL;
--#if defined(AFS_FBSD90_ENV) || defined(AFS_FBSD82_ENV)
 +#if defined(AFS_FBSD120_ENV)
 +    struct syscall_helper_data afs_syscalls[] = {
 +        { .new_sysent = afs_sysent, .syscall_no = AFS_SYSCALL },
 +        SYSCALL_INIT_LAST
 +    };
 +    syscall_helper_register(afs_syscalls, 0);
-+#elif defined(AFS_FBSD90_ENV) || defined(AFS_FBSD82_ENV)
- # if defined(FBSD_SYSCALL_REGISTER_FOUR_ARGS)
++#else
+ #if defined(FBSD_SYSCALL_REGISTER_FOUR_ARGS)
      code = syscall_register(&offset, &afs_sysent, &old_sysent, 0);
- # else
-@@ -84,7 +90,13 @@ afs_uninit(struct vfsconf *vfc)
+ #else
+     code = syscall_register(&offset, &afs_sysent, &old_sysent);
+ #endif
++#endif /* AFS_FBSD120_ENV */
+     if (code) {
+ 	printf("AFS_SYSCALL in use, error %i. aborting\n", code);
+ 	return code;
+@@ -59,7 +67,15 @@ afs_uninit(struct vfsconf *vfc)
  
      if (afs_globalVFS)
  	return EBUSY;
--#if defined(AFS_FBSD90_ENV) || defined(AFS_FBSD82_ENV)
 +#if defined(AFS_FBSD120_ENV)
 +    struct syscall_helper_data afs_syscalls[] = {
 +        { .old_sysent = old_sysent, .syscall_no = AFS_SYSCALL },
 +        SYSCALL_INIT_LAST
 +    };
 +    syscall_helper_unregister(afs_syscalls);
-+#elif defined(AFS_FBSD90_ENV) || defined(AFS_FBSD82_ENV)
++#else
      syscall_deregister(&offset, &old_sysent);
- #else
-     sysent[AFS_SYSCALL].sy_narg = 0;
-@@ -297,29 +310,28 @@ tryagain:
++#endif /* AFS_FBSD120_ENV */
+     return 0;
+ }
+ 
+@@ -233,29 +249,28 @@ tryagain:
      }
      if (tvp) {
  	struct vnode *vp = AFSTOV(tvp);

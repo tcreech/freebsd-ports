@@ -1,4 +1,4 @@
---- /dev/null
+--- src/config/param.amd64_fbsd_113.h.orig	2020-03-01 19:12:53 UTC
 +++ src/config/param.amd64_fbsd_113.h
 @@ -0,0 +1,95 @@
 +#ifndef	AFS_PARAM_H

@@ -1,4 +1,4 @@
---- src/libafs/MakefileProto.FBSD.in.orig	2018-09-11 15:52:48 UTC
+--- src/libafs/MakefileProto.FBSD.in.orig	2020-02-21 20:17:12 UTC
 +++ src/libafs/MakefileProto.FBSD.in
 @@ -40,6 +40,7 @@ AFS_OS_NONFSOBJS = \
  # System specific build commands and flags
@@ -6,9 +6,9 @@
  KBLD = @BSD_KERNEL_BUILD@
 +KERNBUILDDIR = @BSD_KERNEL_BUILD@
  
- # keep symbols if --enable-debug-kernel
- AC_DEBUG_FLAGS = @DEBUG_FLAGS@
-@@ -86,6 +87,10 @@ include Makefile.common
+ LIBAFS_REQ_DIRS = $(DESTDIR)$(KMODDIR)/
+ 
+@@ -95,6 +96,10 @@ include Makefile.common
  
  # we only do the no-NFS case
  OBJS=	${AFSAOBJS} ${AFSNONFSOBJS}
