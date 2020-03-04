@@ -2,9 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	asciidoctor-plantuml
-PORTVERSION=	0.0.11
+PORTVERSION=	0.0.10
 CATEGORIES=	textproc rubygems
 MASTER_SITES=	RG
+PKGNAMESUFFIX=	0010
 
 MAINTAINER=	sunpoet@FreeBSD.org
 COMMENT=	Asciidoctor PlantUML extension
@@ -17,5 +18,7 @@ USES=		gem
 USE_RUBY=	yes
 
 NO_ARCH=	yes
+
+PORTSCOUT=	ignore:1
 
 .include <bsd.port.mk>
