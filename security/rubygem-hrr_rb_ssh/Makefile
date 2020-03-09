@@ -1,17 +1,17 @@
 # $FreeBSD$
 
-PORTNAME=	rex-socket
-PORTVERSION=	0.1.22
+PORTNAME=	hrr_rb_ssh
+DISTVERSION=	0.3.0.pre2
 CATEGORIES=	security rubygems
 MASTER_SITES=	RG
 
 MAINTAINER=	antoine@FreeBSD.org
-COMMENT=	Ruby Exploitation(Rex) socket abstraction library
+COMMENT=	Pure Ruby SSH 2.0 server implementation
 
-LICENSE=	BSD3CLAUSE
+LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-RUN_DEPENDS=	rubygem-rex-core>=0:security/rubygem-rex-core
+RUN_DEPENDS=	rubygem-ed25519>=1.2:security/rubygem-ed25519
 
 NO_ARCH=	yes
 USES=		gem
