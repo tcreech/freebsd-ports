@@ -75,6 +75,7 @@ OPTIONS_DEFINE=	FUSE
 FUSE_USES=	fuse
 OPTIONS_SUB=	yes
 FUSE_CONFIGURE_OFF=	--disable-fuse-client
+FUSE_CONFIGURE=	--enable-fuse-client
 
 .include <bsd.port.pre.mk>
 
