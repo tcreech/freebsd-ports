@@ -69,7 +69,7 @@ PLIST_SUB+=	AFSMNTDIR=${AFSMNTDIR:C,^/,,} \
 USES+=		compiler
 
 OPTIONS_DEFINE=	FUSE
-FUSE_USES=	fuse
+FUSE_USES=	fuse pkgconfig
 OPTIONS_SUB=	yes
 FUSE_CONFIGURE_OFF=	--disable-fuse-client
 
