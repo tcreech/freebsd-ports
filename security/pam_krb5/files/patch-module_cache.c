@@ -1,5 +1,5 @@
---- cache.c.orig	2019-02-11 02:05:32 UTC
-+++ cache.c
+--- module/cache.c.orig	2020-03-29 18:48:11 UTC
++++ module/cache.c
 @@ -45,8 +45,14 @@ pamk5_get_krb5ccname(struct pam_args *args, const char
          name = getenv(key);
      if (name == NULL || *name == '\0')
