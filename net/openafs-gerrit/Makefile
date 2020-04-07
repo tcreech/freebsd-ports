@@ -1,37 +1,34 @@
 # $FreeBSD$
 
-PORTNAME=	openafs
-PORTREVISION=	1
-DISTVERSION=	${AFS_DISTVERSION}.${DBVERSION:S/-//g}
+PORTNAME=	openafs-gerrit
+GERRIT_CHANGE=14001
+DISTVERSION=	gerrit.${GERRIT_CHANGE}.${DBVERSION:S/-//g}
 CATEGORIES=	net
-MASTER_SITES=	http://dl.central.org/dl/openafs/${AFS_DISTVERSION}/:openafs \
-		http://dl.openafs.org/dl/openafs/${AFS_DISTVERSION}/:openafs \
+DISTFILES=	0ebed88-openafs.tgz CellServDB.${DBVERSION}:gco
+GERRIT_REV=0ebed8844132d8214ef9352bc374d86e862eeab3
+MASTER_SITES= \
+		https://gerrit.openafs.org/changes/${GERRIT_CHANGE}/revisions/${GERRIT_REV}/archive?format=tgz \
 		http://dl.central.org/dl/cellservdb/:gco \
 		http://grand.central.org/dl/cellservdb/:gco
-DISTFILES=	${PORTNAME}-${AFS_DISTVERSION}-src.tar.bz2:openafs \
-		${PORTNAME}-${AFS_DISTVERSION}-doc.tar.bz2:openafs \
-		CellServDB.${DBVERSION}:gco
-EXTRACT_ONLY=	${PORTNAME}-${AFS_DISTVERSION}-src.tar.bz2 \
-		${PORTNAME}-${AFS_DISTVERSION}-doc.tar.bz2
 
-MAINTAINER=	bjk@FreeBSD.org
+DBVERSION=	2018-05-14
+EXTRACT_ONLY=	0ebed88-openafs.tgz
+NO_WRKSUBDIR=	yes
+
 COMMENT=	AFS implementation from openafs.org
+#LICENSE=	IPLv1
+#LICENSE_NAME=	IBM Public License Version 1.0
 
-LICENSE=	IPLv1
-LICENSE_NAME=	IBM Public License Version 1.0
-LICENSE_FILE=	${WRKSRC}/doc/LICENSE
-LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
-
-# NOTE: upstream has marked net/openafs as deprecated
-#BROKEN=		fails to build
-#DEPRECATED=	Broken for more than 6 months
-#EXPIRATION_DATE=	2019-05-08
 ONLY_FOR_ARCHS=	i386 amd64
 
-AFS_DISTVERSION=	1.8.5
-DBVERSION=	2018-05-14
+PORTNAME_BASE=	openafs
+DATADIR=		${PREFIX}/share/${PORTNAME_BASE}
+DOCSDIR=		${PREFIX}/share/doc/${PORTNAME_BASE}
+ETCDIR=			${PREFIX}/etc/${PORTNAME_BASE}
+EXAMPLESDIR=	${PREFIX}/share/examples/${PORTNAME_BASE}
+WWWDIR=			${PREFIX}/www/${PORTNAME_BASE}
 
-USES=		cpe kmod tar:bzip2 fakeroot
+USES=		cpe kmod tar:bzip2 fakeroot autoreconf:build libtool:build gssapi
 USE_LDCONFIG=	yes
 HAS_CONFIGURE=	yes
 CONFIGURE_ENV=	_XCFLAGS="${CFLAGS} -fPIC" \
@@ -46,18 +43,18 @@ CONFIGURE_ARGS=	--prefix=${PREFIX} \
 		--enable-debug-kernel \
 		--enable-debug-lwp \
 		--includedir=${PREFIX}/include/openafs \
-		${CONFIGURE_TARGET}
-WRKSRC=		${WRKDIR}/${PORTNAME}-${AFS_DISTVERSION}
+		${CONFIGURE_TARGET:S/amd64/x86_64/}
+#WRKSRC=		${WRKDIR}/${PORTNAME}-${AFS_DISTVERSION}
 MAKE_ENV=	COMPILER_TYPE=${COMPILER_TYPE}
 USE_RC_SUBR=	${AFSMNTDIR}server
 
 CPE_VERSION=	${AFS_DISTVERSION}
 
 CONFLICTS=	coda-server-6.[0-9]* heimdal-[0-9]*
-CONFLICTS_INSTALL=	openafs16-[0-9]* openafs-devel-.* openafs-gerrit-.*
+CONFLICTS_INSTALL=	openafs-[0-9]* openafs16-[0-9]* openafs-devel-.*
 
 AFSMNTDIR?=	/afs
-AFSSTATEDIR?=	/var/${PORTNAME}
+AFSSTATEDIR?=	/var/${PORTNAME_BASE}
 AFSCACHEDIR?=	${AFSSTATEDIR}/cache
 PLIST_SUB+=	AFSMNTDIR=${AFSMNTDIR:C,^/,,} \
 		AFSSTATEDIR=${AFSSTATEDIR:C,^/,,} \
@@ -112,6 +109,9 @@ post-extract:
 	cd ${KERNCONFDIR} && \
 	    /usr/sbin/config -d ${WRKDIR}/conf ${_KERNCONF} >/dev/null
 
+pre-configure:
+	@cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ./regen.sh
+
 create-sample-files:
 	@${ECHO_CMD} openafs.org > ${WRKDIR}/ThisCell
 	@${ECHO_CMD} "${AFSMNTDIR}:${AFSCACHEDIR}:150000" > ${WRKDIR}/cacheinfo
@@ -127,5 +127,8 @@ post-install: create-sample-files
 	@${MKDIR} ${STAGEDIR}${AFSMNTDIR} \
 	    ${STAGEDIR}${AFSSTATEDIR} ${STAGEDIR}${AFSCACHEDIR}
 .endif # ${OSREL} blacklist
+
+# Not sure why!
+MAKE_JOBS_UNSAFE=yes
 
 .include <bsd.port.post.mk>

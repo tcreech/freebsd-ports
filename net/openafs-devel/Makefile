@@ -52,6 +52,7 @@ USE_RC_SUBR=	${AFSMNTDIR}server
 CPE_VERSION=	${AFS_DISTVERSION}
 
 CONFLICTS=	coda-server-6.[0-9]* heimdal-[0-9]*
+CONFLICTS_INSTALL=	openafs-[0-9]* openafs16-[0-9]* openafs-gerrit-.*
 
 AFSMNTDIR?=	/afs
 AFSSTATEDIR?=	/var/${PORTNAME_BASE}

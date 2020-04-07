@@ -51,7 +51,7 @@ USE_RC_SUBR=	afsserver
 CPE_VERSION=	${AFS_DISTVERSION}
 
 CONFLICTS=	coda-server-6.[0-9]* heimdal-[0-9]*
-CONFLICTS_INSTALL=	${AFS_NAME}-[0-9]*
+CONFLICTS_INSTALL=	${AFS_NAME}-[0-9]* openafs-[0-9]* openafs-devel-.* openafs-gerrit-.*
 
 ETCDIR?=	${PREFIX}/etc/${AFS_NAME}
 DATADIR?=	${PREFIX}/share/${AFS_NAME}
