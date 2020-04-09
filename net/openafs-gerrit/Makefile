@@ -104,9 +104,11 @@ _KERNCONF?=$K
 IGNORE=	requires kernel configuration file ${_KERNCONF} to build
 .endif
 
+post-fetch:
+	test -e ${DISTDIR}/0ebed88-openafs.tgz || ${FETCH_CMD} -o ${DISTDIR}/0ebed88-openafs.tgz ${GERRIT_URL}
+
 pre-extract:
-	${MKDIR} ${WRKDIR} && ${FETCH_CMD} -o ${WRKDIR}/0ebed88-openafs.tgz ${GERRIT_URL}
-	if ! (cd ${EXTRACT_WRKDIR} && ${EXTRACT_CMD} ${EXTRACT_BEFORE_ARGS} ${WRKDIR}/0ebed88-openafs.tgz ${EXTRACT_AFTER_ARGS});\
+	if ! (cd ${EXTRACT_WRKDIR} && ${EXTRACT_CMD} ${EXTRACT_BEFORE_ARGS} ${DISTDIR}/0ebed88-openafs.tgz ${EXTRACT_AFTER_ARGS});\
 		then \
 		exit 1; \
 		fi
