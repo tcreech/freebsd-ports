@@ -4,15 +4,16 @@ PORTNAME=	openafs-gerrit
 GERRIT_CHANGE=14001
 DISTVERSION=	gerrit.${GERRIT_CHANGE}.${DBVERSION:S/-//g}
 CATEGORIES=	net
-DISTFILES=	0ebed88-openafs.tgz CellServDB.${DBVERSION}:gco
+DISTFILES=	CellServDB.${DBVERSION}:gco
 GERRIT_REV=0ebed8844132d8214ef9352bc374d86e862eeab3
 MASTER_SITES= \
-		https://gerrit.openafs.org/changes/${GERRIT_CHANGE}/revisions/${GERRIT_REV}/archive?format=tgz \
 		http://dl.central.org/dl/cellservdb/:gco \
 		http://grand.central.org/dl/cellservdb/:gco
 
+GERRIT_URL= https://gerrit.openafs.org/changes/${GERRIT_CHANGE}/revisions/${GERRIT_REV}/archive?format=tgz
+
 DBVERSION=	2018-05-14
-EXTRACT_ONLY=	0ebed88-openafs.tgz
+EXTRACT_ONLY=
 NO_WRKSUBDIR=	yes
 
 COMMENT=	AFS implementation from openafs.org
@@ -102,6 +103,13 @@ _KERNCONF?=$K
 .if !exists(${KERNCONFDIR}/${_KERNCONF})
 IGNORE=	requires kernel configuration file ${_KERNCONF} to build
 .endif
+
+pre-extract:
+	${MKDIR} ${WRKDIR} && ${FETCH_CMD} -o ${WRKDIR}/0ebed88-openafs.tgz ${GERRIT_URL}
+	if ! (cd ${EXTRACT_WRKDIR} && ${EXTRACT_CMD} ${EXTRACT_BEFORE_ARGS} ${WRKDIR}/0ebed88-openafs.tgz ${EXTRACT_AFTER_ARGS});\
+		then \
+		exit 1; \
+		fi
 
 # Do not show users the reminder about cleandepend and depend
 post-extract:
