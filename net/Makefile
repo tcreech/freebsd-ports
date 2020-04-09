@@ -1509,6 +1509,7 @@
     SUBDIR += uriparser
     SUBDIR += urlendec
     SUBDIR += usbredir
+    SUBDIR += usockets
     SUBDIR += utftpd
     SUBDIR += v2ray
     SUBDIR += vblade
