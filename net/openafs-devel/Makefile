@@ -21,6 +21,7 @@ COMMENT=	AFS implementation from openafs.org
 #LICENSE_NAME=	IBM Public License Version 1.0
 
 ONLY_FOR_ARCHS=	i386 amd64
+BROKEN_FreeBSD_11=     does not build (busted PCPU ifdefs?)
 
 PORTNAME_BASE=	openafs
 DATADIR=		${PREFIX}/share/${PORTNAME_BASE}
