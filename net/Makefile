@@ -993,7 +993,6 @@
     SUBDIR += pimdd
     SUBDIR += pipsecd
     SUBDIR += pjsip
-    SUBDIR += pjsip-extsrtp
     SUBDIR += pkt-gen
     SUBDIR += pktanon
     SUBDIR += pload
