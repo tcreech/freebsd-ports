@@ -160,6 +160,7 @@
     SUBDIR += monoid
     SUBDIR += montecarlo_fonts
     SUBDIR += montserrat
+    SUBDIR += mourier
     SUBDIR += moveable-type-fonts
     SUBDIR += nerd-fonts
     SUBDIR += nexfontsel
@@ -214,6 +215,7 @@
     SUBDIR += sourcesanspro-ttf
     SUBDIR += sourceserifpro-ttf
     SUBDIR += spleen
+    SUBDIR += steps-mono
     SUBDIR += stix-fonts
     SUBDIR += sudo-font
     SUBDIR += suxus
