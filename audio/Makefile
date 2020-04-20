@@ -343,6 +343,7 @@
     SUBDIR += id3v2
     SUBDIR += ifp-line
     SUBDIR += infamous-plugins-lv2
+    SUBDIR += intersect-lv2
     SUBDIR += invada-studio-plugins-lv2
     SUBDIR += ir-lv2
     SUBDIR += jack
@@ -457,6 +458,7 @@
     SUBDIR += linux-c7-sdl_mixer
     SUBDIR += linux-laudio
     SUBDIR += linuxsampler
+    SUBDIR += liquidsfz
     SUBDIR += listener
     SUBDIR += lmms
     SUBDIR += logitechmediaserver
@@ -472,6 +474,7 @@
     SUBDIR += lv2
     SUBDIR += lv2file
     SUBDIR += lv2lint
+    SUBDIR += lv2proc
     SUBDIR += lvtk
     SUBDIR += lxmusic
     SUBDIR += mac
@@ -723,6 +726,7 @@
     SUBDIR += sdl2_mixer
     SUBDIR += sdl_mixer
     SUBDIR += sdl_sound
+    SUBDIR += sfizz
     SUBDIR += sfront
     SUBDIR += shairplay
     SUBDIR += shairport-sync
