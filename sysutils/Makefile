@@ -7,7 +7,6 @@
     SUBDIR += 3mux
     SUBDIR += 44bsd-more
     SUBDIR += 915resolution
-    SUBDIR += DTraceToolkit
     SUBDIR += LPRng
     SUBDIR += LPRngTool
     SUBDIR += UEFITool
@@ -278,6 +277,7 @@
     SUBDIR += dsbwrtsysctl
     SUBDIR += dtc
     SUBDIR += dtpstree
+    SUBDIR += dtrace-toolkit
     SUBDIR += du2ps
     SUBDIR += dua-cli
     SUBDIR += duff
