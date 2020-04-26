@@ -862,6 +862,7 @@
     SUBDIR += panicmail
     SUBDIR += parafly
     SUBDIR += parallel
+    SUBDIR += parkverbot
     SUBDIR += pass-otp
     SUBDIR += pass-update
     SUBDIR += password-store
