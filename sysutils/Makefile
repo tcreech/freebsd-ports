@@ -1511,6 +1511,7 @@
     SUBDIR += zeitgeist
     SUBDIR += zeroer
     SUBDIR += zetaback
+    SUBDIR += zetaback-devel
     SUBDIR += zfs-periodic
     SUBDIR += zfs-replicate
     SUBDIR += zfs-snap-diff
