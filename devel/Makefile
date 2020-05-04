@@ -1216,6 +1216,7 @@
     SUBDIR += libgpc
     SUBDIR += libgpkg
     SUBDIR += libgrading
+    SUBDIR += libgraphqlparser
     SUBDIR += libgsf
     SUBDIR += libgta
     SUBDIR += libgtop
@@ -4923,6 +4924,7 @@
     SUBDIR += py-pytest-aiohttp
     SUBDIR += py-pytest-asyncio
     SUBDIR += py-pytest-azurepipelines
+    SUBDIR += py-pytest-benchmark
     SUBDIR += py-pytest-black
     SUBDIR += py-pytest-cache
     SUBDIR += py-pytest-capturelog
@@ -5048,6 +5050,7 @@
     SUBDIR += py-rtslib-fb
     SUBDIR += py-ruamel.ordereddict
     SUBDIR += py-ruamel.yaml
+    SUBDIR += py-ruamel.yaml.clib
     SUBDIR += py-rubymarshal
     SUBDIR += py-rx
     SUBDIR += py-rx1
@@ -5119,6 +5122,8 @@
     SUBDIR += py-tabulator
     SUBDIR += py-tapi
     SUBDIR += py-tarantool-queue
+    SUBDIR += py-tartiflette
+    SUBDIR += py-tartiflette-aiohttp
     SUBDIR += py-taskflow
     SUBDIR += py-taskflow3
     SUBDIR += py-tblib
