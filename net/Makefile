@@ -1530,6 +1530,7 @@
     SUBDIR += wakeonlan
     SUBDIR += waypipe
     SUBDIR += wayvnc
+    SUBDIR += webalizer-geodb
     SUBDIR += whois
     SUBDIR += widentd
     SUBDIR += wireguard
