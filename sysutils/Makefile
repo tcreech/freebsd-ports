@@ -1527,6 +1527,7 @@
     SUBDIR += zisofs-tools
     SUBDIR += znapzend
     SUBDIR += zogftw
+    SUBDIR += zoxide
     SUBDIR += zrep
     SUBDIR += zrepl
     SUBDIR += zsd
