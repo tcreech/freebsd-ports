@@ -432,6 +432,7 @@
     SUBDIR += gnome-settings-daemon
     SUBDIR += gnome-system-monitor
     SUBDIR += gnome_subr
+    SUBDIR += go-btfs
     SUBDIR += go-wtf
     SUBDIR += goaccess
     SUBDIR += goawk
