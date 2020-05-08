@@ -1336,6 +1336,7 @@
     SUBDIR += u-boot-pinebook
     SUBDIR += u-boot-pinebookpro
     SUBDIR += u-boot-qemu-arm
+    SUBDIR += u-boot-qemu-arm64
     SUBDIR += u-boot-riotboard
     SUBDIR += u-boot-rock64
     SUBDIR += u-boot-rockpro64
