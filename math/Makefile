@@ -720,6 +720,7 @@
     SUBDIR += py-PySCIPOpt
     SUBDIR += py-PyWavelets
     SUBDIR += py-Pyomo
+    SUBDIR += py-affine
     SUBDIR += py-algopy
     SUBDIR += py-altgraph
     SUBDIR += py-apgl
@@ -819,6 +820,7 @@
     SUBDIR += py-secp256k1
     SUBDIR += py-simhash
     SUBDIR += py-slepc4py
+    SUBDIR += py-snuggs
     SUBDIR += py-spectral
     SUBDIR += py-spot
     SUBDIR += py-statsmodels
