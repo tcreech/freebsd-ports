@@ -497,6 +497,7 @@
     SUBDIR += dragon
     SUBDIR += ds2
     SUBDIR += dsymbol
+    SUBDIR += dtool
     SUBDIR += dub
     SUBDIR += dulwich
     SUBDIR += dupl
@@ -4571,6 +4572,7 @@
     SUBDIR += py-kazoo
     SUBDIR += py-keystone-engine
     SUBDIR += py-keystoneauth1
+    SUBDIR += py-keystoneauth13
     SUBDIR += py-keystonemiddleware
     SUBDIR += py-keystonemiddleware8
     SUBDIR += py-kid
