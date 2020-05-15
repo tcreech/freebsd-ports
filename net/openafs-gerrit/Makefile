@@ -1,12 +1,12 @@
 # $FreeBSD$
 
 PORTNAME=	openafs-gerrit
-GERRIT_CHANGE=14001
+GERRIT_CHANGE=14206
 GERRIT_PS=2
 DISTVERSION=	gerrit.${GERRIT_CHANGE}.${GERRIT_PS}.${DBVERSION:S/-//g}
 CATEGORIES=	net
 DISTFILES=	CellServDB.${DBVERSION}:gco
-GERRIT_REV=7f7fcd031d4f4b8d6bc185cdec65e952d6e9670d
+GERRIT_REV=11f67d98d7d6a23a6470b4bd88ba3fe6eb851337
 MASTER_SITES= \
 		http://dl.central.org/dl/cellservdb/:gco \
 		http://grand.central.org/dl/cellservdb/:gco
@@ -106,10 +106,10 @@ IGNORE=	requires kernel configuration file ${_KERNCONF} to build
 .endif
 
 post-fetch:
-	test -e ${DISTDIR}/7f7fcd0-openafs.tgz || ${FETCH_CMD} --no-verify-peer -o ${DISTDIR}/7f7fcd0-openafs.tgz ${GERRIT_URL}
+	test -e ${DISTDIR}/11f67d9-openafs.tgz || ${FETCH_CMD} --no-verify-peer -o ${DISTDIR}/11f67d9-openafs.tgz ${GERRIT_URL}
 
 pre-extract:
-	if ! (cd ${EXTRACT_WRKDIR} && ${EXTRACT_CMD} ${EXTRACT_BEFORE_ARGS} ${DISTDIR}/7f7fcd0-openafs.tgz ${EXTRACT_AFTER_ARGS});\
+	if ! (cd ${EXTRACT_WRKDIR} && ${EXTRACT_CMD} ${EXTRACT_BEFORE_ARGS} ${DISTDIR}/11f67d9-openafs.tgz ${EXTRACT_AFTER_ARGS});\
 		then \
 		exit 1; \
 		fi
