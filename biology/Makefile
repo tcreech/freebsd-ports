@@ -129,6 +129,7 @@
     SUBDIR += py-fastTSNE
     SUBDIR += py-gffutils
     SUBDIR += py-gtfparse
+    SUBDIR += py-hits
     SUBDIR += py-loompy
     SUBDIR += py-macs2
     SUBDIR += py-multiqc
@@ -137,6 +138,7 @@
     SUBDIR += py-pandas-charm
     SUBDIR += py-pyfaidx
     SUBDIR += py-pysam
+    SUBDIR += py-scikit-bio
     SUBDIR += py-xenaPython
     SUBDIR += pyfasta
     SUBDIR += python-nexus
