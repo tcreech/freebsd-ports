@@ -4443,6 +4443,7 @@
     SUBDIR += py-git-up
     SUBDIR += py-git-url-parse
     SUBDIR += py-git_semver
+    SUBDIR += py-gitdb
     SUBDIR += py-gitdb2
     SUBDIR += py-gitless
     SUBDIR += py-gitosis
@@ -4714,6 +4715,7 @@
     SUBDIR += py-oslo.db
     SUBDIR += py-oslo.db6
     SUBDIR += py-oslo.i18n
+    SUBDIR += py-oslo.i18n3
     SUBDIR += py-oslo.limit
     SUBDIR += py-oslo.log
     SUBDIR += py-oslo.log3
@@ -5065,6 +5067,7 @@
     SUBDIR += py-singledispatch
     SUBDIR += py-sip
     SUBDIR += py-six
+    SUBDIR += py-smmap
     SUBDIR += py-smmap2
     SUBDIR += py-snakeviz
     SUBDIR += py-sniffio
@@ -5583,6 +5586,7 @@
     SUBDIR += rubygem-aws-sdk-lightsail
     SUBDIR += rubygem-aws-sdk-machinelearning
     SUBDIR += rubygem-aws-sdk-macie
+    SUBDIR += rubygem-aws-sdk-macie2
     SUBDIR += rubygem-aws-sdk-managedblockchain
     SUBDIR += rubygem-aws-sdk-marketplacecatalog
     SUBDIR += rubygem-aws-sdk-marketplacecommerceanalytics
@@ -6019,6 +6023,7 @@
     SUBDIR += rubygem-georuby
     SUBDIR += rubygem-get_process_mem
     SUBDIR += rubygem-getopt
+    SUBDIR += rubygem-getoptlong
     SUBDIR += rubygem-gettext
     SUBDIR += rubygem-gettext-setup
     SUBDIR += rubygem-gettext32
@@ -6446,6 +6451,7 @@
     SUBDIR += rubygem-strings-ansi
     SUBDIR += rubygem-strong_migrations
     SUBDIR += rubygem-strptime
+    SUBDIR += rubygem-strscan
     SUBDIR += rubygem-structured_warnings
     SUBDIR += rubygem-stud
     SUBDIR += rubygem-subexec
