@@ -125,6 +125,7 @@
     SUBDIR += py-bx-python
     SUBDIR += py-cutadapt
     SUBDIR += py-dnaio
+    SUBDIR += py-ete3
     SUBDIR += py-fastTSNE
     SUBDIR += py-gffutils
     SUBDIR += py-gtfparse
@@ -133,6 +134,7 @@
     SUBDIR += py-multiqc
     SUBDIR += py-orange3-bioinformatics
     SUBDIR += py-orange3-single-cell
+    SUBDIR += py-pandas-charm
     SUBDIR += py-pyfaidx
     SUBDIR += py-pysam
     SUBDIR += py-xenaPython
