@@ -992,6 +992,7 @@
     SUBDIR += py-pyznap
     SUBDIR += py-queuelib
     SUBDIR += py-ranger
+    SUBDIR += py-rdiff-backup
     SUBDIR += py-salt
     SUBDIR += py-scandir
     SUBDIR += py-scarab
@@ -1030,7 +1031,6 @@
     SUBDIR += rclean
     SUBDIR += rcm
     SUBDIR += rdate
-    SUBDIR += rdiff-backup
     SUBDIR += rdup
     SUBDIR += read-edid
     SUBDIR += recoverdm
