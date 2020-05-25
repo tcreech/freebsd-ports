@@ -504,6 +504,7 @@
     SUBDIR += ipad_charge
     SUBDIR += ipdbtools
     SUBDIR += ipfs-go
+    SUBDIR += ipget
     SUBDIR += ipmitool
     SUBDIR += ipsc
     SUBDIR += isc-cron
