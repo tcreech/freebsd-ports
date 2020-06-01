@@ -992,6 +992,7 @@
     SUBDIR += ptpd2
     SUBDIR += ptunnel
     SUBDIR += pvm
+    SUBDIR += pwnat
     SUBDIR += pwhois
     SUBDIR += pxe
     SUBDIR += pxe-pdhcp
