@@ -993,6 +993,7 @@
     SUBDIR += py-ranger
     SUBDIR += py-rdiff-backup
     SUBDIR += py-salt
+    SUBDIR += py-salt-2019
     SUBDIR += py-scandir
     SUBDIR += py-scarab
     SUBDIR += py-scriptine
