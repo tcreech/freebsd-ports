@@ -993,8 +993,8 @@
     SUBDIR += ptpd2
     SUBDIR += ptunnel
     SUBDIR += pvm
-    SUBDIR += pwnat
     SUBDIR += pwhois
+    SUBDIR += pwnat
     SUBDIR += pxe
     SUBDIR += pxe-pdhcp
     SUBDIR += py-DTLSSocket
