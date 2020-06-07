@@ -3,7 +3,7 @@
 
 PORTNAME=	mesa-dri
 PORTVERSION=	${MESAVERSION}
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	graphics
 
 COMMENT=	OpenGL hardware acceleration drivers for DRI2+
@@ -11,8 +11,16 @@ COMMENT=	OpenGL hardware acceleration drivers for DRI2+
 USES=		xorg
 USE_XORG=	xorgproto x11 xdamage xext xfixes xshmfence xv xvmc
 
+OPTIONS_GROUP=			PLATFORM
+OPTIONS_GROUP_PLATFORM=		PLATFORM_X11 PLATFORM_WAYLAND PLATFORM_DRM PLATFORM_SURFACELESS
+PLATFORM_X11_DESC=		Enable X11 support for GBM/EGL
+PLATFORM_WAYLAND_DESC=		Enable Wayland support for GBM/EGL
+PLATFORM_DRM_DESC=		Enable DRM support for GBM/EGL
+PLATFORM_SURFACELESS_DESC=	Enable Surfaceless support for GBM/EGL
+PLATFORM_WAYLAND_IMPLIES=	WAYLAND
+
 OPTIONS_DEFINE=	VAAPI VDPAU WAYLAND
-OPTIONS_DEFAULT=WAYLAND
+OPTIONS_DEFAULT=WAYLAND PLATFORM_X11 PLATFORM_WAYLAND PLATFORM_DRM PLATFORM_SURFACELESS
 OPTIONS_SUB=	yes
 
 VAAPI_MESON_ON=		-Dgallium-va=true
@@ -25,12 +33,13 @@ VDPAU_LIB_DEPENDS=	libvdpau.so:multimedia/libvdpau
 WAYLAND_DESC=		Enable support for the Wayland platform in Vulkan drivers
 WAYLAND_BUILD_DEPENDS=	wayland-protocols>=1.8:graphics/wayland-protocols
 WAYLAND_LIB_DEPENDS=	libwayland-client.so:graphics/wayland
+WAYLAND_IMPLIES=	PLATFORM_WAYLAND
 
 .include <bsd.port.options.mk>
 .include "${.CURDIR:H:H}/graphics/mesa-dri/Makefile.common"
 
 ALL_DRI_DRIVERS=	I915 I965 R100 R200 SWRAST
-ALL_GALLIUM_DRIVERS=	FREEDRENO R300 R600 RADEONSI SVGA SWRAST VC4
+ALL_GALLIUM_DRIVERS=	R300 R600 RADEONSI SVGA SWRAST
 ALL_VULKAN_DRIVERS=	INTEL AMD
 
 .if ${ARCH} == aarch64 || ${ARCH} == amd64 || ${ARCH:Marm*} || ${ARCH} == i386 || ${ARCH:Mmips*} || ${ARCH:Mpowerpc*}
@@ -54,11 +63,6 @@ GALLIUM_DRIVERS+=	SVGA
 EXTRA_PATCHES+=	${PATCHDIR}/extra-src_mesa_drivers_dri_i965_intel__screen.c
 . endif
 VULKAN_DRIVERS+=	INTEL
-.elif ${ARCH} == aarch64 || ${ARCH} == armv6 || ${ARCH} == armv7
-GALLIUM_DRIVERS+=	FREEDRENO VC4
-. if ${ARCH} == armv6 || ${ARCH} == armv7
-EXTRA_PATCHES+=	${PATCHDIR}/extra-src_gallium_drivers_vc4_Makefile.in
-. endif
 .endif
 
 .if ${VULKAN_DRIVERS}
@@ -67,22 +71,27 @@ USE_XORG+=		xcb xrandr
 .endif
 
 LDFLAGS_i386=		-Wl,-znotext
-.if ${DRI_DRIVERS} || ${VULKAN_DRIVERS:MINTEL}
-. if ${/usr/bin/ld:L:tA} != /usr/bin/ld.lld
-# --build-id isn't supported by old GNU ld.bfd in base
-USE_BINUTILS=		yes
-LDFLAGS+=		-B${LOCALBASE}/bin
-. endif
+
+.if ${PORT_OPTIONS:MPLATFORM_X11}
+MESA_PLATFORMS+=	x11
 .endif
 
-# enables VK_KHR_wayland_surface in Vulkan drivers
-.if ${PORT_OPTIONS:MWAYLAND} && !empty(VULKAN_DRIVERS)
-MESON_ARGS+=	-Dplatforms=x11,surfaceless,drm,wayland
+.if ${PORT_OPTIONS:MPLATFORM_DRM}
+MESA_PLATFORMS+=	drm
 .endif
+
+.if ${PORT_OPTIONS:MPLATFORM_SURFACELESS}
+MESA_PLATFORMS+=	surfaceless
+.endif
+
+# .if ${PORT_OPTIONS:MPLATFORM_WAYLAND} && !${PORT_OPTIONS:MWAYLAND}
+# .error "Platform Wayland is selected but Wayland support is disabled"
+# .endif
 
 MESON_ARGS+=	-Ddri-drivers="${DRI_DRIVERS:ts,:tl}" \
 			-Dgallium-drivers="${GALLIUM_DRIVERS:ts,:tl}" \
-			-Dvulkan-drivers="${VULKAN_DRIVERS:ts,:tl}"
+			-Dvulkan-drivers="${VULKAN_DRIVERS:ts,:tl}" \
+			-Dplatforms="${MESA_PLATFORMS:ts,:tl}"
 
 # Disable some options
 MESON_ARGS+=	-Dgallium-xa=false \
