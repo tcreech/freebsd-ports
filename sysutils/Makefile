@@ -908,6 +908,7 @@
     SUBDIR += plasma5-user-manager
     SUBDIR += plconfig
     SUBDIR += pmt
+    SUBDIR += pnscan
     SUBDIR += policykit
     SUBDIR += policykit-gnome
     SUBDIR += polkit
