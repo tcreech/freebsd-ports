@@ -9201,7 +9201,6 @@ databases/jdbm2||2017-04-30|Has expired: Unfetchable for more than six months (g
 databases/akonadi-googledata||2017-04-30|Has expired: Unfetchable for more than six months (google code has gone away)
 lang/ofc||2017-04-30|Has expired: Unfetchable for more than six months (google code has gone away)
 comms/esmska||2017-04-30|Has expired: Unfetchable for more than six months (google code has gone away)
-x11/keynav||2017-04-30|Has expired: Unfetchable for more than six months (google code has gone away)
 x11/hotwire-shell||2017-04-30|Has expired: Unfetchable for more than six months (google code has gone away)
 security/fuzzdb||2017-04-30|Has expired: Unfetchable for more than six months (google code has gone away)
 security/truecrack||2017-04-30|Has expired: Unfetchable for more than six months (google code has gone away)
@@ -15144,3 +15143,11 @@ www/py-dj22-jsonfield2|www/py-jsonfield2|2020-06-30|Has expired: Obsolete, pleas
 www/py-dj22-swapper|www/py-swapper|2020-06-30|Has expired: Obsolete, please use www/py-swapper instead
 www/rubygem-heroics00|www/rubygem-heroics|2020-06-30|Has expired: Use www/rubygem-heroics instead
 www/typo3-8|www/typo3-9|2020-06-30|Has expired: Upstream support ended in April 2020
+databases/mariadb101-client|databases/mariadb103-client|2020-07-01|Has expired: Port will be removed when 10.5 is added, please switch to a newer version
+databases/mariadb101-server|databases/mariadb103-server|2020-07-01|Has expired: Port will be removed when 10.5 is added, please switch to a newer version
+databases/mariadb102-server|databases/mariadb103-server|2020-07-01|Has expired: Port will be removed when 10.5 is added, please switch to a newer version
+databases/mariadb102-client|databases/mariadb103-client|2020-07-01|Has expired: Port will be removed when 10.5 is added, please switch to a newer version
+databases/py-django-transaction-hooks||2020-07-02|Has expired: Unmaintained upstream and merged into Django since 1.9
+multimedia/audacious-gtk3|multimedia/audacious|2020-07-08|GTK3 interface abandoned upstream
+multimedia/audacious-plugins-gtk3|multimedia/audacious-plugins|2020-07-08|GTK3 interface abandoned upstream
+devel/pear-channel-phpunit||2020-07-09|Remove obsolete
