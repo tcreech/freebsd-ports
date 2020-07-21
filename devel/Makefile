@@ -4285,6 +4285,7 @@
     SUBDIR += py-country
     SUBDIR += py-cov-core
     SUBDIR += py-coverage
+    SUBDIR += py-coverage_enable_subprocess
     SUBDIR += py-cppy
     SUBDIR += py-crank
     SUBDIR += py-crashtest
@@ -4823,6 +4824,7 @@
     SUBDIR += py-prompt_toolkit
     SUBDIR += py-prompt_toolkit1
     SUBDIR += py-prompt_toolkit2
+    SUBDIR += py-proselint
     SUBDIR += py-protobuf
     SUBDIR += py-protocols
     SUBDIR += py-ptable
