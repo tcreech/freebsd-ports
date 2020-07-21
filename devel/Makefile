@@ -4919,12 +4919,14 @@
     SUBDIR += py-pytest-capturelog
     SUBDIR += py-pytest-cov
     SUBDIR += py-pytest-django
+    SUBDIR += py-pytest-env
     SUBDIR += py-pytest-factoryboy
     SUBDIR += py-pytest-fixture-config
     SUBDIR += py-pytest-flake8
     SUBDIR += py-pytest-flakes
     SUBDIR += py-pytest-flask
     SUBDIR += py-pytest-forked
+    SUBDIR += py-pytest-freezegun
     SUBDIR += py-pytest-helpers-namespace
     SUBDIR += py-pytest-isort
     SUBDIR += py-pytest-lazy-fixture
@@ -4932,6 +4934,7 @@
     SUBDIR += py-pytest-mock
     SUBDIR += py-pytest-pep8
     SUBDIR += py-pytest-pycodestyle
+    SUBDIR += py-pytest-randomly
     SUBDIR += py-pytest-relaxed
     SUBDIR += py-pytest-rerunfailures
     SUBDIR += py-pytest-runner
