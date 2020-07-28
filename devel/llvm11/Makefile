@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	llvm
-DISTVERSION=	10.0.1
+DISTVERSION=	11.0.0rc1
 PORTREVISION=	0
 CATEGORIES=	devel lang
 MASTER_SITES=	https://github.com/llvm/llvm-project/releases/download/llvmorg-${DISTVERSION:S/rc/-rc/}/ \
@@ -211,9 +211,6 @@ EXTRAS_LIBS=	libclangApplyReplacements \
 		libclangChangeNamespace \
 		libclangDaemon \
 		libclangDoc \
-		libclangChangeNamespace \
-		libclangDaemon \
-		libclangDoc \
 		libclangIncludeFixer \
 		libclangMove \
 		libclangQuery \
@@ -269,6 +266,7 @@ COMPILER_RT_PATTERN=	(sanitizer|include.xray|include\/fuzzer|profile\/InstrProfD
 COMMANDS+=	${EXTRAS_COMMANDS}
 MAN1SRCS+=	extraclangtools.1
 PORTDOCS+=	clang-tools
+PLIST_DIRS+=	${LLVM_PREFIX:S|${PREFIX}/||}/include/clang-tidy/plugin
 SHEBANG_FILES+=	tools/clang/tools/extra/clang-include-fixer/find-all-symbols/tool/run-find-all-symbols.py \
 		tools/clang/tools/extra/clang-tidy/tool/clang-tidy-diff.py \
 		tools/clang/tools/extra/clang-tidy/tool/run-clang-tidy.py
@@ -289,7 +287,7 @@ MAN1SRCS+=	lldb.1
 USES+=		lua
 .endif
 
-OPENMP_PATTERN=	libarcher|lib[ig]*omp|omp.h|ompt.h|omp-tools.h
+OPENMP_PATTERN=	libarcher|lib[ig]*omp|omp.h|ompt.h|ompt-multiplex.h|omp-tools.h
 
 .if ${PORT_OPTIONS:MPYCLANG}
 PYCLANG_PATTERN=	(clang\/(__init__|cindex|enumerations).py)$$
@@ -336,7 +334,7 @@ _BE_LIBS_RISCV=		AsmParser Disassembler Utils
 _BE_LIBS_Sparc=		AsmParser Disassembler
 _BE_LIBS_SystemZ=	AsmParser Disassembler
 _BE_LIBS_WebAssembly=	AsmParser Disassembler
-_BE_LIBS_X86=		AsmParser Disassembler Utils
+_BE_LIBS_X86=		AsmParser Disassembler
 _BE_LIBS_XCore=		Disassembler
 .for BE in FREEBSD NATIVE STANDARD
 .for BE_ARCH in ${${BE}_BACKENDS}
