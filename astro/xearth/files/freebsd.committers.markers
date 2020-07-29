@@ -198,9 +198,8 @@
  48.912,	2.256,		"mich"		align=left	# La Garenne-Colombes, France
  48.818344,	2.245696,	"roberto"	align=left	# Meudon, France
  48.836,	2.242,		"blackend"	align=left	# Boulogne-Billancourt, France
- 48.844,	2.213,		"bapt"				# (CORE) Saint Cloud, France
+ 48.79964,	2.35058 	"bapt"				# (CORE) Villejuif, France
  46.75984,	1.738281,	"stephane"			# Orleans, France
- 51.33046,	1.41088,	"matthew"			# Ramsgate, UK
  51.29870,	1.07005,	"tdb"				# Canterbury, United Kingdom
  52.18,		0.19,		"markm"		align=left	# Cambridge, Cambs, UK
  52.20360,	0.14134,	"rsm"				# Cambridge, UK
@@ -215,6 +214,7 @@
  52.01,		-0.75,		"tom"		align=left	# Milton Keynes, UK
  51.461916,	-1.011833,	"jesper"			# Reading, United Kingdom
  53.955666,	-1.072605,	"gavin"				# (CORE) York, United Kingdom
+ 51.782616,     -1.373806	"matthew"			# Eynsham, UK
  52.635,	-1.135,		"hmp"				# Leicester, East Midlands, UK
  48.12,		-1.60,		"martymac"			# Cesson-Sevigne, France
  48.10927,	-1.61104,	"jadawin"			# Cesson-Sevigne, France
@@ -225,6 +225,7 @@
  42.8474,	-2.66976,	"carvay"			# Araba, Vitoria-Gasteiz, Spain
  51.49,		-3.16,		"ceri"				# Cardiff, UK
  37.1876,	-3.6149,	"cpm"				# Granada, Spain
+ 40.4445,	-3.6722,	"fernape"			# Madrid, Spain
  53.20,		-6.15,		"dwmalone"	align=left	# Dublin, Ireland
  53.286499,	-6.196429,	"flz"				# Stillorgan, Co. Dublin, Ireland
  53.65,		-6.67,		"peadar"	align=above	# Navan, Co. Meath, Ireland
@@ -253,7 +254,7 @@
  40.75,		-73.97,		"sahil"				# New York, NY, USA 
  40.86004,	-73.98038,	"jkim"				# Leonia, NJ, USA
  43,		-75,		"gnn"				# (CORE) New York, NY, USA
- 45.366,	-75.193,	"db"				# Ottawa, ON, Canada
+ 45.36613,	-75.71911,	"db"				# Ottawa, ON, Canada
  45.3991,	-75.6942,	"jake"				# Ottawa, ON, Canada
  42.26785,	-76.28954,	"pat"				# Ithaca, NY, USA
  39.046,	-76.442,	"patrick"			# Annapolis, MD, USA
