@@ -1038,6 +1038,7 @@
     SUBDIR += qt5-qtpaths
     SUBDIR += qt5-qtplugininfo
     SUBDIR += qtpass
+    SUBDIR += quickjail
     SUBDIR += quicksynergy
     SUBDIR += racktables
     SUBDIR += radeontool
