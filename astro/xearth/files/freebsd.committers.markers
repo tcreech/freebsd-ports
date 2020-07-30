@@ -49,6 +49,7 @@
 -31.928982,	115.912435,	"lawrance"			# Perth, Australia
 -31.900,	115.855,	"woodsb02"			# Perth, WA, Australia
 -31.97908,	115.81611,	"adrian"			# Crawley, Perth, Western Australia
+ 22.278865,	114.188836,	"philip"			# Causeway Bay, Hong Kong SAR
  22.80346,	113.80578,	"wen"				# DongGuan, GuangDong, China
  22.1957,	113.549,	"vs"				# Macau, Macau SAR
  47.921386,	106.910153,	"ganbold"			# Ulaanbaatar, Mongolia
@@ -305,7 +306,7 @@
  39.897418,	-104.981891,	"brd"				# Northglenn, CO, USA
  39.897418,	-105.074891,	"will"				# Westminster, CO, USA
  40.01942534,	-105.23914289,	"imp"				# Boulder, CO, USA
- 40.1,		-105.3,		"gibbs,ken"			# Boulder, CO, USA
+ 40.1,		-105.3,		"asomers,gibbs,ken"		# Boulder, CO, USA
  29.067,	-110.967,	"jcamou"			# Hermosillo, Sonora, Mexico
  40.298753,	-111.696486,	"jamie"				# Orem, UT, USA
  40.615069,	-111.831064,	"bcran"				# Cottonwood Heights, UT, USA
