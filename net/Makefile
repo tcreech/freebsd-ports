@@ -1164,6 +1164,7 @@
     SUBDIR += rdapper
     SUBDIR += rdesktop
     SUBDIR += rdist6
+    SUBDIR += read_bbrlog
     SUBDIR += realtek-re-kmod
     SUBDIR += reaver
     SUBDIR += recvnet
@@ -1435,6 +1436,7 @@
     SUBDIR += tcpillust
     SUBDIR += tcping
     SUBDIR += tcpkali
+    SUBDIR += tcplog_dumper
     SUBDIR += tcpmssd
     SUBDIR += tcpproxy
     SUBDIR += tcpreen
