@@ -169,7 +169,6 @@
     SUBDIR += freerdp
     SUBDIR += freeswitch
     SUBDIR += freevrrpd
-    SUBDIR += frr5
     SUBDIR += frr6
     SUBDIR += frr7
     SUBDIR += frr7-pythontools
@@ -1252,6 +1251,7 @@
     SUBDIR += rubygem-fog-xenserver
     SUBDIR += rubygem-gitaly
     SUBDIR += rubygem-gitaly-proto
+    SUBDIR += rubygem-gitlab-fog-azure-rm
     SUBDIR += rubygem-gitlab_omniauth-ldap
     SUBDIR += rubygem-google-cloud-bigquery
     SUBDIR += rubygem-google-cloud-bigtable
@@ -1342,8 +1342,8 @@
     SUBDIR += rubygem-u2f
     SUBDIR += rubygem-u2f0
     SUBDIR += rubygem-uri
-    SUBDIR += rubygem-uri_template
     SUBDIR += rubygem-uri-redis
+    SUBDIR += rubygem-uri_template
     SUBDIR += rubygem-whois
     SUBDIR += rubygem-xmlrpc
     SUBDIR += rude
