@@ -400,6 +400,8 @@
     SUBDIR += mfem
     SUBDIR += mingw32-libgmp
     SUBDIR += minisat
+    SUBDIR += minizinc
+    SUBDIR += minizinc-ide
     SUBDIR += miracl
     SUBDIR += mlpack
     SUBDIR += moab
@@ -751,8 +753,6 @@
     SUBDIR += py-ecos
     SUBDIR += py-fastcluster
     SUBDIR += py-fastdtw
-    SUBDIR += py-ffc
-    SUBDIR += py-fiat
     SUBDIR += py-flax
     SUBDIR += py-fpconst
     SUBDIR += py-fpylll
@@ -777,6 +777,7 @@
     SUBDIR += py-luminol
     SUBDIR += py-matplotlib
     SUBDIR += py-matplotlib-scalebar
+    SUBDIR += py-mip
     SUBDIR += py-mpmath
     SUBDIR += py-munkres
     SUBDIR += py-munkres10
@@ -787,7 +788,6 @@
     SUBDIR += py-numexpr
     SUBDIR += py-numpoly
     SUBDIR += py-numpy
-    SUBDIR += py-nzmath
     SUBDIR += py-opt-einsum
     SUBDIR += py-or-tools
     SUBDIR += py-osqp
@@ -810,7 +810,6 @@
     SUBDIR += py-pygslodeiv2
     SUBDIR += py-pyhull
     SUBDIR += py-pyipopt
-    SUBDIR += py-pymc
     SUBDIR += py-pymc3
     SUBDIR += py-pyneqsys
     SUBDIR += py-pynleq2
@@ -818,7 +817,6 @@
     SUBDIR += py-pyodeint
     SUBDIR += py-pyodesys
     SUBDIR += py-pysmt
-    SUBDIR += py-pysparse
     SUBDIR += py-pystan
     SUBDIR += py-pysym
     SUBDIR += py-python-fcl
@@ -848,7 +846,6 @@
     SUBDIR += py-sympy
     SUBDIR += py-theano
     SUBDIR += py-triangle
-    SUBDIR += py-ufl
     SUBDIR += py-uncertainties
     SUBDIR += py-vincenty
     SUBDIR += py-yt
@@ -876,6 +873,7 @@
     SUBDIR += rpcalc
     SUBDIR += rubiks
     SUBDIR += rubygem-algebra
+    SUBDIR += rubygem-bigdecimal
     SUBDIR += rubygem-enumerable-statistics
     SUBDIR += rubygem-expression_parser
     SUBDIR += rubygem-fftw3

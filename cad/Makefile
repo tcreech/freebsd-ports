@@ -44,6 +44,7 @@
     SUBDIR += graywolf
     SUBDIR += gspiceui
     SUBDIR += gtkwave
+    SUBDIR += horizon-eda
     SUBDIR += ifcopenshell
     SUBDIR += impact
     SUBDIR += irsim
@@ -81,6 +82,7 @@
     SUBDIR += nvc
     SUBDIR += opencascade
     SUBDIR += openctm
+    SUBDIR += openfpgaloader
     SUBDIR += openscad
     SUBDIR += openscad-devel
     SUBDIR += opensta
@@ -90,9 +92,12 @@
     SUBDIR += p5-Verilog-Perl
     SUBDIR += pcb
     SUBDIR += pdnmesh
+    SUBDIR += py-cadquery
+    SUBDIR += py-cq-editor
     SUBDIR += py-ezdxf
     SUBDIR += py-gdspy
     SUBDIR += py-lcapy
+    SUBDIR += py-ocp
     SUBDIR += py-phidl
     SUBDIR += py-pyfda
     SUBDIR += python-gdsii

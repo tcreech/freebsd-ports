@@ -1,8 +1,8 @@
 # $FreeBSD$
 
 PORTNAME=	mesa
-DISTVERSION=	20.1-branchpoint-3704
-DISTVERSIONSUFFIX=	-gba6cdb275c3
+DISTVERSION=	20.2-branchpoint-634
+DISTVERSIONSUFFIX=	-gc6861b9f755
 CATEGORIES=	graphics
 PKGNAMESUFFIX=	-devel
 
@@ -96,7 +96,7 @@ COINST_SUB_LIST=	SUFFIX=${PKGNAMESUFFIX}
 COINST_PLIST_SUB_OFF=	SUFFIX=
 
 GLVND_DESC=		GL Vendor-Neutral Dispatch support
-GLVND_BUILD_DEPENDS=	libglvnd>0:graphics/libglvnd
+GLVND_BUILD_DEPENDS=	libglvnd>=1.3.2:graphics/libglvnd
 GLVND_MESON_TRUE=	glvnd
 
 LIBUNWIND_DESC=		Use libunwind for stacktraces

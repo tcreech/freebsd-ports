@@ -44,6 +44,7 @@
     SUBDIR += acidwarp
     SUBDIR += acidwarp-sdl
     SUBDIR += agg
+    SUBDIR += akira
     SUBDIR += alembic
     SUBDIR += alpng
     SUBDIR += ampasACES-container
@@ -131,7 +132,6 @@
     SUBDIR += ditaa
     SUBDIR += djview4
     SUBDIR += djvulibre
-    SUBDIR += djvusmooth
     SUBDIR += dmtx-utils
     SUBDIR += drawpile
     SUBDIR += drm-current-kmod
@@ -813,7 +813,6 @@
     SUBDIR += py-geopandas
     SUBDIR += py-gimp
     SUBDIR += py-gizeh
-    SUBDIR += py-glewpy
     SUBDIR += py-glfw
     SUBDIR += py-glooey
     SUBDIR += py-gphoto2
@@ -837,7 +836,6 @@
     SUBDIR += py-open3d-python
     SUBDIR += py-opencolorio
     SUBDIR += py-opencv
-    SUBDIR += py-openexr
     SUBDIR += py-openimageio
     SUBDIR += py-photocollage
     SUBDIR += py-pillow
@@ -845,7 +843,6 @@
     SUBDIR += py-pivy
     SUBDIR += py-plotly
     SUBDIR += py-png
-    SUBDIR += py-poppler
     SUBDIR += py-pycha
     SUBDIR += py-pycollada
     SUBDIR += py-pydot
@@ -856,7 +853,6 @@
     SUBDIR += py-pygeoapi
     SUBDIR += py-pyglet
     SUBDIR += py-pyglet150
-    SUBDIR += py-pygooglechart
     SUBDIR += py-pygraphviz
     SUBDIR += py-pyinsane2
     SUBDIR += py-pymaging
@@ -874,12 +870,10 @@
     SUBDIR += py-qt5-svg
     SUBDIR += py-rasterio
     SUBDIR += py-rawkit
-    SUBDIR += py-sane
     SUBDIR += py-scikit-image
     SUBDIR += py-seqdiag
     SUBDIR += py-sorl-thumbnail
     SUBDIR += py-spectra
-    SUBDIR += py-stltools
     SUBDIR += py-svg.path
     SUBDIR += py-svgwrite
     SUBDIR += py-termtosvg
@@ -999,7 +993,6 @@
     SUBDIR += silgraphite
     SUBDIR += simage
     SUBDIR += simpleviewer
-    SUBDIR += sk1
     SUBDIR += sk1libs
     SUBDIR += skanlite
     SUBDIR += spectacle
@@ -1028,6 +1021,7 @@
     SUBDIR += tiff
     SUBDIR += tiffgt
     SUBDIR += tifmerge
+    SUBDIR += tikzit
     SUBDIR += tilecache
     SUBDIR += tiled
     SUBDIR += timeless

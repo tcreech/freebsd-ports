@@ -1,9 +1,9 @@
 # Created by: Sergey A. Osokin <osa@FreeBSD.org>
 # $FreeBSD$
 
-PORTNAME=	nginx
-PORTVERSION=	1.19.1
-PORTREVISION=	3
+PORTNAME?=	nginx
+PORTVERSION=	1.19.2
+PORTREVISION=	4
 CATEGORIES=	www
 MASTER_SITES=	https://nginx.org/download/ \
 		LOCAL/osa
@@ -13,8 +13,8 @@ DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
 MAINTAINER?=	osa@FreeBSD.org
 COMMENT?=	Robust and small WWW server
 
-LICENSE=	BSD2CLAUSE
-LICENSE_FILE=	${WRKSRC}/LICENSE
+LICENSE?=	BSD2CLAUSE
+LICENSE_FILE?=	${WRKSRC}/LICENSE
 
 CONFLICTS_INSTALL=	nginx
 
@@ -39,8 +39,8 @@ CONFLICTS?=	nginx-1.* \
 		nginx-full-1.* \
 		nginx-lite-1.* \
 		nginx-naxsi-1.*
-USE_RC_SUBR=	nginx
-SUB_FILES=	pkg-message
+USE_RC_SUBR?=	nginx
+SUB_FILES?=	pkg-message
 SUB_LIST+=	WWWOWN=${WWWOWN} \
 		WWWGRP=${WWWGRP} \
 		NGINX_RUNDIR=${NGINX_RUNDIR} \
@@ -81,7 +81,7 @@ OPTIONS_GROUP_STREAMGRP=	STREAM STREAM_REALIP STREAM_SSL \
 
 # External modules (arrayvar MUST appear after devel_kit for build-dep)
 OPTIONS_GROUP_HTTPGRP+=	AJP AWS_AUTH BROTLI CACHE_PURGE CLOJURE COOKIE_FLAG CT \
-	DEVEL_KIT ARRAYVAR DRIZZLE DYNAMIC_UPSTREAM ECHO ENCRYPTSESSION \
+	DEVEL_KIT ARRAYVAR DRIZZLE DYNAMIC_HC DYNAMIC_UPSTREAM ECHO ENCRYPTSESSION \
 	FORMINPUT GRIDFS HEADERS_MORE HTTP_ACCEPT_LANGUAGE HTTP_AUTH_DIGEST \
 	HTTP_AUTH_KRB5 HTTP_AUTH_LDAP HTTP_AUTH_PAM HTTP_DAV_EXT HTTP_EVAL \
 	HTTP_FANCYINDEX HTTP_FOOTER HTTP_GEOIP2 HTTP_IP2LOCATION HTTP_IP2PROXY \
@@ -327,6 +327,7 @@ post-patch-VOD-on:
 pre-configure-SMALL_LIGHT-on:
 	( cd ${WRKSRC_small_light} && ./setup )
 
+.if !target(do-install)
 do-install:
 	${MKDIR} ${STAGEDIR}${ETCDIR}
 	${MKDIR} ${STAGEDIR}${NGINX_TMPDIR}
@@ -362,7 +363,9 @@ do-install-NAXSI-on:
 
 do-install-NJS-on:
 	${INSTALL_PROGRAM} ${WRKSRC_njs}/build/njs ${STAGEDIR}${PREFIX}/sbin
+.endif
 
+.if !target(post-install)
 post-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/share/vim/vimfiles
 	cd ${WRKSRC}/contrib/vim && ${COPYTREE_SHARE} . ${STAGEDIR}${PREFIX}/share/vim/vimfiles
@@ -373,5 +376,6 @@ post-install-WWW-on:
 	${MKDIR} ${STAGEDIR}${PREFIX}/www/nginx-dist
 	(cd ${WRKSRC}/html && ${COPYTREE_SHARE} . ${STAGEDIR}${PREFIX}/www/nginx-dist && \
 	${TOUCH} ${STAGEDIR}${PREFIX}/www/nginx-dist/EXAMPLE_DIRECTORY-DONT_ADD_OR_TOUCH_ANYTHING)
+.endif
 
 .include <bsd.port.post.mk>

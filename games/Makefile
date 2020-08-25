@@ -225,7 +225,6 @@
     SUBDIR += el
     SUBDIR += el-data
     SUBDIR += emptyepsilon
-    SUBDIR += endgame-singularity
     SUBDIR += endgame-singularity-music
     SUBDIR += endless-sky
     SUBDIR += endless-sky-high-dpi
@@ -416,7 +415,6 @@
     SUBDIR += kanagram
     SUBDIR += kapman
     SUBDIR += kartofel
-    SUBDIR += katawa-shoujo
     SUBDIR += katomic
     SUBDIR += kblackbox
     SUBDIR += kblocks
@@ -773,9 +771,9 @@
     SUBDIR += py-fife
     SUBDIR += py-mnemosyne
     SUBDIR += py-pychess
+    SUBDIR += py-pysol-cards
     SUBDIR += py-sgflib
     SUBDIR += py-sgfsummary
-    SUBDIR += pyfa
     SUBDIR += pysolfc
     SUBDIR += pyspacewar
     SUBDIR += q2p
@@ -827,7 +825,6 @@
     SUBDIR += regoth
     SUBDIR += reminiscence
     SUBDIR += renpy
-    SUBDIR += renpy6
     SUBDIR += rescue
     SUBDIR += residualvm
     SUBDIR += retroarch
@@ -894,7 +891,6 @@
     SUBDIR += solarconquest
     SUBDIR += solarus
     SUBDIR += solarus-quest-editor
-    SUBDIR += solarwolf
     SUBDIR += sopwith
     SUBDIR += spacejunk
     SUBDIR += spacezero
@@ -939,7 +935,6 @@
     SUBDIR += tetzle
     SUBDIR += textmaze
     SUBDIR += thegrind
-    SUBDIR += thudboard
     SUBDIR += tileworld
     SUBDIR += tkmoo
     SUBDIR += tomatoes

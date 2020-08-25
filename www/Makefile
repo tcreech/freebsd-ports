@@ -220,10 +220,10 @@
     SUBDIR += gtkhtml4
     SUBDIR += guacamole-client
     SUBDIR += guile-www
+    SUBDIR += gwsocket
     SUBDIR += h2o
     SUBDIR += h2o-devel
     SUBDIR += habari
-    SUBDIR += halberd
     SUBDIR += helma
     SUBDIR += hiawatha
     SUBDIR += hiawatha-monitor
@@ -375,10 +375,11 @@
     SUBDIR += mod_fileiri
     SUBDIR += mod_gnutls
     SUBDIR += mod_h264_streaming
+    SUBDIR += mod_http2
     SUBDIR += mod_jk
     SUBDIR += mod_limitipconn2
     SUBDIR += mod_line_edit
-    SUBDIR += mod_log_sql2
+    SUBDIR += mod_log_sql
     SUBDIR += mod_maxminddb
     SUBDIR += mod_memcache
     SUBDIR += mod_memcache_block
@@ -389,6 +390,7 @@
     SUBDIR += mod_php72
     SUBDIR += mod_php73
     SUBDIR += mod_php74
+    SUBDIR += mod_proctitle
     SUBDIR += mod_proxy_xml
     SUBDIR += mod_python35
     SUBDIR += mod_qos
@@ -438,6 +440,7 @@
     SUBDIR += nextcloud-contacts
     SUBDIR += nextcloud-deck
     SUBDIR += nextcloud-forms
+    SUBDIR += nextcloud-groupfolders
     SUBDIR += nextcloud-notes
     SUBDIR += nextcloud-tasks
     SUBDIR += nghttp2
@@ -1395,7 +1398,6 @@
     SUBDIR += pserv
     SUBDIR += publicfile
     SUBDIR += punbb
-    SUBDIR += py-HTMLgen
     SUBDIR += py-MechanicalSoup
     SUBDIR += py-Tenjin
     SUBDIR += py-WebError
@@ -1407,13 +1409,9 @@
     SUBDIR += py-aiohttp-wsgi
     SUBDIR += py-aiohttp2
     SUBDIR += py-aiohttp_cors
-    SUBDIR += py-albatross
-    SUBDIR += py-amf
-    SUBDIR += py-apachelog
     SUBDIR += py-arxiv
     SUBDIR += py-asgiref
     SUBDIR += py-autobahn
-    SUBDIR += py-aws-requests-auth
     SUBDIR += py-azure-common
     SUBDIR += py-azure-storage
     SUBDIR += py-beaker
@@ -1434,7 +1432,6 @@
     SUBDIR += py-caldav
     SUBDIR += py-cheroot
     SUBDIR += py-cherrypy
-    SUBDIR += py-clientform
     SUBDIR += py-cookies
     SUBDIR += py-crossplane
     SUBDIR += py-css-parser
@@ -1446,7 +1443,6 @@
     SUBDIR += py-django-allauth
     SUBDIR += py-django-annoying
     SUBDIR += py-django-appconf
-    SUBDIR += py-django-appmedia
     SUBDIR += py-django-assets
     SUBDIR += py-django-auth-ldap
     SUBDIR += py-django-babel
@@ -1476,7 +1472,6 @@
     SUBDIR += py-django-debreach
     SUBDIR += py-django-debug-toolbar
     SUBDIR += py-django-dpaste
-    SUBDIR += py-django-evolution
     SUBDIR += py-django-extensions
     SUBDIR += py-django-filer
     SUBDIR += py-django-filter
@@ -1492,6 +1487,7 @@
     SUBDIR += py-django-jquery-js
     SUBDIR += py-django-js-asset
     SUBDIR += py-django-jsonfield
+    SUBDIR += py-django-jsonview
     SUBDIR += py-django-ldapdb
     SUBDIR += py-django-libsass
     SUBDIR += py-django-markdownx
@@ -1561,7 +1557,6 @@
     SUBDIR += py-evernote
     SUBDIR += py-fake-useragent
     SUBDIR += py-falcon
-    SUBDIR += py-fedex
     SUBDIR += py-feedgenerator
     SUBDIR += py-flask
     SUBDIR += py-flask-admin
@@ -1597,15 +1592,11 @@
     SUBDIR += py-flexget
     SUBDIR += py-flup6
     SUBDIR += py-folium
-    SUBDIR += py-formalchemy
     SUBDIR += py-formencode
-    SUBDIR += py-frappe-bench
     SUBDIR += py-freenit
     SUBDIR += py-frozen-flask
-    SUBDIR += py-funkload
     SUBDIR += py-gandi.cli
     SUBDIR += py-gevent-websocket
-    SUBDIR += py-goobook
     SUBDIR += py-google
     SUBDIR += py-google-api-core
     SUBDIR += py-google-api-python-client
@@ -1628,7 +1619,7 @@
     SUBDIR += py-horizon
     SUBDIR += py-hpack
     SUBDIR += py-hstspreload
-    SUBDIR += py-html
+    SUBDIR += py-html3
     SUBDIR += py-html5-parser
     SUBDIR += py-html5lib
     SUBDIR += py-httmock
@@ -1666,7 +1657,6 @@
     SUBDIR += py-pecan
     SUBDIR += py-pelican
     SUBDIR += py-planet
-    SUBDIR += py-poster
     SUBDIR += py-praw
     SUBDIR += py-prawcore
     SUBDIR += py-priority
@@ -1676,14 +1666,11 @@
     SUBDIR += py-pyjwt
     SUBDIR += py-pylons
     SUBDIR += py-pyocclient
-    SUBDIR += py-pyquery
     SUBDIR += py-pyramid
     SUBDIR += py-pyramid_rpc
-    SUBDIR += py-pysearch
     SUBDIR += py-python-digitalocean
     SUBDIR += py-python-dotenv
     SUBDIR += py-python-multipart
-    SUBDIR += py-pywebdav
     SUBDIR += py-pyweblib
     SUBDIR += py-pywikibot
     SUBDIR += py-qp
@@ -1719,7 +1706,6 @@
     SUBDIR += py-selector
     SUBDIR += py-selenium
     SUBDIR += py-slimit
-    SUBDIR += py-slimmer
     SUBDIR += py-slumber
     SUBDIR += py-sockjs-tornado
     SUBDIR += py-soupsieve
@@ -1727,20 +1713,16 @@
     SUBDIR += py-spyne
     SUBDIR += py-sseclient
     SUBDIR += py-starlette
-    SUBDIR += py-surl
     SUBDIR += py-swapper
     SUBDIR += py-textile
-    SUBDIR += py-tmdb3
     SUBDIR += py-tornado
     SUBDIR += py-tornado4
     SUBDIR += py-tornado6
-    SUBDIR += py-trello
     SUBDIR += py-treq
     SUBDIR += py-tuir
     SUBDIR += py-turbogears2
     SUBDIR += py-tvdb_api
     SUBDIR += py-txrequests
-    SUBDIR += py-uliweb
     SUBDIR += py-unit
     SUBDIR += py-url
     SUBDIR += py-urlgrabber
@@ -1767,7 +1749,6 @@
     SUBDIR += py-wikitools
     SUBDIR += py-ws4py
     SUBDIR += py-wsaccel
-    SUBDIR += py-wsgiauth
     SUBDIR += py-wsgidav
     SUBDIR += py-yarl
     SUBDIR += pyblosxom
