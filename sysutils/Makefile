@@ -312,6 +312,7 @@
     SUBDIR += etcmerge
     SUBDIR += etcupdate
     SUBDIR += evhz
+    SUBDIR += evisum
     SUBDIR += evtviewer
     SUBDIR += exa
     SUBDIR += exfat-utils
