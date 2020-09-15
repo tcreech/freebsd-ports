@@ -205,6 +205,7 @@
     SUBDIR += hardening-check
     SUBDIR += hashcat
     SUBDIR += hashcat-legacy
+    SUBDIR += heaan
     SUBDIR += heimdal
     SUBDIR += helib
     SUBDIR += highwayhash
@@ -720,6 +721,7 @@
     SUBDIR += pam_mkhomedir
     SUBDIR += pam_ocra
     SUBDIR += pam_p11
+    SUBDIR += pam_pkcs11
     SUBDIR += pam_pwdfile
     SUBDIR += pam_require
     SUBDIR += pam_script
