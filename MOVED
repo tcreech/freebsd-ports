@@ -15526,7 +15526,6 @@ graphics/py-editobj||2020-09-19|Has expired: Uses deprecated version of python
 graphics/py-mayavi||2020-09-19|Has expired: Uses deprecated version of python
 graphics/pymorph||2020-09-19|Has expired: Uses deprecated version of python
 graphics/tilecache||2020-09-19|Has expired: Uses deprecated version of python
-graphics/uniconvertor||2020-09-19|Has expired: Uses deprecated version of python
 japanese/mailman||2020-09-19|Has expired: Uses deprecated version of python
 java/eclipse-pydev||2020-09-19|Has expired: Uses deprecated version of python
 lang/cdent||2020-09-19|Has expired: Uses deprecated version of python
@@ -15619,3 +15618,10 @@ x11-drivers/xf86-video-qxl||2020-09-19|Has expired: uses deprecated version of p
 x11-fm/twander||2020-09-19|Has expired: Uses deprecated version of python
 x11-wm/compizconfig-python||2020-09-19|Has expired: Uses deprecated version of python
 x11-wm/fvwm-crystal||2020-09-19|Has expired: Uses deprecated version of python
+mail/opensmtpd-extras-queue-python||2020-09-19|Has expired: Uses deprecated version of python
+mail/opensmtpd-extras-scheduler-python||2020-09-19|Has expired: Uses deprecated version of python
+lang/python35|lang/python36|2020-09-19|Has expired: Deprecated upstream
+deskutils/logjam||2020-09-19|Abandonware does not work anymore
+mail/squirrelmail-tmda-plugin||2020-09-19|Removed, unmaintained and depends on expired mail/tmda
+mail/tmda||2020-09-19|Has expired: Uses EOL Python 2.7
+devel/storm||2020-09-19|Has expired: Uses deprecated version of python

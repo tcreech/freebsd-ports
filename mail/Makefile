@@ -262,9 +262,7 @@
     SUBDIR += opensmtpd
     SUBDIR += opensmtpd-devel
     SUBDIR += opensmtpd-extras
-    SUBDIR += opensmtpd-extras-queue-python
     SUBDIR += opensmtpd-extras-queue-ram
-    SUBDIR += opensmtpd-extras-scheduler-python
     SUBDIR += opensmtpd-extras-scheduler-ram
     SUBDIR += opensmtpd-extras-table-ldap
     SUBDIR += opensmtpd-extras-table-mysql
@@ -665,7 +663,6 @@
     SUBDIR += squirrelmail-spam-buttons-plugin
     SUBDIR += squirrelmail-squirrel_logger-plugin
     SUBDIR += squirrelmail-timeout_user-plugin
-    SUBDIR += squirrelmail-tmda-plugin
     SUBDIR += squirrelmail-translations
     SUBDIR += squirrelmail-unsafe_image_rules-plugin
     SUBDIR += squirrelmail-user_special_mailboxes-plugin
@@ -683,7 +680,6 @@
     SUBDIR += thunderbird
     SUBDIR += thunderbird-dictionaries
     SUBDIR += tlb
-    SUBDIR += tmda
     SUBDIR += tmpmail
     SUBDIR += tpop3d
     SUBDIR += trojita
