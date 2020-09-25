@@ -736,6 +736,7 @@
     SUBDIR += netevent
     SUBDIR += nfcutils
     SUBDIR += nitrogen
+    SUBDIR += nix
     SUBDIR += no-login
     SUBDIR += node_exporter
     SUBDIR += nomad
