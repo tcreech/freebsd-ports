@@ -1342,6 +1342,7 @@
     SUBDIR += sacc
     SUBDIR += samba410
     SUBDIR += samba411
+    SUBDIR += samba412
     SUBDIR += samplicator
     SUBDIR += savvycan
     SUBDIR += sbd
