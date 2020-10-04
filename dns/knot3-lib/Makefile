@@ -1,10 +1,10 @@
 # $FreeBSD$
 
 # Define PORTREVISION in ${MASTERDIR}
-COMMENT=	Knot2 lib (required by knot-resolver)
-PKGNAMESUFFIX=	2-lib
+COMMENT=	Knot3 lib (required by knot-resolver)
+PKGNAMESUFFIX=	3-lib
 
-MASTERDIR=	${.CURDIR}/../knot2
+MASTERDIR=	${.CURDIR}/../knot3
 DESCR=		${.CURDIR}/pkg-descr
 PLIST=		${.CURDIR}/pkg-plist
 
