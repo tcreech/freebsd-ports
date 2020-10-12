@@ -4784,6 +4784,8 @@
     SUBDIR += py-poetry-core
     SUBDIR += py-polib
     SUBDIR += py-pooch
+    SUBDIR += py-pop
+    SUBDIR += py-pop-config
     SUBDIR += py-portalocker
     SUBDIR += py-positional
     SUBDIR += py-posix_ipc
