@@ -16,6 +16,14 @@ HAS_CONFIGURE=	yes
 PLIST_FILES=	bin/k5start bin/krenew \
 		man/man1/k5start.1.gz man/man1/krenew.1.gz
 
+OPTIONS_DEFINE=	AFS
+AFS_DESC=	Enable AFS token support via OpenAFS
+
+AFS_LIB_DEPENDS=	libkopenafs.so:net/openafs
+AFS_CONFIGURE_ENABLE=	setpag
+AFS_CONFIGURE_WITH=		afs-include=/usr/local/include/openafs \
+						afs-lib=/usr/local/lib
+
 do-install:
 	@${GZIP_CMD} ${WRKSRC}/docs/k5start.1
 	@${GZIP_CMD} ${WRKSRC}/docs/krenew.1

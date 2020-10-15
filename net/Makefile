@@ -524,6 +524,9 @@
     SUBDIR += ooni-probe-cli
     SUBDIR += opal
     SUBDIR += open-isns
+    SUBDIR += openafs
+    SUBDIR += openafs-devel
+    SUBDIR += openafs16
     SUBDIR += openbgpd
     SUBDIR += openbgpd6
     SUBDIR += openggsn
