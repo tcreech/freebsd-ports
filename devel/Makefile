@@ -804,6 +804,7 @@
     SUBDIR += gitolite2
     SUBDIR += gittrac
     SUBDIR += gitui
+    SUBDIR += glab
     SUBDIR += glade
     SUBDIR += glademm
     SUBDIR += glib20
@@ -4188,6 +4189,7 @@
     SUBDIR += py-bcdoc
     SUBDIR += py-beautifultable
     SUBDIR += py-behave
+    SUBDIR += py-beniget
     SUBDIR += py-bidict
     SUBDIR += py-billiard
     SUBDIR += py-binaryornot
@@ -4318,6 +4320,7 @@
     SUBDIR += py-dask
     SUBDIR += py-dataclasses
     SUBDIR += py-datadog
+    SUBDIR += py-datapackage
     SUBDIR += py-datatest
     SUBDIR += py-dateparser
     SUBDIR += py-dateutil
@@ -4331,6 +4334,7 @@
     SUBDIR += py-decorator
     SUBDIR += py-decoratortools
     SUBDIR += py-deepdiff
+    SUBDIR += py-deepmerge
     SUBDIR += py-defusedxml
     SUBDIR += py-delfick_error
     SUBDIR += py-demjson
@@ -5175,6 +5179,7 @@
     SUBDIR += py-validators
     SUBDIR += py-validictory
     SUBDIR += py-vcrpy
+    SUBDIR += py-vcver
     SUBDIR += py-vcversioner
     SUBDIR += py-venusian
     SUBDIR += py-verboselogs
