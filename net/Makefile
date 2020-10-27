@@ -1174,7 +1174,6 @@
     SUBDIR += remotebox
     SUBDIR += remotedesk
     SUBDIR += repeater
-    SUBDIR += reposado
     SUBDIR += rfbproxy
     SUBDIR += rinetd
     SUBDIR += ripe-whois
