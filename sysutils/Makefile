@@ -522,6 +522,7 @@
     SUBDIR += istatserver
     SUBDIR += istio
     SUBDIR += jadm
+    SUBDIR += jail_exporter
     SUBDIR += jail-primer
     SUBDIR += jailadmin
     SUBDIR += jaildaemon
