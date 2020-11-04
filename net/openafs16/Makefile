@@ -43,7 +43,7 @@ CONFIGURE_ARGS=	--prefix=${PREFIX} \
 		--enable-debug-kernel \
 		--enable-debug-lwp \
 		--includedir=${PREFIX}/include/openafs \
-		${CONFIGURE_TARGET}
+		${CONFIGURE_TARGET:S/12.2/12.1/}
 WRKSRC=		${WRKDIR}/${AFS_NAME}-${AFS_DISTVERSION}
 MAKE_ENV=	COMPILER_TYPE=${COMPILER_TYPE}
 USE_RC_SUBR=	afsserver
