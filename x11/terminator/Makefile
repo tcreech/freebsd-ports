@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	terminator
-PORTVERSION=	1.92
-PORTREVISION=	3
+PORTVERSION=	2.0.1
+#PORTREVISION=	0
 CATEGORIES=	x11 python
 MASTER_SITES=	https://github.com/gnome-terminator/terminator/releases/download/v${PORTVERSION}/
 
@@ -12,6 +12,7 @@ COMMENT=	Multiple GNOME terminals in one window
 
 LICENSE=	GPLv2
 
+BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}pytest-runner>0:devel/py-pytest-runner@${PY_FLAVOR}
 RUN_DEPENDS=	${LOCALBASE}/lib/libkeybinder-3.0.so:x11/keybinder-gtk3 \
 		${LOCALBASE}/lib/libnotify.so:devel/libnotify \
 		${PYTHON_PKGNAMEPREFIX}configobj>0:devel/py-configobj@${PY_FLAVOR} \
@@ -26,12 +27,9 @@ PYDISTUTILS_PKGNAME=	Terminator
 
 INSTALLS_ICONS=	yes
 
-SHEBANG_FILES=	terminator.wrapper
-bash_CMD=	${SH}
-
-OPTIONS_DEFINE=		NLS
-OPTIONS_SUB=		yes
-NLS_USES=		gettext
+OPTIONS_DEFINE=	NLS
+OPTIONS_SUB=	yes
+NLS_USES=	gettext
 
 NO_ARCH=	yes
 
