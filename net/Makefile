@@ -1012,6 +1012,7 @@
     SUBDIR += py-errbot
     SUBDIR += py-eventlet
     SUBDIR += py-flask-xml-rpc
+    SUBDIR += py-gdown
     SUBDIR += py-gntp
     SUBDIR += py-gspread
     SUBDIR += py-h11
