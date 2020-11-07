@@ -313,6 +313,7 @@
     SUBDIR += etc_os-release
     SUBDIR += etcmerge
     SUBDIR += etcupdate
+    SUBDIR += ethname
     SUBDIR += evhz
     SUBDIR += evisum
     SUBDIR += evtviewer
