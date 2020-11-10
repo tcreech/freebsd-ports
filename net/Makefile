@@ -1403,7 +1403,6 @@
     SUBDIR += socketpipe
     SUBDIR += socketw
     SUBDIR += sofia-sip
-    SUBDIR += spideroak
     SUBDIR += spoofer
     SUBDIR += spread
     SUBDIR += spread-j
@@ -1548,7 +1547,6 @@
     SUBDIR += xisp
     SUBDIR += xmlrpc-c
     SUBDIR += xmlrpc-epi
-    SUBDIR += xorp
     SUBDIR += xprobe
     SUBDIR += xrdesktop2
     SUBDIR += xrdp
