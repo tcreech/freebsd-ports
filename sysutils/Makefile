@@ -227,6 +227,7 @@
     SUBDIR += daemontools-encore
     SUBDIR += daggy
     SUBDIR += dar
+    SUBDIR += datadog
     SUBDIR += dateutils
     SUBDIR += dc3dd
     SUBDIR += dcfldd
