@@ -431,6 +431,7 @@
     SUBDIR += geteltorito
     SUBDIR += getssl
     SUBDIR += gigolo
+    SUBDIR += gitwatch
     SUBDIR += gkfreq
     SUBDIR += gkleds2
     SUBDIR += gkrellflynn
