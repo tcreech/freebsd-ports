@@ -10,6 +10,7 @@ PATCHFILES+=	f40395b6755d.patch:-p2 # https://github.com/letoram/arcan/pull/205
 PATCHFILES+=	b519eb023e20.patch:-p2 # https://github.com/letoram/arcan/pull/205
 PATCHFILES+=	d6b52b1b3601.patch:-p2 # https://github.com/letoram/arcan/pull/205
 PATCHFILES+=	d8a262d6d19a.patch:-p2 # https://github.com/letoram/arcan/pull/205
+PATCHFILES+=	f724b748cc72.patch:-p2 # https://github.com/letoram/arcan/pull/205
 
 MAINTAINER=	jbeich@FreeBSD.org
 COMMENT=	Display Server, Multimedia Framework, Game Engine
@@ -73,6 +74,7 @@ WAYLAND_BUILD_DEPENDS=	wayland-protocols>0:graphics/wayland-protocols
 WAYLAND_LIB_DEPENDS=	libwayland-server.so:graphics/wayland \
 			libxcb-icccm.so:x11/xcb-util-wm \
 			libxkbcommon.so:x11/libxkbcommon
+WAYLAND_RUN_DEPENDS=	xwayland-devel>0:x11-servers/xwayland-devel
 WAYLAND_USES=		xorg
 WAYLAND_USE=		XORG=xcb
 WAYLAND_CMAKE_BOOL_OFF=	DISABLE_WAYLAND
