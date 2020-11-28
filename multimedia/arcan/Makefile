@@ -33,6 +33,7 @@ WRKSRC_SUBDIR=	src
 CMAKE_ON=	HYBRID_HEADLESS
 CMAKE_ARGS=	-DENGINE_BUILDTAG:STRING="${DISTVERSIONFULL}"
 LDFLAGS+=	-Wl,--as-needed # bzip2, ffmpeg, librt, libutil, lzma, zlib
+LDFLAGS_i386=	-Wl,-z,notext
 
 OPTIONS_DEFINE=	ESPEAK FFMPEG LUAJIT SDL TESSERACT UVC VLC VNC WAYLAND
 OPTIONS_DEFAULT=ESPEAK FFMPEG LUAJIT SDL TESSERACT UVC VLC VNC WAYLAND
@@ -75,6 +76,17 @@ WAYLAND_LIB_DEPENDS=	libwayland-server.so:graphics/wayland \
 WAYLAND_USES=		xorg
 WAYLAND_USE=		XORG=xcb
 WAYLAND_CMAKE_BOOL_OFF=	DISABLE_WAYLAND
+
+post-patch:
+	@${REINPLACE_CMD} -i.prefix 's,/usr/local,${PREFIX},g' \
+		${WRKSRC:H}/doc/${PORTNAME}.1 \
+		${WRKSRC}/engine/arcan_vr.c \
+		${WRKSRC}/frameserver/decode/default/decode_av.c \
+		${WRKSRC}/frameserver/terminal/default/arcterm.c \
+		${WRKSRC}/frameserver/terminal/default/cli.c \
+		${WRKSRC}/frameserver/terminal/default/cli_builtin.c \
+		${WRKSRC}/platform/posix/paths.c \
+		${WRKSRC}/shmif/arcan_shmif_debugif.c
 
 post-patch-ESPEAK-off:
 	@${REINPLACE_CMD} -i.noespeak '/find.*Espeak/d' \
