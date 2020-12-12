@@ -234,6 +234,7 @@
     SUBDIR += daggy
     SUBDIR += dar
     SUBDIR += datadog-agent
+    SUBDIR += datadog-integrations
     SUBDIR += dateutils
     SUBDIR += dc3dd
     SUBDIR += dcfldd
