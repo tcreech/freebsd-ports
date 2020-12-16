@@ -590,6 +590,8 @@
     SUBDIR += libcpuid
     SUBDIR += libdnf
     SUBDIR += libfvde
+    SUBDIR += libg15
+    SUBDIR += libg15render
     SUBDIR += libgksu
     SUBDIR += libieee1284
     SUBDIR += libretto-config
@@ -1405,6 +1407,7 @@
     SUBDIR += u-boot-rpi3
     SUBDIR += u-boot-rpi3-32
     SUBDIR += u-boot-rpi4
+    SUBDIR += u-boot-rpi-arm64
     SUBDIR += u-boot-sinovoip-bpi-m3
     SUBDIR += u-boot-sopine
     SUBDIR += u-boot-sopine-spi
