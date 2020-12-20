@@ -1123,6 +1123,7 @@
     SUBDIR += rubygem-chef-config
     SUBDIR += rubygem-chef-config12
     SUBDIR += rubygem-chef-dk
+    SUBDIR += rubygem-chef-telemetry
     SUBDIR += rubygem-chef-utils
     SUBDIR += rubygem-chef-vault
     SUBDIR += rubygem-chef-zero
