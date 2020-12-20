@@ -5625,6 +5625,7 @@
     SUBDIR += rubygem-aws-sdk-lexmodelbuildingservice
     SUBDIR += rubygem-aws-sdk-licensemanager
     SUBDIR += rubygem-aws-sdk-lightsail
+    SUBDIR += rubygem-aws-sdk-locationservice
     SUBDIR += rubygem-aws-sdk-lookoutforvision
     SUBDIR += rubygem-aws-sdk-machinelearning
     SUBDIR += rubygem-aws-sdk-macie
@@ -5726,6 +5727,7 @@
     SUBDIR += rubygem-aws-sdk-waf
     SUBDIR += rubygem-aws-sdk-wafregional
     SUBDIR += rubygem-aws-sdk-wafv2
+    SUBDIR += rubygem-aws-sdk-wellarchitected
     SUBDIR += rubygem-aws-sdk-workdocs
     SUBDIR += rubygem-aws-sdk-worklink
     SUBDIR += rubygem-aws-sdk-workmail
