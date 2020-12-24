@@ -1,8 +1,7 @@
 # $FreeBSD$
 
-PORTNAME=		sogo4
-PORTVERSION=		4.3.2
-PORTREVISION=		1
+PORTNAME=		sogo
+PORTVERSION=		5.0.1
 CATEGORIES=		www gnustep
 MASTER_SITES=		http://www.sogo.nu/files/downloads/SOGo/Sources/
 DISTNAME=		SOGo-${PORTVERSION}
@@ -14,34 +13,47 @@ LICENSE=		GPLv2
 
 LIB_DEPENDS=		libmemcached.so:databases/libmemcached \
 			libcurl.so:ftp/curl \
-			libDOM.so:devel/sope4
+			libsodium.so:security/libsodium \
+			libzip.so:archivers/libzip \
+			libDOM.so:devel/sope
 RUN_DEPENDS=		zip:archivers/zip
 
-OPTIONS_DEFINE=	ACTIVESYNC
+OPTIONS_DEFAULT=	MFA
+OPTIONS_DEFINE=		ACTIVESYNC MFA SAML2
 OPTIONS_SUB=		yes
 
 ACTIVESYNC_DESC=	Enable support for ActiveSync protocol
+MFA_DESC=		Enable support for multi-factor authentication
+SAML2_DESC=		Enable support for SAML2 authentication
+
+SAML2_USES=		python:build gnome
+SAML2_USE=		gnome=glib20
+
 ACTIVESYNC_LIB_DEPENDS=	libwbxml2.so:textproc/wbxml2
+MFA_LIB_DEPENDS=	liboath.so:security/oath-toolkit
+SAML2_LIB_DEPENDS=	liblasso.so:security/lasso
+
+MFA_CONFIGURE_ON=	--enable-mfa
+MFA_CONFIGURE_OFF=	--disable-mfa
+SAML2_CONFIGURE_ON=	--enable-saml2
 
 USERS=			sogod
 GROUPS=			sogod
-
-USES=			gnustep ssl objc
+USES=			gettext-runtime gnustep objc pkgconfig shebangfix ssl
 USE_GNUSTEP=		base build
 USE_LDCONFIG=		${GNUSTEP_LOCAL_LIBRARIES}/sogo
 
-CONFLICTS?=		sogo2-activesync-[0-9]* sogo2-[0-9]*
+SHEBANG_LANG=		python
+SHEBANG_FILES=		${WRKSRC}/SoObjects/SOGo/gen-saml2-exceptions.py
+
+CONFLICTS?=		sogo[2-4]-activesync-[0-9]* sogo[2-4]-[0-9]*
 
 USE_RC_SUBR=		sogod
-
-DEPRECATED=		Unmaintained, please migrate to a newer version of sogo
-EXPIRATION_DATE=	2021-01-24
 
 SUB_FILES+=		pkg-message
 SUB_LIST+=		GNUSTEP_LOCAL_TOOLS=${GNUSTEP_LOCAL_TOOLS} \
 			GNUSTEP_MAKEFILES=${GNUSTEP_MAKEFILES}
-ETCDIR=			${PREFIX}/etc/${PORTNAME:S/4//}
-CONFIGURE_ARGS=		--disable-debug --enable-strip
+CONFIGURE_ARGS+=		--disable-debug --enable-strip
 
 post-patch:
 	@${GREP} -rlF '/etc/sogo' ${WRKSRC} \
