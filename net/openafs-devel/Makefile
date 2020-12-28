@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	openafs-devel
-DISTVERSION=	g20201128.${DBVERSION:S/-//g}
+DISTVERSION=	g20201224.${DBVERSION:S/-//g}
 CATEGORIES=	net
 DISTFILES=	CellServDB.${DBVERSION}:gco
 MASTER_SITES= GH \
@@ -9,7 +9,7 @@ MASTER_SITES= GH \
 		http://grand.central.org/dl/cellservdb/:gco
 
 USE_GITHUB=	yes
-GH_TAGNAME=	42bb1d5fd9ba5e079fb99cba400493bccf029cc8
+GH_TAGNAME=	64b3ee81222e23e895ee7399a99d5bc03402c777
 GH_ACCOUNT=	tcreech
 GH_PROJECT=	openafs
 
@@ -45,7 +45,7 @@ CONFIGURE_ARGS=	--prefix=${PREFIX} \
 		--enable-debug-kernel \
 		--enable-debug-lwp \
 		--includedir=${PREFIX}/include/openafs \
-		${CONFIGURE_TARGET:S/amd64/x86_64/:S/12.2/12.1/}
+		${CONFIGURE_TARGET:S/amd64/x86_64/}
 #WRKSRC=		${WRKDIR}/${PORTNAME}-${AFS_DISTVERSION}
 MAKE_ENV=	COMPILER_TYPE=${COMPILER_TYPE}
 USE_RC_SUBR=	${AFSMNTDIR}server
