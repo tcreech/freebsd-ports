@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	openafs-devel
-DISTVERSION=	g20200221.${DBVERSION:S/-//g}
+DISTVERSION=	g20201128.${DBVERSION:S/-//g}
 CATEGORIES=	net
 DISTFILES=	CellServDB.${DBVERSION}:gco
 MASTER_SITES= GH \
@@ -9,12 +9,12 @@ MASTER_SITES= GH \
 		http://grand.central.org/dl/cellservdb/:gco
 
 USE_GITHUB=	yes
-GH_TAGNAME=	042f809ccfe12bafed73aa4eb4db2c86737e0b22
-GH_ACCOUNT=	openafs
+GH_TAGNAME=	42bb1d5fd9ba5e079fb99cba400493bccf029cc8
+GH_ACCOUNT=	tcreech
 GH_PROJECT=	openafs
 
 DBVERSION=	2018-05-14
-EXTRACT_ONLY=	openafs-openafs-${DISTVERSION}-${GH_TAGNAME}_GH0.tar.gz
+EXTRACT_ONLY=	${GH_ACCOUNT}-${GH_PROJECT}-${DISTVERSION}-${GH_TAGNAME}_GH0.tar.gz
 
 COMMENT=	AFS implementation from openafs.org
 #LICENSE=	IPLv1
