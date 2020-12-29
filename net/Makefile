@@ -178,6 +178,7 @@
     SUBDIR += gerbera
     SUBDIR += gfbgraph
     SUBDIR += gitlab-agent
+    SUBDIR += gitup
     SUBDIR += glflow
     SUBDIR += glib-networking
     SUBDIR += glusterfs
@@ -1036,7 +1037,6 @@
     SUBDIR += py-ldappool
     SUBDIR += py-libcloud
     SUBDIR += py-libdnet
-    SUBDIR += py-libfte
     SUBDIR += py-magic-wormhole
     SUBDIR += py-matrix-synapse-ldap3
     SUBDIR += py-maxminddb
