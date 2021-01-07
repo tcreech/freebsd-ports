@@ -65,6 +65,7 @@
     SUBDIR += cs
     SUBDIR += cstream
     SUBDIR += ctm
+    SUBDIR += cxxmatrix
     SUBDIR += dahdi
     SUBDIR += dahdi-kmod
     SUBDIR += dahdi-kmod26
@@ -480,6 +481,7 @@
     SUBDIR += teseq
     SUBDIR += thefuck
     SUBDIR += thrill
+    SUBDIR += timezonemap
     SUBDIR += tkcron
     SUBDIR += tkinfo
     SUBDIR += tkregexp

@@ -192,6 +192,7 @@
     SUBDIR += cloog
     SUBDIR += clp
     SUBDIR += clrng
+    SUBDIR += cm
     SUBDIR += cminpack
     SUBDIR += cmlib
     SUBDIR += cocoalib
@@ -414,6 +415,7 @@
     SUBDIR += mpfi
     SUBDIR += mpfr
     SUBDIR += mpfrc++
+    SUBDIR += mpfrcx
     SUBDIR += mpir
     SUBDIR += mppp
     SUBDIR += mprime
@@ -697,6 +699,7 @@
     SUBDIR += pear-Math_Combinatorics
     SUBDIR += pecl-bitset
     SUBDIR += pecl-stats2
+    SUBDIR += permlib
     SUBDIR += petiga
     SUBDIR += php73-bcmath
     SUBDIR += php73-gmp
@@ -746,6 +749,7 @@
     SUBDIR += py-chaospy
     SUBDIR += py-claripy
     SUBDIR += py-cma
+    SUBDIR += py-cmaes
     SUBDIR += py-colormath
     SUBDIR += py-cryptominisat
     SUBDIR += py-cvxopt
@@ -794,6 +798,7 @@
     SUBDIR += py-numpy
     SUBDIR += py-numpy-stl
     SUBDIR += py-opt-einsum
+    SUBDIR += py-optuna
     SUBDIR += py-or-tools
     SUBDIR += py-osqp
     SUBDIR += py-pandas
@@ -828,6 +833,7 @@
     SUBDIR += py-python-igraph
     SUBDIR += py-python-louvain
     SUBDIR += py-pyvtk
+    SUBDIR += py-qdldl
     SUBDIR += py-quadprog
     SUBDIR += py-random2
     SUBDIR += py-roman
@@ -840,7 +846,12 @@
     SUBDIR += py-simhash
     SUBDIR += py-snuggs
     SUBDIR += py-spectral
+    SUBDIR += py-spglm
+    SUBDIR += py-spint
+    SUBDIR += py-splot
     SUBDIR += py-spot
+    SUBDIR += py-spreg
+    SUBDIR += py-spvcm
     SUBDIR += py-ssm
     SUBDIR += py-statsmodels
     SUBDIR += py-statsmodels010
@@ -858,7 +869,6 @@
     SUBDIR += qalculate
     SUBDIR += qd
     SUBDIR += qhull
-    SUBDIR += qhull5
     SUBDIR += qposases
     SUBDIR += qrupdate
     SUBDIR += qtiplot-doc
@@ -887,6 +897,7 @@
     SUBDIR += rubygem-narray_miss
     SUBDIR += rubygem-numru-misc
     SUBDIR += rubygem-numru-units
+    SUBDIR += rubygem-prime
     SUBDIR += rubygem-rb-gsl
     SUBDIR += rumur
     SUBDIR += saga
@@ -924,6 +935,7 @@
     SUBDIR += symengine
     SUBDIR += symmetrica
     SUBDIR += symphony
+    SUBDIR += sympol
     SUBDIR += sympow
     SUBDIR += tablix
     SUBDIR += taucs
@@ -945,6 +957,7 @@
     SUBDIR += unuran
     SUBDIR += vampire
     SUBDIR += viennacl
+    SUBDIR += vinci
     SUBDIR += visualpolylib
     SUBDIR += vowpal_wabbit
     SUBDIR += vtk6

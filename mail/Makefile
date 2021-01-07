@@ -134,7 +134,6 @@
     SUBDIR += findmaildirs
     SUBDIR += geary
     SUBDIR += gensig
-    SUBDIR += getmail
     SUBDIR += getmail6
     SUBDIR += gmime2
     SUBDIR += gmime2-sharp
@@ -579,6 +578,9 @@
     SUBDIR += rubygem-mailboxer
     SUBDIR += rubygem-mailfactory
     SUBDIR += rubygem-mini_mime
+    SUBDIR += rubygem-net-imap
+    SUBDIR += rubygem-net-pop
+    SUBDIR += rubygem-net-smtp
     SUBDIR += rubygem-pony
     SUBDIR += rubygem-premailer
     SUBDIR += rubygem-premailer-rails

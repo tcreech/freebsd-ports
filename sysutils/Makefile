@@ -9,8 +9,10 @@
     SUBDIR += 915resolution
     SUBDIR += LPRng
     SUBDIR += LPRngTool
+    SUBDIR += R-cran-fs
     SUBDIR += R-cran-processx
     SUBDIR += R-cran-ps
+    SUBDIR += R-cran-xopen
     SUBDIR += UEFITool
     SUBDIR += abduco
     SUBDIR += abgx360
@@ -791,9 +793,7 @@
     SUBDIR += openupsd
     SUBDIR += openzfs
     SUBDIR += openzfs-kmod
-    SUBDIR += ori
     SUBDIR += osinfo-db-tools
-    SUBDIR += osquery
     SUBDIR += p5-App-RunCron
     SUBDIR += p5-App-ZFSCurses
     SUBDIR += p5-BSD-Jail-Object
@@ -1043,7 +1043,6 @@
     SUBDIR += py-salt-2019
     SUBDIR += py-scandir
     SUBDIR += py-scarab
-    SUBDIR += py-shutilwhich
     SUBDIR += py-supervisor
     SUBDIR += py-tarsnapper
     SUBDIR += py-tmuxp
@@ -1267,6 +1266,7 @@
     SUBDIR += socket
     SUBDIR += socklog
     SUBDIR += solaar
+    SUBDIR += spcm
     SUBDIR += spindown
     SUBDIR += spinner
     SUBDIR += spiped
@@ -1483,6 +1483,8 @@
     SUBDIR += wimlib
     SUBDIR += wmapmload
     SUBDIR += wmbluecpu
+    SUBDIR += wmbsdbatt
+    SUBDIR += wmcube
     SUBDIR += wmdiskmon
     SUBDIR += wmflame
     SUBDIR += wmmemfree
@@ -1493,6 +1495,7 @@
     SUBDIR += wuzzah
     SUBDIR += x86info
     SUBDIR += xbatt
+    SUBDIR += xbattbar
     SUBDIR += xcdroast
     SUBDIR += xcpustate
     SUBDIR += xdu

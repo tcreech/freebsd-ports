@@ -452,6 +452,7 @@
     SUBDIR += ml1
     SUBDIR += mn-aspell
     SUBDIR += modlogan
+    SUBDIR += mp_doccer
     SUBDIR += mr-aspell
     SUBDIR += ms-aspell
     SUBDIR += msort
@@ -524,6 +525,7 @@
     SUBDIR += p5-Geo-Parse-OSM
     SUBDIR += p5-Getopt-Lucid
     SUBDIR += p5-Google-Data-JSON
+    SUBDIR += p5-Grutatxt
     SUBDIR += p5-HTML-Copy
     SUBDIR += p5-HTML-Entities-ImodePictogram
     SUBDIR += p5-HTML-Entities-Interpolate
@@ -1501,6 +1503,7 @@
     SUBDIR += ruby-rd-mode.el
     SUBDIR += ruby-rdtool
     SUBDIR += ruby-rttool
+    SUBDIR += rubygem-abbrev
     SUBDIR += rubygem-actionpack-xml_parser-rails5
     SUBDIR += rubygem-actionpack-xml_parser-rails52
     SUBDIR += rubygem-actionpack-xml_parser1-rails4
