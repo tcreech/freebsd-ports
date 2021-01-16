@@ -194,6 +194,7 @@
     SUBDIR += clp
     SUBDIR += clrng
     SUBDIR += cm
+    SUBDIR += cmh
     SUBDIR += cminpack
     SUBDIR += cmlib
     SUBDIR += cocoalib
@@ -225,6 +226,7 @@
     SUBDIR += dsdp
     SUBDIR += dune-alugrid
     SUBDIR += dune-common
+    SUBDIR += dune-curvedgeometry
     SUBDIR += dune-functions
     SUBDIR += dune-geometry
     SUBDIR += dune-grid

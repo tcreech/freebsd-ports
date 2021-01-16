@@ -1572,6 +1572,7 @@
     SUBDIR += nsync
     SUBDIR += nuitka
     SUBDIR += obby
+    SUBDIR += objconv
     SUBDIR += objecthash
     SUBDIR += ocaml-annexlib
     SUBDIR += ocaml-calendar
@@ -5099,6 +5100,7 @@
     SUBDIR += py-tartiflette-aiohttp
     SUBDIR += py-taskflow
     SUBDIR += py-taskflow3
+    SUBDIR += py-tasklib
     SUBDIR += py-tblib
     SUBDIR += py-tempora
     SUBDIR += py-tempora1
