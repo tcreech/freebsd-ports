@@ -27,8 +27,8 @@ LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 #EXPIRATION_DATE=	2019-05-08
 ONLY_FOR_ARCHS=	i386 amd64
 
-AFS_DISTVERSION=	1.8.6
-DBVERSION=	2018-05-14
+AFS_DISTVERSION=	1.8.7
+DBVERSION=	2020-09-29
 
 USES=		cpe kmod tar:bzip2 fakeroot
 USE_LDCONFIG=	yes
