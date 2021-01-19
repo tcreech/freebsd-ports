@@ -1,11 +1,11 @@
 # $FreeBSD$
 
-PORTNAME=	bioparser
-DISTVERSION=	3.0.12
+PORTNAME=	biosoup
+DISTVERSION=	g20201216
 CATEGORIES=	biology devel
 
 MAINTAINER=	yuri@FreeBSD.org
-COMMENT=	C++ header-only parsing library for several formats in bioinformatics
+COMMENT=	Collection of C++ header-only data structures for bioinformatics
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
@@ -16,16 +16,15 @@ USES=		cmake
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	rvaser
-GH_TUPLE=	rvaser:biosoup:e2b39f1:biosoup/vendor/biosoup
+GH_TAGNAME=	e2b39f1
 
 NO_ARCH=	yes
 
-PLIST_FILES=	include/${PORTNAME}/fasta_parser.hpp \
-		include/${PORTNAME}/fastq_parser.hpp \
-		include/${PORTNAME}/mhap_parser.hpp \
-		include/${PORTNAME}/paf_parser.hpp \
-		include/${PORTNAME}/parser.hpp \
-		include/${PORTNAME}/sam_parser.hpp
+PLIST_FILES=	include/biosoup/nucleic_acid.hpp \
+		include/biosoup/overlap.hpp \
+		include/biosoup/progress_bar.hpp \
+		include/biosoup/sequence.hpp \
+		include/biosoup/timer.hpp
 
 do-install:
 	cd ${WRKSRC}/include && ${COPYTREE_SHARE} ${PORTNAME} ${STAGEDIR}${PREFIX}/include
