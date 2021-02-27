@@ -1239,6 +1239,7 @@
     SUBDIR += py-autopep8
     SUBDIR += py-awesome-slugify
     SUBDIR += py-bibtexparser
+    SUBDIR += py-bracex
     SUBDIR += py-cchardet
     SUBDIR += py-chardet
     SUBDIR += py-citeproc-py
@@ -1360,6 +1361,7 @@
     SUBDIR += py-pyjade
     SUBDIR += py-pykwalify
     SUBDIR += py-pylons-sphinx-themes
+    SUBDIR += py-pyls-spyder
     SUBDIR += py-pypa-docs-theme
     SUBDIR += py-pypandoc
     SUBDIR += py-pyphen
@@ -1372,6 +1374,7 @@
     SUBDIR += py-python-docs-theme
     SUBDIR += py-python-docx
     SUBDIR += py-python-gettext
+    SUBDIR += py-python-language-server
     SUBDIR += py-python-slugify
     SUBDIR += py-python-xmp-toolkit
     SUBDIR += py-pytidylib
