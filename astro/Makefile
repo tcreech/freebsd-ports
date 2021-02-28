@@ -87,6 +87,7 @@
     SUBDIR += py-jplephem
     SUBDIR += py-metar
     SUBDIR += py-metpy
+    SUBDIR += py-pykep
     SUBDIR += py-pymeeus
     SUBDIR += py-pymetar
     SUBDIR += py-pysofa
@@ -98,6 +99,7 @@
     SUBDIR += py-spktype21
     SUBDIR += py-skyfield
     SUBDIR += py-skyfield-data
+    SUBDIR += pykep
     SUBDIR += pyweather
     SUBDIR += qmapshack
     SUBDIR += readosm
