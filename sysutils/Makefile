@@ -1206,6 +1206,7 @@
     SUBDIR += rundeck3
     SUBDIR += runit
     SUBDIR += runit-faster
+    SUBDIR += runj
     SUBDIR += runwhen
     SUBDIR += rw
     SUBDIR += s-tui
