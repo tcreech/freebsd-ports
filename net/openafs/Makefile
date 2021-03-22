@@ -16,6 +16,7 @@ EXTRACT_ONLY=	${PORTNAME}-${AFS_DISTVERSION}-src.tar.bz2 \
 
 MAINTAINER=	bjk@FreeBSD.org
 COMMENT=	AFS implementation from openafs.org
+BROKEN_FreeBSD_13=    Needs updates for FreeBSD 13
 
 LICENSE=	IPLv1
 LICENSE_NAME=	IBM Public License Version 1.0
