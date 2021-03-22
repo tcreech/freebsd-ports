@@ -81,8 +81,8 @@ FUSE_CONFIGURE_OFF=	--disable-fuse-client
 CFLAGS+=	-mstackrealign -Wno-shift-negative-value -Wno-pointer-sign
 .endif
 
-.if ${OSREL} == "13.0"
-# Upstream does not support the client on 13 and newer
+.if ${OSREL} == "14.0"
+# Upstream does not support the client on 14 and newer
 CONFIGURE_ARGS += --disable-kernel-module
 PLIST_SUB+=	KMOD="@comment "
 
