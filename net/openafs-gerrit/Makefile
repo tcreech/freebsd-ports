@@ -21,7 +21,7 @@ COMMENT=	AFS implementation from openafs.org
 #LICENSE=	IPLv1
 #LICENSE_NAME=	IBM Public License Version 1.0
 
-BROKEN_FreeBSD_13=	Needs updates for FreeBSD 13
+IGNORE_FreeBSD_13=	Needs updates for FreeBSD 13
 ONLY_FOR_ARCHS=	i386 amd64
 
 PORTNAME_BASE=	openafs
