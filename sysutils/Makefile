@@ -364,6 +364,7 @@
     SUBDIR += flog
     SUBDIR += flowgger
     SUBDIR += fluent-bit
+    SUBDIR += fluxengine
     SUBDIR += fonteditfs
     SUBDIR += foremost
     SUBDIR += fortunelock
