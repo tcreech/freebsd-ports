@@ -52,6 +52,7 @@
     SUBDIR += apertium
     SUBDIR += artha
     SUBDIR += asciidoc
+    SUBDIR += askgit
     SUBDIR += asm-xml
     SUBDIR += asm2html
     SUBDIR += aspell
@@ -479,6 +480,7 @@
     SUBDIR += opensp
     SUBDIR += openvanilla-framework
     SUBDIR += or-aspell
+    SUBDIR += ov
     SUBDIR += p5-AI-Categorizer
     SUBDIR += p5-Algorithm-CheckDigits
     SUBDIR += p5-Algorithm-RabinKarp
@@ -1406,6 +1408,7 @@
     SUBDIR += py-sphinx-argparse
     SUBDIR += py-sphinx-autoapi
     SUBDIR += py-sphinx-autodoc-typehints
+    SUBDIR += py-sphinx-copybutton
     SUBDIR += py-sphinx-inline-tabs
     SUBDIR += py-sphinx-intl
     SUBDIR += py-sphinx-issues
