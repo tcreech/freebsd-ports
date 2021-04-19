@@ -1,0 +1,21 @@
+--- src/libafs/MakefileProto.FBSD.in.orig	2018-09-11 15:52:48 UTC
++++ src/libafs/MakefileProto.FBSD.in
+@@ -40,6 +40,7 @@ AFS_OS_NONFSOBJS = \
+ # System specific build commands and flags
+ KSRC = @BSD_KERNEL_PATH@
+ KBLD = @BSD_KERNEL_BUILD@
++KERNBUILDDIR = @BSD_KERNEL_BUILD@
+ 
+ # keep symbols if --enable-debug-kernel
+ AC_DEBUG_FLAGS = @DEBUG_FLAGS@
+@@ -86,6 +87,10 @@ include Makefile.common
+ 
+ # we only do the no-NFS case
+ OBJS=	${AFSAOBJS} ${AFSNONFSOBJS}
++
++# Ensure that vnode_if.h is built before we try to compile any libafs objects.
++$(OBJS): vnode_if.h
++
+ 
+ LIBAFSNONFS=	libafs.ko
+ DEFINES= -DAFSDEBUG -DKERNEL -DAFS -DVICE -DNFS -DUFS -DINET -DQUOTA -DGETMOUNT
