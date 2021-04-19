@@ -212,6 +212,7 @@
     SUBDIR += coreutils
     SUBDIR += cpdup
     SUBDIR += cpu-x
+    SUBDIR += cpubars
     SUBDIR += cpuburn
     SUBDIR += cpuid
     SUBDIR += cpuid2cpuflags
