@@ -1,6 +1,7 @@
 PORTNAME=	couenne
 DISTVERSIONPREFIX=	releases/
 DISTVERSION=	0.5.8
+PORTREVISION=	2
 CATEGORIES=	math
 PKGNAMEPREFIX=	coin-or-
 
@@ -11,7 +12,9 @@ LICENSE=	EPL
 LICENSE_FILE=	${WRKSRC}/Couenne/LICENSE
 
 LIB_DEPENDS=	libbonmin.so:math/bonmin \
-		libCbc.so:math/coinmp \
+		libCbc.so:math/cbc \
+		libCgl.so:math/cgl \
+		libClp.so:math/clp \
 		libipopt.so:math/ipopt
 
 USES=		blaslapack:netlib fortran gmake libtool pkgconfig
