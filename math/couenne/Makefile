@@ -1,7 +1,7 @@
 PORTNAME=	couenne
 DISTVERSIONPREFIX=	releases/
 DISTVERSION=	0.5.8
-PORTREVISION=	3
+PORTREVISION=	5
 CATEGORIES=	math
 PKGNAMEPREFIX=	coin-or-
 
@@ -16,7 +16,10 @@ LIB_DEPENDS=	libbonmin.so:math/bonmin \
 		libCbc.so:math/cbc \
 		libCgl.so:math/cgl \
 		libClp.so:math/clp \
-		libipopt.so:math/ipopt
+		libcoinasl.so:math/asl \
+		libCoinUtils.so:math/coinutils \
+		libipopt.so:math/ipopt \
+		libopenblas.so:math/openblas
 
 USES=		blaslapack:netlib fortran gmake libtool pkgconfig
 USE_LDCONFIG=	yes
