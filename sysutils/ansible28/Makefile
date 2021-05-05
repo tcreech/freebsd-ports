@@ -1,11 +1,13 @@
-PORTVERSION=	2.8.11
-PORTREVISION=	1
+PORTVERSION=	2.8.20
+PORTREVISION=	2
 PKGNAMESUFFIX=	28
 
 MASTERDIR=	${.CURDIR}/../ansible
 DISTINFO_FILE=	${.CURDIR}/distinfo
 
-USES=		cpe python:3.6+
+DEPRECATED=	Upstream support ended; consider upgrading to sysutils/ansible
+EXPIRATION_DATE=2021-05-20
+
 EXTRA_PATCHES=
 
 .include "${MASTERDIR}/Makefile"
