@@ -16,7 +16,7 @@ EXTRACT_ONLY=	${PORTNAME}-${AFS_DISTVERSION}-src.tar.bz2 \
 
 MAINTAINER=	bjk@FreeBSD.org
 COMMENT=	AFS implementation from openafs.org
-BROKEN_FreeBSD_13=    Needs updates for FreeBSD 13
+BROKEN_FreeBSD_14=    Needs updates for FreeBSD 14
 
 LICENSE=	IPLv1
 LICENSE_NAME=	IBM Public License Version 1.0
@@ -47,7 +47,7 @@ CONFIGURE_ARGS=	--prefix=${PREFIX} \
 		--enable-debug-kernel \
 		--enable-debug-lwp \
 		--includedir=${PREFIX}/include/openafs \
-		${CONFIGURE_TARGET:S/12.2/12.1/}
+		${CONFIGURE_TARGET}
 WRKSRC=		${WRKDIR}/${PORTNAME}-${AFS_DISTVERSION}
 MAKE_ENV=	COMPILER_TYPE=${COMPILER_TYPE}
 USE_RC_SUBR=	${AFSMNTDIR}server
@@ -83,8 +83,8 @@ FUSE_CONFIGURE_OFF=	--disable-fuse-client
 CFLAGS+=	-mstackrealign -Wno-shift-negative-value -Wno-pointer-sign
 .endif
 
-.if ${OSREL} == "13.0"
-# Upstream does not support the client on 13 and newer
+.if ${OSREL} == "14.0"
+# Upstream does not support the client on 14 and newer
 CONFIGURE_ARGS += --disable-kernel-module
 PLIST_SUB+=	KMOD="@comment "
 

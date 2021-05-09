@@ -1,21 +1,106 @@
---- src/libafs/MakefileProto.FBSD.in.orig	2018-09-11 15:52:48 UTC
+--- src/libafs/MakefileProto.FBSD.in.orig	2021-01-14 21:08:41 UTC
 +++ src/libafs/MakefileProto.FBSD.in
-@@ -40,6 +40,7 @@ AFS_OS_NONFSOBJS = \
- # System specific build commands and flags
+@@ -44,10 +44,15 @@ AFS_OS_NONFSOBJS = \
  KSRC = @BSD_KERNEL_PATH@
  KBLD = @BSD_KERNEL_BUILD@
-+KERNBUILDDIR = @BSD_KERNEL_BUILD@
  
++LIBAFS_REQ_DIRS = $(DESTDIR)$(KMODDIR)/
++
  # keep symbols if --enable-debug-kernel
  AC_DEBUG_FLAGS = @DEBUG_FLAGS@
-@@ -86,6 +87,10 @@ include Makefile.common
+ .if !empty(AC_DEBUG_FLAGS)
+ DEBUG_FLAGS=	${AC_DEBUG_FLAGS}
++
++# For debug builds, we also need /usr/lib/debug/* dirs to exist
++LIBAFS_REQ_DIRS += ${DESTDIR}${KERN_DEBUGDIR}${KMODDIR}/
+ .endif
  
+ # We are not doing very well (WARNS=2 brings in printf format type checking)
+@@ -55,12 +60,36 @@ WARNS= 1
+ # We have some sketchy code that redeclares prototypes
+ CWARNFLAGS+= -Wno-redundant-decls
+ 
++GEN_KBLD_DIR=@abs_builddir@/kconf-GENERIC
++AFS_OS_CLEAN=$(GEN_KBLD_DIR)
++
++# Starting with FreeBSD 12, opt_global.h is effectively required to build, even
++# for the GENERIC kernel. Normally this would be provided in the kernel build
++# dir (--with-bsd-kernel-build). If that dir was not specified, we can still
++# get the needed header files if we assume that the user is building for the
++# GENERIC kernel. So if we don't have a kernel build dir, generate the header
++# files in GEN_KBLD_DIR by using config(8), and specify that as the
++# KERNBUILDDIR. This won't always work, of course, but it has a chance at
++# working for the most common setups (when the user isn't using some custom
++# kernel).
++$(GEN_KBLD_DIR):
++	-mkdir $(GEN_KBLD_DIR)
++	cd $(KSRC)/$(MACHINE)/conf && \
++		/usr/sbin/config -s $(KSRC) -d $(GEN_KBLD_DIR) GENERIC
++
+ # setup for bsd.kmod.mk infrastructure
+ .PATH:	${TOP_SRCDIR}/afs/FBSD
+ KMODDIR=/boot/modules
++KERN_DEBUGDIR=/usr/lib/debug
+ KMOD=	libafs
+ SYSDIR= ${KSRC}
+ 
++.if empty(KBLD)
++KERNBUILDDIR=$(GEN_KBLD_DIR)
++.else
++KERNBUILDDIR=${KBLD}
++.endif
++
+ # Name of directory to hold object files and libraries.
+ KOBJ = MODLOAD
+ 
+@@ -74,7 +103,7 @@ DESTDIRS = single_destdir
+ # generating headers and objects in this directory, which we want in $(KOBJ).
+ # We also need the install target from bsd.kmod.mk in $(KOBJ), but the one
+ # from Makefile.common in this directory.  A prime candidate for cleanup.
+-setup:
++setup: $(KERNBUILDDIR)
+ 	-mkdir $(KOBJ)
+ 	-$(RM) $(KOBJ)/Makefile $(KOBJ)/Makefile.common
+ 	$(CP) Makefile $(KOBJ)/Makefile
+@@ -87,9 +116,26 @@ setup:
+ # We must live with its other pollution of targets and build rules.
+ include Makefile.common
+ 
++# The following objects are not in AFSAOBJS or AFSNONFSOBJS. We enumerate them
++# here only so that we can enforce that they may depend on vnode_if.h below.
++AFSOSIOBJS= \
++	osi_crypto.o \
++	osi_gcpags.o \
++	osi_groups.o \
++	osi_file.o \
++	osi_inode.o \
++	osi_misc.o \
++	osi_sleep.o \
++	osi_vcache.o \
++	osi_vm.o \
++	osi_vnodeops.o \
++	osi_module.o
++
  # we only do the no-NFS case
  OBJS=	${AFSAOBJS} ${AFSNONFSOBJS}
-+
-+# Ensure that vnode_if.h is built before we try to compile any libafs objects.
-+$(OBJS): vnode_if.h
-+
  
++$(OBJS) $(AFSOSIOBJS): vnode_if.h
++
  LIBAFSNONFS=	libafs.ko
  DEFINES= -DAFSDEBUG -DKERNEL -DAFS -DVICE -DNFS -DUFS -DINET -DQUOTA -DGETMOUNT
+ CFLAGS+= $(DEFINES) ${COMMON_INCLUDE}
+@@ -100,7 +146,13 @@ INST_LIBAFSNONFS = ${DESTDIR}${afskerneldir}/${LIBAFSN
+ DEST_LIBAFS = ${DEST}/root.client/bin/${LIBAFS}
+ DEST_LIBAFSNONFS = ${DEST}/root.client/bin/${LIBAFSNONFS}
+ 
+-install_libafs:	$(LIBAFSNONFS) install
++$(DESTDIR)$(KMODDIR)/:
++	$(INSTALL) -d $@
++
++${DESTDIR}${KERN_DEBUGDIR}${KMODDIR}/:
++	$(INSTALL) -d $@
++
++install_libafs:	$(LIBAFSNONFS) $(LIBAFS_REQ_DIRS) install
+ 
+ dest_libafs: $(LIBAFSNONFS)
+ 	${INSTALL} -d ${DEST}/root.client/bin
