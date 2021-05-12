@@ -1544,6 +1544,7 @@
     SUBDIR += rubygem-asciidoctor-plantuml
     SUBDIR += rubygem-asciidoctor-plantuml0010
     SUBDIR += rubygem-autoprefixer-rails
+    SUBDIR += rubygem-autoprefixer-rails1020
     SUBDIR += rubygem-babel-source
     SUBDIR += rubygem-babel-transpiler
     SUBDIR += rubygem-babosa
@@ -1652,6 +1653,7 @@
     SUBDIR += rubygem-opml
     SUBDIR += rubygem-org-ruby
     SUBDIR += rubygem-ox
+    SUBDIR += rubygem-parse-cron
     SUBDIR += rubygem-parslet
     SUBDIR += rubygem-parslet1
     SUBDIR += rubygem-phone
