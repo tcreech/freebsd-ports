@@ -972,6 +972,7 @@
     SUBDIR += imake
     SUBDIR += inastemp
     SUBDIR += include-what-you-use
+    SUBDIR += indi
     SUBDIR += indicators
     SUBDIR += inifiled
     SUBDIR += inih
@@ -6851,7 +6852,6 @@
     SUBDIR += sonarqube-community
     SUBDIR += sope
     SUBDIR += sope2
-    SUBDIR += sope4
     SUBDIR += sord
     SUBDIR += sparc64-gcc
     SUBDIR += sparc64-xtoolchain-gcc
