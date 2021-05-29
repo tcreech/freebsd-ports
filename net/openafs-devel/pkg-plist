@@ -204,8 +204,8 @@ lib/lib%%AFSMNTDIR%%hcrypto.so.2.0.0
 lib/lib%%AFSMNTDIR%%rfc3961.a
 lib/lib%%AFSMNTDIR%%rpc.a
 lib/lib%%AFSMNTDIR%%rpc.so
-lib/lib%%AFSMNTDIR%%rpc.so.2
-lib/lib%%AFSMNTDIR%%rpc.so.2.0.0
+lib/lib%%AFSMNTDIR%%rpc.so.3
+lib/lib%%AFSMNTDIR%%rpc.so.3.0.0
 lib/lib%%AFSMNTDIR%%rpc_pic.a
 lib/libkopen%%AFSMNTDIR%%.a
 lib/libkopen%%AFSMNTDIR%%.so
