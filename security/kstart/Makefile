@@ -19,7 +19,7 @@ PLIST_FILES=	bin/k5start bin/krenew \
 OPTIONS_DEFINE=	AFS
 AFS_DESC=	Enable AFS token support via OpenAFS
 
-FLAVORS=	openafs openafs16 openafsdevel
+FLAVORS=	openafs openafsdevel
 
 openafsdevel_PKGNAMESUFFIX=	-openafsdevel
 default_CONFLICTS_INSTALL+=	kstart-openafsdevel
@@ -30,9 +30,6 @@ default_CONFLICTS_INSTALL+=	kstart-openafs16
 .if ${FLAVOR:U} == openafsdevel
 OPTIONS_DEFAULT+=	AFS
 AFS_LIB_DEPENDS=	libkopenafs.so:net/openafs-devel
-.elif ${FLAVOR:U} == openafs16
-OPTIONS_DEFAULT+=	AFS
-AFS_LIB_DEPENDS=	libkopenafs.so:net/openafs16
 .else
 AFS_LIB_DEPENDS=	libkopenafs.so:net/openafs
 .endif
