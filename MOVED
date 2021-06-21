@@ -13190,7 +13190,6 @@ multimedia/subtitleeditor||2019-10-16|Has expired: Unfetchable, unmaintained
 multimedia/umr||2019-10-16|Has expired: Unfetchable, unmaintained
 net/bluemix-cli||2019-10-16|Has expired: Unfetchable, unmaintained
 net/boclient||2019-10-16|Has expired: Unfetchable, unmaintained
-net/csync2||2019-10-16|Has expired: Unfetchable, unmaintained
 net/dictd-database||2019-10-16|Has expired: Unfetchable, unmaintained
 net/gtic||2019-10-16|Has expired: Unfetchable, unmaintained
 net/hidentd||2019-10-16|Has expired: Unfetchable, unmaintained
@@ -16413,3 +16412,4 @@ devel/powerpc64-xtoolchain-gcc|devel/freebsd-gcc6@powerpc64|2021-06-18|Replaced 
 devel/sparc64-gcc|devel/freebsd-gcc6@sparc64|2021-06-18|Replaced by a flavor
 devel/sparc64-xtoolchain-gcc|devel/freebsd-gcc6@sparc64|2021-06-18|Replaced by a flavor
 devel/riscv64-xtoolchain-gcc|devel/freebsd-gcc9@riscv64|2021-06-19|Replaced by a flavor
+www/py-beautifulsoup448|www/py-beautifulsoup|2021-06-20|Remove obsoleted port. Use www/py-beautifulsoup instead
