@@ -454,7 +454,6 @@
     SUBDIR += nift
     SUBDIR += node
     SUBDIR += node10
-    SUBDIR += node12
     SUBDIR += node14
     SUBDIR += nostromo
     SUBDIR += novnc
@@ -462,8 +461,6 @@
     SUBDIR += npapi-xine
     SUBDIR += npc
     SUBDIR += npm
-    SUBDIR += npm-node10
-    SUBDIR += npm-node12
     SUBDIR += npm-node14
     SUBDIR += nspluginwrapper
     SUBDIR += oauth2-proxy
@@ -2324,8 +2321,6 @@
     SUBDIR += yabb
     SUBDIR += yanopaste
     SUBDIR += yarn
-    SUBDIR += yarn-node10
-    SUBDIR += yarn-node12
     SUBDIR += yarn-node14
     SUBDIR += yaws
     SUBDIR += you-get
