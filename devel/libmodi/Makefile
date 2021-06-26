@@ -1,13 +1,12 @@
-# Created by: Antoine Brodin <antoine@FreeBSD.org>
-
-PORTNAME=	libsmraw
-DISTVERSION=	alpha-20210418
+PORTNAME=	libmodi
+# If/When moving from experimental to alpha, switch to DISTVERSIONPREFIX to prevent PORTEPOCH
+DISTVERSION=	experimental-20210515
 CATEGORIES=	devel
-MASTER_SITES=	https://github.com/libyal/libsmraw/releases/download/${PORTVERSION:E}/ \
+MASTER_SITES=	https://github.com/libyal/libmodi/releases/download/${PORTVERSION:E}/ \
 		LOCAL/antoine
 
 MAINTAINER=	antoine@FreeBSD.org
-COMMENT=	Library and tools to access the split RAW image format
+COMMENT=	Library and tools to access the Mac OS disk image formats
 
 LICENSE=	LGPL3+
 LICENSE_FILE=	${WRKSRC}/COPYING

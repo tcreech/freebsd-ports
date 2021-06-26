@@ -842,7 +842,6 @@
     SUBDIR += glui
     SUBDIR += gmake
     SUBDIR += gn
-    SUBDIR += gnatpython
     SUBDIR += gnome-builder
     SUBDIR += gnome-common
     SUBDIR += gnu-efi
@@ -1255,6 +1254,7 @@
     SUBDIR += libmba
     SUBDIR += libmill
     SUBDIR += libmimedir
+    SUBDIR += libmodi
     SUBDIR += libmowgli
     SUBDIR += libmowgli2
     SUBDIR += libmpcbdm
@@ -1276,8 +1276,6 @@
     SUBDIR += libopkele
     SUBDIR += liborcus
     SUBDIR += libosinfo
-    SUBDIR += libosmo-abis
-    SUBDIR += libosmocore
     SUBDIR += libowfat
     SUBDIR += libpafe
     SUBDIR += libpafe-ruby
