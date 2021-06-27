@@ -1,9 +1,8 @@
-# Created by: Gasol Wu <gasol.wu@gmail.com>
-
 PORTNAME=	gradle
 PORTVERSION=	6.9
 CATEGORIES=	devel java
 MASTER_SITES=	https://downloads.gradle.org/distributions/
+PKGNAMESUFFIX=	6
 EXTRACT_SUFX=	-bin.zip
 
 MAINTAINER=	ygy@FreeBSD.org
