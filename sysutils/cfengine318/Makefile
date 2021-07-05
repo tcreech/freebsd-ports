@@ -1,7 +1,7 @@
 # Created by: jrhett@netconsonance.com
 
 PORTNAME=	cfengine
-PORTVERSION=	3.16.0
+PORTVERSION=	3.18.0
 CATEGORIES=	sysutils
 MASTER_SITES=	https://s3.amazonaws.com/cfengine-package-repos/tarballs/
 
@@ -14,12 +14,9 @@ LICENSE=	GPLv3
 
 CPE_VENDOR=	gnu
 
-DEPRECATED=		Expire one year after cfengine 3.18.0 released
-EXPIRATION_DATE=	2022-07-05
-
-CONFLICTS=	cfengine3[0-9]-* cfengine31[0-57-9]-*
+CONFLICTS=	cfengine3[0-9]-* cfengine31[0-79]-*
 .if !defined(MASTERDIR)
-PKGNAMESUFFIX=	316
+PKGNAMESUFFIX=	318
 CONFLICTS+=	cfengine-3.*
 .endif
 

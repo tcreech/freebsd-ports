@@ -1,11 +1,9 @@
 # Created by: cy@FreeBSD.org
 
 PORTNAME=	cfengine-masterfiles
-PORTVERSION=	3.${CFENGINE_COMMIT_DATE}
+PORTVERSION=	3.18.0
 CATEGORIES=	sysutils
-PKGNAMESUFFIX=	-devel
-HASH=		c39b79c0
-CFENGINE_COMMIT_DATE=	2021.06.29
+MASTER_SITES=	https://cfengine-package-repos.s3.amazonaws.com/tarballs/
 
 MAINTAINER=	cy@FreeBSD.org
 #		gjb@FreeBSD.org is also committer for this port
@@ -14,25 +12,18 @@ COMMENT=	cfengine sample policies for installations and upgrades
 
 LICENSE=	GPLv3
 
-USE_GITHUB=     yes
-GH_ACCOUNT=	cfengine
-GH_PROJECT=     masterfiles
-GH_TAGNAME=     ${HASH}
 CPE_VENDOR=	gnu
 
-CONFLICTS=	cfengine-masterfiles3[0-9]-* cfengine-masterfiles31[02-9]-* \
-		cfengine-masterfiles-3.*
+CONFLICTS=	cfengine-masterfiles3[0-9]-* cfengine-masterfiles31[0-79]-*
 
 RUN_DEPENDS=	cf-agent:sysutils/cfengine${PKGNAMESUFFIX}
 
 FETCH_BEFORE_ARGS=	-o ${DISTDIR}/${DISTFILES}
 
 MAKE_JOBS_UNSAFE=	yes
-USES=		autoreconf:build cpe gmake python:build
+USES=		cpe gmake python:build
 HAS_CONFIGURE=	yes
 EXAMPLESDIR=	${PREFIX}/share/examples/cfengine-masterfiles
-CONFIGURE_SCRIPT=	./autogen.sh
 CONFIGURE_ARGS=	--prefix=${EXAMPLESDIR}
-CONFIGURE_ENV=	EXPLICIT_VERSION=${PORTVERSION}-${HASH}
 
 .include <bsd.port.mk>
