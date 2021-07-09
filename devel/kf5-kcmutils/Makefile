@@ -1,6 +1,5 @@
 PORTNAME=	kcmutils
 DISTVERSION=	${KDE_FRAMEWORKS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	devel kde kde-frameworks
 
 MAINTAINER=	kde@FreeBSD.org
@@ -12,6 +11,6 @@ USE_KDE=	auth codecs config configwidgets coreaddons guiaddons i18n \
 		widgetsaddons xmlgui \
 		ecm_build
 USE_QT=		core dbus declarative gui network widgets xml \
-		buildtools_build qmake_build
+		buildtools_build qmake_build testlib_build
 
 .include <bsd.port.mk>
