@@ -3,13 +3,13 @@
 PORTNAME=	python
 DISTVERSION=	${PYTHON_DISTVERSION}
 CATEGORIES=	lang python
-MASTER_SITES=	PYTHON/ftp/python/${DISTVERSION}
+MASTER_SITES=	PYTHON/ftp/python/${DISTVERSION:C/[a-z].*//}
 PKGNAMESUFFIX=	${PYTHON_SUFFIX}
 DISTNAME=	Python-${DISTVERSION}
 DIST_SUBDIR=	python
 
 MAINTAINER=	python@FreeBSD.org
-COMMENT=	Interpreted object-oriented programming language
+COMMENT=	Interpreted object-oriented programming language (beta version)
 
 LICENSE=	PSFL
 
@@ -49,7 +49,7 @@ SUB_LIST=		PYTHON_SUFFIX=${PYTHON_SUFFIX}
 PLIST_SUB=		ABI=${ABIFLAGS} \
 			XY=${PYTHON_SUFFIX} \
 			XYDOT=${PYTHON_VER} \
-			XYZDOT=${DISTVERSION} \
+			XYZDOT=${DISTVERSION:C/[a-z].*//} \
 			OSMAJOR=${OSVERSION:C/([0-9]*)[0-9]{5}/\1/}		# For plat-freebsd* in pkg-plist. https://bugs.python.org/issue19554
 
 OPTIONS_DEFINE=		DEBUG IPV6 LIBMPDEC NLS PYMALLOC
@@ -110,6 +110,14 @@ PLIST_SUB+=	NO_NIS="@comment "
 DISABLED_EXTENSIONS+=	nis
 .else
 PLIST_SUB+=	NO_NIS=""
+.endif
+
+# Python 3.10 requires OpenSSL >= 1.1.1 (PEP 644), so with
+# older OpenSSL or libressl, some modules are not built
+.if ${OPSYS} == FreeBSD && ${OSVERSION} < 1200000 && !${SSL_DEFAULT:Mopenssl*} || ${SSL_DEFAULT:Mlibressl*}
+PLIST_SUB+=	SUPPORTED_OPENSSL="@comment "
+.else
+PLIST_SUB+=	SUPPORTED_OPENSSL=""
 .endif
 
 post-patch:
