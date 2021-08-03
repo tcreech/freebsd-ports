@@ -113,8 +113,6 @@ include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/stds.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/sysctl.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/tabular_output.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/tcdata.h
-include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/thread_pool.h
-include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/thread_pool_types.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/unified_%%AFSMNTDIR%%.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/usd.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/venus.h
