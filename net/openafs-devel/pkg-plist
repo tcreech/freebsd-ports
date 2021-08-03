@@ -113,8 +113,6 @@ include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/stds.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/sysctl.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/tabular_output.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/tcdata.h
-include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/thread_pool.h
-include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/thread_pool_types.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/unified_%%AFSMNTDIR%%.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/usd.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/venus.h
@@ -204,8 +202,8 @@ lib/lib%%AFSMNTDIR%%hcrypto.so.2.0.0
 lib/lib%%AFSMNTDIR%%rfc3961.a
 lib/lib%%AFSMNTDIR%%rpc.a
 lib/lib%%AFSMNTDIR%%rpc.so
-lib/lib%%AFSMNTDIR%%rpc.so.2
-lib/lib%%AFSMNTDIR%%rpc.so.2.0.0
+lib/lib%%AFSMNTDIR%%rpc.so.3
+lib/lib%%AFSMNTDIR%%rpc.so.3.0.0
 lib/lib%%AFSMNTDIR%%rpc_pic.a
 lib/libkopen%%AFSMNTDIR%%.a
 lib/libkopen%%AFSMNTDIR%%.so
