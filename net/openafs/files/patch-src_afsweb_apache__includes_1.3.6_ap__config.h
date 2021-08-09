@@ -1,4 +1,4 @@
---- src/afsweb/apache_includes/1.3.6/ap_config.h.orig	2021-01-14 21:08:41 UTC
+--- src/afsweb/apache_includes/1.3.6/ap_config.h.orig	2021-07-29 10:24:31 UTC
 +++ src/afsweb/apache_includes/1.3.6/ap_config.h
 @@ -682,8 +682,7 @@ stat() properly */
  #ifndef DEFAULT_GROUP

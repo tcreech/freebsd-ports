@@ -1,4 +1,4 @@
---- src/afs/VNOPS/afs_vnop_readdir.c.orig	2021-01-14 21:08:41 UTC
+--- src/afs/VNOPS/afs_vnop_readdir.c.orig	2021-07-29 10:24:31 UTC
 +++ src/afs/VNOPS/afs_vnop_readdir.c
 @@ -158,6 +158,15 @@ struct min_direct {		/* miniature direct structure */
      uint16_t d_reclen;		/* length of this record */

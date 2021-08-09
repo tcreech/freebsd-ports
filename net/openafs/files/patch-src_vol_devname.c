@@ -1,4 +1,4 @@
---- src/vol/devname.c.orig	2021-01-14 21:08:41 UTC
+--- src/vol/devname.c.orig	2021-07-29 10:24:31 UTC
 +++ src/vol/devname.c
 @@ -10,6 +10,8 @@
  #include <afsconfig.h>
@@ -9,13 +9,10 @@
  #include <roken.h>
  
  #include <ctype.h>
-@@ -19,55 +21,45 @@
+@@ -19,51 +21,45 @@
  #include <afs/afsint.h>
  
  #if !defined(AFS_SGI_ENV)
--#ifdef	AFS_OSF_ENV
--#include <ufs/fs.h>
--#else /* AFS_OSF_ENV */
 -#ifdef AFS_VFSINCL_ENV
 -#define VFS
 -#ifdef	AFS_SUN5_ENV
@@ -33,7 +30,6 @@
 -#include <sys/fs.h>
 -#endif
 -#endif /* AFS_VFSINCL_ENV */
--#endif /* AFS_OSF_ENV */
 +# ifdef AFS_VFSINCL_ENV
 +#  define VFS
 +#  ifdef	AFS_SUN5_ENV
@@ -99,7 +95,7 @@
  #include <sys/wait.h>
  #include <setjmp.h>
  
-@@ -86,13 +78,14 @@ vol_DevName(dev_t adev, char *wpath)
+@@ -82,13 +78,14 @@ vol_DevName(dev_t adev, char *wpath)
      struct mnttab mnt;
      FILE *mntfile;
  #else
@@ -118,7 +114,7 @@
  #ifdef	AFS_AIX_ENV
      int nmounts;
      struct vmount *vmountp;
-@@ -107,59 +100,46 @@ vol_DevName(dev_t adev, char *wpath)
+@@ -103,59 +100,46 @@ vol_DevName(dev_t adev, char *wpath)
  	 (struct vmount *)((int)vmountp + vmountp->vmt_length)) {
  	char *part = vmt2dataptr(vmountp, VMT_STUB);
  #else
@@ -190,7 +186,7 @@
  	/* Only keep track of "/vicepx" partitions since it can get hairy when NFS mounts are involved.. */
  	if (strncmp(part, VICE_PARTITION_PREFIX, VICE_PREFIX_SIZE)) {
  	    continue;		/* Non /vicepx; ignore */
-@@ -167,7 +147,7 @@ vol_DevName(dev_t adev, char *wpath)
+@@ -163,7 +147,7 @@ vol_DevName(dev_t adev, char *wpath)
  	if (stat(part, &status) == -1) {
  	    continue;
  	}
@@ -199,7 +195,7 @@
  	if ((status.st_ino !=
  	     ROOTINO) /*|| ((status.st_mode & S_IFMT) != S_IFBLK) */ ) {
  	    continue;
-@@ -177,16 +157,16 @@ vol_DevName(dev_t adev, char *wpath)
+@@ -173,16 +157,16 @@ vol_DevName(dev_t adev, char *wpath)
  #ifdef	AFS_AIX_ENV
  	    strcpy(pbuffer, vmt2dataptr(vmountp, VMT_OBJECT));
  #else
@@ -222,7 +218,7 @@
  	    if (wpath) {
  		strcpy(pbuf, pbuffer);
  		ptr = (char *)strrchr(pbuf, OS_DIRSEPC);
-@@ -207,13 +187,13 @@ vol_DevName(dev_t adev, char *wpath)
+@@ -203,13 +187,13 @@ vol_DevName(dev_t adev, char *wpath)
  #ifdef	AFS_SUN5_ENV
      (void)fclose(mntfile);
  #else
@@ -241,7 +237,7 @@
  #endif /* AFS_SGI_ENV */
      return NULL;
  }
-@@ -247,3 +227,5 @@ afs_rawname(char *devfile)
+@@ -243,3 +227,5 @@ afs_rawname(char *devfile)
  
      return NULL;
  }

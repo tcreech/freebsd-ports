@@ -1,4 +1,4 @@
---- src/afs/VNOPS/afs_vnop_fid.c.orig	2021-01-14 21:08:41 UTC
+--- src/afs/VNOPS/afs_vnop_fid.c.orig	2021-07-29 10:24:31 UTC
 +++ src/afs/VNOPS/afs_vnop_fid.c
 @@ -113,7 +113,7 @@ afs_fid(OSI_VC_DECL(avc), struct fid **fidpp)
  	addr[0] = (long)avc;

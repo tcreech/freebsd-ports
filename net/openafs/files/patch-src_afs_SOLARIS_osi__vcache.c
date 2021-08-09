@@ -1,4 +1,4 @@
---- src/afs/SOLARIS/osi_vcache.c.orig	2021-01-14 21:08:41 UTC
+--- src/afs/SOLARIS/osi_vcache.c.orig	2021-07-29 10:24:31 UTC
 +++ src/afs/SOLARIS/osi_vcache.c
 @@ -88,3 +88,19 @@ osi_PostPopulateVCache(struct vcache *avc) {
       * 1 directly. So, we must explicitly VFS_HOLD here. */

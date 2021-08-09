@@ -1,4 +1,4 @@
---- src/afs/afs_osi.h.orig	2021-01-14 21:08:41 UTC
+--- src/afs/afs_osi.h.orig	2021-07-29 10:24:31 UTC
 +++ src/afs/afs_osi.h
 @@ -149,6 +149,15 @@ extern void osi_PrePopulateVCache(struct vcache *);
  extern void osi_PostPopulateVCache(struct vcache *);

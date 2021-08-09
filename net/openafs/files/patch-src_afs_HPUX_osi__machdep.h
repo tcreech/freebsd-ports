@@ -1,4 +1,4 @@
---- src/afs/HPUX/osi_machdep.h.orig	2021-01-14 21:08:41 UTC
+--- src/afs/HPUX/osi_machdep.h.orig	2021-07-29 10:24:31 UTC
 +++ src/afs/HPUX/osi_machdep.h
 @@ -29,7 +29,6 @@ extern struct timeval time;
  typedef struct ucred afs_ucred_t;

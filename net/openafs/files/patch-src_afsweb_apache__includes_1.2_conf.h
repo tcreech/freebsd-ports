@@ -1,4 +1,4 @@
---- src/afsweb/apache_includes/1.2/conf.h.orig	2021-01-14 21:08:41 UTC
+--- src/afsweb/apache_includes/1.2/conf.h.orig	2021-07-29 10:24:31 UTC
 +++ src/afsweb/apache_includes/1.2/conf.h
 @@ -404,8 +404,7 @@ extern char *crypt();
  #define HAVE_MMAP

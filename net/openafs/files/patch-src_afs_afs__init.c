@@ -1,26 +1,6 @@
---- src/afs/afs_init.c.orig	2021-01-14 21:08:41 UTC
+--- src/afs/afs_init.c.orig	2021-07-29 10:24:31 UTC
 +++ src/afs/afs_init.c
-@@ -334,7 +334,9 @@ afs_InitVolumeInfo(char *afile)
-     if (code)
- 	return code;
-     tfile = afs_CFileOpen(&volumeInode);
--    osi_Assert(tfile);
-+    if (!tfile) {
-+	return EIO;
-+    }
-     afs_CFileTruncate(tfile, 0);
-     afs_CFileClose(tfile);
-     return 0;
-@@ -432,7 +434,7 @@ afs_InitCacheInfo(char *afile)
- #elif defined(AFS_DARWIN80_ENV)
-         afs_cacheVfsp = vnode_mount(filevp);
- 	if (afs_cacheVfsp && ((st = *(vfs_statfs(afs_cacheVfsp))),1))
--#elif defined(AFS_FBSD80_ENV)
-+#elif defined(AFS_FBSD_ENV)
- 	if (!VFS_STATFS(filevp->v_mount, &st))
- #elif defined(AFS_NBSD50_ENV)
- 	if (!VFS_STATVFS(filevp->v_vfsp, &st))
-@@ -567,7 +569,9 @@ afs_ResourceInit(int preallocs)
+@@ -569,7 +569,9 @@ afs_ResourceInit(int preallocs)
      afs_server =
  	rx_NewService(0, RX_STATS_SERVICE_ID, "rpcstats", &secobj, 1,
  		      RXSTATS_ExecuteRequest);
@@ -30,7 +10,7 @@
      afs_osi_Wakeup(&afs_server);	/* wakeup anyone waiting for it */
      return 0;
  
-@@ -708,14 +712,23 @@ shutdown_cache(void)
+@@ -710,14 +712,23 @@ shutdown_cache(void)
  	pag_epoch = 0;
  	pagCounter = 0;
  #if defined(AFS_XBSD_ENV)
@@ -60,7 +40,7 @@
  	}
  #endif
  #ifdef AFS_CACHE_VNODE_PATH
-@@ -755,7 +768,6 @@ static void
+@@ -757,7 +768,6 @@ static void
  shutdown_server(void)
  {
      int i;
@@ -68,7 +48,7 @@
      struct srvAddr *sa;
  
      for (i = 0; i < NSERVERS; i++) {
-@@ -772,13 +784,6 @@ shutdown_server(void)
+@@ -774,13 +784,6 @@ shutdown_server(void)
                       * here */
                      afs_ReleaseConns(sa->conns);
  		}

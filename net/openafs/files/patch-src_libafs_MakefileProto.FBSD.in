@@ -1,22 +1,6 @@
---- src/libafs/MakefileProto.FBSD.in.orig	2021-01-14 21:08:41 UTC
+--- src/libafs/MakefileProto.FBSD.in.orig	2021-07-29 10:24:31 UTC
 +++ src/libafs/MakefileProto.FBSD.in
-@@ -44,10 +44,15 @@ AFS_OS_NONFSOBJS = \
- KSRC = @BSD_KERNEL_PATH@
- KBLD = @BSD_KERNEL_BUILD@
- 
-+LIBAFS_REQ_DIRS = $(DESTDIR)$(KMODDIR)/
-+
- # keep symbols if --enable-debug-kernel
- AC_DEBUG_FLAGS = @DEBUG_FLAGS@
- .if !empty(AC_DEBUG_FLAGS)
- DEBUG_FLAGS=	${AC_DEBUG_FLAGS}
-+
-+# For debug builds, we also need /usr/lib/debug/* dirs to exist
-+LIBAFS_REQ_DIRS += ${DESTDIR}${KERN_DEBUGDIR}${KMODDIR}/
- .endif
- 
- # We are not doing very well (WARNS=2 brings in printf format type checking)
-@@ -55,12 +60,36 @@ WARNS= 1
+@@ -60,13 +60,33 @@ WARNS= 1
  # We have some sketchy code that redeclares prototypes
  CWARNFLAGS+= -Wno-redundant-decls
  
@@ -40,20 +24,18 @@
  # setup for bsd.kmod.mk infrastructure
  .PATH:	${TOP_SRCDIR}/afs/FBSD
  KMODDIR=/boot/modules
-+KERN_DEBUGDIR=/usr/lib/debug
+ KERN_DEBUGDIR=/usr/lib/debug
  KMOD=	libafs
  SYSDIR= ${KSRC}
- 
+-.if !empty(KBLD)
++
 +.if empty(KBLD)
 +KERNBUILDDIR=$(GEN_KBLD_DIR)
 +.else
-+KERNBUILDDIR=${KBLD}
-+.endif
-+
- # Name of directory to hold object files and libraries.
- KOBJ = MODLOAD
+ KERNBUILDDIR=${KBLD}
+ .endif
  
-@@ -74,7 +103,7 @@ DESTDIRS = single_destdir
+@@ -83,7 +103,7 @@ DESTDIRS = single_destdir
  # generating headers and objects in this directory, which we want in $(KOBJ).
  # We also need the install target from bsd.kmod.mk in $(KOBJ), but the one
  # from Makefile.common in this directory.  A prime candidate for cleanup.
@@ -62,7 +44,7 @@
  	-mkdir $(KOBJ)
  	-$(RM) $(KOBJ)/Makefile $(KOBJ)/Makefile.common
  	$(CP) Makefile $(KOBJ)/Makefile
-@@ -87,9 +116,26 @@ setup:
+@@ -96,10 +116,25 @@ setup:
  # We must live with its other pollution of targets and build rules.
  include Makefile.common
  
@@ -84,23 +66,8 @@
  # we only do the no-NFS case
  OBJS=	${AFSAOBJS} ${AFSNONFSOBJS}
  
+-$(OBJS): vnode_if.h
 +$(OBJS) $(AFSOSIOBJS): vnode_if.h
-+
+ 
  LIBAFSNONFS=	libafs.ko
  DEFINES= -DAFSDEBUG -DKERNEL -DAFS -DVICE -DNFS -DUFS -DINET -DQUOTA -DGETMOUNT
- CFLAGS+= $(DEFINES) ${COMMON_INCLUDE}
-@@ -100,7 +146,13 @@ INST_LIBAFSNONFS = ${DESTDIR}${afskerneldir}/${LIBAFSN
- DEST_LIBAFS = ${DEST}/root.client/bin/${LIBAFS}
- DEST_LIBAFSNONFS = ${DEST}/root.client/bin/${LIBAFSNONFS}
- 
--install_libafs:	$(LIBAFSNONFS) install
-+$(DESTDIR)$(KMODDIR)/:
-+	$(INSTALL) -d $@
-+
-+${DESTDIR}${KERN_DEBUGDIR}${KMODDIR}/:
-+	$(INSTALL) -d $@
-+
-+install_libafs:	$(LIBAFSNONFS) $(LIBAFS_REQ_DIRS) install
- 
- dest_libafs: $(LIBAFSNONFS)
- 	${INSTALL} -d ${DEST}/root.client/bin

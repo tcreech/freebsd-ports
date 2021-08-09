@@ -1,4 +1,4 @@
---- src/afs/LINUX/osi_vcache.c.orig	2021-01-14 21:08:41 UTC
+--- src/afs/LINUX/osi_vcache.c.orig	2021-07-29 10:24:31 UTC
 +++ src/afs/LINUX/osi_vcache.c
 @@ -103,8 +103,11 @@ osi_TryEvictVCache(struct vcache *avc, int *slept, int
  	&& avc->opens == 0) {
