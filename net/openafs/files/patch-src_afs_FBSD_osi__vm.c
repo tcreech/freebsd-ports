@@ -1,10 +1,7 @@
---- src/afs/FBSD/osi_vm.c.orig	2021-01-14 21:08:41 UTC
+--- src/afs/FBSD/osi_vm.c.orig	2021-07-29 10:24:31 UTC
 +++ src/afs/FBSD/osi_vm.c
-@@ -48,17 +48,14 @@
-  * check the VCS history of those files.
-  */
+@@ -50,7 +50,11 @@
  
--#if defined(AFS_FBSD80_ENV)
  #define	lock_vnode(v, f)	vn_lock((v), (f))
  #define ilock_vnode(v)	vn_lock((v), LK_INTERLOCK|LK_EXCLUSIVE|LK_RETRY)
 +#if defined(AFS_FBSD_VOP_UNLOCK_NOFLAGS)
@@ -13,16 +10,9 @@
  #define unlock_vnode(v)	VOP_UNLOCK((v), 0)
 +#endif /* AFS_FBSD_VOP_UNLOCK_NOFLAGS */
  #define islocked_vnode(v)	VOP_ISLOCKED((v))
--#else
--#define	lock_vnode(v, f)	vn_lock((v), (f), curthread)
--#define ilock_vnode(v)	vn_lock((v), LK_INTERLOCK|LK_EXCLUSIVE|LK_RETRY, curthread)
--#define unlock_vnode(v)	VOP_UNLOCK((v), 0, curthread)
--#define islocked_vnode(v)	VOP_ISLOCKED((v), curthread)
--#endif
  
  #if __FreeBSD_version >= 1000030
- #define AFS_VM_OBJECT_WLOCK(o)	VM_OBJECT_WLOCK(o)
-@@ -86,8 +83,7 @@ osi_VM_FlushVCache(struct vcache *avc)
+@@ -79,8 +83,7 @@ osi_VM_FlushVCache(struct vcache *avc)
  
      vp = AFSTOV(avc);
  
@@ -32,7 +22,7 @@
      code = osi_fbsd_checkinuse(avc);
      if (code) {
  	VI_UNLOCK(vp);
-@@ -118,41 +114,37 @@ osi_VM_StoreAllSegments(struct vcache *avc)
+@@ -111,41 +114,37 @@ osi_VM_StoreAllSegments(struct vcache *avc)
  {
      struct vnode *vp;
      struct vm_object *obj;
@@ -101,7 +91,7 @@
  }
  
  /* Try to invalidate pages, for "fs flush" or "fs flushv"; or
-@@ -174,12 +166,14 @@ osi_VM_TryToSmush(struct vcache *avc, afs_ucred_t *acr
+@@ -167,12 +166,14 @@ osi_VM_TryToSmush(struct vcache *avc, afs_ucred_t *acr
      vp = AFSTOV(avc);
  
      VI_LOCK(vp);
@@ -117,7 +107,7 @@
      islocked = islocked_vnode(vp);
      if (islocked == LK_EXCLOTHER)
  	panic("Trying to Smush over someone else's lock");
-@@ -220,6 +214,8 @@ osi_VM_TryToSmush(struct vcache *avc, afs_ucred_t *acr
+@@ -213,6 +214,8 @@ osi_VM_TryToSmush(struct vcache *avc, afs_ucred_t *acr
  	lock_vnode(vp, LK_DOWNGRADE);
      else if (!islocked)
  	unlock_vnode(vp);

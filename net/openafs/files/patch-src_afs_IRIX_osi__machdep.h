@@ -1,4 +1,4 @@
---- src/afs/IRIX/osi_machdep.h.orig	2021-01-14 21:08:41 UTC
+--- src/afs/IRIX/osi_machdep.h.orig	2021-07-29 10:24:31 UTC
 +++ src/afs/IRIX/osi_machdep.h
 @@ -36,8 +36,6 @@ typedef struct proc afs_proc_t;
  #undef gop_lookupname_user

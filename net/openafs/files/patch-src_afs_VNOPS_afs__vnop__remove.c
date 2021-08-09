@@ -1,4 +1,4 @@
---- src/afs/VNOPS/afs_vnop_remove.c.orig	2021-01-14 21:08:41 UTC
+--- src/afs/VNOPS/afs_vnop_remove.c.orig	2021-07-29 10:24:31 UTC
 +++ src/afs/VNOPS/afs_vnop_remove.c
 @@ -423,7 +423,7 @@ afs_remunlink(struct vcache *avc, int doit)
  #if defined(AFS_DARWIN_ENV) && !defined(AFS_DARWIN80_ENV)

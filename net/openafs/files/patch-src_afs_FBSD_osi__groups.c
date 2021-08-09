@@ -1,4 +1,4 @@
---- src/afs/FBSD/osi_groups.c.orig	2021-01-14 21:08:41 UTC
+--- src/afs/FBSD/osi_groups.c.orig	2021-07-29 10:24:31 UTC
 +++ src/afs/FBSD/osi_groups.c
 @@ -48,17 +48,9 @@ Afs_xsetgroups(struct thread *td, struct setgroups_arg
      AFS_GUNLOCK();
@@ -18,7 +18,7 @@
      /* Note that if there is a pag already in the new groups we don't
       * overwrite it with the old pag.
       */
-@@ -76,45 +68,90 @@ Afs_xsetgroups(struct thread *td, struct setgroups_arg
+@@ -76,37 +68,89 @@ Afs_xsetgroups(struct thread *td, struct setgroups_arg
      return code;
  }
  
@@ -87,21 +87,16 @@
      gid_t *gidset;
 +    struct proc *p;
      int gidset_len = ngroups_max + 1;
--#elif defined(AFS_FBSD80_ENV)
+-#else
 -    gid_t *gidset;
 -    int gidset_len = NGROUPS;	/* 1024 */
--#else
--    gid_t gidset[NGROUPS];
--    int gidset_len = NGROUPS;	/* 16 */
 -#endif
      int ngroups, code;
      int j;
  
      AFS_STATCNT(setpag);
--#ifdef AFS_FBSD80_ENV
 +    p = td->td_proc;
      gidset = osi_Alloc(gidset_len * sizeof(gid_t));
--#endif
 +    PROC_LOCK(p);
      ngroups = afs_getgroups(*cred, gidset_len, gidset);
 -    if (afs_get_pag_from_groups(gidset[1], gidset[2]) == NOPAG) {
@@ -123,16 +118,13 @@
 +        goto done;
 +
      code = afs_setgroups(td, cred, ngroups, gidset, change_parent);
--#ifdef AFS_FBSD80_ENV
 +
 +done:
 +    PROC_UNLOCK(p);
      osi_Free(gidset, gidset_len * sizeof(gid_t));
--#endif
      return code;
  }
- 
-@@ -138,5 +175,49 @@ static int
+@@ -131,5 +175,49 @@ static int
  afs_setgroups(struct thread *td, struct ucred **cred, int ngroups,
  	      gid_t * gidset, int change_parent)
  {

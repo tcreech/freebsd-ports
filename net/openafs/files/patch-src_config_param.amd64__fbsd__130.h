@@ -1,4 +1,4 @@
---- src/config/param.amd64_fbsd_130.h.orig	2021-05-09 03:55:14 UTC
+--- src/config/param.amd64_fbsd_130.h.orig	2021-08-09 02:54:23 UTC
 +++ src/config/param.amd64_fbsd_130.h
 @@ -0,0 +1,56 @@
 +#ifndef	AFS_PARAM_H

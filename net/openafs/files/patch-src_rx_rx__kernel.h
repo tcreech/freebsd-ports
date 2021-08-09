@@ -1,4 +1,4 @@
---- src/rx/rx_kernel.h.orig	2021-01-14 21:08:41 UTC
+--- src/rx/rx_kernel.h.orig	2021-07-29 10:24:31 UTC
 +++ src/rx/rx_kernel.h
 @@ -68,6 +68,19 @@ extern void osi_Panic(char *fmt, ...)
  #define	osi_YieldIfPossible()

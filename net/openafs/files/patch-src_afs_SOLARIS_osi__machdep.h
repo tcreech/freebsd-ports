@@ -1,4 +1,4 @@
---- src/afs/SOLARIS/osi_machdep.h.orig	2021-01-14 21:08:41 UTC
+--- src/afs/SOLARIS/osi_machdep.h.orig	2021-07-29 10:24:31 UTC
 +++ src/afs/SOLARIS/osi_machdep.h
 @@ -54,19 +54,6 @@ local_osi_Time()
  #define osi_Time() (hrestime.tv_sec)
