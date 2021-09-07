@@ -1,13 +1,11 @@
 PORTNAME=	poudriere
-DISTVERSION=	3.3.99.20210904
-PORTREVISION=	0
+DISTVERSION=	3.3.99.20210907
+PORTREVISION=	1
 CATEGORIES=	ports-mgmt
 MASTER_SITES=	LOCAL/bdrewery/${PORTNAME}/ \
 		http://mirror.shatow.net/freebsd/${PORTNAME}/ \
 		GH
 PKGNAMESUFFIX=	-devel
-
-BROKEN=		causes failed builds https://github.com/freebsd/poudriere/issues/917
 
 MAINTAINER=	bdrewery@FreeBSD.org
 COMMENT=	Port build and test system
@@ -18,7 +16,7 @@ CONFLICTS_INSTALL=	poudriere-[0-9]*
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	freebsd
-GH_TAGNAME=	3.3.0-958-g3d248385b
+GH_TAGNAME=	3.3.0-967-g764941e90
 
 GNU_CONFIGURE=	yes
 ETCDIR=		${PREFIX}/etc/poudriere.d
