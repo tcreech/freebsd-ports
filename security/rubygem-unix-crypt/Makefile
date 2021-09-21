@@ -1,19 +1,18 @@
-PORTNAME=	metasploit-payloads
-PORTVERSION=	2.0.54
+PORTNAME=	unix-crypt
+PORTVERSION=	1.3.0
 CATEGORIES=	security rubygems
 MASTER_SITES=	RG
 
 MAINTAINER=	antoine@FreeBSD.org
-COMMENT=	Compiled binaries for Metasploit's Meterpreter
+COMMENT=	UNIX crypt(3) algorithm using DES, MD5, SHA256 and SHA512
 
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
+NO_ARCH=	yes
 USES=		gem
 USE_RUBY=	yes
 
-NO_ARCH=	yes
-NO_ARCH_IGNORE=	libndkstager.so
-STRIP=
+PLIST_FILES=	bin/mkunixcrypt
 
 .include <bsd.port.mk>
