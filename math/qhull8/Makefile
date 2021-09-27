@@ -2,10 +2,9 @@
 
 PORTNAME=	qhull
 DISTVERSIONPREFIX=	v
-DISTVERSION=	7.3.2
-PORTREVISION=	1
-PORTEPOCH=	1
+DISTVERSION=	8.0.2
 CATEGORIES=	math
+PKGNAMESUFFIX=	8
 
 MAINTAINER=	stephen@FreeBSD.org
 COMMENT=	Qhull computes convex hulls, Delaunay triangulations, and halfspaces
@@ -19,7 +18,7 @@ USES=		cmake
 USE_GITHUB=	yes
 USE_LDCONFIG=	yes
 
-CONFLICTS=	qhull8 afni qhull5
+CONFLICTS=	qhull afni qhull5
 
 OPTIONS_DEFINE=	DOCS
 
