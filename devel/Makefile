@@ -4322,6 +4322,7 @@
     SUBDIR += py-cheetah3
     SUBDIR += py-circuits
     SUBDIR += py-ciso8601
+    SUBDIR += py-clang
     SUBDIR += py-cld
     SUBDIR += py-cle
     SUBDIR += py-cleo
@@ -4710,6 +4711,7 @@
     SUBDIR += py-logilab-common
     SUBDIR += py-loguru
     SUBDIR += py-logutils
+    SUBDIR += py-logzero
     SUBDIR += py-louie
     SUBDIR += py-lunardate
     SUBDIR += py-lxml
