@@ -4298,6 +4298,7 @@
     SUBDIR += py-cachetools
     SUBDIR += py-cachetools3
     SUBDIR += py-cachy
+    SUBDIR += py-cadquery-pywrap
     SUBDIR += py-canonicaljson
     SUBDIR += py-capstone
     SUBDIR += py-capturer
@@ -4390,6 +4391,7 @@
     SUBDIR += py-cwcwidth
     SUBDIR += py-cxx
     SUBDIR += py-cycler
+    SUBDIR += py-cymbal
     SUBDIR += py-cymem
     SUBDIR += py-cysignals
     SUBDIR += py-cytoolz
