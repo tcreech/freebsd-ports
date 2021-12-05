@@ -2,7 +2,7 @@
 
 PORTNAME=	pipe-viewer
 PORTVERSION=	0.1.7
-CATEGORIES=	net perl5
+CATEGORIES=	multimedia perl5
 MASTER_SITES= https://github.com/trizen/${PORTNAME}/archive/refs/tags/${DISTVERSION}${EXTRACT_SUFX}?dummy=/
 
 MAINTAINER=	tcreech@tcreech.com
