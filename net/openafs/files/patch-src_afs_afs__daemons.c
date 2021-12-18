@@ -1,4 +1,4 @@
---- src/afs/afs_daemons.c.orig	2021-07-29 10:24:31 UTC
+--- src/afs/afs_daemons.c.orig	2021-12-09 17:07:41 UTC
 +++ src/afs/afs_daemons.c
 @@ -223,19 +223,21 @@ afs_Daemon(void)
  	    }
@@ -28,12 +28,3 @@
  	    if (!afs_CheckServerDaemonStarted)
  		afs_CheckServers(0, NULL);
  	    afs_GCUserData();	/* gc old conns */
-@@ -666,7 +668,7 @@ afs_BQueue(short aopcode, struct vcache *avc,
- 		crhold(tb->cred);
- 	    }
- 	    if (avc) {
--		AFS_FAST_HOLD(avc);
-+		osi_Assert(osi_vnhold(avc) == 0);
- 	    }
- 	    tb->refCount = ause + 1;
- 	    tb->size_parm[0] = asparm0;

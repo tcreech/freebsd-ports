@@ -1,24 +1,6 @@
---- src/afs/FBSD/osi_groups.c.orig	2021-07-29 10:24:31 UTC
+--- src/afs/FBSD/osi_groups.c.orig	2021-12-09 17:07:41 UTC
 +++ src/afs/FBSD/osi_groups.c
-@@ -48,17 +48,9 @@ Afs_xsetgroups(struct thread *td, struct setgroups_arg
-     AFS_GUNLOCK();
-     crfree(cr);
-     if (code)
--#if (__FreeBSD_version >= 900044)
- 	return sys_setgroups(td, uap);	/* afs has shut down */
--#else
--	return setgroups(td, uap);	/* afs has shut down */
--#endif
- 
--#if (__FreeBSD_version >= 900044)
-     code = sys_setgroups(td, uap);
--#else
--    code = setgroups(td, uap);
--#endif
-     /* Note that if there is a pag already in the new groups we don't
-      * overwrite it with the old pag.
-      */
-@@ -76,37 +68,89 @@ Afs_xsetgroups(struct thread *td, struct setgroups_arg
+@@ -68,32 +68,89 @@ Afs_xsetgroups(struct thread *td, struct setgroups_arg
      return code;
  }
  
@@ -83,14 +65,9 @@
  setpag(struct thread *td, struct ucred **cred, afs_uint32 pagvalue,
         afs_uint32 * newpag, int change_parent)
  {
--#if defined(AFS_FBSD81_ENV)
      gid_t *gidset;
 +    struct proc *p;
      int gidset_len = ngroups_max + 1;
--#else
--    gid_t *gidset;
--    int gidset_len = NGROUPS;	/* 1024 */
--#endif
      int ngroups, code;
      int j;
  
@@ -124,7 +101,7 @@
      osi_Free(gidset, gidset_len * sizeof(gid_t));
      return code;
  }
-@@ -131,5 +175,49 @@ static int
+@@ -118,5 +175,49 @@ static int
  afs_setgroups(struct thread *td, struct ucred **cred, int ngroups,
  	      gid_t * gidset, int change_parent)
  {

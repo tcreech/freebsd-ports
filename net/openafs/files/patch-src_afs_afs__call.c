@@ -1,4 +1,4 @@
---- src/afs/afs_call.c.orig	2021-07-29 10:24:31 UTC
+--- src/afs/afs_call.c.orig	2021-12-09 17:07:41 UTC
 +++ src/afs/afs_call.c
 @@ -98,11 +98,19 @@ extern afs_int32 afs_md5inum;
  static int
@@ -44,34 +44,7 @@
      return code;
  }
  
-@@ -1484,9 +1497,12 @@ afs_syscall_call(long parm, long parm2, long parm3,
- 	mtu = ((i == -1) ? htonl(1500) : afs_cb_interface.mtu[i]);
- # else /* AFS_USERSPACE_IP_ADDR */
- 	rx_ifnet_t tifnp;
-+	RX_NET_EPOCH_ENTER();
- 
- 	tifnp = rxi_FindIfnet(parm2, NULL);	/*  make iterative */
- 	mtu = (tifnp ? rx_ifnet_mtu(tifnp) : htonl(1500));
-+
-+	RX_NET_EPOCH_EXIT();
- # endif /* else AFS_USERSPACE_IP_ADDR */
- #endif /* !AFS_SUN5_ENV */
- 	if (!code)
-@@ -1505,10 +1521,13 @@ afs_syscall_call(long parm, long parm2, long parm3,
- 	}
- # else /* AFS_USERSPACE_IP_ADDR */
- 	rx_ifnet_t tifnp;
-+	RX_NET_EPOCH_ENTER();
- 
- 	tifnp = rxi_FindIfnet(parm2, &mask);	/* make iterative */
- 	if (!tifnp)
- 	    code = -1;
-+
-+	RX_NET_EPOCH_EXIT();
- # endif /* else AFS_USERSPACE_IP_ADDR */
- #endif /* !AFS_SUN5_ENV */
- 	if (!code)
-@@ -1691,7 +1710,9 @@ afs_shutdown(void)
+@@ -1697,7 +1710,9 @@ afs_shutdown(void)
      afs_warn("CB... ");
  
      afs_termState = AFSOP_STOP_RXCALLBACK;
@@ -81,7 +54,7 @@
  #ifdef AFS_AIX51_ENV
      shutdown_rxkernel();
  #endif
-@@ -1744,7 +1765,9 @@ afs_shutdown(void)
+@@ -1750,7 +1765,9 @@ afs_shutdown(void)
      afs_warn("NetIfPoller... ");
      osi_StopNetIfPoller();
  #endif

@@ -1,4 +1,4 @@
---- src/afs/VNOPS/afs_vnop_read.c.orig	2021-07-29 10:24:31 UTC
+--- src/afs/VNOPS/afs_vnop_read.c.orig	2021-12-09 17:07:41 UTC
 +++ src/afs/VNOPS/afs_vnop_read.c
 @@ -566,7 +566,11 @@ afs_UFSReadUIO(afs_dcache_id_t *cacheId, struct uio *t
      AFS_GUNLOCK();
