@@ -1,4 +1,4 @@
---- src/afs/afs.h.orig	2021-07-29 10:24:31 UTC
+--- src/afs/afs.h.orig	2021-12-09 17:07:41 UTC
 +++ src/afs/afs.h
 @@ -142,6 +142,7 @@ struct sysname_info {
  #define AFS_VMSYNC_INVAL 2	/* sync and invalidate pages */
@@ -19,12 +19,3 @@
  #endif
  #ifdef AFS_LINUX24_ENV
      struct dentry *target_link; /* dentry we prefer, when we are redirecting
-@@ -1337,7 +1338,7 @@ struct afs_FetchOutput {
- 	avc->f.states |= CCore;	/* causes close to be called later */ \
-                                                                       \
- 	/* The cred and vnode holds will be released in afs_FlushActiveVcaches */  \
--	AFS_FAST_HOLD(avc);	/* So it won't disappear */           \
-+	osi_Assert(osi_vnhold(avc) == 0);	/* So it won't disappear */        \
- 	CRKEEP(avc, acred); /* Should use a better place for the creds */ \
-     }                                                                         \
-     else {                                                                    \

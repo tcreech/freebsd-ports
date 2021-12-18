@@ -1,4 +1,4 @@
---- src/afs/LINUX/osi_misc.c.orig	2021-07-29 10:24:31 UTC
+--- src/afs/LINUX/osi_misc.c.orig	2021-12-09 17:07:41 UTC
 +++ src/afs/LINUX/osi_misc.c
 @@ -155,10 +155,21 @@ int osi_abspath(char *aname, char *buf, int buflen,
  

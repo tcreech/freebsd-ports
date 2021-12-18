@@ -1,4 +1,4 @@
---- src/afs/FBSD/osi_file.c.orig	2021-07-29 10:24:31 UTC
+--- src/afs/FBSD/osi_file.c.orig	2021-12-09 17:07:41 UTC
 +++ src/afs/FBSD/osi_file.c
 @@ -42,7 +42,11 @@ osi_UFSOpen(afs_dcache_id_t *ainode)
  	osi_FreeSmallSpace(afile);
@@ -36,21 +36,3 @@
      if (glocked)
        AFS_GLOCK();
      return code;
-@@ -127,7 +139,7 @@ int
- afs_osi_Read(struct osi_file *afile, int offset, void *aptr,
- 	     afs_int32 asize)
- {
--#if (__FreeBSD_version >= 900505 && __FreeBSD_Version < 1000000) ||__FreeBSD_version >= 1000009
-+#if __FreeBSD_version >= 1000009
-     ssize_t resid;
- #else
-     int resid;
-@@ -172,7 +184,7 @@ int
- afs_osi_Write(struct osi_file *afile, afs_int32 offset, void *aptr,
- 	      afs_int32 asize)
- {
--#if (__FreeBSD_version >= 900505 && __FreeBSD_Version < 1000000) ||__FreeBSD_version >= 1000009
-+#if __FreeBSD_version >= 1000009
-     ssize_t resid;
- #else
-     int resid;

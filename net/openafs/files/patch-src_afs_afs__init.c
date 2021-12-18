@@ -1,4 +1,4 @@
---- src/afs/afs_init.c.orig	2021-07-29 10:24:31 UTC
+--- src/afs/afs_init.c.orig	2021-12-09 17:07:41 UTC
 +++ src/afs/afs_init.c
 @@ -569,7 +569,9 @@ afs_ResourceInit(int preallocs)
      afs_server =

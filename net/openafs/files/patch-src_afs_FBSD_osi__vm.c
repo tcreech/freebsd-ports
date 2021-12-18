@@ -1,4 +1,4 @@
---- src/afs/FBSD/osi_vm.c.orig	2021-07-29 10:24:31 UTC
+--- src/afs/FBSD/osi_vm.c.orig	2021-12-09 17:07:41 UTC
 +++ src/afs/FBSD/osi_vm.c
 @@ -50,7 +50,11 @@
  
@@ -12,17 +12,7 @@
  #define islocked_vnode(v)	VOP_ISLOCKED((v))
  
  #if __FreeBSD_version >= 1000030
-@@ -79,8 +83,7 @@ osi_VM_FlushVCache(struct vcache *avc)
- 
-     vp = AFSTOV(avc);
- 
--    if (!VI_TRYLOCK(vp))
--	return EBUSY;
-+    VI_LOCK(vp);
-     code = osi_fbsd_checkinuse(avc);
-     if (code) {
- 	VI_UNLOCK(vp);
-@@ -111,41 +114,37 @@ osi_VM_StoreAllSegments(struct vcache *avc)
+@@ -110,41 +114,37 @@ osi_VM_StoreAllSegments(struct vcache *avc)
  {
      struct vnode *vp;
      struct vm_object *obj;
@@ -91,7 +81,7 @@
  }
  
  /* Try to invalidate pages, for "fs flush" or "fs flushv"; or
-@@ -167,12 +166,14 @@ osi_VM_TryToSmush(struct vcache *avc, afs_ucred_t *acr
+@@ -166,7 +166,7 @@ osi_VM_TryToSmush(struct vcache *avc, afs_ucred_t *acr
      vp = AFSTOV(avc);
  
      VI_LOCK(vp);
@@ -100,19 +90,3 @@
  	VI_UNLOCK(vp);
  	return;
      }
-     VI_UNLOCK(vp);
- 
-+    AFS_GUNLOCK();
-+
-     islocked = islocked_vnode(vp);
-     if (islocked == LK_EXCLOTHER)
- 	panic("Trying to Smush over someone else's lock");
-@@ -213,6 +214,8 @@ osi_VM_TryToSmush(struct vcache *avc, afs_ucred_t *acr
- 	lock_vnode(vp, LK_DOWNGRADE);
-     else if (!islocked)
- 	unlock_vnode(vp);
-+
-+    AFS_GLOCK();
- }
- 
- /* Purge VM for a file when its callback is revoked.

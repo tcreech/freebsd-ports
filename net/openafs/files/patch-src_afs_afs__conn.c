@@ -1,4 +1,4 @@
---- src/afs/afs_conn.c.orig	2021-07-29 10:24:31 UTC
+--- src/afs/afs_conn.c.orig	2021-12-09 17:07:41 UTC
 +++ src/afs/afs_conn.c
 @@ -532,7 +532,9 @@ afs_ConnBySA(struct srvAddr *sap, unsigned short aport
  	 */

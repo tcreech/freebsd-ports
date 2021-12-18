@@ -1,4 +1,4 @@
---- src/afs/VNOPS/afs_vnop_write.c.orig	2021-07-29 10:24:31 UTC
+--- src/afs/VNOPS/afs_vnop_write.c.orig	2021-12-09 17:07:41 UTC
 +++ src/afs/VNOPS/afs_vnop_write.c
 @@ -163,7 +163,11 @@ afs_UFSWriteUIO(struct vcache *avc, afs_dcache_id_t *i
      AFS_GUNLOCK();
