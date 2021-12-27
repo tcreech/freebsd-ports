@@ -1262,6 +1262,7 @@
     SUBDIR += libgta
     SUBDIR += libgtop
     SUBDIR += libgudev
+    SUBDIR += libgusb
     SUBDIR += libgutenfetch
     SUBDIR += libhash
     SUBDIR += libhoard
@@ -4129,6 +4130,7 @@
     SUBDIR += py-adb
     SUBDIR += py-addict
     SUBDIR += py-aenum
+    SUBDIR += py-aiocontextvars
     SUBDIR += py-aiofiles
     SUBDIR += py-aioice
     SUBDIR += py-aioitertools
