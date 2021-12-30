@@ -59,7 +59,6 @@
     SUBDIR += asfsm
     SUBDIR += asmctl
     SUBDIR += asmem
-    SUBDIR += asmon
     SUBDIR += asusoled
     SUBDIR += atf-fvp
     SUBDIR += atf-master
@@ -957,7 +956,9 @@
     SUBDIR += php74-fileinfo
     SUBDIR += php74-posix
     SUBDIR += php80-fileinfo
+    SUBDIR += php81-fileinfo
     SUBDIR += php80-posix
+    SUBDIR += php81-posix
     SUBDIR += phybs
     SUBDIR += pick
     SUBDIR += pidof

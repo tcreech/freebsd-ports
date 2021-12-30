@@ -15919,7 +15919,6 @@ graphics/sk1libs||2021-01-02|Has expired: Uses Python 2.7 which is EOLed upstrea
 graphics/uniconvertor||2021-01-02|Has expired: Uses deprecated version of python
 games/dangerdeep||2021-01-02|Has expired: Uses Python 2.7 version of scons, and Python 2.7 which is EOLed upstream
 games/dangerdeep-data||2021-01-02|Removed, useless without games/dangerdeep
-lang/julia||2021-01-02|Removed, useless without any consumers
 lang/julia10||2021-01-02|Has expired: Uses Python 2.7 which is EOLed upstream
 lang/spidermonkey24||2021-01-02|Has expired: Uses Python 2.7 which is EOLed upstream
 mail/getmail||2021-01-02|Has expired: Uses deprecated version of python
@@ -16699,3 +16698,4 @@ www/rubygem-rack20|www/rubygem-rack|2021-12-21|Remove obsoleted port. Use www/ru
 www/rubygem-redis-rack1|www/rubygem-redis-rack|2021-12-21|Remove obsoleted port. Use www/rubygem-redis-rack instead
 x11-toolkits/rubygem-gtksourceview2|x11-toolkits/rubygem-gtksourceview3|2021-12-21|Remove obsoleted port. Use x11-toolkits/rubygem-gtksourceview3 instead
 x11-toolkits/rubygem-vte|x11-toolkits/rubygem-vte3|2021-12-21|Remove obsoleted port. Use x11-toolkits/rubygem-vte3 instead
+sysutils/asmon||2021-12-27|Has expired: Fails to build on modern FreeBSD

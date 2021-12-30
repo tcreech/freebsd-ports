@@ -22,6 +22,7 @@
     SUBDIR += csxcad
     SUBDIR += cura
     SUBDIR += cura-engine
+    SUBDIR += cvc
     SUBDIR += digital
     SUBDIR += dinotrace
     SUBDIR += ecpprog
@@ -94,6 +95,7 @@
     SUBDIR += oregano
     SUBDIR += p5-GDS2
     SUBDIR += p5-Verilog-Perl
+    SUBDIR += padring
     SUBDIR += pcb
     SUBDIR += pdnmesh
     SUBDIR += py-cadquery
@@ -121,9 +123,11 @@
     SUBDIR += stepcode
     SUBDIR += stm32flash
     SUBDIR += sumo
+    SUBDIR += surelog
     SUBDIR += sweethome3d
     SUBDIR += tkgate
     SUBDIR += tochnog
+    SUBDIR += uhdm
     SUBDIR += uranium
     SUBDIR += verilator
     SUBDIR += verilog-mode.el
