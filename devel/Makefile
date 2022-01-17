@@ -28,6 +28,7 @@
     SUBDIR += R-cran-chron
     SUBDIR += R-cran-classInt
     SUBDIR += R-cran-cli
+    SUBDIR += R-cran-cliapp
     SUBDIR += R-cran-clipr
     SUBDIR += R-cran-clisymbols
     SUBDIR += R-cran-covr
@@ -74,6 +75,7 @@
     SUBDIR += R-cran-microbenchmark
     SUBDIR += R-cran-mockery
     SUBDIR += R-cran-optparse
+    SUBDIR += R-cran-pak
     SUBDIR += R-cran-parallelly
     SUBDIR += R-cran-pillar
     SUBDIR += R-cran-pkgbuild
