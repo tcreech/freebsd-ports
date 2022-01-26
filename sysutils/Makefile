@@ -954,8 +954,6 @@
     SUBDIR += pfstat
     SUBDIR += pftables
     SUBDIR += pftop
-    SUBDIR += php73-fileinfo
-    SUBDIR += php73-posix
     SUBDIR += php74-fileinfo
     SUBDIR += php74-posix
     SUBDIR += php80-fileinfo
@@ -1048,6 +1046,7 @@
     SUBDIR += py-honcho
     SUBDIR += py-hpilo
     SUBDIR += py-iowait
+    SUBDIR += py-ioztat
     SUBDIR += py-jailconf
     SUBDIR += py-leviathan
     SUBDIR += py-liquidctl
