@@ -1021,6 +1021,7 @@
     SUBDIR += include-what-you-use
     SUBDIR += indi
     SUBDIR += indicators
+    SUBDIR += influx-pkg-config
     SUBDIR += inifiled
     SUBDIR += inih
     SUBDIR += inilib
@@ -4751,6 +4752,7 @@
     SUBDIR += py-macholib
     SUBDIR += py-magic
     SUBDIR += py-mailcap-fix
+    SUBDIR += py-makefun
     SUBDIR += py-manuel
     SUBDIR += py-marrow.mailer
     SUBDIR += py-marrow.util
