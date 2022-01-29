@@ -449,6 +449,7 @@
     SUBDIR += mdbook
     SUBDIR += mdbook-linkcheck
     SUBDIR += mdocml
+    SUBDIR += meilisearch
     SUBDIR += meld
     SUBDIR += mergestat
     SUBDIR += metauml
@@ -1435,8 +1436,6 @@
     SUBDIR += py-pytoml
     SUBDIR += py-pyx12
     SUBDIR += py-qrcode
-    SUBDIR += py-qt5-xml
-    SUBDIR += py-qt5-xmlpatterns
     SUBDIR += py-rdflib
     SUBDIR += py-readchar
     SUBDIR += py-recommonmark
@@ -1623,6 +1622,7 @@
     SUBDIR += rubygem-cssmin
     SUBDIR += rubygem-cucumber-gherkin
     SUBDIR += rubygem-cucumber-html-formatter
+    SUBDIR += rubygem-cucumber-html-formatter17
     SUBDIR += rubygem-diff-lcs
     SUBDIR += rubygem-diff_match_patch
     SUBDIR += rubygem-diffy
@@ -1703,8 +1703,8 @@
     SUBDIR += rubygem-minima
     SUBDIR += rubygem-multi_xml
     SUBDIR += rubygem-nokogiri
-    SUBDIR += rubygem-nokogiri111
     SUBDIR += rubygem-nokogiri-diff
+    SUBDIR += rubygem-nokogiri111
     SUBDIR += rubygem-nokogumbo
     SUBDIR += rubygem-octopress-escape-code
     SUBDIR += rubygem-opml
@@ -1743,7 +1743,6 @@
     SUBDIR += rubygem-ronn
     SUBDIR += rubygem-rouge
     SUBDIR += rubygem-rouge312
-    SUBDIR += rubygem-rouge326
     SUBDIR += rubygem-rttool
     SUBDIR += rubygem-ruby-augeas
     SUBDIR += rubygem-ruby-xslt

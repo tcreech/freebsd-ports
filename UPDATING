@@ -5,6 +5,21 @@ they are unavoidable.
 You should get into the habit of checking this file for changes each time
 you update your ports collection, before attempting any port upgrades.
 
+20220128:
+  AFFECTS: users of net-im/dendrite
+  AUTHOR: ashish@FreeBSD.org
+
+  The configuration needs to be updated to version 2 following upgrade to
+  Dendrite v0.6. Please refer to /usr/local/etc/dendrite/dendrite.yaml.sample
+  for a sample configuration.
+
+20220127:
+  AFFECTS: users of PyQt
+  AUTHOR: kde@FreeBSD.org
+
+  Most of the PyQt ports have been merged into single port devel/py-qt5-pyqt. 
+  `pkg upgrade` will handle update automatically .
+
 20220126:
   AFFECTS: users of mail/bogofilter, mail/bogofilter-lmdb
   AUTHOR: mandree@FreeBSD.org
@@ -29,7 +44,7 @@ you update your ports collection, before attempting any port upgrades.
   If you use binary packages you should make a list of php packages
   before running 'pkg upgrade':
 
-  # pkg info php7\* > ~/installed-php-ports-list
+  # pkg info \*php7\* > ~/installed-php-ports-list
 
   After the upgrade, check with such list if all your php extensions
   are still installed, and reinstall them if needed.
