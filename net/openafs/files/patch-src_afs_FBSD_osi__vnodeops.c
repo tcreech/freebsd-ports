@@ -232,7 +232,35 @@
  	   (int)vc->f.fid.Cell, (u_int) vc->f.fid.Fid.Volume,
  	   (u_int) vc->f.fid.Fid.Vnode, (u_int) vc->f.fid.Fid.Unique, vc->opens,
  	   vc->execsOrWriters);
-@@ -1295,3 +1366,7 @@ struct vop_vector afs_vnodeops = {
+@@ -1241,6 +1312,7 @@ afs_vop_advlock(ap)
+ {
+     int error, a_op;
+     struct ucred cr = *osi_curcred();
++    struct vnode *vp = ap->a_vp;
+ 
+     a_op = ap->a_op;
+     if (a_op == F_UNLCK) {
+@@ -1254,6 +1326,7 @@ afs_vop_advlock(ap)
+ 	a_op = F_SETLK;
+     }
+ 
++    vn_lock(vp, LK_EXCLUSIVE | LK_RETRY);
+     AFS_GLOCK();
+     error =
+ 	afs_lockctl(VTOAFS(ap->a_vp),
+@@ -1261,6 +1334,11 @@ afs_vop_advlock(ap)
+ 		a_op, &cr,
+ 		(int)(intptr_t)ap->a_id);	/* XXX: no longer unique! */
+     AFS_GUNLOCK();
++#if defined(AFS_FBSD_VOP_UNLOCK_NOFLAGS)
++	VOP_UNLOCK(vp);
++#else
++	VOP_UNLOCK(vp, 0);
++#endif /* AFS_FBSD_VOP_UNLOCK_NOFLAGS */
+     return error;
+ }
+ 
+@@ -1295,3 +1373,7 @@ struct vop_vector afs_vnodeops = {
  	.vop_symlink =		afs_vop_symlink,
  	.vop_write =		afs_vop_write,
  };
