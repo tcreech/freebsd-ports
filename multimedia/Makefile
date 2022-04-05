@@ -317,6 +317,7 @@
     SUBDIR += phonon-vlc
     SUBDIR += photofilmstrip
     SUBDIR += php-pHash
+    SUBDIR += pipe-viewer
     SUBDIR += pipewire
     SUBDIR += pitivi
     SUBDIR += playerctl
