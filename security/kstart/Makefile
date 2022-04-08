@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	kstart
-DISTVERSION=	4.2
-PORTREVISION=	2
+DISTVERSION=	4.3
 CATEGORIES=	security
 MASTER_SITES=	http://archives.eyrie.org/software/kerberos/ \
 		ZI
@@ -42,7 +41,7 @@ do-install:
 	@${GZIP_CMD} ${WRKSRC}/docs/krenew.1
 	${INSTALL_MAN} ${WRKSRC}/docs/k5start.1.gz ${STAGEDIR}${MAN1PREFIX}/man/man1
 	${INSTALL_MAN} ${WRKSRC}/docs/krenew.1.gz ${STAGEDIR}${MAN1PREFIX}/man/man1
-	${INSTALL_PROGRAM} ${WRKSRC}/k5start ${STAGEDIR}${PREFIX}/bin
-	${INSTALL_PROGRAM} ${WRKSRC}/krenew ${STAGEDIR}${PREFIX}/bin
+	${INSTALL_PROGRAM} ${WRKSRC}/commands/k5start ${STAGEDIR}${PREFIX}/bin
+	${INSTALL_PROGRAM} ${WRKSRC}/commands/krenew ${STAGEDIR}${PREFIX}/bin
 
 .include <bsd.port.mk>
