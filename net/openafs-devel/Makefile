@@ -81,7 +81,7 @@ FUSE_CONFIGURE_OFF=	--disable-fuse-client
 CFLAGS+=	-mstackrealign -Wno-shift-negative-value -Wno-pointer-sign
 .endif
 
-.if ${OSREL} == "13.0"
+.if ${OSREL:R} >= 13
 # FreeBSD 13 no long has an "as" tool as part of base.
 # OpenAFS configure script will insist on finding one, even if it may not be
 # used. Arrange for it to use cc to find an assembler instead.
@@ -89,7 +89,7 @@ CFLAGS+=	-mstackrealign -Wno-shift-negative-value -Wno-pointer-sign
 CONFIGURE_ARGS+=	AS=$(CC)
 .endif
 
-.if ${OSREL} == "14.0"
+.if ${OSREL:R} >= 14
 # Upstream does not support the client on 14 and newer
 CONFIGURE_ARGS += --disable-kernel-module
 PLIST_SUB+=	KMOD="@comment "
