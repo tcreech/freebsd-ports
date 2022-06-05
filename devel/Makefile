@@ -1663,6 +1663,7 @@
     SUBDIR += ocaml-uutf
     SUBDIR += ocaml-xstr
     SUBDIR += ocaml-xstrp4
+    SUBDIR += oci-cli
     SUBDIR += ocl-icd
     SUBDIR += oclgrind
     SUBDIR += ode
@@ -4416,6 +4417,7 @@
     SUBDIR += py-cymbal
     SUBDIR += py-cymem
     SUBDIR += py-cysignals
+    SUBDIR += py-cython-test-exception-raiser
     SUBDIR += py-cytoolz
     SUBDIR += py-d2to1
     SUBDIR += py-daemon
