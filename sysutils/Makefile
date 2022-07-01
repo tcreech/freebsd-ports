@@ -477,7 +477,6 @@
     SUBDIR += gnome-settings-daemon
     SUBDIR += gnome-system-monitor
     SUBDIR += gnome_subr
-    SUBDIR += go-btfs
     SUBDIR += go-wtf
     SUBDIR += goaccess
     SUBDIR += goawk
@@ -964,7 +963,6 @@
     SUBDIR += pefs-kmod
     SUBDIR += perp
     SUBDIR += personality
-    SUBDIR += pesign
     SUBDIR += pfetch
     SUBDIR += pflogx
     SUBDIR += pfstat
@@ -1585,7 +1583,6 @@
     SUBDIR += xpipe
     SUBDIR += xstow
     SUBDIR += xsysstats
-    SUBDIR += xvidcap
     SUBDIR += yadf
     SUBDIR += yadm
     SUBDIR += yank
