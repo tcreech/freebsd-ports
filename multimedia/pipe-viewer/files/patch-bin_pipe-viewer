@@ -1,0 +1,13 @@
+--- bin/pipe-viewer.orig	2021-12-05 03:32:18 UTC
++++ bin/pipe-viewer
+@@ -97,10 +97,6 @@ else {
+       || $ENV{LOGDIR}
+       || ($constant{win32} ? '\Local Settings\Application Data' : ((getpwuid($<))[7] || `echo -n ~`));
+ 
+-    if (not -d -w $home_dir) {
+-        $home_dir = curdir();
+-    }
+-
+     $xdg_config_home = catdir($home_dir, '.config');
+ }
+ 
