@@ -291,6 +291,7 @@
     SUBDIR += boost-python-libs
     SUBDIR += boost_build
     SUBDIR += bossa
+    SUBDIR += boxfort
     SUBDIR += bpython
     SUBDIR += brz
     SUBDIR += bsdbuild
@@ -1539,6 +1540,7 @@
     SUBDIR += mutagen
     SUBDIR += myrepos
     SUBDIR += nana
+    SUBDIR += nanopb
     SUBDIR += nant
     SUBDIR += nasm
     SUBDIR += naturaldocs
