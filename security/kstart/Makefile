@@ -1,6 +1,3 @@
-# Created by: Ryan Steinmetz <zi@FreeBSD.org>
-# $FreeBSD$
-
 PORTNAME=	kstart
 DISTVERSION=	4.3
 CATEGORIES=	security
