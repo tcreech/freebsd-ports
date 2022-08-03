@@ -1,5 +1,6 @@
 PORTNAME=	muon
 PORTVERSION=	0.0.1.p1
+PORTREVISION=	1
 CATEGORIES=	devel
 MASTER_SITES=	https://git.sr.ht/~lattis/muon/archive/
 DISTNAME=	b44e90f
@@ -10,7 +11,9 @@ COMMENT=	Build system compatible with meson
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		ninja pkgconfig
+BUILD_DEPENDS=	scdoc:textproc/scdoc
+
+USES=		ninja pkgconfig:both
 
 WRKSRC=		${WRKDIR}/${PORTNAME}-${DISTNAME}
 BUILD_WRKSRC=	${WRKSRC}/_build
