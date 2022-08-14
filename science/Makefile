@@ -284,8 +284,10 @@
     SUBDIR += py-dimod
     SUBDIR += py-dipy
     SUBDIR += py-dlib
+    SUBDIR += py-dwave-cloud-client
     SUBDIR += py-dwave-neal
     SUBDIR += py-dwave-networkx
+    SUBDIR += py-dwave-preprocessing
     SUBDIR += py-dwave-samplers
     SUBDIR += py-dwave-tabu
     SUBDIR += py-eccodes
