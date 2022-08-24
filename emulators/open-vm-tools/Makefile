@@ -1,7 +1,7 @@
 # Created by: mbr@FreeBSD.org
 
 PORTNAME=	open-vm-tools
-PORTVERSION=	12.0.0
+PORTVERSION=	12.1.0
 DISTVERSIONPREFIX=	stable-
 PORTEPOCH=	2
 CATEGORIES=	emulators
