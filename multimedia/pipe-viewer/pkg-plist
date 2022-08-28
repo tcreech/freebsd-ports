@@ -38,3 +38,12 @@ bin/pipe-viewer
 %%PERL5_MAN3%%/WWW::PipeViewer::Utils.3.gz
 %%PERL5_MAN3%%/WWW::PipeViewer::VideoCategories.3.gz
 %%PERL5_MAN3%%/WWW::PipeViewer::Videos.3.gz
+%%GTK3%%bin/gtk-pipe-viewer
+%%GTK3%%%%SITE_PERL%%/auto/share/dist/WWW-PipeViewer/gtk-pipe-viewer.desktop
+%%GTK3%%%%SITE_PERL%%/auto/share/dist/WWW-PipeViewer/gtk-pipe-viewer.glade
+%%GTK3%%%%SITE_PERL%%/auto/share/dist/WWW-PipeViewer/icons/default_thumb.jpg
+%%GTK3%%%%SITE_PERL%%/auto/share/dist/WWW-PipeViewer/icons/feed.png
+%%GTK3%%%%SITE_PERL%%/auto/share/dist/WWW-PipeViewer/icons/feed_gray.png
+%%GTK3%%%%SITE_PERL%%/auto/share/dist/WWW-PipeViewer/icons/gtk-pipe-viewer.png
+%%GTK3%%%%SITE_PERL%%/auto/share/dist/WWW-PipeViewer/icons/spinner.gif
+%%GTK3%%%%SITE_PERL%%/auto/share/dist/WWW-PipeViewer/icons/user.png

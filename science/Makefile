@@ -38,6 +38,7 @@
     SUBDIR += bodr
     SUBDIR += buddy
     SUBDIR += cantera
+    SUBDIR += cardioid
     SUBDIR += cdcl
     SUBDIR += cdf
     SUBDIR += cdk
@@ -68,11 +69,13 @@
     SUBDIR += devisor
     SUBDIR += dftbplus
     SUBDIR += dftd4
+    SUBDIR += dimod
     SUBDIR += dirac
     SUBDIR += dkh
     SUBDIR += dlib-cpp
     SUBDIR += drawxtl
     SUBDIR += dvc
+    SUBDIR += dwave-preprocessing
     SUBDIR += dynare
     SUBDIR += eccodes
     SUBDIR += elk
@@ -191,6 +194,7 @@
     SUBDIR += netcdf-cxx
     SUBDIR += netcdf-fortran
     SUBDIR += nifticlib
+    SUBDIR += nlcglib
     SUBDIR += nwchem
     SUBDIR += nwchem-data
     SUBDIR += octopus
@@ -281,8 +285,21 @@
     SUBDIR += py-cirq-pasqal
     SUBDIR += py-cirq-rigetti
     SUBDIR += py-coards
+    SUBDIR += py-dimod
     SUBDIR += py-dipy
     SUBDIR += py-dlib
+    SUBDIR += py-dwave-cloud-client
+    SUBDIR += py-dwave-greedy
+    SUBDIR += py-dwave-hybrid
+    SUBDIR += py-dwave-inspector
+    SUBDIR += py-dwave-neal
+    SUBDIR += py-dwave-networkx
+    SUBDIR += py-dwave-ocean-sdk
+    SUBDIR += py-dwave-preprocessing
+    SUBDIR += py-dwave-samplers
+    SUBDIR += py-dwave-system
+    SUBDIR += py-dwave-tabu
+    SUBDIR += py-dwavebinarycsp
     SUBDIR += py-eccodes
     SUBDIR += py-esda
     SUBDIR += py-fresnel
@@ -319,6 +336,7 @@
     SUBDIR += py-openpiv
     SUBDIR += py-paida
     SUBDIR += py-paramz
+    SUBDIR += py-penaltymodel
     SUBDIR += py-phono3py
     SUBDIR += py-phonopy
     SUBDIR += py-pupynere
@@ -336,6 +354,7 @@
     SUBDIR += py-pymol
     SUBDIR += py-pyosf
     SUBDIR += py-pyprecice
+    SUBDIR += py-pyqubo
     SUBDIR += py-pysal
     SUBDIR += py-pyscf
     SUBDIR += py-pyteomics
@@ -344,6 +363,7 @@
     SUBDIR += py-qiskit
     SUBDIR += py-qiskit-aer
     SUBDIR += py-qiskit-experiments
+    SUBDIR += py-qiskit-finance
     SUBDIR += py-qiskit-ibm-experiment
     SUBDIR += py-qiskit-ibm-provider
     SUBDIR += py-qiskit-ibmq-provider
@@ -411,6 +431,7 @@
     SUBDIR += simlib
     SUBDIR += simple-dftd3
     SUBDIR += simsmith
+    SUBDIR += sirius
     SUBDIR += smoldyn
     SUBDIR += sparta
     SUBDIR += spglib

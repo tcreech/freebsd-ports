@@ -1,8 +1,7 @@
 PORTNAME=	lightdm
-PORTVERSION=	1.30.0
-PORTREVISION=	3
+PORTVERSION=	1.32.0
 CATEGORIES=	x11
-MASTER_SITES=	https://github.com/CanonicalLtd/${PORTNAME}/releases/download/${DISTVERSIONPREFIX}${DISTVERSION}/
+MASTER_SITES=	https://github.com/canonical/${PORTNAME}/releases/download/${DISTVERSIONPREFIX}${DISTVERSION}/
 
 MAINTAINER=	desktop@FreeBSD.org
 COMMENT=	Lightweight Display Manager
@@ -46,7 +45,7 @@ OPTIONS_SUB=	yes
 DOCS_BUILD_DEPENDS=	gtkdoc-check:textproc/gtk-doc
 DOCS_CONFIGURE_ENABLE=	gtk-doc
 
-VAPI_BUILD_DEPENDS=	vapigen:lang/vala
+VAPI_USES=		vala:build
 VAPI_CONFIGURE_ENABLE=	vala
 VAPI_USE=		gnome=introspection:build
 

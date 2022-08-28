@@ -218,6 +218,7 @@
     SUBDIR += chaco
     SUBDIR += chryzodus
     SUBDIR += chuffed
+    SUBDIR += cimod
     SUBDIR += clasp
     SUBDIR += clblas
     SUBDIR += clblast
@@ -247,6 +248,7 @@
     SUBDIR += convertall
     SUBDIR += coq
     SUBDIR += cosma
+    SUBDIR += costa
     SUBDIR += couenne
     SUBDIR += coxeter3
     SUBDIR += cppad
@@ -479,6 +481,7 @@
     SUBDIR += minizinc
     SUBDIR += minizinc-ide
     SUBDIR += minizinc-solvers
+    SUBDIR += minorminer
     SUBDIR += miracl
     SUBDIR += mlpack
     SUBDIR += moab
@@ -899,6 +902,7 @@
     SUBDIR += py-matplotlib-inline
     SUBDIR += py-matplotlib-scalebar
     SUBDIR += py-matplotlib2
+    SUBDIR += py-minorminer
     SUBDIR += py-mip
     SUBDIR += py-mixsimulator
     SUBDIR += py-moarchiving
@@ -960,6 +964,7 @@
     SUBDIR += py-qdldl
     SUBDIR += py-quadprog
     SUBDIR += py-random2
+    SUBDIR += py-rectangle-packer
     SUBDIR += py-roman
     SUBDIR += py-rpy2
     SUBDIR += py-rustworkx
@@ -1008,6 +1013,7 @@
     SUBDIR += randlib
     SUBDIR += rankwidth
     SUBDIR += rapid
+    SUBDIR += readstat
     SUBDIR += reduce
     SUBDIR += reduce-psl
     SUBDIR += reed-solomon
@@ -1059,6 +1065,8 @@
     SUBDIR += spblas
     SUBDIR += spectra
     SUBDIR += speedcrunch
+    SUBDIR += spfft
+    SUBDIR += spla
     SUBDIR += spooles
     SUBDIR += spooles-mpich
     SUBDIR += spot
@@ -1087,6 +1095,7 @@
     SUBDIR += suitesparse-umfpack
     SUBDIR += sundials
     SUBDIR += superlu
+    SUBDIR += superlu-dist
     SUBDIR += symengine
     SUBDIR += symmetrica
     SUBDIR += symphony

@@ -311,6 +311,7 @@
     SUBDIR += c4core
     SUBDIR += caf
     SUBDIR += calibrator
+    SUBDIR += caliper
     SUBDIR += capnproto
     SUBDIR += capnproto080
     SUBDIR += capstone3
@@ -680,9 +681,9 @@
     SUBDIR += fpc-zlib
     SUBDIR += fpp
     SUBDIR += frama-c
+    SUBDIR += freebsd-gcc12
     SUBDIR += freebsd-gcc6
     SUBDIR += freebsd-gcc9
-    SUBDIR += freebsd-gcc12
     SUBDIR += freebsd-git-devtools
     SUBDIR += freebsd-sysroot
     SUBDIR += frink
@@ -806,6 +807,7 @@
     SUBDIR += gitg
     SUBDIR += github-backup-utils
     SUBDIR += gitinspector
+    SUBDIR += gitklient
     SUBDIR += gitlab-metrics-exporter
     SUBDIR += gitlab-runner
     SUBDIR += gitlab-shell
@@ -1020,6 +1022,7 @@
     SUBDIR += kde-dev-scripts
     SUBDIR += kde-dev-utils
     SUBDIR += kdesdk
+    SUBDIR += kdesdk-kio
     SUBDIR += kdesdk-thumbnailers
     SUBDIR += kdesvn
     SUBDIR += kdev-php
@@ -1629,6 +1632,7 @@
     SUBDIR += onetbb
     SUBDIR += oniguruma
     SUBDIR += open-beagle
+    SUBDIR += open62541
     SUBDIR += opencl
     SUBDIR += opencl-clang
     SUBDIR += opencvs
@@ -2822,6 +2826,7 @@
     SUBDIR += p5-Module-Version
     SUBDIR += p5-Module-Versions
     SUBDIR += p5-Module-Versions-Report
+    SUBDIR += p5-Mojo-Base-XS
     SUBDIR += p5-Mojolicious-Plugin-NYTProf
     SUBDIR += p5-Moo
     SUBDIR += p5-MooX-Aliases
@@ -3435,6 +3440,7 @@
     SUBDIR += p5-Test-Lazy
     SUBDIR += p5-Test-LeakTrace
     SUBDIR += p5-Test-LectroTest
+    SUBDIR += p5-Test-Lib
     SUBDIR += p5-Test-LoadAllModules
     SUBDIR += p5-Test-Log-Log4perl
     SUBDIR += p5-Test-Log4perl
@@ -4435,6 +4441,7 @@
     SUBDIR += py-diazo
     SUBDIR += py-dill
     SUBDIR += py-dirspec
+    SUBDIR += py-diskcache
     SUBDIR += py-distlib
     SUBDIR += py-distributed
     SUBDIR += py-dj40-django-rq
@@ -4597,6 +4604,7 @@
     SUBDIR += py-hgtools
     SUBDIR += py-hidraw
     SUBDIR += py-holidays
+    SUBDIR += py-homebase
     SUBDIR += py-http-prompt
     SUBDIR += py-humanize
     SUBDIR += py-hvac
@@ -4735,6 +4743,7 @@
     SUBDIR += py-logan
     SUBDIR += py-logbook
     SUBDIR += py-logfury
+    SUBDIR += py-logfury0
     SUBDIR += py-logilab-common
     SUBDIR += py-loguru
     SUBDIR += py-logutils
@@ -4897,6 +4906,7 @@
     SUBDIR += py-pathtools
     SUBDIR += py-paver
     SUBDIR += py-pbr
+    SUBDIR += py-pcodedmp
     SUBDIR += py-pdm
     SUBDIR += py-pdm-pep517
     SUBDIR += py-pebble
@@ -4939,6 +4949,7 @@
     SUBDIR += py-platformdirs
     SUBDIR += py-plette
     SUBDIR += py-plex
+    SUBDIR += py-plucky
     SUBDIR += py-pluggy
     SUBDIR += py-pluggy0
     SUBDIR += py-pluginbase
@@ -5094,17 +5105,20 @@
     SUBDIR += py-pytest-helpers-namespace
     SUBDIR += py-pytest-html
     SUBDIR += py-pytest-httpbin
+    SUBDIR += py-pytest-httpserver
     SUBDIR += py-pytest-isort
     SUBDIR += py-pytest-lazy-fixture
     SUBDIR += py-pytest-localserver
     SUBDIR += py-pytest-markdown
     SUBDIR += py-pytest-metadata
     SUBDIR += py-pytest-mock
+    SUBDIR += py-pytest-mpl
     SUBDIR += py-pytest-mutagen
     SUBDIR += py-pytest-mypy
     SUBDIR += py-pytest-nunit
     SUBDIR += py-pytest-pep8
     SUBDIR += py-pytest-plus
+    SUBDIR += py-pytest-profiling
     SUBDIR += py-pytest-pycodestyle
     SUBDIR += py-pytest-randomly
     SUBDIR += py-pytest-regressions
@@ -5301,6 +5315,7 @@
     SUBDIR += py-stdlib-list
     SUBDIR += py-stdnum
     SUBDIR += py-stevedore
+    SUBDIR += py-stone
     SUBDIR += py-stopit
     SUBDIR += py-strategies
     SUBDIR += py-streamparse
@@ -5330,6 +5345,7 @@
     SUBDIR += py-tempora
     SUBDIR += py-tenacity
     SUBDIR += py-termcolor
+    SUBDIR += py-termcolor-whl
     SUBDIR += py-termstyle
     SUBDIR += py-testfixtures
     SUBDIR += py-testinfra
@@ -5563,6 +5579,7 @@
     SUBDIR += pycount
     SUBDIR += pydbus-common
     SUBDIR += pydio-packr
+    SUBDIR += pyenv
     SUBDIR += pygobject3-common
     SUBDIR += pylint
     SUBDIR += pyobfuscate
@@ -5606,6 +5623,14 @@
     SUBDIR += qt5-scxml
     SUBDIR += qt5-testlib
     SUBDIR += qt5-uitools
+    SUBDIR += qt6
+    SUBDIR += qt6-5compat
+    SUBDIR += qt6-base
+    SUBDIR += qt6-languageserver
+    SUBDIR += qt6-remoteobjects
+    SUBDIR += qt6-scxml
+    SUBDIR += qt6-tools
+    SUBDIR += qt6-translations
     SUBDIR += qtcreator
     SUBDIR += quantum
     SUBDIR += quickcheck++
@@ -5653,6 +5678,7 @@
     SUBDIR += rkcommon
     SUBDIR += rlog
     SUBDIR += rlwrap
+    SUBDIR += robin-hood-hashing
     SUBDIR += robin-map
     SUBDIR += roboctl
     SUBDIR += robodoc
@@ -5925,6 +5951,7 @@
     SUBDIR += rubygem-aws-sdk-lexmodelsv2
     SUBDIR += rubygem-aws-sdk-lexruntimev2
     SUBDIR += rubygem-aws-sdk-licensemanager
+    SUBDIR += rubygem-aws-sdk-licensemanagerusersubscriptions
     SUBDIR += rubygem-aws-sdk-lightsail
     SUBDIR += rubygem-aws-sdk-locationservice
     SUBDIR += rubygem-aws-sdk-lookoutequipment
@@ -6289,6 +6316,7 @@
     SUBDIR += rubygem-corefines
     SUBDIR += rubygem-cork
     SUBDIR += rubygem-countries
+    SUBDIR += rubygem-cow_proxy
     SUBDIR += rubygem-crack
     SUBDIR += rubygem-cri
     SUBDIR += rubygem-csv
@@ -6417,6 +6445,7 @@
     SUBDIR += rubygem-fog-core
     SUBDIR += rubygem-fog-core1
     SUBDIR += rubygem-fog-core210
+    SUBDIR += rubygem-fog-core220
     SUBDIR += rubygem-fog-json
     SUBDIR += rubygem-font-awesome-rails
     SUBDIR += rubygem-font-awesome-rails-rails5
@@ -6579,6 +6608,7 @@
     SUBDIR += rubygem-kgio
     SUBDIR += rubygem-launchy
     SUBDIR += rubygem-lazy_priority_queue
+    SUBDIR += rubygem-libdatadog
     SUBDIR += rubygem-libddprof
     SUBDIR += rubygem-libddwaf
     SUBDIR += rubygem-librarian
