@@ -1,12 +1,12 @@
 PORTNAME=	tomcat
-PORTVERSION=	9.0.67
+DISTVERSION=	10.1.0
 CATEGORIES=	www java
-MASTER_SITES=	APACHE/${PORTNAME}/${PORTNAME}-${PORTVERSION:C/([0-9])(.*)/\1/}/v${PORTVERSION}/bin
-PKGNAMESUFFIX=	9
-DISTNAME=	apache-${PORTNAME}-${PORTVERSION}
+MASTER_SITES=	APACHE/${PORTNAME}/${PORTNAME}-${DISTVERSION:C/([0-9]+)(.*)/\1/}/v${DISTVERSION}/bin
+PKGNAMESUFFIX=	101
+DISTNAME=	apache-${PORTNAME}-${DISTVERSION}
 
 MAINTAINER=	vvd@unislabs.com
-COMMENT=	Open-source Java web server by Apache, 9.0.x branch
+COMMENT=	Open-source Java web server by Apache, 10.1.x branch
 WWW=		https://tomcat.apache.org/
 
 LICENSE=	APACHE20
@@ -16,7 +16,7 @@ RUN_DEPENDS=	jsvc:devel/apache-commons-daemon
 USES=		cpe
 CPE_VENDOR=	apache
 USE_JAVA=	yes
-JAVA_VERSION=	1.8+
+JAVA_VERSION=	11+
 USE_RC_SUBR=	${PKGBASE:C/-/_/}
 
 NO_ARCH=	yes
