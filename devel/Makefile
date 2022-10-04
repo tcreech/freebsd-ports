@@ -1541,6 +1541,7 @@
     SUBDIR += mono-addins
     SUBDIR += mpatrol
     SUBDIR += mph
+    SUBDIR += mrc
     SUBDIR += msbuild
     SUBDIR += msgpack
     SUBDIR += msgpack-d
@@ -4399,6 +4400,7 @@
     SUBDIR += py-covdefaults
     SUBDIR += py-coverage
     SUBDIR += py-coverage_enable_subprocess
+    SUBDIR += py-coveralls
     SUBDIR += py-cppheaderparser
     SUBDIR += py-cppy
     SUBDIR += py-crank
