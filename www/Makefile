@@ -1863,7 +1863,6 @@
     SUBDIR += rubygem-bootstrap-sass
     SUBDIR += rubygem-browser
     SUBDIR += rubygem-cal-heatmap-rails
-    SUBDIR += rubygem-cal-heatmap-rails-rails4
     SUBDIR += rubygem-carrierwave
     SUBDIR += rubygem-cgi
     SUBDIR += rubygem-cgi_multipart_eof_fix
@@ -1874,7 +1873,6 @@
     SUBDIR += rubygem-cssbundling-rails
     SUBDIR += rubygem-cuba
     SUBDIR += rubygem-d3_rails
-    SUBDIR += rubygem-d3_rails-rails4
     SUBDIR += rubygem-davclient
     SUBDIR += rubygem-deckar01-task_list
     SUBDIR += rubygem-domainatrix
@@ -1938,6 +1936,7 @@
     SUBDIR += rubygem-haml-coderay
     SUBDIR += rubygem-haml-contrib
     SUBDIR += rubygem-haml-rails-rails4
+    SUBDIR += rubygem-haml5
     SUBDIR += rubygem-hamlit
     SUBDIR += rubygem-hamlit-rails
     SUBDIR += rubygem-hamlit-rails-rails5
@@ -1979,7 +1978,6 @@
     SUBDIR += rubygem-jsobfu
     SUBDIR += rubygem-json-jwt
     SUBDIR += rubygem-jwt
-    SUBDIR += rubygem-jwt21
     SUBDIR += rubygem-kaminari
     SUBDIR += rubygem-kaminari-actionview
     SUBDIR += rubygem-kaminari-actionview-rails5
@@ -2046,7 +2044,6 @@
     SUBDIR += rubygem-protocol-http1
     SUBDIR += rubygem-protocol-http2
     SUBDIR += rubygem-protocol-rack
-    SUBDIR += rubygem-protocol-rack01
     SUBDIR += rubygem-protocol-websocket
     SUBDIR += rubygem-puma
     SUBDIR += rubygem-puma_worker_killer
@@ -2068,7 +2065,6 @@
     SUBDIR += rubygem-rack-test
     SUBDIR += rubygem-rack-timeout
     SUBDIR += rubygem-rack16
-    SUBDIR += rubygem-rack223
     SUBDIR += rubygem-rack_csrf
     SUBDIR += rubygem-rails-settings-cached
     SUBDIR += rubygem-rails-settings-cached-rails5
