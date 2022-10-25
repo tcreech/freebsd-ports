@@ -1,6 +1,7 @@
-PORTNAME=	octave-forge-statistics
-DISTVERSIONPREFIX=	release-
-DISTVERSION=	1.5.0
+PORTNAME=	octave-forge-statistics-bootstrap
+DISTVERSIONPREFIX=	v
+DISTVERSION=	5.0.2
+PORTREVISION=	1
 CATEGORIES=	math
 
 MAINTAINER=	stephen@FreeBSD.org
@@ -8,17 +9,20 @@ COMMENT=	Octave-forge package ${OCTAVE_PKGNAME}
 WWW=		http://octave.sourceforge.net/
 
 LICENSE=	GPLv3
-LICENSE_FILE=	${WRKDIR}/${OCTSRC}/CONTRIBUTE.md
+LICENSE_FILE=	${WRKDIR}/${OCTSRC}/COPYING
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	gnu-octave
-GH_PROJECT=	statistics
+GH_PROJECT=	statistics-bootstrap
 
 # OCTSRC is the name of the directory of the package.
 # It is usually ${OCTAVE_PKGNAME} or ${DISTNAME}.
-OCTSRC=		${GH_PROJECT}-release-${DISTVERSION}
+OCTSRC=		${GH_PROJECT}-${DISTVERSION}
 
 WRKSRC=		${WRKDIR}/${OCTSRC}/src
+ALL_TARGET=	make
+
+RUN_DEPENDS+=	${TARBALLS_DIR}/statistics.tar.gz:math/octave-forge-statistics
 
 .include "${.CURDIR}/../../Mk/bsd.octave.mk"
 
