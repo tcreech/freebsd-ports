@@ -339,6 +339,7 @@
     SUBDIR += py-libpysal
     SUBDIR += py-lifelines
     SUBDIR += py-mdp
+    SUBDIR += py-meshio
     SUBDIR += py-mmcif
     SUBDIR += py-mmtf-python
     SUBDIR += py-molmod
@@ -399,6 +400,7 @@
     SUBDIR += py-scimath
     SUBDIR += py-scipy
     SUBDIR += py-scoria
+    SUBDIR += py-sdf
     SUBDIR += py-segregation
     SUBDIR += py-segyio
     SUBDIR += py-sklearn-pandas
