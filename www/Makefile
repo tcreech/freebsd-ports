@@ -246,7 +246,6 @@
     SUBDIR += igal2
     SUBDIR += ikiwiki
     SUBDIR += ilias
-    SUBDIR += ilias6
     SUBDIR += interchange
     SUBDIR += iridium
     SUBDIR += itop
@@ -1369,7 +1368,6 @@
     SUBDIR += persepolis
     SUBDIR += pglogd
     SUBDIR += phalcon
-    SUBDIR += phalcon4
     SUBDIR += php74-opcache
     SUBDIR += php74-session
     SUBDIR += php74-tidy
@@ -2307,7 +2305,6 @@
     SUBDIR += twiki-TwistyPlugin
     SUBDIR += twiki-WysiwygPlugin
     SUBDIR += twms
-    SUBDIR += typo3-10
     SUBDIR += typo3-11
     SUBDIR += uchiwa
     SUBDIR += ufdbguard
