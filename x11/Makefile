@@ -339,6 +339,7 @@
     SUBDIR += sessreg
     SUBDIR += setlayout
     SUBDIR += setxkbmap
+    SUBDIR += sfwbar
     SUBDIR += shotman
     SUBDIR += showkeys
     SUBDIR += showmethekey
