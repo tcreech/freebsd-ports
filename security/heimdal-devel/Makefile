@@ -1,22 +1,32 @@
 PORTNAME=	heimdal
-PORTVERSION=	7.8.0
-PORTREVISION=	6
+PORTVERSION=	${HEIMDAL_COMMIT_DATE}
+PORTREVISION=	5
 CATEGORIES=	security
-MASTER_SITES=	https://github.com/heimdal/heimdal/releases/download/${DISTNAME}/
+PKGNAMESUFFIX=	-devel
+HASH=		8f9c2d115
+HEIMDAL_COMMIT_DATE=	2022.11.18
 
-MAINTAINER=	hrs@FreeBSD.org
+MAINTAINER=	cy@FreeBSD.org
 COMMENT=	Popular BSD-licensed implementation of Kerberos 5
 WWW=		https://www.h5l.org/
 
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
+USE_GITHUB=	yes
+GH_TAGNAME=	${HASH}
+
 CONFLICTS=	krb5 krb5-*
 
-USES=		cpe gettext-runtime gssapi:bootstrap,heimdal libtool pathfix \
-		pkgconfig readline makeinfo ssl
+USES=		autoreconf:build cpe gettext-runtime gssapi:bootstrap,heimdal \
+		libtool pathfix pkgconfig python:build readline makeinfo ssl
 CPE_VENDOR=	${PORTNAME}_project
 USE_LDCONFIG=	${GSSAPILIBDIR}
+
+# Needs clang-format which is only provided by the port.
+# Else asm1_fails resulting in a command not found error.
+BUILD_DEPENDS=	clang${LLVM_DEFAULT}:devel/llvm${LLVM_DEFAULT} \
+		p5-JSON>0:converters/p5-JSON
 
 GNU_CONFIGURE=	yes
 CONFIGURE_ENV=	ac_cv_header_fnmatch_h=yes \
@@ -25,8 +35,7 @@ CONFIGURE_ENV=	ac_cv_header_fnmatch_h=yes \
 		ac_cv_header_db4_db_h=no \
 		ac_cv_header_db5_db_h=no \
 		ac_cv_header_db6_db_h=no \
-		ac_cv_prog_COMPILE_ET=${WRKSRC}/lib/com_err/compile_et \
-		PYTHON="${TRUE}"
+		ac_cv_prog_COMPILE_ET=${WRKSRC}/lib/com_err/compile_et
 CONFIGURE_ARGS=	--with-berkeley-db \
 		--with-libintl \
 		--with-libintl-include="${LOCALBASE}/include" \
@@ -41,7 +50,10 @@ CONFIGURE_ARGS=	--with-berkeley-db \
 		--enable-pthread-support \
 		--with-readline="${LOCALBASE}" \
 		--with-hdbdir="/var/${PORTNAME}" \
-		--sysconfdir="${PREFIX}/etc"
+		--sysconfdir="${PREFIX}/etc" \
+		CLANG_FORMAT="${LOCALBASE}/bin/clang-format${LLVM_DEFAULT}" \
+		--enable-kx509 \
+		--without-microhttpd
 # XXX --with-readline picks up libreadline even if found in /usr/lib.
 MAKE_ENV=	INSTALL_CATPAGES=no
 INSTALL_TARGET=	install-strip
@@ -105,6 +117,9 @@ post-extract:
 	    ${WRKSRC}/kpasswdd-cracklib
 	${INSTALL_DATA} ${FILESDIR}/kpasswdd-Makefile \
 	    ${WRKSRC}/kpasswdd-cracklib/Makefile
+
+pre-configure:
+	cd ${WRKSRC} && ./autogen.sh
 
 post-build-CRACKLIB-on:
 	cd ${WRKSRC}/kpasswdd-cracklib && \
