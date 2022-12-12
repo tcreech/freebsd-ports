@@ -47,6 +47,8 @@ MANPAGES_PLIST_FILES=\
 	man/man7/ponscripter.7.gz
 
 NOTIFY_LIB_DEPENDS=	libnotify.so:devel/libnotify
+NOTIFY_USES=		gnome
+NOTIFY_USE=		GNOME=glib20 # g_object_unref
 NOTIFY_CONFIGURE_WITH=	libnotify
 
 TREMOR_LIB_DEPENDS=	libvorbisidec.so:audio/libtremor
@@ -59,6 +61,11 @@ post-patch:
 		${WRKSRC}/configure
 	@${REINPLACE_CMD} -e 's/$$(LIBS)/$$(LDFLAGS) &/' \
 		${WRKSRC}/src/Makefile.ponscripter
+
+post-patch-MANPAGES-off:
+	@${REINPLACE_CMD} -i .manpages.bak \
+		-e '/install-man/d' \
+		${WRKSRC}/configure
 
 post-patch-TREMOR-on:
 	@${REINPLACE_CMD} -i .tremor.bak \
