@@ -1,7 +1,7 @@
 PORTNAME=	darkman
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.5.0
-CATEGORIES=	x11
+CATEGORIES=	x11 wayland
 
 MAINTAINER=	jbeich@FreeBSD.org
 COMMENT=	Framework for dark-mode and light-mode transitions
@@ -41,12 +41,13 @@ post-patch:
 # Respect LOCALBASE for {dark,light}-mode.d scripts
 	@${REINPLACE_CMD} 's,/usr/share,${LOCALBASE}/share,' \
 		${WRKSRC}/vendor/github.com/adrg/xdg/paths_unix.go
+# Respect PREFIX for DBus activation
+	@${REINPLACE_CMD} 's,/usr/bin,${PREFIX}/bin,' \
+		${WRKSRC}/contrib/dbus/*.service
 
 post-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/share/dbus-1/services
-	${INSTALL_DATA} ${WRKSRC}/contrib/dbus/nl.whynothugo.darkman.service \
-		${STAGEDIR}${PREFIX}/share/dbus-1/services/
-	${INSTALL_DATA} ${WRKSRC}/contrib/dbus/org.freedesktop.impl.portal.desktop.darkman.service \
+	${INSTALL_DATA} ${WRKSRC}/contrib/dbus/*.service \
 		${STAGEDIR}${PREFIX}/share/dbus-1/services/
 	${MKDIR} ${STAGEDIR}${PREFIX}/share/xdg-desktop-portal/portals
 	${INSTALL_DATA} ${WRKSRC}/contrib/portal/${PORTNAME}.portal \
