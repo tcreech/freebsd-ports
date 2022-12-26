@@ -96,6 +96,7 @@
     SUBDIR += pear_Payment_DTA
     SUBDIR += prestashop
     SUBDIR += py-Nasdaq-Data-Link
+    SUBDIR += py-TA-Lib
     SUBDIR += py-backtrader
     SUBDIR += py-bitcoin
     SUBDIR += py-ebaysdk
@@ -110,6 +111,7 @@
     SUBDIR += py-mplfinance
     SUBDIR += py-ofxparse
     SUBDIR += py-pandas-market-calendars
+    SUBDIR += py-pandas-ta
     SUBDIR += py-pycoin
     SUBDIR += py-python-bitcoinlib
     SUBDIR += py-python-obelisk

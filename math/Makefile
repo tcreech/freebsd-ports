@@ -477,6 +477,7 @@
     SUBDIR += mathlibtools
     SUBDIR += mathmod
     SUBDIR += mathomatic
+    SUBDIR += mathpresso
     SUBDIR += matio
     SUBDIR += matlab-installer
     SUBDIR += maxima
@@ -1166,6 +1167,7 @@
     SUBDIR += universal
     SUBDIR += unuran
     SUBDIR += vampire
+    SUBDIR += vdt
     SUBDIR += verdict
     SUBDIR += viennacl
     SUBDIR += vinci
