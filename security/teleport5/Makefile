@@ -1,17 +1,14 @@
 PORTNAME=	teleport
 DISTVERSIONPREFIX=	v
-DISTVERSION=	4.4.12
-PORTREVISION=	1
+DISTVERSION=	5.2.5
 CATEGORIES=	security
+PKGNAMESUFFIX=	5
 
 MAINTAINER=	kraileth@elderlinux.org
 COMMENT=	Centralized access gateway using the SSH protocol
 WWW=		https://goteleport.com/teleport
 
 LICENSE=	APACHE20
-
-DEPRECATED=	End of life, users are recommended to use security/teleport5 as an upgrade path
-EXPIRATION_DATE=2023-03-31
 
 NOT_FOR_ARCHS=	i386
 NOT_FOR_ARCHS_REASON=	Uses 64bit types
@@ -24,8 +21,8 @@ USES=		compiler gmake go
 
 USE_GITHUB=		yes
 GH_ACCOUNT=		gravitational
-GH_TUPLE=		gravitational:webassets:2ee76aa:webassets/webassets
-GH_COMMIT_SHORT=	fabee242d
+GH_TUPLE=		gravitational:webassets:8ace0cf:webassets/webassets
+GH_COMMIT_SHORT=	f8ba4afd9
 GH_TAG_COMMIT=		${DISTVERSIONPREFIX}${DISTVERSION}-0-g${GH_COMMIT_SHORT}
 
 USE_RC_SUBR=	teleport
@@ -48,6 +45,8 @@ post-patch:
 	@${MKDIR} ${WRKDIR}/${GO_TELEPORT_SRC_DIR}
 	@${REINPLACE_CMD} -e 's|%%GH_TAG_COMMIT%%|${GH_TAG_COMMIT}|' \
 		${WRKSRC}/version.mk
+	@${FIND} ${WRKSRC}/docs/pages -iname '*.mdx' | ${XARGS} \
+		${REINPLACE_CMD} -i '' -e 's|/var/lib|/var/db|g'
 	@${CP} -rpH ${WRKDIR}/${PRE_GOPATH_DIR}/vendor/* ${WRKDIR}/src/
 	@${CP} -rpH ${WRKDIR}/${PRE_GOPATH_DIR}/* ${WRKDIR}/${GO_TELEPORT_SRC_DIR}/
 
