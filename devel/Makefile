@@ -649,6 +649,7 @@
     SUBDIR += fmake
     SUBDIR += fnc
     SUBDIR += fnccheck
+    SUBDIR += fnm
     SUBDIR += folly
     SUBDIR += forge
     SUBDIR += forge-devel
@@ -829,6 +830,7 @@
     SUBDIR += gitlist
     SUBDIR += gitolite
     SUBDIR += gitolite2
+    SUBDIR += gitoxide
     SUBDIR += gitqlient
     SUBDIR += gittrac
     SUBDIR += gitty
