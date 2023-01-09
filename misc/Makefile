@@ -99,6 +99,7 @@
     SUBDIR += explosions
     SUBDIR += ezc3d
     SUBDIR += far2l
+    SUBDIR += fastscapelib
     SUBDIR += felis
     SUBDIR += figlet
     SUBDIR += figlet-fonts
@@ -398,6 +399,7 @@
     SUBDIR += py-emoji
     SUBDIR += py-ezc3d
     SUBDIR += py-fast-histogram
+    SUBDIR += py-fastscapelib
     SUBDIR += py-fleep
     SUBDIR += py-fuzzy
     SUBDIR += py-gluoncv
