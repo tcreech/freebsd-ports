@@ -322,6 +322,7 @@
     SUBDIR += capstone3
     SUBDIR += capstone4
     SUBDIR += capstone5
+    SUBDIR += cargo-bloat
     SUBDIR += cargo-c
     SUBDIR += cargo-generate
     SUBDIR += cask
@@ -623,6 +624,7 @@
     SUBDIR += evemu
     SUBDIR += eventxx
     SUBDIR += exercisix
+    SUBDIR += exomizer
     SUBDIR += f18
     SUBDIR += f77flow
     SUBDIR += fam
