@@ -1,0 +1,2 @@
+lib/security/pam_afs_session.so
+man/man5/pam_afs_session.5.gz

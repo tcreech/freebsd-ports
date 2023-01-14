@@ -27,13 +27,18 @@ GH_ACCOUNT=	badaix
 
 SHEBANG_FILES=	server/etc/plug-ins/meta_mpd.py
 
-OPTIONS_DEFINE=		CLIENT
-OPTIONS_DEFAULT=	CLIENT
+OPTIONS_DEFINE=		CLIENT SNDIO PULSEAUDIO
+OPTIONS_DEFAULT=	CLIENT SNDIO
 OPTIONS_SUB=		yes
 
 CLIENT_DESC=		Build and install client in addition to server
 CLIENT_CMAKE_BOOL=	BUILD_CLIENT
-CLIENT_LIB_DEPENDS=	libpulse.so:audio/pulseaudio
+
+PULSEAUDIO_DESC=	Build with pulseaudio backend support
+PULSEAUDIO_LIB_DEPENDS=	libpulse.so:audio/pulseaudio
+
+SNDIO_DESC=		Build with sndio(7) backend support
+SNDIO_LIB_DEPENDS=	libsndio.so:audio/sndio
 
 post-install: # workaround for https://github.com/badaix/snapcast/issues/1021
 	@${CHMOD} +r ${STAGEDIR}${PREFIX}/share/snapserver/plug-ins/meta_mpd.py
