@@ -437,9 +437,11 @@
     SUBDIR += libRmath
     SUBDIR += libbraiding
     SUBDIR += libccd
+    SUBDIR += libcerf
     SUBDIR += libdivide
     SUBDIR += libfixmath
     SUBDIR += libflame
+    SUBDIR += libformfactor
     SUBDIR += libhomfly
     SUBDIR += libmesh
     SUBDIR += libmissing
@@ -463,6 +465,7 @@
     SUBDIR += linpack
     SUBDIR += lis
     SUBDIR += lll_spect
+    SUBDIR += lmfit
     SUBDIR += lp_solve
     SUBDIR += lrcalc
     SUBDIR += lrng
@@ -895,6 +898,7 @@
     SUBDIR += py-cypari2
     SUBDIR += py-deap
     SUBDIR += py-dionysus
+    SUBDIR += py-disjoint-set
     SUBDIR += py-docplex
     SUBDIR += py-ducc0
     SUBDIR += py-ecos
