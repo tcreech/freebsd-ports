@@ -560,7 +560,6 @@
     SUBDIR += dsymbol
     SUBDIR += dtool
     SUBDIR += dub
-    SUBDIR += dulwich
     SUBDIR += dupl
     SUBDIR += duplo
     SUBDIR += dura
@@ -4349,7 +4348,6 @@
     SUBDIR += py-bullet3
     SUBDIR += py-bytecode
     SUBDIR += py-cabby
-    SUBDIR += py-cachecontrol
     SUBDIR += py-cached-property
     SUBDIR += py-cachetools
     SUBDIR += py-cachetools3
@@ -4514,6 +4512,7 @@
     SUBDIR += py-dotty-dict
     SUBDIR += py-dpcontracts
     SUBDIR += py-dtfabric
+    SUBDIR += py-dulwich
     SUBDIR += py-dunamai
     SUBDIR += py-durus
     SUBDIR += py-dynrules
@@ -5390,6 +5389,7 @@
     SUBDIR += py-simpleparse
     SUBDIR += py-simpletal
     SUBDIR += py-simpy
+    SUBDIR += py-single-version
     SUBDIR += py-sip
     SUBDIR += py-sip4
     SUBDIR += py-six
