@@ -4682,6 +4682,7 @@
     SUBDIR += py-homebase
     SUBDIR += py-http-prompt
     SUBDIR += py-humanize
+    SUBDIR += py-hunter
     SUBDIR += py-hupper
     SUBDIR += py-hvac
     SUBDIR += py-hypothesis
@@ -5074,6 +5075,7 @@
     SUBDIR += py-prettyprinter
     SUBDIR += py-prettytable
     SUBDIR += py-prettytable0
+    SUBDIR += py-process-tests
     SUBDIR += py-proglog
     SUBDIR += py-progress
     SUBDIR += py-promise
