@@ -1230,6 +1230,7 @@
     SUBDIR += libfreefare
     SUBDIR += libfsapfs
     SUBDIR += libfsext
+    SUBDIR += libfsfat
     SUBDIR += libfshfs
     SUBDIR += libfsntfs
     SUBDIR += libfsxfs
@@ -1330,6 +1331,7 @@
     SUBDIR += libpeak
     SUBDIR += libpeas
     SUBDIR += libpff
+    SUBDIR += libphdi
     SUBDIR += libphk
     SUBDIR += libphonenumber
     SUBDIR += libplist
