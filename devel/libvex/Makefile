@@ -1,5 +1,6 @@
 PORTNAME=	libvex
 DISTVERSION=	g20230201
+PORTREVISION=	1
 CATEGORIES=	devel
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -20,7 +21,11 @@ WRKSRC_SUBDIR=	VEX
 
 MAKEFILE=	Makefile-gcc
 
+CFLAGS+=	-DVGA_${ARCH:S/i386/x86/:S/aarch64/arm/:S/powerpc64/ppc64le/:S/powerpc/ppc32/:S/mips/mips64/}
+
 MAKE_ARGS=	EXTRA_CFLAGS="${CFLAGS}"
+
+PORTSCOUT=	ignore:1 # LibVEX is a part of Valgrind and isn't individually versioned
 
 do-install:
 	cd ${WRKSRC}/pub && ${COPYTREE_SHARE} . ${STAGEDIR}${PREFIX}/include/libvex
