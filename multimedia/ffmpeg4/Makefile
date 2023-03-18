@@ -1,12 +1,11 @@
 PORTNAME=	ffmpeg
 PORTVERSION=	4.4.3
-PORTREVISION=	6
-PORTEPOCH=	1
 CATEGORIES=	multimedia audio net
 MASTER_SITES=	https://ffmpeg.org/releases/
+PKGNAMESUFFIX=	4
 
 MAINTAINER=	multimedia@FreeBSD.org
-COMMENT=	Realtime audio/video encoder/converter and streaming server
+COMMENT=	Realtime audio/video encoder/converter and streaming server (legacy 4.* series)
 WWW=		https://ffmpeg.org/
 
 LICENSE=	GPLv2+ LGPL21+
@@ -28,7 +27,10 @@ USE_PERL5=	build
 SHEBANG_FILES=	doc/texi2pod.pl
 NOPRECIOUSMAKEVARS=	yes # ARCH
 
+.ifdef PKGNAMESUFFIX
 PORTSCOUT=	limit:^4\.
+PREFIX=		${LOCALBASE}/${PKGBASE} # avoid conflict with the default
+.endif
 
 # Option CHROMAPRINT disabled, it cannot work and people are baffled.
 OPTIONS_DEFINE=	ALSA AMR_NB AMR_WB AOM ARIBB24 ASM ASS BS2B CACA CDIO \
