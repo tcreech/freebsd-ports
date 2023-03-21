@@ -17800,3 +17800,23 @@ cad/NASTRAN-95||2023-03-19|Has expired: Broken since 2020
 lang/dlv||2023-03-19|Has expired: Broken since 2020
 net/nfs-ganesha-kmod||2023-03-19|Has expired: Broken since 2020
 graphics/py-open3d-python||2023-03-19|Has expired: Broken since 2020
+devel/libzrtpcpp||2023-03-20|Has expired: Broken since 2021
+devel/riscv64-gcc||2023-03-20|Has expired: Unsupported version and users should move to devel/freebsd-gcc12@riscv64
+devel/frama-c||2023-03-20|Has expired: Broken since 2021
+misc/dahdi-kmod||2023-03-20|Has expired: Broken since 2021
+misc/glow||2023-03-20|Has expired: Broken since 2021
+science/fisicalab||2023-03-20|Has expired: Broken since 2021
+sysutils/ioc||2023-03-20|Has expired: Broken since 2021
+sysutils/jobd||2023-03-20|Has expired: Broken since 2021
+sysutils/geomWatch||2023-03-20|Has expired: Broken since 2021
+lang/visualworks||2023-03-20|Has expired: Broken since 2021
+lang/J||2023-03-20|Has expired: Broken since 2021
+net/rsocket-cpp||2023-03-20|Has expired: Broken since 2021
+net/opentracker||2023-03-20|Has expired: Broken since 2021
+dns/py-namebench||2023-03-20|Has expired: Broken since 2021
+databases/libgda5-mdb||2023-03-20|Has expired: Broken since 2021
+games/flightgear-terragear||2023-03-20|Has expired: Broken since 2021
+textproc/py-rstfmt||2023-03-20|Has expired: Broken since 2021
+graphics/rubygem-objectdetect||2023-03-20|Has expired: Broken since 2021
+graphics/p5-Image-ObjectDetect||2023-03-20|Has expired: Broken since 2021
+science/dcl||2023-03-20|Has expired: Broken since 2021
