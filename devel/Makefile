@@ -700,7 +700,6 @@
     SUBDIR += fpc-zlib
     SUBDIR += fpp
     SUBDIR += freebsd-gcc12
-    SUBDIR += freebsd-gcc6
     SUBDIR += freebsd-gcc9
     SUBDIR += freebsd-git-devtools
     SUBDIR += freebsd-sysroot
@@ -4134,6 +4133,7 @@
     SUBDIR += pth-hard
     SUBDIR += pthreadpool
     SUBDIR += pthsem
+    SUBDIR += ptl
     SUBDIR += ptlib
     SUBDIR += ptmalloc
     SUBDIR += ptmalloc2
@@ -4651,6 +4651,7 @@
     SUBDIR += py-git-up
     SUBDIR += py-git-url-parse
     SUBDIR += py-gitdb
+    SUBDIR += py-gitlab-webhook-handler
     SUBDIR += py-gitless
     SUBDIR += py-gitpython
     SUBDIR += py-giturlparse
@@ -4664,6 +4665,7 @@
     SUBDIR += py-google-pasta
     SUBDIR += py-google-re2
     SUBDIR += py-googleapis-common-protos
+    SUBDIR += py-gpep517
     SUBDIR += py-gpxpy
     SUBDIR += py-grab
     SUBDIR += py-graphene
@@ -5428,6 +5430,7 @@
     SUBDIR += py-setuptools-rust
     SUBDIR += py-setuptools44
     SUBDIR += py-setuptools58
+    SUBDIR += py-setuptools_git_ls_files
     SUBDIR += py-setuptools_hg
     SUBDIR += py-setuptools_scm
     SUBDIR += py-setuptools_scm_git_archive
@@ -5533,6 +5536,7 @@
     SUBDIR += py-transaction
     SUBDIR += py-transitions
     SUBDIR += py-tree-format
+    SUBDIR += py-treelib
     SUBDIR += py-trimesh
     SUBDIR += py-trove-classifiers
     SUBDIR += py-ttictoc
