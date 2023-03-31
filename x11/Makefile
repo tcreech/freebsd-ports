@@ -149,7 +149,6 @@
     SUBDIR += kf5-plasma-framework
     SUBDIR += kickoff
     SUBDIR += kitty
-    SUBDIR += kittypatch
     SUBDIR += konsole
     SUBDIR += lavalauncher
     SUBDIR += lemonbar
