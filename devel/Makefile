@@ -4179,6 +4179,7 @@
     SUBDIR += py-amalgamate
     SUBDIR += py-aniso8601
     SUBDIR += py-aniso86016
+    SUBDIR += py-anndata
     SUBDIR += py-ansi
     SUBDIR += py-antlr4-python3-runtime
     SUBDIR += py-anyconfig
@@ -4396,6 +4397,7 @@
     SUBDIR += py-cftime
     SUBDIR += py-chainmap
     SUBDIR += py-characteristic
+    SUBDIR += py-check-jsonschema
     SUBDIR += py-check-manifest
     SUBDIR += py-cheetah3
     SUBDIR += py-circuitbreaker
@@ -4832,6 +4834,7 @@
     SUBDIR += py-keystoneauth1
     SUBDIR += py-keystonemiddleware
     SUBDIR += py-kitchen
+    SUBDIR += py-klepto
     SUBDIR += py-knack
     SUBDIR += py-l18n
     SUBDIR += py-lark
@@ -4936,6 +4939,7 @@
     SUBDIR += py-mypy-boto3-s3
     SUBDIR += py-mypy-protobuf
     SUBDIR += py-mypy_extensions
+    SUBDIR += py-mystic
     SUBDIR += py-naiveBayesClassifier
     SUBDIR += py-nanotime
     SUBDIR += py-natsort
@@ -5102,6 +5106,7 @@
     SUBDIR += py-poetry-dynamic-versioning
     SUBDIR += py-poetry-plugin-export
     SUBDIR += py-poetry-semver
+    SUBDIR += py-poetry-types
     SUBDIR += py-poetry2setup
     SUBDIR += py-polib
     SUBDIR += py-pooch
@@ -5210,6 +5215,7 @@
     SUBDIR += py-pyperclip
     SUBDIR += py-pyperf
     SUBDIR += py-pyplusplus
+    SUBDIR += py-pyproject-flake8
     SUBDIR += py-pyproject-fmt
     SUBDIR += py-pyproject-metadata
     SUBDIR += py-pyproject_hooks
@@ -5243,6 +5249,7 @@
     SUBDIR += py-pytest-checkdocs
     SUBDIR += py-pytest-console-scripts
     SUBDIR += py-pytest-cov
+    SUBDIR += py-pytest-cpp
     SUBDIR += py-pytest-datadir
     SUBDIR += py-pytest-django
     SUBDIR += py-pytest-enabler
@@ -5269,6 +5276,7 @@
     SUBDIR += py-pytest-mypy
     SUBDIR += py-pytest-mypy-plugins
     SUBDIR += py-pytest-nunit
+    SUBDIR += py-pytest-order
     SUBDIR += py-pytest-parallel
     SUBDIR += py-pytest-pep8
     SUBDIR += py-pytest-plus
@@ -5367,6 +5375,7 @@
     SUBDIR += py-ramlfications
     SUBDIR += py-rapidfuzz
     SUBDIR += py-rapidfuzz-capi
+    SUBDIR += py-rapidfuzz2
     SUBDIR += py-ratelimiter
     SUBDIR += py-rauth
     SUBDIR += py-raven
@@ -5391,6 +5400,7 @@
     SUBDIR += py-resolvelib
     SUBDIR += py-resolvelib05
     SUBDIR += py-resolvelib07
+    SUBDIR += py-resolvelib1
     SUBDIR += py-resolver
     SUBDIR += py-resource
     SUBDIR += py-responses
