@@ -2595,6 +2595,7 @@
     SUBDIR += p5-Hash-MultiValue
     SUBDIR += p5-Hash-NoRef
     SUBDIR += p5-Hash-Objectify
+    SUBDIR += p5-Hash-Ordered
     SUBDIR += p5-Hash-Slice
     SUBDIR += p5-Hash-Union
     SUBDIR += p5-Hash-Util-FieldHash-Compat
@@ -4493,6 +4494,7 @@
     SUBDIR += py-dal
     SUBDIR += py-darts.util.lru
     SUBDIR += py-dask
+    SUBDIR += py-dask-histogram
     SUBDIR += py-dataclasses-json
     SUBDIR += py-datadog
     SUBDIR += py-datapackage
@@ -7512,6 +7514,7 @@
     SUBDIR += svntrac
     SUBDIR += swank-clojure
     SUBDIR += swig
+    SUBDIR += swig40
     SUBDIR += sysconftool
     SUBDIR += sysfsutils
     SUBDIR += systemc
