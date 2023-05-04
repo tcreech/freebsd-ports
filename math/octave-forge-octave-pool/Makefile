@@ -1,5 +1,4 @@
-PORTNAME=	octave-forge-internal-fluid-flow
-DISTVERSIONPREFIX=	v
+PORTNAME=	octave-forge-octave-pool
 DISTVERSION=	1.0.0
 CATEGORIES=	math
 
@@ -10,12 +9,14 @@ WWW=		https://packages.octave.org/
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKDIR}/${OCTAVE_SRC}/COPYING
 
-USES=	octave
-USE_GITHUB=	yes
-GH_ACCOUNT=	aumpierre-unb
-GH_PROJECT=	internal-Fluid-Flow-for-GNU-Octave
+RUN_DEPENDS+=	${OCTAVE_TARBALLS_DIR}/fileio.tar.gz:math/octave-forge-fileio
 
-OCTAVE_SRC=		Internal-Fluid-Flow-for-GNU-Octave-${DISTVERSION}
+USES=		octave
+USE_GITHUB=	yes
+GH_ACCOUNT=	reprostat
+GH_PROJECT=	octave-pool
+
+OCTAVE_SRC=	${GH_PROJECT}-${DISTVERSION}
 
 NO_ARCH=	yes
 NO_BUILD=	yes
