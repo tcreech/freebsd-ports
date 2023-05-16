@@ -234,6 +234,7 @@
     SUBDIR += coreutils
     SUBDIR += cpdup
     SUBDIR += cpu-x
+    SUBDIR += cpubars
     SUBDIR += cpuburn
     SUBDIR += cpufetch
     SUBDIR += cpuid
