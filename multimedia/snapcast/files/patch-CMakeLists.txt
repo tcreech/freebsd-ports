@@ -1,14 +1,6 @@
---- CMakeLists.txt.orig	2021-12-22 17:40:36 UTC
+--- CMakeLists.txt.orig	2021-01-09 21:43:59 UTC
 +++ CMakeLists.txt
-@@ -75,6 +75,7 @@ option(BUILD_WITH_OPUS "Build with OPUS support" ON)
- option(BUILD_WITH_AVAHI "Build with AVAHI support" ON)
- option(BUILD_WITH_EXPAT "Build with EXPAT support" ON)
- option(BUILD_WITH_PULSE "Build with PulseAudio support" ON)
-+option(BUILD_WITH_SNDIO "Build with sndio support" ON)
- 
- if (NOT BUILD_SHARED_LIBS AND NOT BUILD_STATIC_LIBS)
-     message(FATAL_ERROR "One or both of BUILD_SHARED_LIBS or BUILD_STATIC_LIBS must be set to ON to build")
-@@ -88,7 +89,7 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+@@ -73,7 +73,7 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
      set(MACOSX TRUE)
  elseif (${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
      set (FREEBSD TRUE)
@@ -17,7 +9,7 @@
          message(FATAL_ERROR "Snapclient not yet supported for FreeBSD, use \"-DBUILD_CLIENT=OFF\"")
      endif()
  elseif (${CMAKE_SYSTEM_NAME} MATCHES "Android")
-@@ -178,7 +179,7 @@ if(NOT WIN32 AND NOT ANDROID)
+@@ -163,7 +163,7 @@ if(NOT WIN32 AND NOT ANDROID)
          list(APPEND INCLUDE_DIRS "/usr/local/include")
      else()
  
@@ -26,17 +18,3 @@
          if (ALSA_FOUND)
              add_definitions(-DHAS_ALSA)
          endif (ALSA_FOUND)
-@@ -189,6 +190,13 @@ if(NOT WIN32 AND NOT ANDROID)
-                 add_definitions(-DHAS_PULSE)
-             endif (PULSE_FOUND)
-         endif(BUILD_WITH_PULSE)
-+
-+        if(BUILD_WITH_SNDIO)
-+            pkg_search_module(SNDIO sndio)
-+            if (SNDIO_FOUND)
-+                add_definitions(-DHAS_SNDIO)
-+            endif (SNDIO_FOUND)
-+        endif(BUILD_WITH_SNDIO)
- 
-         if(BUILD_WITH_AVAHI)
-             pkg_search_module(AVAHI avahi-client)
