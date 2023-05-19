@@ -1,4 +1,4 @@
---- src/afs/afs_daemons.c.orig	2021-12-09 17:07:41 UTC
+--- src/afs/afs_daemons.c.orig	2022-12-15 20:10:23 UTC
 +++ src/afs/afs_daemons.c
 @@ -223,19 +223,21 @@ afs_Daemon(void)
  	    }

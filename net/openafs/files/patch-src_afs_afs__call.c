@@ -1,6 +1,6 @@
---- src/afs/afs_call.c.orig	2021-12-09 17:07:41 UTC
+--- src/afs/afs_call.c.orig	2022-12-15 20:10:23 UTC
 +++ src/afs/afs_call.c
-@@ -98,11 +98,19 @@ extern afs_int32 afs_md5inum;
+@@ -100,11 +100,19 @@ extern afs_int32 afs_md5inum;
  static int
  afs_InitSetup(int preallocs)
  {
@@ -20,7 +20,7 @@
  #ifdef AFS_SUN510_ENV
      /* Initialize a RW lock for the ifinfo global array */
      rw_init(&afsifinfo_lock, NULL, RW_DRIVER, NULL);
-@@ -127,10 +135,12 @@ afs_InitSetup(int preallocs)
+@@ -129,10 +137,12 @@ afs_InitSetup(int preallocs)
      /* start RX */
      if(!afscall_set_rxpck_received)
      rx_extraPackets = AFS_NRXPACKETS;	/* smaller # of packets */
@@ -34,7 +34,7 @@
      }
      rx_SetRxDeadTime(afs_rx_deadtime);
      /* resource init creates the services */
-@@ -139,6 +149,9 @@ afs_InitSetup(int preallocs)
+@@ -141,6 +151,9 @@ afs_InitSetup(int preallocs)
      afs_InitSetup_done = 1;
      afs_osi_Wakeup(&afs_InitSetup_done);
  
@@ -44,7 +44,7 @@
      return code;
  }
  
-@@ -1697,7 +1710,9 @@ afs_shutdown(void)
+@@ -1699,7 +1712,9 @@ afs_shutdown(enum afs_shutdown_type cold_flag)
      afs_warn("CB... ");
  
      afs_termState = AFSOP_STOP_RXCALLBACK;
@@ -54,7 +54,7 @@
  #ifdef AFS_AIX51_ENV
      shutdown_rxkernel();
  #endif
-@@ -1750,7 +1765,9 @@ afs_shutdown(void)
+@@ -1752,7 +1767,9 @@ afs_shutdown(enum afs_shutdown_type cold_flag)
      afs_warn("NetIfPoller... ");
      osi_StopNetIfPoller();
  #endif

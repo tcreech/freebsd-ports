@@ -1,4 +1,4 @@
---- src/afs/afs_pag_call.c.orig	2021-12-09 17:07:41 UTC
+--- src/afs/afs_pag_call.c.orig	2022-12-15 20:10:23 UTC
 +++ src/afs/afs_pag_call.c
 @@ -91,10 +91,13 @@ afspag_Init(afs_int32 nfs_server_addr)
      afs_uuid_create(&afs_cb_interface.uuid);

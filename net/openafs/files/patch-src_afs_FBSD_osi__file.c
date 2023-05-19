@@ -1,4 +1,4 @@
---- src/afs/FBSD/osi_file.c.orig	2021-12-09 17:07:41 UTC
+--- src/afs/FBSD/osi_file.c.orig	2022-12-15 20:10:23 UTC
 +++ src/afs/FBSD/osi_file.c
 @@ -42,7 +42,11 @@ osi_UFSOpen(afs_dcache_id_t *ainode)
  	osi_FreeSmallSpace(afile);

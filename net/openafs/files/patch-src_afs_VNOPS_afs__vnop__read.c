@@ -1,6 +1,6 @@
---- src/afs/VNOPS/afs_vnop_read.c.orig	2021-12-09 17:07:41 UTC
+--- src/afs/VNOPS/afs_vnop_read.c.orig	2022-12-15 20:10:23 UTC
 +++ src/afs/VNOPS/afs_vnop_read.c
-@@ -566,7 +566,11 @@ afs_UFSReadUIO(afs_dcache_id_t *cacheId, struct uio *t
+@@ -563,7 +563,11 @@ afs_UFSReadUIO(afs_dcache_id_t *cacheId, struct uio *t
      AFS_GUNLOCK();
      VOP_LOCK(tfile->vnode, LK_EXCLUSIVE);
      code = VOP_READ(tfile->vnode, tuiop, 0, afs_osi_credp);
