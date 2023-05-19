@@ -1,4 +1,4 @@
---- src/afs/afs_pioctl.c.orig	2021-12-09 17:07:41 UTC
+--- src/afs/afs_pioctl.c.orig	2022-12-15 20:10:23 UTC
 +++ src/afs/afs_pioctl.c
 @@ -1255,8 +1255,12 @@ afs_syscall_pioctl(char *path, unsigned int com, caddr
  	AFS_GLOCK();

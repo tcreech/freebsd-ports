@@ -1,19 +1,20 @@
---- src/config/param.amd64_fbsd_123.h.orig	2021-12-18 14:14:33 UTC
-+++ src/config/param.amd64_fbsd_123.h
-@@ -0,0 +1,56 @@
+--- src/config/param.i386_fbsd_132.h.orig	2023-05-19 18:13:09 UTC
++++ src/config/param.i386_fbsd_132.h
+@@ -0,0 +1,61 @@
 +#ifndef	AFS_PARAM_H
 +#define	AFS_PARAM_H
 +
 +/* Machine / Operating system information */
-+#define SYS_NAME	"amd64_fbsd_123"
-+#define SYS_NAME_ID	SYS_NAME_ID_amd64_fbsd_123
++#define SYS_NAME	"i386_fbsd_132"
++#define SYS_NAME_ID	SYS_NAME_ID_i386_fbsd_132
 +
-+#define AFS_64BITPOINTER_ENV 1
++#define AFS_FAKEOPEN_ENV 1	/* call afs_FakeOpen as if !AFS_VM_RDWR */
 +
 +#ifndef UKERNEL
 +/* This section for kernel libafs compiles only */
 +
-+#define AFS_64BITUSERPOINTER_ENV 1
++/* Request definitions of deprecated class A/B/C networks */
++#define IN_HISTORICAL_NETS
 +
 +#define AFS_FBSD101_ENV 1
 +#define AFS_FBSD102_ENV 1
@@ -24,7 +25,9 @@
 +#define AFS_FBSD120_ENV 1
 +#define AFS_FBSD121_ENV 1
 +#define AFS_FBSD122_ENV 1
-+#define AFS_FBSD123_ENV 1
++#define AFS_FBSD130_ENV 1
++#define AFS_FBSD131_ENV 1
++#define AFS_FBSD132_ENV 1
 +
 +#define AFS_X86_FBSD101_ENV 1
 +#define AFS_X86_FBSD102_ENV 1
@@ -35,7 +38,9 @@
 +#define AFS_X86_FBSD120_ENV 1
 +#define AFS_X86_FBSD121_ENV 1
 +#define AFS_X86_FBSD122_ENV 1
-+#define AFS_X86_FBSD123_ENV 1
++#define AFS_X86_FBSD130_ENV 1
++#define AFS_X86_FBSD131_ENV 1
++#define AFS_X86_FBSD132_ENV 1
 +
 +#else /* !defined(UKERNEL) */
 +
@@ -50,10 +55,10 @@
 +#define AFS_USR_FBSD120_ENV 1
 +#define AFS_USR_FBSD121_ENV 1
 +#define AFS_USR_FBSD122_ENV 1
-+#define AFS_USR_FBSD123_ENV 1
++#define AFS_USR_FBSD130_ENV 1
++#define AFS_USR_FBSD131_ENV 1
++#define AFS_USR_FBSD132_ENV 1
 +
 +#endif /* !defined(UKERNEL) */
-+
-+#define USE_UCONTEXT
 +
 +#endif /* AFS_PARAM_H */

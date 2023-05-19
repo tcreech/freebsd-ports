@@ -1,6 +1,6 @@
---- src/afs/afs_init.c.orig	2021-12-09 17:07:41 UTC
+--- src/afs/afs_init.c.orig	2022-12-15 20:10:23 UTC
 +++ src/afs/afs_init.c
-@@ -569,7 +569,9 @@ afs_ResourceInit(int preallocs)
+@@ -558,7 +558,9 @@ afs_ResourceInit(int preallocs)
      afs_server =
  	rx_NewService(0, RX_STATS_SERVICE_ID, "rpcstats", &secobj, 1,
  		      RXSTATS_ExecuteRequest);
@@ -10,7 +10,7 @@
      afs_osi_Wakeup(&afs_server);	/* wakeup anyone waiting for it */
      return 0;
  
-@@ -710,14 +712,23 @@ shutdown_cache(void)
+@@ -699,14 +701,23 @@ shutdown_cache(void)
  	pag_epoch = 0;
  	pagCounter = 0;
  #if defined(AFS_XBSD_ENV)
@@ -38,9 +38,9 @@
 +	    }
 +	    AFS_GLOCK();
  	}
- #endif
+ #endif /* AFS_XBSD_ENV */
  #ifdef AFS_CACHE_VNODE_PATH
-@@ -757,7 +768,6 @@ static void
+@@ -746,7 +757,6 @@ static void
  shutdown_server(void)
  {
      int i;
@@ -48,9 +48,9 @@
      struct srvAddr *sa;
  
      for (i = 0; i < NSERVERS; i++) {
-@@ -774,13 +784,6 @@ shutdown_server(void)
-                      * here */
-                     afs_ReleaseConns(sa->conns);
+@@ -763,13 +773,6 @@ shutdown_server(void)
+ 		     * here */
+ 		    afs_ReleaseConns(sa->conns);
  		}
 -	    }
 -	    for (tcbrp = ts->cbrs; tcbrp; tcbrp = tbrp) {

@@ -1,4 +1,4 @@
---- src/afs/afs_segments.c.orig	2021-12-09 17:07:41 UTC
+--- src/afs/afs_segments.c.orig	2022-12-15 20:10:23 UTC
 +++ src/afs/afs_segments.c
 @@ -185,7 +185,10 @@ afs_StoreAllSegments(struct vcache *avc, struct vreque
       * on the memcache case since that's we adjust the file's size

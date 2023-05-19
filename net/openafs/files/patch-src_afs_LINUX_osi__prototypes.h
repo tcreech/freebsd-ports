@@ -1,4 +1,4 @@
---- src/afs/LINUX/osi_prototypes.h.orig	2021-12-09 17:07:41 UTC
+--- src/afs/LINUX/osi_prototypes.h.orig	2022-12-15 20:10:23 UTC
 +++ src/afs/LINUX/osi_prototypes.h
 @@ -50,7 +50,7 @@ extern int osi_lookupname(char *aname, uio_seg_t seg, 
  			  struct dentry **dpp);

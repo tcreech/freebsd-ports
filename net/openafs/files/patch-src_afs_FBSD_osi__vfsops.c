@@ -1,4 +1,4 @@
---- src/afs/FBSD/osi_vfsops.c.orig	2021-12-09 17:07:41 UTC
+--- src/afs/FBSD/osi_vfsops.c.orig	2022-12-15 20:10:23 UTC
 +++ src/afs/FBSD/osi_vfsops.c
 @@ -15,7 +15,11 @@
  
