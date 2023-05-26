@@ -1,9 +1,9 @@
---- src/main/java/com/google/devtools/build/lib/bazel/rules/python/BazelPythonSemantics.java.orig	1980-01-01 05:00:00 UTC
+--- src/main/java/com/google/devtools/build/lib/bazel/rules/python/BazelPythonSemantics.java.orig	1979-12-31 23:00:00 UTC
 +++ src/main/java/com/google/devtools/build/lib/bazel/rules/python/BazelPythonSemantics.java
-@@ -249,9 +249,8 @@ public class BazelPythonSemantics implements PythonSem
-       // TODO(b/234923262): Take exec_group into consideration when selecting sh tools
+@@ -238,9 +238,8 @@
+ 
        if (OS.getCurrent() != OS.WINDOWS) {
-         PathFragment shExecutable = ShToolchain.getPathForHost(ruleContext.getConfiguration());
+         PathFragment shExecutable = ShToolchain.getPathOrError(ruleContext);
 -        String pythonExecutableName = "python3";
 -        // NOTE: keep the following line intact to support nix builds
 -        String pythonShebang = "#!/usr/bin/env " + pythonExecutableName;

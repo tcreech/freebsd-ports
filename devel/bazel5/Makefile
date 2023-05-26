@@ -1,8 +1,9 @@
 PORTNAME=	bazel
-DISTVERSION=	6.2.0
+DISTVERSION=	5.4.1 # please make sure that science/py-tensorflow builds before updating
 CATEGORIES=	devel java
 MASTER_SITES=	https://github.com/bazelbuild/${PORTNAME}/releases/download/${DISTVERSION}/
 DISTNAME=	bazel-${DISTVERSION}-dist
+PKGNAMESUFFIX=	5
 
 MAINTAINER=	vishwin@FreeBSD.org
 COMMENT=	Fast and correct build system
@@ -12,6 +13,9 @@ LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 NOT_FOR_ARCHS=	i386
+BROKEN_armv6=	fails to package: cp: bazel: No such file or directory
+BROKEN_armv7=	fails to package: cp: bazel: No such file or directory
+BROKEN_FreeBSD_12_powerpc64=	fails to compile: Action failed to execute: java.io.IOException: Cannot run program /usr/bin/clang
 
 BUILD_DEPENDS=	bash:shells/bash \
 		zip:archivers/zip
@@ -34,6 +38,11 @@ CONFLICTS_INSTALL=	bazel[0-9]*
 STRIP=
 
 NO_WRKSUBDIR=	YES
+
+# In bazel, a release is always code-wise identical to the final release candidate.
+# Hence we can also download that one and so have a simple way to also test earlier release
+# candidates.
+FINALRC=	2
 
 .include <bsd.port.pre.mk>
 
