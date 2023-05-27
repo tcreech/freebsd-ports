@@ -14,7 +14,7 @@ module UserSettings (
     verboseCommand, buildProgressColour, successColour, finalStage
     ) where
 
-import Flavour.Type
+import Flavour
 import Expression
 import {-# SOURCE #-} Settings.Default
 
@@ -56,7 +56,7 @@ userPackages = []
 verboseCommand :: Predicate
 verboseCommand = do
     verbosity <- expr getVerbosity
-    return $ verbosity >= Verbose
+    return $ verbosity >= Loud
 
 -- | Set colour for build progress messages (e.g. executing a build command).
 buildProgressColour :: BuildProgressColour
