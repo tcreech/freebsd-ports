@@ -1,14 +1,10 @@
 PORTNAME=		krb5
-PORTVERSION=		1.18.5
+PORTVERSION=		1.21
 CATEGORIES=		security
 MASTER_SITES=		http://web.mit.edu/kerberos/dist/${PORTNAME}/${PORTVERSION:C/^[0-9]*\.[0-9]*/&X/:C/X\.[0-9]*$//:C/X//}/
 .if !defined(MASTERDIR)
-PKGNAMESUFFIX=		-118
+PKGNAMESUFFIX=		-121
 .endif
-
-DEPECATED=		Desupported by MIT following 1.20
-EXPIRY=			2022-11-30
-IGNORE=			Affected by CVE-2022-42898: integer overflow vulnerabilities in PAC parsing
 
 PATCH_SITES=		http://web.mit.edu/kerberos/advisories/
 PATCH_DIST_STRIP=	-p2
@@ -19,7 +15,7 @@ WWW=			https://web.mit.edu/kerberos/
 
 LICENSE=		MIT
 
-CONFLICTS=		heimdal krb5 krb5-119 krb5-12*
+CONFLICTS=		heimdal krb5 krb5-11* krb5-120
 CONFLICTS_BUILD=	boringssl
 
 KERBEROSV_URL=		http://web.mit.edu/kerberos/
