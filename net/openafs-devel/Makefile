@@ -9,7 +9,8 @@ MASTER_SITES= GH \
 		http://grand.central.org/dl/cellservdb/:gco
 
 USE_GITHUB=	yes
-GH_TAGNAME=	14206_3_fbsd13_20230426
+GH_TAGNAME=	14206_3_fbsd13_20230426_aarch64
+PORTREVISION=	2
 GH_ACCOUNT=	tcreech
 GH_PROJECT=	openafs
 
@@ -20,7 +21,7 @@ COMMENT=	AFS implementation from openafs.org
 #LICENSE=	IPLv1
 #LICENSE_NAME=	IBM Public License Version 1.0
 
-ONLY_FOR_ARCHS=	i386 amd64
+ONLY_FOR_ARCHS=	i386 amd64 aarch64
 BROKEN_FreeBSD_11=     does not build (busted PCPU ifdefs?)
 
 PORTNAME_BASE=	openafs
@@ -102,7 +103,7 @@ PLIST_SUB+=	KMOD=
 USE_RC_SUBR+= ${AFSMNTDIR}d
 
 KERNCONF?=	GENERIC
-KERNCONFDIR?=	${SRC_BASE}/sys/${ARCH}/conf
+KERNCONFDIR?=	${SRC_BASE}/sys/${MACHINE}/conf
 
 # Use the first component of ${KERNCONF}.
 .for K in ${KERNCONF}
