@@ -31,7 +31,7 @@ ETCDIR=			${PREFIX}/etc/${PORTNAME_BASE}
 EXAMPLESDIR=	${PREFIX}/share/examples/${PORTNAME_BASE}
 WWWDIR=			${PREFIX}/www/${PORTNAME_BASE}
 
-USES=		cpe kmod tar:bzip2 fakeroot autoreconf:build libtool:build gssapi
+USES=		cpe kmod tar:bzip2 uidfix autoreconf:build libtool:build gssapi
 USE_LDCONFIG=	yes
 HAS_CONFIGURE=	yes
 CONFIGURE_ENV=	_XCFLAGS="${CFLAGS} -fPIC" \
