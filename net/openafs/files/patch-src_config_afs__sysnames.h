@@ -10,13 +10,15 @@
  
  #define SYS_NAME_ID_ia64_linux2		2200
  #define SYS_NAME_ID_ia64_linux22	2201
-@@ -367,6 +370,9 @@
+@@ -367,6 +370,11 @@
  #define SYS_NAME_ID_amd64_fbsd_121     3061
  #define SYS_NAME_ID_amd64_fbsd_122     3062
  #define SYS_NAME_ID_amd64_fbsd_123     3063
 +#define SYS_NAME_ID_amd64_fbsd_130     3065
 +#define SYS_NAME_ID_amd64_fbsd_131     3066
 +#define SYS_NAME_ID_amd64_fbsd_132     3067
++
++#define SYS_NAME_ID_arm64_fbsd_132     3200
  
  #define SYS_NAME_ID_amd64_w2k           3400
  
