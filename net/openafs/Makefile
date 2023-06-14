@@ -27,7 +27,7 @@ LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 #BROKEN=		fails to build
 #DEPRECATED=	Broken for more than 6 months
 #EXPIRATION_DATE=	2019-05-08
-ONLY_FOR_ARCHS=	i386 amd64
+ONLY_FOR_ARCHS=	i386 amd64 aarch64
 
 AFS_DISTVERSION=	1.8.9
 DBVERSION=	2022-05-09
@@ -104,7 +104,7 @@ PLIST_SUB+=	KMOD=
 USE_RC_SUBR+= ${AFSMNTDIR}d
 
 KERNCONF?=	GENERIC
-KERNCONFDIR?=	${SRC_BASE}/sys/${ARCH}/conf
+KERNCONFDIR?=	${SRC_BASE}/sys/${MACHINE}/conf
 
 # Use the first component of ${KERNCONF}.
 .for K in ${KERNCONF}
