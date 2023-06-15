@@ -1,0 +1,27 @@
+--- configure-libafs.orig	2023-06-15 11:35:25 UTC
++++ configure-libafs
+@@ -5920,6 +5920,11 @@ $as_echo "i386_fbsd" >&6; }
+                 { $as_echo "$as_me:${as_lineno-$LINENO}: result: amd64_fbsd" >&5
+ $as_echo "amd64_fbsd" >&6; }
+                 ;;
++        aarch64-*-freebsd*)
++                MKAFS_OSTYPE=FBSD
++                { $as_echo "$as_me:${as_lineno-$LINENO}: result: arm64_fbsd" >&5
++$as_echo "arm64_fbsd" >&6; }
++                ;;
+         *-netbsd*)
+                 MKAFS_OSTYPE=NBSD
+                 { $as_echo "$as_me:${as_lineno-$LINENO}: result: nbsd" >&5
+@@ -5982,6 +5987,12 @@ $as_echo_n "checking your AFS sysname... " >&6; }
+                         vM=${v%.*}
+                         vm=${v#*.}
+                         AFS_SYSNAME="amd64_fbsd_${vM}${vm}"
++                        ;;
++                aarch64-*-freebsd*.*)
++                        v=${host#*freebsd}
++                        vM=${v%.*}
++                        vm=${v#*.}
++                        AFS_SYSNAME="arm64_fbsd_${vM}${vm}"
+                         ;;
+                 i386-*-dragonfly?.*)
+                         v=${host#*dragonfly}
