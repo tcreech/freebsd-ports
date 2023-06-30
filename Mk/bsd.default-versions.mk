@@ -93,11 +93,11 @@ LUAJIT_DEFAULT?=	luajit-devel
 .  endif
 # Possible values: 5.10, 5.20, 6.8
 MONO_DEFAULT?=		5.10
-# Possible values: 5.6, 5.7, 8.0, 10.3m, 10.4m, 10.5m, 5.7p, 5.7w
+# Possible values: 5.7, 8.0, 10.3m, 10.4m, 10.5m, 5.7p, 5.7w
 MYSQL_DEFAULT?=		8.0
 # Possible values: ninja, samurai
 NINJA_DEFAULT?=		ninja
-# Possible value: 16, 18, 19, 20, current, lts (Note: current = 20 and lts = 18)
+# Possible value: 16, 18, 20, current, lts (Note: current = 20 and lts = 18)
 NODEJS_DEFAULT?=	lts
 # Possible value: 24, 25, 26
 OPENLDAP_DEFAULT?=	26

@@ -7657,3 +7657,17 @@ security/p5-OpenCA-OpenSSL||2023-06-23|Has expired: Broken since 2021
 security/krb5-118|security/krb5|2023-06-25|Has expired: EOL one year after the release of krb5 1.19
 x11-wm/pager|x11-wm/sawfish-pager|2023-06-27|Renamed to match upstream naming
 lang/python37|lang/python38|2023-06-27|Has expired: Upgrade to a newer Python version. 3.7 is in maintenance status and gets security fixes only. End-of-Life: 2023-06-27. See https://devguide.python.org/versions/
+databases/mysql-q4m||2023-06-30|Has expired: Requires upstream EOL MySQL 5.6
+databases/mysqlbigram||2023-06-30|Has expired: Requires upstream EOL MySQL 5.6
+databases/ateam_mysql_ldap_auth||2023-06-30|Has expired: Requires upstream EOL MySQL 5.6
+databases/mysqlwsrep56-server||2023-06-30|Has expired: Requires upstream EOL MySQL 5.6
+databases/mysql56-server||2023-06-30|Has expired: Upstream support ended in February 2021
+databases/mysql56-client||2023-06-30|Has expired: Upstream support ended in February 2021
+databases/mysac||2023-06-30|Has expired: Requires upstream EOL MySQL 5.6
+www/moodle311||2023-06-30|Has expired: Requires php80 which is set to expire on 2023-11-26
+www/moodle40||2023-06-30|Has expired: Requires php80 which is set to expire on 2023-11-26
+www/yarn-node19||2023-06-30|Has expired: This port depends on deprecated www/node19. Migrate to www/yarn-node18 or www/yarn-node20 instead
+www/npm-node19||2023-06-30|Has expired: This port depends on deprecated www/node19. Migrate to www/npm-node18 or www/npm-node20 instead
+www/node19||2023-06-30|Has expired: Nodejs 19.* will reach its EoL on 2023-06-01. Use Node.js 18.* (www/node18) or 20.* (www/node20) instead
+emulators/qemu6||2023-06-30|Has expired: Version 8 is on the horizon while version 7 is stable
+audio/gbemol||2023-06-30|Has expired: Unmaintained for years and depends on deprecated GTK2
