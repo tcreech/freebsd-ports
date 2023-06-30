@@ -1420,7 +1420,6 @@
     SUBDIR += py-Tenjin
     SUBDIR += py-WebError
     SUBDIR += py-WebFlash
-    SUBDIR += py-WebTest
     SUBDIR += py-adblock
     SUBDIR += py-aioh2
     SUBDIR += py-aiohttp
@@ -1815,6 +1814,7 @@
     SUBDIR += py-webdriver_manager
     SUBDIR += py-webob
     SUBDIR += py-websocket-client
+    SUBDIR += py-webtest
     SUBDIR += py-webunit
     SUBDIR += py-werkzeug
     SUBDIR += py-wfuzz
@@ -1846,7 +1846,6 @@
     SUBDIR += radicale
     SUBDIR += rearx
     SUBDIR += reddsaver
-    SUBDIR += redmine42
     SUBDIR += redmine50
     SUBDIR += rejik
     SUBDIR += remark42
@@ -2066,11 +2065,11 @@
     SUBDIR += rubygem-nanoc-deploying
     SUBDIR += rubygem-nested_form
     SUBDIR += rubygem-net-http
-    SUBDIR += rubygem-net-http011
     SUBDIR += rubygem-net-http-digest_auth
     SUBDIR += rubygem-net-http-persistent
     SUBDIR += rubygem-net-http-persistent2
     SUBDIR += rubygem-net-http-pipeline
+    SUBDIR += rubygem-net-http011
     SUBDIR += rubygem-nicovideo
     SUBDIR += rubygem-ntlm-http
     SUBDIR += rubygem-octopress
@@ -2301,7 +2300,6 @@
     SUBDIR += tokyopromenade
     SUBDIR += tomcat-devel
     SUBDIR += tomcat-native
-    SUBDIR += tomcat10
     SUBDIR += tomcat101
     SUBDIR += tomcat85
     SUBDIR += tomcat9
