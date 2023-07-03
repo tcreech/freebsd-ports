@@ -1,7 +1,8 @@
 PORTNAME=	haproxy
-DISTVERSION=	2.8.1
+DISTVERSION=	2.7.9
 CATEGORIES=	net www
-MASTER_SITES=	http://www.haproxy.org/download/2.8/src/
+PKGNAMESUFFIX=	27
+MASTER_SITES=	http://www.haproxy.org/download/2.7/src/
 
 MAINTAINER=	demon@FreeBSD.org
 COMMENT=	Reliable, high performance TCP/HTTP load balancer
@@ -18,9 +19,9 @@ USE_RC_SUBR=	haproxy
 
 default_CONFLICTS_INSTALL=	haproxy-lua
 lua_CONFLICTS_INSTALL=		haproxy
-lua_PKGNAMESUFFIX=		-lua
+lua_PKGNAMESUFFIX=		27-lua
 
-CONFLICTS_INSTALL=	haproxy-devel haproxy17 haproxy18 haproxy20 haproxy22 haproxy23 haproxy24 haproxy25 haproxy26 haproxy27
+CONFLICTS_INSTALL=	haproxy-devel haproxy17 haproxy18 haproxy20 haproxy22 haproxy23 haproxy24 haproxy25 haproxy26
 
 ALL_TARGET=	all admin/halog/halog
 MAKE_ARGS=	TARGET=freebsd DEFINE=-DFREEBSD_PORTS USE_GETADDRINFO=1 \
