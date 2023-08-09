@@ -13,6 +13,7 @@
     SUBDIR += R-cran-digest
     SUBDIR += R-cran-gitcreds
     SUBDIR += R-cran-openssl
+    SUBDIR += R-cran-sodium
     SUBDIR += acme.sh
     SUBDIR += acmed
     SUBDIR += acmetool
@@ -56,6 +57,7 @@
     SUBDIR += bitwarden-cli
     SUBDIR += boringssl
     SUBDIR += botan2
+    SUBDIR += botan3
     SUBDIR += bruteblock
     SUBDIR += bsdsfv
     SUBDIR += bsmtrace
