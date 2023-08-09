@@ -1,0 +1,38 @@
+--- src/libafs/MakefileProto.FBSD.in.orig	2022-12-15 20:10:23 UTC
++++ src/libafs/MakefileProto.FBSD.in
+@@ -75,7 +75,7 @@ AFS_OS_CLEAN=$(GEN_KBLD_DIR)
+ $(GEN_KBLD_DIR):
+ 	-mkdir $(GEN_KBLD_DIR)
+ 	cd $(KSRC)/$(MACHINE)/conf && \
+-		/usr/sbin/config -d $(GEN_KBLD_DIR) GENERIC
++		/usr/sbin/config -s $(KSRC) -d $(GEN_KBLD_DIR) GENERIC
+ 
+ # setup for bsd.kmod.mk infrastructure
+ .PATH:	${TOP_SRCDIR}/afs/FBSD
+@@ -116,10 +116,25 @@ setup: $(KERNBUILDDIR)
+ # We must live with its other pollution of targets and build rules.
+ include Makefile.common
+ 
++# The following objects are not in AFSAOBJS or AFSNONFSOBJS. We enumerate them
++# here only so that we can enforce that they may depend on vnode_if.h below.
++AFSOSIOBJS= \
++	osi_crypto.o \
++	osi_gcpags.o \
++	osi_groups.o \
++	osi_file.o \
++	osi_inode.o \
++	osi_misc.o \
++	osi_sleep.o \
++	osi_vcache.o \
++	osi_vm.o \
++	osi_vnodeops.o \
++	osi_module.o
++
+ # we only do the no-NFS case
+ OBJS=	${AFSAOBJS} ${AFSNONFSOBJS}
+ 
+-$(OBJS): vnode_if.h
++$(OBJS) $(AFSOSIOBJS): vnode_if.h
+ 
+ LIBAFSNONFS=	libafs.ko
+ DEFINES= -DAFSDEBUG -DKERNEL -DAFS -DVICE -DNFS -DUFS -DINET -DQUOTA -DGETMOUNT
