@@ -1428,6 +1428,7 @@
     SUBDIR += testdisk
     SUBDIR += tflint
     SUBDIR += thefish
+    SUBDIR += tiempo
     SUBDIR += timelimit
     SUBDIR += timemon
     SUBDIR += tiramisu
@@ -1610,6 +1611,7 @@
     SUBDIR += xbatt
     SUBDIR += xbattbar
     SUBDIR += xcdroast
+    SUBDIR += xcp
     SUBDIR += xcpustate
     SUBDIR += xdu
     SUBDIR += xe
