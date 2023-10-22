@@ -216,6 +216,7 @@
     SUBDIR += arpc
     SUBDIR += art
     SUBDIR += artifactory
+    SUBDIR += asfml
     SUBDIR += asl
     SUBDIR += asmjit
     SUBDIR += asmutils
@@ -475,6 +476,7 @@
     SUBDIR += criterion
     SUBDIR += cscope
     SUBDIR += cscout
+    SUBDIR += csfml
     SUBDIR += csmith
     SUBDIR += csoap
     SUBDIR += cssc
