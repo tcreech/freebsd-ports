@@ -6,7 +6,7 @@ PKGNAMESUFFIX?=	${JDK_MAJOR_VERSION}
 
 MAINTAINER=	java@FreeBSD.org
 COMMENT?=	Java Development Kit ${JDK_MAJOR_VERSION}
-WWW=		https://openjdk.java.net/projects/jdk/20/
+WWW=		https://openjdk.java.net/projects/jdk/21/
 
 LICENSE=	GPLv2
 
@@ -34,7 +34,7 @@ CPE_VENDOR=	oracle
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	battleblow
-GH_PROJECT=	jdk20u
+GH_PROJECT=	jdk21u
 
 NO_CCACHE=	yes
 
@@ -60,10 +60,10 @@ INSTALLDIR=	${PREFIX}/${PKGBASE}
 
 NOPRECIOUSMAKEVARS=	yes
 
-JDK_MAJOR_VERSION=	20
+JDK_MAJOR_VERSION=	21
 JDK_MINOR_VERSION=	0
-JDK_PATCH_VERSION=	2
-JDK_BUILD_NUMBER=	9
+JDK_PATCH_VERSION=	1
+JDK_BUILD_NUMBER=	12
 BSD_JDK_VERSION=	1
 
 JDK_BUG_URL=	https://bugs.freebsd.org/bugzilla/enter_bug.cgi?product=Ports%20%26%20Packages&component=Individual%20Port(s)&short_desc=java/${PORTNAME}${JDK_MAJOR_VERSION}%3A%20
@@ -111,7 +111,7 @@ JDK_BUILD_TYPE=		release
 
 .include <bsd.port.pre.mk>
 
-BOOTSTRAP_JDKS=	${LOCALBASE}/openjdk20 ${LOCALBASE}/openjdk19
+BOOTSTRAP_JDKS=	${LOCALBASE}/openjdk21 ${LOCALBASE}/openjdk20
 
 # do we have valid native jdk installed?
 .for BJDK in ${BOOTSTRAP_JDKS}
@@ -122,8 +122,8 @@ BOOTSTRAPJDKDIR=	${BJDK}
 
 # if no valid jdk found, set dependency
 .if !defined(BOOTSTRAPJDKDIR)
-BOOTSTRAPJDKDIR?=	${LOCALBASE}/openjdk19
-BUILD_DEPENDS+=		${BOOTSTRAPJDKDIR}/bin/javac:java/openjdk19
+BOOTSTRAPJDKDIR?=	${LOCALBASE}/openjdk20
+BUILD_DEPENDS+=		${BOOTSTRAPJDKDIR}/bin/javac:java/openjdk20
 .endif
 
 JDK_BUILD_JVM=	server
@@ -175,6 +175,9 @@ ICONV_LIBS=	${ICONV_LIB}
 
 post-patch:
 	@${RM} ${WRKSRC}/src/hotspot/os_cpu/bsd_ppc/thread_bsd_ppc.cpp
+	@${MV} ${WRKSRC}/src/hotspot/os_cpu/bsd_ppc/thread_bsd_ppc.hpp \
+		${WRKSRC}/src/hotspot/os_cpu/bsd_ppc/javaThread_bsd_ppc.hpp
+
 	@${FIND} ${WRKSRC} -name '*.orig' -delete
 	@${CHMOD} 755 ${WRKSRC}/configure
 	@${REINPLACE_CMD} -e 's|%%LOCALBASE%%|${LOCALBASE}|' \
