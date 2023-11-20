@@ -2,7 +2,7 @@
 
 PORTNAME=	openafs
 DISTVERSION=	${AFS_DISTVERSION}.${DBVERSION:S/-//g}
-PORTREVISION=5
+PORTREVISION=6
 CATEGORIES=	net
 MASTER_SITES=	http://dl.central.org/dl/openafs/${AFS_DISTVERSION}/:openafs \
 		http://dl.openafs.org/dl/openafs/${AFS_DISTVERSION}/:openafs \
@@ -16,7 +16,7 @@ EXTRACT_ONLY=	${PORTNAME}-${AFS_DISTVERSION}-src.tar.bz2 \
 
 MAINTAINER=	bjk@FreeBSD.org
 COMMENT=	AFS implementation from openafs.org
-BROKEN_FreeBSD_14=    Needs updates for FreeBSD 14
+BROKEN_FreeBSD_15=    Needs updates for FreeBSD 15
 
 LICENSE=	IPLv1
 LICENSE_NAME=	IBM Public License Version 1.0
@@ -91,8 +91,8 @@ CFLAGS+=	-mstackrealign -Wno-shift-negative-value -Wno-pointer-sign
 CONFIGURE_ARGS+=	AS=$(CC)
 .endif
 
-.if ${OSREL:R} >= 14
-# Upstream does not support the client on 14 and newer
+.if ${OSREL:R} >= 15
+# Upstream does not support the client on 15 and newer
 CONFIGURE_ARGS += --disable-kernel-module
 PLIST_SUB+=	KMOD="@comment "
 
