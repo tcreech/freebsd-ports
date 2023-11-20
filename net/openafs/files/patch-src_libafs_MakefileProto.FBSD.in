@@ -1,6 +1,16 @@
 --- src/libafs/MakefileProto.FBSD.in.orig	2022-12-15 20:10:23 UTC
 +++ src/libafs/MakefileProto.FBSD.in
-@@ -75,7 +75,7 @@ AFS_OS_CLEAN=$(GEN_KBLD_DIR)
+@@ -59,6 +59,9 @@ LIBAFS_REQ_DIRS += ${DESTDIR}${KERN_DEBUGDIR}${KMODDIR
+ WARNS= 1
+ # We have some sketchy code that redeclares prototypes
+ CWARNFLAGS+= -Wno-redundant-decls
++<fbsd_140>
++CWARNFLAGS+= -Wno-deprecated-non-prototype -Wno-enum-conversion
++<all>
+ 
+ GEN_KBLD_DIR=@abs_builddir@/kconf-GENERIC
+ AFS_OS_CLEAN=$(GEN_KBLD_DIR)
+@@ -75,7 +78,7 @@ AFS_OS_CLEAN=$(GEN_KBLD_DIR)
  $(GEN_KBLD_DIR):
  	-mkdir $(GEN_KBLD_DIR)
  	cd $(KSRC)/$(MACHINE)/conf && \
@@ -9,7 +19,7 @@
  
  # setup for bsd.kmod.mk infrastructure
  .PATH:	${TOP_SRCDIR}/afs/FBSD
-@@ -116,10 +116,25 @@ setup: $(KERNBUILDDIR)
+@@ -116,10 +119,25 @@ setup: $(KERNBUILDDIR)
  # We must live with its other pollution of targets and build rules.
  include Makefile.common
  
