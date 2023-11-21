@@ -19,7 +19,7 @@
  	    afsi_SetServerIPRank(sa, &ifa->ia_ifa);
  	}
 +#   if __FreeBSD_version >= 1400039
-+	NET_EPOCH_ENTER(et);
++	NET_EPOCH_EXIT(et);
 +#   else
  	IN_IFADDR_RUNLOCK(&in_ifa_tracker);
 +#   endif
