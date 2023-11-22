@@ -4933,7 +4933,6 @@ audio/cplay||2020-09-19|Has expired: Uses deprecated version of python
 audio/cpp-xmms2||2020-09-19|Has expired: Uses deprecated version of python
 audio/p5-xmms2||2020-09-19|Has expired: Uses deprecated version of python
 biology/tophat||2020-09-19|Has expired: Uses deprecated version of python
-chinese/ibus-array||2020-09-19|Has expired: Uses deprecated version of python
 comms/congruity||2020-09-19|Has expired: Uses deprecated version of python
 comms/libbtbb||2020-09-19|Has expired: Uses deprecated version of python
 databases/mtools-mongodb||2020-09-19|Has expired: Uses deprecated version of python
@@ -8088,5 +8087,4 @@ devel/mingw32-bin-msvcrt||2023-11-21|Has expired: Last upstream release was in 2
 devel/mingw32-zlib||2023-11-21|Has expired: Last upstream release was in 2014 and project mingw32 is defunct
 devel/mingw32-gcc||2023-11-21|Has expired: Upstream release was in 2015 and mingw32 project is defunct
 www/guile-www||2023-11-21|Has expired: Last upstream release was in 2002 and no longer relevant nowadays
-cad/freehdl||2023-11-21|Has expired: Upstream vaporized and SF site do not have dists anymore
 x11-toolkits/wlroots-devel|x11-toolkits/wlroots|2023-11-21|Out of date: use x11-toolkits/wlroots for now
