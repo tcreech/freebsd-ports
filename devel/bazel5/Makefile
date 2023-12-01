@@ -44,6 +44,14 @@ NO_WRKSUBDIR=	YES
 # candidates.
 FINALRC=	2
 
+.include <bsd.port.options.mk>
+.if ${OPSYS} == FreeBSD && ${OSVERSION} > 1400000
+# 14.0's clang emits a new warning, which is promoted to an error in this build.
+# The option to ignore the warning is only available and only needed on 14.0+,
+# so apply a patch to add said option only on 14.0+.
+EXTRA_PATCHES=	${PATCHDIR}/extra-patch-tools_cpp_bsd__cc__toolchain__config.bzl
+.endif
+
 .include <bsd.port.pre.mk>
 
 .if ${ARCH} == "aarch64"
