@@ -1,16 +1,16 @@
 PORTNAME=	grafana
 DISTVERSIONPREFIX=	v
-DISTVERSION=	9.5.15
+DISTVERSION=	10.2.3
 CATEGORIES=	www
 MASTER_SITES=	https://dl.grafana.com/oss/release/:public \
 		https://raw.githubusercontent.com/${GH_ACCOUNT}/${GH_PROJECT}/${DISTVERSIONFULL}/:gomod
-PKGNAMESUFFIX=	${DISTVERSION:C/([0-9]).*/\1/1}
-DISTFILES=	${GRAFANA_PREBUILT}:public \
-		go.mod:gomod
+DISTFILES=	grafana-${DISTVERSION}.linux-amd64${EXTRACT_SUFX}:public \
+		go.mod:gomod \
+		pkg/util/xorm/go.mod:gomod
 
 MAINTAINER=	drtr0jan@yandex.ru
 COMMENT=	Dashboard and graph editor for multiple data stores
-WWW=		https://github.com/grafana/grafana
+WWW=		https://grafana.com/grafana/
 
 LICENSE=	AGPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
@@ -20,12 +20,12 @@ ONLY_FOR_ARCHS=	aarch64 amd64 i386 riscv64
 BUILD_DEPENDS=	wire:devel/go-wire
 RUN_DEPENDS=	ca_root_nss>=0:security/ca_root_nss
 
-USES=		cpe go:modules
+USES=		cpe go:1.21,modules
 
 USE_GITHUB=	yes
 
 USE_RC_SUBR=	grafana
-TAG=		5f5a096
+TAG=		1e84fed
 
 GO_MODULE=	github.com/grafana/grafana
 GO_TARGET=	./pkg/cmd/grafana \
@@ -51,28 +51,11 @@ GROUPS=		${GRAFANA_GROUP}
 
 PLIST_SUB=	${SUB_LIST}
 
-GRAFANA_PREBUILT=		grafana-${DISTVERSION}.linux-amd64${EXTRACT_SUFX}
 GRAFANA_DATADIR?=		/var/db/${PORTNAME}
 GRAFANA_HOMEDIR?=		${DATADIR}
 GRAFANA_LOGDIR?=		/var/log/${PORTNAME}
 GRAFANA_PLUGINDIR?=		${GRAFANA_DATADIR}/plugins
 GRAFANA_PROVISIONINGDIR?=	${ETCDIR}/provisioning
-
-do-extract: ${EXTRACT_WRKDIR}
-	@if ! (cd ${EXTRACT_WRKDIR} && ${EXTRACT_CMD} ${EXTRACT_BEFORE_ARGS} ${_DISTDIR}/${DISTFILE_DEFAULT} ${EXTRACT_AFTER_ARGS});\
-	then \
-		${ECHO_MSG} "===>  Failed to extract \"${_DISTDIR}/${GRAFANA_SOURCES}\"."; \
-		exit 1; \
-	fi;
-	@if ! (cd ${EXTRACT_WRKDIR} && ${EXTRACT_CMD} ${EXTRACT_BEFORE_ARGS} ${_DISTDIR}/${GRAFANA_PREBUILT} ${EXTRACT_AFTER_ARGS});\
-	then \
-		${ECHO_MSG} "===>  Failed to extract \"${_DISTDIR}/${GRAFANA_PREBUILT}\"."; \
-		exit 1; \
-	fi
-	@if [ ${UID} = 0 ]; then \
-		${CHMOD} -R ug-s ${WRKDIR}; \
-		${CHOWN} -R 0:0 ${WRKDIR}; \
-	fi
 
 post-patch:
 	@${REINPLACE_CMD} \
@@ -103,5 +86,7 @@ post-install:
 .endfor
 	${INSTALL_DATA} ${WRKSRC}/conf/defaults.ini ${STAGEDIR}${GRAFANA_HOMEDIR}/conf/defaults.ini
 	${INSTALL_DATA} ${WRKSRC}/conf/sample.ini ${STAGEDIR}${ETCDIR}/grafana.ini.sample
+	${INSTALL_DATA} ${WRKSRC}/conf/ldap.toml ${STAGEDIR}${ETCDIR}/ldap.toml.sample
+	${FIND} ${STAGEDIR}${DATADIR}/public -type f | ${SED} "s,^${STAGEDIR}${DATADIR},${DATADIR}," >> ${TMPPLIST}
 
 .include <bsd.port.mk>
