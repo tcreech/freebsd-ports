@@ -755,6 +755,7 @@
     SUBDIR += minipot
     SUBDIR += minipro
     SUBDIR += minirsyslogd
+    SUBDIR += mise
     SUBDIR += mixer
     SUBDIR += mkdesktop
     SUBDIR += mkfwimage
@@ -1214,7 +1215,6 @@
     SUBDIR += rsyslog8
     SUBDIR += rtsx-kmod
     SUBDIR += rtty
-    SUBDIR += rtx
     SUBDIR += rubygem-backup
     SUBDIR += rubygem-bolt
     SUBDIR += rubygem-bosh-gen
@@ -1356,8 +1356,8 @@
     SUBDIR += siegfried
     SUBDIR += signon-kwallet-extension
     SUBDIR += signon-plugin-oauth2
-    SUBDIR += signon-qt5
     SUBDIR += signon-ui
+    SUBDIR += signond
     SUBDIR += sispmctl
     SUBDIR += skopeo
     SUBDIR += slack

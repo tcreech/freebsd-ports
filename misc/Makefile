@@ -57,6 +57,7 @@
     SUBDIR += compat10x
     SUBDIR += compat11x
     SUBDIR += compat12x
+    SUBDIR += compat13x
     SUBDIR += compat4x
     SUBDIR += compat5x
     SUBDIR += compat6x
@@ -427,6 +428,7 @@
     SUBDIR += py-histoprint
     SUBDIR += py-huepy
     SUBDIR += py-icoextract
+    SUBDIR += py-instructor
     SUBDIR += py-ipyfastscape
     SUBDIR += py-kartograph
     SUBDIR += py-laspy

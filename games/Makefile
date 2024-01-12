@@ -241,6 +241,7 @@
     SUBDIR += entombed
     SUBDIR += enygma
     SUBDIR += epiphany-game
+    SUBDIR += etlegacy
     SUBDIR += etracer
     SUBDIR += euchre
     SUBDIR += eureka
@@ -703,6 +704,7 @@
     SUBDIR += openbor3711
     SUBDIR += openbor3979
     SUBDIR += openbor4432
+    SUBDIR += openbor7144
     SUBDIR += openbubbles
     SUBDIR += openbve
     SUBDIR += opencity

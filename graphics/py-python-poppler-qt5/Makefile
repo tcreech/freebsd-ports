@@ -1,6 +1,7 @@
 PORTNAME=	python-poppler-qt5
 DISTVERSIONPREFIX=	v
 DISTVERSION=	21.3.0
+PORTREVISION=	1
 CATEGORIES=	graphics python
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
@@ -26,11 +27,13 @@ PLIST_SUB=	_PY_SONAME=${_PY_SONAME}
 
 _PY_SONAME=	${PYTHON_EXT_SUFFIX}
 
+BINARY_ALIAS=	qmake=${QMAKE}
+
 do-build:
-	(cd ${WRKSRC} ; sip-build-${PYTHON_VER} --qmake ${QMAKE} --verbose --no-make --build-dir build ; ${MAKE} -C ./build )
+	(cd ${WRKSRC} ; ${SETENV} ${MAKE_ENV} ${SIP} ${SIP_ARGS} ; ${SETENV} ${MAKE_ENV} ${MAKE} -C ./build )
 
 do-install:
-	(cd ${WRKSRC} ; ${MAKE} -C ./build install INSTALL_ROOT=${STAGEDIR} )
+	(cd ${WRKSRC} ; ${SETENV} ${MAKE_ENV} ${MAKE} -C ./build install INSTALL_ROOT=${STAGEDIR} )
 
 post-install:
 	${RLN} ${STAGEDIR}${PYTHONPREFIX_SITELIBDIR}/popplerqt5${_PY_SONAME}.so ${STAGEDIR}${PYTHONPREFIX_SITELIBDIR}/popplerqt5.so

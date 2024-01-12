@@ -322,6 +322,7 @@
     SUBDIR += rust
     SUBDIR += rust-bootstrap
     SUBDIR += rust-nightly
+    SUBDIR += rustpython
     SUBDIR += s7
     SUBDIR += sagittarius-scheme
     SUBDIR += sather-specification
@@ -365,6 +366,7 @@
     SUBDIR += tolua++
     SUBDIR += tuareg-mode.el
     SUBDIR += twelf
+    SUBDIR += typstfmt
     SUBDIR += ucc
     SUBDIR += urweb
     SUBDIR += v
