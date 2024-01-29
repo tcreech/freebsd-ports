@@ -653,6 +653,10 @@
             ..
         ..
         man
+            cat1
+            ..
+            cat5
+            ..
             man1
             ..
             man2
@@ -670,6 +674,8 @@
             man8
             ..
             man9
+            ..
+            manl
             ..
         ..
         misc
