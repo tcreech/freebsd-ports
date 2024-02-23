@@ -2,7 +2,7 @@
 
 PORTNAME=	openafs-devel
 DISTVERSION=	g20230613.${DBVERSION:S/-//g}
-PORTREVISION=   3
+PORTREVISION=   4
 CATEGORIES=	net
 DISTFILES=	CellServDB.${DBVERSION}:gco
 MASTER_SITES= GH \
@@ -39,7 +39,7 @@ CONFIGURE_ENV=	_XCFLAGS="${CFLAGS} -fPIC" \
 		_MT_LIBS="-lpthread"
 CONFIGURE_ARGS=	--prefix=${PREFIX} \
 		--localstatedir=/var \
-		--mandir=${MANPREFIX}/man \
+		--mandir=${PREFIX}/share/man \
 		--with-bsd-kernel-headers=${SRC_BASE}/sys \
 		--with-bsd-kernel-build=${WRKDIR}/conf \
 		--enable-debug \
