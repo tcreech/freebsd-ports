@@ -1,27 +1,29 @@
-PORTNAME=	goland
-PORTVERSION=	2023.3.4
+PORTNAME=	rustrover
+PORTVERSION=	2023.3.eap
 CATEGORIES=	devel
-MASTER_SITES=	https://download-cdn.jetbrains.com/go/
+MASTER_SITES=	https://download-cdn.jetbrains.com/rustrover/
 PKGNAMEPREFIX=	jetbrains-
+DISTNAME=	RustRover-233.14015.147
 DIST_SUBDIR=	jetbrains
 
 MAINTAINER=	dmitry.wagin@ya.ru
-COMMENT=	JetBrains GoLand IDE
-WWW=		https://www.jetbrains.com/go/
+COMMENT=	JetBrains Rust IDE
+WWW=		https://www.jetbrains.com/rust/
 
-LICENSE=	IntelliJ-GoLand
+LICENSE=	IntelliJ-RustRover
 LICENSE_NAME=	Subscription license agreement for business and organizations
 LICENSE_TEXT=	See: https://www.jetbrains.com/store/license.html
 LICENSE_PERMS=	dist-mirror pkg-mirror auto-accept
 
 BUILD_DEPENDS=	jna>0:devel/jna
-RUN_DEPENDS=	intellij-fsnotifier>0:java/intellij-fsnotifier \
+RUN_DEPENDS=	cmake:devel/cmake-core \
+		intellij-fsnotifier>0:java/intellij-fsnotifier \
 		jetbrains-pty4j>=0.12.25:devel/jetbrains-pty4j \
 		jetbrains-restarter>=233.14015.106:devel/jetbrains-restarter \
 		jetbrains-sqlite>=233.14015.106:devel/jetbrains-sqlite \
 		lsof:sysutils/lsof
 
-USES=		cpe python:run
+USES=		cpe python:run shebangfix
 
 CPE_VENDOR=	jetbrains
 USE_JAVA=	yes
@@ -34,19 +36,14 @@ NO_BUILD=	yes
 SUB_FILES=	${PORTNAME} ${PORTNAME}.desktop pkg-message
 SUB_LIST=	JAVA_HOME=${JAVA_HOME}
 
-WRKSRC=		${WRKDIR}/GoLand-${PORTVERSION}
-
-OPTIONS_DEFINE_amd64=	DELVE
-OPTIONS_DEFAULT_amd64=	DELVE
-
-DELVE_DESC=	Debugger for the Go programming language
-
-DELVE_RUN_DEPENDS=	delve>0:devel/delve
+WRKSRC=		${WRKDIR}/RustRover-233.14015.147
 
 do-install:
 # Linux/Windows/OS X only so remove them
 	@${RM} -r \
 		${WRKSRC}/bin/fsnotifier \
+		${WRKSRC}/bin/gdb \
+		${WRKSRC}/bin/lldb \
 		${WRKSRC}/bin/remote-dev-server.sh \
 		${WRKSRC}/bin/repair \
 		${WRKSRC}/bin/restarter \
@@ -57,7 +54,7 @@ do-install:
 		${WRKSRC}/lib/pty4j \
 		${WRKSRC}/plugins/cwm-plugin \
 		${WRKSRC}/plugins/gateway-plugin \
-		${WRKSRC}/plugins/go-plugin/lib/dlv \
+		${WRKSRC}/plugins/intellij-rust/bin \
 		${WRKSRC}/plugins/remote-dev-server
 	${MKDIR} ${STAGEDIR}${DATADIR}
 	@(cd ${WRKSRC} && ${COPYTREE_SHARE} . ${STAGEDIR}${DATADIR} \
@@ -65,7 +62,7 @@ do-install:
 	@(cd ${WRKSRC}/bin && ${COPYTREE_BIN} . ${STAGEDIR}${DATADIR}/bin/ \
 		"-name *\.sh -o -name *\.py")
 	${INSTALL_SCRIPT} ${WRKDIR}/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
-	${INSTALL_MAN} ${FILESDIR}/${PORTNAME}.1 ${STAGEDIR}${PREFIX}/man/man1/
+	${INSTALL_MAN} ${FILESDIR}/${PORTNAME}.1 ${STAGEDIR}${PREFIX}/man/man1
 	${INSTALL_DATA} ${WRKDIR}/${PORTNAME}.desktop ${STAGEDIR}${PREFIX}/share/applications/
 # Use fsnotifier replacement provided by java/intellij-fsnotifier
 	${ECHO} "idea.filewatcher.executable.path=${PREFIX}/bin/fsnotifier" >> ${STAGEDIR}${DATADIR}/bin/idea.properties
@@ -82,8 +79,5 @@ do-install:
 # Use sqlite replacement provided by devel/jetbrains-sqlite
 	${MKDIR} ${STAGEDIR}${DATADIR}/lib/native/linux-x86_64
 	${LN} -sf ../../../../sqlite/amd64/libsqliteij.so ${STAGEDIR}${DATADIR}/lib/native/linux-x86_64/libsqliteij.so
-
-do-install-DELVE-on:
-	${ECHO} "dlv.path=${PREFIX}/bin/dlv" >> ${STAGEDIR}${DATADIR}/bin/idea.properties
 
 .include <bsd.port.mk>
