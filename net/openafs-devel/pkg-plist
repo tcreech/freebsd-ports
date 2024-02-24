@@ -89,6 +89,7 @@ include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/mit-sipb-cr.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/namei_ops.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/nfs.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/nfsclient.h
+include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/opr.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/osi_inode.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/pagcb.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/param.h
@@ -139,6 +140,7 @@ include/open%%AFSMNTDIR%%/kopen%%AFSMNTDIR%%.h
 include/open%%AFSMNTDIR%%/lock.h
 include/open%%AFSMNTDIR%%/lwp.h
 include/open%%AFSMNTDIR%%/opr/queue.h
+include/open%%AFSMNTDIR%%/opr/lock.h
 include/open%%AFSMNTDIR%%/rx/fcrypt.h
 include/open%%AFSMNTDIR%%/rx/rx.h
 include/open%%AFSMNTDIR%%/rx/rx_clock.h
@@ -396,6 +398,7 @@ share/man/man5/KeyFileExt.5.gz
 share/man/man5/NetInfo.5.gz
 share/man/man5/NetRestrict.5.gz
 share/man/man5/NoAuth.5.gz
+share/man/man5/PtLog.5.gz
 share/man/man5/SALVAGE.fs.5.gz
 share/man/man5/SalvageLog.5.gz
 share/man/man5/ThisCell.5.gz
