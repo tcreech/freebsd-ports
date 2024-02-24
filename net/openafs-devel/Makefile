@@ -49,6 +49,21 @@ CONFIGURE_ARGS=	--prefix=${PREFIX} \
 		${CONFIGURE_TARGET:S/amd64/x86_64/}
 #WRKSRC=		${WRKDIR}/${PORTNAME}-${AFS_DISTVERSION}
 MAKE_ENV=	COMPILER_TYPE=${COMPILER_TYPE}
+
+.if defined(WITH_DEBUG) || defined(WITH_DEBUGINFO)
+# Mk/bsd.port.mk sets MK_KERNEL_SYMBOLS=no in order to prevent split debug
+# files from being installed and causing plist confusion. However, bsd.kmod.mk
+# will have already split out debug info, so the result that we install only
+# the stripped .ko.
+# Disable debug splitting in the module build process here so that we can get
+# debug symbols in the kernel module itself upon staging. The result is that
+# using WITH_DEBUG will produce a .ko with debug info, and
+#
+# WITH_DEBUGINFO will do its own debug splitting and create a debug package as
+# expected.
+MAKE_ENV+=      MK_SPLIT_KERNEL_DEBUG=no
+.endif
+
 USE_RC_SUBR=	${AFSMNTDIR}server
 
 CPE_VERSION=	${AFS_DISTVERSION}
