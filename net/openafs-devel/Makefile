@@ -2,7 +2,7 @@
 
 PORTNAME=	openafs-devel
 DISTVERSION=	g20230613.${DBVERSION:S/-//g}
-PORTREVISION=   5
+PORTREVISION=   6
 CATEGORIES=	net
 DISTFILES=	CellServDB.${DBVERSION}:gco
 MASTER_SITES= GH \
@@ -50,7 +50,6 @@ CONFIGURE_ARGS=	--prefix=${PREFIX} \
 #WRKSRC=		${WRKDIR}/${PORTNAME}-${AFS_DISTVERSION}
 MAKE_ENV=	COMPILER_TYPE=${COMPILER_TYPE}
 
-.if defined(WITH_DEBUG) || defined(WITH_DEBUGINFO)
 # Mk/bsd.port.mk sets MK_KERNEL_SYMBOLS=no in order to prevent split debug
 # files from being installed and causing plist confusion. However, bsd.kmod.mk
 # will have already split out debug info, so the result that we install only
@@ -62,7 +61,6 @@ MAKE_ENV=	COMPILER_TYPE=${COMPILER_TYPE}
 # WITH_DEBUGINFO will do its own debug splitting and create a debug package as
 # expected.
 MAKE_ENV+=      MK_SPLIT_KERNEL_DEBUG=no
-.endif
 
 USE_RC_SUBR=	${AFSMNTDIR}server
 
