@@ -2,7 +2,7 @@
 
 PORTNAME=	openafs
 DISTVERSION=	${AFS_DISTVERSION}.${DBVERSION:S/-//g}
-PORTREVISION=7
+PORTREVISION=8
 CATEGORIES=	net
 MASTER_SITES=	http://dl.central.org/dl/openafs/${AFS_DISTVERSION}/:openafs \
 		http://dl.openafs.org/dl/openafs/${AFS_DISTVERSION}/:openafs \
@@ -40,7 +40,7 @@ CONFIGURE_ENV=	_XCFLAGS="${CFLAGS} -fPIC" \
 		_MT_LIBS="-lpthread"
 CONFIGURE_ARGS=	--prefix=${PREFIX} \
 		--localstatedir=/var \
-		--mandir=${MANPREFIX}/man \
+		--mandir=${PREFIX}/share/man \
 		--with-bsd-kernel-headers=${SRC_BASE}/sys \
 		--with-bsd-kernel-build=${WRKDIR}/conf \
 		--enable-debug \
