@@ -4835,6 +4835,7 @@
     SUBDIR += py-hglib
     SUBDIR += py-hgtools
     SUBDIR += py-hidraw
+    SUBDIR += py-hishel
     SUBDIR += py-holidays
     SUBDIR += py-hologram
     SUBDIR += py-homebase
@@ -5197,6 +5198,7 @@
     SUBDIR += py-pathvalidate
     SUBDIR += py-paver
     SUBDIR += py-pbr
+    SUBDIR += py-pbs-installer
     SUBDIR += py-pcodedmp
     SUBDIR += py-pdm
     SUBDIR += py-pdm-autoexport
@@ -6260,6 +6262,7 @@
     SUBDIR += rubygem-aws-sdk-codebuild
     SUBDIR += rubygem-aws-sdk-codecatalyst
     SUBDIR += rubygem-aws-sdk-codecommit
+    SUBDIR += rubygem-aws-sdk-codeconnections
     SUBDIR += rubygem-aws-sdk-codedeploy
     SUBDIR += rubygem-aws-sdk-codeguruprofiler
     SUBDIR += rubygem-aws-sdk-codegurureviewer
@@ -7002,11 +7005,14 @@
     SUBDIR += rubygem-glib2
     SUBDIR += rubygem-gobject-introspection
     SUBDIR += rubygem-google-api-client
+    SUBDIR += rubygem-google-apis-admin_directory_v1
     SUBDIR += rubygem-google-apis-androidpublisher_v3
     SUBDIR += rubygem-google-apis-androidpublisher_v3034
     SUBDIR += rubygem-google-apis-bigquery_v2
     SUBDIR += rubygem-google-apis-cloudbilling_v1
+    SUBDIR += rubygem-google-apis-cloudkms_v1
     SUBDIR += rubygem-google-apis-cloudresourcemanager_v1
+    SUBDIR += rubygem-google-apis-cloudresourcemanager_v1035
     SUBDIR += rubygem-google-apis-cloudresourcemanager_v2
     SUBDIR += rubygem-google-apis-cloudresourcemanager_v3
     SUBDIR += rubygem-google-apis-compute_v1
@@ -7019,6 +7025,7 @@
     SUBDIR += rubygem-google-apis-drive_v3
     SUBDIR += rubygem-google-apis-generator
     SUBDIR += rubygem-google-apis-iam_v1
+    SUBDIR += rubygem-google-apis-iam_v1050
     SUBDIR += rubygem-google-apis-iam_v2
     SUBDIR += rubygem-google-apis-iam_v2beta
     SUBDIR += rubygem-google-apis-iamcredentials_v1
@@ -7409,6 +7416,7 @@
     SUBDIR += rubygem-rubocop-rails
     SUBDIR += rubygem-rubocop-rake
     SUBDIR += rubygem-rubocop-rspec
+    SUBDIR += rubygem-rubocop-rspec_rails
     SUBDIR += rubygem-ruby-atmos-pure
     SUBDIR += rubygem-ruby-bugzilla
     SUBDIR += rubygem-ruby-enum
