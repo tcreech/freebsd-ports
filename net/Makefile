@@ -97,7 +97,6 @@
     SUBDIR += cppzmq
     SUBDIR += croc
     SUBDIR += cryptcat
-    SUBDIR += csocks
     SUBDIR += csync2
     SUBDIR += ctrace
     SUBDIR += cvsup-static
@@ -435,7 +434,6 @@
     SUBDIR += libyang
     SUBDIR += libyang2
     SUBDIR += libzapojit
-    SUBDIR += libzmq2
     SUBDIR += libzmq3
     SUBDIR += libzmq4
     SUBDIR += liferea
