@@ -5317,7 +5317,6 @@
     SUBDIR += py-pyasn1
     SUBDIR += py-pyasn1-modules
     SUBDIR += py-pybind11
-    SUBDIR += py-pybind11210
     SUBDIR += py-pybix
     SUBDIR += py-pycadf
     SUBDIR += py-pycalendar
@@ -5938,7 +5937,6 @@
     SUBDIR += py-xstatic-term.js
     SUBDIR += py-xstatic-tv4
     SUBDIR += py-xxhash
-    SUBDIR += py-y-py
     SUBDIR += py-yacs
     SUBDIR += py-yaml
     SUBDIR += py-yamllint
@@ -5950,7 +5948,6 @@
     SUBDIR += py-yaspin
     SUBDIR += py-yattag
     SUBDIR += py-yg.lockfile
-    SUBDIR += py-ypy-websocket
     SUBDIR += py-yunomi
     SUBDIR += py-zarr
     SUBDIR += py-zc.lockfile
@@ -6814,14 +6811,12 @@
     SUBDIR += rubygem-cucumber
     SUBDIR += rubygem-cucumber-ci-environment
     SUBDIR += rubygem-cucumber-core
-    SUBDIR += rubygem-cucumber-core12
     SUBDIR += rubygem-cucumber-cucumber-expressions
     SUBDIR += rubygem-cucumber-messages
     SUBDIR += rubygem-cucumber-messages22
     SUBDIR += rubygem-cucumber-messages23
     SUBDIR += rubygem-cucumber-rails
     SUBDIR += rubygem-cucumber-tag-expressions
-    SUBDIR += rubygem-cucumber-tag-expressions5
     SUBDIR += rubygem-cucumber-wire
     SUBDIR += rubygem-curses
     SUBDIR += rubygem-cyoi
@@ -7052,9 +7047,7 @@
     SUBDIR += rubygem-grape-route-helpers
     SUBDIR += rubygem-grape-swagger
     SUBDIR += rubygem-grape-swagger-entity
-    SUBDIR += rubygem-grape-swagger16
     SUBDIR += rubygem-grape1
-    SUBDIR += rubygem-grape17
     SUBDIR += rubygem-grape_logging
     SUBDIR += rubygem-graphiql-rails
     SUBDIR += rubygem-graphlient
@@ -7382,7 +7375,6 @@
     SUBDIR += rubygem-ref
     SUBDIR += rubygem-reline
     SUBDIR += rubygem-request_store
-    SUBDIR += rubygem-request_store14
     SUBDIR += rubygem-request_store15
     SUBDIR += rubygem-require_all
     SUBDIR += rubygem-resque
@@ -7479,10 +7471,8 @@
     SUBDIR += rubygem-sidekiq-bulk
     SUBDIR += rubygem-sidekiq-cron
     SUBDIR += rubygem-sidekiq-cron-rails70
-    SUBDIR += rubygem-sidekiq-cron18
     SUBDIR += rubygem-sidekiq-scheduler
     SUBDIR += rubygem-sidekiq-unique-jobs
-    SUBDIR += rubygem-sidekiq6
     SUBDIR += rubygem-sidekiq71
     SUBDIR += rubygem-sidetiq
     SUBDIR += rubygem-sigdump
