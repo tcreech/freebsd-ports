@@ -5056,6 +5056,7 @@
     SUBDIR += py-monotonic
     SUBDIR += py-monty
     SUBDIR += py-more-itertools
+    SUBDIR += py-moreorless
     SUBDIR += py-moto
     SUBDIR += py-mox
     SUBDIR += py-mrkd
@@ -5701,6 +5702,7 @@
     SUBDIR += py-statgrab
     SUBDIR += py-statsd
     SUBDIR += py-stdlib-list
+    SUBDIR += py-stdlibs
     SUBDIR += py-stdnum
     SUBDIR += py-stevedore
     SUBDIR += py-stone
@@ -5770,6 +5772,7 @@
     SUBDIR += py-toposort
     SUBDIR += py-tox
     SUBDIR += py-traceback2
+    SUBDIR += py-trailrunner
     SUBDIR += py-traitlets
     SUBDIR += py-traits
     SUBDIR += py-traittypes
@@ -5822,6 +5825,7 @@
     SUBDIR += py-u-msgpack-python
     SUBDIR += py-ua_parser
     SUBDIR += py-ubelt
+    SUBDIR += py-ufmt
     SUBDIR += py-uhid-freebsd
     SUBDIR += py-ujson
     SUBDIR += py-undefined
@@ -5842,6 +5846,7 @@
     SUBDIR += py-us
     SUBDIR += py-user_agents
     SUBDIR += py-userpath
+    SUBDIR += py-usort
     SUBDIR += py-uvloop
     SUBDIR += py-validate-pyproject
     SUBDIR += py-validators
