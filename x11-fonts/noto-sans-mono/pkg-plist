@@ -1,4 +1,5 @@
 %%FONTSDIR%%/NotoSansMono-Black.ttf
+%%FONTSDIR%%/NotoSansMono-Bold.ttf
 %%FONTSDIR%%/NotoSansMono-Condensed.ttf
 %%FONTSDIR%%/NotoSansMono-CondensedBlack.ttf
 %%FONTSDIR%%/NotoSansMono-CondensedBold.ttf
@@ -21,6 +22,7 @@
 %%FONTSDIR%%/NotoSansMono-ExtraLight.ttf
 %%FONTSDIR%%/NotoSansMono-Light.ttf
 %%FONTSDIR%%/NotoSansMono-Medium.ttf
+%%FONTSDIR%%/NotoSansMono-Regular.ttf
 %%FONTSDIR%%/NotoSansMono-SemiBold.ttf
 %%FONTSDIR%%/NotoSansMono-SemiCondensed.ttf
 %%FONTSDIR%%/NotoSansMono-SemiCondensedBlack.ttf

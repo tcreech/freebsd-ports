@@ -1,5 +1,7 @@
 %%FONTSDIR%%/NotoSans-Black.ttf
 %%FONTSDIR%%/NotoSans-BlackItalic.ttf
+%%FONTSDIR%%/NotoSans-Bold.ttf
+%%FONTSDIR%%/NotoSans-BoldItalic.ttf
 %%FONTSDIR%%/NotoSans-Condensed.ttf
 %%FONTSDIR%%/NotoSans-CondensedBlack.ttf
 %%FONTSDIR%%/NotoSans-CondensedBlackItalic.ttf
@@ -40,10 +42,12 @@
 %%FONTSDIR%%/NotoSans-ExtraCondensedThinItalic.ttf
 %%FONTSDIR%%/NotoSans-ExtraLight.ttf
 %%FONTSDIR%%/NotoSans-ExtraLightItalic.ttf
+%%FONTSDIR%%/NotoSans-Italic.ttf
 %%FONTSDIR%%/NotoSans-Light.ttf
 %%FONTSDIR%%/NotoSans-LightItalic.ttf
 %%FONTSDIR%%/NotoSans-Medium.ttf
 %%FONTSDIR%%/NotoSans-MediumItalic.ttf
+%%FONTSDIR%%/NotoSans-Regular.ttf
 %%FONTSDIR%%/NotoSans-SemiBold.ttf
 %%FONTSDIR%%/NotoSans-SemiBoldItalic.ttf
 %%FONTSDIR%%/NotoSans-SemiCondensed.ttf
