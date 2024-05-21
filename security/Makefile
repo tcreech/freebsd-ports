@@ -159,6 +159,7 @@
     SUBDIR += fiked
     SUBDIR += fizz
     SUBDIR += flawfinder
+    SUBDIR += flawz
     SUBDIR += fprint_demo
     SUBDIR += fprintd
     SUBDIR += fragroute
@@ -350,6 +351,7 @@
     SUBDIR += linux-rl9-libassuan
     SUBDIR += linux-rl9-libgcrypt
     SUBDIR += linux-rl9-libgpg-error
+    SUBDIR += linux-rl9-libsecret
     SUBDIR += linux-rl9-libtasn1
     SUBDIR += linux-rl9-libxcrypt
     SUBDIR += linux-rl9-nettle
@@ -1108,6 +1110,7 @@
     SUBDIR += rubygem-bcrypt
     SUBDIR += rubygem-bcrypt-ruby
     SUBDIR += rubygem-bcrypt_pbkdf
+    SUBDIR += rubygem-cancancan
     SUBDIR += rubygem-cose
     SUBDIR += rubygem-cvss-suite
     SUBDIR += rubygem-declarative_policy
@@ -1183,6 +1186,7 @@
     SUBDIR += rubygem-pbkdf2-ruby
     SUBDIR += rubygem-pundit
     SUBDIR += rubygem-pundit61
+    SUBDIR += rubygem-pwned
     SUBDIR += rubygem-pyu-ruby-sasl
     SUBDIR += rubygem-rack-oauth2
     SUBDIR += rubygem-rack-oauth21

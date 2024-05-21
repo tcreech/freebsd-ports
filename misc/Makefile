@@ -198,6 +198,7 @@
     SUBDIR += iso-codes
     SUBDIR += jargon
     SUBDIR += jbidwatcher
+    SUBDIR += jirust
     SUBDIR += jojodiff
     SUBDIR += json-tui
     SUBDIR += kbdscan
@@ -238,6 +239,7 @@
     SUBDIR += libpri
     SUBDIR += librepo
     SUBDIR += libsolv
+    SUBDIR += libspnav
     SUBDIR += libsupertone
     SUBDIR += libsweep-lidar
     SUBDIR += libutf
@@ -528,6 +530,7 @@
     SUBDIR += qt6-examples
     SUBDIR += qt6ct
     SUBDIR += quantum++
+    SUBDIR += quary
     SUBDIR += randomx
     SUBDIR += raspberrypi-gpioshutdown
     SUBDIR += raspberrypi-userland

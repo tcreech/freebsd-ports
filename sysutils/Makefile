@@ -367,6 +367,7 @@
     SUBDIR += egress-monitor
     SUBDIR += eject
     SUBDIR += eksctl
+    SUBDIR += elfx86exts
     SUBDIR += endian
     SUBDIR += enteruser
     SUBDIR += entr
@@ -1581,11 +1582,11 @@
     SUBDIR += userneu-devel
     SUBDIR += usrinfo
     SUBDIR += utcount
+    SUBDIR += uutils-coreutils
     SUBDIR += vagrant
     SUBDIR += vbetool
     SUBDIR += vchanger
     SUBDIR += vcp
-    SUBDIR += vector
     SUBDIR += viddy
     SUBDIR += videogen
     SUBDIR += vii

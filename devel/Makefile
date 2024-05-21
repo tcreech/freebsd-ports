@@ -328,6 +328,7 @@
     SUBDIR += bsdcflow
     SUBDIR += bsddialog
     SUBDIR += bsdowl
+    SUBDIR += buf
     SUBDIR += bugzilla44
     SUBDIR += bugzilla50
     SUBDIR += build
@@ -348,12 +349,20 @@
     SUBDIR += capslock
     SUBDIR += capstone
     SUBDIR += capstone4
+    SUBDIR += cargo-about
     SUBDIR += cargo-bloat
     SUBDIR += cargo-c
+    SUBDIR += cargo-cache
+    SUBDIR += cargo-deny
     SUBDIR += cargo-depgraph
+    SUBDIR += cargo-edit
     SUBDIR += cargo-generate
+    SUBDIR += cargo-hack
     SUBDIR += cargo-leptos
+    SUBDIR += cargo-llvm-cov
     SUBDIR += cargo-mutants
+    SUBDIR += cargo-tarpaulin
+    SUBDIR += cargo-udeps
     SUBDIR += cask
     SUBDIR += catch
     SUBDIR += catch2
@@ -963,6 +972,7 @@
     SUBDIR += hs-threadscope
     SUBDIR += htable
     SUBDIR += hub
+    SUBDIR += hvm
     SUBDIR += hwloc
     SUBDIR += hwloc2
     SUBDIR += hyperscan
@@ -1526,6 +1536,7 @@
     SUBDIR += listserialc
     SUBDIR += liteide
     SUBDIR += llbuild
+    SUBDIR += lldb-mi
     SUBDIR += llnextgen
     SUBDIR += llvm
     SUBDIR += llvm-cheri
@@ -1940,6 +1951,7 @@
     SUBDIR += p5-CPAN-Recent-Uploads
     SUBDIR += p5-CPAN-Reporter
     SUBDIR += p5-CPAN-Reporter-Smoker
+    SUBDIR += p5-CPAN-Requirements-Dynamic
     SUBDIR += p5-CPAN-SQLite
     SUBDIR += p5-CPAN-Site
     SUBDIR += p5-CPAN-Testers-Common-Client
@@ -4311,6 +4323,7 @@
     SUBDIR += py-aspy.yaml
     SUBDIR += py-assertpy
     SUBDIR += py-ast-decompiler
+    SUBDIR += py-ast2json
     SUBDIR += py-asteval
     SUBDIR += py-astor
     SUBDIR += py-astroid
@@ -5316,6 +5329,7 @@
     SUBDIR += py-prettyprinter
     SUBDIR += py-prettytable
     SUBDIR += py-prettytable0
+    SUBDIR += py-printree
     SUBDIR += py-process-tests
     SUBDIR += py-proglog
     SUBDIR += py-progress
@@ -5428,6 +5442,7 @@
     SUBDIR += py-pyproject-api
     SUBDIR += py-pyproject-flake8
     SUBDIR += py-pyproject-fmt
+    SUBDIR += py-pyproject-fmt-rust
     SUBDIR += py-pyproject-metadata
     SUBDIR += py-pyproject_hooks
     SUBDIR += py-pypugjs
@@ -6173,6 +6188,7 @@
     SUBDIR += rubygem-actionview61
     SUBDIR += rubygem-actionview70
     SUBDIR += rubygem-actionview71
+    SUBDIR += rubygem-active_hash
     SUBDIR += rubygem-active_scaffold
     SUBDIR += rubygem-activejob4
     SUBDIR += rubygem-activejob5
@@ -6542,6 +6558,7 @@
     SUBDIR += rubygem-aws-sdk-rolesanywhere
     SUBDIR += rubygem-aws-sdk-route53
     SUBDIR += rubygem-aws-sdk-route53domains
+    SUBDIR += rubygem-aws-sdk-route53profiles
     SUBDIR += rubygem-aws-sdk-route53recoverycluster
     SUBDIR += rubygem-aws-sdk-route53recoverycontrolconfig
     SUBDIR += rubygem-aws-sdk-route53recoveryreadiness
@@ -6830,6 +6847,7 @@
     SUBDIR += rubygem-coffee-script
     SUBDIR += rubygem-coffee-script-source
     SUBDIR += rubygem-colorize
+    SUBDIR += rubygem-colorizer
     SUBDIR += rubygem-columnize
     SUBDIR += rubygem-commander
     SUBDIR += rubygem-concurrent-ruby
@@ -6897,11 +6915,13 @@
     SUBDIR += rubygem-descendants_tracker
     SUBDIR += rubygem-device_detector
     SUBDIR += rubygem-devise
+    SUBDIR += rubygem-devise-pwned_password
     SUBDIR += rubygem-devise-rails5
     SUBDIR += rubygem-devise-rails52
     SUBDIR += rubygem-devise-rails60
     SUBDIR += rubygem-devise-rails61
     SUBDIR += rubygem-devise-rails70
+    SUBDIR += rubygem-devise-rails71
     SUBDIR += rubygem-did_you_mean
     SUBDIR += rubygem-dig_rb
     SUBDIR += rubygem-directory_watcher
@@ -6968,7 +6988,9 @@
     SUBDIR += rubygem-ffi-yajl
     SUBDIR += rubygem-fiber-annotation
     SUBDIR += rubygem-fiber-local
+    SUBDIR += rubygem-fiber-storage
     SUBDIR += rubygem-fiddle
+    SUBDIR += rubygem-figaro
     SUBDIR += rubygem-file-tail
     SUBDIR += rubygem-filesize
     SUBDIR += rubygem-fileutils
@@ -7092,6 +7114,7 @@
     SUBDIR += rubygem-grape-route-helpers
     SUBDIR += rubygem-grape-swagger
     SUBDIR += rubygem-grape-swagger-entity
+    SUBDIR += rubygem-grape-swagger20
     SUBDIR += rubygem-grape1
     SUBDIR += rubygem-grape_logging
     SUBDIR += rubygem-graphiql-rails
@@ -7135,9 +7158,11 @@
     SUBDIR += rubygem-instance_storage
     SUBDIR += rubygem-interact
     SUBDIR += rubygem-io-console
+    SUBDIR += rubygem-io-endpoint
     SUBDIR += rubygem-io-event
     SUBDIR += rubygem-io-like
     SUBDIR += rubygem-io-nonblock
+    SUBDIR += rubygem-io-stream
     SUBDIR += rubygem-io-wait
     SUBDIR += rubygem-io-wait01
     SUBDIR += rubygem-iobuffer
@@ -7182,6 +7207,7 @@
     SUBDIR += rubygem-kt-paperclip-rails61
     SUBDIR += rubygem-language_server-protocol
     SUBDIR += rubygem-launchy
+    SUBDIR += rubygem-launchy2
     SUBDIR += rubygem-lazy_priority_queue
     SUBDIR += rubygem-libdatadog
     SUBDIR += rubygem-libddprof
@@ -7269,6 +7295,7 @@
     SUBDIR += rubygem-newrelic-grape
     SUBDIR += rubygem-newrelic_rpm
     SUBDIR += rubygem-nice-ffi
+    SUBDIR += rubygem-nice_partials
     SUBDIR += rubygem-nio4r
     SUBDIR += rubygem-nori
     SUBDIR += rubygem-notiffany
@@ -7290,8 +7317,30 @@
     SUBDIR += rubygem-open4
     SUBDIR += rubygem-opentelemetry-api
     SUBDIR += rubygem-opentelemetry-common
+    SUBDIR += rubygem-opentelemetry-exporter-otlp
+    SUBDIR += rubygem-opentelemetry-helpers-sql-obfuscation
+    SUBDIR += rubygem-opentelemetry-instrumentation-action_pack
+    SUBDIR += rubygem-opentelemetry-instrumentation-action_view
+    SUBDIR += rubygem-opentelemetry-instrumentation-active_job
+    SUBDIR += rubygem-opentelemetry-instrumentation-active_record
+    SUBDIR += rubygem-opentelemetry-instrumentation-active_support
+    SUBDIR += rubygem-opentelemetry-instrumentation-aws_sdk
     SUBDIR += rubygem-opentelemetry-instrumentation-base
+    SUBDIR += rubygem-opentelemetry-instrumentation-concurrent_ruby
+    SUBDIR += rubygem-opentelemetry-instrumentation-ethon
+    SUBDIR += rubygem-opentelemetry-instrumentation-excon
+    SUBDIR += rubygem-opentelemetry-instrumentation-faraday
+    SUBDIR += rubygem-opentelemetry-instrumentation-grape
+    SUBDIR += rubygem-opentelemetry-instrumentation-graphql
+    SUBDIR += rubygem-opentelemetry-instrumentation-http
+    SUBDIR += rubygem-opentelemetry-instrumentation-http_client
+    SUBDIR += rubygem-opentelemetry-instrumentation-net_http
+    SUBDIR += rubygem-opentelemetry-instrumentation-pg
     SUBDIR += rubygem-opentelemetry-instrumentation-rack
+    SUBDIR += rubygem-opentelemetry-instrumentation-rails
+    SUBDIR += rubygem-opentelemetry-instrumentation-rake
+    SUBDIR += rubygem-opentelemetry-instrumentation-redis
+    SUBDIR += rubygem-opentelemetry-instrumentation-sidekiq
     SUBDIR += rubygem-opentelemetry-registry
     SUBDIR += rubygem-opentelemetry-sdk
     SUBDIR += rubygem-opentelemetry-semantic_conventions
@@ -7303,6 +7352,7 @@
     SUBDIR += rubygem-os
     SUBDIR += rubygem-ostruct
     SUBDIR += rubygem-p4ruby
+    SUBDIR += rubygem-pagy
     SUBDIR += rubygem-paint
     SUBDIR += rubygem-pairing_heap
     SUBDIR += rubygem-parser
@@ -7324,6 +7374,7 @@
     SUBDIR += rubygem-peek-rails70
     SUBDIR += rubygem-peek-rblineprof-rails52
     SUBDIR += rubygem-peek-redis-rails52
+    SUBDIR += rubygem-phonelib
     SUBDIR += rubygem-pkg-config
     SUBDIR += rubygem-platform
     SUBDIR += rubygem-pleaserun
@@ -7494,6 +7545,7 @@
     SUBDIR += rubygem-semver_dialects
     SUBDIR += rubygem-semver_dialects1
     SUBDIR += rubygem-semver_dialects12
+    SUBDIR += rubygem-semver_dialects2
     SUBDIR += rubygem-semverse
     SUBDIR += rubygem-sentry-rails
     SUBDIR += rubygem-sentry-raven
@@ -7610,6 +7662,7 @@
     SUBDIR += rubygem-thor
     SUBDIR += rubygem-thor0
     SUBDIR += rubygem-thor12
+    SUBDIR += rubygem-thread-local
     SUBDIR += rubygem-thread_safe
     SUBDIR += rubygem-thrift
     SUBDIR += rubygem-thwait
@@ -7667,6 +7720,8 @@
     SUBDIR += rubygem-un
     SUBDIR += rubygem-unicode
     SUBDIR += rubygem-unicode-display_width
+    SUBDIR += rubygem-unicode-emoji
+    SUBDIR += rubygem-unicode-version
     SUBDIR += rubygem-unicode_utils
     SUBDIR += rubygem-unleash
     SUBDIR += rubygem-useragent
@@ -7865,12 +7920,12 @@
     SUBDIR += systemc
     SUBDIR += t1lib
     SUBDIR += ta-lib
+    SUBDIR += tabby
     SUBDIR += tablist
     SUBDIR += tabulate
     SUBDIR += tagref
     SUBDIR += tailor
     SUBDIR += talloc
-    SUBDIR += tarpaulin
     SUBDIR += taskctl
     SUBDIR += taskflow
     SUBDIR += tass64
