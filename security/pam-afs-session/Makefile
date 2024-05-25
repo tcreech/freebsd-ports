@@ -1,5 +1,6 @@
 PORTNAME=	pam-afs-session
 PORTVERSION=	2.6
+PORTREVISION=	2
 CATEGORIES=	security
 MASTER_SITES=	http://archives.eyrie.org/software/afs/
 
@@ -22,7 +23,7 @@ BUILD_DEPENDS=	${LOCALBASE}/include/openafs/afs/param.h:${PORTSDIR}/net/openafs 
 .endif
 
 HAS_CONFIGURE=	yes
-CONFIGURE_ARGS+=	--mandir=${LOCALBASE}/man
+CONFIGURE_ARGS+=	--mandir=${LOCALBASE}/share/man
 CPPFLAGS+=	-I${LOCALBASE}/include/openafs
 LDFLAGS+=	-L${LOCALBASE}/lib
 
