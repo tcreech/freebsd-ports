@@ -887,6 +887,7 @@
     SUBDIR += gogs
     SUBDIR += golangci-lint
     SUBDIR += golint
+    SUBDIR += gomigrate
     SUBDIR += google-cloud-cpp
     SUBDIR += google-perftools
     SUBDIR += google-styleguide
@@ -4150,6 +4151,7 @@
     SUBDIR += pecl-yac
     SUBDIR += pecl-yaconf
     SUBDIR += pecl-zookeeper
+    SUBDIR += peg.el
     SUBDIR += pegtl
     SUBDIR += pep8
     SUBDIR += performance
