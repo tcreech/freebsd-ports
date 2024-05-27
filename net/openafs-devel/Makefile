@@ -48,7 +48,7 @@ CONFIGURE_ARGS=	--prefix=${PREFIX} \
 		--includedir=${PREFIX}/include/openafs \
 		${CONFIGURE_TARGET:S/amd64/x86_64/}
 #WRKSRC=		${WRKDIR}/${PORTNAME}-${AFS_DISTVERSION}
-MAKE_ENV=	COMPILER_TYPE=${COMPILER_TYPE}
+MAKE_ENV=	COMPILER_TYPE=${COMPILER_TYPE} ARCH=${ARCH} MACHINE_ARCH=${MACHINE_ARCH}
 
 # Mk/bsd.port.mk sets MK_KERNEL_SYMBOLS=no in order to prevent split debug
 # files from being installed and causing plist confusion. However, bsd.kmod.mk
