@@ -1,5 +1,5 @@
 PORTNAME=	php81
-DISTVERSION=	8.1.28
+DISTVERSION=	8.1.29
 PORTREVISION?=	0
 CATEGORIES?=	lang devel www
 MASTER_SITES=	PHP/distributions
@@ -11,8 +11,8 @@ WWW=		https://www.php.net/
 
 LICENSE=	PHP301
 
-DEPRECATED=	Upstream EOL reaches on 2024-11-25
-EXPIRATION_DATE=	2024-11-26
+DEPRECATED=	Upstream EOL reaches on 2025-12-31
+EXPIRATION_DATE=	2025-12-31
 
 USES+=		compiler:c11 cpe gnome localbase pkgconfig tar:xz
 CPE_PRODUCT=	php
@@ -357,11 +357,6 @@ USES+=		pkgconfig
 CPPFLAGS+=	-DU_USING_ICU_NAMESPACE=1
 .endif
 
-.if ${PHP_MODNAME} == "json"
-CONFIGURE_ARGS+=	--enable-json
-BUILD_DEPENDS=		re2c:devel/re2c
-.endif
-
 .if ${PHP_MODNAME} == "ldap"
 CONFIGURE_ARGS+=--with-ldap=${LOCALBASE} --with-ldap-sasl=${LOCALBASE}
 USES+=	ldap
@@ -573,18 +568,6 @@ CONFIGURE_ARGS+=	--enable-xmlreader
 USE_GNOME=	libxml2
 
 USE_PHP=	dom:build
-.endif
-
-.if ${PHP_MODNAME} == "xmlrpc"
-CONFIGURE_ARGS+=	--with-iconv-dir=${LOCALBASE} \
-			--with-xmlrpc
-
-USES+=		iconv:translit
-USE_GNOME=	libxml2
-
-PHP_HEADER_DIRS=	libxmlrpc
-
-USE_PHP=	xml:build
 .endif
 
 .if ${PHP_MODNAME} == "xmlwriter"
