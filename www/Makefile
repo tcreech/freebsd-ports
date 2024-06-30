@@ -1487,7 +1487,6 @@
     SUBDIR += py-django-bakery
     SUBDIR += py-django-bitfield
     SUBDIR += py-django-bleach
-    SUBDIR += py-django-bootstrap-pagination
     SUBDIR += py-django-bootstrap3
     SUBDIR += py-django-bootstrap4
     SUBDIR += py-django-braces
@@ -1582,7 +1581,6 @@
     SUBDIR += py-django-voting
     SUBDIR += py-django-webpack-loader
     SUBDIR += py-django-widget-tweaks
-    SUBDIR += py-django32
     SUBDIR += py-django42
     SUBDIR += py-django50
     SUBDIR += py-django_compressor
@@ -2513,7 +2511,6 @@
     SUBDIR += yt-dlp
     SUBDIR += ytdl
     SUBDIR += yuicompressor
-    SUBDIR += zend-framework
     SUBDIR += zenphoto
     SUBDIR += zerowait-httpd
     SUBDIR += zgrab2
