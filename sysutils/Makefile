@@ -252,6 +252,7 @@
     SUBDIR += cpu-microcode-intel
     SUBDIR += cpu-microcode-rc
     SUBDIR += cpu-x
+    SUBDIR += cpubars
     SUBDIR += cpuburn
     SUBDIR += cpufetch
     SUBDIR += cpuid
