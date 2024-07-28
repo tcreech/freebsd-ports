@@ -1820,8 +1820,10 @@
     SUBDIR += py-soupsieve
     SUBDIR += py-splinter
     SUBDIR += py-spyne
+    SUBDIR += py-sse-starlette
     SUBDIR += py-sseclient
     SUBDIR += py-starlette
+    SUBDIR += py-starlette-context
     SUBDIR += py-strawberry-graphql-django
     SUBDIR += py-streamlit
     SUBDIR += py-swapper
