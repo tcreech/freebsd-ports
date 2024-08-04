@@ -885,6 +885,7 @@
     SUBDIR += py-colorthief
     SUBDIR += py-colorz
     SUBDIR += py-colour
+    SUBDIR += py-contextily
     SUBDIR += py-descartes
     SUBDIR += py-diplib
     SUBDIR += py-django-easy-thumbnails
@@ -900,6 +901,7 @@
     SUBDIR += py-gdal
     SUBDIR += py-geomdl
     SUBDIR += py-geopandas
+    SUBDIR += py-geosnap
     SUBDIR += py-giddy
     SUBDIR += py-gizeh
     SUBDIR += py-glcontext
@@ -950,6 +952,7 @@
     SUBDIR += py-png
     SUBDIR += py-pointpats
     SUBDIR += py-projpicker
+    SUBDIR += py-proplot
     SUBDIR += py-pycha
     SUBDIR += py-pycollada
     SUBDIR += py-pydot
