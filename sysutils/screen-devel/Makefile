@@ -1,5 +1,6 @@
 PORTNAME=	screen
-DISTVERSION=	4.99.0.${SCREEN_COMMIT_DATE}
+DISTVERSION=	5.0.0.${SCREEN_COMMIT_DATE}
+PORTREVISION=	1
 CATEGORIES=	sysutils
 PKGNAMESUFFIX=	-devel
 MASTER_SITES=	#
@@ -10,8 +11,8 @@ WWW=		https://www.gnu.org/software/screen/
 
 CONFLICTS=	screen-[0-9]*
 
-GIT_TAGNAME=	c184c6e
-SCREEN_COMMIT_DATE=	20240327
+GIT_TAGNAME=	0f2370a
+SCREEN_COMMIT_DATE=	20240727
 
 WRKSRC=		${WRKDIR}/${PORTNAME}-${GIT_TAGNAME}/src
 
@@ -50,8 +51,8 @@ CPE_VENDOR=	gnu
 
 .include <bsd.port.options.mk>
 
-.if ${ARCH} == armv6 || ${ARCH} == armv7 || ${ARCH} == i386 || \
-    ${ARCH:Mpowerpc*}
+.if ${ARCH} == aarch64 || ${ARCH} == armv6 || ${ARCH} == armv7 || \
+    ${ARCH} == i386 || ${ARCH:Mpowerpc*}
 SSP_CFLAGS?=	-fno-stack-protector
 .endif
 
