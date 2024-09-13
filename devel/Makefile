@@ -6257,6 +6257,7 @@
     SUBDIR += rubygem-ast
     SUBDIR += rubygem-astrolabe
     SUBDIR += rubygem-async
+    SUBDIR += rubygem-async212
     SUBDIR += rubygem-async-io
     SUBDIR += rubygem-atomic
     SUBDIR += rubygem-attic
@@ -6926,6 +6927,7 @@
     SUBDIR += rubygem-ddmemoize
     SUBDIR += rubygem-ddmetrics
     SUBDIR += rubygem-ddplugin
+    SUBDIR += rubygem-dead_end
     SUBDIR += rubygem-deb_version
     SUBDIR += rubygem-debase-ruby_core_source
     SUBDIR += rubygem-debug
@@ -7067,6 +7069,7 @@
     SUBDIR += rubygem-generator_spec-rails5
     SUBDIR += rubygem-georuby
     SUBDIR += rubygem-get_process_mem
+    SUBDIR += rubygem-get_process_mem0
     SUBDIR += rubygem-getopt
     SUBDIR += rubygem-getoptlong
     SUBDIR += rubygem-gettext
@@ -7136,6 +7139,7 @@
     SUBDIR += rubygem-google-iam-credentials-v1
     SUBDIR += rubygem-google-iam-v1
     SUBDIR += rubygem-google-protobuf
+    SUBDIR += rubygem-google-protobuf4
     SUBDIR += rubygem-googleapis-common-protos
     SUBDIR += rubygem-googleapis-common-protos-types
     SUBDIR += rubygem-graf
@@ -7255,6 +7259,7 @@
     SUBDIR += rubygem-locale
     SUBDIR += rubygem-lockfile
     SUBDIR += rubygem-logger
+    SUBDIR += rubygem-logger15
     SUBDIR += rubygem-logging
     SUBDIR += rubygem-logster
     SUBDIR += rubygem-loquacious
