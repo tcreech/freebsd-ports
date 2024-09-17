@@ -161,6 +161,7 @@
     SUBDIR += element-web
     SUBDIR += elgg
     SUBDIR += elinks
+    SUBDIR += elog
     SUBDIR += emacs-w3m
     SUBDIR += encode-explorer
     SUBDIR += envoy
@@ -308,7 +309,6 @@
     SUBDIR += libmicrohttpd
     SUBDIR += libnghttp2
     SUBDIR += libnghttp3
-    SUBDIR += libresonic-standalone
     SUBDIR += librespeed
     SUBDIR += librewolf
     SUBDIR += libwpe

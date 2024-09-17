@@ -768,6 +768,7 @@
     SUBDIR += py-dbt-snowflake
     SUBDIR += py-dbutils
     SUBDIR += py-duckdb
+    SUBDIR += py-duckdb_engine
     SUBDIR += py-fakeredis
     SUBDIR += py-fastapi-users-db-ormar
     SUBDIR += py-fastparquet
@@ -847,6 +848,7 @@
     SUBDIR += py-sqlalchemy20
     SUBDIR += py-sqlcipher3
     SUBDIR += py-sqlglot
+    SUBDIR += py-sqlglotrs
     SUBDIR += py-sqlite-anyio
     SUBDIR += py-sqlite-fts4
     SUBDIR += py-sqlite-migrate
