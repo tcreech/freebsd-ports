@@ -1,8 +1,8 @@
 PORTNAME=	haproxy
-DISTVERSION=	2.6.19
+DISTVERSION=	2.9.11
 CATEGORIES=	net www
-PKGNAMESUFFIX=	26
-MASTER_SITES=	http://www.haproxy.org/download/2.6/src/
+PKGNAMESUFFIX=	29
+MASTER_SITES=	http://www.haproxy.org/download/2.9/src/
 
 MAINTAINER=	demon@FreeBSD.org
 COMMENT=	Reliable, high performance TCP/HTTP load balancer
@@ -19,9 +19,9 @@ USE_RC_SUBR=	haproxy
 
 default_CONFLICTS_INSTALL=	haproxy-lua
 lua_CONFLICTS_INSTALL=		haproxy
-lua_PKGNAMESUFFIX=		26-lua
+lua_PKGNAMESUFFIX=		29-lua
 
-CONFLICTS_INSTALL=	haproxy haproxy-devel haproxy17 haproxy18 haproxy20 haproxy22 haproxy23 haproxy24 haproxy25
+CONFLICTS_INSTALL=	haproxy-devel haproxy17 haproxy18 haproxy20 haproxy22 haproxy23 haproxy24 haproxy25 haproxy26 haproxy27
 
 ALL_TARGET=	all admin/halog/halog
 MAKE_ARGS=	TARGET=freebsd DEFINE=-DFREEBSD_PORTS USE_GETADDRINFO=1 \
@@ -63,6 +63,14 @@ LUA_MAKE_ARGS=		USE_LUA=1 LUA_INC=${LUA_INCDIR} LUA_LIB=${LUA_LIBDIR} LUA_LIB_NA
 OPTIONS_DEFAULT+=	LUA
 .endif
 
+.include <bsd.port.pre.mk>
+
+.if ${SSL_DEFAULT:Mlibressl*} || ${SSL_DEFAULT:M*quictls}
+OPENSSL_MAKE_ARGS+=	USE_QUIC=1
+.else
+OPENSSL_MAKE_ARGS+=	USE_QUIC=1 USE_QUIC_OPENSSL_COMPAT=1
+.endif
+
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/haproxy ${STAGEDIR}${PREFIX}/sbin/
 	${INSTALL_PROGRAM} ${WRKSRC}/admin/halog/halog ${STAGEDIR}${PREFIX}/sbin/
@@ -72,4 +80,4 @@ do-install:
 	${MKDIR} ${STAGEDIR}${EXAMPLESDIR}
 	(cd ${WRKSRC}/examples/ && ${COPYTREE_SHARE} \* ${STAGEDIR}${EXAMPLESDIR})
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>
