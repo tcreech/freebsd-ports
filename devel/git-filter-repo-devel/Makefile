@@ -1,8 +1,7 @@
 PORTNAME=	git-filter-repo
-DISTVERSIONPREFIX=	v
-DISTVERSION=	2.45.0
-PORTREVISION=	1
+PORTVERSION=	${GFR_COMMIT_DATE}
 CATEGORIES=	devel
+PKGNAMESUFFIX=	-devel
 
 MAINTAINER=	cy@FreeBSD.org
 COMMENT=	git filter-repo is a versatile tool for rewriting history
@@ -11,7 +10,7 @@ WWW=		https://github.com/newren/git-filter-repo
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/COPYING.mit
 
-CONFLICTS=	git-filter-repo-devel-*
+CONFLICTS=	git-filter-repo-[0-9]*
 
 RUN_DEPENDS=	git:devel/git
 
@@ -22,6 +21,7 @@ SHEBANG_FILES=	git-filter-repo
 USE_GITHUB=	yes
 GH_ACCOUNT=	newren
 GH_TAGNAME=	a9093a6
+GFR_COMMIT_DATE=	20241021
 
 NO_BUILD=	yes
 NO_ARCH=	yes
