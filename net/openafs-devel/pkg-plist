@@ -236,7 +236,6 @@ share/man/man1/%%AFSMNTDIR%%_compile_et.1.gz
 share/man/man1/%%AFSMNTDIR%%monitor.1.gz
 share/man/man1/aklog.1.gz
 share/man/man1/cmdebug.1.gz
-share/man/man1/copyauth.1.gz
 share/man/man1/dlog.1.gz
 share/man/man1/fs.1.gz
 share/man/man1/fs_apropos.1.gz
