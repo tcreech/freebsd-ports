@@ -1,8 +1,8 @@
 # $FreeBSD$
 
 PORTNAME=	openafs-devel
-DISTVERSION=	g20230613.${DBVERSION:S/-//g}
-PORTREVISION=   8
+DISTVERSION=	g20241014.${DBVERSION:S/-//g}
+PORTREVISION=   1
 CATEGORIES=	net
 DISTFILES=	CellServDB.${DBVERSION}:gco
 MASTER_SITES= GH \
@@ -10,7 +10,7 @@ MASTER_SITES= GH \
 		http://grand.central.org/dl/cellservdb/:gco
 
 USE_GITHUB=	yes
-GH_TAGNAME=	14206_3_fbsd14_20230613
+GH_TAGNAME=	14206_3_fbsd14_20241014
 GH_ACCOUNT=	tcreech
 GH_PROJECT=	openafs
 
@@ -31,7 +31,7 @@ ETCDIR=			${PREFIX}/etc/${PORTNAME_BASE}
 EXAMPLESDIR=	${PREFIX}/share/examples/${PORTNAME_BASE}
 WWWDIR=			${PREFIX}/www/${PORTNAME_BASE}
 
-USES=		cpe kmod tar:bzip2 uidfix autoreconf:build libtool:build gssapi
+USES=		cpe kmod tar:bzip2 uidfix autoreconf:build libtool:build gssapi shebangfix
 USE_LDCONFIG=	yes
 HAS_CONFIGURE=	yes
 CONFIGURE_ENV=	_XCFLAGS="${CFLAGS} -fPIC" \
@@ -49,6 +49,9 @@ CONFIGURE_ARGS=	--prefix=${PREFIX} \
 		${CONFIGURE_TARGET:S/amd64/x86_64/}
 #WRKSRC=		${WRKDIR}/${PORTNAME}-${AFS_DISTVERSION}
 MAKE_ENV=	COMPILER_TYPE=${COMPILER_TYPE} ARCH=${ARCH} MACHINE_ARCH=${MACHINE_ARCH}
+
+SHEBANG_FILES= doc/man-pages/generate-man
+#perl_CMD=   ${SETENV} perl
 
 # Mk/bsd.port.mk sets MK_KERNEL_SYMBOLS=no in order to prevent split debug
 # files from being installed and causing plist confusion. However, bsd.kmod.mk
@@ -93,14 +96,6 @@ FUSE_CONFIGURE_OFF=	--disable-fuse-client
 
 .if ${COMPILER_TYPE} == clang
 CFLAGS+=	-mstackrealign -Wno-shift-negative-value -Wno-pointer-sign
-.endif
-
-.if ${OSREL:R} >= 13
-# FreeBSD 13 no long has an "as" tool as part of base.
-# OpenAFS configure script will insist on finding one, even if it may not be
-# used. Arrange for it to use cc to find an assembler instead.
-# (In the common case, Clang has an integrated assembler.)
-CONFIGURE_ARGS+=	AS=$(CC)
 .endif
 
 .if ${OSREL:R} >= 15
