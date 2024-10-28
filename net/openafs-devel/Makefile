@@ -111,7 +111,8 @@ PLIST_SUB+=	KMOD=
 USE_RC_SUBR+= ${AFSMNTDIR}d
 
 KERNCONF?=	GENERIC
-KERNCONFDIR?=	${SRC_BASE}/sys/${MACHINE}/conf
+KRNLCONFDIR=	${SRC_BASE}/sys/${MACHINE}/conf
+KERNCONFDIR?=   ${KRNLCONFDIR}
 
 # Use the first component of ${KERNCONF}.
 .for K in ${KERNCONF}
@@ -125,8 +126,8 @@ IGNORE=	requires kernel configuration file ${_KERNCONF} to build
 # Do not show users the reminder about cleandepend and depend
 post-extract:
 	${MKDIR} ${WRKDIR}/conf
-	cd ${KERNCONFDIR} && \
-	    /usr/sbin/config -d ${WRKDIR}/conf ${_KERNCONF} >/dev/null
+	cd ${KRNLCONFDIR} && \
+	    /usr/sbin/config -I ${KERNCONFDIR} -d ${WRKDIR}/conf ${KERNCONFDIR}/${_KERNCONF} >/dev/null
 
 pre-configure:
 	@cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ./regen.sh
