@@ -5887,6 +5887,7 @@
     SUBDIR += py-simpleparse
     SUBDIR += py-simpletal
     SUBDIR += py-simpy
+    SUBDIR += py-simsimd
     SUBDIR += py-single-version
     SUBDIR += py-sip
     SUBDIR += py-sirmordred
@@ -8120,6 +8121,7 @@
     SUBDIR += str
     SUBDIR += string_theory
     SUBDIR += stringencoders
+    SUBDIR += stringzilla
     SUBDIR += stuffbin
     SUBDIR += stxxl
     SUBDIR += stylua
