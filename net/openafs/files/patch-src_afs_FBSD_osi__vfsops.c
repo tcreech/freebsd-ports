@@ -1,6 +1,6 @@
---- src/afs/FBSD/osi_vfsops.c.orig	2022-12-15 20:10:23 UTC
+--- src/afs/FBSD/osi_vfsops.c.orig	2024-10-03 22:32:45 UTC
 +++ src/afs/FBSD/osi_vfsops.c
-@@ -15,7 +15,11 @@
+@@ -15,7 +15,11 @@ struct mount *afs_globalVFS = NULL;
  
  struct vcache *afs_globalVp = NULL;
  struct mount *afs_globalVFS = NULL;
@@ -11,8 +11,8 @@
 +#endif
  
  extern int Afs_xsetgroups();
- extern int afs_xioctl();
-@@ -46,7 +50,11 @@ afs_init(struct vfsconf *vfc)
+ 
+@@ -45,7 +49,11 @@ afs_init(struct vfsconf *vfc)
  	return code;
      }
      osi_Init();
@@ -24,7 +24,7 @@
      return 0;
  }
  
-@@ -56,6 +64,10 @@ afs_uninit(struct vfsconf *vfc)
+@@ -55,6 +63,10 @@ afs_uninit(struct vfsconf *vfc)
      if (afs_globalVFS)
  	return EBUSY;
  
@@ -35,7 +35,7 @@
      return syscall_helper_unregister(afs_syscalls);
  }
  
-@@ -232,17 +244,20 @@ tryagain:
+@@ -231,17 +243,20 @@ tryagain:
  
  	ASSERT_VI_UNLOCKED(vp, "afs_root");
  	AFS_GUNLOCK();

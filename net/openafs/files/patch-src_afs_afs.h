@@ -1,6 +1,6 @@
---- src/afs/afs.h.orig	2022-12-15 20:10:23 UTC
+--- src/afs/afs.h.orig	2024-10-03 22:32:45 UTC
 +++ src/afs/afs.h
-@@ -142,6 +142,7 @@ struct sysname_info {
+@@ -155,6 +155,7 @@ struct dcache;
  #define AFS_VMSYNC_INVAL 2	/* sync and invalidate pages */
  #define AFS_LASTSTORE   4
  #define AFS_VMSYNC      8       /* sync pages but do not invalidate */
@@ -8,9 +8,9 @@
  
  /* background request structure */
  #define	BPARMS		4
-@@ -959,8 +960,8 @@ struct vcache {
+@@ -968,8 +969,8 @@ struct vcache {
+     struct cred *cred;		/* last writer's cred */
      struct bhv_desc vc_bhv_desc;	/* vnode's behavior data. */
- #endif
  #endif				/* AFS_SGI_ENV */
 -#if defined(AFS_LINUX_ENV)
 -    cred_t *cred;		/* last writer's cred */

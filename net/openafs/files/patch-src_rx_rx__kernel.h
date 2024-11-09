@@ -1,6 +1,6 @@
---- src/rx/rx_kernel.h.orig	2022-12-15 20:10:23 UTC
+--- src/rx/rx_kernel.h.orig	2024-10-03 22:32:45 UTC
 +++ src/rx/rx_kernel.h
-@@ -62,8 +62,13 @@ extern void osi_Panic(char *fmt, ...)
+@@ -66,8 +66,13 @@ extern void osi_Panic(char *fmt, ...)
  #define	osi_WakeupAndYieldIfPossible(x)	    rx_Wakeup(x)
  
  #ifdef AFS_FBSD120_ENV

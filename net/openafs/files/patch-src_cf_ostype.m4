@@ -1,6 +1,6 @@
---- src/cf/ostype.m4.orig	2022-12-15 20:10:23 UTC
+--- src/cf/ostype.m4.orig	2024-10-03 22:32:45 UTC
 +++ src/cf/ostype.m4
-@@ -65,6 +65,10 @@ case $system in
+@@ -64,6 +64,10 @@ case $system in
                  MKAFS_OSTYPE=FBSD
                  AC_MSG_RESULT(amd64_fbsd)
                  ;;

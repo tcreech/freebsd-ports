@@ -1,6 +1,6 @@
---- src/afs/VNOPS/afs_vnop_write.c.orig	2022-12-15 20:10:23 UTC
+--- src/afs/VNOPS/afs_vnop_write.c.orig	2024-10-03 22:32:45 UTC
 +++ src/afs/VNOPS/afs_vnop_write.c
-@@ -163,7 +163,11 @@ afs_UFSWriteUIO(struct vcache *avc, afs_dcache_id_t *i
+@@ -164,7 +164,11 @@ afs_UFSWriteUIO(struct vcache *avc, afs_dcache_id_t *i
      AFS_GUNLOCK();
      VOP_LOCK(tfile->vnode, LK_EXCLUSIVE);
      code = VOP_WRITE(tfile->vnode, tuiop, 0, afs_osi_credp);
@@ -12,7 +12,7 @@
      AFS_GLOCK();
  #elif defined(AFS_NBSD_ENV)
      AFS_GUNLOCK();
-@@ -433,6 +437,7 @@ int
+@@ -434,6 +438,7 @@ afs_DoPartialWrite(struct vcache *avc, struct vrequest
  afs_DoPartialWrite(struct vcache *avc, struct vrequest *areq)
  {
      afs_int32 code;
@@ -20,7 +20,7 @@
  
      if (afs_stats_cmperf.cacheCurrDirtyChunks <=
  	afs_stats_cmperf.cacheMaxDirtyChunks
-@@ -442,14 +447,22 @@ afs_DoPartialWrite(struct vcache *avc, struct vrequest
+@@ -443,14 +448,22 @@ afs_DoPartialWrite(struct vcache *avc, struct vrequest
      afs_Trace2(afs_iclSetp, CM_TRACE_PARTIALWRITE, ICL_TYPE_POINTER, avc,
  	       ICL_TYPE_OFFSET, ICL_HANDLE_OFFSET(avc->f.m.Length));
  
@@ -45,8 +45,8 @@
 +
  /* handle any closing cleanup stuff */
  int
- #if defined(AFS_SGI65_ENV)
-@@ -536,7 +549,7 @@ afs_close(OSI_VC_DECL(avc), afs_int32 aflags, afs_ucre
+ #if defined(AFS_SGI_ENV)
+@@ -522,7 +535,7 @@ afs_close(OSI_VC_DECL(avc), afs_int32 aflags, afs_ucre
      }
  #endif
      if (aflags & (FWRITE | FTRUNC)) {
@@ -55,7 +55,7 @@
  	    /* do it yourself if daemons are all busy */
  	    ObtainWriteLock(&avc->lock, 124);
  	    code = afs_StoreOnLastReference(avc, treq);
-@@ -632,8 +645,12 @@ afs_close(OSI_VC_DECL(avc), afs_int32 aflags, afs_ucre
+@@ -618,8 +631,12 @@ afs_close(OSI_VC_DECL(avc), afs_int32 aflags, afs_ucre
              afs_int32 opens, is_free, is_gone, is_doomed, iflag;
              struct vnode *vp = AFSTOV(avc);
              VI_LOCK(vp);

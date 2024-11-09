@@ -1,4 +1,4 @@
---- src/afs/FBSD/osi_vnodeops.c.orig	2022-12-15 20:10:23 UTC
+--- src/afs/FBSD/osi_vnodeops.c.orig	2024-10-03 22:32:45 UTC
 +++ src/afs/FBSD/osi_vnodeops.c
 @@ -62,7 +62,12 @@
  #include <vm/vm_pager.h>
@@ -227,7 +227,20 @@
  	if (error == 0)
  	    vrele(fdvp);
  	if (fvp == NULL) {
-@@ -1038,17 +1114,18 @@ afs_vop_symlink(struct vop_symlink_args *ap)
+@@ -977,9 +1053,11 @@ afs_vop_mkdir(ap)
+     struct vcache *vcp;
+ 
+     GETNAME();
+-#ifdef DIAGNOSTIC
++#if __FreeBSD_version < 1400068
++# ifdef DIAGNOSTIC
+     if ((cnp->cn_flags & HASBUF) == 0)
+ 	panic("afs_vop_mkdir: no name");
++# endif
+ #endif
+     AFS_GLOCK();
+     error = afs_mkdir(VTOAFS(dvp), name, vap, &vcp, cnp->cn_cred);
+@@ -1038,17 +1116,18 @@ afs_vop_symlink(struct vop_symlink_args *ap)
      dvp = ap->a_dvp;
      newvp = NULL;
  
@@ -251,7 +264,7 @@
      DROPNAME();
      *(ap->a_vpp) = newvp;
      return error;
-@@ -1154,7 +1231,11 @@ afs_vop_reclaim(struct vop_reclaim_args *ap)
+@@ -1154,7 +1233,11 @@ afs_vop_reclaim(struct vop_reclaim_args *ap)
       * the vnode lock, and we need afs_xvcache. So drop the vnode lock in order
       * to hold afs_xvcache.
       */
@@ -263,7 +276,7 @@
  
      if (!haveGlock)
  	AFS_GLOCK();
-@@ -1166,7 +1247,9 @@ afs_vop_reclaim(struct vop_reclaim_args *ap)
+@@ -1166,7 +1249,9 @@ afs_vop_reclaim(struct vop_reclaim_args *ap)
       * vnode is already VI_DOOMED. We just want to lock it again, and skip the
       * VI_DOOMED check.
       */
@@ -273,7 +286,7 @@
  
      code = afs_FlushVCache(avc, &slept);
  
-@@ -1214,7 +1297,7 @@ afs_vop_print(ap)
+@@ -1214,7 +1299,7 @@ afs_vop_print(ap)
      struct vcache *vc = VTOAFS(ap->a_vp);
      int s = vc->f.states;
  
@@ -282,7 +295,7 @@
  	   (int)vc->f.fid.Cell, (u_int) vc->f.fid.Fid.Volume,
  	   (u_int) vc->f.fid.Fid.Vnode, (u_int) vc->f.fid.Fid.Unique, vc->opens,
  	   vc->execsOrWriters);
-@@ -1241,6 +1324,7 @@ afs_vop_advlock(ap)
+@@ -1241,6 +1326,7 @@ afs_vop_advlock(ap)
  {
      int error, a_op;
      struct ucred cr = *osi_curcred();
@@ -290,7 +303,7 @@
  
      a_op = ap->a_op;
      if (a_op == F_UNLCK) {
-@@ -1254,6 +1338,7 @@ afs_vop_advlock(ap)
+@@ -1254,6 +1340,7 @@ afs_vop_advlock(ap)
  	a_op = F_SETLK;
      }
  
@@ -298,7 +311,7 @@
      AFS_GLOCK();
      error =
  	afs_lockctl(VTOAFS(ap->a_vp),
-@@ -1261,6 +1346,11 @@ afs_vop_advlock(ap)
+@@ -1261,6 +1348,11 @@ afs_vop_advlock(ap)
  		a_op, &cr,
  		(int)(intptr_t)ap->a_id);	/* XXX: no longer unique! */
      AFS_GUNLOCK();
@@ -310,7 +323,7 @@
      return error;
  }
  
-@@ -1295,3 +1385,7 @@ struct vop_vector afs_vnodeops = {
+@@ -1295,3 +1387,7 @@ struct vop_vector afs_vnodeops = {
  	.vop_symlink =		afs_vop_symlink,
  	.vop_write =		afs_vop_write,
  };
