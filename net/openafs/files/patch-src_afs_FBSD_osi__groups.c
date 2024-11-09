@@ -1,6 +1,6 @@
---- src/afs/FBSD/osi_groups.c.orig	2022-12-15 20:10:23 UTC
+--- src/afs/FBSD/osi_groups.c.orig	2024-10-03 22:32:45 UTC
 +++ src/afs/FBSD/osi_groups.c
-@@ -68,32 +68,89 @@ Afs_xsetgroups(struct thread *td, struct setgroups_arg
+@@ -69,32 +69,89 @@ Afs_xsetgroups(struct thread *td, struct setgroups_arg
      return code;
  }
  
@@ -101,7 +101,7 @@
      osi_Free(gidset, gidset_len * sizeof(gid_t));
      return code;
  }
-@@ -118,5 +175,49 @@ static int
+@@ -119,5 +176,49 @@ afs_setgroups(struct thread *td, struct ucred **cred, 
  afs_setgroups(struct thread *td, struct ucred **cred, int ngroups,
  	      gid_t * gidset, int change_parent)
  {

@@ -1,6 +1,6 @@
---- src/afs/afs_vcache.c.orig	2022-12-15 20:10:23 UTC
+--- src/afs/afs_vcache.c.orig	2024-10-03 22:32:45 UTC
 +++ src/afs/afs_vcache.c
-@@ -1815,6 +1815,7 @@ afs_GetVCache(struct VenusFid *afid, struct vrequest *
+@@ -1851,6 +1851,7 @@ afs_GetVCache(struct VenusFid *afid, struct vrequest *
       * is locked, and if it isn't, then we gain and drop it around the call
       * to vinvalbuf; otherwise, we leave it alone.
       */
@@ -8,7 +8,7 @@
      {
  	struct vnode *vp = AFSTOV(tvc);
  	int iheldthelock;
-@@ -1823,25 +1824,27 @@ afs_GetVCache(struct VenusFid *afid, struct vrequest *
+@@ -1859,25 +1860,27 @@ afs_GetVCache(struct VenusFid *afid, struct vrequest *
  	iheldthelock = VOP_ISLOCKED(vp);
  	if (!iheldthelock)
  	    vn_lock(vp, LK_EXCLUSIVE | LK_RETRY, current_proc());
@@ -42,7 +42,7 @@
  	AFS_GLOCK();
  #elif defined(AFS_OBSD_ENV)
  	iheldthelock = VOP_ISLOCKED(vp, curproc);
-@@ -1860,6 +1863,11 @@ afs_GetVCache(struct VenusFid *afid, struct vrequest *
+@@ -1896,6 +1899,11 @@ afs_GetVCache(struct VenusFid *afid, struct vrequest *
  	    VOP_UNLOCK(vp, 0);
  #endif
      }
@@ -54,7 +54,7 @@
  #endif
  #endif
  
-@@ -2962,6 +2970,9 @@ shutdown_vcache(void)
+@@ -2994,6 +3002,9 @@ shutdown_vcache(void)
  {
      int i;
      struct afs_cbr *tsp;
@@ -64,7 +64,7 @@
      /*
       * XXX We may potentially miss some of the vcaches because if when
       * there are no free vcache entries and all the vcache entries are active
-@@ -3031,6 +3042,20 @@ shutdown_vcache(void)
+@@ -3063,6 +3074,20 @@ shutdown_vcache(void)
  	    afs_vhashT[i] = 0;
  	}
      }

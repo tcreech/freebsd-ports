@@ -1,12 +1,6 @@
---- src/afs/LINUX/osi_misc.c.orig	2022-12-15 20:10:23 UTC
+--- src/afs/LINUX/osi_misc.c.orig	2024-10-03 22:32:45 UTC
 +++ src/afs/LINUX/osi_misc.c
-@@ -155,10 +155,21 @@ int osi_abspath(char *aname, char *buf, int buflen,
- 
- 
- /* This could use some work, and support on more platforms. */
--int afs_thread_wrapper(void *rock)
-+static int
-+afs_thread_wrapper(void *rock)
+@@ -160,6 +160,16 @@ afs_thread_wrapper(void *rock)
  {
      void (*proc)(void) = rock;
      __module_get(THIS_MODULE);
@@ -23,7 +17,7 @@
      AFS_GLOCK();
      (*proc)();
      AFS_GUNLOCK();
-@@ -166,7 +177,12 @@ int afs_thread_wrapper(void *rock)
+@@ -167,7 +177,12 @@ afs_thread_wrapper(void *rock)
      return 0;
  }
  

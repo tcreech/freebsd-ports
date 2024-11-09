@@ -2,7 +2,6 @@
 
 PORTNAME=	openafs
 DISTVERSION=	${AFS_DISTVERSION}.${DBVERSION:S/-//g}
-PORTREVISION=9
 CATEGORIES=	net
 MASTER_SITES=	http://dl.central.org/dl/openafs/${AFS_DISTVERSION}/:openafs \
 		http://dl.openafs.org/dl/openafs/${AFS_DISTVERSION}/:openafs \
@@ -29,7 +28,7 @@ LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 #EXPIRATION_DATE=	2019-05-08
 ONLY_FOR_ARCHS=	i386 amd64 aarch64
 
-AFS_DISTVERSION=	1.8.9
+AFS_DISTVERSION=	1.8.12.2
 DBVERSION=	2022-05-09
 
 USES=		cpe kmod tar:bzip2 uidfix

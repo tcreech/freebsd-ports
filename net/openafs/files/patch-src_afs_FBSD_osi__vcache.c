@@ -1,4 +1,4 @@
---- src/afs/FBSD/osi_vcache.c.orig	2022-12-15 20:10:23 UTC
+--- src/afs/FBSD/osi_vcache.c.orig	2024-10-03 22:32:45 UTC
 +++ src/afs/FBSD/osi_vcache.c
 @@ -30,7 +30,7 @@ osi_TryEvictVCache(struct vcache *avc, int *slept, int
  	return evicted;
@@ -21,7 +21,7 @@
      }
  
      vdrop(vp);
-@@ -94,7 +98,11 @@ osi_AttachVnode(struct vcache *avc, int seq) {
+@@ -97,7 +101,11 @@ osi_AttachVnode(struct vcache *avc, int seq)
      if (!vp->v_mount) {
          vn_lock(vp, LK_EXCLUSIVE | LK_RETRY); /* !glocked */
          insmntque(vp, afs_globalVFS);
@@ -33,7 +33,7 @@
      }
      AFS_GLOCK();
      ObtainWriteLock(&afs_xvcache,339);
-@@ -129,7 +137,7 @@ osi_vnhold(struct vcache *avc)
+@@ -133,7 +141,7 @@ osi_vnhold(struct vcache *avc)
  
      vref(vp);
      VI_LOCK(vp);

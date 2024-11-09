@@ -1,6 +1,6 @@
---- src/config/param.generic_fbsd.h.orig	2022-12-15 20:10:23 UTC
+--- src/config/param.generic_fbsd.h.orig	2024-10-03 22:32:45 UTC
 +++ src/config/param.generic_fbsd.h
-@@ -53,6 +53,7 @@
+@@ -48,6 +48,7 @@
  #endif
  
  #define RXK_LISTENER_ENV	1
@@ -8,7 +8,7 @@
  #define AFS_GCPAGS		0	/* if nonzero, garbage collect PAGs */
  #define AFS_USE_GETTIMEOFDAY	1	/* use gettimeofday to implement rx clock */
  
-@@ -141,6 +142,44 @@ enum vcexcl { NONEXCL, EXCL };
+@@ -126,6 +127,44 @@ enum vcexcl { NONEXCL, EXCL };
  # define AFS_FBSD_NET_FOREACH CK_STAILQ_FOREACH
  #else
  # define AFS_FBSD_NET_FOREACH TAILQ_FOREACH

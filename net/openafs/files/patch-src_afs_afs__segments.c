@@ -1,4 +1,4 @@
---- src/afs/afs_segments.c.orig	2022-12-15 20:10:23 UTC
+--- src/afs/afs_segments.c.orig	2024-10-03 22:32:45 UTC
 +++ src/afs/afs_segments.c
 @@ -185,7 +185,10 @@ afs_StoreAllSegments(struct vcache *avc, struct vreque
       * on the memcache case since that's we adjust the file's size
@@ -11,4 +11,4 @@
 +    } else if ((cacheDiskType != AFS_FCACHE_TYPE_MEM) ||
  	(sync & AFS_VMSYNC_INVAL) || (sync & AFS_VMSYNC) ||
  	(sync & AFS_LASTSTORE))
- #endif /* !AFS_AIX32_ENV && !AFS_SGI65_ENV */
+ #endif /* !AFS_AIX32_ENV && !AFS_SGI_ENV */
