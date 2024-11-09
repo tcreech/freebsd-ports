@@ -46,12 +46,11 @@ CONFIGURE_ARGS=	--prefix=${PREFIX} \
 		--enable-debug-kernel \
 		--enable-debug-lwp \
 		--includedir=${PREFIX}/include/openafs \
-		${CONFIGURE_TARGET:S/amd64/x86_64/}
+		${CONFIGURE_TARGET}
 #WRKSRC=		${WRKDIR}/${PORTNAME}-${AFS_DISTVERSION}
 MAKE_ENV=	COMPILER_TYPE=${COMPILER_TYPE} ARCH=${ARCH} MACHINE_ARCH=${MACHINE_ARCH}
 
 SHEBANG_FILES= doc/man-pages/generate-man
-#perl_CMD=   ${SETENV} perl
 
 # Mk/bsd.port.mk sets MK_KERNEL_SYMBOLS=no in order to prevent split debug
 # files from being installed and causing plist confusion. However, bsd.kmod.mk
@@ -130,6 +129,7 @@ post-extract:
 	    /usr/sbin/config -I ${KERNCONFDIR} -d ${WRKDIR}/conf ${KERNCONFDIR}/${_KERNCONF} >/dev/null
 
 pre-configure:
+	@${ECHO_CMD} "ports-${PKGNAME}" > ${WRKSRC}/.version
 	@cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ./regen.sh
 
 create-sample-files:
