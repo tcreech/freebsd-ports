@@ -1,6 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	openafs
+PORTREVISION=	1
 DISTVERSION=	${AFS_DISTVERSION}.${DBVERSION:S/-//g}
 CATEGORIES=	net
 MASTER_SITES=	http://dl.central.org/dl/openafs/${AFS_DISTVERSION}/:openafs \
