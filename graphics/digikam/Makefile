@@ -1,6 +1,6 @@
 PORTNAME=	digikam
 DISTVERSION=	8.4.0
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	graphics kde
 MASTER_SITES=	KDE/stable/${PORTNAME}/${PORTVERSION} \
 		https://files.kde.org/digikam/%SUBDIR%/:aesthetic,autotags,face,shape \
