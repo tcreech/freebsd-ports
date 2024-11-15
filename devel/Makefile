@@ -7120,6 +7120,7 @@
     SUBDIR += rubygem-event_stream_parser0
     SUBDIR += rubygem-eventmachine
     SUBDIR += rubygem-excon
+    SUBDIR += rubygem-excon0
     SUBDIR += rubygem-execjs
     SUBDIR += rubygem-extlib
     SUBDIR += rubygem-extpp
@@ -7168,6 +7169,7 @@
     SUBDIR += rubygem-fog-core1
     SUBDIR += rubygem-fog-core210
     SUBDIR += rubygem-fog-core220
+    SUBDIR += rubygem-fog-core250
     SUBDIR += rubygem-fog-json
     SUBDIR += rubygem-font-awesome-rails
     SUBDIR += rubygem-font-awesome-rails-rails5
