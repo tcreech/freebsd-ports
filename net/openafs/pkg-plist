@@ -89,6 +89,7 @@ include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/mit-sipb-cr.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/namei_ops.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/nfs.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/nfsclient.h
+include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/opr.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/osi_inode.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/pagcb.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/param.h
@@ -140,6 +141,7 @@ include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/xstat_fs.h
 include/open%%AFSMNTDIR%%/kopen%%AFSMNTDIR%%.h
 include/open%%AFSMNTDIR%%/lock.h
 include/open%%AFSMNTDIR%%/lwp.h
+include/open%%AFSMNTDIR%%/opr/lock.h
 include/open%%AFSMNTDIR%%/opr/queue.h
 include/open%%AFSMNTDIR%%/rx/fcrypt.h
 include/open%%AFSMNTDIR%%/rx/rx.h
@@ -194,15 +196,18 @@ lib/%%AFSMNTDIR%%/vlib.a
 lib/lib%%AFSMNTDIR%%authent.a
 lib/lib%%AFSMNTDIR%%authent.so
 lib/lib%%AFSMNTDIR%%authent.so.2
+lib/lib%%AFSMNTDIR%%authent.so.2.0.0
 lib/lib%%AFSMNTDIR%%authent_pic.a
 lib/lib%%AFSMNTDIR%%cp.a
 lib/lib%%AFSMNTDIR%%hcrypto.a
 lib/lib%%AFSMNTDIR%%hcrypto.so
 lib/lib%%AFSMNTDIR%%hcrypto.so.2
+lib/lib%%AFSMNTDIR%%hcrypto.so.2.0.0
 lib/lib%%AFSMNTDIR%%rfc3961.a
 lib/lib%%AFSMNTDIR%%rpc.a
 lib/lib%%AFSMNTDIR%%rpc.so
 lib/lib%%AFSMNTDIR%%rpc.so.2
+lib/lib%%AFSMNTDIR%%rpc.so.2.0.0
 lib/lib%%AFSMNTDIR%%rpc_pic.a
 lib/libkopen%%AFSMNTDIR%%.a
 lib/libkopen%%AFSMNTDIR%%.so
