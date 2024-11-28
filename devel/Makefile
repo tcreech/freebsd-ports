@@ -6711,6 +6711,8 @@
     SUBDIR += rubygem-aws-sdk-networkmanager
     SUBDIR += rubygem-aws-sdk-networkmonitor
     SUBDIR += rubygem-aws-sdk-nimblestudio
+    SUBDIR += rubygem-aws-sdk-notifications
+    SUBDIR += rubygem-aws-sdk-notificationscontacts
     SUBDIR += rubygem-aws-sdk-oam
     SUBDIR += rubygem-aws-sdk-omics
     SUBDIR += rubygem-aws-sdk-opensearchserverless
