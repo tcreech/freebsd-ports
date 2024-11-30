@@ -208,7 +208,6 @@
     SUBDIR += clone
     SUBDIR += clonehdd
     SUBDIR += cloud-nuke
-    SUBDIR += cloudabi-utils
     SUBDIR += clsync
     SUBDIR += cluster-glue
     SUBDIR += cmdwatch
@@ -424,8 +423,6 @@
     SUBDIR += fsearch
     SUBDIR += fselect
     SUBDIR += ftwin
-    SUBDIR += fusefs-funionfs
-    SUBDIR += fusefs-fusepak
     SUBDIR += fvcool
     SUBDIR += fwup
     SUBDIR += fx
