@@ -1,6 +1,6 @@
---- src/afs/FBSD/osi_groups.c.orig	2024-10-03 22:32:45 UTC
+--- src/afs/FBSD/osi_groups.c.orig	2024-11-12 18:06:26 UTC
 +++ src/afs/FBSD/osi_groups.c
-@@ -69,32 +69,89 @@ Afs_xsetgroups(struct thread *td, struct setgroups_arg
+@@ -69,12 +69,69 @@ Afs_xsetgroups(struct thread *td, struct setgroups_arg
      return code;
  }
  
@@ -70,8 +70,10 @@
      int gidset_len = ngroups_max + 1;
      int ngroups, code;
      int j;
+@@ -88,21 +145,20 @@ setpag(struct thread *td, struct ucred **cred, afs_uin
+ 	}
+     }
  
-     AFS_STATCNT(setpag);
 +    p = td->td_proc;
      gidset = osi_Alloc(gidset_len * sizeof(gid_t));
 +    PROC_LOCK(p);
@@ -86,8 +88,7 @@
 -	}
 -	ngroups += 2;
 -    }
-+
-     *newpag = (pagvalue == -1 ? genpag() : pagvalue);
+     *newpag = pagvalue;
 -    afs_get_groups_from_pag(*newpag, &gidset[1], &gidset[2]);
 +
 +    code = afs_fbsd_pag_to_gidset(*newpag, gidset, &ngroups, (gidset_len * sizeof(gid_t)));
@@ -101,7 +102,7 @@
      osi_Free(gidset, gidset_len * sizeof(gid_t));
      return code;
  }
-@@ -119,5 +176,49 @@ afs_setgroups(struct thread *td, struct ucred **cred, 
+@@ -127,5 +183,49 @@ afs_setgroups(struct thread *td, struct ucred **cred, 
  afs_setgroups(struct thread *td, struct ucred **cred, int ngroups,
  	      gid_t * gidset, int change_parent)
  {
