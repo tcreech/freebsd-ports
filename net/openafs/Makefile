@@ -1,7 +1,6 @@
 # $FreeBSD$
 
 PORTNAME=	openafs
-PORTREVISION=	3
 DISTVERSION=	${AFS_DISTVERSION}.${DBVERSION:S/-//g}
 CATEGORIES=	net
 MASTER_SITES=	http://dl.central.org/dl/openafs/${AFS_DISTVERSION}/:openafs \
@@ -29,7 +28,7 @@ LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 #EXPIRATION_DATE=	2019-05-08
 ONLY_FOR_ARCHS=	i386 amd64 aarch64
 
-AFS_DISTVERSION=	1.8.12.2
+AFS_DISTVERSION=	1.8.13
 DBVERSION=	2023-10-31
 
 USES=		cpe kmod tar:bzip2 uidfix
