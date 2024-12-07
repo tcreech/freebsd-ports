@@ -7240,6 +7240,7 @@
     SUBDIR += rubygem-google-apis-cloudbilling_v1
     SUBDIR += rubygem-google-apis-cloudkms_v1
     SUBDIR += rubygem-google-apis-cloudresourcemanager_v1
+    SUBDIR += rubygem-google-apis-cloudresourcemanager_v1-gitlab
     SUBDIR += rubygem-google-apis-cloudresourcemanager_v1035
     SUBDIR += rubygem-google-apis-cloudresourcemanager_v2
     SUBDIR += rubygem-google-apis-cloudresourcemanager_v3
@@ -7388,6 +7389,7 @@
     SUBDIR += rubygem-libyajl2
     SUBDIR += rubygem-license_finder
     SUBDIR += rubygem-licensee
+    SUBDIR += rubygem-licensee-gitlab
     SUBDIR += rubygem-listen
     SUBDIR += rubygem-little-plugger
     SUBDIR += rubygem-local_time
