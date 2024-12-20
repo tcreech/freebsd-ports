@@ -104,6 +104,8 @@
     SUBDIR += cl-meta
     SUBDIR += cl-meta-sbcl
     SUBDIR += cl-ppcre
+    SUBDIR += cl-ppcre-ccl
+    SUBDIR += cl-ppcre-clisp
     SUBDIR += cl-ppcre-sbcl
     SUBDIR += clucene
     SUBDIR += cmark
@@ -346,6 +348,7 @@
     SUBDIR += jid
     SUBDIR += jing
     SUBDIR += jless
+    SUBDIR += jnv
     SUBDIR += jo
     SUBDIR += jq
     SUBDIR += jql
@@ -1451,6 +1454,7 @@
     SUBDIR += py-markdown-include
     SUBDIR += py-markdown-it-py
     SUBDIR += py-markdown2
+    SUBDIR += py-markdownify
     SUBDIR += py-marko
     SUBDIR += py-markuppy
     SUBDIR += py-markups
