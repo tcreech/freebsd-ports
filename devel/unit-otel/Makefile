@@ -1,3 +1,23 @@
+PORTNAME=	unit-otel
+PORTVERSION=	${UNIT_VERSION}
+CATEGORIES=	devel
+MASTER_SITES?=	https://unit.nginx.org/download/
+DISTFILES=	unit-${PORTVERSION}.tar.gz
+
+MAINTAINER=	osa@FreeBSD.org
+COMMENT=	OTel static library for Unit
+WWW=		https://unit.nginx.org
+
+LICENSE=	APACHE20
+LICENSE_FILE=	${WRKDIR}/unit-${PORTVERSION}/LICENSE
+
+USES=		cargo cpe ssl
+
+CPE_VENDOR=	nginx
+CPE_PRODUCT=	unit
+
+WRKSRC=		${WRKDIR}/unit-${PORTVERSION}/src/otel
+
 CARGO_CRATES=	addr2line-0.24.2 \
 		adler2-2.0.0 \
 		anyhow-1.0.94 \
@@ -238,3 +258,12 @@ CARGO_CRATES=	addr2line-0.24.2 \
 		zeroize-1.8.1 \
 		zerovec-0.10.4 \
 		zerovec-derive-0.10.3
+
+PLIST_FILES=	lib/libotel.a
+
+do-install:
+	${INSTALL_DATA} ${WRKDIR}/target/release/libotel.a \
+		${STAGEDIR}${PREFIX}/lib/
+
+.include "../../www/unit/version.mk"
+.include <bsd.port.mk>
