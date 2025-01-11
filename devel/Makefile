@@ -4340,7 +4340,6 @@
     SUBDIR += pushmi
     SUBDIR += py-Automat
     SUBDIR += py-BTrees
-    SUBDIR += py-DateTime
     SUBDIR += py-Dumper
     SUBDIR += py-Faker
     SUBDIR += py-IBMQuantumExperience
@@ -6209,7 +6208,6 @@
     SUBDIR += py-yunomi
     SUBDIR += py-zarr
     SUBDIR += py-zc.lockfile
-    SUBDIR += py-zclockfile
     SUBDIR += py-zconfig
     SUBDIR += py-zfp
     SUBDIR += py-zict
