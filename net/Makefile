@@ -1471,6 +1471,7 @@
     SUBDIR += rubygem-twitter4r
     SUBDIR += rubygem-u2f
     SUBDIR += rubygem-uri
+    SUBDIR += rubygem-uri-gitlab
     SUBDIR += rubygem-uri-redis
     SUBDIR += rubygem-uri_template
     SUBDIR += rubygem-whois
