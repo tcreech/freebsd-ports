@@ -1172,7 +1172,6 @@
     SUBDIR += kokkos
     SUBDIR += kommit
     SUBDIR += kopeninghours
-    SUBDIR += kore
     SUBDIR += kpublictransport
     SUBDIR += kronosnet
     SUBDIR += ksql
@@ -3675,7 +3674,6 @@
     SUBDIR += p5-Test-Fixture-DBIC-Schema
     SUBDIR += p5-Test-Future-IO-Impl
     SUBDIR += p5-Test-Group
-    SUBDIR += p5-Test-HTML-Tidy
     SUBDIR += p5-Test-Harness
     SUBDIR += p5-Test-Harness-Straps
     SUBDIR += p5-Test-HasVersion
@@ -5557,7 +5555,6 @@
     SUBDIR += py-pydevd
     SUBDIR += py-pydispatcher
     SUBDIR += py-pydocstyle
-    SUBDIR += py-pydrive
     SUBDIR += py-pyee
     SUBDIR += py-pyee11
     SUBDIR += py-pyelftools
