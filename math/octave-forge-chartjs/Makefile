@@ -1,7 +1,6 @@
-PORTNAME=	octave-forge-statistics
+PORTNAME=	octave-forge-chartjs
 DISTVERSIONPREFIX=	release-
-DISTVERSION=	1.7.3
-PORTREVISION=	1
+DISTVERSION=	0.1.0
 CATEGORIES=	math
 
 MAINTAINER=	stephen@FreeBSD.org
@@ -11,10 +10,14 @@ WWW=		https://packages.octave.org/
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKDIR}/${OCTAVE_SRC}/COPYING
 
+BUILD_DEPENDS+=	${PREFIX}/include/boost/asio.hpp:devel/boost-libs
+
 USES=		octave
 USE_GITHUB=	yes
-GH_ACCOUNT=	gnu-octave
-GH_PROJECT=	statistics
+GH_ACCOUNT=	pr0m1th3as
+GH_PROJECT=	octave-chartjs
+
+CXXFLAGS+=	-DCROW_USE_BOOST
 
 OCTAVE_SRC=	${GH_PROJECT}-release-${DISTVERSION}
 
