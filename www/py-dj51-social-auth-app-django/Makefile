@@ -1,7 +1,7 @@
 PORTNAME=	social-auth-app-django
 DISTVERSION=	5.4.3
 CATEGORIES=	www security python
-PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}dj51-
 
 MAINTAINER=	kai@FreeBSD.org
 COMMENT=	Social Authentication and Django integration
@@ -12,11 +12,11 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	${PY_SETUPTOOLS} \
 		${PYTHON_PKGNAMEPREFIX}wheel>0:devel/py-wheel@${PY_FLAVOR}
-RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}django42>=3.2:www/py-django42@${PY_FLAVOR} \
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}django51>=3.2:www/py-django51@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}social-auth-core>=4.4<5:security/py-social-auth-core@${PY_FLAVOR}
 TEST_DEPENDS=	${PYTHON_PKGNAMEPREFIX}mock>0:devel/py-mock@${PY_FLAVOR}
 
-USES=		python:3.9+
+USES=		python:3.10+
 USE_GITHUB=	yes
 GH_ACCOUNT=	python-social-auth
 GH_PROJECT=	social-app-django
