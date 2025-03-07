@@ -75,6 +75,7 @@
     SUBDIR += az-aspell
     SUBDIR += bar
     SUBDIR += bat
+    SUBDIR += bat-extras
     SUBDIR += bbe
     SUBDIR += be-aspell
     SUBDIR += belr
@@ -1338,6 +1339,7 @@
     SUBDIR += py-asonic
     SUBDIR += py-autopep8
     SUBDIR += py-awesome-slugify
+    SUBDIR += py-backrefs
     SUBDIR += py-bibtexparser
     SUBDIR += py-bracex
     SUBDIR += py-cchardet
