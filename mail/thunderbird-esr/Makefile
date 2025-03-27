@@ -1,44 +1,47 @@
 PORTNAME=	thunderbird
-DISTVERSION=	137.0
+DISTVERSION=	128.9.0
 CATEGORIES=	mail news net-im wayland
-MASTER_SITES=	MOZILLA/${PORTNAME}/releases/${DISTVERSION}${DISTVERSIONSUFFIX}/source \
-		MOZILLA/${PORTNAME}/candidates/${DISTVERSION}${DISTVERSIONSUFFIX}-candidates/build1/source
-DISTFILES=	${DISTNAME}.source${EXTRACT_SUFX}
+MASTER_SITES=	MOZILLA/${PORTNAME}/releases/${DISTVERSION}esr/source \
+		MOZILLA/${PORTNAME}/candidates/${DISTVERSION}esr-candidates/build1/source
+PKGNAMESUFFIX=	-esr
+DISTFILES=	${DISTNAME}esr.source${EXTRACT_SUFX}
 
 MAINTAINER=	gecko@FreeBSD.org
 COMMENT=	Mozilla Thunderbird is standalone mail and news that stands above
 WWW=		https://www.mozilla.com/thunderbird/
 
 BUILD_DEPENDS=	nspr>=4.32:devel/nspr \
-		nss>=3.109:security/nss \
+		nss>=3.101:security/nss \
 		libevent>=2.1.8:devel/libevent \
-		harfbuzz>=10.1.0:print/harfbuzz \
+		harfbuzz>=8.5.0:print/harfbuzz \
 		graphite2>=1.3.14:graphics/graphite2 \
-		png>=1.6.45:graphics/png \
+		png>=1.6.43:graphics/png \
 		dav1d>=1.0.0:multimedia/dav1d \
-		libvpx>=1.15.0:multimedia/libvpx \
+		libvpx>=1.14.0:multimedia/libvpx \
 		${PYTHON_PKGNAMEPREFIX}sqlite3>0:databases/py-sqlite3@${PY_FLAVOR} \
 		v4l_compat>0:multimedia/v4l_compat \
 		autoconf2.13:devel/autoconf2.13 \
 		nasm:devel/nasm \
 		yasm:devel/yasm \
-		zip:archivers/zip
+		zip:archivers/zip \
+		${LOCALBASE}/share/wasi-sysroot/lib/wasm32-wasi/libc++abi.a:devel/wasi-libcxx${LLVM_VERSION} \
+		${LOCALBASE}/share/wasi-sysroot/lib/wasm32-wasi/libc.a:devel/wasi-libc@${LLVM_VERSION} \
+		wasi-compiler-rt${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}
 LIB_DEPENDS=	libjson-c.so:devel/json-c
 
 USE_GECKO=	gecko
-CONFLICTS_INSTALL=	thunderbird-esr
-# cannot use system icu: too old on 2025Q1
-# before re-enabling, check:
-  # https://unicode-org.atlassian.net/browse/ICU-22132 (fix not in 74.1)
+CPE_PRODUCT=	${PORTNAME}_esr
+CONFLICTS_INSTALL=	thunderbird
+# cannot use system icu: calendar is completely broken by
+# https://unicode-org.atlassian.net/browse/ICU-22132 (fix not in 74.1)
 USE_MOZILLA=	-icu -sqlite
 CFLAGS_powerpc64le=	-DSQLITE_BYTEORDER=1234
 
 USES=		tar:xz
-# helpful when testing beta
-WRKSRC=		${WRKDIR}/${PORTNAME}-${DISTVERSION}
 
 MOZ_OPTIONS=	--enable-application=comm/mail --enable-official-branding
 MOZ_OPTIONS+=	--with-system-bz2 --with-system-jsonc
+MOZ_OPTIONS+=	--with-wasi-sysroot=${LOCALBASE}/share/wasi-sysroot
 MOZ_MK_OPTIONS=	MOZ_THUNDERBIRD=1 MAIL_PKG_SHARED=1
 MOZ_EXPORT=		MOZ_THUNDERBIRD=1 MAIL_PKG_SHARED=1
 
@@ -50,17 +53,6 @@ SYSTEM_PREFS=	${FAKEDIR}/lib/${PORTNAME}/defaults/pref/${PORTNAME}.js
 OPTIONS_DEFAULT=CANBERRA
 
 .include "${.CURDIR}/../../www/firefox/Makefile.options"
-
-.include <bsd.port.options.mk>
-
-.if ${ARCH} == powerpc64
-MOZ_OPTIONS+=	--without-wasm-sandboxed-libraries
-.else
-BUILD_DEPENDS+=	${LOCALBASE}/share/wasi-sysroot/lib/wasm32-wasi/libc++abi.a:devel/wasi-libcxx${LLVM_VERSION} \
-		${LOCALBASE}/share/wasi-sysroot/lib/wasm32-wasi/libc.a:devel/wasi-libc@${LLVM_VERSION} \
-		wasi-compiler-rt${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}
-MOZ_OPTIONS+=	--with-wasi-sysroot=${LOCALBASE}/share/wasi-sysroot
-.endif
 
 post-extract:
 	@${SED} -e 's|@PORTNAME_ICON@|${PORTNAME_ICON:R}|;s|@MOZILLA@|${MOZILLA}|' \
