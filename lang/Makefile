@@ -312,7 +312,6 @@
     SUBDIR += python3
     SUBDIR += python310
     SUBDIR += python311
-    SUBDIR += python38
     SUBDIR += python39
     SUBDIR += qmasm
     SUBDIR += quickjs
@@ -330,7 +329,6 @@
     SUBDIR += rhino
     SUBDIR += rizin
     SUBDIR += rizin-cutter
-    SUBDIR += ruby31
     SUBDIR += ruby32
     SUBDIR += ruby33
     SUBDIR += rubygem-rb_sys

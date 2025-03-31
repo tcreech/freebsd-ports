@@ -119,7 +119,6 @@
     SUBDIR += py-slack-sdk
     SUBDIR += py-slackeventsapi
     SUBDIR += py-slixmpp
-    SUBDIR += py-telepot
     SUBDIR += py-toxcore-c
     SUBDIR += py-unmessage
     SUBDIR += qTox
@@ -133,7 +132,6 @@
     SUBDIR += rubygem-termtter
     SUBDIR += rubygem-tinder
     SUBDIR += ruqola
-    SUBDIR += sayaka
     SUBDIR += scli
     SUBDIR += sendxmpp
     SUBDIR += signal-cli

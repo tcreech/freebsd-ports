@@ -348,7 +348,6 @@
     SUBDIR += build
     SUBDIR += build2
     SUBDIR += buildkite-agent
-    SUBDIR += buildstream
     SUBDIR += bullet
     SUBDIR += bunyan
     SUBDIR += busd
@@ -1083,7 +1082,6 @@
     SUBDIR += jiri
     SUBDIR += jline
     SUBDIR += jna
-    SUBDIR += jrtplib
     SUBDIR += jsap
     SUBDIR += jsl
     SUBDIR += jsmin
@@ -1820,7 +1818,6 @@
     SUBDIR += ocaml-stdio
     SUBDIR += ocaml-topkg
     SUBDIR += ocaml-trace
-    SUBDIR += ocaml-type_conv
     SUBDIR += ocaml-uchar
     SUBDIR += ocaml-ulex
     SUBDIR += ocaml-uutf
@@ -4242,7 +4239,6 @@
     SUBDIR += pecl-yac
     SUBDIR += pecl-yaconf
     SUBDIR += pecl-zookeeper
-    SUBDIR += peg.el
     SUBDIR += pegtl
     SUBDIR += pep8
     SUBDIR += performance
@@ -4378,7 +4374,6 @@
     SUBDIR += py-aenum
     SUBDIR += py-aioapns
     SUBDIR += py-aiobotocore
-    SUBDIR += py-aiocontextvars
     SUBDIR += py-aiofiles
     SUBDIR += py-aiohttp-apispec
     SUBDIR += py-aioice
@@ -4868,7 +4863,6 @@
     SUBDIR += py-fastjsonschema
     SUBDIR += py-fastnumbers
     SUBDIR += py-fastprogress
-    SUBDIR += py-fbprophet
     SUBDIR += py-fiddle
     SUBDIR += py-fields
     SUBDIR += py-filebytes
@@ -5023,7 +5017,6 @@
     SUBDIR += py-id
     SUBDIR += py-identify
     SUBDIR += py-ijson
-    SUBDIR += py-imgkit
     SUBDIR += py-immutabledict
     SUBDIR += py-immutables
     SUBDIR += py-importlab
@@ -5323,7 +5316,6 @@
     SUBDIR += py-opencensus
     SUBDIR += py-opencensus-context
     SUBDIR += py-opendht
-    SUBDIR += py-opengrok-tools
     SUBDIR += py-openstacksdk
     SUBDIR += py-opentelemetry-api
     SUBDIR += py-opentelemetry-exporter-otlp
@@ -5494,7 +5486,6 @@
     SUBDIR += py-preshed
     SUBDIR += py-preshed3
     SUBDIR += py-pretend
-    SUBDIR += py-prettyprinter
     SUBDIR += py-prettytable
     SUBDIR += py-prettytable0
     SUBDIR += py-printree
@@ -5751,7 +5742,6 @@
     SUBDIR += py-python-jsonrpc-server
     SUBDIR += py-python-magic
     SUBDIR += py-python-mimeparse
-    SUBDIR += py-python-pcre
     SUBDIR += py-python-ptrace
     SUBDIR += py-python-rapidjson
     SUBDIR += py-python-semantic-release
