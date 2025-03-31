@@ -654,7 +654,6 @@
     SUBDIR += efl
     SUBDIR += egypt
     SUBDIR += eiffelstudio
-    SUBDIR += electron31
     SUBDIR += electron32
     SUBDIR += electron33
     SUBDIR += electron34
@@ -4582,7 +4581,6 @@
     SUBDIR += py-bluelet
     SUBDIR += py-boltons
     SUBDIR += py-boolean.py
-    SUBDIR += py-boto
     SUBDIR += py-botocore
     SUBDIR += py-bps-restpy
     SUBDIR += py-breathe
@@ -4641,6 +4639,7 @@
     SUBDIR += py-check-sdist
     SUBDIR += py-check-wheel-contents
     SUBDIR += py-cheetah3
+    SUBDIR += py-cibuildwheel
     SUBDIR += py-circuitbreaker
     SUBDIR += py-circuits
     SUBDIR += py-ciso8601
@@ -5445,7 +5444,6 @@
     SUBDIR += py-pipreqs
     SUBDIR += py-pipx
     SUBDIR += py-pkgconfig
-    SUBDIR += py-pkgutil-resolve-name
     SUBDIR += py-plac
     SUBDIR += py-plan
     SUBDIR += py-platformdirs
@@ -6323,7 +6321,6 @@
     SUBDIR += qxlsx
     SUBDIR += rabs
     SUBDIR += radare2
-    SUBDIR += radian
     SUBDIR += radicle
     SUBDIR += ragel
     SUBDIR += random123
@@ -6619,7 +6616,6 @@
     SUBDIR += rubygem-aws-sdk-eksauth
     SUBDIR += rubygem-aws-sdk-elasticache
     SUBDIR += rubygem-aws-sdk-elasticbeanstalk
-    SUBDIR += rubygem-aws-sdk-elasticinference
     SUBDIR += rubygem-aws-sdk-elasticloadbalancing
     SUBDIR += rubygem-aws-sdk-elasticloadbalancingv2
     SUBDIR += rubygem-aws-sdk-elasticsearchservice
