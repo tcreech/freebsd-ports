@@ -658,6 +658,7 @@
     SUBDIR += electron32
     SUBDIR += electron33
     SUBDIR += electron34
+    SUBDIR += electron35
     SUBDIR += elf
     SUBDIR += elf-dissector
     SUBDIR += elfcat
@@ -4442,6 +4443,7 @@
     SUBDIR += py-atomiclong
     SUBDIR += py-atomicwrites
     SUBDIR += py-atpublic
+    SUBDIR += py-attr
     SUBDIR += py-attrdict
     SUBDIR += py-attrs
     SUBDIR += py-attrs-strict
