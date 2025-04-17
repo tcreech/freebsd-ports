@@ -1,6 +1,6 @@
-PORTNAME=	octave-forge-pkg-octave-doc
+PORTNAME=	octave-forge-datatypes
 DISTVERSIONPREFIX=	release-
-DISTVERSION=	0.6.0
+DISTVERSION=	1.0.2
 CATEGORIES=	math
 
 MAINTAINER=	stephen@FreeBSD.org
@@ -10,14 +10,12 @@ WWW=		https://packages.octave.org/
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKDIR}/${OCTAVE_SRC}/COPYING
 
-USES=		octave
+USES=		octave \
+		compiler:nestedfct # A way to get g++ which understands -fconcepts.
 USE_GITHUB=	yes
-GH_ACCOUNT=	gnu-octave
-GH_PROJECT=	pkg-octave-doc
+GH_ACCOUNT=	pr0m1th3as
+GH_PROJECT=	datatypes
 
-OCTAVE_SRC=	${GH_PROJECT}-${DISTVERSIONPREFIX}${DISTVERSION}
-
-NO_ARCH=	yes
-NO_BUILD=	yes
+OCTAVE_SRC=	${GH_PROJECT}-release-${DISTVERSION}
 
 .include <bsd.port.mk>
