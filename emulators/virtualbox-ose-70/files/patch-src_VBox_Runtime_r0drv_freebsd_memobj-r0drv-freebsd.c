@@ -1,4 +1,4 @@
---- src/VBox/Runtime/r0drv/freebsd/memobj-r0drv-freebsd.c.orig	2025-01-21 14:07:00 UTC
+--- src/VBox/Runtime/r0drv/freebsd/memobj-r0drv-freebsd.c.orig	2025-04-11 12:12:39 UTC
 +++ src/VBox/Runtime/r0drv/freebsd/memobj-r0drv-freebsd.c
 @@ -139,8 +139,10 @@ DECLHIDDEN(int) rtR0MemObjNativeFree(RTR0MEMOBJ pMem)
  
@@ -36,9 +36,9 @@
 +            struct pctrie_iter pages;
 +            vm_page_t page;
 +
-+            pctrie_iter_init(&pages, pMemFreeBSD->pObject);
++            vm_page_iter_init(&pages, pMemFreeBSD->pObject);
 +            VM_RADIX_FORALL(page, &pages)
-+                vm_page_unwire(page, PQ_INACTIVE);
++                (void)vm_page_unwire_noq(page);
 +#endif
              VM_OBJECT_WUNLOCK(pMemFreeBSD->pObject);
              vm_object_deallocate(pMemFreeBSD->pObject);
@@ -135,6 +135,15 @@
  
          int rc = rtR0MemObjFreeBSDPhysAllocHelper(pMemFreeBSD->pObject, cPages, VmPhysAddrHigh,
                                                    uAlignment, fContiguous, true, rcNoMem);
+@@ -449,7 +471,7 @@ static int rtR0MemObjFreeBSDAllocPhysPages(PPRTR0MEMOB
+             {
+                 Assert(enmType == RTR0MEMOBJTYPE_PHYS);
+                 VM_OBJECT_WLOCK(pMemFreeBSD->pObject);
+-                pMemFreeBSD->Core.u.Phys.PhysBase = VM_PAGE_TO_PHYS(vm_page_find_least(pMemFreeBSD->pObject, 0));
++                pMemFreeBSD->Core.u.Phys.PhysBase = VM_PAGE_TO_PHYS(vm_radix_lookup_ge(&pMemFreeBSD->pObject->rtree, 0));
+                 VM_OBJECT_WUNLOCK(pMemFreeBSD->pObject);
+                 pMemFreeBSD->Core.u.Phys.fAllocated = true;
+             }
 @@ -462,8 +484,10 @@ static int rtR0MemObjFreeBSDAllocPhysPages(PPRTR0MEMOB
              vm_object_deallocate(pMemFreeBSD->pObject);
              rtR0MemObjDelete(&pMemFreeBSD->Core);
