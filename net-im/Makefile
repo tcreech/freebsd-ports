@@ -2,7 +2,6 @@
 
     SUBDIR += beebeep
     SUBDIR += biboumi
-    SUBDIR += chatterino2
     SUBDIR += coccinella
     SUBDIR += concord
     SUBDIR += conduit
@@ -18,6 +17,7 @@
     SUBDIR += ejabberd
     SUBDIR += farstream
     SUBDIR += finch
+    SUBDIR += flare
     SUBDIR += folks
     SUBDIR += fractal
     SUBDIR += freetalk
@@ -141,6 +141,7 @@
     SUBDIR += spectral
     SUBDIR += ssh-chat
     SUBDIR += sshout
+    SUBDIR += tde2e
     SUBDIR += tdlib
     SUBDIR += tdlib-purple
     SUBDIR += telegram-cli

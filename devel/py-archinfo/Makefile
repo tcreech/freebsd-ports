@@ -1,7 +1,6 @@
 PORTNAME=	archinfo
 DISTVERSIONPREFIX=	v
-DISTVERSION=	9.2.148
-PORTREVISION=	1
+DISTVERSION=	9.2.157
 CATEGORIES=	devel python
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
@@ -25,5 +24,6 @@ TESTING_UNSAFE=	nose does not yet support Python 3.11 so 'make test' will fail
 NO_ARCH=	yes
 
 post-extract:
-	${CP} ${FILESDIR}/setup.py ${WRKSRC}/
+	${SED} 's|%%DISTVERSION%%|${DISTVERSION}|' ${FILESDIR}/setup.py > ${WRKSRC}/setup.py
+
 .include <bsd.port.mk>

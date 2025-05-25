@@ -491,6 +491,7 @@
     SUBDIR += ltl2ba
     SUBDIR += m4ri
     SUBDIR += m4rie
+    SUBDIR += manifold
     SUBDIR += mate-calc
     SUBDIR += math77
     SUBDIR += mathex
@@ -568,6 +569,7 @@
     SUBDIR += octave-forge-coder
     SUBDIR += octave-forge-communications
     SUBDIR += octave-forge-control
+    SUBDIR += octave-forge-csg-dataset
     SUBDIR += octave-forge-csg-toolkit
     SUBDIR += octave-forge-data-smoothing
     SUBDIR += octave-forge-database
@@ -583,6 +585,7 @@
     SUBDIR += octave-forge-fileio
     SUBDIR += octave-forge-financial
     SUBDIR += octave-forge-fits
+    SUBDIR += octave-forge-fl-core
     SUBDIR += octave-forge-fpl
     SUBDIR += octave-forge-fuzzy-logic-toolkit
     SUBDIR += octave-forge-ga
@@ -1057,6 +1060,7 @@
     SUBDIR += py-pplpy
     SUBDIR += py-primecountpy
     SUBDIR += py-primme
+    SUBDIR += py-pwlf
     SUBDIR += py-py-find-1st
     SUBDIR += py-pyFFTW
     SUBDIR += py-pyaudi
@@ -1130,6 +1134,7 @@
     SUBDIR += py-umap-learn
     SUBDIR += py-uncertainties
     SUBDIR += py-unyt
+    SUBDIR += py-vector
     SUBDIR += py-vincenty
     SUBDIR += py-yt
     SUBDIR += py-z3-solver

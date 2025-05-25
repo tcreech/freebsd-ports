@@ -1,10 +1,10 @@
 PORTNAME=	snmp_exporter
 DISTVERSIONPREFIX=v
-DISTVERSION=	0.28.0
+DISTVERSION=	0.29.0
 PORTREVISION=	1
 CATEGORIES=	sysutils
 
-MAINTAINER=	lexi@hemlock.eden.le-fay.org
+MAINTAINER=	ivy@FreeBSD.org
 COMMENT=	SNMP Exporter for Prometheus
 WWW=		https://github.com/prometheus/snmp_exporter
 

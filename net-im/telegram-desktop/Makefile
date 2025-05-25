@@ -1,6 +1,6 @@
 PORTNAME=	telegram-desktop
-DISTVERSION=	5.13.1
-PORTREVISION=	4
+DISTVERSION=	5.14.3
+PORTREVISION=	1
 CATEGORIES=	net-im
 MASTER_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/releases/download/v${DISTVERSION}/
 DISTNAME=	tdesktop-${DISTVERSION}-full
@@ -25,6 +25,7 @@ BUILD_DEPENDS=	boost-libs>0:devel/boost-libs \
 		tl-expected>0:devel/tl-expected \
 		v4l_compat>0:multimedia/v4l_compat \
 		yasm:devel/yasm \
+		${LOCALBASE}/lib/libtde2e.a:net-im/tde2e \
 		${LOCALBASE}/lib/libtg_owt.a:net-im/tg_owt
 LIB_DEPENDS=	libabsl_base.so:devel/abseil \
 		libada.so:devel/libada \

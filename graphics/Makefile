@@ -43,10 +43,8 @@
     SUBDIR += a2png
     SUBDIR += aalib
     SUBDIR += aaphoto
-    SUBDIR += acidwarp-sdl
     SUBDIR += aeskulap
     SUBDIR += agg
-    SUBDIR += agg26
     SUBDIR += airsaned
     SUBDIR += akira
     SUBDIR += alembic
@@ -170,6 +168,7 @@
     SUBDIR += elastix
     SUBDIR += elementary-photos
     SUBDIR += embree
+    SUBDIR += embree3
     SUBDIR += enblend
     SUBDIR += engauge-digitizer
     SUBDIR += entangle
@@ -231,6 +230,7 @@
     SUBDIR += gd
     SUBDIR += gdal
     SUBDIR += gdal-grass
+    SUBDIR += gdalcpp
     SUBDIR += gdchart
     SUBDIR += gdk-pixbuf-extra
     SUBDIR += gdk-pixbuf2
@@ -463,6 +463,7 @@
     SUBDIR += libecwj2
     SUBDIR += libemf
     SUBDIR += libepoxy
+    SUBDIR += libertiff
     SUBDIR += libetonyek01
     SUBDIR += libexif
     SUBDIR += libexif-gtk
@@ -536,8 +537,6 @@
     SUBDIR += linux-c7-libepoxy
     SUBDIR += linux-c7-libglvnd
     SUBDIR += linux-c7-librsvg2
-    SUBDIR += linux-c7-sdl_image
-    SUBDIR += linux-c7-sdl_ttf
     SUBDIR += linux-c7-wayland
     SUBDIR += linux-rl9-cairo
     SUBDIR += linux-rl9-cairo-gobject
@@ -556,12 +555,6 @@
     SUBDIR += linux-rl9-qt5-qtimageformats
     SUBDIR += linux-rl9-qt5-qtsvg
     SUBDIR += linux-rl9-qt5-qtwayland
-    SUBDIR += linux-rl9-sdl2_gfx
-    SUBDIR += linux-rl9-sdl2_image
-    SUBDIR += linux-rl9-sdl2_ttf
-    SUBDIR += linux-rl9-sdl_gfx
-    SUBDIR += linux-rl9-sdl_image
-    SUBDIR += linux-rl9-sdl_ttf
     SUBDIR += linux-rl9-shaderc
     SUBDIR += linux-rl9-spirv-tools
     SUBDIR += linux-rl9-vulkan
@@ -836,7 +829,6 @@
     SUBDIR += pinta
     SUBDIR += pixd
     SUBDIR += pixelize
-    SUBDIR += pixen
     SUBDIR += pixie
     SUBDIR += plantuml
     SUBDIR += plasma-kmod
@@ -1023,6 +1015,7 @@
     SUBDIR += py-svg.path
     SUBDIR += py-svgelements
     SUBDIR += py-svgwrite
+    SUBDIR += py-term-image
     SUBDIR += py-termtosvg
     SUBDIR += py-tifffile
     SUBDIR += py-tkcolorpicker
@@ -1065,7 +1058,6 @@
     SUBDIR += qtpbfimageplugin
     SUBDIR += qtqr
     SUBDIR += quat
-    SUBDIR += quat-gui
     SUBDIR += quesa
     SUBDIR += quesoglc
     SUBDIR += quickqanava
