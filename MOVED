@@ -4428,3 +4428,10 @@ www/py-dj50-strawberry-graphql-django|www/py-dj51-strawberry-graphql-django|2025
 devel/py-dj50-strawberry-graphql|devel/py-dj51-strawberry-graphql|2025-06-01|Has expired: Extended support of Django 5.0 ends April 2025, upgrade to the Django 5.1+ version of this port. See https://www.djangoproject.com/download/
 www/py-dj50-channels|www/py-dj51-channels|2025-06-01|Has expired: Extended support of Django 5.0 ends April 2025, upgrade to the Django 5.1+ version of this port. See https://www.djangoproject.com/download/
 sysutils/screen49||2025-06-01|Has expired: Multiple CVEs
+www/py-dj50-drf-spectacular|www/py-dj51-drf-spectacular|2025-06-01|Has expired: Extended support of Django 5.0 ends April 2025, upgrade to the Django 5.1+ version of this port. See https://www.djangoproject.com/download/
+www/py-dj50-djangorestframework|www/py-dj51-djangorestframework|2025-06-01|Has expired: Extended support of Django 5.0 ends April 2025, upgrade to the Django 5.1+ version of this port. See https://www.djangoproject.com/download/
+devel/aphpbreakdown||2025-06-01|Has expired: Upstream is gone and last release in 2018
+www/py-dj50-drf-spectacular-sidecar|www/py-dj51-drf-spectacular-sidecar|2025-06-01|Has expired: Extended support of Django 5.0 ends April 2025, upgrade to the Django 5.1+ version of this port. See https://www.djangoproject.com/download/
+www/py-dj50-django-debug-toolbar|www/py-dj51-django-debug-toolbar|2025-06-01|Has expired: Extended support of Django 5.0 ends April 2025, upgrade to the Django 5.1+ version of this port. See https://www.djangoproject.com/download/
+devel/py-dj50-django-rq|devel/py-dj51-django-rq|2025-06-01|Has expired: Extended support of Django 5.0 ends April 2025, upgrade to the Django 5.1+ version of this port. See https://www.djangoproject.com/download/
+www/py-dj50-django-auth-ldap|www/py-dj51-django-auth-ldap|2025-06-01|Has expired: Extended support of Django 5.0 ends April 2025, upgrade to the Django 5.1+ version of this port. See https://www.djangoproject.com/download/

@@ -79,6 +79,7 @@
     SUBDIR += R-cran-hms
     SUBDIR += R-cran-ids
     SUBDIR += R-cran-ini
+    SUBDIR += R-cran-interp
     SUBDIR += R-cran-iterators
     SUBDIR += R-cran-itertools
     SUBDIR += R-cran-kit
@@ -198,7 +199,6 @@
     SUBDIR += apache-log4j2
     SUBDIR += apache-orc
     SUBDIR += apache-rat
-    SUBDIR += aphpbreakdown
     SUBDIR += aphpunit
     SUBDIR += api-linter
     SUBDIR += api-sanity-autotest
@@ -4814,7 +4814,6 @@
     SUBDIR += py-diskcache
     SUBDIR += py-distlib
     SUBDIR += py-distributed
-    SUBDIR += py-dj50-django-rq
     SUBDIR += py-dj51-django-rq
     SUBDIR += py-dj51-strawberry-graphql
     SUBDIR += py-django-rq

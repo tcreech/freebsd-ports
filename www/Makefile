@@ -1516,10 +1516,8 @@
     SUBDIR += py-daphne
     SUBDIR += py-dash
     SUBDIR += py-dj-database-url
-    SUBDIR += py-dj50-django-auth-ldap
     SUBDIR += py-dj50-django-choices-field
     SUBDIR += py-dj50-django-cors-headers
-    SUBDIR += py-dj50-django-debug-toolbar
     SUBDIR += py-dj50-django-filter
     SUBDIR += py-dj50-django-htmx
     SUBDIR += py-dj50-django-js-asset
@@ -1530,9 +1528,6 @@
     SUBDIR += py-dj50-django-tables2
     SUBDIR += py-dj50-django-timezone-field
     SUBDIR += py-dj50-django-tree-queries
-    SUBDIR += py-dj50-djangorestframework
-    SUBDIR += py-dj50-drf-spectacular
-    SUBDIR += py-dj50-drf-spectacular-sidecar
     SUBDIR += py-dj51-channels
     SUBDIR += py-dj51-channels-redis
     SUBDIR += py-dj51-django-allauth
