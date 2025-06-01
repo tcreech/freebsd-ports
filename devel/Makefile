@@ -4815,7 +4815,6 @@
     SUBDIR += py-distlib
     SUBDIR += py-distributed
     SUBDIR += py-dj50-django-rq
-    SUBDIR += py-dj50-strawberry-graphql
     SUBDIR += py-dj51-django-rq
     SUBDIR += py-dj51-strawberry-graphql
     SUBDIR += py-django-rq
@@ -5798,6 +5797,7 @@
     SUBDIR += py-pyvisa-py
     SUBDIR += py-pyxb-x
     SUBDIR += py-pyyaml
+    SUBDIR += py-pyyaml-ft
     SUBDIR += py-pyyaml-include
     SUBDIR += py-pyyaml_env_tag
     SUBDIR += py-pyzipper
