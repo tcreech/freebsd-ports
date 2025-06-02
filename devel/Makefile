@@ -273,7 +273,6 @@
     SUBDIR += avro
     SUBDIR += avro-c
     SUBDIR += avro-cpp
-    SUBDIR += awless
     SUBDIR += aws-c-common
     SUBDIR += aws-c-compression
     SUBDIR += aws-c-event-stream
@@ -475,7 +474,6 @@
     SUBDIR += cmake-modules-webos
     SUBDIR += cmakedoc
     SUBDIR += cmph
-    SUBDIR += cmunge
     SUBDIR += coccinelle
     SUBDIR += cocogitto
     SUBDIR += codeblocks
@@ -697,7 +695,6 @@
     SUBDIR += evcxr-jupyter
     SUBDIR += evdev-proto
     SUBDIR += evemu
-    SUBDIR += eventxx
     SUBDIR += exercisix
     SUBDIR += exomizer
     SUBDIR += expected
@@ -984,7 +981,6 @@
     SUBDIR += heirloom-devtools
     SUBDIR += hexcompare
     SUBDIR += hexd
-    SUBDIR += hgreviewboard
     SUBDIR += hgsvn
     SUBDIR += highlighterkit
     SUBDIR += highway
