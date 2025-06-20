@@ -6442,6 +6442,7 @@
     SUBDIR += rubygem-algebrick
     SUBDIR += rubygem-algorithms
     SUBDIR += rubygem-aliyun-sdk
+    SUBDIR += rubygem-aliyun-sdk-gitlab
     SUBDIR += rubygem-allison
     SUBDIR += rubygem-amazing_print
     SUBDIR += rubygem-analogger
@@ -7203,10 +7204,13 @@
     SUBDIR += rubygem-dry-configurable
     SUBDIR += rubygem-dry-container
     SUBDIR += rubygem-dry-core
+    SUBDIR += rubygem-dry-core-gitlab
     SUBDIR += rubygem-dry-equalizer
     SUBDIR += rubygem-dry-inflector
     SUBDIR += rubygem-dry-logic
+    SUBDIR += rubygem-dry-logic-gitlab
     SUBDIR += rubygem-dry-types
+    SUBDIR += rubygem-dry-types-gitlab
     SUBDIR += rubygem-drydock
     SUBDIR += rubygem-dynflow
     SUBDIR += rubygem-e2mmap
@@ -7228,6 +7232,7 @@
     SUBDIR += rubygem-event_stream_parser
     SUBDIR += rubygem-eventmachine
     SUBDIR += rubygem-excon
+    SUBDIR += rubygem-excon-gitlab
     SUBDIR += rubygem-excon0
     SUBDIR += rubygem-execjs
     SUBDIR += rubygem-extlib
@@ -7275,10 +7280,12 @@
     SUBDIR += rubygem-fluent-logger
     SUBDIR += rubygem-fog
     SUBDIR += rubygem-fog-core
+    SUBDIR += rubygem-fog-core-gitlab
     SUBDIR += rubygem-fog-core1
     SUBDIR += rubygem-fog-core210
     SUBDIR += rubygem-fog-core250
     SUBDIR += rubygem-fog-json
+    SUBDIR += rubygem-fog-json-gitlab
     SUBDIR += rubygem-font-awesome-rails
     SUBDIR += rubygem-font-awesome-rails-rails5
     SUBDIR += rubygem-font-awesome-rails-rails52
@@ -7382,6 +7389,7 @@
     SUBDIR += rubygem-google-protobuf
     SUBDIR += rubygem-google-protobuf3
     SUBDIR += rubygem-googleapis-common-protos
+    SUBDIR += rubygem-googleapis-common-protos-gitlab
     SUBDIR += rubygem-googleapis-common-protos-types
     SUBDIR += rubygem-graf
     SUBDIR += rubygem-grape
@@ -7392,12 +7400,14 @@
     SUBDIR += rubygem-grape-swagger-entity
     SUBDIR += rubygem-grape20
     SUBDIR += rubygem-grape_logging
+    SUBDIR += rubygem-grape_logging-gitlab
     SUBDIR += rubygem-graphiql-rails
     SUBDIR += rubygem-graphlient
     SUBDIR += rubygem-graphql
     SUBDIR += rubygem-graphql-client
     SUBDIR += rubygem-graphql-docs
     SUBDIR += rubygem-grpc-google-iam-v1
+    SUBDIR += rubygem-grpc-google-iam-v1-gitlab
     SUBDIR += rubygem-guess_html_encoding
     SUBDIR += rubygem-gyoku
     SUBDIR += rubygem-hamster
@@ -7424,6 +7434,7 @@
     SUBDIR += rubygem-i18n
     SUBDIR += rubygem-i18n_data
     SUBDIR += rubygem-icalendar
+    SUBDIR += rubygem-icalendar-gitlab
     SUBDIR += rubygem-ice_cube
     SUBDIR += rubygem-ice_nine
     SUBDIR += rubygem-inflecto
@@ -7463,6 +7474,7 @@
     SUBDIR += rubygem-jenkins_api_client
     SUBDIR += rubygem-jeweler
     SUBDIR += rubygem-jira-ruby
+    SUBDIR += rubygem-jira-ruby-gitlab
     SUBDIR += rubygem-jmespath
     SUBDIR += rubygem-jquery-ui-themes
     SUBDIR += rubygem-jruby-jars
@@ -7502,6 +7514,7 @@
     SUBDIR += rubygem-locale
     SUBDIR += rubygem-lockfile
     SUBDIR += rubygem-logger
+    SUBDIR += rubygem-logger-gitlab
     SUBDIR += rubygem-logger15
     SUBDIR += rubygem-logging
     SUBDIR += rubygem-logster
@@ -7899,6 +7912,7 @@
     SUBDIR += rubygem-spring-watcher-listen
     SUBDIR += rubygem-sprockets
     SUBDIR += rubygem-sprockets-es6
+    SUBDIR += rubygem-sprockets-gitlab
     SUBDIR += rubygem-sprockets-helpers
     SUBDIR += rubygem-sprockets-rails-rails-gitlab
     SUBDIR += rubygem-sprockets-rails-rails4
