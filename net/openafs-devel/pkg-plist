@@ -302,7 +302,6 @@ share/man/man1/fs_wscell.1.gz
 share/man/man1/klog.krb5.1.gz
 share/man/man1/livesys.1.gz
 share/man/man1/pagsh.1.gz
-share/man/man1/pagsh.krb.1.gz
 share/man/man1/pts.1.gz
 share/man/man1/pts_adduser.1.gz
 share/man/man1/pts_apropos.1.gz
@@ -334,7 +333,6 @@ share/man/man1/symlink_make.1.gz
 share/man/man1/symlink_remove.1.gz
 share/man/man1/sys.1.gz
 share/man/man1/tokens.1.gz
-share/man/man1/tokens.krb.1.gz
 share/man/man1/translate_et.1.gz
 share/man/man1/udebug.1.gz
 share/man/man1/unlog.1.gz
