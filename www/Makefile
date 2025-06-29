@@ -185,6 +185,7 @@
     SUBDIR += ffproxy
     SUBDIR += ffsend
     SUBDIR += fgallery
+    SUBDIR += filebrowser
     SUBDIR += filtron
     SUBDIR += firedm
     SUBDIR += firefox
@@ -506,7 +507,6 @@
     SUBDIR += offpunk
     SUBDIR += oneshot
     SUBDIR += onionbalance
-    SUBDIR += onionshare
     SUBDIR += onionshare-cli
     SUBDIR += onlyoffice-documentserver
     SUBDIR += opencart
@@ -1419,6 +1419,7 @@
     SUBDIR += pecl-solr
     SUBDIR += pecl-yaf
     SUBDIR += pecl-yar
+    SUBDIR += peersuite
     SUBDIR += perlbal
     SUBDIR += persepolis
     SUBDIR += pglogd
@@ -1451,6 +1452,7 @@
     SUBDIR += plasma6-plasma-browser-integration
     SUBDIR += pmwiki
     SUBDIR += pnews
+    SUBDIR += pocket-id
     SUBDIR += podcastamatic
     SUBDIR += pomerium
     SUBDIR += pound
@@ -1485,6 +1487,7 @@
     SUBDIR += py-beaker
     SUBDIR += py-beautifulsoup
     SUBDIR += py-betamax
+    SUBDIR += py-binarycookies
     SUBDIR += py-biscuits
     SUBDIR += py-bjoern
     SUBDIR += py-bleach
@@ -1547,6 +1550,28 @@
     SUBDIR += py-dj51-drf-writable-nested
     SUBDIR += py-dj51-social-auth-app-django
     SUBDIR += py-dj51-strawberry-graphql-django
+    SUBDIR += py-dj52-channels
+    SUBDIR += py-dj52-django-auth-ldap
+    SUBDIR += py-dj52-django-choices-field
+    SUBDIR += py-dj52-django-cors-headers
+    SUBDIR += py-dj52-django-debug-toolbar
+    SUBDIR += py-dj52-django-filter
+    SUBDIR += py-dj52-django-htmx
+    SUBDIR += py-dj52-django-js-asset
+    SUBDIR += py-dj52-django-mptt
+    SUBDIR += py-dj52-django-prometheus
+    SUBDIR += py-dj52-django-redis
+    SUBDIR += py-dj52-django-rich
+    SUBDIR += py-dj52-django-storages
+    SUBDIR += py-dj52-django-stubs-ext
+    SUBDIR += py-dj52-django-tables2
+    SUBDIR += py-dj52-django-taggit
+    SUBDIR += py-dj52-django-timezone-field
+    SUBDIR += py-dj52-djangorestframework
+    SUBDIR += py-dj52-drf-spectacular
+    SUBDIR += py-dj52-drf-spectacular-sidecar
+    SUBDIR += py-dj52-social-auth-app-django
+    SUBDIR += py-dj52-strawberry-graphql-django
     SUBDIR += py-django-admin-rangefilter
     SUBDIR += py-django-advanced-filters
     SUBDIR += py-django-allauth
@@ -2043,6 +2068,7 @@
     SUBDIR += rubygem-cable_ready
     SUBDIR += rubygem-cal-heatmap-rails
     SUBDIR += rubygem-carrierwave
+    SUBDIR += rubygem-carrierwave-gitlab
     SUBDIR += rubygem-carrierwave1
     SUBDIR += rubygem-cgi
     SUBDIR += rubygem-cgi_multipart_eof_fix
@@ -2063,6 +2089,7 @@
     SUBDIR += rubygem-d3_rails
     SUBDIR += rubygem-davclient
     SUBDIR += rubygem-deckar01-task_list
+    SUBDIR += rubygem-deckar01-task_list-gitlab
     SUBDIR += rubygem-domainatrix
     SUBDIR += rubygem-dropzonejs-rails
     SUBDIR += rubygem-em-http-request
@@ -2351,6 +2378,7 @@
     SUBDIR += rubygem-responders-rails71
     SUBDIR += rubygem-responders-rails72
     SUBDIR += rubygem-rest-client
+    SUBDIR += rubygem-rest-client-gitlab
     SUBDIR += rubygem-rfacebook
     SUBDIR += rubygem-rfeedfinder
     SUBDIR += rubygem-rinku
@@ -2495,6 +2523,7 @@
     SUBDIR += tidy
     SUBDIR += tidy-html5
     SUBDIR += tikiwiki
+    SUBDIR += tinyauth
     SUBDIR += tinymce
     SUBDIR += tinyproxy
     SUBDIR += tivoka
