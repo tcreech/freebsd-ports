@@ -1527,7 +1527,6 @@
     SUBDIR += sniffnet
     SUBDIR += sniproxy
     SUBDIR += sntop
-    SUBDIR += sobby
     SUBDIR += socat
     SUBDIR += sock
     SUBDIR += socketapi
@@ -1655,7 +1654,6 @@
     SUBDIR += vnstat
     SUBDIR += vortex
     SUBDIR += vpp
-    SUBDIR += vtun
     SUBDIR += wackamole
     SUBDIR += wakeonlan
     SUBDIR += wangle
@@ -1716,7 +1714,6 @@
     SUBDIR += zapret
     SUBDIR += zebra-server
     SUBDIR += zerotier
-    SUBDIR += zillion
     SUBDIR += zmap
     SUBDIR += zmate
     SUBDIR += zsync
