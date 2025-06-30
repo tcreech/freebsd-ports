@@ -4585,6 +4585,7 @@
     SUBDIR += py-buildbot-pkg
     SUBDIR += py-buildbot-react-console-view
     SUBDIR += py-buildbot-waterfall-view
+    SUBDIR += py-buildbot-wsgi-dashboards
     SUBDIR += py-buildbot-worker
     SUBDIR += py-buildbot-www
     SUBDIR += py-bullet3
@@ -4701,8 +4702,6 @@
     SUBDIR += py-convertdate
     SUBDIR += py-cookiecutter
     SUBDIR += py-copier
-    SUBDIR += py-coreapi
-    SUBDIR += py-coreschema
     SUBDIR += py-country
     SUBDIR += py-cov-core
     SUBDIR += py-covdefaults
@@ -5063,7 +5062,6 @@
     SUBDIR += py-iterable-io
     SUBDIR += py-iteration-utilities
     SUBDIR += py-itertree
-    SUBDIR += py-itypes
     SUBDIR += py-janus
     SUBDIR += py-jaraco.classes
     SUBDIR += py-jaraco.collections

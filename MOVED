@@ -4618,3 +4618,9 @@ devel/libflatarray||2025-06-30|Has expired: Last activity from upstream 5 years 
 devel/bogofilter-bdb||2025-06-30|Has expired: The Berkeley DB interface is obsolete. Read UPDATING and use one of the other devel/bogofilter* ports instead
 misc/e2fsprogs-libuuid||2025-06-30|Use misc/libuuid (from util-linux) instead
 filesystems/e2fsprogs-libblkid||2025-06-30|Use filesystems/libblkid (from util-linux) instead
+graphics/rigsofrods-pagedgeometry|graphics/pagedgeometry|2025-06-30|Switch to the upstream version
+net/net6||2025-06-30|Has expired: Abandoned upstream, repo archived Nov 26, 2020
+devel/py-coreapi|devel/py-openapi-core|2025-06-30|Has expired: Upstream archived the repository. Please use devel/py-openapi-core instead
+devel/py-coreschema|devel/py-openapi-schema-validator|2025-06-30|Has expired: Upstream archived the repository. Please use devel/py-openapi-schema-validator instead
+devel/py-itypes||2025-06-30|Has expired: Upstream archived repository and suggest using devel/py-pyrsistent instead
+net-mgmt/zabbix5-server||2025-06-30|Has expired: Upstream EOL reaches on 2025-05-31
