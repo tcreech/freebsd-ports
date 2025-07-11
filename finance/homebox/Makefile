@@ -1,6 +1,7 @@
 PORTNAME=	homebox
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.20.2
+PORTREVISION=	1
 CATEGORIES=	finance
 MASTER_SITES=	LOCAL/dtxdf/${PORTNAME}/
 DISTFILES=	${PORTNAME}-${DISTVERSION}.frontend${EXTRACT_SUFX}
@@ -10,6 +11,8 @@ COMMENT=	Inventory and organization system built for the Home User
 WWW=		https://homebox.software
 
 LICENSE=	AGPLv3
+
+BROKEN_i386=	cannot use int64(off) (value of type int64) as int32 value in assignment
 
 USES=		go:modules
 USE_GITHUB=	yes
