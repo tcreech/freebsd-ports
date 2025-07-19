@@ -1,0 +1,61 @@
+--- src/libafs/MakefileProto.FBSD.in.orig	2025-01-23 17:12:55 UTC
++++ src/libafs/MakefileProto.FBSD.in
+@@ -59,6 +59,9 @@ CWARNFLAGS+= -Wno-redundant-decls
+ WARNS= 1
+ # We have some sketchy code that redeclares prototypes
+ CWARNFLAGS+= -Wno-redundant-decls
++<fbsd_140 fbsd_141 fbsd_142 fbsd_143>
++CWARNFLAGS+= -Wno-deprecated-non-prototype -Wno-enum-conversion
++<all>
+ 
+ GEN_KBLD_DIR=@abs_builddir@/kconf-GENERIC
+ AFS_OS_CLEAN=$(GEN_KBLD_DIR)
+@@ -75,7 +78,7 @@ $(GEN_KBLD_DIR):
+ $(GEN_KBLD_DIR):
+ 	-mkdir $(GEN_KBLD_DIR)
+ 	cd $(KSRC)/$(MACHINE)/conf && \
+-		/usr/sbin/config -d $(GEN_KBLD_DIR) GENERIC
++		/usr/sbin/config -s $(KSRC) -d $(GEN_KBLD_DIR) GENERIC
+ 
+ # setup for bsd.kmod.mk infrastructure
+ .PATH:	${TOP_SRCDIR}/afs/FBSD
+@@ -108,7 +111,11 @@ setup: $(KERNBUILDDIR)
+ 	-$(RM) $(KOBJ)/Makefile $(KOBJ)/Makefile.common
+ 	$(CP) Makefile $(KOBJ)/Makefile
+ 	echo ".include <bsd.kmod.mk>" >> $(KOBJ)/Makefile
+-	sed -e 's/^install:/afsinstall:/' Makefile.common > $(KOBJ)/Makefile.common
++	sed \
++	  -e 's/^install:/afsinstall:/' \
++	  -e '/CRULE_OPT.*\<rand-timer\.c/s/CRULE_OPT/CRULE_OPT:N-mgeneral-regs-only/' \
++	  -e '/CRULE_OPT.*\<rand-fortuna\.c/s/CRULE_OPT/CRULE_OPT:N-mgeneral-regs-only/' \
++	  Makefile.common > $(KOBJ)/Makefile.common
+ 	-$(RM) -f h
+ 	-ln -fs ${KSRC}/sys h
+ 
+@@ -116,10 +123,25 @@ include Makefile.common
+ # We must live with its other pollution of targets and build rules.
+ include Makefile.common
+ 
++# The following objects are not in AFSAOBJS or AFSNONFSOBJS. We enumerate them
++# here only so that we can enforce that they may depend on vnode_if.h below.
++AFSOSIOBJS= \
++	osi_crypto.o \
++	osi_gcpags.o \
++	osi_groups.o \
++	osi_file.o \
++	osi_inode.o \
++	osi_misc.o \
++	osi_sleep.o \
++	osi_vcache.o \
++	osi_vm.o \
++	osi_vnodeops.o \
++	osi_module.o
++
+ # we only do the no-NFS case
+ OBJS=	${AFSAOBJS} ${AFSNONFSOBJS}
+ 
+-$(OBJS): vnode_if.h
++$(OBJS) $(AFSOSIOBJS): vnode_if.h
+ 
+ LIBAFSNONFS=	libafs.ko
+ DEFINES= -DAFSDEBUG -DKERNEL -DAFS -DVICE -DNFS -DUFS -DINET -DQUOTA -DGETMOUNT
