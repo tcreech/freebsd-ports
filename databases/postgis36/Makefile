@@ -1,9 +1,9 @@
 PORTNAME=	postgis
-DISTVERSION=	3.3.8
-PORTREVISION=	5
+DISTVERSION=	3.6.0
+DISTVERSIONSUFFIX=	beta1
 CATEGORIES=	databases geography
 MASTER_SITES=	https://download.osgeo.org/postgis/source/
-PKGNAMESUFFIX=	33
+PKGNAMESUFFIX=	36
 
 MAINTAINER=	lbartoletti@FreeBSD.org
 COMMENT=	Geographic objects support for PostgreSQL databases
@@ -18,20 +18,20 @@ LIB_DEPENDS=	libproj.so:graphics/proj \
 		libgdal.so:graphics/gdal \
 		libpcre2-8.so:devel/pcre2
 
-USES=		alias compiler:c++14-lang cpe gmake gnome iconv:wchar_t libtool:keepla \
+USES=		alias compiler:c++11-lang cpe gmake gnome iconv:wchar_t libtool:keepla \
 		localbase perl5 pkgconfig pgsql:11+ shebangfix
 USE_GNOME=	libxml2
 USE_PERL5=	build
 
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	${ICONV_CONFIGURE_BASE} NUMERICFLAGS=${PORTVERSION}
-USE_CXXSTD=	c++14
+GNU_CONFIGURE_MANPREFIX=	${PREFIX}/share
 SHEBANG_FILES=	extensions/address_standardizer/*.pl regress/run_test.pl \
-		utils/postgis_restore.pl.in utils/*.pl
+		utils/postgis_restore.pl.in utils/*.pl loader/postgis.pl
 WANT_PGSQL=	server
 
-OPTIONS_DEFINE=	ADDRSTD JSON LOADERGUI NLS PROTOBUF RASTER SFCGAL TOPOLOGY WAGYU
-OPTIONS_DEFAULT=ADDRSTD JSON NLS PROTOBUF RASTER SFCGAL TOPOLOGY WAGYU
+OPTIONS_DEFINE=	ADDRSTD JSON LOADERGUI NLS PROTOBUF RASTER SFCGAL TOPOLOGY
+OPTIONS_DEFAULT=ADDRSTD JSON NLS PROTOBUF RASTER SFCGAL TOPOLOGY LOADERGUI
 OPTIONS_SUB=	yes
 
 ADDRSTD_DESC=	Enable address standardizer
@@ -42,10 +42,8 @@ PROTOBUF_DESC=	Enable protocol buffers
 RASTER_DESC=	Enable raster support
 SFCGAL_DESC=	Enable sfcgal
 TOPOLOGY_DESC=	Topology support
-WAGYU_DESC=	Enable WAGYU support
 
 ADDRSTD_CONFIGURE_WITH=		address-standardizer
-ADDRSTD_LIB_DEPENDS=		libpcre.so:devel/pcre
 ADDRSTD_VARS=			WANT_PGSQL+=contrib
 JSON_CONFIGURE_WITH=		json
 JSON_LIB_DEPENDS=		libjson-c.so:devel/json-c
@@ -60,7 +58,6 @@ PROTOBUF_LIB_DEPENDS=		libprotobuf-c.so:devel/protobuf-c
 SFCGAL_CONFIGURE_WITH=		sfcgal=${LOCALBASE}/bin/sfcgal-config
 SFCGAL_LIB_DEPENDS=		libSFCGAL.so:databases/sfcgal
 TOPOLOGY_CONFIGURE_WITH=	topology
-WAGYU_CONFIGURE_WITH=		wagyu
 RASTER_CONFIGURE_WITH=		raster
 
 CONFLICTS_INSTALL=	postgis[0-9][0-9] # lib/postgresql/address_standardizer-3.so
