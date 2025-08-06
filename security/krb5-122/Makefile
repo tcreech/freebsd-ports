@@ -1,15 +1,13 @@
 PORTNAME=		krb5
-PORTVERSION=		1.22.${MIT_COMMIT_DATE}
+PORTVERSION=		1.22
 CATEGORIES=		security
+MASTER_SITES=		http://web.mit.edu/kerberos/dist/${PORTNAME}/${PORTVERSION:C/^[0-9]*\.[0-9]*/&X/:C/X\.[0-9]*$//:C/X//}/
 .if !defined(MASTERDIR)
-PKGNAME_X=		-${FLAVOR:S/default//}-devel
+PKGNAME_X=		-${FLAVOR:S/default//}-121
 .else
 PKGNAME_X=		-${FLAVOR:S/default//}
 .endif
 PKGNAMESUFFIX=		${PKGNAME_X:S/--/-/:C/-$//}
-
-HASH=			820a7277e
-MIT_COMMIT_DATE=	2025.08.01
 
 PATCH_SITES=		http://web.mit.edu/kerberos/advisories/
 PATCH_DIST_STRIP=	-p2
@@ -20,22 +18,21 @@ WWW=			https://web.mit.edu/kerberos/
 
 LICENSE=		MIT
 
-USE_GITHUB=		yes
-GH_TAGNAME=		${HASH}
-
-CONFLICTS=		heimdal krb5 krb5-1*
+CONFLICTS=		heimdal krb5 krb5-11* krb5-120
+CONFLICTS_BUILD=	boringssl
 
 KERBEROSV_URL=		http://web.mit.edu/kerberos/
-USE_PERL5=		build
-USE_LDCONFIG=		yes
+USES=			autoreconf compiler:c++11-lang cpe gmake gettext-runtime \
+			gssapi:bootstrap,mit libtool:build localbase \
+			perl5 pkgconfig ssl
 USE_CSTD=		gnu99
+USE_LDCONFIG=		yes
+USE_PERL5=		build
 GNU_CONFIGURE=		yes
-USES=			autoreconf compiler:c11 cpe gmake localbase perl5 \
-			libtool:build gssapi:bootstrap,mit pkgconfig ssl
 CONFIGURE_ARGS?=	--enable-shared --without-system-verto \
 			--disable-rpath
 GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
-CONFIGURE_ENV=		INSTALL="${INSTALL}" INSTALL_LIB="${INSTALL_LIB}" YACC="${YACC}" WARN_CFLAGS=-Wno-strict-prototypes
+CONFIGURE_ENV=		INSTALL="${INSTALL}" INSTALL_LIB="${INSTALL_LIB}" YACC="${YACC}"
 MAKE_ARGS=		INSTALL="${INSTALL}" INSTALL_LIB="${INSTALL_LIB}"
 
 CPE_VENDOR=		mit
@@ -44,8 +41,8 @@ CPE_PRODUCT=		kerberos
 
 FLAVORS=		default ldap
 
-OPTIONS_DEFINE=		EXAMPLES NLS DNS_FOR_REALM LDAP LMDB
-OPTIONS_DEFAULT=	KRB5_PDF KRB5_HTML READLINE
+OPTIONS_DEFINE=		EXAMPLES NLS DOCS DNS_FOR_REALM LDAP LMDB
+OPTIONS_DEFAULT=	DOCS READLINE
 OPTIONS_RADIO=		CMD_LINE_EDITING
 OPTIONS_RADIO_CMD_LINE_EDITING=	READLINE LIBEDIT LIBEDIT_BASE
 CMD_LINE_EDITING_DESC=	Command line editing for kadmin and ktutil
@@ -117,8 +114,35 @@ CONFIGURE_ARGS+=	--program-transform-name="${PROGRAM_TRANSFORM_NAME}"
 
 .include <bsd.port.pre.mk>
 
-post-install:
+post-install-DOCS-on:
 	@${MKDIR} ${STAGEDIR}${PREFIX}/share/doc/krb5
+	cd ${WRKDIR}/${PORTNAME}-${PORTVERSION}; \
+	pdf_files=`${FIND} doc/pdf ! -type d`; \
+	pdf_dirs=`${FIND} doc/pdf -type d`; \
+	for i in $${pdf_dirs}; do \
+		${MKDIR} ${STAGEDIR}${PREFIX}/share/doc/krb5/$${i}; \
+	done; \
+	for i in $${pdf_files}; do \
+		${INSTALL_DATA} $${i} ${STAGEDIR}${PREFIX}/share/doc/krb5/$${i}; \
+		${ECHO_CMD} share/doc/krb5/$${i} >> ${TMPPLIST}; \
+	done
+	for i in $${pdf_dirs}; do \
+		${ECHO_CMD} @dir share/doc/krb5/$${i} >> ${TMPPLIST}; \
+	done | ${TAIL} -r >> ${TMPPLIST}
+	cd ${WRKDIR}/${PORTNAME}-${PORTVERSION}; \
+	html_files=`${FIND} doc/html ! -type d | ${GREP} -v /_sources`; \
+	html_dirs=`${FIND} doc/html -type d | ${GREP} -v /_sources`; \
+	for i in $${html_dirs}; do \
+		${MKDIR} ${STAGEDIR}${PREFIX}/share/doc/krb5/$${i}; \
+	done; \
+	for i in $${html_files}; do \
+		${INSTALL_DATA} $${i} ${STAGEDIR}${PREFIX}/share/doc/krb5/$${i}; \
+		${ECHO_CMD} share/doc/krb5/$${i} >> ${TMPPLIST}; \
+	done
+	for i in $${html_dirs}; do \
+		${ECHO_CMD} @dir share/doc/krb5/$${i} >> ${TMPPLIST}; \
+	done | ${TAIL} -r >> ${TMPPLIST}
+	${ECHO_CMD} @dir share/doc/krb5 >> ${TMPPLIST}
 
 post-install-LDAP-on:
 	${MKDIR} ${STAGEDIR}${DATADIR}
