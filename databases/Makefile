@@ -169,8 +169,6 @@
     SUBDIR += mariadb-java-client
     SUBDIR += mariadb1011-client
     SUBDIR += mariadb1011-server
-    SUBDIR += mariadb105-client
-    SUBDIR += mariadb105-server
     SUBDIR += mariadb106-client
     SUBDIR += mariadb106-server
     SUBDIR += mariadb114-client
@@ -897,6 +895,7 @@
     SUBDIR += redis62
     SUBDIR += redis72
     SUBDIR += redis74
+    SUBDIR += redis80
     SUBDIR += redis_exporter
     SUBDIR += redisdesktopmanager
     SUBDIR += redisjson
@@ -1023,6 +1022,7 @@
     SUBDIR += rubygem-openid-redis-store
     SUBDIR += rubygem-paranoia
     SUBDIR += rubygem-pg
+    SUBDIR += rubygem-pg-gitlab
     SUBDIR += rubygem-pg_array_parser
     SUBDIR += rubygem-pg_query
     SUBDIR += rubygem-pghero

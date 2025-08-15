@@ -63,7 +63,7 @@ GCC_DEFAULT?=		13
 GHOSTSCRIPT_DEFAULT?=	10
 # Possible values: mesa-libs, mesa-devel
 GL_DEFAULT?=		mesa-libs
-# Possible values: 1.20, 1.21, 1.22, 1.23, 1.24, 1.25-devel
+# Possible values: 1.20, 1.21, 1.22, 1.23, 1.24, 1.25, 1.26-devel
 GO_DEFAULT?=		1.24
 # Possible values: 1.8, 2.2, 3.0
 GUILE_DEFAULT?=		2.2
@@ -75,7 +75,7 @@ GUILE_DEFAULT?=		2.2
 IMAGEMAGICK_DEFAULT?=	7
 # Possible values: 8, 11, 17, 18, 19, 20, 21, 22, 23, 24
 JAVA_DEFAULT?=		8
-# Possible values: 4.0, 4.99
+# Possible values: 4.2, 4.99
 .  if (defined(WANT_LAZARUS_DEVEL) && !empty(WANT_LAZARUS_DEVEL)) || ${ARCH:Maarch64}
 LAZARUS_DEFAULT?=	4.99
 .  else
@@ -93,7 +93,7 @@ LINUX_DEFAULT?=		c7
 .  else
 LINUX_DEFAULT?=		rl9
 .  endif
-# Possible values: 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, -devel (to be used when non-base compiler is required)
+# Possible values: 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, -devel (to be used when non-base compiler is required)
 LLVM_DEFAULT?=		19
 # Possible values: 5.1, 5.2, 5.3, 5.4
 LUA_DEFAULT?=		5.4
@@ -105,7 +105,7 @@ LUAJIT_DEFAULT?=	luajit
 .  endif
 # Possible values: 5.10, 5.20, 6.8
 MONO_DEFAULT?=		5.20
-# Possible values: 8.0, 8.4, 9.1, 10.5m, 10.6m, 10.11m, 11.4m
+# Possible values: 8.0, 8.4, 9.1, 10.6m, 10.11m, 11.4m, 11.8m
 MYSQL_DEFAULT?=		8.0
 # Possible values: ninja, samurai
 NINJA_DEFAULT?=		ninja
