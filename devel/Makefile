@@ -719,6 +719,7 @@
     SUBDIR += fnm
     SUBDIR += folly
     SUBDIR += forge
+    SUBDIR += forgejo-runner
     SUBDIR += forge-devel
     SUBDIR += fortran-stdlib
     SUBDIR += fortran-utils
@@ -934,6 +935,7 @@
     SUBDIR += gorm
     SUBDIR += goswagger
     SUBDIR += got
+    SUBDIR += gotestsum
     SUBDIR += gpds
     SUBDIR += gperf
     SUBDIR += gprbuild
@@ -5326,6 +5328,7 @@
     SUBDIR += py-odfpy
     SUBDIR += py-offtrac
     SUBDIR += py-olefile
+    SUBDIR += py-omegaconf
     SUBDIR += py-omnijson
     SUBDIR += py-omniorb
     SUBDIR += py-oncalendar
