@@ -136,6 +136,7 @@
     SUBDIR += hyprlock
     SUBDIR += hyprpaper
     SUBDIR += hyprpicker
+    SUBDIR += hyprviz
     SUBDIR += i3bar-river
     SUBDIR += i3blocks
     SUBDIR += i3lock-color
@@ -460,6 +461,7 @@
     SUBDIR += watershot
     SUBDIR += way-displays
     SUBDIR += waybar
+    SUBDIR += waycheck
     SUBDIR += waycorner
     SUBDIR += wayidle
     SUBDIR += wayland-logout

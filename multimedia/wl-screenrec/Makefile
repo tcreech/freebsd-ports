@@ -1,10 +1,10 @@
 PORTNAME=	wl-screenrec
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.1.5
-PORTREVISION=	9
+PORTREVISION=	10
 CATEGORIES=	multimedia wayland
 
-MAINTAINER=	jbeich@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	High performance wlroots screen recording, featuring hardware encoding
 WWW=		https://github.com/russelltg/wl-screenrec
 
