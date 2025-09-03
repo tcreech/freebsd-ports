@@ -12,7 +12,9 @@
 
 PORTNAME?=	webengine
 DISTVERSION=	${QT6_VERSION}
-PORTREVISION?=	2 # Master port for print/qt7-pdf. Please keep this line.
+# This is the parent port of print/qt6-pdf. Please always keep 'PORTREVISION?='
+# and reset the value to '0' only after increasing QT6_VERSION in Mk/Uses/qt.mk.
+PORTREVISION?=	0
 CATEGORIES?=	www
 PKGNAMEPREFIX=	qt6-
 
@@ -22,15 +24,14 @@ COMMENT?=	Qt 6 library to render web content
 # 32-bit platforms are not supported by upstream, but we're limping them along.
 ONLY_FOR_ARCHS=	aarch64 amd64 armv7 i386
 
-BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}html5lib>0:www/py-html5lib@${PY_FLAVOR} \
-		${LOCALBASE}/include/vulkan/vulkan.h:graphics/vulkan-headers
+BUILD_DEPENDS=	${LOCALBASE}/include/vulkan/vulkan.h:graphics/vulkan-headers
 LIB_DEPENDS=	libfreetype.so:print/freetype2 \
 		libnss3.so:security/nss \
 		libopenjp2.so:graphics/openjpeg \
 		libxkbcommon.so:x11/libxkbcommon
 
-USES=		bison cmake compiler:c++20-lang gl gperf localbase:ldflags \
-		ninja:build pkgconfig python:build qt-dist:6,webengine
+USES=		cmake compiler:c++20-lang gl localbase:ldflags ninja:build \
+		pkgconfig python:build qt-dist:6,webengine
 USE_GL=		opengl
 USE_QT=		base declarative tools
 USE_XORG=	x11 xcb xcomposite xcursor xdamage xext xfixes xi xkbfile \
@@ -47,7 +48,8 @@ CMAKE_OFF+=	QT_FEATURE_qtwebengine_build
 
 SYS_LIBS=	freetype
 .else
-BUILD_DEPENDS+=	${LOCALBASE}/include/linux/videodev2.h:multimedia/v4l_compat
+BUILD_DEPENDS+=	${LOCALBASE}/include/linux/videodev2.h:multimedia/v4l_compat \
+		${PYTHON_PKGNAMEPREFIX}html5lib>0:www/py-html5lib@${PY_FLAVOR}
 LIB_DEPENDS+=	libabsl_base.so:devel/abseil \
 		libavcodec.so:multimedia/ffmpeg \
 		libdbus-1.so:devel/dbus \
@@ -70,7 +72,7 @@ LIB_DEPENDS+=	libabsl_base.so:devel/abseil \
 		libvpx.so:multimedia/libvpx \
 		libwebp.so:graphics/webp
 
-USES+=		gnome jpeg minizip xorg
+USES+=		bison gnome gperf jpeg minizip xorg
 USE_GL+=	gbm
 USE_QT+=	positioning quick3d:build webchannel
 USE_GNOME+=	glib20 libxml2 libxslt
@@ -143,10 +145,12 @@ SNDIO_CMAKE_OFF=	-DQT_FEATURE_webengine_system_sndio:BOOL=OFF
 
 .include <bsd.port.options.mk>
 
-.if ${ARCH:Mi386}
+.if !defined(BUILD_QTPDF)
+.  if ${ARCH:Mi386}
 USES+=		nodejs:build,20
-.else
+.  else
 USES+=		nodejs:build,lts
+.  endif
 .endif
 
 post-extract:
