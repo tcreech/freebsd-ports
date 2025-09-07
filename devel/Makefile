@@ -5678,6 +5678,7 @@
     SUBDIR += py-pytest
     SUBDIR += py-pytest-aiohttp
     SUBDIR += py-pytest-alembic
+    SUBDIR += py-pytest-arraydiff
     SUBDIR += py-pytest-asyncio
     SUBDIR += py-pytest-azurepipelines
     SUBDIR += py-pytest-benchmark
@@ -5701,6 +5702,7 @@
     SUBDIR += py-pytest-env
     SUBDIR += py-pytest-examples
     SUBDIR += py-pytest-factoryboy
+    SUBDIR += py-pytest-filter-subpackage
     SUBDIR += py-pytest-fixture-config
     SUBDIR += py-pytest-flake8
     SUBDIR += py-pytest-flakes
