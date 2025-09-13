@@ -58,7 +58,6 @@
     SUBDIR += beacon
     SUBDIR += beanstalkd
     SUBDIR += belle-sip
-    SUBDIR += benthos
     SUBDIR += bindtest
     SUBDIR += binkd
     SUBDIR += bird2
@@ -210,6 +209,7 @@
     SUBDIR += gnu-radius
     SUBDIR += go-bapu
     SUBDIR += go-cs
+    SUBDIR += go-pkgsite
     SUBDIR += go-tcping
     SUBDIR += gobgp
     SUBDIR += gofish
