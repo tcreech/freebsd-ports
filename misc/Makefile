@@ -456,6 +456,8 @@
     SUBDIR += py-gpiozero
     SUBDIR += py-gymnasium
     SUBDIR += py-halo
+    SUBDIR += py-haystack_ai
+    SUBDIR += py-haystack_experimental
     SUBDIR += py-hf-doc-builder
     SUBDIR += py-hf-xet
     SUBDIR += py-hist
@@ -488,6 +490,7 @@
     SUBDIR += py-llm-claude-3
     SUBDIR += py-log_symbols
     SUBDIR += py-mcp
+    SUBDIR += py-mem0ai
     SUBDIR += py-mffpy
     SUBDIR += py-mixpanel
     SUBDIR += py-mmcv
