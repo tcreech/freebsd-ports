@@ -515,6 +515,7 @@
     SUBDIR += py-palettable
     SUBDIR += py-papermill
     SUBDIR += py-pdd
+    SUBDIR += py-peft
     SUBDIR += py-pexpect
     SUBDIR += py-pkbar
     SUBDIR += py-placekey
@@ -561,6 +562,7 @@
     SUBDIR += py-timm-vis
     SUBDIR += py-toil
     SUBDIR += py-torch-geometric
+    SUBDIR += py-torchao
     SUBDIR += py-torchmetrics
     SUBDIR += py-torchvision
     SUBDIR += py-tqdm
@@ -627,6 +629,7 @@
     SUBDIR += sfm
     SUBDIR += shared-mime-info
     SUBDIR += shc
+    SUBDIR += shimmy
     SUBDIR += shuffle
     SUBDIR += shuffle-db
     SUBDIR += silicon
