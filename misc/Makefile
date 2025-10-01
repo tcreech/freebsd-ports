@@ -49,12 +49,14 @@
     SUBDIR += chmlib
     SUBDIR += chrono
     SUBDIR += cinnamon-translations
+    SUBDIR += claude-code
     SUBDIR += cldr-emoji-annotation
     SUBDIR += clex
     SUBDIR += clifm
     SUBDIR += cloc
     SUBDIR += clpbar
     SUBDIR += code2prompt
+    SUBDIR += codex
     SUBDIR += colortail
     SUBDIR += coloursum
     SUBDIR += colwide
@@ -76,6 +78,7 @@
     SUBDIR += cpp-mcp
     SUBDIR += cpuid
     SUBDIR += crosti
+    SUBDIR += crush
     SUBDIR += cryptoballot
     SUBDIR += cs
     SUBDIR += cstream
@@ -158,9 +161,11 @@
     SUBDIR += g810-led
     SUBDIR += gedkeeper
     SUBDIR += geekcode
+    SUBDIR += gemini-cli
     SUBDIR += getopt
     SUBDIR += ggml
     SUBDIR += gimp-help-en
+    SUBDIR += github-copilot-cli
     SUBDIR += gkrellm-gamma
     SUBDIR += gkrellm-xkb
     SUBDIR += gkrellmbgchg2
@@ -501,8 +506,11 @@
     SUBDIR += py-mmengine
     SUBDIR += py-mmsegmentation
     SUBDIR += py-molequeue
+    SUBDIR += py-napari
+    SUBDIR += py-napari-svg
     SUBDIR += py-natten
     SUBDIR += py-npTDMS
+    SUBDIR += py-npe2
     SUBDIR += py-numcodecs
     SUBDIR += py-ollama
     SUBDIR += py-onnx

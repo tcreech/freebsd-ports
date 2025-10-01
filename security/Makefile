@@ -58,7 +58,6 @@
     SUBDIR += bitwarden-cli
     SUBDIR += blst
     SUBDIR += boringssl
-    SUBDIR += botan2
     SUBDIR += botan3
     SUBDIR += bruteblock
     SUBDIR += bsdsfv
@@ -453,7 +452,6 @@
     SUBDIR += openssl-quictls
     SUBDIR += openssl-unsafe
     SUBDIR += openssl111
-    SUBDIR += openssl32
     SUBDIR += openssl33
     SUBDIR += openssl33-quictls
     SUBDIR += openssl34
@@ -749,6 +747,7 @@
     SUBDIR += p5-Yahoo-BBAuth
     SUBDIR += p5-dicewaregen
     SUBDIR += p5-openxpki
+    SUBDIR += p5-openxpki-clca
     SUBDIR += p5-openxpki-i18n
     SUBDIR += p5-plog
     SUBDIR += pam-modules
@@ -1045,6 +1044,7 @@
     SUBDIR += py-python-gnupg
     SUBDIR += py-python-gvm
     SUBDIR += py-python-jose
+    SUBDIR += py-python-nmap
     SUBDIR += py-python-nss
     SUBDIR += py-python-openid
     SUBDIR += py-python-pam

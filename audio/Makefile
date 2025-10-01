@@ -104,6 +104,7 @@
     SUBDIR += deadbeef-spectrogram-plugin
     SUBDIR += deadbeef-vu-meter-plugin
     SUBDIR += deadbeef-waveform-seekbar-plugin
+    SUBDIR += decibels
     SUBDIR += denemo
     SUBDIR += dexed
     SUBDIR += dgedit
@@ -831,7 +832,10 @@
     SUBDIR += vgmtools
     SUBDIR += vimpc
     SUBDIR += virtual_oss
+    SUBDIR += virtual_oss_bluetooth
     SUBDIR += virtual_oss_ctl
+    SUBDIR += virtual_oss_equalizer
+    SUBDIR += virtual_oss_sndio
     SUBDIR += visp-go
     SUBDIR += vitunes
     SUBDIR += vm-lv2

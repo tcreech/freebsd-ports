@@ -4778,3 +4778,10 @@ graphics/osg34||2025-09-11|Has expired: Obsolete version released in 2015
 games/motogt||2025-09-11|Has expired: Depends on obsolete devel/sfml1
 devel/sfml1|devel/sfml|2025-09-11|Has expired: Broken obsolete version
 net/benthos|net/redpanda-connect|2025-09-12|Has expired: Superseded by net/redpanda-connect
+cad/cvc||2025-09-24|Has expired: Upstream stalled, needs EOL GCC 11 to build
+lang/gcc11||2025-09-24|Has expired: End-of-life upstream since mid 2024, newer versions available
+devel/util-linux|sysutils/util-linux|2025-09-29|Move to the proper category
+sysutils/linuxfdisk||2025-10-01|Has expired: Upstream distfile unavailable, way out of date, upstream distfile gone, use gpart instead
+sysutils/linrename||2025-10-01|Has expired: FreeBSD port unmaintained, use misc/mmv or rename from sysutils/util-linux instead
+security/openssl32||2025-10-01|Has expired: Please use security/openssl35 (LTS)
+security/botan2||2025-10-01|Has expired: End of life 2024-12-31 upstream, consider migrating to security/botan3
