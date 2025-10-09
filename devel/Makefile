@@ -1051,6 +1051,7 @@
     SUBDIR += inilike
     SUBDIR += iniparser
     SUBDIR += initutil
+    SUBDIR += inja
     SUBDIR += injeqt
     SUBDIR += intel-graphics-compiler
     SUBDIR += interactive_rebase_tool
@@ -6178,6 +6179,9 @@
     SUBDIR += py-userpath
     SUBDIR += py-usort
     SUBDIR += py-uuid7
+    SUBDIR += py-uv
+    SUBDIR += py-uv-build
+    SUBDIR += py-uv-bump
     SUBDIR += py-uv-dynamic-versioning
     SUBDIR += py-uvloop
     SUBDIR += py-validate-pyproject
@@ -8301,6 +8305,7 @@
     SUBDIR += statsvn
     SUBDIR += stb
     SUBDIR += stc
+    SUBDIR += stdgenerator
     SUBDIR += stdman
     SUBDIR += stdx-allocator
     SUBDIR += stfl
