@@ -1,13 +1,13 @@
-PORTNAME=	opentelemetry-helpers-sql-obfuscation
-PORTVERSION=	0.4.0
+PORTNAME=	opentelemetry-helpers-sql-processor
+PORTVERSION=	0.1.0
 CATEGORIES=	devel rubygems
 MASTER_SITES=	RG
 
 MAINTAINER=	mfechner@FreeBSD.org
-COMMENT=	SQL Obfuscation Instrumentation Helpers for the OpenTelemetry framework
+COMMENT=	SQL Processing Instrumentation Helpers for the OpenTelemetry framework
 WWW=		https://opentelemetry.io/ \
 		https://github.com/open-telemetry/opentelemetry-ruby \
-		https://github.com/open-telemetry/opentelemetry-ruby-contrib/tree/main/helpers/sql-obfuscation
+		https://github.com/open-telemetry/opentelemetry-ruby-contrib/tree/main/helpers/sql-processor
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
