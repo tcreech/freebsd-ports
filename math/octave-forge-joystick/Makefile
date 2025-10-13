@@ -1,4 +1,4 @@
-PORTNAME=	octave-forge-odbc
+PORTNAME=	octave-forge-joystick
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.0.4
 CATEGORIES=	math
@@ -10,13 +10,14 @@ WWW=		https://packages.octave.org/
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKDIR}/${OCTAVE_SRC}/COPYING
 
-LIB_DEPENDS+=	libodbc.so:databases/unixODBC \
-		libsqlite3odbc.so:databases/sqliteodbc
+BUILD_DEPENDS+	cmake:devel/cmake # Required by configure.
+
+LIB_DEPENDS+=	libSDL2.so:devel/sdl20
 
 USES=		octave autoreconf
 USE_GITHUB=	yes
 GH_ACCOUNT=	gnu-octave
-GH_PROJECT=	octave-odbc
+GH_PROJECT=	octave-joystick
 
 GNU_CONFIGURE=	yes
 
