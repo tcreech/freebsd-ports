@@ -3,8 +3,8 @@ We need to define PLATFORM_LINUX as the default if consumers don't do so.
 Fix runtime for little endian archs. At least on amd64, _BIG_ENDIAN is defined
 somewhere in the toolchain, causing the byte order to be reversed.
 
---- Shared/All.h.orig	2025-10-15 08:20:58 UTC
-+++ Shared/All.h
+--- Source/Shared/All.h.orig	2025-10-15 08:20:58 UTC
++++ Source/Shared/All.h
 @@ -10,8 +10,8 @@ PLATFORM_ANDROID
  PLATFORM_ANDROID
  **************************************************************************************************/
