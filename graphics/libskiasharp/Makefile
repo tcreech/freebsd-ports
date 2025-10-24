@@ -1,10 +1,9 @@
 PORTNAME=	libskiasharp
 DISTVERSIONPREFIX=	v
 DISTVERSION=	116
+PORTREVISION=	2
 PORTREPOCH=	1
 CATEGORIES=	graphics
-MASTER_SITES=	LOCAL/bapt:libjpeg_turbo
-DISTFILES=	libjpeg_turbo-${LIBJPEG_TURBO_REV}.tar.gz:libjpeg_turbo
 
 MAINTAINER=	bapt@FreeBSD.org
 COMMENT=	Complete 2D graphic library for drawing Text, Geometries, and Images
@@ -25,16 +24,13 @@ USES=		jpeg ninja python:build
 USE_GITHUB=	yes
 GH_ACCOUNT=	mono
 GH_PROJECT=	skia
-GH_TAGNAME=	8684edb4e68d2bbf0d56a600633f5d4c44a16a36
-
-LIBJPEG_TURBO_REV=	22f1a22c99e9dde8cd3c72ead333f425c5a7aa77
+GH_TAGNAME=	c16e913577083761d847146db7a04b8d3b3bf755
 
 USE_LDCONFIG=	yes
 USE_BINUTILS=	yes
 
 SOVERSION=	116.0.0
-#
-# see https://github.com/libjpeg-turbo/libjpeg-turbo/issues/795#issuecomment-2484148592
+
 GN_ARGS=	is_official_build=true \
 		skia_enable_tools=false \
 		target_os="linux" \
@@ -44,12 +40,13 @@ GN_ARGS=	is_official_build=true \
 		skia_use_harfbuzz=false \
 		skia_use_wuffs=false \
 		skia_use_system_expat=true \
-		skia_use_system_libjpeg_turbo=false \
+		skia_use_system_libjpeg_turbo=true \
 		skia_use_system_freetype2=true \
 		skia_use_system_libpng=true \
 		skia_use_system_libwebp=true \
 		skia_use_system_zlib=true \
 		skia_enable_gpu=true \
+		ska_enable_ganesh=true \
 		skia_enable_skottie=true \
 		skia_enable_pdf=true \
 		skia_use_dng_sdk=false \
@@ -57,7 +54,8 @@ GN_ARGS=	is_official_build=true \
 		"-DSKIA_C_DLL", \
 		"-I${LOCALBASE}/include", \
 		"-I${LOCALBASE}/include/freetype2"] \
-		extra_ldflags=["-L${LOCALBASE}/lib"] \
+		extra_ldflags=["-L${LOCALBASE}/lib", \
+		"-Wl,--version-script=${FILESDIR}/libskiasharp.map" ] \
 		linux_soname_version="${SOVERSION}"
 
 BINARY_ALIAS=	python3=${PYTHON_CMD} \
