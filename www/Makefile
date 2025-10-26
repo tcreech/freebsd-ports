@@ -2333,6 +2333,7 @@
     SUBDIR += rubygem-protocol-rack
     SUBDIR += rubygem-protocol-websocket
     SUBDIR += rubygem-puma
+    SUBDIR += rubygem-puma-gitlab
     SUBDIR += rubygem-puma6
     SUBDIR += rubygem-puma_worker_killer
     SUBDIR += rubygem-pusher-client
@@ -2477,6 +2478,8 @@
     SUBDIR += rubygem-turbolinks
     SUBDIR += rubygem-turbolinks-source
     SUBDIR += rubygem-typhoeus
+    SUBDIR += rubygem-typhoeus-gitlab
+    SUBDIR += rubygem-typhoeus14
     SUBDIR += rubygem-uglifier
     SUBDIR += rubygem-underscore-rails
     SUBDIR += rubygem-unicorn

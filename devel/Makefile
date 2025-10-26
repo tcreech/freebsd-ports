@@ -7369,6 +7369,8 @@
     SUBDIR += rubygem-forwardable
     SUBDIR += rubygem-forwardable-extended
     SUBDIR += rubygem-fugit
+    SUBDIR += rubygem-fugit-gitlab
+    SUBDIR += rubygem-fugit111
     SUBDIR += rubygem-fuubar
     SUBDIR += rubygem-fuzzy_match
     SUBDIR += rubygem-gapic-common
@@ -7556,6 +7558,7 @@
     SUBDIR += rubygem-json-canonicalization
     SUBDIR += rubygem-json-gitlab
     SUBDIR += rubygem-json-schema
+    SUBDIR += rubygem-json-schema-gitlab
     SUBDIR += rubygem-json1
     SUBDIR += rubygem-json27
     SUBDIR += rubygem-json_pure
@@ -7592,6 +7595,7 @@
     SUBDIR += rubygem-logger-gitlab
     SUBDIR += rubygem-logger15
     SUBDIR += rubygem-logging
+    SUBDIR += rubygem-logging-gitlab
     SUBDIR += rubygem-logster
     SUBDIR += rubygem-loquacious
     SUBDIR += rubygem-lrama
@@ -7601,6 +7605,7 @@
     SUBDIR += rubygem-manpages
     SUBDIR += rubygem-map
     SUBDIR += rubygem-marcel
+    SUBDIR += rubygem-marcel-gitlab
     SUBDIR += rubygem-memo_wise
     SUBDIR += rubygem-memoist
     SUBDIR += rubygem-memoist3
@@ -7641,7 +7646,7 @@
     SUBDIR += rubygem-msgpack
     SUBDIR += rubygem-mspec
     SUBDIR += rubygem-multi_json
-    SUBDIR += rubygem-multi_json114
+    SUBDIR += rubygem-multi_json-gitlab
     SUBDIR += rubygem-multi_test
     SUBDIR += rubygem-murmurhash3
     SUBDIR += rubygem-mustache
@@ -7688,6 +7693,7 @@
     SUBDIR += rubygem-opentelemetry-helpers-mysql
     SUBDIR += rubygem-opentelemetry-helpers-sql
     SUBDIR += rubygem-opentelemetry-helpers-sql-obfuscation
+    SUBDIR += rubygem-opentelemetry-helpers-sql-processor
     SUBDIR += rubygem-opentelemetry-instrumentation-action_mailer
     SUBDIR += rubygem-opentelemetry-instrumentation-action_pack
     SUBDIR += rubygem-opentelemetry-instrumentation-action_view
@@ -7853,6 +7859,7 @@
     SUBDIR += rubygem-redis-activesupport-rails60
     SUBDIR += rubygem-redis-activesupport-rails61
     SUBDIR += rubygem-redis-store
+    SUBDIR += rubygem-redis-store-gitlab
     SUBDIR += rubygem-redlock
     SUBDIR += rubygem-redlock1
     SUBDIR += rubygem-redmine_plugin_support
@@ -8134,9 +8141,9 @@
     SUBDIR += rubygem-versionomy
     SUBDIR += rubygem-view_component-rails-gitlab
     SUBDIR += rubygem-virtus
-    SUBDIR += rubygem-vite_rails-rails70
+    SUBDIR += rubygem-vite_rails-gitlab
     SUBDIR += rubygem-vite_ruby
-    SUBDIR += rubygem-vite_ruby33
+    SUBDIR += rubygem-vite_ruby-gitlab
     SUBDIR += rubygem-warbler
     SUBDIR += rubygem-warden
     SUBDIR += rubygem-warning
