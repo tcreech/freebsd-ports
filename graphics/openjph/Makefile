@@ -1,5 +1,5 @@
 PORTNAME=	openjph
-PORTVERSION=	0.22.0
+PORTVERSION=	0.24.5
 CATEGORIES=	graphics
 
 MAINTAINER=	sunpoet@FreeBSD.org
