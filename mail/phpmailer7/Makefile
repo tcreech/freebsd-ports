@@ -1,8 +1,8 @@
 PORTNAME=	phpmailer
-PORTVERSION=	6.12.0
+PORTVERSION=	7.0.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	mail
-PKGNAMESUFFIX=	6
+PKGNAMESUFFIX=	7
 
 MAINTAINER=	joneum@FreeBSD.org
 COMMENT=	Full Featured Email Transfer Class for PHP
@@ -15,7 +15,7 @@ USES=		cpe php
 
 CONFLICTS_INSTALL=	phpmailer
 
-PORTSCOUT=	limit:^6\.
+PORTSCOUT=	limit:^7\.
 
 CPE_VENDOR=	phpmailer_project
 
