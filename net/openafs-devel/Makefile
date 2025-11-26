@@ -2,6 +2,7 @@
 
 PORTNAME=	openafs-devel
 DISTVERSION=	g20250615.${DBVERSION:S/-//g}
+PORTREVISION=	2
 CATEGORIES=	net
 DISTFILES=	CellServDB.${DBVERSION}:gco
 MASTER_SITES= GH \
@@ -9,7 +10,7 @@ MASTER_SITES= GH \
 		http://grand.central.org/dl/cellservdb/:gco
 
 USE_GITHUB=	yes
-GH_TAGNAME=	14206_3_fbsd14_20250615
+GH_TAGNAME=	14206_3_fbsd15_20250615
 GH_ACCOUNT=	tcreech
 GH_PROJECT=	openafs
 
@@ -96,8 +97,8 @@ FUSE_CONFIGURE_OFF=	--disable-fuse-client
 CFLAGS+=	-mstackrealign -Wno-shift-negative-value -Wno-pointer-sign
 .endif
 
-.if ${OSREL:R} >= 15
-# Upstream does not support the client on 15 and newer
+.if ${OSREL:R} >= 16
+# Upstream does not support the client on 16 and newer
 CONFIGURE_ARGS += --disable-kernel-module
 PLIST_SUB+=	KMOD="@comment "
 
