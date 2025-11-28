@@ -1,5 +1,5 @@
 PORTNAME=	poudriere
-DISTVERSION=	3.4.99.20251014
+DISTVERSION=	3.4.99.20251127
 PORTREVISION=	0
 CATEGORIES=	ports-mgmt
 MASTER_SITES=	LOCAL/bdrewery/${PORTNAME}/ \
@@ -17,14 +17,17 @@ CONFLICTS_INSTALL=	poudriere
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	freebsd
-GH_TAGNAME=	3.3.0-2209-g282bb7247
+GH_TAGNAME=	3.3.0-2465-g5b7655549
 
 GNU_CONFIGURE=	yes
 ETCDIR=		${PREFIX}/etc/poudriere.d
 
-OPTIONS_DEFINE=	BASH MANIFESTS PORTCONFIG EXAMPLES QEMU ZSH
+OPTIONS_DEFINE=	BASH DEBUG EXAMPLES MANIFESTS PORTCONFIG QEMU ZSH
 OPTIONS_DEFAULT=BASH MANIFESTS PORTCONFIG ZSH
 OPTIONS_SUB=	yes
+
+DEBUG_CONFIGURE_ENABLE=	debug
+DEBUG_DESC=		Enables extra runtime assertions and output
 
 MANIFESTS_DESC=		Install manifests for jail creation
 MANIFESTS_RUN_DEPENDS+=	freebsd-release-manifests>0:misc/freebsd-release-manifests
@@ -34,7 +37,6 @@ PORTCONFIG_RUN_DEPENDS=	portconfig>0:ports-mgmt/portconfig
 
 QEMU_DESC=	Add qemu-user-static for non-x86 architectures
 QEMU_RUN_DEPENDS=	qemu-user-static>0:emulators/qemu-user-static
-
 
 # gmake is not strictly needed but handles test jobs better
 TEST_DEPENDS=	gmake>0:devel/gmake
