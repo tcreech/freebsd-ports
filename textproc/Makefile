@@ -493,7 +493,6 @@
     SUBDIR += ml-aspell
     SUBDIR += ml1
     SUBDIR += mn-aspell
-    SUBDIR += moar
     SUBDIR += modlogan
     SUBDIR += moor
     SUBDIR += mp_doccer
@@ -1724,6 +1723,7 @@
     SUBDIR += py-uc-micro-py
     SUBDIR += py-ucl
     SUBDIR += py-ufal.udpipe
+    SUBDIR += py-unicode-segmentation-rs
     SUBDIR += py-unicodeitplus
     SUBDIR += py-untangle
     SUBDIR += py-urlscan
