@@ -15,7 +15,7 @@ EXTRACT_ONLY=	${PORTNAME}-${AFS_DISTVERSION}-src.tar.bz2 \
 
 MAINTAINER=	bjk@FreeBSD.org
 COMMENT=	AFS implementation from openafs.org
-BROKEN_FreeBSD_15=    Needs updates for FreeBSD 15
+BROKEN_FreeBSD_16=    Needs updates for FreeBSD 16
 
 LICENSE=	IPLv1
 LICENSE_NAME=	IBM Public License Version 1.0
@@ -46,6 +46,7 @@ CONFIGURE_ARGS=	--prefix=${PREFIX} \
 		--enable-debug-kernel \
 		--enable-debug-lwp \
 		--includedir=${PREFIX}/include/openafs \
+		--with-roken=internal \
 		${CONFIGURE_TARGET}
 WRKSRC=		${WRKDIR}/${PORTNAME}-${AFS_DISTVERSION}
 MAKE_ENV=	COMPILER_TYPE=${COMPILER_TYPE} ARCH=${ARCH} MACHINE_ARCH=${MACHINE_ARCH}
@@ -90,8 +91,8 @@ CFLAGS+=	-mstackrealign -Wno-shift-negative-value -Wno-pointer-sign
 CONFIGURE_ARGS+=	AS=$(CC)
 .endif
 
-.if ${OSREL:R} >= 15
-# Upstream does not support the client on 15 and newer
+.if ${OSREL:R} >= 16
+# Upstream does not support the client on 16 and newer
 CONFIGURE_ARGS += --disable-kernel-module
 PLIST_SUB+=	KMOD="@comment "
 

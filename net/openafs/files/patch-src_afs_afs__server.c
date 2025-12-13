@@ -1,6 +1,16 @@
---- src/afs/afs_server.c.orig	2022-12-15 20:10:23 UTC
+--- src/afs/afs_server.c.orig	2025-01-23 17:12:55 UTC
 +++ src/afs/afs_server.c
-@@ -1361,13 +1361,25 @@ afs_SetServerPrefs(struct srvAddr *const sa)
+@@ -51,6 +51,9 @@
+ # ifdef AFS_DARWIN_ENV
+ #  include <net/if_var.h>
+ # endif
++# ifdef AFS_FBSD_ENV
++#  include <net/if_private.h>
++# endif
+ #endif /* !defined(UKERNEL) */
+ 
+ #include "afsincludes.h"	/* Afs-based standard headers */
+@@ -1361,13 +1364,25 @@ afs_SetServerPrefs(struct srvAddr *const sa)
  #   elif defined(AFS_FBSD_ENV)
      {
  	struct in_ifaddr *ifa;

@@ -213,6 +213,10 @@ lib/libkopen%%AFSMNTDIR%%.a
 lib/libkopen%%AFSMNTDIR%%.so
 lib/libkopen%%AFSMNTDIR%%.so.2
 lib/libkopen%%AFSMNTDIR%%.so.2.0.0
+lib/libroken%%AFSMNTDIR%%.a
+lib/libroken%%AFSMNTDIR%%.so
+lib/libroken%%AFSMNTDIR%%.so.2
+lib/libroken%%AFSMNTDIR%%.so.2.0.0
 lib/liblwp.a
 lib/libopr.a
 lib/librx.a
