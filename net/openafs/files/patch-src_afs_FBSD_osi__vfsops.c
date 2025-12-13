@@ -1,4 +1,4 @@
---- src/afs/FBSD/osi_vfsops.c.orig	2024-10-03 22:32:45 UTC
+--- src/afs/FBSD/osi_vfsops.c.orig	2025-01-23 17:12:55 UTC
 +++ src/afs/FBSD/osi_vfsops.c
 @@ -15,7 +15,11 @@ struct mount *afs_globalVFS = NULL;
  
@@ -35,7 +35,24 @@
      return syscall_helper_unregister(afs_syscalls);
  }
  
-@@ -231,17 +243,20 @@ tryagain:
+@@ -121,8 +133,14 @@ afs_omount(struct mount *mp, char *path, caddr_t data)
+      */
+     mp->mnt_stat.f_iosize = 8192;
+ 
+-    if (path != NULL)
+-	copyinstr(path, mp->mnt_stat.f_mntonname, MNAMELEN - 1, &size);
++    if (path != NULL) {
++	int r = copyinstr(path, mp->mnt_stat.f_mntonname, MNAMELEN - 1, &size);
++	if (r != 0) {
++		MNT_IUNLOCK(mp);
++		AFS_GUNLOCK();
++		return EINVAL;
++	}
++    }
+     else
+ 	bcopy("/afs", mp->mnt_stat.f_mntonname, size = 4);
+     memset(mp->mnt_stat.f_mntonname + size, 0, MNAMELEN - size);
+@@ -231,17 +249,20 @@ tryagain:
  
  	ASSERT_VI_UNLOCKED(vp, "afs_root");
  	AFS_GUNLOCK();

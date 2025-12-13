@@ -1,4 +1,4 @@
---- src/afs/FBSD/osi_vnodeops.c.orig	2024-10-03 22:32:45 UTC
+--- src/afs/FBSD/osi_vnodeops.c.orig	2025-01-23 17:12:55 UTC
 +++ src/afs/FBSD/osi_vnodeops.c
 @@ -62,7 +62,12 @@
  #include <vm/vm_pager.h>
@@ -13,7 +13,7 @@
  
  #define GETNAME()       \
      struct componentname *cnp = ap->a_cnp; \
-@@ -79,6 +84,12 @@ extern int afs_pbuf_freecnt;
+@@ -79,14 +84,25 @@ extern int afs_pbuf_freecnt;
  # define AFS_LINK_MAX (32767)
  #endif
  
@@ -26,7 +26,20 @@
  /*
   * Here we define compatibility functions/macros for interfaces that
   * have changed between different FreeBSD versions.
-@@ -244,7 +255,11 @@ afs_vop_lookup(ap)
+  */
+ static __inline void ma_vm_page_lock_queues(void) {};
+ static __inline void ma_vm_page_unlock_queues(void) {};
++#if __FreeBSD_version >= 1500046
++static __inline void ma_vm_page_lock(vm_page_t m) {};
++static __inline void ma_vm_page_unlock(vm_page_t m) {};
++#else
+ static __inline void ma_vm_page_lock(vm_page_t m) { vm_page_lock(m); };
+ static __inline void ma_vm_page_unlock(vm_page_t m) { vm_page_unlock(m); };
++#endif
+ 
+ #if __FreeBSD_version >= 1000030
+ #define AFS_VM_OBJECT_WLOCK(o)	VM_OBJECT_WLOCK(o)
+@@ -244,7 +260,11 @@ afs_vop_lookup(ap)
       */
  
      if (flags & ISDOTDOT)
@@ -38,7 +51,7 @@
  
      AFS_GLOCK();
      error = afs_lookup(VTOAFS(dvp), name, &vcp, cnp->cn_cred);
-@@ -256,8 +271,10 @@ afs_vop_lookup(ap)
+@@ -256,8 +276,10 @@ afs_vop_lookup(ap)
  	if ((cnp->cn_nameiop == CREATE || cnp->cn_nameiop == RENAME)
  	    && (flags & ISLASTCN) && error == ENOENT)
  	    error = EJUSTRETURN;
@@ -49,7 +62,7 @@
  	DROPNAME();
  	*ap->a_vpp = 0;
  	return (error);
-@@ -276,8 +293,10 @@ afs_vop_lookup(ap)
+@@ -276,8 +298,10 @@ afs_vop_lookup(ap)
      }
      *ap->a_vpp = vp;
  
@@ -60,7 +73,7 @@
  
      DROPNAME();
      return error;
-@@ -364,14 +383,14 @@ afs_vop_close(ap)
+@@ -364,14 +388,14 @@ afs_vop_close(ap)
  				 * struct thread *a_td;
  				 * } */ *ap;
  {
@@ -78,7 +91,7 @@
          /* osi_FlushVCache (correctly) calls vgone() on recycled vnodes, we don't
           * have an afs_close to process, in that case */
          if (avc->opens != 0)
-@@ -386,6 +405,14 @@ afs_vop_close(ap)
+@@ -386,6 +410,14 @@ afs_vop_close(ap)
      else
  	code = afs_close(avc, ap->a_fflag, afs_osi_credp);
      osi_FlushPages(avc, ap->a_cred);	/* hold GLOCK, but not basic vnode lock */
@@ -93,7 +106,7 @@
      AFS_GUNLOCK();
      return code;
  }
-@@ -538,7 +565,11 @@ afs_vop_getpages(struct vop_getpages_args *ap)
+@@ -538,7 +570,11 @@ afs_vop_getpages(struct vop_getpages_args *ap)
  	ma_vm_page_unlock_queues();
  	AFS_VM_OBJECT_WUNLOCK(object);
      }
@@ -105,7 +118,7 @@
  
      kva = (vm_offset_t) bp->b_data;
      pmap_qenter(kva, pages, npages);
-@@ -566,7 +597,11 @@ afs_vop_getpages(struct vop_getpages_args *ap)
+@@ -566,7 +602,11 @@ afs_vop_getpages(struct vop_getpages_args *ap)
      AFS_GUNLOCK();
      pmap_qremove(kva, npages);
  
@@ -117,7 +130,7 @@
  
      if (code && (uio.uio_resid == count)) {
  #ifndef FBSD_VOP_GETPAGES_BUSIED
-@@ -662,11 +697,19 @@ afs_vop_write(ap)
+@@ -662,11 +702,19 @@ afs_vop_write(ap)
  {
      int code;
      struct vcache *avc = VTOAFS(ap->a_vp);
@@ -137,7 +150,7 @@
      return code;
  }
  
-@@ -695,6 +738,7 @@ afs_vop_putpages(struct vop_putpages_args *ap)
+@@ -695,6 +743,7 @@ afs_vop_putpages(struct vop_putpages_args *ap)
      vm_offset_t kva;
      struct vnode *vp;
      struct vcache *avc;
@@ -145,7 +158,7 @@
  
      memset(&uio, 0, sizeof(uio));
      memset(&iov, 0, sizeof(iov));
-@@ -713,7 +757,11 @@ afs_vop_putpages(struct vop_putpages_args *ap)
+@@ -713,7 +762,11 @@ afs_vop_putpages(struct vop_putpages_args *ap)
      npages = btoc(ap->a_count);
      for (i = 0; i < npages; i++)
  	ap->a_rtvals[i] = VM_PAGER_AGAIN;
@@ -157,7 +170,7 @@
  
      kva = (vm_offset_t) bp->b_data;
      pmap_qenter(kva, ap->a_m, npages);
-@@ -736,19 +784,41 @@ afs_vop_putpages(struct vop_putpages_args *ap)
+@@ -736,19 +789,41 @@ afs_vop_putpages(struct vop_putpages_args *ap)
       * sync |= IO_INVAL; */
  
      AFS_GLOCK();
@@ -200,7 +213,7 @@
      return ap->a_rtvals[0];
  }
  
-@@ -848,7 +918,11 @@ afs_vop_link(ap)
+@@ -848,7 +923,11 @@ afs_vop_link(ap)
      error = afs_link(VTOAFS(vp), VTOAFS(dvp), name, cnp->cn_cred);
      AFS_GUNLOCK();
      if (dvp != vp)
@@ -212,7 +225,7 @@
    out:
      DROPNAME();
      return error;
-@@ -913,11 +987,13 @@ afs_vop_rename(ap)
+@@ -913,11 +992,13 @@ afs_vop_rename(ap)
  	vrele(fvp);
  	fcnp->cn_flags &= ~MODMASK;
  	fcnp->cn_flags |= LOCKPARENT | LOCKLEAF;
@@ -227,7 +240,7 @@
  	if (error == 0)
  	    vrele(fdvp);
  	if (fvp == NULL) {
-@@ -977,9 +1053,11 @@ afs_vop_mkdir(ap)
+@@ -977,9 +1058,11 @@ afs_vop_mkdir(ap)
      struct vcache *vcp;
  
      GETNAME();
@@ -240,7 +253,7 @@
  #endif
      AFS_GLOCK();
      error = afs_mkdir(VTOAFS(dvp), name, vap, &vcp, cnp->cn_cred);
-@@ -1038,17 +1116,18 @@ afs_vop_symlink(struct vop_symlink_args *ap)
+@@ -1038,17 +1121,18 @@ afs_vop_symlink(struct vop_symlink_args *ap)
      dvp = ap->a_dvp;
      newvp = NULL;
  
@@ -264,7 +277,7 @@
      DROPNAME();
      *(ap->a_vpp) = newvp;
      return error;
-@@ -1154,7 +1233,11 @@ afs_vop_reclaim(struct vop_reclaim_args *ap)
+@@ -1154,7 +1238,11 @@ afs_vop_reclaim(struct vop_reclaim_args *ap)
       * the vnode lock, and we need afs_xvcache. So drop the vnode lock in order
       * to hold afs_xvcache.
       */
@@ -276,7 +289,7 @@
  
      if (!haveGlock)
  	AFS_GLOCK();
-@@ -1166,7 +1249,9 @@ afs_vop_reclaim(struct vop_reclaim_args *ap)
+@@ -1166,7 +1254,9 @@ afs_vop_reclaim(struct vop_reclaim_args *ap)
       * vnode is already VI_DOOMED. We just want to lock it again, and skip the
       * VI_DOOMED check.
       */
@@ -286,7 +299,7 @@
  
      code = afs_FlushVCache(avc, &slept);
  
-@@ -1214,7 +1299,7 @@ afs_vop_print(ap)
+@@ -1214,7 +1304,7 @@ afs_vop_print(ap)
      struct vcache *vc = VTOAFS(ap->a_vp);
      int s = vc->f.states;
  
@@ -295,7 +308,7 @@
  	   (int)vc->f.fid.Cell, (u_int) vc->f.fid.Fid.Volume,
  	   (u_int) vc->f.fid.Fid.Vnode, (u_int) vc->f.fid.Fid.Unique, vc->opens,
  	   vc->execsOrWriters);
-@@ -1241,6 +1326,7 @@ afs_vop_advlock(ap)
+@@ -1241,6 +1331,7 @@ afs_vop_advlock(ap)
  {
      int error, a_op;
      struct ucred cr = *osi_curcred();
@@ -303,7 +316,7 @@
  
      a_op = ap->a_op;
      if (a_op == F_UNLCK) {
-@@ -1254,6 +1340,7 @@ afs_vop_advlock(ap)
+@@ -1254,6 +1345,7 @@ afs_vop_advlock(ap)
  	a_op = F_SETLK;
      }
  
@@ -311,7 +324,7 @@
      AFS_GLOCK();
      error =
  	afs_lockctl(VTOAFS(ap->a_vp),
-@@ -1261,6 +1348,11 @@ afs_vop_advlock(ap)
+@@ -1261,6 +1353,11 @@ afs_vop_advlock(ap)
  		a_op, &cr,
  		(int)(intptr_t)ap->a_id);	/* XXX: no longer unique! */
      AFS_GUNLOCK();
@@ -323,7 +336,7 @@
      return error;
  }
  
-@@ -1295,3 +1387,7 @@ struct vop_vector afs_vnodeops = {
+@@ -1295,3 +1392,7 @@ struct vop_vector afs_vnodeops = {
  	.vop_symlink =		afs_vop_symlink,
  	.vop_write =		afs_vop_write,
  };
