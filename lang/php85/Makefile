@@ -1,9 +1,8 @@
 PORTNAME=	php85
-DISTVERSION=	8.5.0beta3
+DISTVERSION=	8.5.1
 PORTREVISION?=	0
 CATEGORIES?=	lang devel www
-MASTER_SITES=	https://downloads.php.net/~edorian/ \
-		https://downloads.php.net/~daniels/
+MASTER_SITES=	PHP/distributions
 DISTNAME=	php-${DISTVERSION}
 
 MAINTAINER=	bofh@FreeBSD.org
@@ -12,15 +11,14 @@ WWW=		https://www.php.net/
 
 LICENSE=	PHP301
 
-USES+=		compiler:c11 cpe gnome localbase pkgconfig #tar:xz
+USES+=		compiler:c11 cpe gnome localbase pkgconfig tar:xz
 CPE_PRODUCT=	php
 PHP_VER=	85
 
 CONFLICTS_INSTALL?=	php[0-9][0-9]${PKGNAMESUFFIX}
 
 .if !defined(PKGNAMESUFFIX)
-LIB_DEPENDS=	libargon2.so:security/libargon2 \
-		libcapstone.so:devel/capstone \
+LIB_DEPENDS=	libcapstone.so:devel/capstone \
 		libpcre2-8.so:devel/pcre2
 
 GNU_CONFIGURE=	yes
@@ -30,8 +28,7 @@ CONFIGURE_ARGS+=	\
 		--with-config-file-scan-dir=${PREFIX}/etc/php \
 		--with-layout=GNU \
 		--with-libxml \
-		--with-openssl \
-		--with-password-argon2=${LOCALBASE}
+		--with-openssl
 
 USES+=		autoreconf:build bison ssl
 USE_GNOME=	libxml2
@@ -81,8 +78,8 @@ FPM_VARS=		PHP_SAPI+=fpm \
 			USE_RC_SUBR+=php_fpm
 IPV6_CONFIGURE_OFF=	--disable-ipv6
 LINKTHR_LIBS=		-lpthread
-NOASLR_USES=	elfctl
 MYSQLND_CONFIGURE_ON=	--enable-mysqlnd
+NOASLR_USES=	elfctl
 PCRE_BUILD_DEPENDS=	re2c>0:devel/re2c
 PCRE_CONFIGURE_ON=	--with-external-pcre=${LOCALBASE}
 PCRE_PLIST_SUB=	BUNDLED_PCRE="@comment "
@@ -135,6 +132,13 @@ CONFIGURE_ARGS+=	--enable-phpdbg-debug
 PLIST_SUB+=	SAPI_INC=""
 .  else
 PLIST_SUB+=	SAPI_INC="@comment "
+.  endif
+
+.  if (${OSVERSION} >= 1500000 && ${SSL_DEFAULT} == base) || (${SSL_DEFAULT:Mopenssl*} && ${OPENSSL_SHLIBVER} >= 15)
+CONFIGURE_ARGS+=	--with-openssl-argon2
+.  else
+LIB_DEPENDS+=		libargon2.so:security/libargon2
+CONFIGURE_ARGS+=	--with-password-argon2=${LOCALBASE}
 .  endif
 
 CONFIGURE_ENV+=	ac_cv_decimal_fp_supported="no" \
