@@ -33,7 +33,6 @@
     SUBDIR += clickhouse
     SUBDIR += clickhouse-cpp
     SUBDIR += closql
-    SUBDIR += cockroach
     SUBDIR += couchdb3
     SUBDIR += courier-authlib-mysql
     SUBDIR += courier-authlib-pgsql
@@ -569,7 +568,6 @@
     SUBDIR += pglogical
     SUBDIR += pgmetrics
     SUBDIR += pgmodeler
-    SUBDIR += pgpool-II-42
     SUBDIR += pgpool-II-43
     SUBDIR += pgpool-II-44
     SUBDIR += pgpool-II-45
