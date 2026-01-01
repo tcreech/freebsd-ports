@@ -1,12 +1,12 @@
 PORTNAME=	logstash
-PORTVERSION=	8.19.9
+PORTVERSION=	9.2.3
 DISTVERSIONSUFFIX=	-darwin-x86_64
 CATEGORIES=	sysutils java
 MASTER_SITES=	https://artifacts.elastic.co/downloads/logstash/
-PKGNAMESUFFIX=	8
+PKGNAMESUFFIX=	92
 
 MAINTAINER=	elastic@FreeBSD.org
-COMMENT=	Server-side data ingestion and transformation tool (8.x version)
+COMMENT=	Server-side data ingestion and transformation tool (9.2.x version)
 WWW=		https://www.elastic.co/products/logstash
 
 LICENSE=	APACHE20
@@ -24,11 +24,11 @@ USE_RC_SUBR=	logstash
 
 SHEBANG_FILES=	bin/*
 
-CONFLICTS=	logstash6 logstash7 logstash91 logstash92
+CONFLICTS=	logstash6 logstash7 logstash8 logstash91
 
 NO_BUILD=	yes
 
-PORTSCOUT=	limit:^8
+PORTSCOUT=	limit:^9\.2\.\d{1}
 
 SUB_FILES=	pkg-message
 SUB_LIST=	JAVA_HOME=${JAVA_HOME} \

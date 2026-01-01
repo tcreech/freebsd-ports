@@ -12,11 +12,11 @@
 #   Flag that determines whether Logstash is enabled.
 #
 # logstash_home (string):
-#   Default value: "%%LOGSTASH_HOME%%"
+#   Default value: "/usr/local/logstash"
 #   Logstash installation directory.
 #
 # logstash_config (string):
-#   Default value: "%%ETCDIR%%"
+#   Default value: /usr/local/etc/${name}
 #   Logstash configuration path.
 #
 # logstash_log (bool):
@@ -91,9 +91,9 @@ command="/usr/sbin/daemon"
 command_args="-f -p ${pidfile} ${logstash_cmd} ${logstash_args}"
 required_files="${logstash_home} ${logstash_java_home} ${logstash_cmd} ${logstash_config}"
 
-# Include %%LOCALBASE%%/bin in path because Logstash startup scripts
+# Include %%PREFIX%%/bin in path because Logstash startup scripts
 # assume bash is in path.
-PATH=%%LOCALBASE%%/bin:$PATH
+PATH=%%PREFIX%%/bin:$PATH
 
 logstash_precmd()
 {
