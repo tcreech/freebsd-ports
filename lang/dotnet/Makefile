@@ -84,6 +84,13 @@ PLIST_SUB+=	VXSORT=
 PLIST_SUB+=	VXSORT="@comment "
 .endif
 
+# https://github.com/dotnet/dotnet/issues/4037
+.if !target(post-patch)
+post-patch:
+	${CP} ${PATCHDIR}/0002-Fix-assembly-version-calculation-in-2026.patch \
+		${WRKSRC}/src/source-build-externals/patches/azure-activedirectory-identitymodel-extensions-for-dotnet/
+.endif
+
 post-extract:
 	${CP} ${DISTDIR}/${DIST_SUBDIR}/release.json-${PORTVERSION} ${WRKSRC}/release.json
 
@@ -109,6 +116,7 @@ do-build:
 		--with-packages ${WRKDIR}/packages \
 		--source-build \
 		-- \
+		/p:MinimalConsoleLogOutput=false \
 		-maxcpucount:${MAKE_JOBS_NUMBER} \
 		${PORTABLE_BUILD_FLAG}
 
