@@ -1,5 +1,5 @@
 PORTNAME=	cfengine-masterfiles
-DISTVERSION=	3.22.0
+DISTVERSION=	3.27.0
 CATEGORIES=	sysutils
 MASTER_SITES=	https://cfengine-package-repos.s3.amazonaws.com/tarballs/
 
@@ -7,17 +7,14 @@ MAINTAINER=	cy@FreeBSD.org
 COMMENT=	cfengine sample policies for installations and upgrades
 WWW=		https://cfengine.com/
 
-DEPRECATED=	No longer supported by upstream
-EXPIRATION_DATE=2026-05-01
-
 LICENSE=	GPLv3
 
 CPE_VENDOR=	gnu
 CPE_PRODUCT=	cfengine
 
-CONFLICTS=	cfengine-masterfiles3[0-9] cfengine-masterfiles31[0-79]
+CONFLICTS=	cfengine-masterfiles3[0-9] cfengine-masterfiles31[0-9]
 .if !defined(MASTERDIR)
-PKGNAMESUFFIX=	322
+PKGNAMESUFFIX=	327
 CONFLICTS+=	cfengine-masterfiles-3.*
 .endif
 

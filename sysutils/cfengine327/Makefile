@@ -1,6 +1,5 @@
 PORTNAME=	cfengine
-DISTVERSION=	3.23.0
-PORTREVISION=	1
+DISTVERSION=	3.27.0
 CATEGORIES=	sysutils
 MASTER_SITES=	https://s3.amazonaws.com/cfengine-package-repos/tarballs/
 DISTNAME=	${PORTNAME}-community-${DISTVERSION}
@@ -8,9 +7,6 @@ DISTNAME=	${PORTNAME}-community-${DISTVERSION}
 MAINTAINER=	cy@FreeBSD.org
 COMMENT=	Systems administration tool for networks
 WWW=		https://cfengine.com/
-
-DEPRECATED=	No longer supported by upstream
-EXPIRATION_DATE=2026-05-01
 
 WRKSRC=		${WRKDIR}/${PORTNAME}-${DISTVERSION}
 
@@ -20,7 +16,7 @@ CPE_VENDOR=	gnu
 
 CONFLICTS=	cfengine cfengine3[0-9] cfengine3[0-9][0-9]
 .if !defined(MASTERDIR)
-PKGNAMESUFFIX=	323
+PKGNAMESUFFIX=	327
 .endif
 
 FETCH_BEFORE_ARGS=	-o ${DISTDIR}/${DISTFILES}
@@ -44,15 +40,17 @@ CONFIGURE_ARGS=	--docdir=${DOCSDIR} \
 		--libdir=${PREFIX}/libexec \
 		--mandir=${PREFIX}/man \
 		--with-workdir=/var/cfengine \
-		--with-pcre=${LOCALBASE} \
+		--with-pcre2=${LOCALBASE} \
 		--with-lmdb=${LOCALBASE} \
 		--enable-fhs
 INSTALL_TARGET=	install-strip
 
 LIB_DEPENDS+=	libpcre.so:devel/pcre \
+		libpcre2-posix.so:devel/pcre2 \
 		liblmdb.so:databases/lmdb \
 		libyaml.so:textproc/libyaml \
-		libcurl.so:ftp/curl
+		libcurl.so:ftp/curl \
+		librsync.so:net/librsync
 
 OPTIONS_DEFINE=	PGSQL MYSQL LIBVIRT
 
