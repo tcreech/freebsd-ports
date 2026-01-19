@@ -1583,6 +1583,7 @@
     SUBDIR += llvm19
     SUBDIR += llvm20
     SUBDIR += llvm21
+    SUBDIR += llvm22
     SUBDIR += lm4tools
     SUBDIR += lmdbg
     SUBDIR += lndir
@@ -5311,6 +5312,7 @@
     SUBDIR += py-moreorless
     SUBDIR += py-moto
     SUBDIR += py-mox
+    SUBDIR += py-mpremote
     SUBDIR += py-mrkd
     SUBDIR += py-msal
     SUBDIR += py-msal-extensions
@@ -8436,8 +8438,7 @@
     SUBDIR += tcl-mmap
     SUBDIR += tcl-signal
     SUBDIR += tcl-trf
-    SUBDIR += tcl8-thread
-    SUBDIR += tcl9-thread
+    SUBDIR += tcl-thread
     SUBDIR += tclap
     SUBDIR += tclap12
     SUBDIR += tclbsd
