@@ -1,7 +1,6 @@
-PORTNAME=	octave-forge-datatypes
+PORTNAME=	octave-forge-instrument-control
 DISTVERSIONPREFIX=	release-
-DISTVERSION=	1.1.6
-PORTEPOCH=	1
+DISTVERSION=	0.10.0
 CATEGORIES=	math
 
 MAINTAINER=	stephen@FreeBSD.org
@@ -11,10 +10,13 @@ WWW=		https://packages.octave.org/
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKDIR}/${OCTAVE_SRC}/COPYING
 
-USES=		octave
+USES=		octave autoreconf pkgconfig
 USE_GITHUB=	yes
-GH_ACCOUNT=	pr0m1th3as
-GH_PROJECT=	datatypes
+GH_ACCOUNT=	gnu-octave
+GH_PROJECT=	instrument-control
+
+GNU_CONFIGURE=	yes
+CONFIGURE_ARGS+=	--without-librpc
 
 OCTAVE_SRC=	${GH_PROJECT}-release-${DISTVERSION}
 
