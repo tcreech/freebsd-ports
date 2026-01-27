@@ -1,55 +1,67 @@
-PORTNAME=	libxml2
-PORTREVISION=	0
-CATEGORIES=	textproc gnome python
-PKGNAMESUFFIX=
+PORTNAME?=	libxml2
+DISTVERSION=	2.15.1
+CATEGORIES?=	textproc gnome
+MASTER_SITES=	GNOME
+DISTNAME=	libxml2-${DISTVERSION}
+DIST_SUBDIR=	gnome
 
-COMMENT=	Documentation package for XML parser library for GNOME
+PATCH_SITES=	https://gitlab.gnome.org/GNOME/libxml2/-/commit/
+PATCHFILES=	0e50b31902cdb1eb242eb361c123e9e033b2af87.patch:-p1
 
-BUILD_DEPENDS=	docbook-xsl>=0:textproc/docbook-xsl \
-		libxml2-core=${PORTVERSION}:textproc/libxml2-core \
-		xsltproc:textproc/libxslt
-# not an actual dependency but required to keep the many
-# other ports that declare a depends on textproc/libxml2 building
-LIB_DEPENDS=	libxml2.so:textproc/libxml2-core
+MAINTAINER=	desktop@FreeBSD.org
+COMMENT?=	XML parser library for GNOME
+WWW=		http://xmlsoft.org/
 
-USES=		shebangfix
+LICENSE=	MIT
 
-DOCSDIR=	${PREFIX}/share/doc/libxml2-docs
-EXAMPLESDIR=	${PREFIX}/share/examples/libxml2-docs
-FILESDIR=	${.CURDIR}/files
-MASTERDIR=	${.CURDIR}/../libxml2-core
+# Upstream recommends autotools on Unix-like systems
+USES+=		cpe gmake iconv libtool localbase pathfix pkgconfig tar:xz
+CPE_VENDOR=	xmlsoft
+USE_LDCONFIG=	yes
+GNU_CONFIGURE=	yes
+# Don't build with Python support unless requested
+CONFIGURE_ARGS+=	--sysconfdir=${PREFIX}/share/ \
+			--${LIBXML2_SLAVE:Dwith:Uwithout}-python${LIBXML2_SLAVE:D=${PYTHON_CMD}:U}
 
-NO_ARCH=	yes
+INSTALL_TARGET=	install-strip
+TEST_TARGET=	check
 
-BUILD_WRKSRC=	${WRKSRC}/doc
-INSTALL_WRKSRC=	${BUILD_WRKSRC}
-TEST_WRKSRC=	${BUILD_WRKSRC}
+OPTIONS_DEFINE=	ICU MANPAGES READLINE STATIC THREAD_ALLOC
+OPTIONS_GROUP=	LEGACY
+OPTIONS_GROUP_LEGACY=	HTTP ZLIB
+OPTIONS_DEFAULT=	HTTP READLINE STATIC ZLIB
+OPTIONS_SUB=		yes
 
-DESCR=		${.CURDIR}/pkg-descr
-PLIST=		${.CURDIR}/pkg-plist
-PORTDOCS=	*
+HTTP_DESC=		HTTP support
+LEGACY_DESC=		Enable legacy API compatibility
+READLINE_DESC=		History for xmllint
+THREAD_ALLOC_DESC=	Per-thread memory (DEVELOPERS ONLY!)
 
-OPTIONS_EXCLUDE=	${OPTIONS_DEFINE:NDOCS} ${OPTIONS_GROUP_LEGACY}
-OPTIONS_SLAVE=		DOCS
+HTTP_CONFIGURE_WITH=		http
+ICU_LIB_DEPENDS=		libicuuc.so:devel/icu
+ICU_CONFIGURE_WITH=		icu
+READLINE_LIB_DEPENDS=		libreadline.so:devel/readline
+READLINE_CONFIGURE_WITH=	history \
+				readline
+STATIC_CONFIGURE_ENABLE=	static
+THREAD_ALLOC_CONFIGURE_WITH=	thread-alloc
+ZLIB_CONFIGURE_WITH=		zlib
 
-pre-everything::
-	@if ${PKG_INFO} -e ${PORTNAME} && \
-	    test "<" = $$(${PKG_VERSION} -t $$(${PKG_QUERY} %v $$(${PKG_INFO} -q -O ${PORTNAME})) 2.15) ; then \
-	        ${ECHO_CMD} "=== libxml2 < 2.15 detected, you must deinstall first ===" ; \
-		${ECHO_CMD} "=== because you cannot install libxml2-core otherwise ===" ; \
-		${ECHO_CMD} "=== In case of more trouble, try make clean-depends.  ===" ; \
-		exit 1; \
-	fi
+.include <bsd.port.options.mk>
 
 post-install:
-# Documentation should be in DOCSDIR
-	${MKDIR} ${STAGEDIR}${DOCSDIR}/devhelp
-	${MV} ${STAGEDIR}${PREFIX}/share/doc/libxml2/html/ \
-		${STAGEDIR}${DOCSDIR}/devhelp
-	${RM} -rv ${STAGEDIR}${PREFIX}/share/gtk-doc
-	${MV} ${STAGEDIR}${PREFIX}/share/doc/libxml2 \
-		${STAGEDIR}${DOCSDIR}
-# Install remaining documentation that's not connected to autotools
-	${INSTALL_MAN} ${WRKSRC}/doc/*.html ${STAGEDIR}${DOCSDIR}
+.if defined(LIBXML2_SLAVE) && ${LIBXML2_SLAVE} == "python"
+	${STRIP_CMD} ${STAGEDIR}${PYTHONPREFIX_LIBDIR}/site-packages/libxml2mod${PYTHON_SOABI}.so
+.endif
 
-.include "${MASTERDIR}/Makefile"
+# To (manually) generate man pages, during every update:
+# - install textproc/libxslt and textproc/docbook-xsl
+# - xml2-config.1 is already present
+# - in ${WRKSRC}/doc, run `xsltproc --nonet --novalid --param man.output.quietly 1 -o xmlcatalog.1 ${LOCALBASE}/share/xsl/docbook/manpages/docbook.xsl xmlcatalog.xml`
+# - repeat for xmllint.1
+# - copy results into ${FILESDIR}
+# - ${INSTALL_MAN} into ${STAGEDIR} as below
+post-install-MANPAGES-on:
+	${INSTALL_MAN} ${FILESDIR}/*.1 ${STAGEDIR}${MANDIRS}/man1
+
+.include <bsd.port.mk>
