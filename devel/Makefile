@@ -7282,6 +7282,7 @@
     SUBDIR += rubygem-cucumber-messages30
     SUBDIR += rubygem-cucumber-rails
     SUBDIR += rubygem-cucumber-tag-expressions
+    SUBDIR += rubygem-cucumber-tag-expressions8
     SUBDIR += rubygem-cucumber-wire
     SUBDIR += rubygem-curses
     SUBDIR += rubygem-cyoi
@@ -7402,7 +7403,6 @@
     SUBDIR += rubygem-ffi-libarchive
     SUBDIR += rubygem-ffi-win32-extensions
     SUBDIR += rubygem-ffi-yajl
-    SUBDIR += rubygem-ffi16
     SUBDIR += rubygem-fiber-annotation
     SUBDIR += rubygem-fiber-local
     SUBDIR += rubygem-fiber-storage
@@ -8157,6 +8157,7 @@
     SUBDIR += rubygem-thor
     SUBDIR += rubygem-thor0
     SUBDIR += rubygem-thor12
+    SUBDIR += rubygem-thor14
     SUBDIR += rubygem-thread-local
     SUBDIR += rubygem-thread_safe
     SUBDIR += rubygem-thrift
