@@ -96,6 +96,7 @@
     SUBDIR += locator
     SUBDIR += lrzsz
     SUBDIR += lysdr
+    SUBDIR += meshcore-cli
     SUBDIR += mbelib
     SUBDIR += mgetty+sendfax
     SUBDIR += minicom
@@ -143,6 +144,7 @@
     SUBDIR += py-libimobiledevice
     SUBDIR += py-libscrc
     SUBDIR += py-libusbsio
+    SUBDIR += py-meshcore
     SUBDIR += py-nkdfu
     SUBDIR += py-pylink-square
     SUBDIR += py-pymodbus
