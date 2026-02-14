@@ -38,7 +38,6 @@
     SUBDIR += anacron
     SUBDIR += and
     SUBDIR += android-file-transfer
-    SUBDIR += android-file-transfer-qt5
     SUBDIR += android-ota-payload-extractor
     SUBDIR += angrysearch
     SUBDIR += ansible
@@ -1276,6 +1275,7 @@
     SUBDIR += rubygem-winrm-elevated-gitlab
     SUBDIR += rubygem-winrm-gitlab
     SUBDIR += rubygem-yell
+    SUBDIR += rucola
     SUBDIR += runas
     SUBDIR += rundeck
     SUBDIR += runiq
@@ -1286,6 +1286,7 @@
     SUBDIR += rush
     SUBDIR += rust-coreutils
     SUBDIR += rust-findutils
+    SUBDIR += rustic
     SUBDIR += rw
     SUBDIR += rw-tui
     SUBDIR += s-tui

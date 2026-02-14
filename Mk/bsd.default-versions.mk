@@ -63,8 +63,8 @@ GCC_DEFAULT?=		14
 GHOSTSCRIPT_DEFAULT?=	10
 # Possible values: mesa-libs, mesa-devel
 GL_DEFAULT?=		mesa-libs
-# Possible values: 1.22, 1.23, 1.24, 1.25, 1.26-devel
-GO_DEFAULT?=		1.24
+# Possible values: 1.24, 1.25, 1.26
+GO_DEFAULT?=		1.25
 # Possible values: 1.8, 2.2, 3.0
 GUILE_DEFAULT?=		2.2
 # Possible versions: 6, 7
@@ -73,7 +73,7 @@ GUILE_DEFAULT?=		2.2
 # Format:	     version[-flavor]
 # Examples:	     6-nox11, 7
 IMAGEMAGICK_DEFAULT?=	7
-# Possible values: 8, 11, 17, 19, 20, 21, 22, 23, 24, 25
+# Possible values: 8, 11, 17, 20, 21, 22, 23, 24, 25
 JAVA_DEFAULT?=		8
 # Possible values: 4.4, 4.99
 .  if (defined(WANT_LAZARUS_DEVEL) && !empty(WANT_LAZARUS_DEVEL)) || ${ARCH:Maarch64}
