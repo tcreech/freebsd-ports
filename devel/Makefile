@@ -7629,6 +7629,7 @@
     SUBDIR += rubygem-licensee-gitlab
     SUBDIR += rubygem-lint_roller
     SUBDIR += rubygem-listen
+    SUBDIR += rubygem-listen-gitlab
     SUBDIR += rubygem-little-plugger
     SUBDIR += rubygem-local_time
     SUBDIR += rubygem-local_time-rails5
@@ -8130,6 +8131,7 @@
     SUBDIR += rubygem-thor
     SUBDIR += rubygem-thor0
     SUBDIR += rubygem-thor12
+    SUBDIR += rubygem-thor14
     SUBDIR += rubygem-thread-local
     SUBDIR += rubygem-thread_safe
     SUBDIR += rubygem-thrift
