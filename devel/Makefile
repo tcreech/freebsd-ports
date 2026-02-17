@@ -739,6 +739,7 @@
     SUBDIR += freebsd-nvme-shim
     SUBDIR += freebsd-sysroot
     SUBDIR += frink
+    SUBDIR += frozen
     SUBDIR += fruit
     SUBDIR += fsmtrie
     SUBDIR += fstrcmp
@@ -1511,6 +1512,7 @@
     SUBDIR += libzim
     SUBDIR += libzookeeper
     SUBDIR += libzvbi
+    SUBDIR += lief
     SUBDIR += lightning
     SUBDIR += linenoise
     SUBDIR += linux-c7-dbus-libs
@@ -1671,6 +1673,7 @@
     SUBDIR += menhir
     SUBDIR += mercurial
     SUBDIR += mergify
+    SUBDIR += merve
     SUBDIR += meson
     SUBDIR += meson-python
     SUBDIR += mfc-candidates
@@ -8365,6 +8368,7 @@
     SUBDIR += sope2
     SUBDIR += sord
     SUBDIR += spago
+    SUBDIR += span
     SUBDIR += spark
     SUBDIR += sparsebitset
     SUBDIR += sparsehash
