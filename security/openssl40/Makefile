@@ -1,7 +1,7 @@
 PORTNAME=	openssl
-PORTVERSION=	3.5.5
+DISTVERSION=	4.0.0-alpha1
 CATEGORIES=	security devel
-PKGNAMESUFFIX=	35
+PKGNAMESUFFIX=	40
 MASTER_SITES=	https://github.com/openssl/openssl/releases/download/${DISTNAME}/
 
 MAINTAINER=	brnrd@FreeBSD.org
@@ -11,7 +11,7 @@ WWW=		https://www.openssl.org/
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
-CONFLICTS_INSTALL=	boringssl libressl libressl-devel openssl openssl[14]* openssl3[1234] openssl*-quictls
+CONFLICTS_INSTALL=	boringssl libressl libressl-devel openssl openssl111 openssl3[1234] openssl*-quictls
 
 HAS_CONFIGURE=	yes
 CONFIGURE_SCRIPT=	config
@@ -38,13 +38,14 @@ OPTIONS_GROUP_OPTIMIZE=	ASM SSE2 THREADS THREADPOOL
 OPTIONS_GROUP_PQC=	ML-DSA ML-KEM SLH-DSA
 OPTIONS_GROUP_MODULES=	FIPS LEGACY
 OPTIONS_DEFINE_i386=	I386
-OPTIONS_GROUP_PROTOCOLS=NEXTPROTONEG QUIC SCTP SSL3 TLS1 TLS1_1 TLS1_2
+OPTIONS_GROUP_PROTOCOLS=NEXTPROTONEG QUIC SCTP TLS1 TLS1_1 TLS1_2
 
 OPTIONS_DEFINE=	ASYNC CT FIPS-JITTER KTLS MAN3 RFC3779 SHARED
 
-OPTIONS_DEFAULT=ASM ASYNC CT DES EC FIPS GOST KTLS MAN3 MD4 ML-DSA ML-KEM \
+OPTIONS_DEFAULT=ASM ASYNC CT DES EC FIPS GOST MAN3 MD4 ML-DSA ML-KEM \
 		NEXTPROTONEG QUIC RFC3779 RC2 RC4 RMD160 SCTP SHARED SLH-DSA \
 		SSE2 THREADPOOL THREADS TLS1 TLS1_1 TLS1_2
+#OPTIONS_DEFAULT+=KTLS
 
 OPTIONS_GROUP_OPTIMIZE_amd64=	EC
 
@@ -96,7 +97,6 @@ SM2_DESC=	SM2 Elliptic Curve DH (Chinese standard)
 SM3_DESC=	SM3 256bit (Chinese standard)
 SM4_DESC=	SM4 128bit (Chinese standard)
 SSE2_DESC=	Runtime SSE2 detection
-SSL3_DESC=	SSLv3 (unsafe)
 TLS-DEPRECATED-EC_DESC=	Deprecated elliptic curve groups in TLS (unsafe)
 TLS1_DESC=	TLSv1.0 (requires TLS1_1, TLS1_2)
 TLS1_1_DESC=	TLSv1.1 (requires TLS1_2)
@@ -127,28 +127,23 @@ BROTLI_CONFIGURE_ON=	enable-brotli-dynamic
 BROTLI_LIB_DEPENDS=	libbrotlicommon.so:archivers/brotli
 EC_CONFIGURE_ON=	enable-ec_nistp_64_gcc_128
 FIPS_VARS=		shlibs+=lib/ossl-modules/fips.so
-I386_CONFIGURE_ON=	386
 FIPS-JITTER_CFLAGS=	-I${PREFIX}/include
 FIPS-JITTER_LDFLAGS=	-L${PREFIX}/lib
 FIPS-JITTER_BUILD_DEPENDS=	${LOCALBASE}/lib/libjitterentropy.a:devel/libjitterentropy
+I386_CONFIGURE_ON=	386
+KTLS_BROKEN=		KTLS patch update for 4.0 pending
 LEGACY_VARS=		shlibs+=lib/ossl-modules/legacy.so
 MAN3_EXTRA_PATCHES_OFF=	${FILESDIR}/extra-patch-util_find-doc-nits
 SHARED_MAKE_ENV=	SHLIBVER=${OPENSSL_SHLIBVER}
 SHARED_PLIST_SUB=	SHLIBVER=${OPENSSL_SHLIBVER}
 SHARED_USE=		ldconfig=yes
 SHARED_VARS=		shlibs+="lib/libcrypto.so.${OPENSSL_SHLIBVER} \
-				lib/libssl.so.${OPENSSL_SHLIBVER} \
-				lib/engines-${OPENSSL_SHLIBVER}/capi.so \
-				lib/engines-${OPENSSL_SHLIBVER}/devcrypto.so \
-				lib/engines-${OPENSSL_SHLIBVER}/padlock.so"
-SSL3_CONFIGURE_ON=	enable-ssl3 enable-ssl3-method
+				lib/libssl.so.${OPENSSL_SHLIBVER}
 THREADPOOL_CONFIGURE_OFF=	no-thread-pool
 ZLIB_CONFIGURE_ON=	zlib-dynamic
 ZSTD_CFLAGS=		-I${PREFIX}/include
 ZSTD_CONFIGURE_ON=	enable-zstd-dynamic
 ZSTD_LIB_DEPENDS=	libzstd.so:archivers/zstd
-
-SHLIBS=			lib/engines-${OPENSSL_SHLIBVER}/loader_attic.so
 
 PORTSCOUT=		limit:^${DISTVERSION:R:S/./\./g}\.
 
@@ -175,7 +170,7 @@ PLIST_SUB+=	OPENSSLDIR=${OPENSSLDIR:S=^${PREFIX}/==}
 post-patch:
 	${REINPLACE_CMD} -Ee 's|^(build\|install)_docs: .*|\1_docs: \1_man_docs|' \
 		${WRKSRC}/Configurations/unix-Makefile.tmpl
-	${REINPLACE_CMD} 's|SHLIB_VERSION=3|SHLIB_VERSION=${OPENSSL_SHLIBVER}|' \
+	${REINPLACE_CMD} 's|SHLIB_VERSION=4|SHLIB_VERSION=${OPENSSL_SHLIBVER}|' \
 		${WRKSRC}/VERSION.dat
 
 post-configure:
