@@ -860,6 +860,7 @@
     SUBDIR += git-merge-changelog
     SUBDIR += git-modes
     SUBDIR += git-p4
+    SUBDIR += git-pkgs
     SUBDIR += git-prev-next
     SUBDIR += git-repo-manager
     SUBDIR += git-review
@@ -4876,6 +4877,7 @@
     SUBDIR += py-durus
     SUBDIR += py-dynrules
     SUBDIR += py-e3-core
+    SUBDIR += py-e3-testsuite
     SUBDIR += py-easydict
     SUBDIR += py-easyprocess
     SUBDIR += py-editables
@@ -5294,7 +5296,6 @@
     SUBDIR += py-marrow.mailer
     SUBDIR += py-marrow.util
     SUBDIR += py-marshmallow
-    SUBDIR += py-marshmallow-enum
     SUBDIR += py-mashumaro
     SUBDIR += py-matrix-angular-sdk
     SUBDIR += py-matrix-common
@@ -5892,6 +5893,7 @@
     SUBDIR += py-pyvisa
     SUBDIR += py-pyvisa-py
     SUBDIR += py-pyxb-x
+    SUBDIR += py-pyxdg
     SUBDIR += py-pyyaml
     SUBDIR += py-pyyaml-env-tag
     SUBDIR += py-pyyaml-ft
@@ -6004,6 +6006,7 @@
     SUBDIR += py-scikit-build-core
     SUBDIR += py-scooby
     SUBDIR += py-scripttest
+    SUBDIR += py-seedir
     SUBDIR += py-selection
     SUBDIR += py-semantic-version
     SUBDIR += py-semver
@@ -6095,6 +6098,7 @@
     SUBDIR += py-super-collections
     SUBDIR += py-sure
     SUBDIR += py-swagger-spec-validator
+    SUBDIR += py-sybil
     SUBDIR += py-synr
     SUBDIR += py-syrupy
     SUBDIR += py-sysctl
@@ -6153,6 +6157,7 @@
     SUBDIR += py-tooz
     SUBDIR += py-toposort
     SUBDIR += py-tox
+    SUBDIR += py-tox-ini-fmt
     SUBDIR += py-tox-toml-fmt
     SUBDIR += py-traceback2
     SUBDIR += py-trailrunner
@@ -6315,7 +6320,6 @@
     SUBDIR += py-xarray-simlab
     SUBDIR += py-xasm
     SUBDIR += py-xattr
-    SUBDIR += py-xdg
     SUBDIR += py-xdg-user-dirs
     SUBDIR += py-xdis
     SUBDIR += py-xdoctest
@@ -6733,6 +6737,7 @@
     SUBDIR += rubygem-aws-sdk-connectcampaignsv2
     SUBDIR += rubygem-aws-sdk-connectcases
     SUBDIR += rubygem-aws-sdk-connectcontactlens
+    SUBDIR += rubygem-aws-sdk-connecthealth
     SUBDIR += rubygem-aws-sdk-connectparticipant
     SUBDIR += rubygem-aws-sdk-connectwisdomservice
     SUBDIR += rubygem-aws-sdk-controlcatalog
@@ -6778,6 +6783,7 @@
     SUBDIR += rubygem-aws-sdk-elasticloadbalancing
     SUBDIR += rubygem-aws-sdk-elasticloadbalancingv2
     SUBDIR += rubygem-aws-sdk-elasticsearchservice
+    SUBDIR += rubygem-aws-sdk-elementalinference
     SUBDIR += rubygem-aws-sdk-emr
     SUBDIR += rubygem-aws-sdk-emrcontainers
     SUBDIR += rubygem-aws-sdk-emrserverless
@@ -6999,6 +7005,7 @@
     SUBDIR += rubygem-aws-sdk-sesv2
     SUBDIR += rubygem-aws-sdk-shield
     SUBDIR += rubygem-aws-sdk-signer
+    SUBDIR += rubygem-aws-sdk-signerdata
     SUBDIR += rubygem-aws-sdk-simpledb
     SUBDIR += rubygem-aws-sdk-simspaceweaver
     SUBDIR += rubygem-aws-sdk-snowball
