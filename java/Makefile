@@ -46,6 +46,7 @@
     SUBDIR += java-subversion
     SUBDIR += java-zoneinfo
     SUBDIR += java3d
+    SUBDIR += javacpp
     SUBDIR += javahelp
     SUBDIR += javamail
     SUBDIR += javavmwrapper
@@ -87,6 +88,7 @@
     SUBDIR += openjdk23
     SUBDIR += openjdk24
     SUBDIR += openjdk25
+    SUBDIR += openjdk26
     SUBDIR += openjdk8
     SUBDIR += openjdk8-jre
     SUBDIR += openjfx14

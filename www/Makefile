@@ -2033,6 +2033,7 @@
     SUBDIR += reddsaver
     SUBDIR += redmine51
     SUBDIR += redmine60
+    SUBDIR += redmine61
     SUBDIR += rejik
     SUBDIR += remark42
     SUBDIR += reportmagic
@@ -2672,6 +2673,7 @@
     SUBDIR += vger
     SUBDIR += vigil
     SUBDIR += vimb
+    SUBDIR += vinyl09
     SUBDIR += visitors
     SUBDIR += volta
     SUBDIR += vultr-cli
@@ -2681,6 +2683,7 @@
     SUBDIR += wabt
     SUBDIR += wasm-bindgen-cli
     SUBDIR += wasm-pack
+    SUBDIR += wasmtime
     SUBDIR += waterfox
     SUBDIR += web2ldap
     SUBDIR += webalizer

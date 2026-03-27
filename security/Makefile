@@ -260,6 +260,7 @@
     SUBDIR += keepass-plugin-keepassrpc
     SUBDIR += keepassxc
     SUBDIR += keepassxc276
+    SUBDIR += keepsecret
     SUBDIR += keybase
     SUBDIR += keychain
     SUBDIR += keyprint
@@ -899,6 +900,7 @@
     SUBDIR += py-base58
     SUBDIR += py-bcrypt
     SUBDIR += py-bitbox02
+    SUBDIR += py-blake3
     SUBDIR += py-btchip-python
     SUBDIR += py-cart
     SUBDIR += py-cerealizer
@@ -1373,7 +1375,9 @@
     SUBDIR += sudoscript
     SUBDIR += super
     SUBDIR += suricata
+    SUBDIR += susshi
     SUBDIR += swatchdog
+    SUBDIR += syft
     SUBDIR += tailscale
     SUBDIR += tang
     SUBDIR += tclsasl
