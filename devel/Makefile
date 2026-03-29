@@ -299,6 +299,7 @@
     SUBDIR += bazel
     SUBDIR += bazel-buildtools
     SUBDIR += bazel5
+    SUBDIR += bazel7
     SUBDIR += bbparse
     SUBDIR += bcc
     SUBDIR += bcpp
@@ -730,6 +731,7 @@
     SUBDIR += fortytwo-encore
     SUBDIR += fossil
     SUBDIR += fossology-nomos-standalone
+    SUBDIR += foundry
     SUBDIR += fp16
     SUBDIR += fpp
     SUBDIR += freebsd-gcc12
@@ -8503,6 +8505,7 @@
     SUBDIR += subversion-lts
     SUBDIR += subversive
     SUBDIR += sunpromake
+    SUBDIR += superhtml
     SUBDIR += sv
     SUBDIR += svk
     SUBDIR += svn2git
