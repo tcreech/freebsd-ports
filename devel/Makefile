@@ -8046,6 +8046,7 @@
     SUBDIR += rubygem-resque
     SUBDIR += rubygem-resque-scheduler
     SUBDIR += rubygem-retriable
+    SUBDIR += rubygem-retriable-gitlab
     SUBDIR += rubygem-retryable
     SUBDIR += rubygem-rgen
     SUBDIR += rubygem-rgl
