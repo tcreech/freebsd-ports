@@ -1,5 +1,5 @@
---- slimserver-9977737/Slim/Utils/Log.pm.orig	2025-03-09 06:30:53 UTC
-+++ slimserver-9977737/Slim/Utils/Log.pm
+--- Slim/Utils/Log.pm.orig	2025-03-09 06:30:53 UTC
++++ Slim/Utils/Log.pm
 @@ -173,7 +173,7 @@ sub init {
  	# Make sure recreate option is set if user has an existing log.conf
  	if ( !main::ISWINDOWS && !$ENV{NYTPROF} ) {
