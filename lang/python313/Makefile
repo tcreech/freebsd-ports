@@ -1,6 +1,6 @@
 PORTNAME=	python
 DISTVERSION=	${PYTHON_DISTVERSION}
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	lang python
 MASTER_SITES=	PYTHON/ftp/python/${DISTVERSION:C/[a-z].*//}
 PKGNAMESUFFIX=	${PYTHON_BASESUFFIX}${THREADFLAG}
@@ -114,7 +114,9 @@ BUILD_DEPENDS+=	python${PYTHON_DEFAULT}:lang/python${PYTHON_DEFAULT:S/.//g}
 
 .if !empty(ABIFLAGS) || !empty(THREADFLAG)
 PLIST_FILES+=	bin/python${PYTHON_BASEVER}${THREADFLAG}${ABIFLAGS} \
-		bin/python${PYTHON_BASEVER}${THREADFLAG}${ABIFLAGS}-config
+		bin/python${PYTHON_BASEVER}${THREADFLAG}${ABIFLAGS}-config \
+		libdata/pkgconfig/python-${PYTHON_BASEVER}${THREADFLAG}${ABIFLAGS}-embed.pc \
+		libdata/pkgconfig/python-${PYTHON_BASEVER}${THREADFLAG}${ABIFLAGS}.pc
 .endif
 
 # See https://bugs.freebsd.org/115940 and https://bugs.freebsd.org/193650
