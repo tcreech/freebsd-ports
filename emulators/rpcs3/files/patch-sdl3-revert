@@ -1,0 +1,48 @@
+Revert https://github.com/RPCS3/rpcs3/commit/69384d7bb401
+until devel/sdl3 >= 3.4 update.
+
+--- rpcs3/Emu/Io/LogitechG27.h.orig	2026-04-04 16:47:12 UTC
++++ rpcs3/Emu/Io/LogitechG27.h
+@@ -38,7 +38,12 @@ struct logitech_g27_ffb_slot
+ 	logitech_g27_ffb_state state = logitech_g27_ffb_state::inactive;
+ 	u64 last_update = 0;
+ 	SDL_HapticEffect last_effect {};
++#if SDL_VERSION_ATLEAST(3, 4, 0)
+ 	SDL_HapticEffectID effect_id = -1;
++#else
++	// Match the return of SDL_CreateHapticEffect for now
++	int effect_id = -1;
++#endif
+ };
+ 
+ struct sdl_mapping
+--- rpcs3/Input/sdl_camera_handler.cpp.orig	2026-04-04 16:47:12 UTC
++++ rpcs3/Input/sdl_camera_handler.cpp
+@@ -10,6 +10,15 @@ LOG_CHANNEL(camera_log, "Camera");
+ 
+ LOG_CHANNEL(camera_log, "Camera");
+ 
++#if !(SDL_VERSION_ATLEAST(3, 4, 0))
++namespace SDL_CameraPermissionState
++{
++	constexpr int SDL_CAMERA_PERMISSION_STATE_DENIED = -1;
++	constexpr int SDL_CAMERA_PERMISSION_STATE_PENDING = 0;
++	constexpr int SDL_CAMERA_PERMISSION_STATE_APPROVED = 1;
++}
++#endif
++
+ template <>
+ void fmt_class_string<SDL_CameraSpec>::format(std::string& out, u64 arg)
+ {
+--- rpcs3/Input/sdl_instance.cpp.orig	2026-04-04 16:47:12 UTC
++++ rpcs3/Input/sdl_instance.cpp
+@@ -104,7 +104,9 @@ bool sdl_instance::initialize_impl()
+ 
+ 	// Disable LG4FF driver on windows
+ #if _WIN32
++#if SDL_VERSION_ATLEAST(3, 4, 0)
+ 	set_hint(SDL_HINT_JOYSTICK_HIDAPI_LG4FF, "0");
++#endif
+ #endif
+ 
+ 	if (!SDL_Init(SDL_INIT_GAMEPAD | SDL_INIT_HAPTIC | SDL_INIT_CAMERA))
