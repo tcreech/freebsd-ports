@@ -577,7 +577,6 @@
     SUBDIR += linux-rl9-wayland
     SUBDIR += lua-gd
     SUBDIR += lua-qrencode
-    SUBDIR += luminance-qt5
     SUBDIR += lunasvg
     SUBDIR += lux
     SUBDIR += lximage-qt
@@ -984,7 +983,9 @@
     SUBDIR += py-napari-console
     SUBDIR += py-napari-plugin-engine
     SUBDIR += py-nwdiag
+    SUBDIR += py-olmocr
     SUBDIR += py-opencolorio
+    SUBDIR += py-opencv-python-headless
     SUBDIR += py-openimageio
     SUBDIR += py-openshadinglanguage
     SUBDIR += py-openslide-python
@@ -1023,6 +1024,7 @@
     SUBDIR += py-pymaging-png
     SUBDIR += py-pyocr
     SUBDIR += py-pyogrio
+    SUBDIR += py-pypdfium2
     SUBDIR += py-pypillowfight
     SUBDIR += py-pyproj
     SUBDIR += py-pyqrcode

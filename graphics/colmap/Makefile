@@ -1,5 +1,5 @@
 PORTNAME=	colmap
-DISTVERSION=	4.0.2
+DISTVERSION=	4.0.3
 CATEGORIES=	graphics
 
 MAINTAINER=	fuz@FreeBSD.org
@@ -61,6 +61,10 @@ ONNX_CMAKE_BOOL=	ONNX_ENABLED
 SIMD_CMAKE_BOOL=	SIMD_ENABLED
 SIMD_CFLAGS_i386=	-msse2
 SIMD_CFLAGS=		${SIMD_CFLAGS_${ARCH}}
+
+post-patch:
+	@${REINPLACE_CMD} -e '/find_package/s|Qt5 Qt6|Qt6|' \
+		${WRKSRC}/cmake/FindDependencies.cmake
 
 post-build-DOCS-on:
 	${SETENVI} ${WRK_ENV} ${MAKE_ENV} ${GMAKE} ${_MAKE_JOBS} -C ${WRKSRC}/doc html

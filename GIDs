@@ -326,7 +326,7 @@ _tlsrpt:*:382:
 cascade:*:383:
 omada:*:384:
 mtail:*:385:
-# free: 386
+zoraxy:*:386:
 # free: 387
 autopulse:*:388:
 ldap:*:389:
@@ -340,7 +340,7 @@ ldap:*:389:
 rtorrent:*:397:
 tiarra:*:398:
 # free: 399
-# free: 400
+evcc:*:400:
 # free: 401
 # free: 402
 # free: 403
