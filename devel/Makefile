@@ -980,6 +980,9 @@
     SUBDIR += gzstream
     SUBDIR += hapy
     SUBDIR += hare
+    SUBDIR += hare-adwaita
+    SUBDIR += hare-gi
+    SUBDIR += hare-gtk4-layer-shell
     SUBDIR += hcs12mem
     SUBDIR += heaptrack
     SUBDIR += heimdall
@@ -6091,6 +6094,7 @@
     SUBDIR += py-stack-data
     SUBDIR += py-statgrab
     SUBDIR += py-statsd
+    SUBDIR += py-standard-imghdr
     SUBDIR += py-stdlib-list
     SUBDIR += py-stdlibs
     SUBDIR += py-stdnum
@@ -6241,6 +6245,7 @@
     SUBDIR += py-ufmt
     SUBDIR += py-uhid-freebsd
     SUBDIR += py-ujson
+    SUBDIR += py-uncalled-for
     SUBDIR += py-undefined
     SUBDIR += py-unearth
     SUBDIR += py-unicodecsv

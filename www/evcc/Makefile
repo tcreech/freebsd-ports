@@ -1,5 +1,5 @@
 PORTNAME=	evcc
-DISTVERSION=	0.304.1
+DISTVERSION=	0.304.2
 CATEGORIES=	www
 MASTER_SITES=	LOCAL/mfechner/${PORTNAME}/:npmcache
 DISTFILES=	${PORTNAME}-npm-cache-${DISTVERSION}${EXTRACT_SUFX}:npmcache
@@ -11,6 +11,8 @@ WWW=		https://evcc.io/ \
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
+
+BROKEN_i386=	Platform i386 is not supported
 
 BUILD_DEPENDS=	npm>0:www/npm
 
