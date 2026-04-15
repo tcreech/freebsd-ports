@@ -1,8 +1,7 @@
 PORTNAME=	rpcs3
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.0.40-19155 # git rev-list --count HEAD
-DISTVERSIONSUFFIX=	-gec989781a3
-PORTREVISION=	1
+DISTVERSION=	0.0.40-19212 # git rev-list --count HEAD
+DISTVERSIONSUFFIX=	-gea0d8a0d78
 CATEGORIES=	emulators wayland
 
 MAINTAINER=	jbeich@FreeBSD.org
@@ -29,7 +28,7 @@ ONLY_FOR_ARCHS_REASON=	requires int128 and SSE2
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	RPCS3
-GH_TUPLE=	RPCS3:soundtouch:2.3.1-78-g3982730:soundtouch/3rdparty/SoundTouch/soundtouch \
+GH_TUPLE=	RPCS3:soundtouch:2.3.1-87-ga0fba77:soundtouch/3rdparty/SoundTouch/soundtouch \
 		asmjit:asmjit:416f735:asmjit/3rdparty/asmjit/asmjit \
 		jbeder:yaml-cpp:yaml-cpp-0.9.0-1-g51a5d62:yamlcpp/3rdparty/yaml-cpp/yaml-cpp \
 		kcat:openal-soft:1.23.1:openal_soft/3rdparty/OpenAL/openal-soft \
@@ -37,7 +36,7 @@ GH_TUPLE=	RPCS3:soundtouch:2.3.1-78-g3982730:soundtouch/3rdparty/SoundTouch/soun
 		Megamouse:VulkanMemoryAllocator:1d8f600:vkalloc/3rdparty/GPUOpen/VulkanMemoryAllocator \
 		nothings:stb:013ac3b:stb/3rdparty/stblib/stb \
 		protocolbuffers:protobuf:edaa823d8b36:protobuf/3rdparty/protobuf/protobuf \
-		wolfSSL:wolfssl:v5.9.0-stable:wolfssl/3rdparty/wolfssl/wolfssl \
+		wolfSSL:wolfssl:v5.9.1-stable:wolfssl/3rdparty/wolfssl/wolfssl \
 		xioTechnologies:Fusion:v1.2.11:fusion/3rdparty/fusion/fusion
 
 USES=		cmake gl iconv:wchar_t llvm:min=20,${LLVM_DEP} localbase:ldflags \
