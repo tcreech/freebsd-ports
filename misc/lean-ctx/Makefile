@@ -1,6 +1,6 @@
 PORTNAME=	lean-ctx
 DISTVERSIONPREFIX=	v
-DISTVERSION=	3.1.5
+DISTVERSION=	3.2.3
 CATEGORIES=	misc # machine-learning
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -291,7 +291,7 @@ CARGO_CRATES=	adler2-2.0.1 \
 		rustix-1.1.4 \
 		rustls-0.23.38 \
 		rustls-pki-types-1.14.0 \
-		rustls-webpki-0.103.11 \
+		rustls-webpki-0.103.12 \
 		rustversion-1.0.22 \
 		ryu-1.0.23 \
 		same-file-1.0.6 \
@@ -324,6 +324,7 @@ CARGO_CRATES=	adler2-2.0.1 \
 		smallvec-1.15.1 \
 		socket2-0.6.3 \
 		sqlite-wasm-rs-0.5.2 \
+		sse-stream-0.2.2 \
 		stable_deref_trait-1.2.1 \
 		static_assertions-1.1.0 \
 		streaming-iterator-0.1.9 \
@@ -357,6 +358,7 @@ CARGO_CRATES=	adler2-2.0.1 \
 		tokio-macros-2.7.0 \
 		tokio-postgres-0.7.17 \
 		tokio-rustls-0.26.4 \
+		tokio-stream-0.1.18 \
 		tokio-util-0.7.18 \
 		toml-0.8.23 \
 		toml_datetime-0.6.11 \
@@ -496,6 +498,8 @@ CARGO_CRATES=	adler2-2.0.1 \
 		zstd-sys-2.0.16+zstd.1.5.7
 
 PLIST_FILES=	bin/${PORTNAME} \
+		bin/gen_mcp_manifest \
+		bin/gen_tdd_schema \
 		bin/seed_observatory
 
 post-install:

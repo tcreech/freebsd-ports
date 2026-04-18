@@ -729,6 +729,7 @@
     SUBDIR += fnm
     SUBDIR += folly
     SUBDIR += forge
+    SUBDIR += forgejo-cli
     SUBDIR += forgejo-runner
     SUBDIR += fortran-stdlib
     SUBDIR += fortran-utils
@@ -5252,6 +5253,7 @@
     SUBDIR += py-lazy-object-proxy
     SUBDIR += py-lazy_imports
     SUBDIR += py-lazy_loader
+    SUBDIR += py-lazyarray
     SUBDIR += py-legacy-api-wrap
     SUBDIR += py-levenshtein
     SUBDIR += py-libcst
