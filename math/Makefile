@@ -1016,6 +1016,7 @@
     SUBDIR += py-highspy
     SUBDIR += py-hmmlearn
     SUBDIR += py-hypernetx
+    SUBDIR += py-ibis-framework
     SUBDIR += py-igraph
     SUBDIR += py-iminuit
     SUBDIR += py-intspan
