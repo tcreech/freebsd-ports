@@ -107,8 +107,8 @@ KDE_FRAMEWORKS6_BRANCH?=	stable
 # - check and update if needed _${PORTNAME}_PROJECT_VERSION for the following ports:
 #   audio/audiocd-kio, devel/kdevelop, games/libkdegames, games/libkmahjongg, graphics/kgraphviewer
 # - bump SHLIB_VER for editors/calligra.
-KDE_APPLICATIONS6_VERSION?=	25.12.3
-KDE_APPLICATIONS6_SHLIB_VER?=	6.6.3
+KDE_APPLICATIONS6_VERSION?=	26.04.0
+KDE_APPLICATIONS6_SHLIB_VER?=	6.7.0
 # G as in KDE Gear, and as in "don't make the variable name longer than required".
 KDE_APPLICATIONS6_SHLIB_G_VER?=	${KDE_APPLICATIONS6_VERSION}
 KDE_APPLICATIONS6_BRANCH?=	stable
@@ -339,7 +339,7 @@ _USE_PLASMA_ALL=	${_USE_PLASMA${_KDE_VERSION}_ALL}
 
 # List of frequently used components of the KDE Gears distribution.
 _USE_GEAR6_ALL=		baloo-widgets kosm kpublictransport \
-			libkcddb libkcompactdisc libkdcraw \
+			libkcddb libkdcraw \
 			libkdegames libkeduvocdocument libkexiv2 \
 			libksane marble okular
 _USE_GEAR_ALL=		${_USE_GEAR${_KDE_VERSION}_ALL}
@@ -973,9 +973,6 @@ kde-baloo-widgets_LIB=		libKF${_KDE_VERSION}BalooWidgets.so
 
 kde-libkcddb_PORT=		audio/libkcddb
 kde-libkcddb_LIB=		libKCddb${_KDE_VERSION}.so
-
-kde-libkcompactdisc_PORT=	audio/libkcompactdisc
-kde-libkcompactdisc_LIB=	libKF${_KDE_VERSION}CompactDisc.so
 
 kde-libkdcraw_PORT=		graphics/libkdcraw
 kde-libkdcraw_LIB=		libKDcrawQt6.so
