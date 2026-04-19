@@ -13,11 +13,9 @@ LICENSE_FILE=	${WRKSRC}/MIT-LICENSE
 
 USES=		cpe gem
 
-NO_ARCH=	yes
-
 CPE_VENDOR=	rack_project
 
-PORTSCOUT=	limit:^2\.2\.
+NO_ARCH=	yes
 
 post-install:
 # Avoid CONFLICTS_INSTALL with www/rubygem-rackup
