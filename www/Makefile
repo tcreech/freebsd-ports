@@ -198,6 +198,7 @@
     SUBDIR += filebrowser
     SUBDIR += filebrowser-quantum
     SUBDIR += filepizza
+    SUBDIR += fileserv
     SUBDIR += filtron
     SUBDIR += firedm
     SUBDIR += firefox

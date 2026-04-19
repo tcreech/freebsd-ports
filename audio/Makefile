@@ -744,6 +744,7 @@
     SUBDIR += somafm-cli
     SUBDIR += sonata
     SUBDIR += songrec
+    SUBDIR += songsee
     SUBDIR += sonic-visualiser
     SUBDIR += sonicradio
     SUBDIR += sonivox
