@@ -338,7 +338,6 @@ _USE_PLASMA6_ALL=	activities activities-stats activitymanagerd \
 _USE_PLASMA_ALL=	${_USE_PLASMA${_KDE_VERSION}_ALL}
 
 # List of frequently used components of the KDE Gears distribution.
-_USE_GEAR5_ALL=		libkdcraw
 _USE_GEAR6_ALL=		baloo-widgets kosm kpublictransport \
 			libkcddb libkcompactdisc libkdcraw \
 			libkdegames libkeduvocdocument libkexiv2 \
@@ -978,10 +977,8 @@ kde-libkcddb_LIB=		libKCddb${_KDE_VERSION}.so
 kde-libkcompactdisc_PORT=	audio/libkcompactdisc
 kde-libkcompactdisc_LIB=	libKF${_KDE_VERSION}CompactDisc.so
 
-kde-libkdcraw_PORT=		graphics/libkdcraw@qt${_KDE_VERSION}
-kde-libkdcraw_LIB5=		libKF${_KDE_VERSION}KDcraw.so
-kde-libkdcraw_LIB6=		libKDcrawQt${_KDE_VERSION}.so
-kde-libkdcraw_LIB=		${kde-libkdcraw_LIB${_KDE_VERSION}}
+kde-libkdcraw_PORT=		graphics/libkdcraw
+kde-libkdcraw_LIB=		libKDcrawQt6.so
 
 kde-libkdegames_PORT=		games/libkdegames
 kde-libkdegames_LIB=		libKDEGames${_KDE_VERSION}.so
