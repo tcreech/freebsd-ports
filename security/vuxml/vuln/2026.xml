@@ -1,3 +1,34 @@
+  <vuln vid="7b83af27-3a86-11f1-90cd-41d47652b1c2">
+    <topic>OpenEXR -- several integer overflow vulnerabilities</topic>
+    <affects>
+	<package>
+	    <name>openexr</name>
+	    <range><lt>3.4.10</lt></range>
+	</package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Cary Phillips reports:</p>
+	<blockquote cite="https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v3.3.10">
+	    <p>OpenEXR 3.4.10 is a patch release that addresses the following security vulnerabilities:</p>
+	    <ul><li>CVE-2026-39886 HTJ2K Signed Integer Overflow in ht_undo_impl()</li>
+		<li>CVE-2026-40244 Integer overflow in DWA setupChannelData planarUncRle pointer arithmetic (missed variant of CVE-2026-34589)</li>
+		<li>CVE-2026-40250 Integer overflow in DWA decoder outBufferEnd pointer arithmetic (missed variant of CVE-2026-34589)</li></ul>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2026-39886</cvename>
+      <cvename>CVE-2026-40244</cvename>
+      <cvename>CVE-2026-40250</cvename>
+      <url>https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v3.4.10</url>
+    </references>
+    <dates>
+      <discovery>2026-04-17</discovery>
+      <entry>2026-04-19</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="6f1c19bf-3b29-11f1-930b-98b78501ef2a">
     <topic>xrdp -- Multiple vulnerabilities</topic>
     <affects>

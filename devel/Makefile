@@ -4449,6 +4449,7 @@
     SUBDIR += py-argcomplete
     SUBDIR += py-argh
     SUBDIR += py-argparse
+    SUBDIR += py-argparse-dataclass
     SUBDIR += py-argparse-manpage
     SUBDIR += py-argparse_addons
     SUBDIR += py-args
@@ -4754,6 +4755,7 @@
     SUBDIR += py-commandlines
     SUBDIR += py-commentjson
     SUBDIR += py-commoncode
+    SUBDIR += py-conda-inject
     SUBDIR += py-condense-json
     SUBDIR += py-conditional
     SUBDIR += py-confection
@@ -4891,6 +4893,7 @@
     SUBDIR += py-dotmap
     SUBDIR += py-dotted
     SUBDIR += py-dotty-dict
+    SUBDIR += py-dpath
     SUBDIR += py-dpcontracts
     SUBDIR += py-dtfabric
     SUBDIR += py-dukpy
@@ -6174,6 +6177,7 @@
     SUBDIR += py-threema-msgapi
     SUBDIR += py-thrift
     SUBDIR += py-thriftpy2
+    SUBDIR += py-throttler
     SUBDIR += py-tiamat
     SUBDIR += py-time-machine
     SUBDIR += py-timelib
