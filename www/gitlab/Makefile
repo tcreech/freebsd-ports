@@ -211,7 +211,7 @@ MY_DEPENDS=	gitaly>=${GITLAB_VERSION}:devel/gitaly \
 	rubygem-request_store>=1.7.0<1.8:devel/rubygem-request_store \
 	rubygem-base32>=0.3.4<0.4.0:converters/rubygem-base32 \
 	rubygem-gitlab-license>=2.6<3:devel/rubygem-gitlab-license \
-	rubygem-rack-attack>=6.8.0<6.9:www/rubygem-rack-attack \
+	rubygem-rack-attack-gitlab>=6.8.0<6.9:www/rubygem-rack-attack-gitlab \
 	rubygem-sentry-ruby>=5.23.0<5.24:devel/rubygem-sentry-ruby \
 	rubygem-sentry-rails>=5.23.0<5.24:devel/rubygem-sentry-rails \
 	rubygem-sentry-sidekiq>=5.23.0<5.24:devel/rubygem-sentry-sidekiq \
@@ -298,7 +298,7 @@ MY_DEPENDS=	gitaly>=${GITLAB_VERSION}:devel/gitaly \
 	rubygem-lockbox>=1.4.1<1.5:security/rubygem-lockbox \
 	rubygem-valid_email>=0.1<1:mail/rubygem-valid_email \
 	rubygem-jsonb_accessor>=1.4<2:www/rubygem-jsonb_accessor \
-	rubygem-json-gitlab>=2.19.2<2.20:devel/rubygem-json-gitlab \
+	rubygem-json>=2.19.2<2.20:devel/rubygem-json \
 	rubygem-json_schemer>=2.4.0<2.5:devel/rubygem-json_schemer \
 	rubygem-oj-gitlab>=3.16.16<3.17:devel/rubygem-oj-gitlab \
 	rubygem-oj-introspect>=0.9<1:devel/rubygem-oj-introspect \
