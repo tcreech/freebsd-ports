@@ -601,6 +601,12 @@
     SUBDIR += py-shell-gpt
     SUBDIR += py-sigopt
     SUBDIR += py-smdebug-rulesconfig
+    SUBDIR += py-snakemake-interface-common
+    SUBDIR += py-snakemake-interface-executor-plugins
+    SUBDIR += py-snakemake-interface-logger-plugins
+    SUBDIR += py-snakemake-interface-report-plugins
+    SUBDIR += py-snakemake-interface-scheduler-plugins
+    SUBDIR += py-snakemake-interface-storage-plugins
     SUBDIR += py-soapy_power
     SUBDIR += py-spandrel
     SUBDIR += py-spdx-tools
