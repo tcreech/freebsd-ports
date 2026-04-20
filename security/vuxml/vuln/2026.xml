@@ -1,3 +1,43 @@
+  <vuln vid="0d8b1126-0864-4934-b63f-c713526ead32">
+    <topic>zeek -- potential DoS vulnerabilities</topic>
+    <affects>
+<package>
+<name>zeek</name>
+<range><lt>8.0.7</lt></range>
+</package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Tim Wojtulewicz of Corelight reports:</p>
+	<blockquote cite="https://github.com/zeek/zeek/releases/tag/v8.0.7">
+	  <p>A series of DNS messages containing long DNS compression
+	  chains can cause Zeek to spend a long time processing
+	  packets and potentially crash. Due to the fact that these
+	  packets can be received from remote hosts, this is a DoS
+	  risk. </p>
+	  <p>A specially-crafted LDAP search request can cause Zeek
+	  to spend a long time processing the packet, resulting in
+	  Zeek silently dropping the LDAP analyzer for the connection.
+	  Due to the fact that these packets can be received from
+	  remote hosts, this is an evasion risk. </p>
+	  <p>A specially-crafted series of ASN.1 messages in LDAP
+	  packets can cause Zeek to spend a long time processing
+	  the packets, resulting in Zeek silently dropping the LDAP
+	  analyzer for the connection.  Due to the fact that these
+	  packets can be received from remote hosts, this is an
+	  evasion risk. </p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <url>https://github.com/zeek/zeek/releases/tag/v8.0.7</url>
+    </references>
+    <dates>
+      <discovery>2026-04-20</discovery>
+      <entry>2026-04-20</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="7b83af27-3a86-11f1-90cd-41d47652b1c2">
     <topic>OpenEXR -- several integer overflow vulnerabilities</topic>
     <affects>
