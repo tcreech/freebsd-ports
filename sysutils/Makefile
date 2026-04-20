@@ -1603,6 +1603,7 @@
     SUBDIR += wait_on
     SUBDIR += waitforssh
     SUBDIR += walk
+    SUBDIR += wander
     SUBDIR += watchcat
     SUBDIR += watchfolder
     SUBDIR += watchman
