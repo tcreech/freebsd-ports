@@ -52,9 +52,9 @@
     SUBDIR += chrono
     SUBDIR += cinnamon-translations
     SUBDIR += claude-code
+    SUBDIR += clawhub
     SUBDIR += clex
     SUBDIR += clifm
-    SUBDIR += clawhub
     SUBDIR += cloc
     SUBDIR += clpbar
     SUBDIR += code2prompt

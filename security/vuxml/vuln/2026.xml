@@ -1,3 +1,37 @@
+  <vuln vid="c4972d4f-3d93-11f1-9073-b42e991fc52e">
+    <topic>Mozilla -- Integer overflow</topic>
+    <affects>
+    <package>
+	<name>firefox</name>
+	<range><lt>148.0.0,2</lt></range>
+    </package>
+    <package>
+	<name>firefox-esr</name>
+	<range><lt>140.8.0</lt></range>
+    </package>
+    <package>
+	<name>thunderbird</name>
+	<range><lt>148.0.0</lt></range>
+    </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>https://bugzilla.mozilla.org/show_bug.cgi?id=2009552 reports:</p>
+	<blockquote cite="https://bugzilla.mozilla.org/show_bug.cgi?id=2009552">
+	  <p>Integer overflow in the Libraries component in NSS.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2026-2781</cvename>
+      <url>https://cveawg.mitre.org/api/cve/CVE-2026-2781</url>
+    </references>
+    <dates>
+      <discovery>2026-02-24</discovery>
+      <entry>2026-04-21</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="82064ab5-3d76-11f1-89ab-901b0e9408dc">
     <topic>ejabberd -- Potential DDoS in XML Parser</topic>
     <affects>
