@@ -1,3 +1,33 @@
+  <vuln vid="82064ab5-3d76-11f1-89ab-901b0e9408dc">
+    <topic>ejabberd -- Potential DDoS in XML Parser</topic>
+    <affects>
+<package>
+<name>ejabberd</name>
+<range><lt>26.04</lt></range>
+</package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>ejabberd team reports:</p>
+	<blockquote cite="https://www.process-one.net/blog/ejabberd-26-04/">
+	  <p>This release adds new options that limit max memory used
+	  by XML parser used to process XMPP payloads, to prevent
+	  potential Denial of Service attack. The default values for
+	  pre-auth provide sufficient protection for ejabberd against
+	  non-authenticated users on c2s and s2s, so there is no need
+	  to change your configuration.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <url>https://www.process-one.net/blog/ejabberd-26-04/</url>
+    </references>
+    <dates>
+      <discovery>2026-04-20</discovery>
+      <entry>2026-04-21</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="0d8b1126-0864-4934-b63f-c713526ead32">
     <topic>zeek -- potential DoS vulnerabilities</topic>
     <affects>
