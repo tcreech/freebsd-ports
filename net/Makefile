@@ -406,6 +406,7 @@
     SUBDIR += libnet
     SUBDIR += libnfs
     SUBDIR += libngtcp2
+    SUBDIR += libngtcp2-boringssl
     SUBDIR += libngtcp2-gnutls
     SUBDIR += libngtcp2-wolfssl
     SUBDIR += libnids
