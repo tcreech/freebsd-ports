@@ -37,6 +37,9 @@ add patches that extend timeouts in order for openclaw to
 work with slow AI endpoints, for example CPU based
 endpoints.
 
+The openclaw package was verified to work on FreeBSD 15 STABLE
+with qwen3.5:35B-a3b run in ollama on a machine with 64GB RAM.
+
 EOM
 }
 ]

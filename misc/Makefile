@@ -35,6 +35,7 @@
     SUBDIR += binocle
     SUBDIR += biosfont-demos
     SUBDIR += birthday
+    SUBDIR += blogwatcher
     SUBDIR += bogosort
     SUBDIR += bottlerocket
     SUBDIR += box2d
@@ -42,6 +43,7 @@
     SUBDIR += broot
     SUBDIR += bsod
     SUBDIR += caffe
+    SUBDIR += camsnap
     SUBDIR += chatblade
     SUBDIR += chatgpt-shell-cli
     SUBDIR += cheat
@@ -110,6 +112,7 @@
     SUBDIR += ecflow
     SUBDIR += edfbrowser
     SUBDIR += edflib
+    SUBDIR += eightctl
     SUBDIR += elki
     SUBDIR += elscreen
     SUBDIR += emacs-libvterm
@@ -195,6 +198,7 @@
     SUBDIR += gpsim
     SUBDIR += granulate
     SUBDIR += grc
+    SUBDIR += grizzly
     SUBDIR += grok-cli
     SUBDIR += gwhich
     SUBDIR += hashdb
@@ -292,6 +296,7 @@
     SUBDIR += mcp-inspector
     SUBDIR += mcp-probe
     SUBDIR += mdp
+    SUBDIR += memo
     SUBDIR += meshoptimizer
     SUBDIR += metalink-checker
     SUBDIR += metalink-tools

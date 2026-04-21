@@ -13,6 +13,7 @@ LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BROKEN_i386=	Platform i386 is not supported
+IGNORE_arm64=	No npm cache available
 
 BUILD_DEPENDS=	npm>0:www/npm
 
