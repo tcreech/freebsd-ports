@@ -11,7 +11,7 @@ WWW=		https://yasm.tortall.net/
 
 LICENSE=	BSD3CLAUSE
 
-USES=		cmake:testing localbase:ldflags
+USES=		cmake:testing localbase:ldflags python:build
 
 USE_GITHUB=	yes
 
