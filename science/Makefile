@@ -120,6 +120,7 @@
     SUBDIR += hdf5
     SUBDIR += hdf5-110
     SUBDIR += hdf5-18
+    SUBDIR += hdf5-21
     SUBDIR += healpix
     SUBDIR += helfem
     SUBDIR += hepmc3
