@@ -1,5 +1,5 @@
 PORTNAME=	portalocker
-PORTVERSION=	2.10.1
+PORTVERSION=	3.2.0
 CATEGORIES=	devel python
 MASTER_SITES=	PYPI \
 		https://github.com/wolph/portalocker/releases/download/v${PORTVERSION}/

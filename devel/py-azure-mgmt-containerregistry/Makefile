@@ -1,12 +1,12 @@
 PORTNAME=	azure-mgmt-containerregistry
-DISTVERSION=	14.1.0b4
+DISTVERSION=	15.1.0b1
 CATEGORIES=	devel python
 MASTER_SITES=	PYPI
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 DISTNAME=	azure_mgmt_containerregistry-${DISTVERSION}
 
 MAINTAINER=	sunpoet@FreeBSD.org
-COMMENT=	Microsoft Azure Container Registry Client Library for Python
+COMMENT=	Microsoft Azure Containerregistry Management Client Library for Python
 WWW=		https://azure.github.io/azure-sdk-for-python/ \
 		https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerregistry/azure-mgmt-containerregistry \
 		https://github.com/Azure/azure-sdk-for-python

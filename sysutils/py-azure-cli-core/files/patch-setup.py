@@ -1,4 +1,4 @@
---- setup.py.orig	2025-11-11 12:32:43 UTC
+--- setup.py.orig	2026-03-31 07:18:57 UTC
 +++ setup.py
 @@ -43,20 +43,20 @@ DEPENDENCIES = [
  ]
@@ -6,10 +6,10 @@
  DEPENDENCIES = [
 -    'argcomplete~=3.5.2',
 -    'azure-cli-telemetry==1.1.0.*',
--    'azure-core~=1.38.0',
+-    'azure-core~=1.39.0',
 +    'argcomplete>=3.5.2',
 +    'azure-cli-telemetry>=1.1.0',
-+    'azure-core>=1.38.0',
++    'azure-core>=1.39.0',
      'azure-mgmt-core>=1.2.0,<2',
      'cryptography',
      # On Linux, the distribution (Ubuntu, Debian, etc) and version are logged in telemetry
@@ -21,9 +21,9 @@
      'microsoft-security-utilities-secret-masker~=1.0.0b4',
 -    'msal-extensions==1.2.0',
 +    'msal-extensions>=1.2.0',
-     'msal[broker]==1.35.0b1; sys_platform == "win32"',
--    'msal==1.35.0b1; sys_platform != "win32"',
-+    'msal>=1.35.0b1; sys_platform != "win32"',
+     'msal[broker]==1.35.1; sys_platform == "win32"',
+-    'msal==1.35.1; sys_platform != "win32"',
++    'msal>=1.35.1; sys_platform != "win32"',
      'packaging>=20.9',
      'pkginfo>=1.5.0.1',
      # psutil can't install on cygwin: https://github.com/Azure/azure-cli/issues/9399

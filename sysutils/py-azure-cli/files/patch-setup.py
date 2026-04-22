@@ -1,6 +1,6 @@
---- setup.py.orig	2026-02-25 02:35:34 UTC
+--- setup.py.orig	2026-03-31 07:19:07 UTC
 +++ setup.py
-@@ -50,94 +50,94 @@ DEPENDENCIES = [
+@@ -50,95 +50,95 @@ DEPENDENCIES = [
  ]
  
  DEPENDENCIES = [
@@ -25,7 +25,7 @@
 -    'azure-keyvault-securitydomain==1.0.0b1',
 -    'azure-mgmt-advisor==9.0.0',
 -    'azure-mgmt-apimanagement==4.0.0',
--    'azure-mgmt-appconfiguration==5.0.0',
+-    'azure-mgmt-appconfiguration==6.0.0b1',
 -    'azure-mgmt-appcontainers==2.0.0',
 -    'azure-mgmt-applicationinsights~=1.0.0',
 -    'azure-mgmt-authorization==5.0.0b1',
@@ -37,8 +37,9 @@
 -    'azure-mgmt-cognitiveservices~=14.1.0',
 -    'azure-mgmt-compute~=34.1.0',
 -    'azure-mgmt-containerinstance==10.2.0b1',
--    'azure-mgmt-containerregistry==14.1.0b1',
--    'azure-mgmt-containerservice~=40.2.0',
+-    'azure-mgmt-containerregistry==15.1.0b1',
+-    'azure-mgmt-containerregistrytasks==1.0.0b1',
+-    'azure-mgmt-containerservice~=41.0.0',
 -    'azure-mgmt-cosmosdb==9.9.0',
 -    'azure-mgmt-datalake-store~=1.1.0b1',
 -    'azure-mgmt-datamigration~=10.0.0',
@@ -93,7 +94,7 @@
 -    'azure-storage-file-share==12.24.0b1',
 -    'azure-storage-queue==12.15.0b1',
 -    'azure-synapse-accesscontrol~=0.5.0',
--    'azure-synapse-artifacts~=0.21.0',
+-    'azure-synapse-artifacts~=0.22.0',
 -    'azure-synapse-managedprivateendpoints~=0.4.0',
 -    'azure-synapse-spark~=0.7.0',
 -    'chardet~=5.2.0',
@@ -105,7 +106,7 @@
 +    'azure-keyvault-securitydomain>=1.0.0b1',
 +    'azure-mgmt-advisor>=9.0.0',
 +    'azure-mgmt-apimanagement>=4.0.0',
-+    'azure-mgmt-appconfiguration>=5.0.0',
++    'azure-mgmt-appconfiguration>=6.0.0b1',
 +    'azure-mgmt-appcontainers>=2.0.0',
 +    'azure-mgmt-applicationinsights>=1.0.0',
 +    'azure-mgmt-authorization>=5.0.0b1',
@@ -117,8 +118,9 @@
 +    'azure-mgmt-cognitiveservices>=14.1.0',
 +    'azure-mgmt-compute>=34.1.0',
 +    'azure-mgmt-containerinstance>=10.2.0b1',
-+    'azure-mgmt-containerregistry>=14.1.0b1',
-+    'azure-mgmt-containerservice>=40.2.0',
++    'azure-mgmt-containerregistry>=15.1.0b1',
++    'azure-mgmt-containerregistrytasks>=1.0.0b1',
++    'azure-mgmt-containerservice>=41.0.0',
 +    'azure-mgmt-cosmosdb>=9.9.0',
 +    'azure-mgmt-datalake-store>=1.1.0b1',
 +    'azure-mgmt-datamigration>=10.0.0',
@@ -173,7 +175,7 @@
 +    'azure-storage-file-share>=12.24.0b1',
 +    'azure-storage-queue>=12.15.0b1',
 +    'azure-synapse-accesscontrol>=0.5.0',
-+    'azure-synapse-artifacts>=0.21.0',
++    'azure-synapse-artifacts>=0.22.0',
 +    'azure-synapse-managedprivateendpoints>=0.4.0',
 +    'azure-synapse-spark>=0.7.0',
 +    'chardet>=5.2.0',
@@ -181,7 +183,7 @@
      # On Linux, the distribution (Ubuntu, Debian, etc) and version are checked for `az feedback`
      'distro; sys_platform == "linux"',
      'fabric~=3.2.2',
-@@ -146,19 +146,19 @@ DEPENDENCIES = [
+@@ -147,19 +147,19 @@ DEPENDENCIES = [
      'packaging>=20.9',
      'paramiko>=2.0.8,<4.0.0',
      'pycomposefile>=0.0.34',
