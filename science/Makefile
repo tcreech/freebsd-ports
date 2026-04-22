@@ -405,6 +405,7 @@
     SUBDIR += py-pyberny
     SUBDIR += py-pycsw
     SUBDIR += py-pydicom
+    SUBDIR += py-pydoe
     SUBDIR += py-pygeodesy
     SUBDIR += py-pygeometa
     SUBDIR += py-pygmo2
