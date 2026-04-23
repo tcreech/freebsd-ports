@@ -17,6 +17,9 @@ WWW=		https://www.virtualbox.org/
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/COPYING
 
+DEPRECATED=		Upstream EOL reaches on 2026-04-21, use emulators/virtualbox-ose${PKGNAMESUFFIX:S|1|2|} instead
+EXPIRATION_DATE=	2026-12-31
+
 ONLY_FOR_ARCHS=	amd64
 
 BUILD_DEPENDS=	gtar:archivers/gtar \
