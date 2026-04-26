@@ -49,7 +49,8 @@ USE_LOCALE?=	en_US.UTF-8
 CONFIGURE_ARGS+=	meson
 .  endif
 
-CONFIGURE_ARGS+=	--prefix ${PREFIX} \
+CONFIGURE_ARGS+=	setup \
+			--prefix ${PREFIX} \
 			--localstatedir /var \
 			--infodir ${INFO_PATH}
 
