@@ -4303,6 +4303,7 @@
     SUBDIR += pecl-zookeeper
     SUBDIR += pegtl
     SUBDIR += pep8
+    SUBDIR += perfetto
     SUBDIR += performance
     SUBDIR += perlconsole
     SUBDIR += phabricator
