@@ -31,6 +31,7 @@
     SUBDIR += einstein-newton
     SUBDIR += elliott-803
     SUBDIR += emulationstation
+    SUBDIR += emu64
     SUBDIR += emutos
     SUBDIR += es-de
     SUBDIR += fbneo
