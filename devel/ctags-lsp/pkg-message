@@ -1,0 +1,8 @@
+[
+{ type: install
+message: <<EOM
+ctags-lsp requires universal-ctags built with the JSON option enabled.
+That option is enabled by default, and is enabled in the pkg from FreeBSD.
+EOM
+}
+]
