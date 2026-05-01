@@ -455,6 +455,7 @@
     SUBDIR += liveMedia
     SUBDIR += lla
     SUBDIR += lldap
+    SUBDIR += localgo
     SUBDIR += lua-luasocket
     SUBDIR += lualdap
     SUBDIR += mDNSResponder
