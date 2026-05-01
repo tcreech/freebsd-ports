@@ -1,3 +1,44 @@
+  <vuln vid="7ebfb0bf-44b4-11f1-8b82-3c7c3fba4204">
+    <topic>Text::CSV_XS -- CWE-825 Expired Pointer Dereference</topic>
+    <affects>
+    <package>
+	<name>p5-Text-CSV_XS</name>
+	<range><lt>1.62</lt></range>
+    </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>H.Merijn Brand - Tux &lt;linux@tux.freedom.nl&gt; reports:</p>
+	<blockquote cite="https://github.com/cpan-authors/Text-CSV_XS/commit/c17f31a5f2bf36674748eb4b6e25672f0571a224.patch">
+	  <p>Text::CSV_XS versions before 1.62 for Perl have a use-after-free
+when registered callbacks extend the Perl argument stack, which may
+enable type confusion or memory corruption.
+
+The Parse, print, getline, and getline_all methods invoke registered
+callbacks (for example after_parse, before_print, or on_error) and
+cache the Perl argument stack pointer across the call.  If a callback
+extends the argument stack enough to trigger a reallocation, the
+return value is written through the stale pointer into the freed
+buffer, and the caller reads the original $self argument as the
+return value instead.
+
+Calling code that expects parsed data from getline_all receives the
+Text::CSV_XS object in its place, leading to logic errors or crashes.
+Text::CSV_XS objects used without any registered callbacks are not
+affected.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2026-7111</cvename>
+      <url>https://cveawg.mitre.org/api/cve/CVE-2026-7111</url>
+    </references>
+    <dates>
+      <discovery>2026-04-29</discovery>
+      <entry>2026-04-30</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="c3a9c5a6-4435-11f1-bb07-bc241121aa0a">
     <topic>FreeBSD -- Heap overflow in libnv</topic>
     <affects>
