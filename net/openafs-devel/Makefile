@@ -2,7 +2,6 @@
 
 PORTNAME=	openafs-devel
 DISTVERSION=	g20250615.${DBVERSION:S/-//g}
-PORTREVISION=	3
 CATEGORIES=	net
 DISTFILES=	CellServDB.${DBVERSION}:gco
 MASTER_SITES= GH \
@@ -10,7 +9,7 @@ MASTER_SITES= GH \
 		http://grand.central.org/dl/cellservdb/:gco
 
 USE_GITHUB=	yes
-GH_TAGNAME=	14206_3_fbsd15_20250615
+GH_TAGNAME=	14206_3_fbsd15_20260428
 GH_ACCOUNT=	tcreech
 GH_PROJECT=	openafs
 
