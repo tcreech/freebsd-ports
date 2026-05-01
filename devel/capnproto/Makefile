@@ -11,9 +11,6 @@ WWW=		https://capnproto.org/
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
-BROKEN_FreeBSD_15=	kqueue regression
-BROKEN_FreeBSD_16=	kqueue regression
-
 USES=		cmake:testing compiler:c++14-lang cpe pathfix ssl
 USE_LDCONFIG=	yes
 

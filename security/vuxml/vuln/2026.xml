@@ -202,6 +202,41 @@
     </dates>
   </vuln>
 
+  <vuln vid="787cde46-4424-11f1-943f-05b19d100dca">
+    <topic>openexr -- multiple vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>openexr</name>
+	<range><lt>3.4.11</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Cary Phillips reports:</p>
+	<blockquote cite="https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v3.4.11">
+	  <p>[OpenEXR v3.4.11 is a p]atch release that addresses the following security vulnerabilities:</p>
+	  <ul>
+	    <li>CVE-2026-42217 Shift exponent overflow in readVariableLengthInteger() (ImfIDManifest.cpp)</li>
+	    <li>CVE-2026-42216 Out-of-bounds read in IDManifest::init() during prefix expansion</li>
+	    <li>CVE-2026-41142 Integer overflow in ImageChannel::resize leads to heap OOB write via OpenEXRUtil public API</li>
+	    <li>OSS-fuzz 504280155 Heap-buffer-overflow in DwaCompressor_uncompress</li>
+	    <li>OSS-fuzz 505062709 Null-dereference READ in Imf_3_3::prefixFromLayerName</li>
+	  </ul>
+	</blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2026-42217</cvename>
+      <cvename>CVE-2026-42216</cvename>
+      <cvename>CVE-2026-41142</cvename>
+      <url>https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v3.4.11</url>
+    </references>
+    <dates>
+      <discovery>2026-04-29</discovery>
+      <entry>2026-04-29</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="98c23e2b-43c7-11f1-a190-b42e991fc52e">
     <topic>Mozilla -- Sandbox escape</topic>
     <affects>
