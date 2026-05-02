@@ -4664,6 +4664,7 @@
     SUBDIR += py-buildbot-wsgi-dashboards
     SUBDIR += py-buildbot-www
     SUBDIR += py-bullet3
+    SUBDIR += py-bump-my-version
     SUBDIR += py-bump2version
     SUBDIR += py-bytecode
     SUBDIR += py-cabby
@@ -5639,6 +5640,7 @@
     SUBDIR += py-pre-commit
     SUBDIR += py-pre-commit-hooks
     SUBDIR += py-prefixed
+    SUBDIR += py-prek
     SUBDIR += py-preshed
     SUBDIR += py-preshed3
     SUBDIR += py-pretend

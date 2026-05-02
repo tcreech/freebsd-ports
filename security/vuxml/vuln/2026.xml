@@ -1,3 +1,32 @@
+  <vuln vid="a420f545-442c-11f1-b9b5-589cfc0dc9a2">
+    <topic>Prosody XMPP server advisory 2026-04-29</topic>
+    <affects>
+      <package>
+      <name>prosody</name>
+      <range><lt>13.0.5</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The Prosody team reports:</p>
+	<blockquote cite="https://prosody.im/security/advisory_735dd9d3/">
+	<p>Traffic patterns were discovered which can cause Prosody to consume excessive
+	amounts of memory with much smaller amounts of incoming traffic. This traffic
+	can be sent by unauthenticated connections. It was discovered that
+	mod_proxy65’s access control was broken and incomplete due to two bugs.</p>
+	<p>The issue with unpausing connections was discovered and disclosed by <a href="https://github.com/MaxHearnden">Max Hearnden</a>.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <url>https://prosody.im/security/advisory_735dd9d3/</url>
+    </references>
+    <dates>
+      <discovery>2026-04-29</discovery>
+      <entry>2026-04-30</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="7ebfb0bf-44b4-11f1-8b82-3c7c3fba4204">
     <topic>Text::CSV_XS -- CWE-825 Expired Pointer Dereference</topic>
     <affects>
