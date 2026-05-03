@@ -3,10 +3,6 @@ DISTVERSION=	2025.01
 PORTREVISION=	2
 CATEGORIES=	benchmarks
 
-PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
-PATCHFILES+=	573820a061e9.patch:-p1 # https://github.com/vkmark/vkmark/pull/80
-PATCHFILES+=	9bf505fff7a2.patch:-p1 # https://github.com/vkmark/vkmark/pull/80
-
 MAINTAINER=	jbeich@FreeBSD.org
 COMMENT=	Vulkan benchmark
 WWW=		https://github.com/vkmark/vkmark

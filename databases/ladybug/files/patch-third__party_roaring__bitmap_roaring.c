@@ -1,4 +1,4 @@
---- third_party/roaring_bitmap/roaring.c.orig	2025-03-13 23:38:46 UTC
+--- third_party/roaring_bitmap/roaring.c.orig	2026-04-29 00:05:06 UTC
 +++ third_party/roaring_bitmap/roaring.c
 @@ -55,6 +55,7 @@
   */
