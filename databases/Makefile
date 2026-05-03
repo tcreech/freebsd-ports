@@ -201,6 +201,8 @@
     SUBDIR += mysql84-server
     SUBDIR += mysql96-client
     SUBDIR += mysql96-server
+    SUBDIR += mysql97-client
+    SUBDIR += mysql97-server
     SUBDIR += mysqlbackup
     SUBDIR += mysqldump-secure
     SUBDIR += mysqlreport
@@ -1108,6 +1110,7 @@
     SUBDIR += sqlite-ext-pcre
     SUBDIR += sqlite-ext-regexp
     SUBDIR += sqlite-ext-spellfix
+    SUBDIR += sqlite-ext-vec
     SUBDIR += sqlite-jdbc
     SUBDIR += sqlite2
     SUBDIR += sqlite3
