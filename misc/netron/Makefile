@@ -1,6 +1,7 @@
 PORTNAME=	netron
 DISTVERSIONPREFIX=	v
 DISTVERSION=	9.0.6
+PORTREVISION=	1
 CATEGORIES=	misc python
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -13,6 +14,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	${PY_SETUPTOOLS} \
 		${PYTHON_PKGNAMEPREFIX}wheel>0:devel/py-wheel@${PY_FLAVOR}
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}pytorch>0:misc/py-pytorch@${PY_FLAVOR}
 
 USES=		python
 USE_PYTHON=	pep517 autoplist noflavors

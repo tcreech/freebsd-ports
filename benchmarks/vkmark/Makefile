@@ -4,8 +4,8 @@ PORTREVISION=	2
 CATEGORIES=	benchmarks
 
 PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
-PATCHFILES+=	abc5fc849569.patch:-p1 # https://github.com/vkmark/vkmark/pull/80
-PATCHFILES+=	ab3f3d709e2f.patch:-p1 # https://github.com/vkmark/vkmark/pull/80
+PATCHFILES+=	573820a061e9.patch:-p1 # https://github.com/vkmark/vkmark/pull/80
+PATCHFILES+=	9bf505fff7a2.patch:-p1 # https://github.com/vkmark/vkmark/pull/80
 
 MAINTAINER=	jbeich@FreeBSD.org
 COMMENT=	Vulkan benchmark

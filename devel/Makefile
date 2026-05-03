@@ -4332,6 +4332,7 @@
     SUBDIR += phpunit10
     SUBDIR += phpunit11
     SUBDIR += phpunit12
+    SUBDIR += phpunit13
     SUBDIR += phpunit8
     SUBDIR += phpunit9
     SUBDIR += physfs
