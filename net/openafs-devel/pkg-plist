@@ -137,7 +137,6 @@ include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/xfsattrs.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/xstat_cm.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/xstat_fs.h
 include/open%%AFSMNTDIR%%/kopen%%AFSMNTDIR%%.h
-include/open%%AFSMNTDIR%%/lock.h
 include/open%%AFSMNTDIR%%/lwp.h
 include/open%%AFSMNTDIR%%/opr/queue.h
 include/open%%AFSMNTDIR%%/opr/lock.h
@@ -161,7 +160,6 @@ include/open%%AFSMNTDIR%%/rx/rxkad_prototypes.h
 include/open%%AFSMNTDIR%%/rx/rxstat.h
 include/open%%AFSMNTDIR%%/rx/xdr.h
 include/open%%AFSMNTDIR%%/rx/xdr_prototypes.h
-include/open%%AFSMNTDIR%%/timer.h
 include/open%%AFSMNTDIR%%/ubik.h
 include/open%%AFSMNTDIR%%/ubik_int.h
 lib/%%AFSMNTDIR%%/libacl.a
