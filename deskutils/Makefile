@@ -249,6 +249,7 @@
     SUBDIR += py-vobject
     SUBDIR += py-vorta
     SUBDIR += qlipper
+    SUBDIR += qmd
     SUBDIR += qmediamanager
     SUBDIR += qownnotes
     SUBDIR += qtfeedback
