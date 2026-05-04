@@ -863,6 +863,7 @@
     SUBDIR += py-sqlite-fts4
     SUBDIR += py-sqlite-migrate
     SUBDIR += py-sqlite-utils
+    SUBDIR += py-sqlite-vec
     SUBDIR += py-sqlite3
     SUBDIR += py-sqlmodel
     SUBDIR += py-sqlobject
