@@ -20,6 +20,8 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 DEPRECATED=		Upstream EOL reaches on 2024-01-31, use emulators/virtualbox-ose${PKGNAMESUFFIX}-72 instead
 EXPIRATION_DATE=	2026-12-31
 
+BROKEN_FreeBSD_16=	clang++ from llvm11-14 (required for build) cannot compile libc++ 21
+
 ONLY_FOR_ARCHS=	amd64
 
 BUILD_DEPENDS=	gtar:archivers/gtar \
