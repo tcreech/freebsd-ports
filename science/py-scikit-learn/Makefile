@@ -27,6 +27,7 @@ TEST_ARGS=	sklearn
 TEST_WRKSRC=	${STAGEDIR}${PYTHON_SITELIBDIR}
 
 SHEBANG_FILES=	sklearn/_build_utils/version.py
+BINARY_ALIAS=	cython=cython-${PYTHON_VER}
 
 post-install: # strip binaries
 	@${STRIP_CMD} \
