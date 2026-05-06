@@ -21,7 +21,7 @@ CMAKE_ON=	BUILD_SHARED_LIBS INSTALL_PFDSP INSTALL_PFFASTCONV
 .include <bsd.port.options.mk>
 
 .if ${ARCH:Mpowerpc*}
-CMAKE_ARGS+=	-DUSE_SIMD:BOOL=OFF #https://github.com/marton78/pffft/issues/55
+CMAKE_ARGS+=	-DPFFFT_USE_SIMD:BOOL=OFF #https://github.com/marton78/pffft/issues/55
 .endif
 
 .include <bsd.port.pre.mk>
