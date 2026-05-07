@@ -5609,6 +5609,8 @@
     SUBDIR += py-pkgconfig
     SUBDIR += py-plac
     SUBDIR += py-plan
+    SUBDIR += py-plaster
+    SUBDIR += py-plaster-pastedeploy
     SUBDIR += py-platformdirs
     SUBDIR += py-plette
     SUBDIR += py-plex
@@ -6072,6 +6074,7 @@
     SUBDIR += py-setproctitle
     SUBDIR += py-setupmeta
     SUBDIR += py-setuptools
+    SUBDIR += py-setuptools-changelog-shortener
     SUBDIR += py-setuptools-declarative-requirements
     SUBDIR += py-setuptools-dso
     SUBDIR += py-setuptools-gettext
