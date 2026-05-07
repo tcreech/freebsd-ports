@@ -516,6 +516,7 @@
     SUBDIR += node22
     SUBDIR += node24
     SUBDIR += node25
+    SUBDIR += node26
     SUBDIR += nostromo
     SUBDIR += novnc
     SUBDIR += npc
@@ -524,6 +525,7 @@
     SUBDIR += npm-node22
     SUBDIR += npm-node24
     SUBDIR += npm-node25
+    SUBDIR += npm-node26
     SUBDIR += nyxt
     SUBDIR += oatpp
     SUBDIR += oauth2-proxy
@@ -1474,6 +1476,7 @@
     SUBDIR += pocket-id
     SUBDIR += podcastamatic
     SUBDIR += pomerium
+    SUBDIR += pomerium-envoy-custom
     SUBDIR += pound
     SUBDIR += privatebin
     SUBDIR += privoxy
@@ -2754,6 +2757,7 @@
     SUBDIR += yarn-node22
     SUBDIR += yarn-node24
     SUBDIR += yarn-node25
+    SUBDIR += yarn-node26
     SUBDIR += yarr
     SUBDIR += yaws
     SUBDIR += you-get
