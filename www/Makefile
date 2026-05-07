@@ -1724,6 +1724,7 @@
     SUBDIR += py-dtflickr
     SUBDIR += py-enmerkar
     SUBDIR += py-essentials-openapi
+    SUBDIR += py-exa-py
     SUBDIR += py-extruct
     SUBDIR += py-fake-useragent
     SUBDIR += py-falcon
@@ -1731,6 +1732,7 @@
     SUBDIR += py-fastapi-sso
     SUBDIR += py-feedgen
     SUBDIR += py-feedgenerator
+    SUBDIR += py-firecrawl-py
     SUBDIR += py-flasgger
     SUBDIR += py-flask
     SUBDIR += py-flask-admin
@@ -1880,6 +1882,7 @@
     SUBDIR += py-onetimepass
     SUBDIR += py-openbrokerapi
     SUBDIR += py-pafy
+    SUBDIR += py-parallel-web
     SUBDIR += py-paste
     SUBDIR += py-pastedeploy
     SUBDIR += py-path-and-address
