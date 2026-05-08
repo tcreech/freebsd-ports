@@ -405,6 +405,7 @@
     SUBDIR += finfo
     SUBDIR += firstboot-cloudsetup
     SUBDIR += firstboot-freebsd-update
+    SUBDIR += firstboot-pkg-upgrade
     SUBDIR += firstboot-pkgs
     SUBDIR += flasher
     SUBDIR += flashrom
