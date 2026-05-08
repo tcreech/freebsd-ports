@@ -1,5 +1,5 @@
---- src/Standard/Standard_CLocaleSentry.hxx.orig	2025-02-17 22:00:23 UTC
-+++ src/Standard/Standard_CLocaleSentry.hxx
+--- src/FoundationClasses/TKernel/Standard/Standard_CLocaleSentry.hxx.orig	2026-05-06 22:31:54 UTC
++++ src/FoundationClasses/TKernel/Standard/Standard_CLocaleSentry.hxx
 @@ -32,7 +32,7 @@
    //! 200809L)) due to missing such declarations in standard. On macOS new functions are declared
    //! within "xlocale.h" header (the same is for glibc, but this header has been removed since
