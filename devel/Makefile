@@ -1205,7 +1205,6 @@
     SUBDIR += kronosnet
     SUBDIR += ktextaddons
     SUBDIR += kunifiedpush
-    SUBDIR += kyua
     SUBDIR += lab
     SUBDIR += lace
     SUBDIR += lace14
@@ -4850,6 +4849,7 @@
     SUBDIR += py-datadog
     SUBDIR += py-dataflows-tabulator
     SUBDIR += py-datapackage
+    SUBDIR += py-datashape
     SUBDIR += py-datasette
     SUBDIR += py-datatest
     SUBDIR += py-dateparser
@@ -5799,6 +5799,7 @@
     SUBDIR += py-pyrepl
     SUBDIR += py-pyrfc3339
     SUBDIR += py-pyright
+    SUBDIR += py-pyroaring
     SUBDIR += py-pyroma
     SUBDIR += py-pyrsistent
     SUBDIR += py-pyscaffold
