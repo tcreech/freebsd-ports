@@ -28,8 +28,8 @@ LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 #EXPIRATION_DATE=	2019-05-08
 ONLY_FOR_ARCHS=	i386 amd64 aarch64
 
-AFS_DISTVERSION=	1.8.13.2
-DBVERSION=	2023-10-31
+AFS_DISTVERSION=	1.8.15
+DBVERSION=	2025-08-16
 
 USES=		cpe kmod tar:bzip2 uidfix
 USE_LDCONFIG=	yes

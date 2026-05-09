@@ -1,6 +1,6 @@
---- src/config/afs_sysnames.h.orig	2025-01-23 17:12:55 UTC
+--- src/config/afs_sysnames.h.orig	2026-02-26 17:15:49 UTC
 +++ src/config/afs_sysnames.h
-@@ -258,6 +258,12 @@
+@@ -262,6 +262,12 @@
  #define SYS_NAME_ID_i386_fbsd_121      2161
  #define SYS_NAME_ID_i386_fbsd_122      2162
  #define SYS_NAME_ID_i386_fbsd_123      2163
@@ -13,7 +13,7 @@
  
  #define SYS_NAME_ID_ia64_linux2		2200
  #define SYS_NAME_ID_ia64_linux22	2201
-@@ -376,6 +382,21 @@
+@@ -380,6 +386,21 @@
  #define SYS_NAME_ID_amd64_fbsd_121     3061
  #define SYS_NAME_ID_amd64_fbsd_122     3062
  #define SYS_NAME_ID_amd64_fbsd_123     3063
