@@ -1,4 +1,4 @@
---- src/afs/afs_call.c.orig	2025-01-23 17:12:55 UTC
+--- src/afs/afs_call.c.orig	2026-02-26 17:15:49 UTC
 +++ src/afs/afs_call.c
 @@ -47,6 +47,9 @@
  #else
@@ -10,13 +10,14 @@
  
  #if (defined(AFS_SUN5_ENV) || defined(AFS_LINUX_ENV) || defined(AFS_DARWIN80_ENV)) && !defined(UKERNEL)
  /* If AFS_DAEMONOP_ENV is defined, it indicates we run "daemon" AFS syscalls by
-@@ -105,11 +108,19 @@ afs_InitSetup(int preallocs)
+@@ -105,12 +108,20 @@ afs_InitSetup(int preallocs)
  static int
  afs_InitSetup(int preallocs)
  {
 +    static int afs_InitSetup_running;
 +
      int code;
+     afs_uint32 host;
  
 +    while (afs_InitSetup_running) {
 +	afs_osi_Sleep(&afs_InitSetup_running);
@@ -30,10 +31,10 @@
  #ifdef AFS_SUN510_ENV
      /* Initialize a RW lock for the ifinfo global array */
      rw_init(&afsifinfo_lock, NULL, RW_DRIVER, NULL);
-@@ -134,10 +145,12 @@ afs_InitSetup(int preallocs)
-     /* start RX */
-     if(!afscall_set_rxpck_received)
-     rx_extraPackets = AFS_NRXPACKETS;	/* smaller # of packets */
+@@ -143,10 +154,12 @@ afs_InitSetup(int preallocs)
+              (host >>  8) & 0xff,
+              (host)       & 0xff,
+              7001);
 +    AFS_GUNLOCK();
      code = rx_InitHost(rx_bindhost, htons(7001));
 +    AFS_GLOCK();
@@ -44,7 +45,7 @@
      }
      rx_SetRxDeadTime(afs_rx_deadtime);
      /* resource init creates the services */
-@@ -146,6 +159,9 @@ afs_InitSetup(int preallocs)
+@@ -155,6 +168,9 @@ afs_InitSetup(int preallocs)
      afs_InitSetup_done = 1;
      afs_osi_Wakeup(&afs_InitSetup_done);
  
@@ -54,7 +55,7 @@
      return code;
  }
  
-@@ -1704,7 +1720,9 @@ afs_shutdown(enum afs_shutdown_type cold_flag)
+@@ -1713,7 +1729,9 @@ afs_shutdown(enum afs_shutdown_type cold_flag)
      afs_warn("CB... ");
  
      afs_termState = AFSOP_STOP_RXCALLBACK;
@@ -64,7 +65,7 @@
  #ifdef AFS_AIX51_ENV
      shutdown_rxkernel();
  #endif
-@@ -1757,7 +1775,9 @@ afs_shutdown(enum afs_shutdown_type cold_flag)
+@@ -1766,7 +1784,9 @@ afs_shutdown(enum afs_shutdown_type cold_flag)
      afs_warn("NetIfPoller... ");
      osi_StopNetIfPoller();
  #endif
