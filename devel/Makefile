@@ -1367,6 +1367,7 @@
     SUBDIR += libk8055
     SUBDIR += libkiwix
     SUBDIR += libkiwix13
+    SUBDIR += libks
     SUBDIR += libklel
     SUBDIR += liblangtag
     SUBDIR += liblnk
@@ -4078,7 +4079,6 @@
     SUBDIR += pear
     SUBDIR += pear-Config
     SUBDIR += pear-Console_Color
-    SUBDIR += pear-Console_CommandLine
     SUBDIR += pear-Console_Getargs
     SUBDIR += pear-Console_Table
     SUBDIR += pear-Date
