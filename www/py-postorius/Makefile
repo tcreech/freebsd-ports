@@ -1,8 +1,12 @@
 PORTNAME=	postorius
 PORTVERSION=	1.3.13
+PORTREVISION=	2
 CATEGORIES=	www
 MASTER_SITES=	PYPI
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+
+PATCH_SITES=	https://gitlab.com/mailman/postorius/-/commit/
+PATCHFILES=	c4706abd05ba6bcf472fc674b160d3a9d6a4868b.patch:-p1
 
 MAINTAINER=	sunpoet@FreeBSD.org
 COMMENT=	Web user interface for GNU Mailman
@@ -30,5 +34,10 @@ NO_ARCH=	yes
 CPE_VENDOR=	postorius_project
 
 SHEBANG_FILES=	example_project/manage.py
+
+OPTIONS_DEFINE=	EXAMPLES
+
+post-install-EXAMPLES-on:
+	cd ${WRKSRC} && ${COPYTREE_SHARE} example_project ${STAGEDIR}${EXAMPLESDIR}
 
 .include <bsd.port.mk>
