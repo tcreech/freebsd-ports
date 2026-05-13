@@ -4079,6 +4079,7 @@
     SUBDIR += pear
     SUBDIR += pear-Config
     SUBDIR += pear-Console_Color
+    SUBDIR += pear-Console_CommandLine
     SUBDIR += pear-Console_Getargs
     SUBDIR += pear-Console_Table
     SUBDIR += pear-Date
@@ -4839,6 +4840,7 @@
     SUBDIR += py-dal
     SUBDIR += py-darkdetect
     SUBDIR += py-darts.util.lru
+    SUBDIR += py-dasbus
     SUBDIR += py-dask
     SUBDIR += py-dask-awkward
     SUBDIR += py-dask-expr
