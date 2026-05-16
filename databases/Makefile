@@ -91,6 +91,7 @@
     SUBDIR += gqlplus
     SUBDIR += grass8
     SUBDIR += greptimedb
+    SUBDIR += groonga-normalizer-mysql
     SUBDIR += hashtypes
     SUBDIR += heidisql
     SUBDIR += hiredis
@@ -119,7 +120,6 @@
     SUBDIR += ldb28
     SUBDIR += ldb29
     SUBDIR += leo_center
-    SUBDIR += leofs
     SUBDIR += leveldb
     SUBDIR += libcouchbase
     SUBDIR += libdbi
