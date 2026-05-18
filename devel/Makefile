@@ -673,6 +673,7 @@
     SUBDIR += electron39
     SUBDIR += electron40
     SUBDIR += electron41
+    SUBDIR += electron42
     SUBDIR += elf
     SUBDIR += elf-dissector
     SUBDIR += elfcat
@@ -4673,6 +4674,7 @@
     SUBDIR += py-bump2version
     SUBDIR += py-bytecode
     SUBDIR += py-cabby
+    SUBDIR += py-cachebox
     SUBDIR += py-cached-path
     SUBDIR += py-cached-property
     SUBDIR += py-cachetools
