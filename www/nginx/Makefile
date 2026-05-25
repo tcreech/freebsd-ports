@@ -17,7 +17,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 CONFLICTS_INSTALL=	nginx-devel
 
-PORTSCOUT=	limit:^1\.2[6-7]\.[0-9]*
+PORTSCOUT=	limit:^1\.30\.[0-9]*
 
 USES=		cpe
 
