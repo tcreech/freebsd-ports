@@ -1,6 +1,6 @@
---- src/numeric_index.c.orig	2020-02-29 20:43:50 UTC
+--- src/numeric_index.c.orig	2022-02-09 21:38:06 UTC
 +++ src/numeric_index.c
-@@ -474,7 +474,7 @@ int NumericIndexType_Register(RedisModuleCtx *ctx) {
+@@ -613,7 +613,7 @@ int NumericIndexType_Register(RedisModuleCtx *ctx) {
                                 .rdb_save = NumericIndexType_RdbSave,
                                 .aof_rewrite = GenericAofRewrite_DisabledHandler,
                                 .free = NumericIndexType_Free,
