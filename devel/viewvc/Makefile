@@ -1,8 +1,8 @@
 PORTNAME=	viewvc
-DISTVERSION=	1.4.0-20260528
+DISTVERSION=	1.3.0
 CATEGORIES=	devel python
+MASTER_SITES=	https://www.viewvc.org/downloads/
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
-PKGNAMESUFFIX=	-devel
 
 MAINTAINER=	dvl@FreeBSD.org
 COMMENT=	Web-based Version Control Repository Browsing
@@ -12,9 +12,6 @@ LICENSE=	BSD2CLAUSE
 
 USES=		cpe python
 USE_PYTHON=	flavors
-USE_GITHUB=	yes
-GH_ACCOUNT=	viewvc
-GH_TAGNAME=	f9e5718b4ee1d359cc01ef82e0f04ec7d2bd872f
 USE_RC_SUBR=	viewvc
 
 NO_BUILD=		yes
@@ -45,7 +42,7 @@ SUBVERSION_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}subversion>=0:devel/py-subversion
 
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}pygments>=1.1:textproc/py-pygments@${PY_FLAVOR}
 
-CONFLICTS_INSTALL=	viewvc-1.[1-3].[0-9]*
+CONFLICTS_INSTALL=	viewvc-devel-1.[1-4].[0-9]*
 
 .include <bsd.port.options.mk>
 
@@ -70,7 +67,7 @@ post-patch:
 	${REINPLACE_CMD} -e 's/conf.dist/conf.sample/g' \
 		${WRKSRC}/viewvc-install \
 		${WRKSRC}/bin/standalone.py
-# to much files, use own shebangfix
+# too many files, use own shebangfix
 	${FIND} ${WRKSRC} -type f | ${GREP} -v -e 'png' -e 'images' \
 		| ${XARGS} ${SED} -i '' \
 		-e '1s|^\#![[:space:]]*/usr/bin/env python|\#!${PYTHON_CMD}|' \
