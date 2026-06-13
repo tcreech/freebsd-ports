@@ -462,6 +462,7 @@
     SUBDIR += getssl
     SUBDIR += gh-md-toc
     SUBDIR += gigolo
+    SUBDIR += gitlab-registry
     SUBDIR += gitwatch
     SUBDIR += gkfreq
     SUBDIR += gkleds2
