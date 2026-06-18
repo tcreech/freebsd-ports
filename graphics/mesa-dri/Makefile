@@ -5,7 +5,8 @@ CATEGORIES=	graphics
 COMMENT=	OpenGL hardware acceleration drivers for DRI2+
 WWW=		https://www.mesa3d.org/
 
-BUILD_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}ply>0:devel/py-ply@${PY_FLAVOR} \
+BUILD_DEPENDS+=	glslangValidator:graphics/glslang \
+		${PYTHON_PKGNAMEPREFIX}ply>0:devel/py-ply@${PY_FLAVOR} \
 		libva>=0:multimedia/libva
 LIB_DEPENDS+=	libgallium-${MESAVERSION}.so:graphics/mesa-libs \
 		libgbm.so:graphics/mesa-libs
@@ -38,7 +39,6 @@ iris_BUILD_DEPENDS=	libclc-${LLVM_PORT:T}>0:devel/libclc@${LLVM_PORT:T} \
 			spirv-llvm-translator-${LLVM_PORT:T}>0:devel/spirv-llvm-translator@${LLVM_PORT:T}
 iris_RUN_DEPENDS=	spirv-tools>0:graphics/spirv-tools \
 			spirv-llvm-translator-${LLVM_PORT:T}>0:devel/spirv-llvm-translator@${LLVM_PORT:T}
-iris_CONFIGURE_ENV=	PKG_CONFIG_PATH="${LLVM_PREFIX}/libdata/pkgconfig"
 iris_IMPLIES=		SPIRV
 llvmpipe_DESC=		Software Rasterizer
 panfrost_DESC=		ARM Midgard and Bifrost
@@ -61,15 +61,12 @@ ${_gd}_VARS+=		GALLIUM_DRIVERS+=${_gd}
 OPTIONS_GROUP_VULKAN=	anv radv swrast_vk
 VULKAN_DESC=		Vulkan drivers
 anv_DESC=		Intel GPU Gen9 and newer Vulkan support
-anv_BUILD_DEPENDS=	glslangValidator:graphics/glslang \
-			libclc-${LLVM_PORT:T}>0:devel/libclc@${LLVM_PORT:T} \
+anv_BUILD_DEPENDS=	libclc-${LLVM_PORT:T}>0:devel/libclc@${LLVM_PORT:T} \
 			spirv-tools>0:graphics/spirv-tools \
 			spirv-llvm-translator-${LLVM_PORT:T}>0:devel/spirv-llvm-translator@${LLVM_PORT:T}
 anv_RUN_DEPENDS=	spirv-tools>0:graphics/spirv-tools \
 			spirv-llvm-translator-${LLVM_PORT:T}>0:devel/spirv-llvm-translator@${LLVM_PORT:T}
-anv_CONFIGURE_ENV=	PKG_CONFIG_PATH="${LLVM_PREFIX}/libdata/pkgconfig"
 radv_DESC=		AMD/ATI Southern Islands and newer Vulkan support
-radv_BUILD_DEPENDS=	glslangValidator:graphics/glslang
 swrast_vk_DESC=		Software Rasterizer Vulkan support
 
 OPTIONS_EXCLUDE+=	${ARCH:Marmv7:C/.+/anv radv/}
@@ -109,6 +106,10 @@ MESON_ARGS+=	-Dandroid-libbacktrace=disabled \
 		-Dlmsensors=disabled \
 		-Dmicrosoft-clc=disabled \
 		-Dvalgrind=disabled
+
+.if !${PORT_OPTIONS:Mr600} && !${PORT_OPTIONS:Mradeonsi}
+MESON_ARGS+=	-Dgallium-va=disabled
+.endif
 
 .if ${ARCH} != amd64
 MESON_ARGS+=	-Dintel-rt=disabled # https://gitlab.freedesktop.org/mesa/mesa/-/issues/10629
