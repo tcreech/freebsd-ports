@@ -448,11 +448,13 @@
     SUBDIR += py-SimpleSoapy
     SUBDIR += py-SoapySDR
     SUBDIR += py-accelerate
+    SUBDIR += py-aistudio-sdk
     SUBDIR += py-alive-progress
     SUBDIR += py-anthropic
     SUBDIR += py-apache-beam
     SUBDIR += py-ascii-magic
     SUBDIR += py-ast-comments
+    SUBDIR += py-bce-python-sdk
     SUBDIR += py-bitsandbytes
     SUBDIR += py-boost-histogram
     SUBDIR += py-censys
@@ -515,6 +517,8 @@
     SUBDIR += py-kokoro
     SUBDIR += py-langchain
     SUBDIR += py-langchain-anthropic
+    SUBDIR += py-langchain-classic
+    SUBDIR += py-langchain-community
     SUBDIR += py-langchain-core
     SUBDIR += py-langchain-google-genai
     SUBDIR += py-langchain-openai
@@ -550,6 +554,7 @@
     SUBDIR += py-mmengine
     SUBDIR += py-mmsegmentation
     SUBDIR += py-model-hosting-container-standards
+    SUBDIR += py-modelscope
     SUBDIR += py-molequeue
     SUBDIR += py-napari
     SUBDIR += py-napari-svg

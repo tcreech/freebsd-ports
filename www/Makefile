@@ -158,6 +158,7 @@
     SUBDIR += dolibarr19
     SUBDIR += dolibarr20
     SUBDIR += dolibarr21
+    SUBDIR += dolibarr22
     SUBDIR += domoticz
     SUBDIR += domoticz-devel
     SUBDIR += dooble
@@ -1848,6 +1849,7 @@
     SUBDIR += py-http-sf
     SUBDIR += py-httpbin
     SUBDIR += py-httpcore
+    SUBDIR += py-httpcore2
     SUBDIR += py-httpie
     SUBDIR += py-httplib2
     SUBDIR += py-httpretty
@@ -1859,6 +1861,7 @@
     SUBDIR += py-httpx-socks
     SUBDIR += py-httpx-sse
     SUBDIR += py-httpx-ws
+    SUBDIR += py-httpx2
     SUBDIR += py-httpx_gssapi
     SUBDIR += py-hypercorn
     SUBDIR += py-hyperframe
