@@ -1832,6 +1832,14 @@ rclone process user.</p>
 	<name>ffmpeg</name>
 	<range><lt>8.1.2</lt></range>
     </package>
+    <package>
+	<name>ffmpeg4</name>
+	<range><lt>4.4.7</lt></range>
+    </package>
+    <package>
+	<name>ffmpeg6</name>
+	<range><lt>6.1.6</lt></range>
+    </package>
     </affects>
     <description>
 	<body xmlns="http://www.w3.org/1999/xhtml">
