@@ -471,7 +471,9 @@
     SUBDIR += py-comfyui-frontend-package
     SUBDIR += py-comfyui-workflow-templates
     SUBDIR += py-comfyui-workflow-templates-core
+    SUBDIR += py-comfyui-workflow-templates-json
     SUBDIR += py-comfyui-workflow-templates-media-api
+    SUBDIR += py-comfyui-workflow-templates-media-assets-01
     SUBDIR += py-comfyui-workflow-templates-media-image
     SUBDIR += py-comfyui-workflow-templates-media-other
     SUBDIR += py-comfyui-workflow-templates-media-video
@@ -552,6 +554,8 @@
     SUBDIR += py-mistral-common
     SUBDIR += py-mixpanel
     SUBDIR += py-ml-collections
+    SUBDIR += py-mlflow-skinny
+    SUBDIR += py-mlflow-tracing
     SUBDIR += py-mmcv
     SUBDIR += py-mmdet
     SUBDIR += py-mmengine
@@ -623,6 +627,7 @@
     SUBDIR += py-shap2
     SUBDIR += py-shell-gpt
     SUBDIR += py-sigopt
+    SUBDIR += py-skops
     SUBDIR += py-smdebug-rulesconfig
     SUBDIR += py-snakemake-interface-common
     SUBDIR += py-snakemake-interface-executor-plugins

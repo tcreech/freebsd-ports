@@ -1791,19 +1791,29 @@
     SUBDIR += ocaml-dolmen
     SUBDIR += ocaml-domain-name
     SUBDIR += ocaml-dune
+    SUBDIR += ocaml-duration
+    SUBDIR += ocaml-eqaf
     SUBDIR += ocaml-extlib
     SUBDIR += ocaml-findlib
     SUBDIR += ocaml-fmt
     SUBDIR += ocaml-fpath
     SUBDIR += ocaml-gen
+    SUBDIR += ocaml-gmap
     SUBDIR += ocaml-hmap
+    SUBDIR += ocaml-integers
     SUBDIR += ocaml-ipaddr
+    SUBDIR += ocaml-js_of_ocaml-ocamlbuild
     SUBDIR += ocaml-lacaml
     SUBDIR += ocaml-linol
     SUBDIR += ocaml-logs
     SUBDIR += ocaml-lsp
     SUBDIR += ocaml-lwt
+    SUBDIR += ocaml-lwt_log
     SUBDIR += ocaml-magic
+    SUBDIR += ocaml-magic-mime
+    SUBDIR += ocaml-merlin
+    SUBDIR += ocaml-mew
+    SUBDIR += ocaml-mew_vi
     SUBDIR += ocaml-mtime
     SUBDIR += ocaml-ocamlbuild
     SUBDIR += ocaml-ocplib-endian
@@ -1823,6 +1833,7 @@
     SUBDIR += ocaml-ppx_deriving
     SUBDIR += ocaml-ppx_hash
     SUBDIR += ocaml-ppx_js_style
+    SUBDIR += ocaml-ppx_optcomp
     SUBDIR += ocaml-ppx_sexp_conv
     SUBDIR += ocaml-ppx_yojson_conv
     SUBDIR += ocaml-ppx_yojson_conv_lib
@@ -1840,6 +1851,7 @@
     SUBDIR += ocaml-stdio
     SUBDIR += ocaml-topkg
     SUBDIR += ocaml-trace
+    SUBDIR += ocaml-trie
     SUBDIR += ocaml-uchar
     SUBDIR += ocaml-ulex
     SUBDIR += ocaml-uutf
@@ -4863,6 +4875,7 @@
     SUBDIR += py-dask-expr
     SUBDIR += py-dask-geopandas
     SUBDIR += py-dask-histogram
+    SUBDIR += py-databricks-sdk
     SUBDIR += py-dataclass-array
     SUBDIR += py-dataclasses-json
     SUBDIR += py-datadog
@@ -5146,6 +5159,7 @@
     SUBDIR += py-hologram
     SUBDIR += py-homebase
     SUBDIR += py-http-prompt
+    SUBDIR += py-huey
     SUBDIR += py-humanize
     SUBDIR += py-hunter
     SUBDIR += py-hupper
@@ -5351,6 +5365,7 @@
     SUBDIR += py-logutils
     SUBDIR += py-logzero
     SUBDIR += py-looseversion
+    SUBDIR += py-loro
     SUBDIR += py-louie
     SUBDIR += py-lru-dict
     SUBDIR += py-lsprotocol
@@ -5367,6 +5382,7 @@
     SUBDIR += py-makefun
     SUBDIR += py-mando
     SUBDIR += py-manuel
+    SUBDIR += py-marimo
     SUBDIR += py-marisa-trie
     SUBDIR += py-marrow.mailer
     SUBDIR += py-marrow.util
@@ -5868,6 +5884,7 @@
     SUBDIR += py-pytest-dependency
     SUBDIR += py-pytest-django
     SUBDIR += py-pytest-doctestplus
+    SUBDIR += py-pytest-dotenv
     SUBDIR += py-pytest-drop-dup-tests
     SUBDIR += py-pytest-enabler
     SUBDIR += py-pytest-env
@@ -5918,6 +5935,7 @@
     SUBDIR += py-pytest-remotedata
     SUBDIR += py-pytest-repeat
     SUBDIR += py-pytest-rerunfailures
+    SUBDIR += py-pytest-retry
     SUBDIR += py-pytest-ruff
     SUBDIR += py-pytest-run-parallel
     SUBDIR += py-pytest-services

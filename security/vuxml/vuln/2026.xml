@@ -1,3 +1,247 @@
+  <vuln vid="62c4ed54-73aa-11f1-910d-3c7c3fba4204">
+    <topic>powerdns-recursor -- vulnerabilities</topic>
+    <affects>
+   <package>
+	<name>powerdns-recursor</name>
+	<range><lt>5.4.3</lt></range>
+   </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>PowerDNS Team reports:</p>
+	<blockquote cite="https://doc.powerdns.com/recursor/security-advisories/powerdns-advisory-2026-08.html">
+	<ul>
+	  <li>CVE-2026-3361: ZoneToCache can poison the cache</li>
+	  <li>CVE-2026-40012: Information about ECS zero scoped answers might leak to clients that use a specific ECS</li>
+	  <li>CVE-2026-42005: Unbounded resource consumption in internal webserver</li>
+	  <li>CVE-2026-42387: Insufficient input validation in ZoneToCache</li>
+	  <li>CVE-2026-42388: Missing input validation for catalog zones</li>
+	  <li>CVE-2026-42389: Reject more queries with invalid header values</li>
+	  <li>CVE-2026-42390: ZONEMD validation can be bypassed</li>
+	  <li>CVE-2026-52690: Spoofed answers can mark an authoritative non-EDNS capable</li>
+	</ul>
+	<p>Thanks to people below for reporting these vulnerabilities.</p>
+	<ul>
+	  <li>Danial Mahadzir</li>
+	  <li>ilya rozentsvaig</li>
+	  <li>Vitaly Simonovich</li>
+	  <li>ylwango613</li>
+	  <li>nurmukhammyed</li>
+	  <li>Mehtab Zafar</li>
+	</ul>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2026-3361</cvename>
+      <cvename>CVE-2026-40012</cvename>
+      <cvename>CVE-2026-42005</cvename>
+      <cvename>CVE-2026-42387</cvename>
+      <cvename>CVE-2026-42388</cvename>
+      <cvename>CVE-2026-42389</cvename>
+      <cvename>CVE-2026-42390</cvename>
+      <cvename>CVE-2026-52690</cvename>
+      <url>https://doc.powerdns.com/recursor/security-advisories/powerdns-advisory-2026-08.html</url>
+    </references>
+    <dates>
+      <discovery>2026-04-04</discovery>
+      <entry>2026-06-29</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="6c0e17cf-73a0-11f1-910d-3c7c3fba4204">
+    <topic>DNSdist -- vulnerabilities</topic>
+    <affects>
+    <package>
+	<name>dnsdist</name>
+	<range><lt>2.0.7</lt></range>
+    </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The DNSdist team reports:</p>
+	<blockquote cite="https://www.dnsdist.org/security-advisories/powerdns-advisory-for-dnsdist-2026-09.html">
+	<ul>
+	  <li>CVE-2026-40011: Prometheus denial of service via crafted DNS queries</li>
+	  <li>CVE-2026-42004: EDNS options smuggling</li>
+	  <li>CVE-2026-42005: Insufficient input validation of internal web server</li>
+	  <li>CVE-2026-40208: Denial of service via DoH3 queries</li>
+	  <li>CVE-2026-40209: Denial of service via IXFR queries</li>
+	  <li>CVE-2026-40210: Out-of-bounds read in SetMacAddrAction</li>
+	  <li>CVE-2026-40211: Denial of service via crafted DoH3 queries</li>
+	</ul>
+	<p>Thanks to people below for reporting these vulnerabilities.</p>
+	<ul>
+	  <li>Haruki Oyama (Waseda University)</li>
+	  <li>Vitaly Simonovich</li>
+	  <li>ilya rozentsvaig</li>
+	  <li>ylwango613</li>
+	  <li>Qifan Zhang (Palo Alto Networks)</li>
+	  <li>Mehtab Zafar</li>
+	</ul>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2026-40011</cvename>
+      <cvename>CVE-2026-42004</cvename>
+      <cvename>CVE-2026-42005</cvename>
+      <cvename>CVE-2026-40208</cvename>
+      <cvename>CVE-2026-40209</cvename>
+      <cvename>CVE-2026-40210</cvename>
+      <cvename>CVE-2026-40211</cvename>
+      <url>https://www.dnsdist.org/security-advisories/powerdns-advisory-for-dnsdist-2026-09.html</url>
+    </references>
+    <dates>
+      <discovery>2026-06-25</discovery>
+      <entry>2026-06-29</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="4e82a0e6-6801-42c6-8fb6-91b6b275a9e1">
+    <topic>gstreamer1 -- multiple vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>gstreamer1-libav</name>
+	<name>gstreamer1-plugins</name>
+	<name>gstreamer1-plugins-bad</name>
+	<name>gstreamer1-plugins-good</name>
+	<name>gstreamer1-plugins-ugly</name>
+	<range><lt>1.28.4</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The GStreamer project reports:</p>
+	<blockquote cite="https://gstreamer.freedesktop.org/security/">
+	  <p>Multiple security issues were identified and fixed in the GStreamer framework.</p>
+	  <ul>
+	    <li>GStreamer-SA-2026-0030: Missing bounds checks in RTCP SDES packet parsing</li>
+	    <li>GStreamer-SA-2026-0031: Integer overflow and truncation in MXF demuxer</li>
+	    <li>GStreamer-SA-2026-0032: Out-of-bounds read and write in XMP tag parser</li>
+	    <li>GStreamer-SA-2026-0033: Out-of-bounds read and modification of const data in ID3v2 parser</li>
+	    <li>GStreamer-SA-2026-0034: Division by zero in mDVDsub subtitle parser</li>
+	    <li>GStreamer-SA-2026-0035: Integer overflow in WavPack decoder</li>
+	    <li>GStreamer-SA-2026-0036: Out-of-bounds read in SBC audio parser header parsing</li>
+	    <li>GStreamer-SA-2026-0037: Heap corruption in gst-libav AV protocol pipe</li>
+	    <li>GStreamer-SA-2026-0038: Memory leak and NULL pointer dereference in gst-libav demuxer</li>
+	    <li>GStreamer-SA-2026-0039: Assertion in AV1 parser tile data parsing</li>
+	    <li>GStreamer-SA-2026-0040: Out-of-bounds read in VA JPEG decoder segment parsing</li>
+	    <li>GStreamer-SA-2026-0042: Out-of-bounds reads and integer overflows in RealMedia demuxer</li>
+	    <li>GStreamer-SA-2026-0043: Out-of-bounds read and write in RFB source</li>
+	    <li>GStreamer-SA-2026-0045: Out-of-bounds reads in PCAP parser due to missing bounds checks</li>
+	    <li>GStreamer-SA-2026-0046: Integer overflow in VMNC decoder cursor payload size calculation</li>
+	    <li>GStreamer-SA-2026-0047: One-byte out-of-bounds read in H.264 NAL unit parser</li>
+	    <li>GStreamer-SA-2026-0048: Out-of-bounds read in H.266 parser VUI aspect ratio parsing</li>
+	  </ul>
+	</blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2026-12891</cvename>
+      <cvename>CVE-2026-12892</cvename>
+      <cvename>CVE-2026-12893</cvename>
+      <cvename>CVE-2026-52717</cvename>
+      <cvename>CVE-2026-52718</cvename>
+      <cvename>CVE-2026-52719</cvename>
+      <cvename>CVE-2026-52720</cvename>
+      <cvename>CVE-2026-52721</cvename>
+      <cvename>CVE-2026-52722</cvename>
+      <cvename>CVE-2026-53703</cvename>
+      <cvename>CVE-2026-53704</cvename>
+      <cvename>CVE-2026-53705</cvename>
+      <url>https://gstreamer.freedesktop.org/security/sa-2026-0030.html</url>
+      <url>https://gstreamer.freedesktop.org/security/sa-2026-0031.html</url>
+      <url>https://gstreamer.freedesktop.org/security/sa-2026-0032.html</url>
+      <url>https://gstreamer.freedesktop.org/security/sa-2026-0033.html</url>
+      <url>https://gstreamer.freedesktop.org/security/sa-2026-0034.html</url>
+      <url>https://gstreamer.freedesktop.org/security/sa-2026-0035.html</url>
+      <url>https://gstreamer.freedesktop.org/security/sa-2026-0036.html</url>
+      <url>https://gstreamer.freedesktop.org/security/sa-2026-0037.html</url>
+      <url>https://gstreamer.freedesktop.org/security/sa-2026-0038.html</url>
+      <url>https://gstreamer.freedesktop.org/security/sa-2026-0039.html</url>
+      <url>https://gstreamer.freedesktop.org/security/sa-2026-0040.html</url>
+      <url>https://gstreamer.freedesktop.org/security/sa-2026-0042.html</url>
+      <url>https://gstreamer.freedesktop.org/security/sa-2026-0043.html</url>
+      <url>https://gstreamer.freedesktop.org/security/sa-2026-0045.html</url>
+      <url>https://gstreamer.freedesktop.org/security/sa-2026-0046.html</url>
+      <url>https://gstreamer.freedesktop.org/security/sa-2026-0047.html</url>
+      <url>https://gstreamer.freedesktop.org/security/sa-2026-0048.html</url>
+    </references>
+    <dates>
+      <discovery>2026-06-12</discovery>
+      <entry>2026-06-29</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="d06b1fa2-731f-11f1-a0d2-589cfc10a551">
+    <topic>Multiple vulnerability found in Expat</topic>
+    <affects>
+<package>
+<name>expat</name>
+<name>linux-c7-expat</name>
+<name>linux-rl9-expat</name>
+<range><lt>2.8.2</lt></range>
+</package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<blockquote cite="https://blog.hartwork.org/posts/expat-2-8-2-released/">
+	  <p>Expat 2.8.2 was released yesterday. The key motivation for cutting a release and doing so now was</p>
+	  <p>getting security and non-security bugsfixes out to users. On the security side,</p>
+	  <p>13 vulnerabilities have been fixed:</p>
+	   <ul>
+	    <li>CVE-2026-50219: missing control flow integrity checks</li>
+	    <li>CVE-2026-56131: missing control flow integrity checks</li>
+	    <li>CVE-2026-56132: out-of-bounds write</li>
+	    <li>CVE-2026-56403: integer overflow</li>
+	    <li>CVE-2026-56404: integer overflow</li>
+	    <li>CVE-2026-56405: integer overflow</li>
+	    <li>CVE-2026-56406: integer overflow</li>
+	    <li>CVE-2026-56407: integer overflow</li>
+	    <li>CVE-2026-56408: integer overflow</li>
+	    <li>CVE-2026-56409: integer overflow</li>
+	    <li>CVE-2026-56410: integer overflow</li>
+	    <li>CVE-2026-56411: integer overflow</li>
+	    <li>CVE-2026-56412: missing control flow integrity checks</li>
+	  </ul>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2026-50219</cvename>
+      <cvename>CVE-2026-56131</cvename>
+      <cvename>CVE-2026-56132</cvename>
+      <cvename>CVE-2026-56403</cvename>
+      <cvename>CVE-2026-56404</cvename>
+      <cvename>CVE-2026-56405</cvename>
+      <cvename>CVE-2026-56406</cvename>
+      <cvename>CVE-2026-56407</cvename>
+      <cvename>CVE-2026-56408</cvename>
+      <cvename>CVE-2026-56409</cvename>
+      <cvename>CVE-2026-56410</cvename>
+      <cvename>CVE-2026-56411</cvename>
+      <cvename>CVE-2026-56412</cvename>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2026-50219</url>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2026-56131</url>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2026-56132</url>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2026-56403</url>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2026-56404</url>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2026-56405</url>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2026-56406</url>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2026-56407</url>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2026-56408</url>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2026-56409</url>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2026-56410</url>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2026-56411</url>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2026-56412</url>
+    </references>
+    <dates>
+      <discovery>2026-06-25</discovery>
+      <entry>2026-06-28</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="f00e2de8-7d30-48d2-a43d-68206347dea6">
     <topic>gitea -- multiple vulnerabilities</topic>
     <affects>
