@@ -614,6 +614,7 @@
     SUBDIR += py-safetensors
     SUBDIR += py-sagemaker
     SUBDIR += py-sagemaker-core
+    SUBDIR += py-sagemaker-mlflow
     SUBDIR += py-sagemaker-mlops
     SUBDIR += py-sagemaker-schema-inference-artifacts
     SUBDIR += py-sagemaker-serve
@@ -656,6 +657,7 @@
     SUBDIR += py-torchvision
     SUBDIR += py-tqdm
     SUBDIR += py-transformers
+    SUBDIR += py-tritonclient
     SUBDIR += py-tvm
     SUBDIR += py-uhi
     SUBDIR += py-uuid-utils
