@@ -5379,3 +5379,45 @@ science/minc2|science/minc-tools|2026-06-24|Split into science/minc-tools and sc
 www/xist|www/py-ll-xist|2026-06-24|Use correct Python package name
 net/seda||2026-06-26|Has expired: old, no users in the ports tree, unmaintained, uses long deprecated code removed in jdk25
 math/reduce|math/reduce-psl|2026-06-28|Remove duplicate port, use math/reduce-psl instead
+devel/py-goodreads||2026-06-30|Has expired: Upstream is unmaintained, and the API is no longer available as of 2020-12-08
+www/py-django-graphql-jwt34|www/py-django-graphql-jwt|2026-06-30|Has expired: Use py-django-graphql-jwt instead
+www/py-dj52-django-mptt|www/py-django-mptt|2026-06-30|Has expired: Obsolete, please use www/py-django-mptt instead
+www/py-dj52-django-js-asset|www/py-django-js-asset|2026-06-30|Has expired: Obsolete, please use www/py-django-js-asset instead
+www/py-dj52-django-rich|www/py-django-rich|2026-06-30|Has expired: Obsolete, please use www/py-django-rich instead
+www/py-dj52-strawberry-graphql-django|www/py-strawberry-graphql-django|2026-06-30|Has expired: Obsolete, please use www/py-strawberry-graphql-django instead
+www/py-dj52-django-choices-field|www/py-django-choices-field|2026-06-30|Has expired: Obsolete, please use www/py-django-choices-field instead
+www/py-dj52-django-soft-delete|www/py-django-soft-delete|2026-06-30|Has expired: Obsolete, please use www/py-django-soft-delete instead
+www/py-dj52-django-htmx|www/py-django-htmx|2026-06-30|Has expired: Obsolete, please use www/py-django-htmx instead
+www/py-dj52-laces|www/py-laces|2026-06-30|Has expired: Obsolete, please use www/py-laces instead
+www/py-dj52-django-otp|www/py-django-otp|2026-06-30|Has expired: Obsolete, please use www/py-django-otp instead
+www/py-dj52-django-storages|www/py-django-storages|2026-06-30|Has expired: Obsolete, please use www/py-django-storages instead
+www/py-dj52-django-redis|www/py-django-redis|2026-06-30|Has expired: Obsolete, please use www/py-django-redis instead
+www/py-dj52-channels-redis|www/py-channels-redis|2026-06-30|Has expired: Obsolete, please use www/py-channels-redis instead
+www/py-dj52-channels|www/py-channels|2026-06-30|Has expired: Obsolete, please use www/py-channels instead
+www/py-dj52-django-permissionedforms|www/py-django-permissionedforms|2026-06-30|Has expired: Obsolete, please use www/py-django-permissionedforms instead
+www/py-dj52-django-prometheus|www/py-django-prometheus|2026-06-30|Has expired: Obsolete, please use www/py-django-prometheus instead
+www/py-dj52-django-compression-middleware|www/py-django-compression-middleware|2026-06-30|Has expired: Obsolete, please use www/py-django-compression-middleware instead
+www/py-dj52-django-tables2|www/py-django-tables2|2026-06-30|Has expired: Obsolete, please use www/py-django-tables2 instead
+devel/py-dj52-strawberry-graphql|devel/py-strawberry-graphql|2026-06-30|Has expired: Obsolete, please use devel/py-strawberry-graphql instead
+www/py-dj52-django-netfields|www/py-django-netfields|2026-06-30|Has expired: Obsolete, please use www/py-django-netfields instead
+www/py-dj52-django-extensions|www/py-django-extensions|2026-06-30|Has expired: Obsolete, please use www/py-django-extensions instead
+www/py-dj52-django-unfold|www/py-django-unfold|2026-06-30|Has expired: Obsolete, please use www/py-django-unfold instead
+www/py-dj52-django-tasks|www/py-django-tasks|2026-06-30|Has expired: Obsolete, please use www/py-django-tasks instead
+www/py-dj52-django-cors-headers|www/py-django-cors-headers|2026-06-30|Has expired: Obsolete, please use www/py-django-cors-headers instead
+www/py-dj52-django-timezone-field|www/py-django-timezone-field|2026-06-30|Has expired: Obsolete, please use www/py-django-timezone-field instead
+www/py-dj52-django-multiselectfield|www/py-django-multiselectfield|2026-06-30|Has expired: Obsolete, please use www/py-django-multiselectfield instead
+www/py-dj52-django-taggit|www/py-django-taggit|2026-06-30|Has expired: Obsolete, please use www/py-django-taggit instead
+www/py-dj52-django-treebeard|www/py-django-treebeard|2026-06-30|Has expired: Obsolete, please use www/py-django-treebeard instead
+www/py-dj52-drf-spectacular|www/py-drf-spectacular|2026-06-30|Has expired: Obsolete, please use www/py-drf-spectacular instead
+www/py-dj52-drf-spectacular-sidecar|www/py-drf-spectacular-sidecar|2026-06-30|Has expired: Obsolete, please use www/py-drf-spectacular-sidecar instead
+devel/py-dj52-django-rq|devel/py-django-rq|2026-06-30|Has expired: Obsolete, please use devel/py-django-rq instead
+www/py-dj52-django-filter|www/py-django-filter|2026-06-30|Has expired: Obsolete, please use www/py-django-filter instead
+www/py-dj52-django-auth-ldap|www/py-django-auth-ldap|2026-06-30|Has expired: Obsolete, please use www/py-django-auth-ldap instead
+www/py-dj52-djangorestframework-guardian|www/py-djangorestframework-guardian|2026-06-30|Has expired: Obsolete, please use www/py-djangorestframework-guardian instead
+www/py-dj52-django-guardian|www/py-django-guardian|2026-06-30|Has expired: Obsolete, please use www/py-django-guardian instead
+www/py-dj52-django-celery-results|www/py-django-celery-results|2026-06-30|Has expired: Obsolete, please use www/py-django-celery-results instead
+www/py-dj52-drf-writable-nested|www/py-drf-writable-nested|2026-06-30|Has expired: Obsolete, please use www/py-drf-writable-nested instead
+devel/py-dj52-graphene-django|devel/py-graphene-django|2026-06-30|Has expired: Obsolete, please use devel/py-graphene-django instead
+www/py-dj52-django-crispy-forms|www/py-django-crispy-forms|2026-06-30|Has expired: Obsolete, please use www/py-django-crispy-forms instead
+www/py-dj52-django-modelcluster|www/py-django-modelcluster|2026-06-30|Has expired: Obsolete, please use www/py-django-modelcluster instead
+www/py-dj52-django-stubs-ext|www/py-django-stubs-ext|2026-06-30|Has expired: Obsolete, please use www/py-django-stubs-ext instead

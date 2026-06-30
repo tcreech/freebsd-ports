@@ -1294,6 +1294,7 @@
     SUBDIR += libdlmalloc
     SUBDIR += libdombey
     SUBDIR += libdparse
+    SUBDIR += libdpv
     SUBDIR += libds
     SUBDIR += libdwarf
     SUBDIR += libe
@@ -1321,6 +1322,7 @@
     SUBDIR += libffi
     SUBDIR += libffi321
     SUBDIR += libffi33
+    SUBDIR += libfigpar
     SUBDIR += libfirm
     SUBDIR += libfixposix
     SUBDIR += libfmt
@@ -1510,6 +1512,7 @@
     SUBDIR += libvanessa_socket
     SUBDIR += libvc
     SUBDIR += libversion
+    SUBDIR += libverto
     SUBDIR += libvex
     SUBDIR += libvhdi
     SUBDIR += libvirt
@@ -4922,9 +4925,6 @@
     SUBDIR += py-diskcache
     SUBDIR += py-distlib
     SUBDIR += py-distributed
-    SUBDIR += py-dj52-django-rq
-    SUBDIR += py-dj52-graphene-django
-    SUBDIR += py-dj52-strawberry-graphql
     SUBDIR += py-dj60-django-rq
     SUBDIR += py-dj60-strawberry-graphql
     SUBDIR += py-django-rq
@@ -5095,7 +5095,6 @@
     SUBDIR += py-glance-store
     SUBDIR += py-glob2
     SUBDIR += py-glom
-    SUBDIR += py-goodreads
     SUBDIR += py-google-cloud-iam
     SUBDIR += py-google-crc32c
     SUBDIR += py-google-i18n-address
