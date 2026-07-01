@@ -183,7 +183,6 @@
     SUBDIR += el-aspell
     SUBDIR += el-hyphen
     SUBDIR += elasticsearch-plugin-head
-    SUBDIR += elasticsearch7
     SUBDIR += elasticsearch8
     SUBDIR += en-aspell
     SUBDIR += en-hunspell
@@ -1392,7 +1391,6 @@
     SUBDIR += py-elasticsearch-curator
     SUBDIR += py-elasticsearch-dsl
     SUBDIR += py-elasticsearch-dsl6
-    SUBDIR += py-elasticsearch5
     SUBDIR += py-elasticsearch6
     SUBDIR += py-elasticsearch7
     SUBDIR += py-elementpath
@@ -1806,7 +1804,6 @@
     SUBDIR += redet
     SUBDIR += redisearch
     SUBDIR += redisearch2
-    SUBDIR += redisearch20
     SUBDIR += redisearch22
     SUBDIR += redisearch24
     SUBDIR += redisearch26

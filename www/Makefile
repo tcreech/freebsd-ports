@@ -213,8 +213,6 @@
     SUBDIR += foreign-cdm
     SUBDIR += forgejo
     SUBDIR += forgejo-lts
-    SUBDIR += forgejo11
-    SUBDIR += forgejo14
     SUBDIR += forgejo15
     SUBDIR += formication
     SUBDIR += foswiki
@@ -524,7 +522,6 @@
     SUBDIR += node20
     SUBDIR += node22
     SUBDIR += node24
-    SUBDIR += node25
     SUBDIR += node26
     SUBDIR += nostromo
     SUBDIR += novnc
@@ -533,7 +530,6 @@
     SUBDIR += npm-node20
     SUBDIR += npm-node22
     SUBDIR += npm-node24
-    SUBDIR += npm-node25
     SUBDIR += npm-node26
     SUBDIR += nyxt
     SUBDIR += oatpp
@@ -1564,11 +1560,6 @@
     SUBDIR += py-dj42-django_statici18n
     SUBDIR += py-dj42-djangorestframework
     SUBDIR += py-dj42-djangosaml2
-    SUBDIR += py-dj52-django-allauth
-    SUBDIR += py-dj52-django-auditlog
-    SUBDIR += py-dj52-django-debug-toolbar
-    SUBDIR += py-dj52-djangorestframework
-    SUBDIR += py-dj52-social-auth-app-django
     SUBDIR += py-dj60-channels
     SUBDIR += py-dj60-django-auth-ldap
     SUBDIR += py-dj60-django-choices-field
@@ -1740,7 +1731,6 @@
     SUBDIR += py-flask-bootstrap
     SUBDIR += py-flask-cache
     SUBDIR += py-flask-caching
-    SUBDIR += py-flask-collect
     SUBDIR += py-flask-compress
     SUBDIR += py-flask-cors
     SUBDIR += py-flask-dance
@@ -2667,7 +2657,6 @@
     SUBDIR += twiki-TwistyContrib
     SUBDIR += twiki-TwistyPlugin
     SUBDIR += twiki-WysiwygPlugin
-    SUBDIR += twms
     SUBDIR += typo3-11
     SUBDIR += typo3-12
     SUBDIR += typo3-13
@@ -2758,7 +2747,6 @@
     SUBDIR += yarn-node20
     SUBDIR += yarn-node22
     SUBDIR += yarn-node24
-    SUBDIR += yarn-node25
     SUBDIR += yarn-node26
     SUBDIR += yarr
     SUBDIR += yaws

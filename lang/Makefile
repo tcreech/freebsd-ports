@@ -43,7 +43,6 @@
     SUBDIR += cparser
     SUBDIR += crumb
     SUBDIR += crystal
-    SUBDIR += csharp-mode.el
     SUBDIR += cython
     SUBDIR += cython0
     SUBDIR += dhall
@@ -361,7 +360,6 @@
     SUBDIR += smlnj
     SUBDIR += snobol4
     SUBDIR += solidity
-    SUBDIR += spidermonkey115
     SUBDIR += spidermonkey128
     SUBDIR += spidermonkey140
     SUBDIR += squeak
