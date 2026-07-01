@@ -685,6 +685,7 @@
     SUBDIR += emacs-lsp-booster
     SUBDIR += embb
     SUBDIR += emscripten
+    SUBDIR += enkits
     SUBDIR += entt
     SUBDIR += envsubst
     SUBDIR += epl.el
@@ -1714,6 +1715,7 @@
     SUBDIR += mm
     SUBDIR += modd
     SUBDIR += mold
+    SUBDIR += moon
     SUBDIR += mongo-c-driver
     SUBDIR += mongo-cxx-driver
     SUBDIR += mono-addins
