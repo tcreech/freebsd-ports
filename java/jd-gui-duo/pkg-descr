@@ -1,6 +1,12 @@
-The Java Decompiler project aims to develop tools in order to
-decompile and analyze Java 5 byte code and later versions.
+A multi-decompiler standalone desktop GUI supporting JD-Core V0 & V1, CFR,
+Procyon, Fernflower, Vineflower & Jadx.
 
-JD-GUI is a standalone graphical utility that displays Java source
-codes of .class files.  You can browse the reconstructed source code
-with the JD-GUI for instant access to methods and fields.
+Initially a duo of decompilers were supported (JD-Core v0 & v1), but now other
+decompilers are supported with the transformer-api project. JD-Core v0 and v1
+are 2 different decompilers rather than 2 different versions of the same one.
+They use a different algorithm:
+ * JD-Core v0 uses byte code pattern matching like JAD, the 1st Java decompiler
+ * JD-Core v1 uses an analytical algorithm like Fernflower, the 1st analytical
+   decompiler
+
+This project is built on top of original JD-GUI written by Emmanuel Dupuy.

@@ -1,37 +1,41 @@
-PORTNAME=	jd-gui
-PORTVERSION=	1.6.6
-PORTREVISION=	2
-DISTVERSIONPREFIX=	v
+PORTNAME=	jd-gui-duo
+DISTVERSION=	2.0.113
 CATEGORIES=	java devel
-MASTER_SITES=	https://github.com/java-decompiler/jd-gui/releases/download/v${PORTVERSION}/:jar
-DISTFILES=	jd-gui-${PORTVERSION}.jar:jar
-EXTRACT_ONLY=	${DISTNAME}.tar.gz
+MASTER_SITES=	https://github.com/nbauma109/${PORTNAME}/releases/download/${DISTVERSION}/ \
+		https://raw.githubusercontent.com/nbauma109/${PORTNAME}/refs/tags/${DISTVERSION}/src/launch4j/resources/images/:ico
+DISTNAME=	${PORTNAME}-linux-${DISTVERSION}
+DISTFILES=	${EXTRACT_ONLY} \
+		jd-gui.ico:ico
+DIST_SUBDIR=	${PORTNAME}-${DISTVERSION}
+EXTRACT_ONLY=	${DISTNAME}${EXTRACT_SUFX}
 
-MAINTAINER=	ports@FreeBSD.org
+MAINTAINER=	vvd@FreeBSD.org
 COMMENT=	Java Decompiler GUI
-WWW=		http://jd.benow.ca/
+WWW=		https://github.com/nbauma109/jd-gui-duo/
 
 LICENSE=	GPLv3
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		desktop-file-utils java
-USE_GITHUB=	yes
-GH_ACCOUNT=	java-decompiler
+USES=		desktop-file-utils java tar:xz
+JAVA_VERSION=	25+
+
+EXTRACT_AFTER_ARGS=	--exclude jre \
+			--no-same-owner --no-same-permissions
 
 NO_ARCH=	yes
 NO_BUILD=	yes
+SUB_FILES=	${PORTNAME}.desktop
+SUB_LIST=	JAVA=${JAVA}
+NO_WRKSUBDIR=	yes
 
-SUB_FILES=	jd-gui
-
-PLIST_FILES=	bin/jd-gui \
-		${JAVAJARDIR}/jd-gui.jar \
-		share/applications/jd-gui.desktop \
-		share/pixmaps/jd-gui.png
+post-patch:
+	${REINPLACE_CMD} 's|%%JAVAJARDIR%%|${JAVAJARDIR}|' ${WRKSRC}/jd-gui-duo.sh
 
 do-install:
-	${INSTALL_SCRIPT} ${WRKDIR}/jd-gui ${STAGEDIR}${PREFIX}/bin/jd-gui
-	${INSTALL_DATA} ${DISTDIR}/jd-gui-${PORTVERSION}.jar ${STAGEDIR}${JAVAJARDIR}/jd-gui.jar
-	${INSTALL_DATA} ${WRKSRC}/src/linux/resources/jd-gui.desktop ${STAGEDIR}${PREFIX}/share/applications/
-	${INSTALL_DATA} ${WRKSRC}/src/linux/resources/jd_icon_128.png ${STAGEDIR}${PREFIX}/share/pixmaps/jd-gui.png
+	${INSTALL_SCRIPT} ${WRKSRC}/${PORTNAME}.sh ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
+	${MKDIR} ${STAGEDIR}${JAVAJARDIR}/${PORTNAME}
+	${INSTALL_DATA} ${WRKSRC}/lib/*.jar ${STAGEDIR}${JAVAJARDIR}/${PORTNAME}
+	${INSTALL_DATA} ${WRKDIR}/${PORTNAME}.desktop ${STAGEDIR}${DESKTOPDIR}
+	${INSTALL_DATA} ${DISTDIR}/${DIST_SUBDIR}/jd-gui.ico \
+		${STAGEDIR}${PREFIX}/share/pixmaps/${PORTNAME}.ico
 
 .include <bsd.port.mk>
