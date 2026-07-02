@@ -834,6 +834,7 @@
     SUBDIR += gengetopt
     SUBDIR += genht
     SUBDIR += genie
+    SUBDIR += getopt-ada
     SUBDIR += getoptions
     SUBDIR += gettext
     SUBDIR += gettext-lint
