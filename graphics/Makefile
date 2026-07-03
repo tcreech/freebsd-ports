@@ -1055,6 +1055,7 @@
     SUBDIR += py-rich-pixels
     SUBDIR += py-rlpycairo
     SUBDIR += py-s2
+    SUBDIR += py-sane
     SUBDIR += py-scikit-image
     SUBDIR += py-seqdiag
     SUBDIR += py-simplejpeg
