@@ -21,6 +21,7 @@
     SUBDIR += asbutton
     SUBDIR += asr-manpages
     SUBDIR += astc-encoder
+    SUBDIR += auto-tempo
     SUBDIR += bb
     SUBDIR += bbjd
     SUBDIR += bdelta
