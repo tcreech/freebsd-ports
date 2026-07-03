@@ -12,7 +12,7 @@ DISTFILES=	\
 		v1.17.0.zip:googletest \
 		3cf85e705098622d59056dcb8f5f963ea7bb0a00.zip:googlexnnpack \
 		v3.11.3.zip:json \
-		v4.0.0.zip:microsoft_gsl \
+		v4.2.1.zip:microsoft_gsl \
 		v1.0.250325.1.zip:microsoft_wil \
 		v2.1.1.zip:mimalloc \
 		boost-1.82.0.zip:mp11 \

@@ -1,4 +1,4 @@
---- onnxruntime/core/platform/posix/env.cc.orig	2025-10-21 23:09:33 UTC
+--- onnxruntime/core/platform/posix/env.cc.orig	2026-06-12 15:12:02 UTC
 +++ onnxruntime/core/platform/posix/env.cc
 @@ -20,6 +20,7 @@ limitations under the License.
  #include <dlfcn.h>
@@ -8,7 +8,7 @@
  #include <sys/types.h>
  #include <sys/stat.h>
  #include <stdio.h>
-@@ -217,13 +218,13 @@ class PosixThread : public EnvThread {
+@@ -219,13 +220,13 @@ class PosixThread : public EnvThread {
          }
          auto ret = pthread_setaffinity_np(pthread_self(), sizeof(cpu_set_t), &cpuset);
          if (0 == ret) {
@@ -24,12 +24,21 @@
                                << ", index: " << p->index
                                << ", mask: " << *p->affinity
                                << ", error code: " << err_no << " error msg: " << err_msg
-@@ -275,7 +276,7 @@ class PosixEnv : public Env {
+@@ -267,7 +268,7 @@ class PosixEnv : public Env {
  
-   std::vector<LogicalProcessors> GetDefaultThreadAffinities() const override {
-     std::vector<LogicalProcessors> ret;
+   // Return the number of physical cores
+   int GetNumPhysicalCpuCores() const override {
 -#ifdef ORT_USE_CPUINFO
 +#if defined(ORT_USE_CPUINFO) && defined(__linux__)
      if (cpuinfo_available_) {
-       auto num_phys_cores = cpuinfo_get_cores_count();
-       ret.reserve(num_phys_cores);
+       return narrow<int>(cpuinfo_get_cores_count());
+     }
+@@ -640,7 +641,7 @@ class PosixEnv : public Env {
+ 
+  private:
+   Telemetry telemetry_provider_;
+-#ifdef ORT_USE_CPUINFO
++#if defined(ORT_USE_CPUINFO) && defined(__linux__)
+   PosixEnv() {
+     cpuinfo_available_ = cpuinfo_initialize();
+     if (!cpuinfo_available_) {
