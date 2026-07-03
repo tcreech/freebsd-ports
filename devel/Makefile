@@ -921,6 +921,7 @@
     SUBDIR += gmake
     SUBDIR += gn
     SUBDIR += gnatcoll-core
+    SUBDIR += gnatcoll-minimal
     SUBDIR += gnome-builder
     SUBDIR += gnome-common
     SUBDIR += gnu-efi
