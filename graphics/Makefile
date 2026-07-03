@@ -1187,6 +1187,7 @@
     SUBDIR += satty
     SUBDIR += scale2x
     SUBDIR += scantailor
+    SUBDIR += scantpaper
     SUBDIR += scr2png
     SUBDIR += scrot
     SUBDIR += scwm-icons
