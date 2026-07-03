@@ -1066,6 +1066,7 @@
     SUBDIR += py-svgwrite
     SUBDIR += py-term-image
     SUBDIR += py-termtosvg
+    SUBDIR += py-tesserocr
     SUBDIR += py-tifffile
     SUBDIR += py-tkcolorpicker
     SUBDIR += py-toyplot
