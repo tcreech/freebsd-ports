@@ -1,5 +1,5 @@
---- third_party/boringssl-with-bazel/src/include/openssl/base.h.orig	2026-02-03 18:17:40 UTC
-+++ third_party/boringssl-with-bazel/src/include/openssl/base.h
+--- third_party/boringssl-with-bazel/include/openssl/base.h.orig	2026-06-05 22:11:18 UTC
++++ third_party/boringssl-with-bazel/include/openssl/base.h
 @@ -396,9 +396,6 @@ typedef void *OPENSSL_BLOCK;
  // MSVC doesn't set __cplusplus to 201103 to indicate C++11 support (see
  // https://connect.microsoft.com/VisualStudio/feedback/details/763051/a-value-of-predefined-macro-cplusplus-is-still-199711l)
