@@ -14,9 +14,7 @@ Author: Christoph Moench-Tegeder <cmt@FreeBSD.org>
     : CMake Error at cMake/FreeCAD_Helpers/SetupCoin3D.cmake:79 (message):
     :   Coin3D version 4.0.1 mismatches Pivy Coin3D 4.0.10.
 
-diff --git cMake/FreeCAD_Helpers/SetupCoin3D.cmake cMake/FreeCAD_Helpers/SetupCoin3D.cmake
-index a026764540..0a4bd7ffdb 100644
---- cMake/FreeCAD_Helpers/SetupCoin3D.cmake
+--- cMake/FreeCAD_Helpers/SetupCoin3D.cmake.orig	2026-04-14 22:09:59 UTC
 +++ cMake/FreeCAD_Helpers/SetupCoin3D.cmake
 @@ -29,7 +29,7 @@ macro(SetupCoin3D)
          set(COIN3D_MAJOR_VERSION "${CMAKE_MATCH_1}")
