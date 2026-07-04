@@ -385,6 +385,7 @@
     SUBDIR += l2a
     SUBDIR += la-aspell
     SUBDIR += lacheck
+    SUBDIR += languagetool
     SUBDIR += lasem
     SUBDIR += latex-service
     SUBDIR += latex2html
