@@ -145,6 +145,7 @@
     SUBDIR += distcache
     SUBDIR += diswall
     SUBDIR += doas
+    SUBDIR += dogtag-pki
     SUBDIR += dotdotpwn
     SUBDIR += dropbear
     SUBDIR += dsniff
