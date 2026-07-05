@@ -1,3 +1,58 @@
+  <vuln vid="d7939352-788b-11f1-b72c-8447094a420f">
+    <topic>Weechat -- Memory leak in relay-API</topic>
+    <affects>
+      <package>
+	<name>weechat</name>
+	<range><lt>4.7.3</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The Weechat project reports:</p>
+	<blockquote cite="https://github.com/weechat/weechat/security/advisories/GHSA-wmpc-m6g9-fwj8">
+	  <p>Pre-auth memory leak in relay-api POST /api/handshake (unfreed JSON body) → unauthenticated remote memory-exhaustion DoS.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <url>https://github.com/weechat/weechat/security/advisories/GHSA-wmpc-m6g9-fwj8</url>
+    </references>
+    <dates>
+      <discovery>2026-07-05</discovery>
+      <entry>2026-07-05</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="d5578ba4-7889-11f1-b72c-8447094a420f">
+    <topic>Roundcube -- Multiple vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>roundcube-php82</name>
+	<name>roundcube-php83</name>
+	<name>roundcube-php84</name>
+	<name>roundcube-php85</name>
+	<range><lt>1.7.2,1</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The Rouncube project reports:</p>
+	<blockquote cite="https://github.com/roundcube/roundcubemail/releases/tag/1.7.2">
+	  <p>See links for more detail</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2026-54432</cvename>
+      <cvename>CVE-2026-54433</cvename>
+      <url>https://github.com/roundcube/roundcubemail/releases/tag/1.7.2</url>
+    </references>
+    <dates>
+      <discovery>2026-07-05</discovery>
+      <entry>2026-07-05</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="803b9816-77af-11f1-ba71-5404a68ad561">
     <topic>traefik -- Multiple vulnerabilities</topic>
     <affects>
