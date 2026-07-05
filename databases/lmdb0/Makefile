@@ -1,11 +1,11 @@
 PORTNAME=	lmdb
-PORTVERSION=	1.0.0
+PORTVERSION=	0.9.35
 DISTVERSIONPREFIX=	${PORTNAME:tu}_
-PORTEPOCH=	1
+PKGNAMESUFFIX=	0
 CATEGORIES=	databases
 
 MAINTAINER=	delphij@FreeBSD.org
-COMMENT=	OpenLDAP Lightning Memory-Mapped Database
+COMMENT=	OpenLDAP Lightning Memory-Mapped Database (legacy)
 WWW=		https://symas.com/lmdb/
 
 LICENSE=	OPENLDAP
@@ -13,7 +13,9 @@ LICENSE_NAME=	OpenLDAP Public License
 LICENSE_FILE=	${WRKSRC}/LICENSE
 LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
-CONFLICTS_INSTALL=	lmdb0 # include/lmdb.h bin/mdb_stat
+CONFLICTS_INSTALL=	lmdb # include/lmdb.h bin/mdb_stat
+
+PORTSCOUT=	limit:^0\.
 
 WRKSRC_SUBDIR=		libraries/liblmdb
 MAKE_ARGS+=	CC="${CC}"
@@ -30,6 +32,7 @@ SUB_FILES+=	lmdb.pc
 SUB_LIST+=	PORTVERSION=${PORTVERSION}
 
 post-install:
+	${LN} -sf liblmdb.so.0 ${STAGEDIR}${PREFIX}/lib/liblmdb.so
 	${INSTALL_DATA} ${WRKDIR}/lmdb.pc ${STAGEDIR}${PREFIX}/libdata/pkgconfig
 
 do-test:
