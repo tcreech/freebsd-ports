@@ -1,6 +1,6 @@
---- device/non-free/lib/Makefile.in.orig	2015-03-26 13:21:24 UTC
+--- device/non-free/lib/Makefile.in.orig	2025-10-22 13:02:05 UTC
 +++ device/non-free/lib/Makefile.in
-@@ -353,17 +353,6 @@ clean_intermediate-pic14:
+@@ -352,17 +352,6 @@ ifneq ($(TARGETS), )
  install: all installdirs
  ifneq ($(TARGETS), )
  	[ ! -d "$(BUILDDIR)" ] || $(CP_U) -r $(BUILDDIR)/* $(sdcc_libdir)
@@ -18,7 +18,7 @@
  endif
  
  # Deleting all the installed files
-@@ -385,10 +374,7 @@ installcheck:
+@@ -384,10 +373,7 @@ ifneq ($(TARGETS), )
  # ---------------------------------
  installdirs:
  ifneq ($(TARGETS), )
