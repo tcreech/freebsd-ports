@@ -1,3 +1,43 @@
+  <vuln vid="a3a34818-79a0-11f1-b295-98b78501ef2a">
+    <topic>xrdp -- multiple vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>xrdp</name>
+	<range><lt>0.10.6.1.r.1,1</lt></range>
+      </package>
+      <package>
+	<name>xrdp-devel</name>
+	<range><lt>0.10.80.b20260706,1</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>xrdp projects reports:</p>
+	<blockquote cite="https://github.com/neutrinolabs/xrdp/releases/tag/v0.10.6.1">
+	<p>xrdp v0.10.6.1 fixes 10 vulnerabilities and 1 regression introduced
+	by a vulnerability fix in the previous release.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2026-41252</cvename>
+      <cvename>CVE-2026-41521</cvename>
+      <cvename>CVE-2026-44178</cvename>
+      <cvename>CVE-2026-42218</cvename>
+      <cvename>CVE-2026-44978</cvename>
+      <cvename>CVE-2026-54538</cvename>
+      <cvename>CVE-2026-55238</cvename>
+      <cvename>CVE-2026-55626</cvename>
+      <cvename>CVE-2026-55639</cvename>
+      <cvename>CVE-2026-55645</cvename>
+      <url>https://github.com/neutrinolabs/xrdp/releases/tag/v0.10.6.1</url>
+    </references>
+    <dates>
+      <discovery>2026-07-06</discovery>
+      <entry>2026-07-06</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="d47e608f-2e2a-4366-ad17-ce2480bf912d">
     <topic>zeek -- potential DoS vulnerabilities</topic>
     <affects>
