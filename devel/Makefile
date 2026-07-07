@@ -6649,6 +6649,7 @@
     SUBDIR += rgbds
     SUBDIR += rgx
     SUBDIR += rgxg
+    SUBDIR += rhg
     SUBDIR += rhtvision
     SUBDIR += rinutils
     SUBDIR += riscv32-unknown-elf-gcc

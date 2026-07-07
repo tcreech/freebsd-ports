@@ -1,3 +1,89 @@
+  <vuln vid="d47e608f-2e2a-4366-ad17-ce2480bf912d">
+    <topic>zeek -- potential DoS vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>zeek</name>
+	<range><lt>8.0.9</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Tim Wojtulewicz of Corelight reports:</p>
+	<blockquote cite="INSERT URL HERE">
+	  <p> The NVT, Rlogin, and RSH analyzers have received fixes
+	  to avoid unbounded state growth. Due to the fact that
+	  these packets can be received from remote hosts, these
+	  are considered DoS risks. </p>
+	  <p> A specially crafted WebSocket payload can cause the
+	  Spicy WebSocket analyzer to use excessive memory when
+	  processing close, ping, and pong frames. Due to the fact
+	  that these packets can be received from remote hosts,
+	  these are considered a DoS risk. </p>
+	  <p> A specially crafted series of Finger packets can cause
+	  the Spicy Finger analyzer to use excessive amounts of
+	  memory and potentially crash Zeek. Due to the fact that
+	  these packets can be received from remote hosts, this is
+	  considered a DoS risk. </p>
+	  <p> A specially crafted Kerberos packet can cause the
+	  Kerberos analyzer to enter an invalid state and potentially
+	  crash Zeek.  Due to the fact that these packets can be
+	  received from remote hosts, this is considered a DoS risk.
+	  </p>
+	  <p> A specially crafted series of RDP packets can cause
+	  the RDP analyzer to use excessive amounts of memory and
+	  potentially crash Zeek. Due to the fact that these packets
+	  can be received from remote hosts, this is considered a
+	  DoS risk. </p>
+	  <p> A specially crafted IP packet can cause the IP analyzer
+	  to read past the end of the contents of the packet when
+	  emitting the packet_contents event and possibly crash.
+	  Due to the fact that these packets can be received from
+	  remote hosts, this is considered a DoS risk. </p>
+	  <p> A specially crafted IP packet can cause the packet
+	  discarding code to read off the end of the packet when
+	  looking for follow-on header data. This may potentially
+	  lead to a crash of Zeek. Due to the fact that these packets
+	  can be received from remote hosts, this is considered a
+	  DoS risk. </p>
+	  <p> A specially crafted series of Gnutella packets may
+	  cause Zeek to continue accumulating memory and eventually
+	  crash. Due to the fact that these packets can be received
+	  from remote hosts, this is considered a DoS risk. </p>
+	  <p> A specially crafted ICMPv6 packet can cause the ICMP
+	  analyzer to skip part of the packet and not report
+	  corresponding events and logs. Due to the fact that these
+	  packets can be received from remote hosts, this is
+	  considered an evasion risk. </p>
+	  <p> A specially crafted SSH packet can cause the SSH
+	  analyzer to throw BinPAC exceptions for extremely large
+	  packets and skip logging them otherwise. Due to the fact
+	  that these packets can be received from remote hosts,
+	  this is considered an evasion risk. </p>
+	  <p> A number of issues with the HTTP analyzer were found
+	  involving unusual Content-Length, Transfer-Encoding and
+	  Expect header usage. Due to the fact that these packets
+	  can be received from remote hosts, this is considered an
+	  evasion risk. </p>
+	  <p> A series of fixes were applied to the serialization
+	  code in Zeek to avoid buffer overreads with both Broker
+	  and ZeroMQ traffic.  On debug builds, these hit various
+	  abort() conditions and cause Zeek to exit. Due to the
+	  fact that all of these states require direct access to
+	  the Broker/ZeroMQ ports (meaning access to the local
+	  network to some degree), this isn’t considered a DoS risk.
+	  </p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <url>https://github.com/zeek/zeek/releases/tag/v8.0.9</url>
+    </references>
+    <dates>
+      <discovery>2026-07-06</discovery>
+      <entry>2026-07-06</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="c7be43b0-78f0-11f1-8898-1c697a616631">
     <topic>Emacs -- Heap out-of-bounds write when rendering SVG images</topic>
     <affects>
