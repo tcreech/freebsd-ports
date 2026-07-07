@@ -2,7 +2,7 @@ PORTNAME=	rhg
 PORTVERSION=	7.2.3
 CATEGORIES=	devel
 MASTER_SITES=	https://www.mercurial-scm.org/release/
-DISTFILES=	mercurial-${PORTVERSION}.tar.gz:source
+DISTFILES=	mercurial-${PORTVERSION}.tar.gz
 
 MAINTAINER=	osa@FreeBSD.org
 COMMENT=	Experimental Rust version of Mercurial
