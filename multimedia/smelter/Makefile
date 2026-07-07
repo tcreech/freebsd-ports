@@ -5,7 +5,8 @@ CATEGORIES=	multimedia
 
 MAINTAINER=	yuri@FreeBSD.org
 COMMENT=	Toolkit for real-time, low latency, programmable video & audio mixing
-WWW=		https://smelter.dev
+WWW=		https://smelter.dev \
+		https://github.com/software-mansion/smelter
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
