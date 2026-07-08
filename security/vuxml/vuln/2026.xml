@@ -1,3 +1,32 @@
+  <vuln vid="9a1fdf39-7b10-11f1-a315-589cfc10a551">
+    <topic>libXfont2 -- Multiple vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>xwayland</name>
+	<range><lt>2.0.8</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>X.Org project reports:</p>
+	<blockquote cite="https://lists.x.org/archives/xorg-announce/2026-July/003714.html">
+	  <p>Multiple issues have been found in the libXfont2 library published
+	     by X.Org for which we are releasing security fixes in libXfont2-2.0.8.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2026-56001</cvename>
+      <cvename>CVE-2026-56002</cvename>
+      <cvename>CVE-2026-56003</cvename>
+      <url>https://lists.x.org/archives/xorg-announce/2026-July/003714.html</url>
+    </references>
+    <dates>
+      <discovery>2026-07-08</discovery>
+      <entry>2026-07-08</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="7ac0f35a-7aeb-11f1-a315-589cfc10a551">
     <topic>xwayland -- Multiple vulnerabilities</topic>
     <affects>
