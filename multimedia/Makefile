@@ -8,6 +8,7 @@
     SUBDIR += aravis
     SUBDIR += arcan
     SUBDIR += aribb24
+    SUBDIR += asdcplib
     SUBDIR += assimp
     SUBDIR += atomicparsley
     SUBDIR += audacious
