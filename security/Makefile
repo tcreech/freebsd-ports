@@ -1084,6 +1084,7 @@
     SUBDIR += py-ropgadget
     SUBDIR += py-ropper
     SUBDIR += py-rsa
+    SUBDIR += py-rtls
     SUBDIR += py-safe
     SUBDIR += py-scp
     SUBDIR += py-scramp
