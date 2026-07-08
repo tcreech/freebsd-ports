@@ -6748,6 +6748,7 @@
     SUBDIR += rubygem-amazing_print
     SUBDIR += rubygem-analogger
     SUBDIR += rubygem-annoy
+    SUBDIR += rubygem-anonymous_loader
     SUBDIR += rubygem-ansi
     SUBDIR += rubygem-apipie-bindings
     SUBDIR += rubygem-apipie-params
