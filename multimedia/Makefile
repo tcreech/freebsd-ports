@@ -340,6 +340,7 @@
     SUBDIR += rubygem-gstreamer
     SUBDIR += rubygem-streamio-ffmpeg
     SUBDIR += scte35dump
+    SUBDIR += shaka-packager
     SUBDIR += shotcut
     SUBDIR += shotcut-qt6
     SUBDIR += showtime
