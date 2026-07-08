@@ -161,7 +161,7 @@ HTTP_SLICE_AHEAD_EXTRA_PATCHES=	${PATCHDIR}/extra-patch-src_http_modules_ngx_htt
 
 HTTP_SUBS_FILTER_GH_TUPLE=	yaoweibin:ngx_http_substitutions_filter_module:e12e965:subs_filter
 HTTP_SUBS_FILTER_VARS=		DSO_EXTMODS+=subs_filter
-HTTP_SUBS_FILTER_IGNORE=	substitutions filter module: patching is required
+HTTP_SUBS_FILTER_EXTRA_PATCHES=	${PATCHDIR}/extra-patch-ngx_http_subs_filter_module.c
 
 HTTP_TARANTOOL_GH_TUPLE=	tarantool:nginx_upstream_module:aeb8696:nginx_tarantool
 HTTP_TARANTOOL_EXTRA_PATCHES=	${PATCHDIR}/extra-patch-ngx_http_tarantool-config
