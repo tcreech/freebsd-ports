@@ -4596,6 +4596,7 @@
     SUBDIR += py-azure-mgmt-deploymentmanager
     SUBDIR += py-azure-mgmt-devtestlabs
     SUBDIR += py-azure-mgmt-dns
+    SUBDIR += py-azure-mgmt-domainregistration
     SUBDIR += py-azure-mgmt-eventgrid
     SUBDIR += py-azure-mgmt-eventhub
     SUBDIR += py-azure-mgmt-extendedlocation
