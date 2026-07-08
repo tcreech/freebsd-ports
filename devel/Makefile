@@ -4632,6 +4632,7 @@
     SUBDIR += py-azure-mgmt-resource-deployments
     SUBDIR += py-azure-mgmt-resource-deploymentscripts
     SUBDIR += py-azure-mgmt-resource-deploymentstacks
+    SUBDIR += py-azure-mgmt-resource-subscriptions
     SUBDIR += py-azure-mgmt-resource-templatespecs
     SUBDIR += py-azure-mgmt-search
     SUBDIR += py-azure-mgmt-security
