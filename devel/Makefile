@@ -4634,6 +4634,7 @@
     SUBDIR += py-azure-mgmt-resource-deploymentstacks
     SUBDIR += py-azure-mgmt-resource-subscriptions
     SUBDIR += py-azure-mgmt-resource-templatespecs
+    SUBDIR += py-azure-mgmt-resource24
     SUBDIR += py-azure-mgmt-search
     SUBDIR += py-azure-mgmt-security
     SUBDIR += py-azure-mgmt-servicebus
