@@ -4987,6 +4987,7 @@
     SUBDIR += py-envier
     SUBDIR += py-envisage
     SUBDIR += py-envs
+    SUBDIR += py-envwrap
     SUBDIR += py-epc
     SUBDIR += py-epdb
     SUBDIR += py-epsilon
