@@ -5296,6 +5296,7 @@
     SUBDIR += py-jstyleson
     SUBDIR += py-junitparser
     SUBDIR += py-jupyter
+    SUBDIR += py-jupyter-builder
     SUBDIR += py-jupyter-client
     SUBDIR += py-jupyter-collaboration
     SUBDIR += py-jupyter-collaboration-ui
