@@ -1,3 +1,46 @@
+  <vuln vid="84ce0c0c-7b4e-11f1-9c40-2cf05da270f3">
+    <topic>Gitlab -- Vulnerabilities</topic>
+    <affects>
+<package>
+	<name>gitlab-ce</name>
+	<name>gitlab-ee</name>
+	<range><ge>19.1.0</ge><lt>19.1.2</lt></range>
+	<range><ge>19.0.0</ge><lt>19.0.4</lt></range>
+	<range><ge>9.1.0</ge><lt>18.11.7</lt></range>
+</package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Gitlab reports:</p>
+	<blockquote cite="https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-1-2-released/">
+	  <p>Cross-site Scripting issue in vulnerability evidence table renderer impacts GitLab EE</p>
+	  <p>HTML Injection in wiki markup rendering impacts GitLab CE/EE</p>
+	  <p>Insufficiently Protected Credentials issue in repository mirroring impacts GitLab EE</p>
+	  <p>Improper Access Control issue in work items impacts GitLab EE</p>
+	  <p>Missing Authorization issue in commit discussion display impacts GitLab CE/EE</p>
+	  <p>Ambiguity Reference issue in a tag or branch impacts GitLab CE/EE</p>
+	  <p>Incorrect Authorization issue in group-level settings impacts GitLab EE</p>
+	  <p>Incorrect Authorization issue in compliance violation management impacts GitLab EE</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2026-6896</cvename>
+      <cvename>CVE-2026-13320</cvename>
+      <cvename>CVE-2026-11827</cvename>
+      <cvename>CVE-2026-8472</cvename>
+      <cvename>CVE-2026-7492</cvename>
+      <cvename>CVE-2025-12506</cvename>
+      <cvename>CVE-2026-13151</cvename>
+      <cvename>CVE-2026-6352</cvename>
+      <url>https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-1-2-released/</url>
+    </references>
+    <dates>
+      <discovery>2026-07-08</discovery>
+      <entry>2026-07-09</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="9a1fdf39-7b10-11f1-a315-589cfc10a551">
     <topic>libXfont2 -- Multiple vulnerabilities</topic>
     <affects>
