@@ -1040,6 +1040,7 @@
     SUBDIR += py-keras-applications
     SUBDIR += py-keras-preprocessing
     SUBDIR += py-kiwisolver
+    SUBDIR += py-latex2sympy2-extended
     SUBDIR += py-levmar
     SUBDIR += py-libceed
     SUBDIR += py-libpoly
