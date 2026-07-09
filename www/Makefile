@@ -1861,6 +1861,7 @@
     SUBDIR += py-litestar
     SUBDIR += py-livereload
     SUBDIR += py-ll-xist
+    SUBDIR += py-lomond
     SUBDIR += py-mailman-hyperkitty
     SUBDIR += py-mechanicalsoup
     SUBDIR += py-mechanize
