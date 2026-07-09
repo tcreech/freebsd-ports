@@ -557,6 +557,7 @@
     SUBDIR += py-llama-index-embeddings-huggingface
     SUBDIR += py-llama-index-llms-ibm
     SUBDIR += py-llama-index-llms-openai
+    SUBDIR += py-llama-index-llms-openai-like
     SUBDIR += py-llm
     SUBDIR += py-llm-claude-3
     SUBDIR += py-lm-format-enforcer
