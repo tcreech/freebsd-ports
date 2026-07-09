@@ -520,6 +520,7 @@
     SUBDIR += py-histoprint
     SUBDIR += py-huepy
     SUBDIR += py-huggingface-hub
+    SUBDIR += py-ibm-cos-sdk
     SUBDIR += py-ibm-cos-sdk-core
     SUBDIR += py-ibm-cos-sdk-s3transfer
     SUBDIR += py-icoextract
