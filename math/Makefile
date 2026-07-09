@@ -955,6 +955,7 @@
     SUBDIR += py-animatplot-ng
     SUBDIR += py-annoy
     SUBDIR += py-apgl
+    SUBDIR += py-apted
     SUBDIR += py-arviz
     SUBDIR += py-arviz-base
     SUBDIR += py-arviz-plots
