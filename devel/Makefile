@@ -5415,6 +5415,7 @@
     SUBDIR += py-mediafile
     SUBDIR += py-mediapy
     SUBDIR += py-medikit
+    SUBDIR += py-mellea
     SUBDIR += py-memory-allocator
     SUBDIR += py-memory-graph
     SUBDIR += py-memory-profiler
