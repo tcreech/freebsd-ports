@@ -555,6 +555,7 @@
     SUBDIR += py-llama-cpp-python
     SUBDIR += py-llama-index-core
     SUBDIR += py-llama-index-embeddings-huggingface
+    SUBDIR += py-llama-index-llms-ibm
     SUBDIR += py-llm
     SUBDIR += py-llm-claude-3
     SUBDIR += py-lm-format-enforcer
