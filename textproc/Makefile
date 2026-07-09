@@ -1385,6 +1385,7 @@
     SUBDIR += py-dict2xml
     SUBDIR += py-diff-match-patch
     SUBDIR += py-dirtyjson
+    SUBDIR += py-doclang
     SUBDIR += py-docrepr
     SUBDIR += py-docstring-to-markdown
     SUBDIR += py-docstring_parser
