@@ -549,6 +549,7 @@
     SUBDIR += py-litellm
     SUBDIR += py-litellm-proxy-extras
     SUBDIR += py-llama-cpp-python
+    SUBDIR += py-llama-index-core
     SUBDIR += py-llm
     SUBDIR += py-llm-claude-3
     SUBDIR += py-lm-format-enforcer
