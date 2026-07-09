@@ -1482,6 +1482,7 @@
     SUBDIR += py-line-protocol-parser
     SUBDIR += py-lingua-language-detector
     SUBDIR += py-linkify-it-py
+    SUBDIR += py-llama-index-instrumentation
     SUBDIR += py-llguidance
     SUBDIR += py-m2r
     SUBDIR += py-mako
