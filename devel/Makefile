@@ -5415,6 +5415,7 @@
     SUBDIR += py-mediafile
     SUBDIR += py-mediapy
     SUBDIR += py-medikit
+    SUBDIR += py-mellea
     SUBDIR += py-memory-allocator
     SUBDIR += py-memory-graph
     SUBDIR += py-memory-profiler
@@ -5556,6 +5557,7 @@
     SUBDIR += py-opster
     SUBDIR += py-optik
     SUBDIR += py-optree
+    SUBDIR += py-optype
     SUBDIR += py-orca
     SUBDIR += py-ordered-set
     SUBDIR += py-ordereddict
