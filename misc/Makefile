@@ -485,6 +485,7 @@
     SUBDIR += py-cppman
     SUBDIR += py-crudini
     SUBDIR += py-csvw
+    SUBDIR += py-cvat-sdk
     SUBDIR += py-datasets
     SUBDIR += py-detecta
     SUBDIR += py-diffusers
