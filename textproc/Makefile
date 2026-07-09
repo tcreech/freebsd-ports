@@ -1653,6 +1653,7 @@
     SUBDIR += py-scour
     SUBDIR += py-segments
     SUBDIR += py-segno
+    SUBDIR += py-semchunk
     SUBDIR += py-sense2vec
     SUBDIR += py-sentencepiece
     SUBDIR += py-simplebayes
