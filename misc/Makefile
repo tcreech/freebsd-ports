@@ -523,6 +523,7 @@
     SUBDIR += py-ibm-cos-sdk
     SUBDIR += py-ibm-cos-sdk-core
     SUBDIR += py-ibm-cos-sdk-s3transfer
+    SUBDIR += py-ibm-watsonx-ai
     SUBDIR += py-icoextract
     SUBDIR += py-instructor
     SUBDIR += py-ipyfastscape
