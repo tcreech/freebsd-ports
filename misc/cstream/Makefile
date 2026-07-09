@@ -1,5 +1,5 @@
 PORTNAME=	cstream
-PORTVERSION=	4.0.0
+DISTVERSION=	4.0.0
 CATEGORIES=	misc
 MASTER_SITES=	https://www.cons.org/cracauer/download/
 
