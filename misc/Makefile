@@ -454,6 +454,7 @@
     SUBDIR += py-accelerate
     SUBDIR += py-aistudio-sdk
     SUBDIR += py-alive-progress
+    SUBDIR += py-analysis-framework-base
     SUBDIR += py-anthropic
     SUBDIR += py-apache-beam
     SUBDIR += py-ascii-magic
