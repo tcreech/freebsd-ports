@@ -1949,6 +1949,7 @@
     SUBDIR += py-rolo
     SUBDIR += py-routes
     SUBDIR += py-rules
+    SUBDIR += py-scalar-fastapi
     SUBDIR += py-scgi
     SUBDIR += py-scrapy
     SUBDIR += py-seafdav
