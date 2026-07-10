@@ -5,6 +5,24 @@ they are unavoidable.
 You should get into the habit of checking this file for changes each time
 you update your ports collection, before attempting any port upgrades.
 
+20260708:
+  AFFECTS: users of net/croc
+  AUTHOR: olgeni@FreeBSD.org
+
+  The croc rc script now honors an optional croc_host variable that binds
+  the relay to a specific local address instead of all interfaces.
+
+  This is needed on hosts with IP forwarding enabled (typically routers),
+  where the "croc relay" startup self-check connects to the wildcard
+  address (0.0.0.0) and fails with "network is unreachable", causing the
+  relay to exit immediately.  If your relay does not stay running, set a
+  local address of the host in /etc/rc.conf, for example:
+
+      croc_host="192.0.2.1"
+
+  Leaving croc_host empty (the default) keeps the previous behavior of
+  listening on all interfaces.
+
 20260707:
   AFFECTS: users of mail/bogofilter
   AUTHOR: mandree@FreeBSD.org
