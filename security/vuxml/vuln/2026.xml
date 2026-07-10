@@ -3,6 +3,7 @@
     <affects>
       <package>
         <name>apache-commons-httpclient</name>
+        <name>jakarta-commons-httpclient</name>
         <range><le>3.1</le></range>
       </package>
       <package>
@@ -34,6 +35,7 @@
     <affects>
       <package>
         <name>apache-commons-httpclient</name>
+        <name>jakarta-commons-httpclient</name>
         <range><eq>3.1</eq></range>
       </package>
     </affects>
