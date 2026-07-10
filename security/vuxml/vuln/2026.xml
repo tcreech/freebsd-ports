@@ -4,7 +4,7 @@
       <package>
         <name>apache-commons-httpclient</name>
         <name>jakarta-commons-httpclient</name>
-        <range><le>3.1</le></range>
+        <range><ge>3.1</ge></range>
       </package>
       <package>
         <name>httpclient</name>
@@ -36,7 +36,7 @@
       <package>
         <name>apache-commons-httpclient</name>
         <name>jakarta-commons-httpclient</name>
-        <range><eq>3.1</eq></range>
+        <range><ge>3.1</ge></range>
       </package>
     </affects>
     <description>
