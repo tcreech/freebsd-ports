@@ -5017,6 +5017,7 @@
     SUBDIR += py-factory-boy
     SUBDIR += py-faicons
     SUBDIR += py-fam
+    SUBDIR += py-fast-depends
     SUBDIR += py-fastbencode
     SUBDIR += py-fastcache
     SUBDIR += py-fastcore
