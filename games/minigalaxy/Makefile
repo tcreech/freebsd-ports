@@ -3,7 +3,7 @@ DISTVERSION=	1.4.2
 CATEGORIES=	games
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
-MAINTAINER=	Alexander88207@protonmail.com
+MAINTAINER=	avereeken@fastmail.de
 COMMENT=	Simple GOG client for Linux
 WWW=		https://sharkwouter.github.io/minigalaxy
 
