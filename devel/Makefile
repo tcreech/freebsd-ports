@@ -7087,6 +7087,7 @@
     SUBDIR += rubygem-aws-sdk-partnercentralaccount
     SUBDIR += rubygem-aws-sdk-partnercentralbenefits
     SUBDIR += rubygem-aws-sdk-partnercentralchannel
+    SUBDIR += rubygem-aws-sdk-partnercentralrevenuemeasurement
     SUBDIR += rubygem-aws-sdk-partnercentralselling
     SUBDIR += rubygem-aws-sdk-paymentcryptography
     SUBDIR += rubygem-aws-sdk-paymentcryptographydata
