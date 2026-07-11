@@ -1,7 +1,7 @@
 PORTNAME=	dogtag-pki
 DISTVERSIONPREFIX=	v
 DISTVERSION=	11.7.0
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	security python
 
 MAINTAINER=	joneum@FreeBSD.org
@@ -18,6 +18,9 @@ RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}cryptography>0:security/py-cryptography@${PY
 		${PYTHON_PKGNAMEPREFIX}python-ldap>0:net/py-python-ldap@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}requests>0:www/py-requests@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}six>0:devel/py-six@${PY_FLAVOR}
+
+USERS=		pkiuser
+GROUPS=		pkiuser
 
 USES=		python shebangfix
 USE_GITHUB=	yes
