@@ -1,6 +1,7 @@
 PORTNAME=	dogtag-pki
 DISTVERSIONPREFIX=	v
 DISTVERSION=	11.7.0
+PORTREVISION=	1
 CATEGORIES=	security python
 
 MAINTAINER=	joneum@FreeBSD.org
@@ -27,5 +28,11 @@ USE_PYTHON=	autoplist pep517
 SHEBANG_FILES=	base/common/upgrade/*/*.py base/server/upgrade/*/*.py
 
 NO_ARCH=	yes
+
+PLIST_FILES=	share/pki/VERSION
+
+post-install:
+	@${MKDIR} ${STAGEDIR}${PREFIX}/share/pki
+	@${PRINTF} "Specification-Version: ${DISTVERSION}\nImplementation-Version: ${DISTVERSION}\n" > ${STAGEDIR}${PREFIX}/share/pki/VERSION
 
 .include <bsd.port.mk>
