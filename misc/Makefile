@@ -649,6 +649,7 @@
     SUBDIR += py-skops
     SUBDIR += py-smdebug-rulesconfig
     SUBDIR += py-smolagents
+    SUBDIR += py-smolagents-agentfolio
     SUBDIR += py-snakemake-interface-common
     SUBDIR += py-snakemake-interface-executor-plugins
     SUBDIR += py-snakemake-interface-logger-plugins
