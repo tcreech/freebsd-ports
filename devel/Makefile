@@ -361,6 +361,7 @@
     SUBDIR += byaccj
     SUBDIR += c-stdaux
     SUBDIR += c2mdoc
+    SUBDIR += c3-lsp
     SUBDIR += c4core
     SUBDIR += calibrator
     SUBDIR += caliper
