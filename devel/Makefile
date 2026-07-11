@@ -7189,6 +7189,7 @@
     SUBDIR += rubygem-aws-sdk-supplychain
     SUBDIR += rubygem-aws-sdk-support
     SUBDIR += rubygem-aws-sdk-supportapp
+    SUBDIR += rubygem-aws-sdk-supportauthz
     SUBDIR += rubygem-aws-sdk-sustainability
     SUBDIR += rubygem-aws-sdk-swf
     SUBDIR += rubygem-aws-sdk-synthetics
