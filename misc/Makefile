@@ -452,6 +452,7 @@
     SUBDIR += py-SimpleSoapy
     SUBDIR += py-SoapySDR
     SUBDIR += py-accelerate
+    SUBDIR += py-ag2
     SUBDIR += py-aistudio-sdk
     SUBDIR += py-alive-progress
     SUBDIR += py-analysis-framework-base
