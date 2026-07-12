@@ -4289,7 +4289,6 @@
     SUBDIR += pecl-pcov
     SUBDIR += pecl-protobuf
     SUBDIR += pecl-psr
-    SUBDIR += pecl-raphf2
     SUBDIR += pecl-runkit7
     SUBDIR += pecl-swoole
     SUBDIR += pecl-sync
@@ -4318,6 +4317,7 @@
     SUBDIR += php-libawl
     SUBDIR += php-maxminddb
     SUBDIR += php-pie
+    SUBDIR += php-raphf
     SUBDIR += php82-ffi
     SUBDIR += php82-gettext
     SUBDIR += php82-intl
