@@ -1,5 +1,5 @@
 PORTNAME=	xpra
-PORTVERSION=	6.4.4
+PORTVERSION=	6.5
 CATEGORIES=	x11
 MASTER_SITES=	https://xpra.org/src/
 
@@ -130,6 +130,7 @@ post-install:
 	${CP} -r ${STAGEDIR}${PREFIX}/etc/dbus-1 ${STAGEDIR}${PREFIX}/share && ${RM} -r ${STAGEDIR}${PREFIX}/dbus-1
 	${FIND} ${STAGEDIR}${PYTHON_SITELIBDIR}/${PORTNAME} -name '*.so' \
 	    -exec ${STRIP_CMD} {} +
+	${RM} ${STAGEDIR}${PREFIX}/xpra_dissector.lua
 
 do-test:
 	@${MKDIR} ${BINARY_LINKDIR}
