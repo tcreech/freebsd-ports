@@ -988,6 +988,7 @@
     SUBDIR += gwenhywfar
     SUBDIR += gwenhywfar-gtk3
     SUBDIR += gwenhywfar-qt6
+    SUBDIR += gwm
     SUBDIR += gzstream
     SUBDIR += hapy
     SUBDIR += hare
