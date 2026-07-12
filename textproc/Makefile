@@ -1868,6 +1868,7 @@
     SUBDIR += refdb
     SUBDIR += reflex
     SUBDIR += regex2dfa
+    SUBDIR += regexplain
     SUBDIR += replaceit
     SUBDIR += rfcdiff
     SUBDIR += riffdiff
