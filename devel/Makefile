@@ -4281,7 +4281,6 @@
     SUBDIR += pecl-event
     SUBDIR += pecl-excimer
     SUBDIR += pecl-expect
-    SUBDIR += pecl-grpc
     SUBDIR += pecl-inotify
     SUBDIR += pecl-json_post
     SUBDIR += pecl-msgpack
@@ -4314,6 +4313,7 @@
     SUBDIR += php-Psr_Log
     SUBDIR += php-composer
     SUBDIR += php-geshi
+    SUBDIR += php-grpc
     SUBDIR += php-ice37
     SUBDIR += php-libawl
     SUBDIR += php-maxminddb
