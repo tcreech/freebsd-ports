@@ -594,6 +594,7 @@
     SUBDIR += py-openai-harmony
     SUBDIR += py-openai-whisper
     SUBDIR += py-openinference-instrumentation
+    SUBDIR += py-openinference-instrumentation-smolagents
     SUBDIR += py-openinference-semantic-conventions
     SUBDIR += py-openpaperwork-core
     SUBDIR += py-openpaperwork-gtk
