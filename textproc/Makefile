@@ -460,6 +460,7 @@
     SUBDIR += linux-rl9-qt5-qtxmlpatterns
     SUBDIR += linuxdoc
     SUBDIR += linuxdoc-tools
+    SUBDIR += livediff
     SUBDIR += localize
     SUBDIR += logseq
     SUBDIR += lookatme
