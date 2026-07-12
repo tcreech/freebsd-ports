@@ -5494,3 +5494,5 @@ textproc/pecl-pspell|textproc/php-pspell|2026-07-05|Converted to standard extens
 print/qpdfview@qt5||2026-07-10|Unflavorize, remove Qt5 flavor
 print/qpdfview@qt6|print/qpdfview|2026-07-10|Unflavorize
 devel/pecl-raphf2|devel/php-raphf|2026-07-12|Converted to standard extension from pecl extension
+devel/pecl-grpc|devel/php-grpc|2026-07-12|Converted to standard extension from pecl extension
+devel/pecl-swoole|devel/php-swoole|2026-07-12|Converted to standard extension from pecl extension
