@@ -4290,7 +4290,6 @@
     SUBDIR += pecl-protobuf
     SUBDIR += pecl-psr
     SUBDIR += pecl-runkit7
-    SUBDIR += pecl-swoole
     SUBDIR += pecl-sync
     SUBDIR += pecl-uploadprogress
     SUBDIR += pecl-uuid
@@ -4319,6 +4318,7 @@
     SUBDIR += php-maxminddb
     SUBDIR += php-pie
     SUBDIR += php-raphf
+    SUBDIR += php-swoole
     SUBDIR += php82-ffi
     SUBDIR += php82-gettext
     SUBDIR += php82-intl
