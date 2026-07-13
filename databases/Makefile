@@ -796,6 +796,7 @@
     SUBDIR += py-hiredis
     SUBDIR += py-influxdb
     SUBDIR += py-kyotocabinet
+    SUBDIR += py-lance-namespace
     SUBDIR += py-lance-namespace-urllib3-client
     SUBDIR += py-leveldb
     SUBDIR += py-litecli
