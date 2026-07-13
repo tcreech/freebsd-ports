@@ -460,6 +460,7 @@
     SUBDIR += linux-rl9-qt5-qtxmlpatterns
     SUBDIR += linuxdoc
     SUBDIR += linuxdoc-tools
+    SUBDIR += livediff
     SUBDIR += localize
     SUBDIR += logseq
     SUBDIR += lookatme
@@ -1867,6 +1868,7 @@
     SUBDIR += refdb
     SUBDIR += reflex
     SUBDIR += regex2dfa
+    SUBDIR += regexplain
     SUBDIR += replaceit
     SUBDIR += rfcdiff
     SUBDIR += riffdiff

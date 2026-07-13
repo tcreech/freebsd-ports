@@ -846,6 +846,7 @@
     SUBDIR += gflags
     SUBDIR += gfold
     SUBDIR += gh
+    SUBDIR += ghgrab
     SUBDIR += ghidra
     SUBDIR += ghostie
     SUBDIR += ghpr
@@ -987,6 +988,7 @@
     SUBDIR += gwenhywfar
     SUBDIR += gwenhywfar-gtk3
     SUBDIR += gwenhywfar-qt6
+    SUBDIR += gwm
     SUBDIR += gzstream
     SUBDIR += hapy
     SUBDIR += hare
