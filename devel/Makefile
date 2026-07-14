@@ -5442,6 +5442,7 @@
     SUBDIR += py-mmh3
     SUBDIR += py-mock
     SUBDIR += py-molecule
+    SUBDIR += py-molecule-plugins
     SUBDIR += py-mondrian
     SUBDIR += py-mongokit
     SUBDIR += py-monkeytype
