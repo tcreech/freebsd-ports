@@ -512,6 +512,7 @@
     SUBDIR += py-google-ai-generativelanguage
     SUBDIR += py-google-genai
     SUBDIR += py-gpiozero
+    SUBDIR += py-groq
     SUBDIR += py-gymnasium
     SUBDIR += py-halo
     SUBDIR += py-haystack_ai
