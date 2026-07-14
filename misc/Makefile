@@ -62,6 +62,7 @@
     SUBDIR += clpbar
     SUBDIR += code2prompt
     SUBDIR += codex
+    SUBDIR += colibri
     SUBDIR += colortail
     SUBDIR += coloursum
     SUBDIR += colwide
