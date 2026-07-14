@@ -117,6 +117,7 @@
     SUBDIR += kyotocabinet
     SUBDIR += kyototycoon
     SUBDIR += ladybug
+    SUBDIR += lancedb-c
     SUBDIR += ldb25
     SUBDIR += ldb28
     SUBDIR += ldb29
