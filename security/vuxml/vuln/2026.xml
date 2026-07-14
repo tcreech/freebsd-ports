@@ -216,7 +216,7 @@
     <topic>libXfont2 -- Multiple vulnerabilities</topic>
     <affects>
       <package>
-	<name>xwayland</name>
+	<name>libXfont2</name>
 	<range><lt>2.0.8</lt></range>
       </package>
     </affects>
