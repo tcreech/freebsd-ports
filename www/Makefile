@@ -1791,6 +1791,7 @@
     SUBDIR += py-google-cloud-container
     SUBDIR += py-google-cloud-core
     SUBDIR += py-google-cloud-datastore
+    SUBDIR += py-google-cloud-discoveryengine
     SUBDIR += py-google-cloud-dlp
     SUBDIR += py-google-cloud-documentai
     SUBDIR += py-google-cloud-logging
