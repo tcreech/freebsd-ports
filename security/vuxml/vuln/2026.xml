@@ -2543,7 +2543,7 @@ rclone process user.</p>
     <affects>
     <package>
 	<name>ffmpeg</name>
-	<range><lt>8.1.2</lt></range>
+	<range><lt>8.1.2,1</lt></range>
     </package>
     <package>
 	<name>ffmpeg4</name>
