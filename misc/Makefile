@@ -565,6 +565,7 @@
     SUBDIR += py-lm-format-enforcer
     SUBDIR += py-log_symbols
     SUBDIR += py-mcp
+    SUBDIR += py-mda-xdrlib
     SUBDIR += py-mem0ai
     SUBDIR += py-mffpy
     SUBDIR += py-misaki
