@@ -798,6 +798,7 @@
     SUBDIR += py-kyotocabinet
     SUBDIR += py-lance-namespace
     SUBDIR += py-lance-namespace-urllib3-client
+    SUBDIR += py-lancedb
     SUBDIR += py-leveldb
     SUBDIR += py-litecli
     SUBDIR += py-lmdb
