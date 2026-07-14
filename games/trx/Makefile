@@ -24,6 +24,7 @@ MESON_ARGS=	-Dlua_dep=lua-${LUA_VER} \
 		-Dstaticdeps=false \
 		-Dtrx_version=${DISTVERSION}
 
+PORTSCOUT=	limit:^1\.
 SUB_FILES=	pkg-message trx.sh
 SUB_LIST=	PORTNAME=${PORTNAME}
 
