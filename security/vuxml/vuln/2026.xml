@@ -1,3 +1,40 @@
+  <vuln vid="74d0291e-7f81-11f1-83e9-901b0e13f1a0">
+    <topic>Poppler: integer overflow in tilingPatternFill</topic>
+    <affects>
+    <package>
+	<name>poppler</name>
+	<name>poppler-glib</name>
+	<name>poppler-qt5</name>
+	<name>poppler-qt6</name>
+	<name>poppler-utils</name>
+	<range><lt>26.04.0_1</lt></range>
+    </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>https://access.redhat.com/errata/RHSA-2026:24984 reports:</p>
+	<blockquote cite="https://access.redhat.com/errata/RHSA-2026:24984">
+	  <p>A flaw was found in Poppler's Splash backend.  A remote attacker
+	could exploit this vulnerability by crafting a malicious PDF file
+	that, when rendered, triggers an integer overflow in the
+	`tilingPatternFill` function.  This overflow leads to an undersized
+	heap memory allocation, allowing a subsequent out-of-bounds write.
+	Successful exploitation could result in arbitrary code execution,
+	information disclosure, or denial of service within the context of
+	the application processing the PDF.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2026-10118</cvename>
+      <url>https://cveawg.mitre.org/api/cve/CVE-2026-10118</url>
+    </references>
+    <dates>
+      <discovery>2026-06-01</discovery>
+      <entry>2026-07-14</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="b478ff13-7f6e-11f1-b594-3c7c3fba4204">
     <topic>ocaml-opam -- opam install sandbox escape using symlinks</topic>
     <affects>
