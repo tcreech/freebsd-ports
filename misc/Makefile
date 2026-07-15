@@ -623,6 +623,7 @@
     SUBDIR += py-peft
     SUBDIR += py-pexpect
     SUBDIR += py-pinecone-plugin-assistant
+    SUBDIR += py-pinecone-plugin-interface
     SUBDIR += py-pkbar
     SUBDIR += py-placekey
     SUBDIR += py-polars
