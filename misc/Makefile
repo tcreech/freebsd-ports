@@ -469,6 +469,7 @@
     SUBDIR += py-censys
     SUBDIR += py-cmap
     SUBDIR += py-codecarbon
+    SUBDIR += py-cohere
     SUBDIR += py-colorbrewer
     SUBDIR += py-colored
     SUBDIR += py-colorzero
