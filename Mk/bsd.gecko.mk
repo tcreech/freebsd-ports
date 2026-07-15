@@ -121,10 +121,8 @@ _ALL_DEPENDS=	av1 event ffi graphite harfbuzz jpeg nspr nss png pixman sqlite vp
 _ALL_DEPENDS+=	icu
 .    endif
 
-.    if exists(${FILESDIR}/patch-bug1559213)
 av1_LIB_DEPENDS=	libaom.so:multimedia/aom libdav1d.so:multimedia/dav1d
 av1_MOZ_OPTIONS=	--with-system-av1
-.    endif
 
 event_LIB_DEPENDS=	libevent.so:devel/libevent
 event_MOZ_OPTIONS=	--with-system-libevent
