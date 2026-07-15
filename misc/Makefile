@@ -487,6 +487,7 @@
     SUBDIR += py-comfyui-workflow-templates-media-video
     SUBDIR += py-compressed-tensors
     SUBDIR += py-cppman
+    SUBDIR += py-crewai-cli
     SUBDIR += py-crewai-core
     SUBDIR += py-crudini
     SUBDIR += py-csvw
