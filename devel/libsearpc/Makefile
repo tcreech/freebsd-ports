@@ -1,6 +1,6 @@
 PORTNAME=	libsearpc
-PORTVERSION=	3.3.0
-PORTEPOCH=	1
+PORTVERSION=	3.3.20260612
+PORTEPOCH=	2
 CATEGORIES=	devel
 
 MAINTAINER=	d.stoye@cms.hu-berlin.de
@@ -15,7 +15,7 @@ LIB_DEPENDS=	libjansson.so:devel/jansson \
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	haiwen
-GH_TAGNAME=	54145b0
+GH_TAGNAME=	23d5df6
 
 USES=		autoreconf gettext libtool pathfix pkgconfig python shebangfix
 SHEBANG_FILES=	lib/searpc-codegen.py
@@ -23,5 +23,8 @@ USE_LDCONFIG=	yes
 
 GNU_CONFIGURE=	yes
 INSTALL_TARGET=	install-strip
+
+post-patch:
+	@${REINPLACE_CMD} -e 's#%%PORTVERSION%%#${PORTVERSION}#' ${WRKSRC}/configure.ac
 
 .include <bsd.port.mk>
