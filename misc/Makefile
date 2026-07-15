@@ -490,6 +490,7 @@
     SUBDIR += py-crewai
     SUBDIR += py-crewai-cli
     SUBDIR += py-crewai-core
+    SUBDIR += py-crewai-tools
     SUBDIR += py-crudini
     SUBDIR += py-csvw
     SUBDIR += py-cvat-sdk
