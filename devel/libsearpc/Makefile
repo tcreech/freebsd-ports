@@ -1,10 +1,9 @@
 PORTNAME=	libsearpc
-PORTVERSION=	3.2.0
-PORTREVISION=	2
+PORTVERSION=	3.3.0
 PORTEPOCH=	1
 CATEGORIES=	devel
 
-MAINTAINER=	ports@FreeBSD.org
+MAINTAINER=	d.stoye@cms.hu-berlin.de
 COMMENT=	Simple RPC framework based on GObject System in C
 WWW=		https://github.com/haiwen/libsearpc
 
