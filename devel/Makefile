@@ -5017,6 +5017,7 @@
     SUBDIR += py-expandvars
     SUBDIR += py-expecttest
     SUBDIR += py-expiringdict
+    SUBDIR += py-expression
     SUBDIR += py-extras
     SUBDIR += py-extremes
     SUBDIR += py-fabric
