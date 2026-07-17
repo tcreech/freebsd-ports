@@ -85,6 +85,10 @@ CFLAGS+=	-Wno-error=invalid-utf8 -Winvalid-utf8
 MAKE_ENV+=	KITTY_NO_LTO=1
 .endif
 
+.if ${ARCH} == "i386" || ${ARCH} == "powerpc" || ${ARCH:Marmv?}
+EXTRA_PATCHES+=	${PATCHDIR}/extra-patch-vendor_github.com_sgtdi_fswatcher_watcher__kqueue.go
+.endif
+
 post-patch:
 	${REINPLACE_CMD} -E \
 		-e "s:'go':'${GO_CMD}':1" \
