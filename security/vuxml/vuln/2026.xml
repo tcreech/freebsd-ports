@@ -1,3 +1,38 @@
+  <vuln vid="9645fcd7-82a1-11f1-8c96-5404a68ad561">
+    <topic>traefik -- Multiple vulnerabilities</topic>
+    <affects>
+      <package>
+      <name>traefik</name>
+      <range><lt>3.7.8</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+      <p>The traefik project releases a new version addressing multiple vulnerabilities:</p>
+      <blockquote cite="https://github.com/traefik/traefik/releases/tag/v3.7.7">
+      <ul>
+      <li>GHSA-cxjq-mrr5-89rv (Authentication Bypass via Path Traversal in ReplacePathRegex Middleware)</li>
+      <li>GHSA-42cj-m3vj-89wv (CRD IngressRouteTCP ServersTransport Cross-Provider Namespace Bypass)</li>
+      <li>GHSA-qq9q-x9w4-chhj (Gateway API HTTPRoute BackendRef ExtensionRef Namespace Confusion)</li>
+      </ul>
+      </blockquote>
+      <blockquote cite="https://github.com/traefik/traefik/releases/tag/v3.7.8">
+      <ul>
+      <li>GHSA-8rxv-jg7p-wvg3 (Kubernetes Ingress NGINX RewriteTarget Path Traversal Allows Route-Level Authentication Bypass)</li>
+      </ul>
+      </blockquote>
+      </body>
+    </description>
+    <references>
+      <url>https://github.com/traefik/traefik/releases/tag/v3.7.7</url>
+      <url>https://github.com/traefik/traefik/releases/tag/v3.7.8</url>
+    </references>
+    <dates>
+      <discovery>2026-07-08</discovery>
+      <entry>2026-07-18</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="0a0aca9f-8290-11f1-a93b-50ebf6bdf8e9">
     <topic>phpmyfaq -- multiple vulnerabilities</topic>
     <affects>
