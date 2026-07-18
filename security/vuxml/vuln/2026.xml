@@ -1,3 +1,40 @@
+  <vuln vid="56feeac6-8263-11f1-92ba-bc24110523fe">
+    <topic>nginx -- multiple vulnerabilities</topic>
+    <affects>
+    <package>
+	<name>nginx</name>
+	<range><lt>1.30.4,3</lt></range>
+    </package>
+    <package>
+	<name>nginx-devel</name>
+	<range><lt>1.31.3</lt></range>
+    </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The nginx development team reports:</p>
+	<blockquote cite="https://nginx.org/en/security_advisories.html">
+	  <p>Buffer overflow when using map and regex
+	    (CVE-2026-42533). Severity: major.</p>
+	  <p>Memory disclosure when using ngx_http_slice_module
+	    (CVE-2026-60005). Severity: medium.</p>
+	  <p>Use-after-free when using ngx_http_ssi_module
+	    (CVE-2026-56434). Severity: medium.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2026-42533</cvename>
+      <cvename>CVE-2026-56434</cvename>
+      <cvename>CVE-2026-60005</cvename>
+      <url>https://nginx.org/en/security_advisories.html</url>
+    </references>
+    <dates>
+      <discovery>2026-07-15</discovery>
+      <entry>2026-07-18</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="e26b9011-80ef-11f1-b72c-8447094a420f">
     <topic>liboqs -- Multiple vulnerabilities</topic>
     <affects>
