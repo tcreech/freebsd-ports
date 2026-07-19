@@ -582,6 +582,8 @@
     SUBDIR += ooni-mini
     SUBDIR += ooni-probe-cli
     SUBDIR += open-isns
+    SUBDIR += openafs
+    SUBDIR += openafs-devel
     SUBDIR += openbgpd7
     SUBDIR += openbgpd8
     SUBDIR += openbgpd9
