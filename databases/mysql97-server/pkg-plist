@@ -53,8 +53,8 @@ lib/mysql/libmysqlrouter_http_auth_backend.so.1
 lib/mysql/libmysqlrouter_http_auth_realm.so
 lib/mysql/libmysqlrouter_http_auth_realm.so.1
 lib/mysql/libmysqlrouter_http_client.so
-lib/mysql/libmysqlrouter_http_server.so
 lib/mysql/libmysqlrouter_http_client.so.1
+lib/mysql/libmysqlrouter_http_server.so
 lib/mysql/libmysqlrouter_http_server.so.1
 lib/mysql/libmysqlrouter_io_component.so
 lib/mysql/libmysqlrouter_io_component.so.1
@@ -291,6 +291,5 @@ libexec/mysqld
 %%DATADIR%%router/docs/sample_mysqlrouter.conf
 @dir %%ETCDIR%%/keyring
 @dir lib/mysql/plugin/debug
-@dir %%MY_SECDIR%%
-@dir %%MY_TMPDIR%%
-
+@dir(mysql,mysql,0750) %%MY_SECDIR%%
+@dir(mysql,mysql,0750) %%MY_TMPDIR%%
