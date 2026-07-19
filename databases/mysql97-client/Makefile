@@ -1,5 +1,5 @@
 PORTNAME=	mysql
-PORTREVISION=	0
+PORTREVISION=	1
 PKGNAMESUFFIX=	97-client
 
 COMMENT=	Multithreaded SQL database (client)
@@ -25,10 +25,6 @@ CMAKE_ARGS+=	-DWITHOUT_SERVER=1 -DINSTALL_SUPPORTFILESDIR=0
 CPE_PRODUCT=	mysql
 
 USE_LDCONFIG+=	${PREFIX}/lib/mysql
-
-MMAN1=		comp_err.1 lz4_decompress.1 mysql.1 mysql_config.1 mysql_config_editor.1 \
-		mysqladmin.1 mysqlbinlog.1 mysqlcheck.1 mysqldump.1 mysqlimport.1 mysqlman.1 \
-		mysqlpump.1 mysqlshow.1 mysqlslap.1 perror.1 zlib_decompress.1
 
 CLIENT_ONLY=	yes
 
