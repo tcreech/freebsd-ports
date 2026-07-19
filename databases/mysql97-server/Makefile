@@ -1,6 +1,6 @@
 PORTNAME?=		mysql
 PORTVERSION=		9.7.1
-PORTREVISION?=		0
+PORTREVISION?=		1
 CATEGORIES=		databases
 MASTER_SITES=		MYSQL/MySQL-9.7
 PKGNAMESUFFIX?=		97-server
@@ -13,7 +13,7 @@ LICENSE=		GPLv2
 
 # MySQL8.2+ supports only 64-bit platforms
 # Review list after 13.x EoL
-NOT_FOR_ARCHS= armv6 armv7 i386 powerpc
+NOT_FOR_ARCHS=	armv6 armv7 i386 powerpc
 
 USES=		bison:build cmake:noninja cpe groff:run libedit localbase \
 		ncurses perl5 pkgconfig shebangfix ssl compiler:c++20-lang
@@ -36,7 +36,7 @@ LIB_DEPENDS+=	libcurl.so:ftp/curl \
 		libicutu.so:devel/icu \
 		liblz4.so:archivers/liblz4 \
 		libhidapi.so:comms/hidapi \
-		libfido2.so:security/libfido2 \
+		libfido2.so:security/libfido2
 
 CMAKE_BUILD_TYPE=	Release
 CFLAGS+=		-fPIC
@@ -71,8 +71,7 @@ CMAKE_ARGS+=	-DINSTALL_LAYOUT=FREEBSD \
 		-DWITH_ZSTD=bundled \
 		-DWITH_PROTOBUF=bundled \
 		-DWITH_SSL=system \
-		-DWITH_ZLIB=system \
-		-DWITH_LZ4=system
+		-DWITH_ZLIB=system
 
 SHEBANG_FILES=	scripts/*.pl* scripts/*.sh
 

@@ -921,6 +921,16 @@
     SUBDIR += glog
     SUBDIR += gmake
     SUBDIR += gn
+    SUBDIR += gnatcoll-bindings
+    SUBDIR += gnatcoll-bindings-cpp
+    SUBDIR += gnatcoll-bindings-gmp
+    SUBDIR += gnatcoll-bindings-iconv
+    SUBDIR += gnatcoll-bindings-lzma
+    SUBDIR += gnatcoll-bindings-omp
+    SUBDIR += gnatcoll-bindings-python
+    SUBDIR += gnatcoll-bindings-readline
+    SUBDIR += gnatcoll-bindings-syslog
+    SUBDIR += gnatcoll-bindings-zlib
     SUBDIR += gnatcoll-core
     SUBDIR += gnatcoll-minimal
     SUBDIR += gnome-builder
@@ -5017,6 +5027,7 @@
     SUBDIR += py-expandvars
     SUBDIR += py-expecttest
     SUBDIR += py-expiringdict
+    SUBDIR += py-expression
     SUBDIR += py-extras
     SUBDIR += py-extremes
     SUBDIR += py-fabric
@@ -7174,7 +7185,9 @@
     SUBDIR += rubygem-aws-sdk-servicediscovery
     SUBDIR += rubygem-aws-sdk-servicequotas
     SUBDIR += rubygem-aws-sdk-ses
+    SUBDIR += rubygem-aws-sdk-ses-gitlab
     SUBDIR += rubygem-aws-sdk-sesv2
+    SUBDIR += rubygem-aws-sdk-sesv2-gitlab
     SUBDIR += rubygem-aws-sdk-shield
     SUBDIR += rubygem-aws-sdk-signer
     SUBDIR += rubygem-aws-sdk-signerdata
@@ -8598,6 +8611,7 @@
     SUBDIR += sentry-cli
     SUBDIR += serd
     SUBDIR += serdisplib
+    SUBDIR += serialize
     SUBDIR += sfml
     SUBDIR += sfsexp
     SUBDIR += sgb
