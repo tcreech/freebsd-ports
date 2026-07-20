@@ -1,5 +1,5 @@
 PORTNAME=	setuptools-dso
-DISTVERSION=	2.11
+DISTVERSION=	2.12.3
 CATEGORIES=	devel python
 MASTER_SITES=	PYPI
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -20,5 +20,7 @@ USES=		python
 USE_PYTHON=	pep517 autoplist pytest
 
 NO_ARCH=	yes
+
+# tests as of 2.12.3: 7 passed, 1 warning in 0.70s
 
 .include <bsd.port.mk>

@@ -1,6 +1,5 @@
 PORTNAME=	cohere
-DISTVERSION=	7.0.5
-PORTREVISION=	1
+DISTVERSION=	7.0.6
 CATEGORIES=	misc python # machine-learning
 MASTER_SITES=	PYPI
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -15,7 +14,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}poetry-core>=1.0.0:devel/py-poetry-core@${PY_FLAVOR}
 RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}fastavro>=1.9.4:textproc/py-fastavro@${PY_FLAVOR} \
-		${PYTHON_PKGNAMEPREFIX}httpx>=0.21.2:www/py-httpx@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}httpx>=0.25.0:www/py-httpx@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}pydantic2>=1.9.2:devel/py-pydantic2@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}pydantic-core>=2.18.2:devel/py-pydantic-core@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}requests>=2.0.0:www/py-requests@${PY_FLAVOR} \

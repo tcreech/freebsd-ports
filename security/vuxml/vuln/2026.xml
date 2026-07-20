@@ -1,3 +1,29 @@
+  <vuln vid="f4c57c5a-845a-11f1-b72c-8447094a420f">
+    <topic>Weechat -- Multiple vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>weechat</name>
+	<range><lt>4.9.4</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The Weechat project reports:</p>
+	<blockquote cite="https://github.com/weechat/weechat/releases/tag/v4.9.4">
+	  <p>Write of logger file outside of configured path.</p>
+	  <p>Authentication bypass in Relay plugin, protocols "api" and "weechat".</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <url>https://github.com/weechat/weechat/releases/tag/v4.9.4</url>
+    </references>
+    <dates>
+      <discovery>2026-07-19</discovery>
+      <entry>2026-07-20</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="562ff91e-8407-11f1-bfde-10ffe07f9334">
     <topic>Mailpit -- SMTP DATA line reader buffers over-limit input before size enforcement</topic>
     <affects>
@@ -790,7 +816,7 @@
     <affects>
       <package>
 	<name>weechat</name>
-	<range><lt>4.7.3</lt></range>
+	<range><lt>4.9.3</lt></range>
       </package>
     </affects>
     <description>
