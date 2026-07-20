@@ -1,5 +1,6 @@
 PORTNAME=	elinks
 DISTVERSION=	0.19.1
+PORTREVISION=	1
 CATEGORIES=	www
 MASTER_SITES=	https://github.com/rkd77/${PORTNAME}/releases/download/v${DISTVERSION}/
 
@@ -14,7 +15,7 @@ BUILD_DEPENDS=	xmlto:textproc/xmlto
 LIB_DEPENDS=	libidn2.so:dns/libidn2
 
 USES=		bison:alias cpe gettext-runtime gmake iconv localbase:ldflags \
-		meson perl5 pkgconfig python:build shebangfix ssl tar:xz
+		meson pkgconfig python:build shebangfix ssl tar:xz
 
 SHEBANG_FILES=	doc/tools/asciidoc/asciidoc.py doc/tools/help2xml \
 		src/protocol/ftp/test-ftp-parser
@@ -34,7 +35,6 @@ MESON_ARGS=	-D256-colors=true \
 		-Dlzma=true \
 		-Dnntp=true \
 		-Dpdfdoc=false \
-		-Dperl=true \
 		-Dsysmouse=true \
 		-Dtest=true \
 		-Dtrue-color=true
@@ -44,9 +44,9 @@ TEST_TARGET=	test
 LDFLAGS+=	-lexecinfo -lintl
 
 OPTIONS_DEFINE=		BROTLI CSS CURL EXMODE GUILE HIGHLIGHT LIBEVENT \
-			LOCAL_CGI LUA MUJS NLS NOROOT PYTHON SIXEL SMB \
+			LOCAL_CGI LUA MUJS NLS NOROOT PERL PYTHON SIXEL SMB \
 			SPIDERMONKEY TRE XBELMARKS ZSTD
-OPTIONS_DEFAULT=	BROTLI EXMODE HIGHLIGHT
+OPTIONS_DEFAULT=	BROTLI EXMODE HIGHLIGHT PERL
 OPTIONS_SUB=		yes
 
 CSS_DESC=		Cascading Style Sheets support (via libcss & libdom)
@@ -97,6 +97,9 @@ NLS_USES=		gettext
 NLS_MESON_TRUE=		gettext nls
 
 NOROOT_MESON_TRUE=	no-root
+
+PERL_USES=		perl5
+PERL_MESON_TRUE=	perl
 
 PYTHON_USES=		python:run
 PYTHON_MESON_TRUE=	python
