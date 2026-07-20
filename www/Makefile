@@ -506,6 +506,7 @@
     SUBDIR += nextcloud-deck
     SUBDIR += nextcloud-forms
     SUBDIR += nextcloud-groupfolders
+    SUBDIR += nextcloud-impersonate
     SUBDIR += nextcloud-memories
     SUBDIR += nextcloud-news
     SUBDIR += nextcloud-notes
