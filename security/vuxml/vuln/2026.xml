@@ -816,7 +816,7 @@
     <affects>
       <package>
 	<name>weechat</name>
-	<range><lt>4.7.3</lt></range>
+	<range><lt>4.9.3</lt></range>
       </package>
     </affects>
     <description>
