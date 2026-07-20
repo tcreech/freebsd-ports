@@ -1,3 +1,36 @@
+  <vuln vid="562ff91e-8407-11f1-bfde-10ffe07f9334">
+    <topic>Mailpit -- SMTP DATA line reader buffers over-limit input before size enforcement</topic>
+    <affects>
+      <package>
+	<name>mailpit</name>
+	<range><lt>1.30.5</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Mailpit author reports:</p>
+	<blockquote cite="https://github.com/axllent/mailpit/security/advisories/GHSA-r553-m4fv-5v97">
+	  <p>Mailpit's SMTP DATA reader enforces the configured
+	  MaxMessageSize only after bufio.Reader.ReadBytes('\n')
+	  has already buffered a complete DATA line. A remote
+	  unauthenticated SMTP client can send one line larger than
+	  the configured message-size cap and force memory allocation
+	  before Mailpit returns the expected 552 5.3.4 rejection,
+	  leaving patched versions still exposed to a single-line
+	  incomplete-fix variant of the earlier SMTP DATA body-size
+	  issue.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <url>https://github.com/axllent/mailpit/security/advisories/GHSA-r553-m4fv-5v97</url>
+    </references>
+    <dates>
+      <discovery>2026-07-20</discovery>
+      <entry>2026-07-20</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="272a2772-8367-11f1-82b9-901b0e9408dc">
     <topic>tailscale -- Multiple vulnerabilities</topic>
     <affects>
