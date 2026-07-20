@@ -1818,6 +1818,7 @@
     SUBDIR += py-h2
     SUBDIR += py-habanero
     SUBDIR += py-hdfs
+    SUBDIR += py-hf-transfer
     SUBDIR += py-horizon
     SUBDIR += py-hpack
     SUBDIR += py-hstspreload
