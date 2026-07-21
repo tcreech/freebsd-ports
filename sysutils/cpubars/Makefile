@@ -1,12 +1,12 @@
 PORTNAME=	cpubars
-DISTVERSION=	g20180219
+DISTVERSION=	g20260720
 CATEGORIES= sysutils
 MAINTAINER= tcreech@tcreech.com
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	aclements
 GH_PROJECT=	cpubars
-GH_TAGNAME=	d9c9dd3
+GH_TAGNAME=	ea5b9b4
 
 USES=	gmake ncurses
 ALL_TARGET= cpubars
