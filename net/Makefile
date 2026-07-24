@@ -132,6 +132,7 @@
     SUBDIR += dhcprelya
     SUBDIR += dico
     SUBDIR += dictd
+    SUBDIR += dogtag-ldap-sdk
     SUBDIR += dpdk
     SUBDIR += dpdk-20.11
     SUBDIR += dpinger
@@ -549,7 +550,6 @@
     SUBDIR += ng_mikrotik_eoip
     SUBDIR += ngrep
     SUBDIR += nifmon
-    SUBDIR += nitroshare
     SUBDIR += nload
     SUBDIR += nmsg
     SUBDIR += nncp

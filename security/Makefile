@@ -145,6 +145,7 @@
     SUBDIR += distcache
     SUBDIR += diswall
     SUBDIR += doas
+    SUBDIR += dogtag-jss
     SUBDIR += dogtag-pki
     SUBDIR += dotdotpwn
     SUBDIR += dropbear
@@ -214,6 +215,7 @@
     SUBDIR += gsa
     SUBDIR += gsad
     SUBDIR += gsasl
+    SUBDIR += gssproxy
     SUBDIR += gstreamer1-plugins-dtls
     SUBDIR += gtkpasman
     SUBDIR += gvm
