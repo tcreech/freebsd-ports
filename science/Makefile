@@ -415,6 +415,7 @@
     SUBDIR += py-plumed
     SUBDIR += py-pnetcdf
     SUBDIR += py-probeinterface
+    SUBDIR += py-pubchempy
     SUBDIR += py-pupynere
     SUBDIR += py-py3Dmol
     SUBDIR += py-pyaixi
@@ -429,6 +430,7 @@
     SUBDIR += py-pymatgen
     SUBDIR += py-pymatgen-analysis-alloys
     SUBDIR += py-pymatgen-core
+    SUBDIR += py-pymatgen-io-validation
     SUBDIR += py-pymbd
     SUBDIR += py-pymol
     SUBDIR += py-pynrrd

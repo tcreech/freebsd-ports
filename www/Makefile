@@ -106,7 +106,6 @@
     SUBDIR += castget
     SUBDIR += cgi-lib
     SUBDIR += cgi-lib.pl
-    SUBDIR += cgicc
     SUBDIR += cgiwrap
     SUBDIR += chawan
     SUBDIR += checkbot
@@ -154,9 +153,6 @@
     SUBDIR += dojo
     SUBDIR += dokuwiki
     SUBDIR += dolibarr
-    SUBDIR += dolibarr16
-    SUBDIR += dolibarr17
-    SUBDIR += dolibarr18
     SUBDIR += dolibarr19
     SUBDIR += dolibarr20
     SUBDIR += dolibarr21
@@ -222,6 +218,9 @@
     SUBDIR += freenginx
     SUBDIR += freenginx-acme
     SUBDIR += freenginx-devel
+    SUBDIR += freeunit
+    SUBDIR += freeunit-php
+    SUBDIR += freeunit-python
     SUBDIR += fswiki
     SUBDIR += fusionpbx
     SUBDIR += g-cows
@@ -401,7 +400,6 @@
     SUBDIR += mattermost-webapp
     SUBDIR += mcp-server-browserbase
     SUBDIR += mediawiki143
-    SUBDIR += mediawiki144
     SUBDIR += mediawiki145
     SUBDIR += mediawiki146
     SUBDIR += mergelog
@@ -581,7 +579,6 @@
     SUBDIR += p5-Apache-Config-Preproc
     SUBDIR += p5-Apache-ConfigFile
     SUBDIR += p5-Apache-ConfigParser
-    SUBDIR += p5-Apache-DB
     SUBDIR += p5-Apache-DBI
     SUBDIR += p5-Apache-Defaults
     SUBDIR += p5-Apache-Htgroup
@@ -1615,7 +1612,6 @@
     SUBDIR += py-django-classy-tags
     SUBDIR += py-django-cms
     SUBDIR += py-django-compression-middleware
-    SUBDIR += py-django-configurations
     SUBDIR += py-django-configurator
     SUBDIR += py-django-constance
     SUBDIR += py-django-contact-form

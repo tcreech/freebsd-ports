@@ -326,8 +326,6 @@
     SUBDIR += libotr3
     SUBDIR += libp11
     SUBDIR += libpki
-    SUBDIR += libprelude
-    SUBDIR += libpreludedb
     SUBDIR += libpwquality
     SUBDIR += libressl
     SUBDIR += libressl-devel
@@ -877,7 +875,6 @@
     SUBDIR += please
     SUBDIR += portacl-rc
     SUBDIR += proftpd-mod_clamav
-    SUBDIR += proxycheck
     SUBDIR += proxytunnel
     SUBDIR += pssh
     SUBDIR += pulledpork
@@ -1103,6 +1100,7 @@
     SUBDIR += py-siphash24
     SUBDIR += py-slip10
     SUBDIR += py-social-auth-core
+    SUBDIR += py-social-auth-core4
     SUBDIR += py-spake2
     SUBDIR += py-ssh-audit
     SUBDIR += py-sshpubkeys

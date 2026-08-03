@@ -482,6 +482,7 @@
     SUBDIR += cmph
     SUBDIR += coccinelle
     SUBDIR += cocogitto
+    SUBDIR += codebase-memory-mcp
     SUBDIR += codeblocks
     SUBDIR += codequery
     SUBDIR += codesearch-py
@@ -670,7 +671,6 @@
     SUBDIR += eiffelstudio
     SUBDIR += electron37
     SUBDIR += electron38
-    SUBDIR += electron39
     SUBDIR += electron40
     SUBDIR += electron41
     SUBDIR += electron42
@@ -2425,13 +2425,11 @@
     SUBDIR += p5-Data-Stag
     SUBDIR += p5-Data-Stream-Bulk
     SUBDIR += p5-Data-Structure-Util
-    SUBDIR += p5-Data-Swap
     SUBDIR += p5-Data-Table
     SUBDIR += p5-Data-Taxonomy-Tags
     SUBDIR += p5-Data-TemporaryBag
     SUBDIR += p5-Data-Throttler
     SUBDIR += p5-Data-Throttler-Memcached
-    SUBDIR += p5-Data-Thunk
     SUBDIR += p5-Data-TreeDumper
     SUBDIR += p5-Data-TreeDumper-Renderer-GTK
     SUBDIR += p5-Data-Types
@@ -2533,7 +2531,6 @@
     SUBDIR += p5-Devel-ArgNames
     SUBDIR += p5-Devel-Autoflush
     SUBDIR += p5-Devel-Backtrace
-    SUBDIR += p5-Devel-BeginLift
     SUBDIR += p5-Devel-CallChecker
     SUBDIR += p5-Devel-Caller
     SUBDIR += p5-Devel-Caller-IgnoreNamespaces
@@ -4416,7 +4413,6 @@
     SUBDIR += pkg-info.el
     SUBDIR += pkgconf
     SUBDIR += plan9port
-    SUBDIR += plasma
     SUBDIR += plasma6-kwrited
     SUBDIR += plasma6-plasma-sdk
     SUBDIR += plasma6-plasma5support
@@ -4488,14 +4484,18 @@
     SUBDIR += py-aiofile
     SUBDIR += py-aiofiles
     SUBDIR += py-aiohttp-apispec
+    SUBDIR += py-aiohttp-asgi
     SUBDIR += py-aioice
     SUBDIR += py-aioitertools
     SUBDIR += py-aiologger
+    SUBDIR += py-aiomisc
+    SUBDIR += py-aiomisc-pytest
     SUBDIR += py-aiorpcX
     SUBDIR += py-aiorpcX-legacy
     SUBDIR += py-aiortc
     SUBDIR += py-aiorwlock
     SUBDIR += py-aiosignal
+    SUBDIR += py-aiothreads
     SUBDIR += py-airspeed
     SUBDIR += py-airspeed-ext
     SUBDIR += py-airtable-python-wrapper
@@ -4537,6 +4537,7 @@
     SUBDIR += py-arpeggio
     SUBDIR += py-array-api-compat
     SUBDIR += py-array-api-strict
+    SUBDIR += py-arro3-core
     SUBDIR += py-arrow
     SUBDIR += py-asciimatics
     SUBDIR += py-asgi-lifespan
@@ -5533,6 +5534,7 @@
     SUBDIR += py-notify2
     SUBDIR += py-num2words
     SUBDIR += py-numba
+    SUBDIR += py-numkong
     SUBDIR += py-nvidia-ml-py
     SUBDIR += py-objgraph
     SUBDIR += py-objprint
@@ -5644,7 +5646,6 @@
     SUBDIR += py-parsy
     SUBDIR += py-parver
     SUBDIR += py-pastel
-    SUBDIR += py-patch
     SUBDIR += py-patch-ng
     SUBDIR += py-path
     SUBDIR += py-path.py
@@ -6026,7 +6027,6 @@
     SUBDIR += py-python-gitlab
     SUBDIR += py-python-jenkins
     SUBDIR += py-python-json-logger
-    SUBDIR += py-python-jsonrpc-server
     SUBDIR += py-python-magic
     SUBDIR += py-python-mimeparse
     SUBDIR += py-python-ptrace
@@ -6372,6 +6372,7 @@
     SUBDIR += py-types-Flask-Cors
     SUBDIR += py-types-Pygments
     SUBDIR += py-types-aws-xray-sdk
+    SUBDIR += py-types-awscrt
     SUBDIR += py-types-boto
     SUBDIR += py-types-decorator
     SUBDIR += py-types-docutils
@@ -8748,6 +8749,7 @@
     SUBDIR += taskctl
     SUBDIR += taskflow
     SUBDIR += tass64
+    SUBDIR += tauri-cli
     SUBDIR += tbox
     SUBDIR += tcl-memchan
     SUBDIR += tcl-mmap

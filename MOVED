@@ -5514,3 +5514,34 @@ net/jicmp6||2026-07-28|Has expired: several years behind on upstream, no maintai
 net/jicmp||2026-07-28|Has expired: several years behind on upstream, no maintainer, moved to https://github.com/OpenNMS/jicmp
 java/sqlitejdbc|databases/sqlite-jdbc|2026-07-28|Has expired: Dead old upstream, replaced by databases/sqlite-jdbc
 benchmarks/py-zopkio||2026-07-28|Has expired: Upstream last activity was in 2016, and the project has been moved to the LinkedInAttic GitHub account
+archivers/quazip@qt5||2026-07-29|Unflavorize, remove Qt5 flavor
+archivers/quazip@qt6|archivers/quazip|2026-07-29|Unflavorize
+graphics/libkdcraw-qt5||2026-07-30|Removed: the last consumer has been switched to Qt6-based libkdcraw
+benchmarks/py-naarad||2026-07-31|Has expired: Upstream last activity was in 2016, and the project has been moved to the LinkedInAttic GitHub account
+security/libpreludedb||2026-07-31|Has expired: Upstream project is dead
+devel/plasma|lang/rizin|2026-07-31|Has expired: Upstream inactive since +7 years. Please use lang/rizin instead
+net-im/pidgin-fetion||2026-07-31|Has expired: Fetion service is no longer available after 2022
+games/freedoko||2026-07-31|Has expired: plist issues and error messages during install stage
+net-mgmt/py-pynxos|net-mgmt/py-napalm|2026-07-31|Has expired: Upstream inactive since +7 years, was used by py-napalm for a while, until it was replaced by py-nxapi-plumbing. Please use net-mgmt/py-napalm instead
+security/proxycheck||2026-07-31|Has expired: dnsbl.org has been shut down
+www/mediawiki144||2026-07-31|Has expired: Upstream EOL
+math/py-luminol||2026-07-31|Has expired: Upstream last activity was in 2016, and the project has been moved to the LinkedInAttic GitHub account
+net-mgmt/py-nxapi-plumbing|net-mgmt/py-napalm|2026-07-31|Has expired: Upstream inactive since +8 years, code was integrated into py-napalm. Please use net-mgmt/py-napalm instead
+devel/py-patch|devel/py-patch-ng|2026-07-31|Has expired: Upstream no longer active, project is abandoned, please used devel/py-patch-ng instead
+net-mgmt/py-pyIOSXR|net-mgmt/py-napalm|2026-07-31|Has expired: Upstream inactive since +8 years, code was integrated into py-napalm. Please use net-mgmt/py-napalm instead
+www/dolibarr17||2026-07-31|Has expired: php81 is the recommended max version for run it
+www/py-django-configurations|www/py-django-configurator|2026-07-31|Has expired: Upstream no longer active, project is abandoned, please use www/py-django-configurator instead
+www/dolibarr16||2026-07-31|Has expired: php81 is the recommended max version for run it
+www/dolibarr18||2026-07-31|Has expired: php81 is the recommended max version for run it
+databases/cassandra3|databases/cassandra4|2026-07-31|Has expired: Cassandra 3.x is no longer maintained upstream, superseded by databases/cassandra4
+devel/py-python-jsonrpc-server||2026-07-31|Has expired: There is no new version in 6 years, the upstream build and CI are failing and nothing depends on this port, hence the removal
+security/libprelude||2026-07-31|Has expired: Upstream project is dead
+www/cgicc||2026-07-31|Has expired: Unmaintained upstream
+mail/py-afew||2026-07-31|Has expired: Fails to build with sphinx-9.0.4, does not support Python 3.13
+devel/electron39||2026-07-31|Has expired: EOLed upstream, switch to newer version
+www/p5-Apache-DB||2026-08-02|Has expired: uses hidden Perl functions that are hidden after 5.37.0
+devel/p5-Data-Thunk||2026-08-02|Removed: no updates in years, depends on expired devel/p5-Data-Swap
+math/p5-Set-IntSpan-Fast-XS||2026-08-02|Removed: no updates in years, depends on expired devel/p5-Data-Swap
+devel/p5-Data-Swap||2026-08-02|Has expired: uses hidden Perl functions that are hidden after 5.37.0
+devel/p5-Devel-BeginLift||2026-08-02|Has expired: uses hidden Perl functions that are hidden after 5.37.0
+textproc/p5-Text-ClearSilver||2026-08-02|Has expired: uses hidden Perl functions that are hidden after 5.37.0
