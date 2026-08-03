@@ -38,6 +38,8 @@ USE_PYTHON=	autoplist cryptography pep517 pytest
 
 TEST_ENV=	PYTHONPATH=${STAGEDIR}${PYTHONPREFIX_SITELIBDIR}
 
+CONFLICTS_INSTALL=	${PYTHON_PKGNAMEPREFIX}social-auth-core4
+
 NO_ARCH=	yes
 
 # An SHOPIFY option would still be possible as well, but the ports tree does
