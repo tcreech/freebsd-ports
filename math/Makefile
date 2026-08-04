@@ -989,6 +989,7 @@
     SUBDIR += py-cyipopt
     SUBDIR += py-cypari2
     SUBDIR += py-daqp
+    SUBDIR += py-dcor
     SUBDIR += py-deap
     SUBDIR += py-dgl
     SUBDIR += py-diffcp
@@ -1004,9 +1005,11 @@
     SUBDIR += py-fairlearn
     SUBDIR += py-faiss
     SUBDIR += py-fastcluster
+    SUBDIR += py-fdasrsf
     SUBDIR += py-fenics-basix
     SUBDIR += py-fenics-ffcx
     SUBDIR += py-fenics-ufl
+    SUBDIR += py-findiff
     SUBDIR += py-flax
     SUBDIR += py-formulaic
     SUBDIR += py-formulaic-contrasts
@@ -1144,6 +1147,8 @@
     SUBDIR += py-rpy2
     SUBDIR += py-rustworkx
     SUBDIR += py-rvlib
+    SUBDIR += py-scikit-datasets
+    SUBDIR += py-scikit-fda
     SUBDIR += py-scikit-fem
     SUBDIR += py-scikit-umfpack
     SUBDIR += py-scs
