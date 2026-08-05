@@ -611,6 +611,7 @@ sbin/volscan
 sbin/vos
 sbin/vsys
 %%DATADIR%%/C/%%AFSMNTDIR%%zcm.cat
-@dir /%%AFSMNTDIR%%
 @dir /%%AFSCACHEDIR%%
 @dir /%%AFSSTATEDIR%%
+@postexec mkdir -p /%%AFSMNTDIR%% 2>/dev/null
+@postunexec rmdir /%%AFSMNTDIR%% 2>/dev/null || echo "If you are permanently removing this port, you should do a 'rmdir /%%AFSMNTDIR%%' after unmounting."
