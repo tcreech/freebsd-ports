@@ -1786,6 +1786,7 @@
     SUBDIR += py-tiktoken
     SUBDIR += py-tinycss
     SUBDIR += py-tinycss2
+    SUBDIR += py-tinyhtml5
     SUBDIR += py-tokenizer
     SUBDIR += py-tokenizers
     SUBDIR += py-toml
@@ -1837,6 +1838,7 @@
     SUBDIR += py-zensical
     SUBDIR += py-zope.i18nmessageid
     SUBDIR += py-zpt
+    SUBDIR += py-zxing-cpp
     SUBDIR += pymupdf4llm-mcp
     SUBDIR += qo
     SUBDIR += qprint

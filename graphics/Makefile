@@ -1082,6 +1082,7 @@
     SUBDIR += py-vecrec
     SUBDIR += py-vispy
     SUBDIR += py-visvis
+    SUBDIR += py-vtracer
     SUBDIR += py-vulkan
     SUBDIR += py-wand
     SUBDIR += py-webcolors
@@ -1279,6 +1280,7 @@
     SUBDIR += volpack
     SUBDIR += vp
     SUBDIR += vpaint
+    SUBDIR += vtracer
     SUBDIR += vulkan-caps-viewer
     SUBDIR += vulkan-extension-layer
     SUBDIR += vulkan-headers
