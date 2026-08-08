@@ -399,6 +399,7 @@
     SUBDIR += mhash
     SUBDIR += mindterm-binary
     SUBDIR += minisign
+    SUBDIR += mkcert
     SUBDIR += mkp224o
     SUBDIR += modsecurity3
     SUBDIR += modsecurity3-nginx
@@ -781,6 +782,7 @@
     SUBDIR += pam_rssh
     SUBDIR += pam_script
     SUBDIR += pam_search_list
+    SUBDIR += pam_ssh_agent
     SUBDIR += pam_ssh_agent_auth
     SUBDIR += pam_u2f
     SUBDIR += pam_worker
