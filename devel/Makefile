@@ -989,6 +989,7 @@
     SUBDIR += gsettings-desktop-schemas
     SUBDIR += gsl-lite
     SUBDIR += gsoap
+    SUBDIR += gson
     SUBDIR += gstreamer1-devtools
     SUBDIR += gstreamer1-plugins-soup
     SUBDIR += gtgt
@@ -1108,6 +1109,7 @@
     SUBDIR += jackson-databind
     SUBDIR += jackson-jaxrs-providers
     SUBDIR += jackson-module-jaxb-annotations
+    SUBDIR += jakarta-activation
     SUBDIR += jakarta-activation-api
     SUBDIR += jakarta-annotation-api
     SUBDIR += jakarta-xml-bind-api
@@ -1115,9 +1117,13 @@
     SUBDIR += janet-lsp
     SUBDIR += jansson
     SUBDIR += java-findbugs
+    SUBDIR += javafx-jars
+    SUBDIR += javax-activation
     SUBDIR += javax-activation-api
     SUBDIR += javax-ws-rs-api
+    SUBDIR += javax.annotation-api
     SUBDIR += jaxb-api
+    SUBDIR += jaxb-impl
     SUBDIR += jboss-logging
     SUBDIR += jclassinfo
     SUBDIR += jcmdline
