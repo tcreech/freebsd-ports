@@ -1333,6 +1333,7 @@
     SUBDIR += pod2mdoc
     SUBDIR += popup-stacks
     SUBDIR += ppower4
+    SUBDIR += presenterm
     SUBDIR += pugixml
     SUBDIR += pup
     SUBDIR += py-CommonMark
@@ -1844,6 +1845,7 @@
     SUBDIR += qprint
     SUBDIR += qr
     SUBDIR += qrcodegen
+    SUBDIR += qrtfreader
     SUBDIR += qstardict
     SUBDIR += qt5-xml
     SUBDIR += qt5-xmlpatterns

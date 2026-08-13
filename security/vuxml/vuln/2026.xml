@@ -1,3 +1,375 @@
+  <vuln vid="a4e5cc5f-d4bc-4f67-ad8e-0f6a9e37064f">
+    <topic>chromium -- security fixes</topic>
+    <affects>
+      <package>
+       <name>chromium</name>
+       <range><lt>151.0.7922.137</lt></range>
+      </package>
+      <package>
+       <name>ungoogled-chromium</name>
+       <range><lt>151.0.7922.137</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+       <p>Chrome Releases reports:</p>
+       <blockquote cite="https://chromereleases.googleblog.com/2026/08/stable-channel-update-for-desktop_01815628406.html">
+	 <p>This update includes 5 security fixes:</p>
+	 <ul>
+	    <li>[535000102] High CVE-2026-19556: Use after free in V8.</li>
+	    <li>[534867485] High CVE-2026-19557: Use after free in TabStrip.</li>
+	    <li>[536676756] High CVE-2026-19558: Use after free in Extensions.</li>
+	    <li>[540100588] High CVE-2026-19559: Use after free in HTML.</li>
+	    <li>[540482895] High CVE-2026-19560: Use after free in Blink.</li>
+	 </ul>
+       </blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2026-19556</cvename>
+      <cvename>CVE-2026-19557</cvename>
+      <cvename>CVE-2026-19558</cvename>
+      <cvename>CVE-2026-19559</cvename>
+      <cvename>CVE-2026-19560</cvename>
+      <url>https://chromereleases.googleblog.com/2026/08/stable-channel-update-for-desktop_01815628406.html</url>
+    </references>
+    <dates>
+      <discovery>2026-08-11</discovery>
+      <entry>2026-08-13</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="8acd79a5-35ee-4076-b107-3550bbd7d118">
+    <topic>chromium -- security fixes</topic>
+    <affects>
+      <package>
+       <name>chromium</name>
+       <range><lt>151.0.7922.108</lt></range>
+      </package>
+      <package>
+       <name>ungoogled-chromium</name>
+       <range><lt>151.0.7922.108</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+       <p>Chrome Releases reports:</p>
+       <blockquote cite="https://chromereleases.googleblog.com/2026/08/stable-channel-update-for-desktop_01193673229.html">
+	 <p>This update includes 41 security fixes:</p>
+	 <ul>
+	    <li>[499602793] Critical CVE-2026-19137: Use after free in WebGL.</li>
+	    <li>[524824288] Critical CVE-2026-19149: Use after free in ura.</li>
+	    <li>[532941869] Critical CVE-2026-19154: Use after free in Skia.</li>
+	    <li>[534903095] Critical CVE-2026-19157: Out of bounds write in GLE.</li>
+	    <li>[537729021] Critical CVE-2026-19170: Use after free in WebGL.</li>
+	    <li>[537838324] Critical CVE-2026-19172: Use after free in Views.</li>
+	    <li>[537390933] High CVE-2026-19169: Insufficient validation of untrusted input in Contextual Tasks.</li>
+	    <li>[536945254] High CVE-2026-19168: Inappropriate implementation in V8.</li>
+	    <li>[500097298] High CVE-2026-19138: Heap buffer overflow in CrashReporting.</li>
+	    <li>[511731805] High CVE-2026-19139: Race in CredentialProvider.</li>
+	    <li>[513044017] High CVE-2026-19140: Use after free in GPU.</li>
+	    <li>[513602949] High CVE-2026-19141: Use after free in Resources.</li>
+	    <li>[515428251] High CVE-2026-19142: Use after free in Views.</li>
+	    <li>[517772612] High CVE-2026-19143: Insufficient validation of untrusted input in WebPKs.</li>
+	    <li>[520167277] High CVE-2026-19144: Use after free in HTML.</li>
+	    <li>[521878431] High CVE-2026-19145: Use after free in Translate.</li>
+	    <li>[523713150] High CVE-2026-19146: Uninitialized Use in GPU.</li>
+	    <li>[524439798] High CVE-2026-19147: Use after free in ura.</li>
+	    <li>[524460000] High CVE-2026-19148: Out of bounds write in GPU.</li>
+	    <li>[526380803] High CVE-2026-19150: Inappropriate implementation in V8.</li>
+	    <li>[530663440] High CVE-2026-19151: Use after free in V8.</li>
+	    <li>[531165110] High CVE-2026-19152: Inappropriate implementation in avigation.</li>
+	    <li>[532939327] High CVE-2026-19153: Insufficient validation of untrusted input in Workers.</li>
+	    <li>[533053621] High CVE-2026-19155: Use after free in Payments.</li>
+	    <li>[533331920] High CVE-2026-19156: Heap buffer overflow in Base.</li>
+	    <li>[535749174] High CVE-2026-19158: Use after free in Views.</li>
+	    <li>[536067175] High CVE-2026-19159: Use after free in Views.</li>
+	    <li>[536068737] High CVE-2026-19160: Uninitialized Use in Skia.</li>
+	    <li>[536165038] High CVE-2026-19161: Uninitialized Use in Skia.</li>
+	    <li>[536271629] High CVE-2026-19162: Out of bounds write in V8.</li>
+	    <li>[536449742] High CVE-2026-19163: Use after free in Media.</li>
+	    <li>[536470854] High CVE-2026-19164: Insufficient validation of untrusted input in Codecs.</li>
+	    <li>[536512612] High CVE-2026-19165: Use after free in Extensions.</li>
+	    <li>[536584251] High CVE-2026-19166: Use after free in Web uthentication.</li>
+	    <li>[536666274] High CVE-2026-19167: Integer overflow in GPU.</li>
+	    <li>[537832446] High CVE-2026-19171: Use after free in Media.</li>
+	    <li>[538332338] High CVE-2026-19173: Out of bounds write in Skia.</li>
+	    <li>[538378084] High CVE-2026-19174: Integer overflow in V8.</li>
+	    <li>[540138836] High CVE-2026-19175: Use after free in Payments.</li>
+	    <li>[540157141] High CVE-2026-19176: Use after free in Skia.</li>
+	    <li>[540289900] High CVE-2026-19177: Insufficient validation of untrusted input in UI.</li>
+	 </ul>
+       </blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2026-19137</cvename>
+      <cvename>CVE-2026-19149</cvename>
+      <cvename>CVE-2026-19154</cvename>
+      <cvename>CVE-2026-19157</cvename>
+      <cvename>CVE-2026-19170</cvename>
+      <cvename>CVE-2026-19172</cvename>
+      <cvename>CVE-2026-19169</cvename>
+      <cvename>CVE-2026-19168</cvename>
+      <cvename>CVE-2026-19138</cvename>
+      <cvename>CVE-2026-19139</cvename>
+      <cvename>CVE-2026-19140</cvename>
+      <cvename>CVE-2026-19141</cvename>
+      <cvename>CVE-2026-19142</cvename>
+      <cvename>CVE-2026-19143</cvename>
+      <cvename>CVE-2026-19144</cvename>
+      <cvename>CVE-2026-19145</cvename>
+      <cvename>CVE-2026-19146</cvename>
+      <cvename>CVE-2026-19147</cvename>
+      <cvename>CVE-2026-19148</cvename>
+      <cvename>CVE-2026-19150</cvename>
+      <cvename>CVE-2026-19151</cvename>
+      <cvename>CVE-2026-19152</cvename>
+      <cvename>CVE-2026-19153</cvename>
+      <cvename>CVE-2026-19155</cvename>
+      <cvename>CVE-2026-19156</cvename>
+      <cvename>CVE-2026-19158</cvename>
+      <cvename>CVE-2026-19159</cvename>
+      <cvename>CVE-2026-19160</cvename>
+      <cvename>CVE-2026-19161</cvename>
+      <cvename>CVE-2026-19162</cvename>
+      <cvename>CVE-2026-19163</cvename>
+      <cvename>CVE-2026-19164</cvename>
+      <cvename>CVE-2026-19165</cvename>
+      <cvename>CVE-2026-19166</cvename>
+      <cvename>CVE-2026-19167</cvename>
+      <cvename>CVE-2026-19171</cvename>
+      <cvename>CVE-2026-19173</cvename>
+      <cvename>CVE-2026-19174</cvename>
+      <cvename>CVE-2026-19175</cvename>
+      <cvename>CVE-2026-19176</cvename>
+      <cvename>CVE-2026-19177</cvename>
+      <url>https://chromereleases.googleblog.com/2026/08/stable-channel-update-for-desktop_01193673229.html</url>
+    </references>
+    <dates>
+      <discovery>2026-08-06</discovery>
+      <entry>2026-08-13</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="7a691536-968b-11f1-9863-50ebf6bdf8e9">
+    <topic>phpmyfaq -- multiple vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>phpmyfaq-php83</name>
+	<name>phpmyfaq-php84</name>
+	<name>phpmyfaq-php85</name>
+	<range><lt>4.1.7</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>phpMyFAQ team reports:</p>
+	<blockquote cite="https://www.phpmyfaq.de/security/advisory-2026-08-04/">
+	  <p>The WebAuthn login flow never persists the challenge it issues, so
+	    the replay guard never runs. An attacker who captures a valid
+	    assertion can replay it to authenticate as the victim.</p>
+	  <p>The brute-force throttle protecting the administration two-factor
+	    prompt is scoped to the session. An attacker who starts with a fresh
+	    cookie jar resets the counter and can guess TOTP codes without any
+	    effective rate limit.</p>
+	  <p>An LDAP login silently reactivates a local account that an
+	    administrator has blocked, and the state change is not written to the
+	    audit log, so a revoked user regains access unnoticed.</p>
+	  <p>The remember-me cookie is issued before the second factor has been
+	    verified. An attacker who knows only the password can keep the cookie
+	    from the incomplete login and use it to return as the fully
+	    authenticated user, bypassing two-factor authentication.</p>
+	  <p>Glossary input is escaped before it is truncated. Truncation can cut
+	    an escape sequence in half, which allows an authenticated user to
+	    inject SQL into the resulting query.</p>
+	  <p>A tracking file below the document root is served without
+	    authentication and contains password reset tokens, allowing an
+	    unauthenticated visitor to take over the accounts those tokens belong
+	    to.</p>
+	  <p>The public PDF export does not check whether a FAQ record is active,
+	    so an unauthenticated visitor can retrieve the title and solution of
+	    drafts and unpublished entries.</p>
+	  <p>Comment endpoints do not verify authorization for the parent FAQ
+	    record, exposing the comments, the personal data of the commenters,
+	    and attachment metadata of restricted records.</p>
+	  <p>The PostgreSQL search backend declares the wrong LIKE ESCAPE
+	    character, which makes the wildcard-escaping fix ineffective on that
+	    backend.</p>
+	  <p>The administration API endpoints that read the LDAP, Elasticsearch,
+	    OpenSearcr, and dashboard configuration only require a login instead
+	    of the CONFIGURATION_EDIT permission, so any authenticated user can
+	    read these settings.</p>
+	  <p>An authenticated FAQ editor can reference a local file as an image in
+	    a FAQ entry and have the PDF export embed and disclose its contents.</p>
+	  <p>The registration endpoints remain reachable even when
+	    security.enableRegistration is turned off, so visitors can still create
+	     accounts on an installation that is meant to be closed.</p>
+	  <p>The content backup is written as a ZIP archive into the web-accessible
+	    document root, where anyone who guesses or learns its name can download
+	    the full contents of the installation.</p>
+	  <p>The backup, database migration, and maintenance mode endpoints can be
+	    reached without authentication, allowing an unauthenticated attacker
+	    to export data or put the installation into maintenance mode.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <url>https://www.phpmyfaq.de/security/advisory-2026-08-04/</url>
+    </references>
+    <dates>
+      <discovery>2026-08-04</discovery>
+      <entry>2026-08-12</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="f4af92f7-95ae-11f1-a6f7-b42e991fc52e">
+    <topic>gitea -- Multiple vulnerabilities</topic>
+    <affects>
+    <package>
+    <name>gitea</name>
+    <range><lt>1.27.1</lt></range>
+    </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Gitea reports</p>
+	<blockquote cite="https://blog.gitea.com/release-of-1.27.1/">
+	<p>This release addresses the following security
+	vulnerabilities. Please upgrade as soon as possible.
+	</p>
+	<p>
+	Unauthenticated arbitrary file read via the Org-mode
+	#INCLUDE directive.
+	</p>
+	<p>
+	Remote code execution via the diffpatch API through Git hook
+	installation.
+	</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2026-59774</cvename>
+      <url>https://github.com/go-gitea/gitea/security/advisories/GHSA-6v53-hr58-556r</url>
+      <cvename>CVE-2026-60004</cvename>
+      <url>https://github.com/go-gitea/gitea/security/advisories/GHSA-rcr6-4jqh-j84m</url>
+    </references>
+    <dates>
+      <discovery>2026-08-11</discovery>
+      <entry>2026-08-11</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="ab10c9c9-95ac-11f1-a6f7-b42e991fc52e">
+  <topic>chromium -- Multiple vulnerabilities</topic>
+  <affects>
+    <package>
+      <name>chromium</name>
+      <range><lt>151.0.7922.109</lt></range>
+    </package>
+  </affects>
+  <description>
+    <body xmlns="http://www.w3.org/1999/xhtml">
+      <p>Google has released Chrome 151.0.7922.109 to address multiple critical vulnerabilities.</p>
+	<p>
+	CVE-2026-19172:
+	  Use after free in Views in Google Chrome prior to
+	  151.0.7922.109 allowed a remote attacker who had
+	  compromised the renderer process to potentially perform a
+	  sandbox escape via a crafted HTML page. (Chromium security
+	  severity: Critical)
+	</p>
+	<p>
+	CVE-2026-19170:
+	  Use after free in WebGL in Google Chrome on Android
+	  prior to 151.0.7922.109 allowed a remote attacker to
+	  potentially perform a sandbox escape via a crafted HTML
+	  page. (Chromium security severity: Critical)
+	</p>
+	<p>
+	CVE-2026-19157:
+	  Out of bounds write in ANGLE in Google Chrome on Android
+	  prior to 151.0.7922.109 allowed a remote attacker to
+	  potentially perform a sandbox escape via a crafted HTML
+	  page. (Chromium security severity: Critical)
+	</p>
+	<p>
+	CVE-2026-19154:
+	  Use after free in Skia in Google Chrome on Android prior
+	  to 151.0.7922.109 allowed a remote attacker who had
+	  compromised the renderer process to potentially perform a
+	  sandbox escape via a crafted HTML page. (Chromium security
+	  severity: Critical)
+	</p>
+	<p>
+	CVE-2026-19149:
+	  Use after free in Aura in Google Chrome on Linux prior to
+	  151.0.7922.109 allowed a remote attacker to potentially
+	  perform a sandbox escape via a crafted HTML page.
+	  (Chromium security severity: Critical)
+	</p>
+	<p>
+	CVE-2026-19137:
+	  Use after free in WebGL in Google Chrome on Android prior
+	  to 151.0.7922.109 allowed a remote attacker who had
+	  compromised the renderer process to potentially perform a
+	  sandbox escape via a crafted HTML page. (Chromium security
+	  severity: Critical)
+	</p>
+    </body>
+  </description>
+  <references>
+    <cvename>CVE-2026-19172</cvename>
+    <cvename>CVE-2026-19170</cvename>
+    <cvename>CVE-2026-19157</cvename>
+    <cvename>CVE-2026-19154</cvename>
+    <cvename>CVE-2026-19149</cvename>
+    <cvename>CVE-2026-19137</cvename>
+    <url>https://chromereleases.googleblog.com/2026/08/stable-channel-update-for-desktop_01193673229.html</url>
+  </references>
+  <dates>
+    <discovery>2026-08-06</discovery>
+    <entry>2026-08-11</entry>
+  </dates>
+</vuln>
+
+  <vuln vid="20655058-9565-11f1-8144-8447094a420f">
+    <topic>OpenSSH -- Multiple vulnerbilities</topic>
+    <affects>
+      <package>
+	<name>openssh-portable</name>
+	<range><lt>10.5.p1,1</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The OpenSSH project reports:</p>
+	<blockquote cite="https://www.openssh.org/txt/release-10.5">
+	  <ul>
+	    <li>ssh-agent(1): fix an interaction between agent locking and the
+	      session-bind@openssh.com extension that is used to identify
+	      forwarded agents.</li>
+	    <li>ssh(1): avoid potential realloc use-after-free in the client if a
+	      remote forwarding is added via the local session multiplexing
+	      socket while a remote forwarding open request is pending with the
+	      server.</li>
+	    <li>sshd(8): make the authorized_keys "restrict" keyword apply
+	      correctly to tunnel forwarding too (which is administratively
+	      disabled by default).</li>
+	  </ul>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <url>https://www.openssh.org/txt/release-10.5</url>
+    </references>
+    <dates>
+      <discovery>2026-08-11</discovery>
+      <entry>2026-08-11</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="e87b74fa-940d-11f1-b046-3c7c3fba4204">
     <topic>Calibre Web -- two vulnerabilities</topic>
     <affects>
