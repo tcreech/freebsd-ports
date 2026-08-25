@@ -1918,6 +1918,7 @@
     SUBDIR += openapi
     SUBDIR += openapi-generator
     SUBDIR += openapi-tui
+    SUBDIR += opencircuitx
     SUBDIR += opencl
     SUBDIR += opencl-clang
     SUBDIR += opencvs
@@ -5796,7 +5797,6 @@
     SUBDIR += py-psygnal
     SUBDIR += py-ptable
     SUBDIR += py-ptpython
-    SUBDIR += py-ptvsd
     SUBDIR += py-pudb
     SUBDIR += py-pure-eval
     SUBDIR += py-pure-sasl

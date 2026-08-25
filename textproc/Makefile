@@ -1720,6 +1720,8 @@
     SUBDIR += py-sphinx-intl
     SUBDIR += py-sphinx-issues
     SUBDIR += py-sphinx-last-updated-by-git
+    SUBDIR += py-sphinx-llm
+    SUBDIR += py-sphinx-markdown-builder
     SUBDIR += py-sphinx-markdown-tables
     SUBDIR += py-sphinx-material
     SUBDIR += py-sphinx-me
