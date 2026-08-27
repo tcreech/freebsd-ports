@@ -2309,6 +2309,7 @@
     SUBDIR += xhtml-basic
     SUBDIR += xhtml-modularization
     SUBDIR += xhtml1-xsd
+    SUBDIR += xled
     SUBDIR += xlhtml
     SUBDIR += xlnt
     SUBDIR += xlreader
@@ -2331,6 +2332,9 @@
     SUBDIR += xmlwrapp
     SUBDIR += xom
     SUBDIR += xorg-sgml-doctools
+    SUBDIR += xql
+    SUBDIR += xray
+    SUBDIR += xshape
     SUBDIR += xslide.el
     SUBDIR += xstream
     SUBDIR += xwindiff
