@@ -69,7 +69,6 @@
     SUBDIR += apache-mode.el
     SUBDIR += apache24
     SUBDIR += aquatone
-    SUBDIR += archiva
     SUBDIR += aria2
     SUBDIR += asql
     SUBDIR += authelia
@@ -324,7 +323,6 @@
     SUBDIR += jira-cli
     SUBDIR += jitsi-meet
     SUBDIR += jmeter
-    SUBDIR += joomla4
     SUBDIR += joomla5
     SUBDIR += joomla6
     SUBDIR += jwt-cli
@@ -2401,6 +2399,7 @@
     SUBDIR += rubygem-rack-protection3
     SUBDIR += rubygem-rack-proxy
     SUBDIR += rubygem-rack-proxy-gitlab
+    SUBDIR += rubygem-rack-proxy0
     SUBDIR += rubygem-rack-session
     SUBDIR += rubygem-rack-session-gitlab
     SUBDIR += rubygem-rack-session10
