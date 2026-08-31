@@ -1574,13 +1574,6 @@
     SUBDIR += py-dash-bootstrap-components
     SUBDIR += py-ddgs
     SUBDIR += py-dj-database-url
-    SUBDIR += py-dj42-django-picklefield
-    SUBDIR += py-dj42-django-ranged-response
-    SUBDIR += py-dj42-django-simple-captcha
-    SUBDIR += py-dj42-django-webpack-loader
-    SUBDIR += py-dj42-django_statici18n
-    SUBDIR += py-dj42-djangorestframework
-    SUBDIR += py-dj42-djangosaml2
     SUBDIR += py-dj60-channels
     SUBDIR += py-dj60-django-auth-ldap
     SUBDIR += py-dj60-django-choices-field
@@ -1710,7 +1703,6 @@
     SUBDIR += py-django-voting
     SUBDIR += py-django-webpack-loader
     SUBDIR += py-django-widget-tweaks
-    SUBDIR += py-django42
     SUBDIR += py-django52
     SUBDIR += py-django60
     SUBDIR += py-django61
@@ -2568,7 +2560,6 @@
     SUBDIR += sarg
     SUBDIR += scloader
     SUBDIR += script4rss
-    SUBDIR += seahub
     SUBDIR += selenium
     SUBDIR += serendipity
     SUBDIR += serf
