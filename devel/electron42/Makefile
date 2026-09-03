@@ -90,6 +90,7 @@ USE_GNOME=	atk cairo gdkpixbuf gtk30 libxml2 libxslt pango
 USE_XORG=	x11 xcb xcomposite xcursor xdamage xext xfixes xi xrandr \
 		xrender xscrnsaver xtst
 USE_QT=		buildtools:build core:build widgets:build
+NPM_PREFETCH_ARCHS=	aarch64 amd64
 NPM_EXTRACT_WRKSRC=	${WRKDIR}/${PORTNAME}-${ELECTRON_VER}
 
 SHEBANG_FILES=	chrome/tools/build/linux/chrome-wrapper buildtools/linux64/clang-format
@@ -227,7 +228,7 @@ SNDIO_VARS_OFF=		GN_ARGS+=use_sndio=false
 # See ${WRKSRC}/electron/DEPS for CHROMIUM_VER
 CHROMIUM_VER=			148.0.7778.280
 # See ${WRKSRC}/electron/DEPS for NODE_VER
-NODE_VER=			24.18.0
+NODE_VER=			24.19.0
 # See ${WRKSRC}/electron/DEPS for NAN_VER
 NAN_VER=			675cefebca42410733da8a454c8d9391fcebfbc2
 # See ${WRKSRC}/electron/DEPS for SQUIRREL_MAC_VER
@@ -241,7 +242,7 @@ ENGFLOW_RECLIENT_CONFIGS_VER=	955335c30a752e9ef7bff375baab5e0819b6c00d
 # See ${WRKSRC}/third_party/devtools-frontend/src/node_modules/rollup/package.json
 ROLLUP_VER=			4.22.4
 # Keep in sync with devel/esbuild
-ESBUILD_VER=			0.28.0
+ESBUILD_VER=			0.28.1
 
 .include "Makefile.version"
 .include <bsd.port.pre.mk>
@@ -345,8 +346,16 @@ post-extract:
 
 pre-patch:
 	${SH} ${FILESDIR}/apply-electron-patches.sh ${WRKSRC}
-	# ${FIND} ${WRKSRC} -type f -name '*.orig' -print -delete
-	# ${FIND} ${WRKSRC} -type f -name '*~' -print -delete
+.ifdef MAINTAINER_MODE
+	${FIND} ${WRKSRC} -type f -name '*.orig' -print -delete
+	${FIND} ${WRKSRC} -type f -name '*~' -print -delete
+.endif
+
+.ifndef MAINTAINER_MODE
+post-patch:
+	@${REINPLACE_CMD} -e 's|/usr/bin/dbus-daemon|${LOCALBASE}/bin/dbus-daemon|' \
+		${WRKSRC}/electron/spec/api-app-spec.ts
+.endif
 
 pre-configure:
 	# We used to remove bundled libraries to be sure that chromium uses
