@@ -16,14 +16,15 @@ DO NOT
 - Interrupt the NVM Update in any other way.
 Doing so may make your device unusable.
 
-For the package to function properly please make sure you have latest ice driver
-installed. If necessary - install the updated version from net/intel-ice-kmod
+For the package to function properly please make sure you have the latest em
+driver installed. If necessary, install the updated version from
+net/intel-em-kmod
 
 Usage:
-# nvmupdate-e830
+# nvmupdate-i210
 
 Getting help:
-# nvmupdate-e830 -h
+# nvmupdate-i210 -h
 EOM
 }
 ]
