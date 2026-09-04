@@ -16,14 +16,14 @@ DO NOT
 - Interrupt the NVM Update in any other way.
 Doing so may make your device unusable.
 
-For the package to function properly please make sure you have latest ix driver
-installed. If necessary - install the updated version from net/intel-ix-kmod
+For the package to function properly please make sure you have latest ixl driver
+installed. If necessary - install the updated version from net/intel-ixl-kmod
 
 Usage:
-# nvmupdate
+# nvmupdate-700series
 
 Getting help:
-# nvmupdate -h
+# nvmupdate-700series -h
 EOM
 }
 ]
