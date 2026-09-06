@@ -1,5 +1,5 @@
---- cargo-crates/rattler_conda_types-0.48.1/src/platform.rs.orig	2006-07-24 01:21:28 UTC
-+++ cargo-crates/rattler_conda_types-0.48.1/src/platform.rs
+--- cargo-crates/rattler_conda_types-0.51.0/src/platform.rs.orig	2006-07-24 01:21:28 UTC
++++ cargo-crates/rattler_conda_types-0.51.0/src/platform.rs
 @@ -35,6 +35,8 @@ pub enum Platform {
      FreeBsd32,
      FreeBsd64,

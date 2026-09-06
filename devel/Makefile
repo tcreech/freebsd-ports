@@ -4546,6 +4546,7 @@
     SUBDIR += py-array-api-compat
     SUBDIR += py-array-api-strict
     SUBDIR += py-arro3-core
+    SUBDIR += py-arro3-io
     SUBDIR += py-arrow
     SUBDIR += py-asciimatics
     SUBDIR += py-asgi-lifespan
