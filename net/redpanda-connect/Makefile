@@ -1,7 +1,6 @@
 PORTNAME=	connect
 DISTVERSIONPREFIX=	v
-DISTVERSION=	4.99.0
-PORTREVISION=	3
+DISTVERSION=	4.109.0
 CATEGORIES=	net
 PKGNAMEPREFIX=	redpanda-
 
@@ -19,11 +18,12 @@ LICENSE_PERMS_RCL=	dist-mirror dist-sell pkg-mirror pkg-sell \
 			no-auto-accept
 LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
-USES=		go:modules
+USES=		go:1.26+,modules
 USE_RC_SUBR=	redpanda_connect
 
 GO_MODULE=	github.com/redpanda-data/connect/v4
 GO_TARGET=	./cmd/redpanda-connect
+GO_LDFLAGS=	-X main.Version=${DISTVERSION}
 
 ETCDIR=		${PREFIX}/etc/${PKGNAMEPREFIX}${PORTNAME}
 
