@@ -1819,6 +1819,7 @@
     SUBDIR += py-google-cloud-vision
     SUBDIR += py-google-resumable-media
     SUBDIR += py-googlemaps
+    SUBDIR += py-googlesearch-python
     SUBDIR += py-grafana-dashboard-manager
     SUBDIR += py-granian
     SUBDIR += py-graphite-api
@@ -1952,6 +1953,7 @@
     SUBDIR += py-requests-mock
     SUBDIR += py-requests-oauthlib
     SUBDIR += py-requests-ratelimiter
+    SUBDIR += py-requests-sse
     SUBDIR += py-requests-toolbelt
     SUBDIR += py-requests-unixsocket
     SUBDIR += py-requests-wsgi-adapter
@@ -2065,6 +2067,7 @@
     SUBDIR += reddsaver
     SUBDIR += redmine60
     SUBDIR += redmine61
+    SUBDIR += redmine70
     SUBDIR += rejik
     SUBDIR += remark42
     SUBDIR += reportmagic
@@ -2459,6 +2462,7 @@
     SUBDIR += rubygem-redis-rails-rails61
     SUBDIR += rubygem-requestjs-rails
     SUBDIR += rubygem-requestjs-rails-rails72
+    SUBDIR += rubygem-requestjs-rails-rails81
     SUBDIR += rubygem-responders
     SUBDIR += rubygem-responders-rails-gitlab
     SUBDIR += rubygem-responders-rails5
