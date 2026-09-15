@@ -1101,7 +1101,6 @@
     SUBDIR += py-ldappool
     SUBDIR += py-lib389
     SUBDIR += py-libcloud
-    SUBDIR += py-libdnet
     SUBDIR += py-macaddress
     SUBDIR += py-magic-wormhole
     SUBDIR += py-matrix-synapse-ldap3
@@ -1739,6 +1738,7 @@
     SUBDIR += wmwave
     SUBDIR += wmwifi
     SUBDIR += wol
+    SUBDIR += wormhole-william
     SUBDIR += wpa_supplicant_gui
     SUBDIR += wping
     SUBDIR += wstunnel
