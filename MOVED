@@ -5607,3 +5607,11 @@ math/py-dgl||2026-09-15|Has expired: Depends on expired lang/cython0
 cad/cura||2026-09-15|Has expired: Depends on expiring devel/py-trimesh
 net/py-libdnet||2026-09-15|Has expired: Depends on expired lang/cython0
 devel/py-trimesh||2026-09-15|Has expired: Depends on expiring math/py-python-fcl
+net/py-pytradfri||2026-09-15|Has expired: Depends on expirign net/py-DTLSSocket
+net/py-DTLSSocket||2026-09-15|Has expired: Depends on expired lang/cython0
+net/py-pyenet||2026-09-15|Has expired: Depends on expired lang/cython0
+science/py-openEMS||2026-09-15|Has expired: Depends on expired lang/cython0
+science/py-molmod||2026-09-15|Has expired: Depends on expired lang/cython0
+databases/py-pymssql||2026-09-15|Has expired: Depends on expired lang/cython0
+devel/py-game_sdl2||2026-09-15|Has expired: Depends on expired lang/cython0
+databases/py-cassandra-driver||2026-09-15|Has expired: Depends on expired lang/cython0

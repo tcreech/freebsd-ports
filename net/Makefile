@@ -1048,7 +1048,6 @@
     SUBDIR += pwnat
     SUBDIR += pxe
     SUBDIR += pxe-pdhcp
-    SUBDIR += py-DTLSSocket
     SUBDIR += py-GeoIP2
     SUBDIR += py-aiocoap
     SUBDIR += py-aiohappyeyeballs
@@ -1126,7 +1125,6 @@
     SUBDIR += py-port-for
     SUBDIR += py-portend
     SUBDIR += py-pychromecast
-    SUBDIR += py-pyenet
     SUBDIR += py-pyfixbuf
     SUBDIR += py-pygeoip
     SUBDIR += py-pyicap
@@ -1160,7 +1158,6 @@
     SUBDIR += py-python-openstackclient
     SUBDIR += py-python-socks
     SUBDIR += py-python-twitter
-    SUBDIR += py-pytradfri
     SUBDIR += py-pyu2f
     SUBDIR += py-pyvmomi
     SUBDIR += py-pyzmq
