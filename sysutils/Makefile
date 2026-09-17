@@ -1076,6 +1076,7 @@
     SUBDIR += py-bitrot
     SUBDIR += py-blinkstick
     SUBDIR += py-borgmatic
+    SUBDIR += py-cdist
     SUBDIR += py-clustershell
     SUBDIR += py-concurrent-log-handler
     SUBDIR += py-container-inspector
@@ -1130,7 +1131,6 @@
     SUBDIR += py-ptyprocess
     SUBDIR += py-puremagic
     SUBDIR += py-py-consul
-    SUBDIR += py-py-cpuinfo
     SUBDIR += py-py-cpuinfo2
     SUBDIR += py-pyinfra
     SUBDIR += py-python-bareos
