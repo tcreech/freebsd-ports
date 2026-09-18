@@ -312,7 +312,10 @@
     SUBDIR += ilias
     SUBDIR += imaginary
     SUBDIR += immich
+    SUBDIR += immich-cli
+    SUBDIR += immich-go
     SUBDIR += immich-ml
+    SUBDIR += immich-public-proxy
     SUBDIR += iocaine
     SUBDIR += iridium
     SUBDIR += janus
