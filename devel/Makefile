@@ -7375,6 +7375,7 @@
     SUBDIR += rubygem-bin_struct
     SUBDIR += rubygem-bin_utils
     SUBDIR += rubygem-bindata
+    SUBDIR += rubygem-bindata-gitlab
     SUBDIR += rubygem-bindata24
     SUBDIR += rubygem-bindex
     SUBDIR += rubygem-binding_of_caller
@@ -7724,6 +7725,7 @@
     SUBDIR += rubygem-google-iam-v1
     SUBDIR += rubygem-google-logging-utils
     SUBDIR += rubygem-google-protobuf
+    SUBDIR += rubygem-google-protobuf-gitlab
     SUBDIR += rubygem-google-protobuf3
     SUBDIR += rubygem-googleapis-common-protos
     SUBDIR += rubygem-googleapis-common-protos-gitlab
