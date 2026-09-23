@@ -120,6 +120,7 @@
     SUBDIR += beats92
     SUBDIR += beats93
     SUBDIR += beats94
+    SUBDIR += beats95
     SUBDIR += bfs
     SUBDIR += bhyve-firmware
     SUBDIR += bhyve-rc
@@ -702,6 +703,7 @@
     SUBDIR += logstash92
     SUBDIR += logstash93
     SUBDIR += logstash94
+    SUBDIR += logstash95
     SUBDIR += logtool
     SUBDIR += logwatch
     SUBDIR += loki
