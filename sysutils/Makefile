@@ -227,6 +227,7 @@
     SUBDIR += cni-dnsname
     SUBDIR += colorize
     SUBDIR += conan
+    SUBDIR += condy
     SUBDIR += confctl
     SUBDIR += conky
     SUBDIR += conky-awesome
@@ -374,6 +375,7 @@
     SUBDIR += env4801
     SUBDIR += envconsul
     SUBDIR += epazote
+    SUBDIR += eppctl
     SUBDIR += erdtree
     SUBDIR += erldash
     SUBDIR += etcmerge
