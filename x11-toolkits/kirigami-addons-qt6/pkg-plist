@@ -111,6 +111,7 @@ lib/libKirigamiApp.so.6
 %%QT_QMLDIR%%/org/kde/kirigamiaddons/formcard/FormRadioDelegate.qml
 %%QT_QMLDIR%%/org/kde/kirigamiaddons/formcard/FormRadioSelectorDelegate.qml
 %%QT_QMLDIR%%/org/kde/kirigamiaddons/formcard/FormSectionText.qml
+%%QT_QMLDIR%%/org/kde/kirigamiaddons/formcard/FormSliderDelegate.qml
 %%QT_QMLDIR%%/org/kde/kirigamiaddons/formcard/FormSpinBoxDelegate.qml
 %%QT_QMLDIR%%/org/kde/kirigamiaddons/formcard/FormSwitchDelegate.qml
 %%QT_QMLDIR%%/org/kde/kirigamiaddons/formcard/FormTextAreaDelegate.qml
@@ -119,11 +120,14 @@ lib/libKirigamiApp.so.6
 %%QT_QMLDIR%%/org/kde/kirigamiaddons/formcard/formcardplugin.qmltypes
 %%QT_QMLDIR%%/org/kde/kirigamiaddons/formcard/kde-qmlmodule.version
 %%QT_QMLDIR%%/org/kde/kirigamiaddons/formcard/libformcardplugin.so
+%%QT_QMLDIR%%/org/kde/kirigamiaddons/formcard/private/ContentItemLoader.qml
 %%QT_QMLDIR%%/org/kde/kirigamiaddons/formcard/private/FormCardBackground.qml
 %%QT_QMLDIR%%/org/kde/kirigamiaddons/formcard/private/FormCardUnits.qml
 %%QT_QMLDIR%%/org/kde/kirigamiaddons/formcard/private/FormChoiceDelegateLayout.qml
 %%QT_QMLDIR%%/org/kde/kirigamiaddons/formcard/private/FormDelegateLayout.qml
 %%QT_QMLDIR%%/org/kde/kirigamiaddons/formcard/private/FormInfoGrid.qml
+%%QT_QMLDIR%%/org/kde/kirigamiaddons/formcard/private/FormInlineMessage.qml
+%%QT_QMLDIR%%/org/kde/kirigamiaddons/formcard/private/FormPathCompletion.qml
 %%QT_QMLDIR%%/org/kde/kirigamiaddons/formcard/qmldir
 %%QT_QMLDIR%%/org/kde/kirigamiaddons/labs/components/AbstractMaximizeComponent.qml
 %%QT_QMLDIR%%/org/kde/kirigamiaddons/labs/components/AlbumMaximizeComponent.qml

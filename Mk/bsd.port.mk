@@ -1167,7 +1167,7 @@ OSVERSION!=	${AWK} '/^\#define[[:blank:]]__FreeBSD_version/ {print $$3}' < ${SRC
 .    endif
 _EXPORTED_VARS+=	OSVERSION
 
-.    if ${OPSYS} == FreeBSD && ${OSVERSION} < 1404000
+.    if ${OPSYS} == FreeBSD && (${OSVERSION} < 1404000 || (${OSVERSION} >= 1500000 && ${OSVERSION} < 1501000))
 _UNSUPPORTED_SYSTEM_MESSAGE=	Ports Collection support for your ${OPSYS} version has ended, and no ports\
 								are guaranteed to build on this system. Please upgrade to a supported release.
 .      if defined(ALLOW_UNSUPPORTED_SYSTEM)
@@ -1489,8 +1489,8 @@ _DID_FLAVORS_HELPERS=	yes
 _FLAVOR_HELPERS_OVERRIDE=	DESCR PLIST PKGNAMEPREFIX PKGNAMESUFFIX
 _FLAVOR_HELPERS_APPEND=	 	CONFLICTS CONFLICTS_BUILD CONFLICTS_INSTALL \
 							PKG_DEPENDS EXTRACT_DEPENDS PATCH_DEPENDS \
-							FETCH_DEPENDS BUILD_DEPENDS LIB_DEPENDS \
-							RUN_DEPENDS TEST_DEPENDS
+							FETCH_DEPENDS BUILD_RUN_DEPENDS BUILD_DEPENDS \
+							LIB_DEPENDS RUN_DEPENDS TEST_DEPENDS
 # These overwrite the current value
 .      for v in ${_FLAVOR_HELPERS_OVERRIDE}
 .        if defined(${FLAVOR}_${v})

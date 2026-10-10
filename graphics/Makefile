@@ -12,6 +12,7 @@
     SUBDIR += R-cran-GDD
     SUBDIR += R-cran-R.devices
     SUBDIR += R-cran-RColorBrewer
+    SUBDIR += R-cran-bmp
     SUBDIR += R-cran-colorspace
     SUBDIR += R-cran-cowplot
     SUBDIR += R-cran-diagram
@@ -31,6 +32,7 @@
     SUBDIR += R-cran-pROC
     SUBDIR += R-cran-pdftools
     SUBDIR += R-cran-pixmap
+    SUBDIR += R-cran-plotrix
     SUBDIR += R-cran-png
     SUBDIR += R-cran-qcc
     SUBDIR += R-cran-qpdf
@@ -623,7 +625,6 @@
     SUBDIR += mypaint-brushes2
     SUBDIR += nanort
     SUBDIR += nanosvg
-    SUBDIR += natron
     SUBDIR += netpbm
     SUBDIR += nip2
     SUBDIR += noaa-apt
@@ -817,6 +818,7 @@
     SUBDIR += pcdtojpeg
     SUBDIR += pcl-pointclouds
     SUBDIR += pdf2svg
+    SUBDIR += pdfium
     SUBDIR += pdfpc
     SUBDIR += pear-Horde_Image
     SUBDIR += pear-Image_3D
@@ -832,11 +834,11 @@
     SUBDIR += pecl-vips
     SUBDIR += pencil2d
     SUBDIR += perceptualdiff
-    SUBDIR += peruse
     SUBDIR += pfstools
     SUBDIR += pgplot
     SUBDIR += pho
     SUBDIR += photivo
+    SUBDIR += photocraft
     SUBDIR += photoflare
     SUBDIR += photopc
     SUBDIR += photoqt
@@ -977,7 +979,6 @@
     SUBDIR += py-kornia
     SUBDIR += py-kornia-rs
     SUBDIR += py-leather
-    SUBDIR += py-lerc
     SUBDIR += py-liffile
     SUBDIR += py-mapclassify
     SUBDIR += py-mayavi
@@ -1015,6 +1016,7 @@
     SUBDIR += py-plotly
     SUBDIR += py-png
     SUBDIR += py-pointpats
+    SUBDIR += py-polyxios
     SUBDIR += py-projpicker
     SUBDIR += py-proplot
     SUBDIR += py-py_svg_hush
@@ -1035,6 +1037,7 @@
     SUBDIR += py-pygraph
     SUBDIR += py-pygraphviz
     SUBDIR += py-pyinsane2
+    SUBDIR += py-pylerc
     SUBDIR += py-pymaging
     SUBDIR += py-pymaging-png
     SUBDIR += py-pyocr
@@ -1051,6 +1054,7 @@
     SUBDIR += py-python-poppler-qt5
     SUBDIR += py-pyvips
     SUBDIR += py-pyvista
+    SUBDIR += py-pyvista-validation
     SUBDIR += py-pyx
     SUBDIR += py-pyzbar
     SUBDIR += py-qpageview
