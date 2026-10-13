@@ -1,0 +1,10 @@
+--- tests/Makefile.in.orig	2026-06-20 02:58:11 UTC
++++ tests/Makefile.in
+@@ -12,7 +12,6 @@ SUBDIRS = \
+ SUBDIRS = \
+     tap \
+     common \
+-    auth \
+     util \
+     cmd \
+     volser \

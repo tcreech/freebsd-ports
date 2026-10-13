@@ -1,0 +1,12 @@
+--- src/libafs/MakefileProto.FBSD.in.orig	2018-12-06 02:43:21 UTC
++++ src/libafs/MakefileProto.FBSD.in
+@@ -44,7 +44,8 @@ KDEFS=-Wall -nostdinc -I/usr/include -D_KERNEL -DKLD_M
+ 	-elf \
+ 	-mno-mmx -mno-3dnow -mno-sse -mno-sse2 \
+ 	-fno-common -ffreestanding \
+-	-I${KBLD} -include opt_global.h -fno-strict-aliasing
++	-I${KBLD} -include opt_global.h -fno-strict-aliasing \
++	-I${KSRC}/contrib/ck/include
+ 
+ DBUG = -O2
+ #DBUG = -O -g

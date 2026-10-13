@@ -1,0 +1,17 @@
+--- src/config/cc-wrapper.in.orig	2026-05-03 12:36:48 UTC
++++ src/config/cc-wrapper.in
+@@ -75,14 +75,6 @@ echo_run() {
+     "$@"
+ }
+ 
+-cleanup() {
+-    # Remove $target, so target doesn't exist after an error.
+-    echo_run $RM "$target"
+-}
+-
+-# Run cleanup() if we encounter an error below.
+-trap cleanup ERR
+-
+ case "$mode" in
+ cc)
+     case "$SYSNAME" in
