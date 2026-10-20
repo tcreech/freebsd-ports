@@ -525,6 +525,7 @@
     SUBDIR += helm-docs
     SUBDIR += helmfile
     SUBDIR += herbe
+    SUBDIR += herdr
     SUBDIR += hexpeek
     SUBDIR += hextools
     SUBDIR += hexyl
@@ -650,6 +651,7 @@
     SUBDIR += kubo-go
     SUBDIR += kustomize
     SUBDIR += kvmclock-kmod
+    SUBDIR += lazydocker
     SUBDIR += lazyssh
     SUBDIR += lbl-cf
     SUBDIR += lbl-hf
@@ -1591,6 +1593,7 @@
     SUBDIR += ucspi-tcp
     SUBDIR += ucspi-unix
     SUBDIR += udfclient
+    SUBDIR += udiskie
     SUBDIR += ufetch
     SUBDIR += ufs-utils
     SUBDIR += uhidd
