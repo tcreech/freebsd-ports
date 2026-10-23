@@ -7617,6 +7617,7 @@
     SUBDIR += rubygem-drb-gitlab
     SUBDIR += rubygem-dry-cli
     SUBDIR += rubygem-dry-configurable
+    SUBDIR += rubygem-dry-configurable-gitlab
     SUBDIR += rubygem-dry-container
     SUBDIR += rubygem-dry-core
     SUBDIR += rubygem-dry-core-gitlab
@@ -8268,6 +8269,7 @@
     SUBDIR += rubygem-rb-kqueue
     SUBDIR += rubygem-rblineprof
     SUBDIR += rubygem-rbs
+    SUBDIR += rubygem-rbs-gitlab
     SUBDIR += rubygem-rbs_json_schema
     SUBDIR += rubygem-rbtrace
     SUBDIR += rubygem-rbtree
