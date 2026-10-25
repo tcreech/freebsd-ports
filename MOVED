@@ -5741,6 +5741,7 @@ devel/compiler-rt||2026-10-15|Now ships with the base system
 textproc/py-pypa-docs-theme||2026-10-15|Has expired: Upstream archived the repo on Mar 16, 2024
 www/py-wikitools||2026-10-18|Has expired: Not compatible with Python 3
 japanese/fcitx-mozc|japanese/fcitx5-mozc|2026-10-18|Deprecated: Use fcitx5 instead
+graphics/py-agx-emulsion|graphics/py-spektrafilm|2026-10-18|Renamed upstream to spektrafilm
 cad/yosys-systemverilog||2026-10-19|Broken for years in tree
 deskutils/gnome-todo||2026-10-19|Broken for several months in tree
 devel/rubygem-mmap2||2026-10-19|Broken for over a year in tree
@@ -5754,5 +5755,15 @@ databases/pecl-redis|databases/php-redis|2026-10-21|PECL is deprecated. Migrated
 net-im/tde2e|net-im/tdlib|2026-10-22|No longer necessary; migrate to net-im/tdlib
 deskutils/p5-Goo||2026-10-22|Has expired: Upstream dists no longer available
 devel/shiboken2||2026-10-23|Removed: not needed anymore
-graphics/py-agx-emulsion|graphics/py-spektrafilm|2026-10-18|Renamed upstream to spektrafilm
 net-im/py-unmessage||2026-10-24|Remove abandonware, upstream has been inactive for 9 years with code still being for Python-2.x
+dns/p5-Net-DNS-ZoneFile-Fast||2026-10-25|Has expired: Upstream module marked obsolete by its author
+finance/p5-Business-OnlinePayment-Network1Financial||2026-10-25|Has expired: Backend for the defunct Network1Financial payment gateway
+finance/p5-Business-OnlinePayment-SurePay||2026-10-25|Has expired: Backend for the defunct Pure Payments SurePay gateway
+finance/p5-Business-WorldPay-Junior||2026-10-25|Has expired: Upstream module withdrawn by its author on CPAN
+net/p5-Net-Delicious||2026-10-25|Has expired: Defunct service
+net/p5-Net-Mosso-CloudFiles||2026-10-25|Has expired: Defunct service
+devel/p5-Test-YAML-Meta||2026-10-25|Has expired: Upstream deprecated
+net/p5-JavaScript-RPC||2026-10-25|Has expired: Deprecated by upstream
+devel/p5-DateTime-Format-IBeat||2026-10-25|Has expired: Upstream distribution has never had an authorized release on CPAN
+www/p5-CGI-Response||2026-10-25|Has expired: Legacy functionality
+www/p5-WebService-Linode||2026-10-25|Has expired: Defunct service
