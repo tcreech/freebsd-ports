@@ -1,4 +1,4 @@
-PORTREVISION=	4
+PORTREVISION=	5
 
 MAINTAINER=	michaelo@apache.org
 COMMENT=	Apache Subversion is a full-featured version control system
@@ -28,9 +28,7 @@ SVNSERVE_WRAPPER_DESC=	Enable svnserve wrapper (umask setter)
 TEST_DESC=		Run subversion test suite
 TOOLS_DESC=		Install several tools
 
-SVNSERVE_WRAPPER_EXTRA_PATCHES=	${PATCHDIR}/extra-patch-svnserve-wrapper
-
-USES+=			shebangfix python:env
+USES+=			shebangfix python:patch,test
 python_OLD_CMD+=	"/bin/env python"
 SHEBANG_REGEX=		./tools/.*
 
@@ -101,6 +99,14 @@ pre-everything::
 
 	@${ECHO_MSG} ""
 	@${ECHO_MSG} "Many useful scripts will be installed into ${DATADIR}"
+
+post-patch-SVNSERVE_WRAPPER-on:
+# the real svnserve binary installs as svnserve.bin so bin/svnserve can be
+# the umask-setting wrapper script instead; build.conf has no per-target
+# install-name override, so rename it here, after Makefile.common's
+# post-patch has (re)generated build-outputs.mk from the patched build.conf
+	${REINPLACE_CMD} -e 's#(bindir)/svnserve$$(EXEEXT)#(bindir)/svnserve.bin$$(EXEEXT)#' \
+		${WRKSRC}/build-outputs.mk
 
 post-configure:
 # Enable GNOME Keyring / KWallet support in main code, as it is harmless
@@ -187,9 +193,5 @@ _mkrepos:	.USE
 	done
 .endif
 .endif
-
-svn-build-outputs-hack:
-	(cd ${WRKSRC} && python gen-make.py --release --installed-libs libsvn_client,libsvn_delta,libsvn_diff,libsvn_fs,libsvn_fs_x,libsvn_ra,libsvn_repos,libsvn_subr,libsvn_wc)
-	${MV} ${WRKSRC}/build-outputs.mk ${FILESDIR}/build-outputs.mk.addons
 
 .include <bsd.port.post.mk>
