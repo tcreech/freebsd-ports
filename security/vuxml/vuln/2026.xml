@@ -1,3 +1,347 @@
+  <vuln vid="aafad06c-d519-11f1-8135-8447094a420f">
+    <topic>LibreSSL -- Multiple OCSP client vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>libressl</name>
+	<name>libressl-devel</name>
+	<range><le>4.4.0_1</le></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+	<p>VulnCheck reports:</p>
+	<blockquote cite="https://www.vulncheck.com/advisories/libressl-through-4.4.0-crlf-injection-via-ocsp-sendreq-new-request-line">
+	<p>CVE-2026-118371: LibreSSL through 4.4.0 contains a CRLF injection
+	  vulnerability in the libcrypto OCSP_sendreq_new() and OCSP_parse_url()
+	  functions, which write unvalidated request paths into the OCSP POST
+	  request line. Attackers can embed carriage return and line feed
+	  characters in a certificate's Authority Information Access OCSP URI to
+	  inject HTTP headers or split requests sent to responders and proxies.</p>
+	<p>CVE-2026-118372: LibreSSL ocspcheck through 4.4.0 contains a CRLF
+	  injection vulnerability that allows attackers to inject HTTP headers
+	  by embedding CR/LF sequences in a certificate's AIA OCSP URI path.
+	  Because url2host() copies the path without rejecting control
+	  characters and http_open() places it in the POST request line,
+	  attackers can inject headers or split OCSP requests sent to the
+	  responder host.</p>
+	<p>CVE-2026-118373: LibreSSL ocspcheck through 4.4.0 contains a cleartext
+	  transmission vulnerability because url2host() discards the OCSP URL
+	  scheme and http_alloc() only selects TLS for port 443. On-path network
+	  attackers can read OCSP requests sent to https responder URLs on
+	  non-443 ports, exposing certificate serial numbers, issuer hashes, and
+	  nonces.</p>
+	<p>CVE-2026-118374: LibreSSL ocspcheck through 4.4.0 contains a memory
+	  exhaustion vulnerability that allows malicious OCSP responders to
+	  exhaust memory by sending unbounded HTTP responses. Attackers
+	  controlling the responder or intercepting plain HTTP AIA OCSP traffic
+	  can stream endless headers or body data to http_head_read() and
+	  http_body_read(), denying certificate status checks.</p>
+	</blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2026-118371</cvename>
+      <cvename>CVE-2026-118372</cvename>
+      <cvename>CVE-2026-118373</cvename>
+      <cvename>CVE-2026-118374</cvename>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2026-118371</url>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2026-118372</url>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2026-118373</url>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2026-118374</url>
+      <url>https://www.vulncheck.com/advisories/libressl-through-4.4.0-crlf-injection-via-ocsp-sendreq-new-request-line</url>
+    </references>
+    <dates>
+      <discovery>2026-10-28</discovery>
+      <entry>2026-10-31</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="ac97113e-d514-11f1-b2f0-002b67dfc673">
+    <topic>amule -- multiple vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>amule</name>
+	<range><lt>3.2.0</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+	<p>aMule developers report:</p>
+	<blockquote cite="https://github.com/amule-org/amule/releases/tag/3.2.0">
+	  <p>A security release first: it fixes 15 vulnerabilities reported
+	    through GitHub Security Advisories, and 11 of them are also
+	    present in aMule 2.3.3. If you still run 2.3.x or any 3.x
+	    release, please upgrade.</p>
+	  <ul>
+	    <li>GHSA-cp82-q55r-936c (High): heap off-by-one write and
+	      use-after-free in the UPnP control point, reachable from the
+	      local network when UPnP is enabled.</li>
+	    <li>GHSA-2crf-cv3v-53w5 (High): unbounded EC tag nesting crashes
+	      amuled before authentication.</li>
+	    <li>GHSA-52mv-r67q-c985 (High): a single Kad search request can
+	      block the main thread for tens of seconds.</li>
+	    <li>GHSA-q2jr-xf54-v364 (High): a remote-control user can move
+	      files anywhere on the host.</li>
+	    <li>GHSA-3j74-m5qw-75xg (High): EC-settable ffprobe path leads to
+	      execution of arbitrary binaries.</li>
+	    <li>GHSA-cvxg-rcqx-rp9p (Medium): heap memory disclosure to eD2k
+	      peers.</li>
+	    <li>GHSA-g22c-pmwf-qmwm (Medium): peer-supplied OS info used as a
+	      format string in the statistics tree.</li>
+	    <li>GHSA-6qxf-6fj4-q8fv (Medium): unchecked EC tag types leak heap
+	      bytes into the log before authentication.</li>
+	    <li>GHSA-hv8p-rp6f-rmf7 (Medium): memory exhaustion triggered by
+	      an upload source.</li>
+	    <li>GHSA-vh6g-8m3v-wfmf (Medium): amuleweb guests can add
+	      downloads and make the core fetch arbitrary URLs.</li>
+	    <li>GHSA-42j9-4vh7-jvw6 (Medium): malicious update files can fill
+	      the disk or crash aMule.</li>
+	    <li>GHSA-7rxg-6w2f-3w57 (Medium): multi-part downloads can complete
+	      without MD4 verification.</li>
+	    <li>GHSA-frfq-582f-4jww (Medium): server list URLs fetched without
+	      protocol restriction allow SSRF via gopher://.</li>
+	    <li>GHSA-gc7p-357m-xj2j (Low): synchronous EC clients accept
+	      cleartext replies on an encrypted session.</li>
+	    <li>GHSA-vj9g-4mg6-q9hw (Low): cross-port request forgery against
+	      amuleapi.</li>
+	  </ul>
+	</blockquote>
+      </body>
+    </description>
+    <references>
+      <url>https://github.com/amule-org/amule/releases/tag/3.2.0</url>
+      <url>https://github.com/amule-org/amule/security/advisories/GHSA-cp82-q55r-936c</url>
+      <url>https://github.com/amule-org/amule/security/advisories/GHSA-2crf-cv3v-53w5</url>
+      <url>https://github.com/amule-org/amule/security/advisories/GHSA-52mv-r67q-c985</url>
+      <url>https://github.com/amule-org/amule/security/advisories/GHSA-q2jr-xf54-v364</url>
+      <url>https://github.com/amule-org/amule/security/advisories/GHSA-3j74-m5qw-75xg</url>
+      <url>https://github.com/amule-org/amule/security/advisories/GHSA-cvxg-rcqx-rp9p</url>
+      <url>https://github.com/amule-org/amule/security/advisories/GHSA-g22c-pmwf-qmwm</url>
+      <url>https://github.com/amule-org/amule/security/advisories/GHSA-6qxf-6fj4-q8fv</url>
+      <url>https://github.com/amule-org/amule/security/advisories/GHSA-hv8p-rp6f-rmf7</url>
+      <url>https://github.com/amule-org/amule/security/advisories/GHSA-vh6g-8m3v-wfmf</url>
+      <url>https://github.com/amule-org/amule/security/advisories/GHSA-42j9-4vh7-jvw6</url>
+      <url>https://github.com/amule-org/amule/security/advisories/GHSA-7rxg-6w2f-3w57</url>
+      <url>https://github.com/amule-org/amule/security/advisories/GHSA-frfq-582f-4jww</url>
+      <url>https://github.com/amule-org/amule/security/advisories/GHSA-gc7p-357m-xj2j</url>
+      <url>https://github.com/amule-org/amule/security/advisories/GHSA-vj9g-4mg6-q9hw</url>
+    </references>
+    <dates>
+      <discovery>2026-10-28</discovery>
+      <entry>2026-10-31</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="38d8dd83-285c-11f1-9f7b-001b217e4ee5">
+    <topic>ISC KEA -- Stack overflow in Kea daemons</topic>
+    <affects>
+      <package>
+	<name>kea</name>
+	<range><ge>2.6.0</ge><lt>2.6.5</lt></range>
+	<range><ge>3.0.0</ge><lt>3.0.3</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Internet Systems Consortium, Inc. reports:</p>
+	<blockquote cite="https://kb.isc.org/docs/cve-2026-3608">
+	    <p>Sending a maliciously crafted message to the kea-ctrl-agent, kea-dhcp-ddns, kea-dhcp4, or kea-dhcp6 daemons
+	    over any configured API socket or HA listener can cause the receiving daemon to exit with a stack overflow error.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2026-3608</cvename>
+      <url>https://kb.isc.org/docs/cve-2026-3608</url>
+    </references>
+    <dates>
+      <discovery>2026-03-18</discovery>
+      <entry>2026-03-25</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="1a0c64ff-5f9f-11f1-8ea1-fb4f92e650aa">
+    <topic>py-django -- Multiple vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>py311-django52</name>
+	<name>py312-django52</name>
+	<name>py313-django52</name>
+	<name>py313t-django52</name>
+	<name>py314-django52</name>
+	<name>py314t-django52</name>
+	<name>py315-django52</name>
+	<range><lt>5.2.15</lt></range>
+      </package>
+      <package>
+	<name>py311-django60</name>
+	<name>py312-django60</name>
+	<name>py313-django60</name>
+	<name>py313t-django60</name>
+	<name>py314-django60</name>
+	<name>py314t-django60</name>
+	<name>py315-django60</name>
+	<range><lt>6.0.6</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>django reports:</p>
+	<blockquote cite="https://www.djangoproject.com/weblog/2026/jun/03/security-releases/">
+	  <p>In accordance with our security release policy, the Django team is issuing releases for Django 6.0.6 and Django 5.2.15. These releases address the security issues detailed below. We encourage all users of Django to upgrade as soon as possible.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2026-6873</cvename>
+      <cvename>CVE-2026-7666</cvename>
+      <cvename>CVE-2026-8404</cvename>
+      <cvename>CVE-2026-35193</cvename>
+      <cvename>CVE-2026-48587</cvename>
+      <url>http://www.djangoproject.com/weblog/2026/jun/03/security-releases/</url>
+    </references>
+    <dates>
+      <discovery>2026-06-03</discovery>
+      <entry>2026-10-31</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="cc1f80fa-d50e-11f1-8135-8447094a420f">
+    <topic>libreswan -- Multiple vulnerabilities.</topic>
+    <affects>
+      <package>
+	<name>libreswan</name>
+	<range><lt>5.4.1</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The libreswan project reports:</p>
+	<blockquote cite="https://github.com/libreswan/libreswan/releases#release-v5.4.1">
+	  <ul>
+	    <li>CVE-2026-50721: Libreswan, via the function
+	      RSA_authenticate_hash_signature_raw_rsa(), did not correctly verify
+	      the length of the authentication hash when the SIG payload of an IKEv1
+	      packet was encoded using PKCS #1 RSA Encryption as per RFC 2313.</li>
+	    <li>CVE-2026-50722: Libreswan, via the function
+	      RSA_authenticate_hash_signature_pkcs1_1_5_rsa(), did not correctly
+	      verify the DER encoding of the ASN.1 digest when the IKEv2 AUTH
+	      payload was encoded using RSASSA-PKCS1-v1_5 (RFC 8017).</li>
+	   <li>CVE-2026-77206: Libreswan's IKEv2 state machine has a null pointer
+	      dereference bug in the EAP handling code for authentication. As a
+	      result of inconsistency within the IKEv2 state machine code, this bug
+	      can be triggered by any IKEv2 connection, even if EAP is not
+	      configured at all.</li>
+	    <li>CVE-2026-77207: Libreswan has a null pointer dereference bug in the
+	      PKCS#7 handling code for IKE certificate authentication.</li>
+	    <li>CVE-2026-94453: Libreswan's pluto daemon has a use-after-free
+	      vulnerability when a client connecting using IKE over TCP closes the
+	      connection and another packet (retransmit or malicious) is received
+	      for the same tuple.</li>
+	    <li>CVE-2026-12413: An invalidly formatted IKEv2 fragment causes the
+	      Libreswan pluto daemon to crash and restart. Continued exploitation
+	      would cause a denial of service.</li>
+	    <li>CVE-2024-3652: The Libreswan Project was notified of an issue causing
+	      libreswan to restart when using IKEv1 without specifying an esp= line.</li>
+	    <li>CVE-2026-77205: Denial of Service via sending bogus X.509 certificates</li>
+	  </ul>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2026-50721</cvename>
+      <cvename>CVE-2026-77205</cvename>
+      <cvename>CVE-2026-77206</cvename>
+      <cvename>CVE-2026-77207</cvename>
+      <cvename>CVE-2026-50722</cvename>
+      <cvename>CVE-2026-94453</cvename>
+      <cvename>CVE-2026-12413</cvename>
+      <url>https://github.com/libreswan/libreswan/releases#release-v5.4.1</url>
+    </references>
+    <dates>
+      <discovery>2026-10-05</discovery>
+      <entry>2026-10-31</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="65abbad5-da78-11f0-b6d5-843a4b343614">
+    <topic>uriparser -- Denial of Service through Unbound Recursion</topic>
+    <affects>
+      <package>
+	<name>uriparser</name>
+	<range><lt>1.0.0</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The URIparser project reports:</p>
+	<blockquote cite="https://github.com/uriparser/uriparser/issues/282">
+	<p>uriparser through 0.9.9 allows unbounded recursion and stack
+	  consumption, as demonstrated by ParseMustBeSegmentNzNc with large
+	  input containing many commas.</p>
+	</blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2025-67899</cvename>
+      <url>https://cveawg.mitre.org/api/cve/CVE-2025-67899</url>
+    </references>
+    <dates>
+      <discovery>2025-12-14</discovery>
+      <entry>2026-10-31</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="91ea9062-d50a-11f1-8135-8447094a420f">
+    <topic>Weechat -- Multiple vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>weechat</name>
+	<range><lt>4.10.2</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The Weechat project reports:</p>
+	<blockquote cite="https://github.com/weechat/weechat/releases/tag/v4.10.2">
+	  <ul>
+	    <li>core: integer overflow in dynamic strings when their size
+	      exceeds 4 GiB (GHSA-h394-85x4-68c7)</li>
+	    <li>core: heap buffer overflow in charset conversion when the
+	      converted string is more than 4 times longer than the input and
+	      contains invalid chars (GHSA-q32h-5qvq-3936)</li>
+	    <li>irc: limit number of prefix modes in PREFIX of message 005 to
+	      prevent memory exhaustion</li>
+	    <li>irc: escape ${ in values of variables $nick, $channel and
+	      $server in commands /allchan, /allpv and /allserv, to prevent
+	      evaluation of untrusted values</li>
+	    <li>irc: escape ${ in server options addresses, nicks, password and
+	      autojoin set from an IRC URL (irc://...), to prevent evaluation of
+	      untrusted values</li>
+	    <li>irc: escape ${ in channel names saved in server option
+	      autojoin, to prevent evaluation of channel names received from the
+	      server (for example on channel forward)</li>
+	    <li>irc: heap buffer overflow in nick prefixes when the server
+	      sends an empty PREFIX in message 005 and the connection is lost
+	      before message 001 (GHSA-xj8h-x2w9-m8m6)</li>
+	    <li>relay: limit size of HTTP headers received from a client to
+	      prevent memory exhaustion (GHSA-h394-85x4-68c7)</li>
+	    <li>relay: fix heap buffer overflow in path of hdata sent to
+	      clients with "weechat" protocol (GHSA-8wr2-x42m-7fxv)</li>
+	  </ul>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <url>https://github.com/weechat/weechat/releases/tag/v4.10.2</url>
+    </references>
+    <dates>
+      <discovery>2026-10-31</discovery>
+      <entry>2026-10-31</entry>
+      <modified>2026-10-31</modified>
+    </dates>
+  </vuln>
+
   <vuln vid="6dc20034-d4a7-11f1-9893-3c7c3fba4204">
     <topic>Routinator -- multiple vulnerabilities</topic>
     <affects>
@@ -20946,7 +21290,7 @@ vulnerability is fixed in crate versions: 36.0.7, 42.0.2, and 43.0.1.</p>
     <affects>
       <package>
        <name>nginx</name>
-       <range><ge>0.1.17,3</ge><lt>1.30.2_2,3</lt></range>
+       <range><ge>0.1.17,3</ge><lt>1.30.2,3</lt></range>
        <range><ge>1.31.0,3</ge><lt>1.31.1,3</lt></range>
       </package>
     </affects>
