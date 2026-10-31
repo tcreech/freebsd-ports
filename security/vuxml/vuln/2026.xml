@@ -1,3 +1,126 @@
+  <vuln vid="6dc20034-d4a7-11f1-9893-3c7c3fba4204">
+    <topic>Routinator -- multiple vulnerabilities</topic>
+    <affects>
+	<package>
+	  <name>routinator</name>
+	  <range><lt>0.15.3</lt></range>
+	</package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Routinator Team reports:</p>
+	<blockquote cite="https://www.nlnetlabs.nl/projects/routinator/security-advisories/">
+	  <ul>
+	    <li>CVE-2026-72752: Routinator runs out of memory when the JSON
+	      output is requested many times concurrently. This condition can
+	      be triggered maliciously by an attacker by opening a large
+	      number of connections to the HTTP server. Additionally
+	      Routinator runs into a stack overflow and exits when a payload
+	      item with too much metadata is discarded at once.</li>
+	    <li>CVE-2026-72753: When Routinator encounters an RRDP
+	      notification file with gaps in the delta entries, it is still
+	      accepted and parsed, potentially leading to missing data. If it
+	      encounters too many delta entries it may run out of
+	      memory.</li>
+	    <li>CVE-2026-72754: When Routinator encounters a CRL with many
+	      entries, it may hang or run out of memory. If Routinator
+	      encounters a CRL file with the wrong encoding, it may
+	      exit.</li>
+	    <li>CVE-2026-72755: Routinator stores a newly-retrieved TA
+	      certificate via HTTPS in cache before validation, potentially
+	      overwriting a known good TA certificate even if validation
+	      fails.</li>
+	    <li>CVE-2026-72756: Routinator exits when an rsync URI for a
+	      file obtained over RRDP contains a path that cannot be stored
+	      on disk, such as too long file names, and folder names that
+	      overlap with existing file names.</li>
+	    <li>CVE-2026-72757: Routinator runs out of open connections on
+	      the HTTP server when many connections are opened but never
+	      closed, leaving the HTTP server unavailable. This condition can
+	      be triggered maliciously by an attacker by opening a large
+	      number of connections to the HTTP server.</li>
+	    <li>CVE-2026-72758: When parsing an AS range in Routinator, if
+	      the maximum value of the range is smaller than the minimum
+	      value of the range, Routinator will never reach the maximum
+	      value and run out of memory.</li>
+	  </ul>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2026-72752</cvename>
+      <cvename>CVE-2026-72753</cvename>
+      <cvename>CVE-2026-72754</cvename>
+      <cvename>CVE-2026-72755</cvename>
+      <cvename>CVE-2026-72756</cvename>
+      <cvename>CVE-2026-72757</cvename>
+      <cvename>CVE-2026-72758</cvename>
+      <url>https://www.nlnetlabs.nl/downloads/routinator/CVE-2026-72752.txt</url>
+      <url>https://www.nlnetlabs.nl/downloads/routinator/CVE-2026-72753.txt</url>
+      <url>https://www.nlnetlabs.nl/downloads/routinator/CVE-2026-72754.txt</url>
+      <url>https://www.nlnetlabs.nl/downloads/routinator/CVE-2026-72755.txt</url>
+      <url>https://www.nlnetlabs.nl/downloads/routinator/CVE-2026-72756.txt</url>
+      <url>https://www.nlnetlabs.nl/downloads/routinator/CVE-2026-72757.txt</url>
+      <url>https://www.nlnetlabs.nl/downloads/routinator/CVE-2026-72758.txt</url>
+      <url>https://www.nlnetlabs.nl/projects/routinator/security-advisories/</url>
+    </references>
+    <dates>
+      <discovery>2026-10-26</discovery>
+      <entry>2026-10-30</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="84cd82e1-d49f-11f1-bae2-3497f65b111b">
+    <topic>sqlite3 -- multiple vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>sqlite3</name>
+	<range><lt>3.54.0,1</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+	<p>VulnCheck reports:</p>
+	<blockquote cite="https://www.vulncheck.com/advisories/sqlite-before-3.54.0-fts5-heap-buffer-overflow-via-fts5mergerowidlists">
+	  <p>Ten vulnerabilities fixed in SQLite 3.54.0 were published on
+	    2026-10-30. Four of them corrupt the heap: buffer overflows in
+	    the FTS5 functions fts5MergeRowidLists() and
+	    fts5DoSecureDelete() and in the session extension
+	    sessionUpdateFind(), and a use-after-free in the R-Tree function
+	    nodeWrite(). A fifth, a use-after-free in the FTS3 function
+	    fts3BestSnippet(), is reached through snippet().</p>
+	  <p>The remaining five crash the process or leak data: unbounded
+	    recursion through a chain of common table expressions, through a
+	    chain of COLLATE operators and through countOfViewOptimization()
+	    in a VALUES clause, an information leak on a page size mismatch
+	    in the write-ahead log, and an authorizer bypass with RIGHT or
+	    FULL JOIN USING.</p>
+	  <p>An attacker has to supply a database file or SQL text, so the
+	    FTS5 and FTS3 issues apply wherever those options are built in;
+	    both are on by default in databases/sqlite3.</p>
+	</blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2026-119371</cvename>
+      <cvename>CVE-2026-119372</cvename>
+      <cvename>CVE-2026-119373</cvename>
+      <cvename>CVE-2026-119374</cvename>
+      <cvename>CVE-2026-119375</cvename>
+      <cvename>CVE-2026-119376</cvename>
+      <cvename>CVE-2026-119377</cvename>
+      <cvename>CVE-2026-119378</cvename>
+      <cvename>CVE-2026-119379</cvename>
+      <cvename>CVE-2026-119591</cvename>
+      <url>https://www.vulncheck.com/advisories/sqlite-before-3.54.0-fts5-heap-buffer-overflow-via-fts5mergerowidlists</url>
+      <url>https://www.sqlite.org/releaselog/3_54_0.html</url>
+    </references>
+    <dates>
+      <discovery>2026-10-30</discovery>
+      <entry>2026-10-30</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="e6b90d23-d49d-11f1-bae2-3497f65b111b">
     <topic>phpMyAdmin -- Multiple vulnerabilities, no fix available</topic>
     <affects>
