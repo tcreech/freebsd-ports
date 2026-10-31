@@ -17,7 +17,6 @@ OPTIONS_DEFINE=	\
 		SASL		\
 		SERF		\
 		SVNSERVE_WRAPPER\
-		TEST		\
 		TOOLS
 
 OPTIONS_DEFAULT=GPG_AGENT SERF TOOLS
@@ -25,7 +24,6 @@ OPTIONS_DEFAULT=GPG_AGENT SERF TOOLS
 GPG_AGENT_DESC=		Enable GPG agent credential cache
 SERF_DESC=		WebDAV/Delta-V (HTTP/HTTPS) repo access module
 SVNSERVE_WRAPPER_DESC=	Enable svnserve wrapper (umask setter)
-TEST_DESC=		Run subversion test suite
 TOOLS_DESC=		Install several tools
 
 USES+=			shebangfix python:patch,test
@@ -57,9 +55,8 @@ PLIST_SUB+=	NO_SVNSERVE_WRAPPER=""
 SVNSERVE_EXT=
 .endif
 
-.if ${PORT_OPTIONS:MTEST}
 TEST_DEPENDS=	${PYTHON_PKGNAMEPREFIX}sqlite3>0:databases/py-sqlite3@${PY_FLAVOR}
-.endif
+TEST_TARGET=	check
 
 .if make(repository)
 WITH_REPOSITORY_CREATION=	yes
@@ -114,12 +111,6 @@ post-configure:
 # ugly hack: save tools directory so we don't have to cleanup before installing
 	${CP} -R ${WRKSRC}/tools ${WRKSRC}/tools.examples
 	${CHMOD} -R a-st,o+rX ${WRKSRC}/tools.examples
-
-# takes a long time, and will fail but gives maintainer a good oversight
-.if ${PORT_OPTIONS:MTEST}
-test: build
-	-@make check -C ${WRKSRC}
-.endif
 
 post-build-TOOLS-on:
 	${MAKE} -C ${WRKSRC} tools ${MAKE_ARGS}
