@@ -1,4 +1,4 @@
-PORTREVISION=	4
+PORTREVISION=	7
 PKGNAMESUFFIX=	-lts
 
 MAINTAINER=	michaelo@apache.org
@@ -122,8 +122,10 @@ post-patch-SVNSERVE_WRAPPER-on:
 		${WRKSRC}/build-outputs.mk
 
 post-configure:
-# Enable GNOME Keyring / KWallet support in main code, as it is harmless
-	@${REINPLACE_CMD} -E 's%.*#undef SVN_HAVE_(GNOME_KEYRING|KWALLET).*%#define SVN_HAVE_\1 1%' ${WRKSRC}/subversion/svn_private_config.h
+# security/subversion-gnome-keyring provides the library for
+# --with-gnome-keyring (SVN_HAVE_LIBSECRET), not the legacy
+# --with-old-gnome-keyring (SVN_HAVE_GNOME_KEYRING)
+	@${REINPLACE_CMD} -E 's%.*#undef SVN_HAVE_LIBSECRET.*%#define SVN_HAVE_LIBSECRET 1%' ${WRKSRC}/subversion/svn_private_config.h
 # ugly hack: save tools directory so we don't have to cleanup before installing
 	@${CP} -R ${WRKSRC}/tools ${WRKSRC}/tools.examples
 	@${CHMOD} -R a-st,o+rX ${WRKSRC}/tools.examples
@@ -140,6 +142,15 @@ post-install:	${MKREPOS_TARGET}
 	(cd ${WRKSRC}/tools.examples && ${TAR} --exclude '*.in' -cf - * | ${TAR} -C ${STAGEDIR}${DATADIR} -xof - )
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
 	${INSTALL_DATA} ${PORTDOCS:S|^|${WRKSRC}/|} ${STAGEDIR}${DOCSDIR}
+	@${MKDIR} ${STAGEDIR}${PREFIX}/share/bash-completion/completions
+	${INSTALL_DATA} ${WRKSRC}/tools/client-side/bash_completion \
+		${STAGEDIR}${PREFIX}/share/bash-completion/completions/svn
+# bash_completion defines completions for svn, svnadmin, svndumpfilter,
+# svnlook, svnsync, and svnversion; the loader looks up one file per
+# command name, so symlink the other five to the real file
+.for cmd in svnadmin svndumpfilter svnlook svnsync svnversion
+	${LN} -sf svn ${STAGEDIR}${PREFIX}/share/bash-completion/completions/${cmd}
+.endfor
 
 post-install-SVNSERVE_WRAPPER-on:
 	@${INSTALL_SCRIPT} ${FILESDIR}/svnserve.wrapper ${STAGEDIR}${PREFIX}/bin/svnserve.sample
