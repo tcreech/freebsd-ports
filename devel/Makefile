@@ -4343,6 +4343,7 @@
     SUBDIR += php-composer
     SUBDIR += php-grpc
     SUBDIR += php-ice37
+    SUBDIR += php-laminas-stdlib
     SUBDIR += php-libawl
     SUBDIR += php-maxminddb
     SUBDIR += php-mustache
@@ -5976,6 +5977,7 @@
     SUBDIR += py-pytest-canonical-data
     SUBDIR += py-pytest-capturelog
     SUBDIR += py-pytest-cases
+    SUBDIR += py-pytest-check
     SUBDIR += py-pytest-checkdocs
     SUBDIR += py-pytest-codspeed
     SUBDIR += py-pytest-console-scripts
