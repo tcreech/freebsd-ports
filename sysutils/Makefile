@@ -286,7 +286,6 @@
     SUBDIR += ddrescueview
     SUBDIR += debhelper
     SUBDIR += debootstrap
-    SUBDIR += dekit
     SUBDIR += deltarpm
     SUBDIR += deltup
     SUBDIR += deskflow
@@ -735,6 +734,7 @@
     SUBDIR += lxsplit
     SUBDIR += lxtask
     SUBDIR += lxterminal
+    SUBDIR += mac_igmpproxy
     SUBDIR += mac_nonet
     SUBDIR += mac_rtprio
     SUBDIR += mackerel-agent
