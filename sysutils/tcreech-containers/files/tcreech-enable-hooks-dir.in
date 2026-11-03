@@ -1,0 +1,46 @@
+#!/bin/sh
+# Ensure containers.conf enables the hooks directory shipped by
+# sysutils/tcreech-containers.  containers.conf has no drop-in directory, so
+# this one key has to live in the file itself.  Idempotent; keeps a .orig backup.
+
+CONFC="${2:-%%CONFC%%}"
+HOOKSDIR="${1:-%%HOOKSDIR%%}"
+
+if [ ! -f "$CONFC" ]; then
+	echo "tcreech-enable-hooks-dir: $CONFC missing; copy the sample first:" >&2
+	echo "  cp ${CONFC}.sample $CONFC" >&2
+	exit 1
+fi
+
+if grep -qE '^[[:space:]]*hooks_dir[[:space:]]*=' "$CONFC"; then
+	if grep -A3 -E '^[[:space:]]*hooks_dir[[:space:]]*=' "$CONFC" | grep -q "$HOOKSDIR"; then
+		echo "tcreech-enable-hooks-dir: already enabled in $CONFC"
+		exit 0
+	fi
+	echo "tcreech-enable-hooks-dir: hooks_dir is set but does not list $HOOKSDIR:" >&2
+	grep -A3 -E '^[[:space:]]*hooks_dir[[:space:]]*=' "$CONFC" >&2
+	exit 1
+fi
+
+cp -p "$CONFC" "$CONFC.orig"
+awk -v dir="$HOOKSDIR" '
+	!done && $0 ~ /^[[:space:]]*\[engine\][[:space:]]*$/ {
+		print; print "";
+		print "# Added by sysutils/tcreech-containers.";
+		print "hooks_dir = [\"" dir "\"]";
+		done = 1
+		next
+	}
+	{ print }
+	END { if (!done) exit 3 }
+' "$CONFC.orig" > "$CONFC" || {
+	echo "tcreech-enable-hooks-dir: no [engine] section in $CONFC" >&2
+	mv "$CONFC.orig" "$CONFC"
+	exit 1
+}
+
+echo "tcreech-enable-hooks-dir: added hooks_dir to $CONFC (backup: $CONFC.orig)"
+diff -u "$CONFC.orig" "$CONFC" | sed -n '1,20p'
+echo
+echo "Restart the API service so the resident podman process re-reads it:"
+echo "  service podman_service restart"

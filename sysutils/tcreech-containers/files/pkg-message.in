@@ -1,0 +1,51 @@
+[
+{ type: install
+  message: <<EOM
+=====================================================================
+sysutils/tcreech-containers installed.
+
+On a host that already has hand-maintained files in
+%%HOOKSDIR%%, move them aside first; pkg will not quietly
+take over files it does not own:
+
+  cd %%HOOKSDIR%%
+  for f in children.json children.py linprocfs.json linprocfs.py zfs.json zfs.py; do
+    [ -e "$f" ] && mv "$f" "$f.hand-maintained"
+  done
+
+Then, once per host:
+
+1. containers.conf has no drop-in directory, so the hooks_dir key must
+   be in the live file.  Idempotent, keeps a .orig, prints a diff:
+
+     %%ENABLE%%
+
+2. Reload the resident API process and prove the hooks load.  A missing
+   hooks directory is silently ignored and so is a hook that exits
+   non-zero, so do not assume -- test:
+
+     service podman_service restart
+     podman run --rm --os=linux docker.io/library/debian:latest \
+       sh -c 'cat /etc/apt/apt.conf.d/00freebsd && apt-get update -qq && echo apt OK'
+
+3. Hook payload paths are checked when the directory is read, so keep
+   every .json and its script in the same package.  If containers stop
+   starting, look at the newest .json in %%HOOKSDIR%% first.
+
+%%PREFIX%%/etc/cni/net.d/lan.conflist and the registry trust file are
+installed as .sample because they differ per host.  The registry trust
+file only needs copying into place; lan.conflist needs a look first,
+because its "master" must name an existing bridge(4) carrying the LAN
+NIC as a member -- this build says "%%BRIDGE%%", and a plain NIC name is
+never valid.  This package does not create that bridge, so give it a
+home in rc.conf rather than leaving it to whichever jail starts first:
+
+  sysrc cloned_interfaces+="%%BRIDGE%%"
+  sysrc ifconfig_%%BRIDGE%%="addm <lan-nic> up"
+
+A host that runs no LAN-addressed containers can skip lan.conflist
+entirely.
+=====================================================================
+EOM
+}
+]

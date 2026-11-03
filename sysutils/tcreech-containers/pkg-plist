@@ -1,0 +1,12 @@
+libexec/podman/tcreech-enable-hooks-dir
+etc/containers/hooks.d/apt-cache-start
+etc/containers/hooks.d/apt-cache-start.json
+etc/containers/hooks.d/children.py
+etc/containers/hooks.d/children.json
+etc/containers/hooks.d/linprocfs.py
+etc/containers/hooks.d/linprocfs.json
+etc/containers/hooks.d/zfs.py
+etc/containers/hooks.d/zfs.json
+@sample etc/containers/registries.conf.d/tutti.conf.sample
+@sample etc/cni/net.d/lan.conflist.sample
+@dir etc/containers/registries.conf.d

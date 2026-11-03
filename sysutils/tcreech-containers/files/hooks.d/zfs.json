@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "hook": {
+    "path": "/usr/local/etc/containers/hooks.d/zfs.py"
+  },
+  "when": {
+    "annotations": {
+      "^zfs.dataset$": ".+"
+    }
+  },
+  "stages": ["createRuntime", "poststop"]
+}
