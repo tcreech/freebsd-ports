@@ -1,0 +1,21 @@
+Site-local hooks and configuration for the container stack on our FreeBSD
+hosts:
+
+* OCI createRuntime/poststop hooks:
+    - apt-cache-start, which seeds APT::Cache-Start into Linux container root
+      filesystems, working around the FreeBSD Linuxulator not implementing
+      mremap(2) growth, so stock Debian and Ubuntu images can run apt-get
+      without the per-distro "_fix" base images;
+    - children, linprocfs and zfs, which apply the org.freebsd.jail.* and
+      zfs.dataset podman annotations to the jail once it exists.
+  Annotation-gated hooks are inert on hosts that never set the annotation, so
+  all four ship everywhere.
+* registries.conf.d trust for the LAN registry, so pulls and pushes work
+  against the LAN registry without --tls-verify=false;
+* the CNI network configuration that gives containers a real LAN address
+  through the epair plugin.
+
+Config files that differ per host are installed as .sample, so local edits
+survive upgrades; run the port's tcreech-enable-hooks-dir helper once per
+host,
+because containers.conf has no drop-in directory for the hooks_dir key.

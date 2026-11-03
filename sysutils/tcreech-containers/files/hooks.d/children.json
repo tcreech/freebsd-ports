@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "hook": {
+    "path": "/usr/local/etc/containers/hooks.d/children.py"
+  },
+  "when": {
+    "annotations": {
+      "^org.freebsd.jail.children.max$": ".+"
+    }
+  },
+  "stages": ["createRuntime"]
+}

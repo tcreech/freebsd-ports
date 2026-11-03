@@ -1,0 +1,106 @@
+#!/usr/local/bin/python3
+"""Give apt a big enough initial mmap, at container create time.
+
+apt grows its package cache with mremap(2). The FreeBSD Linuxulator implements that
+syscall as a stub that can only shrink:
+
+    if (args->new_len > args->old_len) {
+            td->td_retval[0] = 0;
+            return (ENOMEM);
+    }                                              # sys/compat/linux/linux_misc.c
+
+so growth always fails and apt dies with
+
+    E: Dynamic MMap ran out of room. Please increase the size of APT::Cache-Start.
+
+unless the mapping starts out large enough. The usual answer, and what sysutils/
+debootstrap does in its patch-scripts_debian-common, is to drop
+
+    APT::Cache-Start 251658240;
+
+into /etc/apt/apt.conf.d/00freebsd. This hook does the same thing for every container,
+so the line does not have to be baked into one patched base image per distribution: it
+writes into the container's own rootfs, which is a per-container overlay mount, so no
+image is modified and non-apt images are untouched.
+
+Installed as /usr/local/libexec/podman/apt-cache-start and driven from
+/usr/local/etc/containers/hooks.d/10-apt-cache-start.json.
+"""
+
+import json
+import os
+import sys
+
+LINE = 'APT::Cache-Start "%s";\n' % os.environ.get("APT_CACHE_START", "251658240")
+
+
+def rootfs():
+    """Host path of this container's root filesystem.
+
+    ocijail puts the answer in the state it pipes to the hook (create.cpp:407), but the
+    value can be relative to the bundle, and other runtimes only give us the bundle, so
+    try each candidate in order.  Note the spec's root.path is not authoritative here:
+    ocijail names the bundle's root directory "root" whatever the spec says
+    (create.cpp:142), and podman hands out "rootfs", so resolving only the spec path
+    would quietly find nothing and do nothing.
+    """
+    try:
+        state = json.load(sys.stdin)
+    except (ValueError, OSError):
+        state = {}
+
+    bundle = state.get("bundle") or os.environ.get("BUNDLE")
+    candidates = []
+
+    if state.get("root_path"):
+        candidates.append(state["root_path"])
+    if bundle:
+        try:
+            with open(os.path.join(bundle, "config.json")) as handle:
+                spec_path = json.load(handle)["root"].get("path")
+            if spec_path:
+                candidates.append(spec_path)
+        except (KeyError, ValueError, OSError):
+            pass
+        candidates.append(os.path.join(bundle, "root"))
+        candidates.append(os.path.join(bundle, "rootfs"))
+
+    for path in candidates:
+        if not os.path.isabs(path) and bundle:
+            path = os.path.join(bundle, path)
+        if os.path.isdir(path):
+            return path
+    return None
+
+
+def main():
+    root = rootfs()
+    if not root:
+        return 0
+
+    apt = os.path.join(root, "etc", "apt")
+    parts = os.path.join(apt, "apt.conf.d")
+    # Same file ports uses, when the image has an apt.conf.d for it.
+    target = os.path.join(parts, "00freebsd") if os.path.isdir(parts) else os.path.join(apt, "apt.conf")
+    if not os.path.isdir(os.path.dirname(target)):
+        return 0                                   # not an apt-based image
+
+    try:
+        with open(target) as handle:
+            if LINE in handle.read():
+                return 0                           # already there, or image ships it
+    except FileNotFoundError:
+        pass
+    except OSError:
+        return 0
+
+    try:
+        with open(target, "a") as handle:
+            handle.write(LINE)
+    except OSError:
+        pass                                       # read-only rootfs; do not block the run
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
