@@ -23,8 +23,12 @@ WWW=		https://www.tcreech.com/
 # the hooks must not depend on $PATH, because ocijail replaces the hook
 # environment whenever the hook JSON sets "env".
 RUN_DEPENDS=	${LOCALBASE}/bin/podman:sysutils/podman \
-		${LOCALBASE}/bin/ocijail:sysutils/ocijail \
-		${LOCALBASE}/libexec/cni/epair:sysutils/cni-epair
+		${LOCALBASE}/bin/ocijail:sysutils/ocijail
+# cni-epair is main-only (new ports are not merged to quarterly), and naming a
+# missing origin makes poudriere abort bulk and pkgclean for the whole set.
+.if exists(${.CURDIR}/../cni-epair/Makefile)
+RUN_DEPENDS+=	${LOCALBASE}/libexec/cni/epair:sysutils/cni-epair
+.endif
 
 USES=		python:run shebangfix
 # Rewritten in ${WRKSRC}, then installed from there; the extensionless apt
