@@ -451,7 +451,9 @@
     SUBDIR += openfhe
     SUBDIR += openfortivpn
     SUBDIR += openiked
+    SUBDIR += openpgp-card-ssh-agent
     SUBDIR += openpgp-card-tools
+    SUBDIR += openpgp-card-tools-git
     SUBDIR += opensaml
     SUBDIR += opensc
     SUBDIR += openssh-askpass
