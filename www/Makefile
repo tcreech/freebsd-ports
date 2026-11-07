@@ -314,9 +314,14 @@
     SUBDIR += imaginary
     SUBDIR += immich
     SUBDIR += immich-cli
+    SUBDIR += immich-deduper
+    SUBDIR += immich-folder-album-creator
     SUBDIR += immich-go
+    SUBDIR += immich-kiosk
     SUBDIR += immich-ml
+    SUBDIR += immich-power-tools
     SUBDIR += immich-public-proxy
+    SUBDIR += immichframe
     SUBDIR += iocaine
     SUBDIR += iridium
     SUBDIR += janus
@@ -1918,6 +1923,7 @@
     SUBDIR += py-hyperframe
     SUBDIR += py-hyperkitty
     SUBDIR += py-hyperlink
+    SUBDIR += py-immichpy
     SUBDIR += py-inlinestyler
     SUBDIR += py-internetarchive
     SUBDIR += py-jh2
