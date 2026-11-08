@@ -713,6 +713,7 @@
     SUBDIR += evemu
     SUBDIR += exomizer
     SUBDIR += expected
+    SUBDIR += f.el
     SUBDIR += f77flow
     SUBDIR += fbthrift
     SUBDIR += fc++
@@ -8681,6 +8682,7 @@
     SUBDIR += rvi
     SUBDIR += rvm
     SUBDIR += rxcpp
+    SUBDIR += s.el
     SUBDIR += sabre
     SUBDIR += safe-iop
     SUBDIR += samurai
