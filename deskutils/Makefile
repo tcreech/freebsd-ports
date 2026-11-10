@@ -131,6 +131,7 @@
     SUBDIR += jot
     SUBDIR += just
     SUBDIR += kaddressbook
+    SUBDIR += kaichat
     SUBDIR += kalarm
     SUBDIR += kanbanapp
     SUBDIR += kcharselect
@@ -273,7 +274,6 @@
     SUBDIR += sysctlview
     SUBDIR += systempreferences
     SUBDIR += taskd
-    SUBDIR += tasksh
     SUBDIR += taskwarrior
     SUBDIR += taskwarrior-tui
     SUBDIR += tatuin
