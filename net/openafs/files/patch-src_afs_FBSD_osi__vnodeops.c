@@ -1,4 +1,4 @@
---- src/afs/FBSD/osi_vnodeops.c.orig	2025-01-23 17:12:55 UTC
+--- src/afs/FBSD/osi_vnodeops.c.orig	2026-06-25 20:03:19 UTC
 +++ src/afs/FBSD/osi_vnodeops.c
 @@ -62,7 +62,12 @@
  #include <vm/vm_pager.h>
@@ -150,7 +150,15 @@
      return code;
  }
  
-@@ -695,6 +743,7 @@ afs_vop_putpages(struct vop_putpages_args *ap)
+@@ -689,12 +737,15 @@ afs_vop_putpages(struct vop_putpages_args *ap)
+ {
+     int code;
+     int i, size, npages, sync;
++    off_t filesize;
++    size_t onfile;
+     struct uio uio;
+     struct iovec iov;
+     struct buf *bp;
      vm_offset_t kva;
      struct vnode *vp;
      struct vcache *avc;
@@ -158,7 +166,7 @@
  
      memset(&uio, 0, sizeof(uio));
      memset(&iov, 0, sizeof(iov));
-@@ -713,7 +762,11 @@ afs_vop_putpages(struct vop_putpages_args *ap)
+@@ -713,7 +764,11 @@ afs_vop_putpages(struct vop_putpages_args *ap)
      npages = btoc(ap->a_count);
      for (i = 0; i < npages; i++)
  	ap->a_rtvals[i] = VM_PAGER_AGAIN;
@@ -170,11 +178,31 @@
  
      kva = (vm_offset_t) bp->b_data;
      pmap_qenter(kva, ap->a_m, npages);
-@@ -736,19 +789,41 @@ afs_vop_putpages(struct vop_putpages_args *ap)
+@@ -736,19 +791,61 @@ afs_vop_putpages(struct vop_putpages_args *ap)
       * sync |= IO_INVAL; */
  
      AFS_GLOCK();
 -    code = afs_write(avc, &uio, sync, osi_curcred(), 0);
++
++    /*
++     * The buffer cache hands us whole pages, but the last page of a file is
++     * usually only partly valid.  Storing all of it would extend the file to
++     * the page boundary, since afs_write() treats a write which ends past the
++     * current length as an extension.  Trim the request to the number of bytes
++     * which are actually inside the file, the way ffs_putpages() does.
++     */
++    filesize = (off_t)avc->f.m.Length;
++    if (uio.uio_offset < filesize) {
++	onfile = (size_t)(filesize - uio.uio_offset);
++	if (onfile < (size_t)uio.uio_resid) {
++	    uio.uio_resid = onfile;
++	    iov.iov_len = onfile;
++	}
++    } else {
++	/* Nothing left to store, but these pages need not come back. */
++	uio.uio_resid = 0;
++	iov.iov_len = 0;
++    }
 +
 +    ObtainReadLock(&avc->lock);
 +    if (avc->cred != NULL) {
@@ -213,7 +241,7 @@
      return ap->a_rtvals[0];
  }
  
-@@ -848,7 +923,11 @@ afs_vop_link(ap)
+@@ -848,7 +945,11 @@ afs_vop_link(ap)
      error = afs_link(VTOAFS(vp), VTOAFS(dvp), name, cnp->cn_cred);
      AFS_GUNLOCK();
      if (dvp != vp)
@@ -225,7 +253,7 @@
    out:
      DROPNAME();
      return error;
-@@ -913,11 +992,13 @@ afs_vop_rename(ap)
+@@ -913,11 +1014,13 @@ afs_vop_rename(ap)
  	vrele(fvp);
  	fcnp->cn_flags &= ~MODMASK;
  	fcnp->cn_flags |= LOCKPARENT | LOCKLEAF;
@@ -240,7 +268,7 @@
  	if (error == 0)
  	    vrele(fdvp);
  	if (fvp == NULL) {
-@@ -977,9 +1058,11 @@ afs_vop_mkdir(ap)
+@@ -977,9 +1080,11 @@ afs_vop_mkdir(ap)
      struct vcache *vcp;
  
      GETNAME();
@@ -253,7 +281,7 @@
  #endif
      AFS_GLOCK();
      error = afs_mkdir(VTOAFS(dvp), name, vap, &vcp, cnp->cn_cred);
-@@ -1038,17 +1121,18 @@ afs_vop_symlink(struct vop_symlink_args *ap)
+@@ -1038,17 +1143,18 @@ afs_vop_symlink(struct vop_symlink_args *ap)
      dvp = ap->a_dvp;
      newvp = NULL;
  
@@ -277,7 +305,7 @@
      DROPNAME();
      *(ap->a_vpp) = newvp;
      return error;
-@@ -1154,7 +1238,11 @@ afs_vop_reclaim(struct vop_reclaim_args *ap)
+@@ -1154,7 +1260,11 @@ afs_vop_reclaim(struct vop_reclaim_args *ap)
       * the vnode lock, and we need afs_xvcache. So drop the vnode lock in order
       * to hold afs_xvcache.
       */
@@ -289,7 +317,7 @@
  
      if (!haveGlock)
  	AFS_GLOCK();
-@@ -1166,7 +1254,9 @@ afs_vop_reclaim(struct vop_reclaim_args *ap)
+@@ -1166,7 +1276,9 @@ afs_vop_reclaim(struct vop_reclaim_args *ap)
       * vnode is already VI_DOOMED. We just want to lock it again, and skip the
       * VI_DOOMED check.
       */
@@ -299,7 +327,7 @@
  
      code = afs_FlushVCache(avc, &slept);
  
-@@ -1214,7 +1304,7 @@ afs_vop_print(ap)
+@@ -1214,7 +1326,7 @@ afs_vop_print(ap)
      struct vcache *vc = VTOAFS(ap->a_vp);
      int s = vc->f.states;
  
@@ -308,7 +336,7 @@
  	   (int)vc->f.fid.Cell, (u_int) vc->f.fid.Fid.Volume,
  	   (u_int) vc->f.fid.Fid.Vnode, (u_int) vc->f.fid.Fid.Unique, vc->opens,
  	   vc->execsOrWriters);
-@@ -1241,6 +1331,7 @@ afs_vop_advlock(ap)
+@@ -1241,6 +1353,7 @@ afs_vop_advlock(ap)
  {
      int error, a_op;
      struct ucred cr = *osi_curcred();
@@ -316,7 +344,7 @@
  
      a_op = ap->a_op;
      if (a_op == F_UNLCK) {
-@@ -1254,6 +1345,7 @@ afs_vop_advlock(ap)
+@@ -1254,6 +1367,7 @@ afs_vop_advlock(ap)
  	a_op = F_SETLK;
      }
  
@@ -324,7 +352,7 @@
      AFS_GLOCK();
      error =
  	afs_lockctl(VTOAFS(ap->a_vp),
-@@ -1261,6 +1353,11 @@ afs_vop_advlock(ap)
+@@ -1261,6 +1375,11 @@ afs_vop_advlock(ap)
  		a_op, &cr,
  		(int)(intptr_t)ap->a_id);	/* XXX: no longer unique! */
      AFS_GUNLOCK();
@@ -336,7 +364,7 @@
      return error;
  }
  
-@@ -1295,3 +1392,7 @@ struct vop_vector afs_vnodeops = {
+@@ -1295,3 +1414,7 @@ struct vop_vector afs_vnodeops = {
  	.vop_symlink =		afs_vop_symlink,
  	.vop_write =		afs_vop_write,
  };
