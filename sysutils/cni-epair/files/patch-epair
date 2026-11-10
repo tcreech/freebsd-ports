@@ -1,0 +1,283 @@
+--- epair
++++ epair
+@@ -138,42 +138,96 @@
+     echo "${name:-container}"
+ }
+ 
+-# dhcp_lease <interface> -- ask the LAN's DHCP server for an address on an
+-# interface that is still on the HOST side of the epair.
++# dhcp_state_dir <container id> -- where a container's long-running DHCP
++# client keeps its pid, lease, config, hook script and result. Keyed by
++# container id (not $$, which dies with the plugin) so DEL can find the
++# client again.
++dhcp_state_dir() {
++    local state_dir="${CNI_EPAIR_STATE:-/var/run/cni/freebsd-epair}"
++    echo "$state_dir/$1.dhcp"
++}
++
++# start_dhcp_client <container id> <host iface> <client mac> <jail id> <jail iface>
+ #
+-# It has to happen here rather than inside the jail: DHCP needs BPF to
+-# broadcast, and a container has neither /dev/bpf nor a dhclient binary. The
+-# host has both, and the request carries the b-side's MAC, so a reservation
+-# keyed on that MAC resolves exactly as it would for a physical host.
++# Lease maintenance has to happen here, on the host side, and it has to be
++# LONG-RUNNING. It cannot happen inside the jail: DHCP needs BPF to broadcast,
++# and a container has neither /dev/bpf nor a dhclient binary. And a client run
++# once at ADD and killed leaves a lease nobody ever renews: the LAN's server
++# reclaims the address at expiry and the container is left on a dead one.
+ #
+-# dhclient is caged with its own config and a script that records the lease and
+-# configures nothing: the stock /sbin/dhclient-script would rewrite the HOST's
+-# resolv.conf and default route.
++# dhclient runs against the epair's a side, which stays in the host, and
++# daemonizes itself after the first BOUND to renew for the container's
++# lifetime -- the per-container equivalent of the long-running host daemon the
++# Linux CNI dhcp plugin talks to. The b side must already be in the jail and
++# renamed, because the hook script configures it by its final name.
+ #
+-# Prints "<address>/<prefix> <gateway> <dns>"; empty on failure.
+-dhcp_lease() {
+-    local iface="$1"
+-    local dir="${CNI_EPAIR_RUN:-/var/run}/cni-epair-dhcp.$$"
++# The lease is the container's, not the host's, in two ways: the request sends
++# dhcp-client-identifier of the b-side MAC, so a reservation keyed on that MAC
++# resolves as it would for a physical host even though chaddr carries the a
++# side's MAC; and the hook script configures the JAIL side, so a renewal that
++# changes the address moves the container with it. The stock
++# /sbin/dhclient-script is not used: it would rewrite the HOST's resolv.conf
++# and default route.
++#
++# The first lease event only records the result -- cmd_add configures the jail
++# from it. Every later event is applied by the script itself.
++#
++# Blocks until the first lease or the timeout. Stops the client and fails if
++# no lease arrives.
++start_dhcp_client() {
++    local container_id="$1" iface="$2" client_mac="$3"
++    local jid="$4" jail_if="$5"
++    local dir=$(dhcp_state_dir "$container_id")
+     local wait_max="${CNI_EPAIR_DHCP_TIMEOUT:-20}"
++
++    rm -rf "$dir"
+     mkdir -p "$dir" || return 1
+ 
+-    # The output path is baked into the script rather than passed in the
+-    # environment: dhclient builds the script's environment itself and does not
+-    # pass ours through, so an exported variable never arrives.
+-    printf '#!/bin/sh\nLEASE_OUT=%s\n' "$dir/result" > "$dir/script"
++    # Paths are baked into the script rather than passed in the environment:
++    # dhclient builds the script's environment itself and does not pass ours
++    # through, so an exported variable never arrives.
++    printf '#!/bin/sh\nLEASE_OUT=%s\nLOG_OUT=%s\nJID=%s\nJAIL_IF=%s\n' \
++        "$dir/result" "$LOG_FILE" "$jid" "$jail_if" > "$dir/script"
+     cat >> "$dir/script" <<'EOS'
++exec >>"$LOG_OUT" 2>&1
+ case "$reason" in
+ BOUND|RENEW|REBIND|REBOOT)
+-    printf '%s %s %s %s\n' "$new_ip_address" "$new_subnet_mask" \
++    if [ -f "$LEASE_OUT" ]; then
++        # A lease event after the first: the container is live and may be on
++        # a stale address. Move it to the new one.
++        if [ -n "$old_ip_address" ] && [ "$old_ip_address" != "$new_ip_address" ]; then
++            ifconfig -j "$JID" "$JAIL_IF" remove "$old_ip_address" >/dev/null 2>&1
++        fi
++        ifconfig -j "$JID" "$JAIL_IF" inet "$new_ip_address" netmask "$new_subnet_mask" >/dev/null 2>&1
++        if [ -n "$new_routers" ] && [ "$new_routers" != "$old_routers" ]; then
++            route -j "$JID" delete default >/dev/null 2>&1
++            route -j "$JID" add default ${new_routers%% *} >/dev/null 2>&1
++        fi
++    fi
++    # One field per line -- address, mask, routers, DNS -- because the lists
++    # are space-separated within their lines and need no counting to parse.
++    printf '%s\n%s\n%s\n%s\n' "$new_ip_address" "$new_subnet_mask" \
+         "$new_routers" "$new_domain_name_servers" > "$LEASE_OUT"
+     ;;
+ esac
+ exit 0
+ EOS
+     chmod 0755 "$dir/script"
+-    echo "interface \"$iface\" { send host-name \"$(dhcp_hostname)\"; script \"$dir/script\"; }" > "$dir/conf"
+ 
+-    dhclient -d -c "$dir/conf" -l "$dir/lease" -p "$dir/pid" "$iface" \
++    {
++        echo "interface \"$iface\" {"
++        echo "    send host-name \"$(dhcp_hostname)\";"
++        [ -n "$client_mac" ] && \
++            echo "    send dhcp-client-identifier 1:$client_mac;"
++        echo "    script \"$dir/script\";"
++        echo "}"
++    } > "$dir/conf"
++
++    # No -d: dhclient stays in the foreground until configured and then
++    # detaches to renew. Only kill it on failure; on success it outlives this
++    # script, and cmd_del stops it via the pid file. Its stdout/stderr go to
++    # the log so the daemon cannot hold podman's result pipe open.
++    dhclient -c "$dir/conf" -l "$dir/lease" -p "$dir/pid" "$iface" \
+         >>"$LOG_FILE" 2>&1 &
+     local dhpid=$!
+ 
+@@ -183,21 +237,36 @@
+         sleep 1
+         waited=$((waited + 1))
+     done
+-    kill "$dhpid" 2>/dev/null || true
+-    wait "$dhpid" 2>/dev/null || true
+-    if [ -f "$dir/pid" ]; then
+-        kill "$(cat "$dir/pid" 2>/dev/null)" 2>/dev/null || true
++    # A detached daemon exits before its child has written the last result;
++    # give that write a moment rather than declaring failure on the race.
++    if [ ! -s "$dir/result" ]; then
++        sleep 1
+     fi
++    if [ ! -s "$dir/result" ]; then
++        kill "$dhpid" 2>/dev/null || true
++        if [ -f "$dir/pid" ]; then
++            kill "$(cat "$dir/pid" 2>/dev/null)" 2>/dev/null || true
++        fi
++        rm -rf "$dir"
++        return 1
++    fi
++    return 0
++}
+ 
+-    local out=""
+-    if [ -s "$dir/result" ]; then
+-        local addr mask routers dns
+-        read -r addr mask routers dns < "$dir/result"
+-        [ -n "$mask" ] || mask=255.255.255.0
+-        out="$addr/$(mask2prefix "$mask") ${routers%% *} ${dns%% *}"
++# stop_dhcp_client <container id> -- undo start_dhcp_client. This dhclient has
++# no -x and never sends a DHCPRELEASE, not even on a clean exit, so the lease
++# is simply left to expire; a container restarted with the same identity gets
++# an address back the same way it got this one. Callers run this BEFORE the
++# epair is destroyed: the destroy would take the daemon's interface with it,
++# the daemon would exit on its own first, and the kill here would be a no-op
++# racing a dying process -- same end state, but no log line saying so.
++stop_dhcp_client() {
++    local dir=$(dhcp_state_dir "$1")
++    if [ -f "$dir/pid" ]; then
++        kill "$(cat "$dir/pid" 2>/dev/null)" 2>/dev/null || true
++        log "stopped dhcp client for $1"
+     fi
+     rm -rf "$dir"
+-    echo "$out"
+ }
+ 
+ cmd_add() {
+@@ -287,8 +356,9 @@
+             # Only when no IPv4 came in: DHCP is IPv4-only here, and the
+             # lease below overwrites $ip, losing a pinned address.
+             #
+-            # Handled below, once the epair exists and carries its MAC: there
+-            # is no /usr/local/libexec/cni/dhcp on FreeBSD to exec.
++            # Handled below, after the epair exists: the lease is kept alive
++            # by a long-running host-side dhclient (see start_dhcp_client),
++            # and there is no /usr/local/libexec/cni/dhcp on FreeBSD to exec.
+             [ -z "$ip" ] && use_dhcp=yes
+         elif [ -n "$ipam_type" ] && [ "$ipam_type" != "none" ] && [ "$ipam_type" != "static" ]; then
+             local ipam_result=$(echo "$config" | CNI_COMMAND=ADD /usr/local/libexec/cni/"$ipam_type" 2>/dev/null)
+@@ -351,6 +421,7 @@
+     # behind on the bridge.
+     fail_add() {
+         log "ADD: FAILED: $1"
++        stop_dhcp_client "$CNI_CONTAINERID"
+         ifconfig "$epair_a" destroy 2>/dev/null || true
+         del_epair "$CNI_CONTAINERID"
+         die "$1"
+@@ -363,25 +434,18 @@
+     ifconfig "$epair_a" up 2>/dev/null ||
+         fail_add "could not bring up $epair_a"
+ 
+-    # The MAC has to be in place BEFORE any DHCP request, so a reservation
++    # The MAC has to be in place BEFORE the DHCP request, so a reservation
+     # keyed on it resolves; it survives the move into the jail.
+     if [ -n "$mac" ]; then
+         ifconfig "$epair_b" ether "$mac" 2>/dev/null ||
+             fail_add "could not set MAC $mac on $epair_b"
+     fi
+-
+-    # DHCP runs here, on the host side: a jail has no /dev/bpf to broadcast
+-    # from and no dhclient to run.
+-    if [ -n "$use_dhcp" ]; then
+-        ifconfig "$epair_b" up 2>/dev/null ||
+-            fail_add "could not bring up $epair_b for DHCP"
+-        local lease=$(dhcp_lease "$epair_b")
+-        log "ADD: dhcp lease=$lease"
+-        [ -z "$lease" ] && fail_add "no DHCP response on $bridge for $epair_b"
+-        ip=$(echo "$lease" | awk '{print $1}')
+-        gateway=$(echo "$lease" | awk '{print $2}')
+-        dns=$(echo "$lease" | awk '{print $3}')
+-    fi
++    # What the DHCP client will identify itself by: the pinned MAC if we have
++    # one, otherwise the epair's own, read before the b side leaves for the
++    # jail. Either way it is the MAC the container ends up with.
++    local client_mac="$mac"
++    [ -z "$client_mac" ] &&
++        client_mac=$(ifconfig "$epair_b" 2>/dev/null | awk '/ether/{print $2}')
+ 
+     # Move to jail
+     ifconfig "$epair_b" vnet "$jail_id" >/dev/null 2>&1 ||
+@@ -400,6 +464,28 @@
+         actual_mac=$(ifconfig -j "$jail_id" "$ifname" 2>/dev/null | grep ether | awk '{print $2}')
+     fi
+ 
++    # DHCP runs after the jail side exists: the client is long-running and its
++    # renewal hook configures the jail side by name, so that name must be final
++    # before the first event fires. See start_dhcp_client.
++    if [ -n "$use_dhcp" ]; then
++        ifconfig -j "$jail_id" "$ifname" up >/dev/null 2>&1 ||
++            fail_add "could not bring up $ifname in jail $jail_id for DHCP"
++        start_dhcp_client "$CNI_CONTAINERID" "$epair_a" "$client_mac" \
++            "$jail_id" "$ifname" ||
++            fail_add "no DHCP response on $bridge for $epair_a"
++        local res="$(dhcp_state_dir "$CNI_CONTAINERID")/result"
++        local lease=$(tr '\n' ' ' < "$res" 2>/dev/null)
++        log "ADD: dhcp lease=$lease"
++        local addr mask
++        addr=$(sed -n '1p' "$res")
++        mask=$(sed -n '2p' "$res")
++        [ -n "$addr" ] || fail_add "empty DHCP lease result for $epair_a"
++        [ -n "$mask" ] || mask=255.255.255.0
++        ip="$addr/$(mask2prefix "$mask")"
++        gateway=$(sed -n '3p' "$res" | awk '{print $1}')
++        dns=$(sed -n '4p' "$res" | awk '{print $1}')
++    fi
++
+     # Configure IP -- the one step whose failure makes the whole result a lie.
+     if [ -n "$ip" ]; then
+         ifconfig -j "$jail_id" "$ifname" inet "$ip" >/dev/null 2>&1 ||
+@@ -475,12 +561,17 @@
+     # Get saved epair
+     local epair_a=$(get_epair "$CNI_CONTAINERID")
+ 
++    # Stop the lease-maintenance client FIRST: destroying the epair also
++    # destroys the a side, the client quits when its interface vanishes, and a
++    # cleanly exiting dhclient unlinks its own pid file before we could kill
++    # it -- same end state, but no log line saying the client was stopped.
++    stop_dhcp_client "$CNI_CONTAINERID"
++
+     if [ -n "$epair_a" ]; then
+         # Destroy epair (destroys both ends)
+         ifconfig "$epair_a" destroy 2>/dev/null || true
+         log "DEL: destroyed $epair_a"
+     fi
+-
+     del_epair "$CNI_CONTAINERID"
+ 
+     # Hand the addresses back. ADD delegates allocation to the IPAM plugin, and
+@@ -525,6 +616,14 @@
+         die "Interface $ifname not found in jail"
+     fi
+ 
++    # Advisory only: a dead client means the lease will lapse, but the
++    # container still has connectivity right now.
++    local dhcp_dir=$(dhcp_state_dir "$CNI_CONTAINERID")
++    if [ -f "$dhcp_dir/pid" ] &&
++        ! kill -0 "$(cat "$dhcp_dir/pid" 2>/dev/null)" 2>/dev/null; then
++        log "CHECK: dhcp client for $CNI_CONTAINERID is not running"
++    fi
++
+     cat <<EOF
+ {
+   "cniVersion": "1.0.0"
