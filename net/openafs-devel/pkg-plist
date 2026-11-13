@@ -34,6 +34,7 @@ include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/%%AFSMNTDIR%%_args.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/%%AFSMNTDIR%%_atomlist.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/%%AFSMNTDIR%%_consts.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/%%AFSMNTDIR%%_lhash.h
+include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/%%AFSMNTDIR%%_lock.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/%%AFSMNTDIR%%_stats.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/%%AFSMNTDIR%%_sysnames.h
 include/open%%AFSMNTDIR%%/%%AFSMNTDIR%%/%%AFSMNTDIR%%_trace.h
