@@ -1,6 +1,6 @@
 --- epair
 +++ epair
-@@ -138,42 +138,96 @@
+@@ -150,42 +150,96 @@
      echo "${name:-container}"
  }
  
@@ -117,7 +117,7 @@
          >>"$LOG_FILE" 2>&1 &
      local dhpid=$!
  
-@@ -183,21 +237,36 @@
+@@ -195,21 +249,36 @@
          sleep 1
          waited=$((waited + 1))
      done
@@ -165,7 +165,7 @@
  }
  
  cmd_add() {
-@@ -287,8 +356,9 @@
+@@ -306,8 +375,9 @@
              # Only when no IPv4 came in: DHCP is IPv4-only here, and the
              # lease below overwrites $ip, losing a pinned address.
              #
@@ -176,8 +176,8 @@
 +            # and there is no /usr/local/libexec/cni/dhcp on FreeBSD to exec.
              [ -z "$ip" ] && use_dhcp=yes
          elif [ -n "$ipam_type" ] && [ "$ipam_type" != "none" ] && [ "$ipam_type" != "static" ]; then
-             local ipam_result=$(echo "$config" | CNI_COMMAND=ADD /usr/local/libexec/cni/"$ipam_type" 2>/dev/null)
-@@ -351,6 +421,7 @@
+             local ipam_bin
+@@ -379,6 +449,7 @@
      # behind on the bridge.
      fail_add() {
          log "ADD: FAILED: $1"
@@ -185,7 +185,7 @@
          ifconfig "$epair_a" destroy 2>/dev/null || true
          del_epair "$CNI_CONTAINERID"
          die "$1"
-@@ -363,25 +434,18 @@
+@@ -399,25 +470,18 @@
      ifconfig "$epair_a" up 2>/dev/null ||
          fail_add "could not bring up $epair_a"
  
@@ -218,7 +218,7 @@
  
      # Move to jail
      ifconfig "$epair_b" vnet "$jail_id" >/dev/null 2>&1 ||
-@@ -400,6 +464,28 @@
+@@ -436,6 +500,28 @@
          actual_mac=$(ifconfig -j "$jail_id" "$ifname" 2>/dev/null | grep ether | awk '{print $2}')
      fi
  
@@ -247,7 +247,7 @@
      # Configure IP -- the one step whose failure makes the whole result a lie.
      if [ -n "$ip" ]; then
          ifconfig -j "$jail_id" "$ifname" inet "$ip" >/dev/null 2>&1 ||
-@@ -475,12 +561,17 @@
+@@ -515,12 +601,17 @@
      # Get saved epair
      local epair_a=$(get_epair "$CNI_CONTAINERID")
  
@@ -266,7 +266,7 @@
      del_epair "$CNI_CONTAINERID"
  
      # Hand the addresses back. ADD delegates allocation to the IPAM plugin, and
-@@ -525,6 +616,14 @@
+@@ -566,6 +657,14 @@
          die "Interface $ifname not found in jail"
      fi
  
