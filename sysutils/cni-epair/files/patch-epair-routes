@@ -16,7 +16,7 @@ a route going missing does.
 
 --- epair
 +++ epair
-@@ -125,6 +125,88 @@
+@@ -137,6 +137,88 @@
          done
      done
      echo "$bits"
@@ -105,7 +105,7 @@ a route going missing does.
  }
  
  # dhcp_hostname -- the container's name (podman passes K8S_POD_NAME) as a
-@@ -190,6 +272,30 @@
+@@ -202,6 +284,30 @@
          "$dir/result" "$LOG_FILE" "$jid" "$jail_if" > "$dir/script"
      cat >> "$dir/script" <<'EOS'
  exec >>"$LOG_OUT" 2>&1
@@ -136,7 +136,7 @@ a route going missing does.
  case "$reason" in
  BOUND|RENEW|REBIND|REBOOT)
      if [ -f "$LEASE_OUT" ]; then
-@@ -199,9 +305,14 @@
+@@ -211,9 +317,14 @@
              ifconfig -j "$JID" "$JAIL_IF" remove "$old_ip_address" >/dev/null 2>&1
          fi
          ifconfig -j "$JID" "$JAIL_IF" inet "$new_ip_address" netmask "$new_subnet_mask" >/dev/null 2>&1
@@ -154,7 +154,7 @@ a route going missing does.
          fi
      fi
      # One field per line -- address, mask, routers, DNS -- because the lists
-@@ -499,9 +610,18 @@
+@@ -535,9 +646,18 @@
              fail_add "could not set $ip6 on $ifname in jail $jail_id"
      fi
  
@@ -175,7 +175,7 @@ a route going missing does.
      fi
      if [ -n "$gateway6" ]; then
          # A link-local gateway is ambiguous without the interface it is on:
-@@ -510,7 +630,8 @@
+@@ -546,7 +666,8 @@
          case "$gateway6" in
              fe80:*|FE80:*) [ "${gateway6#*%}" = "$gateway6" ] && gateway6="$gateway6%$ifname" ;;
          esac
@@ -185,7 +185,7 @@ a route going missing does.
      fi
  
      # Configure loopback
-@@ -624,6 +745,13 @@
+@@ -665,6 +786,13 @@
          log "CHECK: dhcp client for $CNI_CONTAINERID is not running"
      fi
  
