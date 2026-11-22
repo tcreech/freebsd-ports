@@ -1,0 +1,201 @@
+Fix the default route, which the plugin asked for and then ignored.
+
+route(8) into the jail was wrapped in `|| true`, so a failed add left the
+container with an address, its segment and its own nameserver -- DNS answers --
+and no way off the LAN, while the CNI result reported success and podman started
+the container anyway. That is an outage which looks like a dead network: three
+occurrences on our host before anything could even say so.
+
+Instead: read the routing table back rather than trusting the exit status (`add`
+prints "add net default: gateway X" even when it then fails, and a re-add over a
+route somebody else installed answers EEXIST), retry, prefer `change` to
+delete-then-add, and keep stderr in the log. cmd_check now reports a jail with no
+default route, and the dhclient hook re-checks the route on every lease event
+rather than only when the routers option changed -- routers almost never change,
+a route going missing does.
+
+--- epair
++++ epair
+@@ -125,6 +125,88 @@
+         done
+     done
+     echo "$bits"
++}
++
++# gw_key <gateway> -- canonical form of a gateway, for COMPARISON ONLY.
++#
++# cmd_add hands jail_default_route a link-local IPv6 gateway with the interface
++# appended by hand (`fe80::1%eth0`), because route(8) cannot resolve an ambiguous
++# link-local without a scope. What `route -n get default` prints back for that
++# same route is not necessarily that string: route(8) renders a link-local gateway
++# from the kernel's scope id, which may name the interface differently than the
++# literal we were handed, and it normalises case and zero runs on the way out.
++# Comparing the two verbatim would read a working v6 route as a failure on all
++# three attempts and then log a WARNING about a route that is there -- which is
++# worse than the `|| true` it replaces, because it is a false alarm nobody
++# distrusts yet. Scope is a property of the interface, which both sides already
++# carry, so compare the address alone. No-ops for IPv4.
++gw_key() {
++    local key="$1"
++    key="${key#\[}"    # CNI passes [2001:db8::1] in some configurations
++    key="${key%%\]}"
++    key="${key%%\%*}"  # fe80::1%eth0 -> fe80::1
++    printf '%s\n' "$key" | tr 'A-Z' 'a-z'
++}
++
++# jail_default_route <jail id> <gateway> [route flags] -- install a default route
++# in a jail's routing table, and be sure it got there.
++#
++# This replaces `route -j $jid add default $gw || true`. That `|| true` is how a
++# container on this host can come up with an address, its segment and its own
++# nameserver -- so DNS answers -- and no way off the LAN, while the CNI result
++# says success and podman starts it happily. Six days later it looks like a dead
++# network, not like a half-configured jail. So:
++#
++#   * success is read back out of the kernel with `get default`, not from
++#     route(8)'s exit status or its output, because those disagree in both
++#     directions: `add` prints "add net default: gateway X" on its way out even
++#     when it then fails, and a jail whose route was installed by something else
++#     answers "route already in table" to a re-add that has nothing to complain
++#     about;
++#   * a different default already in the table is CHANGED rather than deleted and
++#     re-added, because a delete followed by a failed add leaves the jail worse
++#     off than it started;
++#   * route(8)'s stderr goes to the log instead of /dev/null, so the next failure
++#     says why instead of saying nothing (stdout is dropped: see above);
++#   * three attempts a second apart: whatever races here has been transient;
++#   * the read-back is compared with gw_key, not verbatim, because the gateway we
++#     were given and the gateway route(8) prints for it are not the same string.
++jail_default_route() {
++    local jid="$1" gw="$2" flags="$3" try err current want
++
++    want=$(gw_key "$gw")
++
++    for try in 1 2 3; do
++        # $flags is empty or "-inet6"; unquoted so the empty case leaves no word.
++        current=$(route -j "$jid" $flags -n get default 2>/dev/null |
++            awk '/^[[:space:]]*gateway:/{print $2; exit}')
++        if [ "$(gw_key "$current")" = "$want" ]; then
++            [ "$try" -gt 1 ] && log "jail $jid: default route via $gw installed on attempt $try"
++            return 0
++        fi
++
++        if [ -n "$current" ]; then
++            err=$(route -j "$jid" $flags change default "$gw" 2>&1 >/dev/null) ||
++                err="$err; delete/add: $(
++                    route -j "$jid" $flags delete default 2>&1 >/dev/null
++                    route -j "$jid" $flags add default "$gw" 2>&1 >/dev/null)"
++        else
++            err=$(route -j "$jid" $flags add default "$gw" 2>&1 >/dev/null)
++        fi
++
++        # Read it back before saying anything, so a repair that worked is quiet
++        # and instant and the log only carries the ones that did not.
++        current=$(route -j "$jid" $flags -n get default 2>/dev/null |
++            awk '/^[[:space:]]*gateway:/{print $2; exit}')
++        [ "$(gw_key "$current")" = "$want" ] &&
++            { log "jail $jid: default route via $gw restored on attempt $try"; return 0; }
++        log "jail $jid: default route via $gw not installed (attempt $try): ${err:-route(8) reported no error, and the table still disagrees}"
++        # Back off between attempts, not after the last one: that sleep buys
++        # nothing and every second of it is a second the container is not running
++        # yet, spent inside cmd_add under the CNI client's timeout.
++        [ "$try" -lt 3 ] && sleep 1
++    done
++    return 1
+ }
+ 
+ # dhcp_hostname -- the container's name (podman passes K8S_POD_NAME) as a
+@@ -190,6 +272,30 @@
+         "$dir/result" "$LOG_FILE" "$jid" "$jail_if" > "$dir/script"
+     cat >> "$dir/script" <<'EOS'
+ exec >>"$LOG_OUT" 2>&1
++# A minimal copy of the plugin's jail_default_route: dhclient runs this script by
++# itself, with none of the plugin's functions in its environment.
++say() {
++    echo "$(date '+%Y-%m-%d %H:%M:%S') [$$] renewal: $*" >>"$LOG_OUT"
++}
++ensure_default_route() {
++    gw="$1" try=1
++    while [ "$try" -le 3 ]; do
++        cur=$(route -j "$JID" -n get default 2>/dev/null | awk '/^[[:space:]]*gateway:/{print $2; exit}')
++        [ "$cur" = "$gw" ] && return 0
++        if [ -n "$cur" ]; then
++            err=$(route -j "$JID" change default "$gw" 2>&1 >/dev/null) ||
++                err="$err; delete/add: $(route -j "$JID" delete default 2>&1 >/dev/null; route -j "$JID" add default "$gw" 2>&1 >/dev/null)"
++        else
++            err=$(route -j "$JID" add default "$gw" 2>&1 >/dev/null)
++        fi
++        cur=$(route -j "$JID" -n get default 2>/dev/null | awk '/^[[:space:]]*gateway:/{print $2; exit}')
++        [ "$cur" = "$gw" ] && return 0
++        say "default route via $gw not installed (attempt $try): $err"
++        try=$((try + 1))
++        [ "$try" -le 3 ] && sleep 1
++    done
++    return 1
++}
+ case "$reason" in
+ BOUND|RENEW|REBIND|REBOOT)
+     if [ -f "$LEASE_OUT" ]; then
+@@ -199,9 +305,14 @@
+             ifconfig -j "$JID" "$JAIL_IF" remove "$old_ip_address" >/dev/null 2>&1
+         fi
+         ifconfig -j "$JID" "$JAIL_IF" inet "$new_ip_address" netmask "$new_subnet_mask" >/dev/null 2>&1
+-        if [ -n "$new_routers" ] && [ "$new_routers" != "$old_routers" ]; then
+-            route -j "$JID" delete default >/dev/null 2>&1
+-            route -j "$JID" add default ${new_routers%% *} >/dev/null 2>&1
++        # On EVERY event, not only when the routers changed. Routers almost never
++        # change; the route going missing does, and this client is the only thing
++        # that runs for the whole life of the container -- so it is the only place
++        # a lost route can be noticed, and the old `[ x != x ]` test meant a route
++        # lost to anything else was lost for good.
++        if [ -n "$new_routers" ]; then
++            ensure_default_route "${new_routers%% *}" ||
++                say "jail $JID has no default route via ${new_routers%% *}"
+         fi
+     fi
+     # One field per line -- address, mask, routers, DNS -- because the lists
+@@ -499,9 +610,18 @@
+             fail_add "could not set $ip6 on $ifname in jail $jail_id"
+     fi
+ 
+-    # Add gateway route
++    # Add gateway route. Both of these USED to end in `|| true`, which is how a
++    # container ends up running for days with no default route; see
++    # jail_default_route. A failure is still not fatal, deliberately: an address
++    # with no route is a crippled container, but refusing to start it at all
++    # turns a crippled container into no container and tears the epair down with
++    # the lease it just took. It does get a WARNING in the log, which is the
++    # difference between an outage and a mystery.
+     if [ -n "$gateway" ]; then
+-        route -j "$jail_id" add default "$gateway" >/dev/null 2>&1 || true
++        jail_default_route "$jail_id" "$gateway" "" ||
++            log "ADD: WARNING: jail $jail_id has $ip on $ifname and NO default route via $gateway: everything off $bridge will fail with 'could not connect'"
++    elif [ -n "$ip" ]; then
++        log "ADD: WARNING: $ip on $ifname has no gateway to try (CNI_ARGS, IPAM and the DHCP lease all came back without one): jail $jail_id cannot leave the segment"
+     fi
+     if [ -n "$gateway6" ]; then
+         # A link-local gateway is ambiguous without the interface it is on:
+@@ -510,7 +630,8 @@
+         case "$gateway6" in
+             fe80:*|FE80:*) [ "${gateway6#*%}" = "$gateway6" ] && gateway6="$gateway6%$ifname" ;;
+         esac
+-        route -j "$jail_id" add -inet6 default "$gateway6" >/dev/null 2>&1 || true
++        jail_default_route "$jail_id" "$gateway6" "-inet6" ||
++            log "ADD: WARNING: jail $jail_id has no IPv6 default route via $gateway6"
+     fi
+ 
+     # Configure loopback
+@@ -624,6 +745,13 @@
+         log "CHECK: dhcp client for $CNI_CONTAINERID is not running"
+     fi
+ 
++    # Also advisory, and the line to look for when someone says the container
++    # cannot reach the internet: ADD can report success with no route in the
++    # jail, so this is the only place that says so after the fact.
++    if ! route -j "$jail_id" -n get default >/dev/null 2>&1; then
++        log "CHECK: jail $jail_id has NO default route; off-LAN traffic from $CNI_CONTAINERID cannot work"
++    fi
++
+     cat <<EOF
+ {
+   "cniVersion": "1.0.0"
