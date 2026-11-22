@@ -624,6 +624,7 @@
     SUBDIR += derelict-util
     SUBDIR += desed
     SUBDIR += desktop-file-utils
+    SUBDIR += detect-it-easy
     SUBDIR += dev86
     SUBDIR += devtodo
     SUBDIR += dfuzzer
@@ -895,6 +896,7 @@
     SUBDIR += git-workspace
     SUBDIR += gitaly
     SUBDIR += gitea-act_runner
+    SUBDIR += gitea-cli
     SUBDIR += gitg
     SUBDIR += github-act-runner
     SUBDIR += github-backup-utils
@@ -1224,6 +1226,7 @@
     SUBDIR += kf6-kdeclarative
     SUBDIR += kf6-kdoctools
     SUBDIR += kf6-kfilemetadata
+    SUBDIR += kf6-kfilemetadata-plugins
     SUBDIR += kf6-ki18n
     SUBDIR += kf6-kidletime
     SUBDIR += kf6-kio
@@ -4940,6 +4943,7 @@
     SUBDIR += py-cymbal
     SUBDIR += py-cymem
     SUBDIR += py-cysignals
+    SUBDIR += py-cython-cmake
     SUBDIR += py-cython-test-exception-raiser
     SUBDIR += py-cytoolz
     SUBDIR += py-d2to1
@@ -5004,6 +5008,7 @@
     SUBDIR += py-dirspec
     SUBDIR += py-dirty-equals
     SUBDIR += py-diskcache
+    SUBDIR += py-diskcache-community
     SUBDIR += py-distlib
     SUBDIR += py-distributed
     SUBDIR += py-dj60-django-rq
@@ -5204,6 +5209,7 @@
     SUBDIR += py-graphene2
     SUBDIR += py-graphql-core
     SUBDIR += py-graphql-core2
+    SUBDIR += py-graphql-core32
     SUBDIR += py-graphql-relay
     SUBDIR += py-graphql-relay2
     SUBDIR += py-great-tables
@@ -5655,6 +5661,7 @@
     SUBDIR += py-opentelemetry-sdk
     SUBDIR += py-opentelemetry-semantic-conventions
     SUBDIR += py-opentelemetry-semantic-conventions-ai
+    SUBDIR += py-opentelemetry-test-utils
     SUBDIR += py-opentelemetry-util-http
     SUBDIR += py-opentracing
     SUBDIR += py-openupgradelib
@@ -6256,6 +6263,7 @@
     SUBDIR += py-selection
     SUBDIR += py-semantic-version
     SUBDIR += py-semver
+    SUBDIR += py-sentinels
     SUBDIR += py-sentry-sdk
     SUBDIR += py-serializable
     SUBDIR += py-session-info
@@ -7018,6 +7026,7 @@
     SUBDIR += rubygem-aws-sdk-connectcontactlens
     SUBDIR += rubygem-aws-sdk-connecthealth
     SUBDIR += rubygem-aws-sdk-connectparticipant
+    SUBDIR += rubygem-aws-sdk-connectscheduling
     SUBDIR += rubygem-aws-sdk-connectwisdomservice
     SUBDIR += rubygem-aws-sdk-continuum
     SUBDIR += rubygem-aws-sdk-controlcatalog
@@ -7210,6 +7219,7 @@
     SUBDIR += rubygem-aws-sdk-observabilityadmin
     SUBDIR += rubygem-aws-sdk-odb
     SUBDIR += rubygem-aws-sdk-omics
+    SUBDIR += rubygem-aws-sdk-opensearchmemory
     SUBDIR += rubygem-aws-sdk-opensearchserverless
     SUBDIR += rubygem-aws-sdk-opensearchservice
     SUBDIR += rubygem-aws-sdk-organizations
@@ -7281,6 +7291,7 @@
     SUBDIR += rubygem-aws-sdk-sagemakeredgemanager
     SUBDIR += rubygem-aws-sdk-sagemakerfeaturestoreruntime
     SUBDIR += rubygem-aws-sdk-sagemakergeospatial
+    SUBDIR += rubygem-aws-sdk-sagemakerinferencerouterruntime
     SUBDIR += rubygem-aws-sdk-sagemakerjobruntime
     SUBDIR += rubygem-aws-sdk-sagemakermetrics
     SUBDIR += rubygem-aws-sdk-sagemakerruntime
@@ -7813,6 +7824,7 @@
     SUBDIR += rubygem-gibbler
     SUBDIR += rubygem-gio2
     SUBDIR += rubygem-git
+    SUBDIR += rubygem-git-gitlab
     SUBDIR += rubygem-git-version-bump
     SUBDIR += rubygem-github_api
     SUBDIR += rubygem-gitlab
@@ -7944,7 +7956,6 @@
     SUBDIR += rubygem-io-nonblock
     SUBDIR += rubygem-io-stream
     SUBDIR += rubygem-io-wait
-    SUBDIR += rubygem-io-wait01
     SUBDIR += rubygem-iobuffer
     SUBDIR += rubygem-iostruct
     SUBDIR += rubygem-ipynbdiff
@@ -8118,6 +8129,7 @@
     SUBDIR += rubygem-opentelemetry-common-gitlab
     SUBDIR += rubygem-opentelemetry-exporter-otlp
     SUBDIR += rubygem-opentelemetry-exporter-otlp-common
+    SUBDIR += rubygem-opentelemetry-exporter-otlp-common-gitlab
     SUBDIR += rubygem-opentelemetry-exporter-otlp-gitlab
     SUBDIR += rubygem-opentelemetry-exporter-otlp-logs
     SUBDIR += rubygem-opentelemetry-exporter-otlp-metrics
@@ -8193,6 +8205,7 @@
     SUBDIR += rubygem-opentelemetry-instrumentation-net_http
     SUBDIR += rubygem-opentelemetry-instrumentation-net_http-gitlab
     SUBDIR += rubygem-opentelemetry-instrumentation-openai
+    SUBDIR += rubygem-opentelemetry-instrumentation-openai-gitlab
     SUBDIR += rubygem-opentelemetry-instrumentation-pg
     SUBDIR += rubygem-opentelemetry-instrumentation-pg-gitlab
     SUBDIR += rubygem-opentelemetry-instrumentation-que
@@ -8222,8 +8235,10 @@
     SUBDIR += rubygem-opentelemetry-instrumentation-trilogy
     SUBDIR += rubygem-opentelemetry-instrumentation-trilogy-gitlab
     SUBDIR += rubygem-opentelemetry-logs-api
+    SUBDIR += rubygem-opentelemetry-logs-api-gitlab
     SUBDIR += rubygem-opentelemetry-logs-sdk
     SUBDIR += rubygem-opentelemetry-metrics-api
+    SUBDIR += rubygem-opentelemetry-metrics-api-gitlab
     SUBDIR += rubygem-opentelemetry-metrics-sdk
     SUBDIR += rubygem-opentelemetry-registry
     SUBDIR += rubygem-opentelemetry-registry-gitlab
@@ -8282,6 +8297,7 @@
     SUBDIR += rubygem-pqueue
     SUBDIR += rubygem-prettier_print
     SUBDIR += rubygem-prettyprint
+    SUBDIR += rubygem-process_executer
     SUBDIR += rubygem-profile
     SUBDIR += rubygem-progressbar
     SUBDIR += rubygem-prometheus-client-mmap
@@ -8592,6 +8608,7 @@
     SUBDIR += rubygem-tool
     SUBDIR += rubygem-tracer
     SUBDIR += rubygem-traces
+    SUBDIR += rubygem-track_open_instances
     SUBDIR += rubygem-trailblazer-option
     SUBDIR += rubygem-transaction-simple
     SUBDIR += rubygem-travis
@@ -8733,6 +8750,7 @@
     SUBDIR += sdl20
     SUBDIR += sdl2pp
     SUBDIR += sdl3
+    SUBDIR += sdl3-imgui-filedialogs
     SUBDIR += sdl_console
     SUBDIR += sdlmm
     SUBDIR += sdlskk
@@ -9025,6 +9043,9 @@
     SUBDIR += wizardkit
     SUBDIR += wizer
     SUBDIR += woff2
+    SUBDIR += woodpecker
+    SUBDIR += woodpecker-agent
+    SUBDIR += woodpecker-plugin-git
     SUBDIR += wxformbuilder
     SUBDIR += xa65
     SUBDIR += xbyak

@@ -29,7 +29,6 @@ LICENSE=		APACHE20 ADOBE BSD3CLAUSE BSD4CLAUSE BSL ICU MIT MPL10 \
 			MPL11 PSFL TWAIN W3C
 LICENSE_COMB=		multi
 LICENSE_NAME_ADOBE=	Adobe Systems Incorporated license
-LICENSE_NAME_ICU=	ICU License
 LICENSE_NAME_TWAIN=	TWAIN Working Group license
 LICENSE_NAME_W3C=	W3C license
 LICENSE_FILE_APACHE20=	${WRKSRC}/LICENSE_ALv2
@@ -45,7 +44,6 @@ LICENSE_FILE_PSFL=	${WRKSRC}/LICENSE_PSFL
 LICENSE_FILE_TWAIN=	${WRKSRC}/LICENSE_TWAIN
 LICENSE_FILE_W3C=	${WRKSRC}/LICENSE_W3C
 LICENSE_PERMS_ADOBE=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
-LICENSE_PERMS_ICU=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 LICENSE_PERMS_TWAIN=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 LICENSE_PERMS_W3C=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
@@ -159,9 +157,10 @@ WITHOUT_CPU_CFLAGS=	true
 CPE_PRODUCT=	${PORTNAME:S|apache-||}
 CPE_VENDOR=	apache
 
-OPTIONS_DEFINE=		CRASHDUMP CUPS DBGUTIL DEBUG GNOME MMEDIA \
+OPTIONS_DEFINE=		ASAN CRASHDUMP CUPS DBGUTIL DEBUG GNOME MMEDIA \
 			MYSQL PDFIMPORT REPORT_BUILDER SDK WIKI_PUBLISHER
 OPTIONS_DEFAULT=	CUPS GNOME MMEDIA WIKI_PUBLISHER
+ASAN_DESC=		Build with address sanitizer (Broken), you also need to set WITH_DEBUG_PORTS+=${PKGORIGIN}
 CRASHDUMP_DESC=		Enable crashdumps, you also need to set WITH_DEBUG_PORTS+=${PKGORIGIN}
 DBGUTIL_DESC=		Enable assertions, object counting. (non-production)
 DEBUG_DESC=		Compile with -O0, you also need to set WITH_DEBUG_PORTS+=${PKGORIGIN}
@@ -172,6 +171,9 @@ PDFIMPORT_DESC=		Build and install PDF import extension
 REPORT_BUILDER_DESC=	Build and install Report builder extension (Broken)
 SDK_DESC=		Build and install software development kit
 WIKI_PUBLISHER_DESC=	Build and install Wiki Publisher extension
+
+ASAN_CONFIGURE_ENABLE=		sanitizer
+ASAN_BROKEN=			makedepend AddressSanitizer:DEADLYSIGNAL
 
 CRASHDUMP_CONFIGURE_ENABLE=	crashdump
 

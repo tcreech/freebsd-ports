@@ -5,6 +5,7 @@
     SUBDIR += coccinella
     SUBDIR += concord
     SUBDIR += conduit
+    SUBDIR += continuwuity
     SUBDIR += coyim
     SUBDIR += deltachat-desktop
     SUBDIR += dendrite
@@ -140,10 +141,10 @@
     SUBDIR += signal-desktop
     SUBDIR += slack-term
     SUBDIR += snac
-    SUBDIR += spectral
     SUBDIR += ssh-chat
     SUBDIR += sshout
     SUBDIR += tdlib
+    SUBDIR += tdlib-purple
     SUBDIR += teams
     SUBDIR += telegram-cli
     SUBDIR += telegram-desktop

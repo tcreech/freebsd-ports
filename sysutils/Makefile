@@ -65,6 +65,7 @@
     SUBDIR += async
     SUBDIR += atf-fvp
     SUBDIR += atf-master
+    SUBDIR += atf-mt7986
     SUBDIR += atf-rk3328
     SUBDIR += atf-rk3399
     SUBDIR += atf-sun50i_a64
@@ -299,6 +300,7 @@
     SUBDIR += devstat
     SUBDIR += devtui
     SUBDIR += dfc
+    SUBDIR += dfs
     SUBDIR += di
     SUBDIR += diffoci
     SUBDIR += digdag
@@ -414,6 +416,7 @@
     SUBDIR += filetype
     SUBDIR += filewatcherd
     SUBDIR += finfo
+    SUBDIR += fiptool
     SUBDIR += firstboot-cloudsetup
     SUBDIR += firstboot-freebsd-update
     SUBDIR += firstboot-pkg-upgrade
@@ -586,7 +589,6 @@
     SUBDIR += iograph
     SUBDIR += iohyve
     SUBDIR += ioping
-    SUBDIR += ipa
     SUBDIR += ipad_charge
     SUBDIR += ipdbtools
     SUBDIR += ipget
@@ -654,7 +656,6 @@
     SUBDIR += kubie
     SUBDIR += kubo-go
     SUBDIR += kustomize
-    SUBDIR += kvmclock-kmod
     SUBDIR += lazydocker
     SUBDIR += lazyssh
     SUBDIR += lbl-cf
@@ -665,6 +666,7 @@
     SUBDIR += leaf
     SUBDIR += leaves
     SUBDIR += ledit
+    SUBDIR += legion
     SUBDIR += less
     SUBDIR += lfm
     SUBDIR += libcdio
@@ -828,6 +830,7 @@
     SUBDIR += nix
     SUBDIR += nmdaemon
     SUBDIR += nmrpflash
+    SUBDIR += noct
     SUBDIR += node_exporter
     SUBDIR += nomad
     SUBDIR += nomad-driver-podman
@@ -1143,6 +1146,7 @@
     SUBDIR += py-leviathan
     SUBDIR += py-liquidctl
     SUBDIR += py-magika
+    SUBDIR += py-midcli
     SUBDIR += py-mitogen
     SUBDIR += py-mqttwarn
     SUBDIR += py-nagiosplugin
@@ -1184,11 +1188,13 @@
     SUBDIR += py-tarsnapper
     SUBDIR += py-tldr
     SUBDIR += py-tmuxp
+    SUBDIR += py-truenas-api-client
     SUBDIR += py-uptime
     SUBDIR += py-zfsstat
     SUBDIR += qchroot
     SUBDIR += qdirstat
     SUBDIR += qflipper
+    SUBDIR += qga-guest-exec
     SUBDIR += qjail
     SUBDIR += qjail54
     SUBDIR += qlogtools
@@ -1309,6 +1315,7 @@
     SUBDIR += rubygem-ohai-gitlab
     SUBDIR += rubygem-ohai18
     SUBDIR += rubygem-openbolt
+    SUBDIR += rubygem-openbolt9
     SUBDIR += rubygem-openfact
     SUBDIR += rubygem-openvoxserver-ca
     SUBDIR += rubygem-parallel
@@ -1539,13 +1546,15 @@
     SUBDIR += u-boot-a64-olinuxino
     SUBDIR += u-boot-bananapi
     SUBDIR += u-boot-bananapi-r2-pro
+    SUBDIR += u-boot-bananapi-r3
+    SUBDIR += u-boot-bananapi-r3-emmc
     SUBDIR += u-boot-bananapim2
     SUBDIR += u-boot-beaglebone
     SUBDIR += u-boot-bhyve-arm64
     SUBDIR += u-boot-bhyve-riscv
     SUBDIR += u-boot-chip
     SUBDIR += u-boot-clearfog
-    SUBDIR += u-boot-cm3588
+    SUBDIR += u-boot-cm3588-nas
     SUBDIR += u-boot-cubieboard
     SUBDIR += u-boot-cubieboard2
     SUBDIR += u-boot-cubox-hummingboard
