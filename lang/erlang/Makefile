@@ -1,7 +1,6 @@
 PORTNAME=	erlang
 DISTVERSIONPREFIX=	OTP-
-DISTVERSION=	28.5.0.8
-PORTREVISION=	1
+DISTVERSION=	28.5.0.9
 PORTEPOCH=	4
 CATEGORIES=	lang parallel java
 DIST_SUBDIR=	erlang
@@ -24,7 +23,8 @@ USE_PERL5=	build
 USE_RC_SUBR=	epmd
 
 GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	--enable-dirty-schedulers \
+CONFIGURE_ARGS=	--enable-deterministic-build \
+		--enable-dirty-schedulers \
 		--enable-kernel-poll \
 		--enable-smp-support \
 		--enable-threads
@@ -40,8 +40,8 @@ WRKSRC=		${WRKSRC_otp}
 USERS=		beam
 GROUPS=		beam
 
-_EI_VSN=	5.7.0.2
-_SNMP_VSN=	5.20.2.3
+_EI_VSN=	5.7.0.3
+_SNMP_VSN=	5.20.2.4
 _TOOLS_VSN=	4.1.4.1
 
 OPTIONS_DEFINE=		CHUNKS CORBA DTRACE JAVA KQUEUE MANPAGES ODBC \
